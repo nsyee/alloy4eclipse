@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Alloy Plug-in
+Bundle-SymbolicName: org.eclipse.contribution.alloyplugin;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.eclipse.contribution.alloyplugin.Activator
+Bundle-Localization: org.eclipse.contribution.alloyplugin.AlloyPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,org.eclipse.jdt.core,
+  org.eclipse.ui.editors,
+  org.eclipse.jface.text,
+ org.eclipse.ui.workbench.texteditor
+Eclipse-LazyStart: true

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Alloy Plug-in
+Bundle-SymbolicName: fr.univartois.cril.alloyplugin;singleton:=true
+Bundle-Version: 0.0.1
+Bundle-Activator: fr.univartois.cril.alloyplugin.AlloyPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,org.eclipse.jdt.core,
+  org.eclipse.ui.editors,
+  org.eclipse.jface.text,
+ org.eclipse.ui.workbench.texteditor
+Eclipse-LazyStart: true
+Bundle-Vendor: CRIL - Université d'Artois
+
