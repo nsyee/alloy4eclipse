@@ -1,5 +1,6 @@
 package fr.univartois.cril.alloyplugin.console;
 
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.console.ConsolePlugin;
@@ -35,6 +36,12 @@ public class Console {
 	public static void printToConsole(String message,String filelocation){	  
 		MessageConsole myConsole = findConsole(getConsoleId(filelocation));
 		MessageConsoleStream out = myConsole.newMessageStream();
+		out.println(message);
+	}
+	public static void printToConsoleErr(String message,String filelocation){	  
+		MessageConsole myConsole = findConsole(getConsoleId(filelocation));
+		MessageConsoleStream out = myConsole.newMessageStream();
+		out.setColor(new Color(null,255 ,0,0));
 		out.println(message);
 	}
 	public static void clearConsole(String filelocation){	  
