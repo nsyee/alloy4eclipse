@@ -34,8 +34,8 @@ public class SampleAction implements IWorkbenchWindowActionDelegate {
 			"Alloy Button",
 			"Hello, Alloy user!\nFeatures:\n" +
 			"open an .als file with basic Alloy editor\n" +
-			"right-click into it and execute run as>run with alloy"
-			+"\n and see the results in the console."
+			"execute run as>run with alloy"
+			+"\n and see the results in the console view."
 			+"\n\n more coming soon...");
 		
 		
