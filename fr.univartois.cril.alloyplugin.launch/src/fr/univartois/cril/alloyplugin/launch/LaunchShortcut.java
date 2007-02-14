@@ -2,10 +2,12 @@ package fr.univartois.cril.alloyplugin.launch;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.ui.ILaunchShortcut;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.PlatformUI;
 
 
 import org.eclipse.core.resources.IResource;
@@ -15,12 +17,16 @@ import fr.univartois.cril.alloyplugin.console.Console;
 public class LaunchShortcut implements ILaunchShortcut {
 
 	public void launch(ISelection selection, String mode) {
-
+		
 		StructuredSelection sel;
+		
 		if (selection instanceof StructuredSelection)
 		{   
 			sel=(StructuredSelection)selection;
-			launch(getFileLocation(getResource(sel)));			
+			Console.revealConsoleView(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+					,getFileLocation(getResource(sel)));
+			launch(getFileLocation(getResource(sel)));
+			
 		}
 	}
 
@@ -36,7 +42,8 @@ public class LaunchShortcut implements ILaunchShortcut {
 	private void launch(String fileLocation) {		
 		try {			
 			LaunchCompiler.command(fileLocation);
-		} catch (Err e) {Console.printToConsole(e.getMessage(), fileLocation);}		
+		} catch (Err e) {
+			Console.printToConsoleErr(e.getMessage(), fileLocation);}		
 	}
 	/**
 	 * Try to return an IResource object from a IEditorPart. Returns null if no such object can be found.  
