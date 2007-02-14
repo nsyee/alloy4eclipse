@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   
+
+<extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.univartois.cril.alloyplugin.editor.ALSEditor"
+            icon="icon/icon.gif"
+            default="true"
+            name="Small Alloy editor beta 0.0.1"
+            id="fr.univartois.cril.alloyplugin.editor.ALSEditor"
+            extensions="als"/>
+</extension>
+   
+<extension-point id="fr.univartois.cril.alloyplugin.listeners" name="Test Listeners"/>
+<extension point ="fr.univartois.cril.alloyplugin.listeners">
+	<listener class="fr.univartois.cril.alloyplugin.listener">
+	</listener>
+</extension>
+<extension
+      point="org.eclipse.core.filebuffers.documentSetup">
+   <participant
+         class="fr.univartois.cril.alloyplugin.editor.ALSDocumentSetupParticipant"
+         extensions="als"/>
+</extension>   
+
+</plugin>
