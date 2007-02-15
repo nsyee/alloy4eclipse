@@ -1,4 +1,5 @@
 #summary Main features of the plugin
+#labels Featured
 = Current features =
 
   * Basic syntax coloring for als files
@@ -10,4 +11,3 @@
   * Alloy project nature
   * Code format
   * Hyperlink to source code in case of errors
-
