@@ -7,7 +7,7 @@
             class="fr.univartois.cril.alloyplugin.launch.LaunchShortcut"
             icon="icon/icon.gif"
             id="fr.univartois.cril.alloyplugin.shortcut"
-            label="run with Alloy"
+            label="Alloy Specification"
             modes="run,debug">
          <contextualLaunch>
             <enablement>
