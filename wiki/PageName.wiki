@@ -2,12 +2,12 @@
 #labels Featured
 = Current features =
 
-* Basic syntax coloring for als files
-* Compilation of Alloy4 files from Eclipse
-* Output on Eclipse console
+  * Basic syntax coloring for als files
+  * Compilation of Alloy4 files from Eclipse
+  * Output on Eclipse console
 
 = Upcoming features =
 
-* Alloy project nature
-* Code format
-* Hyperlink to source code in case of errors
+  * Alloy project nature
+  * Code format
+  * Hyperlink to source code in case of errors
