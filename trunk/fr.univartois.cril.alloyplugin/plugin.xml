@@ -10,6 +10,7 @@
             icon="icon/icon.gif"
             default="true"
             name="Small Alloy editor beta 0.0.1"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             id="fr.univartois.cril.alloyplugin.editor.ALSEditor"
             extensions="als"/>
 </extension>
@@ -25,5 +26,16 @@
          class="fr.univartois.cril.alloyplugin.editor.ALSDocumentSetupParticipant"
          extensions="als"/>
 </extension>   
-
+<extension
+      point = "org.eclipse.ui.newWizards">
+  <category
+        id="fr.univartois.cril.alloyplugin"
+        name="Alloy"/>
+  <wizard
+        category="fr.univartois.cril.alloyplugin"
+        class="fr.univartois.cril.alloyplugin.wizards.SampleNewWizard"
+        icon="icon/icon.gif"
+        id="fr.univartois.cril.alloyplugin.wizards.SampleNewWizard"
+        name="alloy file"/>
+</extension>
 </plugin>
