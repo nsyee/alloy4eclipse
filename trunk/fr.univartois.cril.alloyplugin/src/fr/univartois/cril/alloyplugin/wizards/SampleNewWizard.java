@@ -99,7 +99,7 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 		IContainer container = (IContainer) resource;
 		final IFile file = container.getFile(new Path(fileName));
 		try {
-			InputStream stream = openContentStream();
+			InputStream stream = openContentStream(file);
 			if (file.exists()) {
 				file.setContents(stream, true, true, monitor);
 			} else {
@@ -127,9 +127,10 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 	 * We will initialize file contents with a sample text.
 	 */
 
-	private InputStream openContentStream() {
+	private InputStream openContentStream(IFile filename) {
 		String contents =
-			"module";
+			"module "+filename.getProjectRelativePath().toString().substring(0,(filename.getProjectRelativePath().toString().length()-filename.getFileExtension().length())-1);
+		
 		return new ByteArrayInputStream(contents.getBytes());
 	}
 
