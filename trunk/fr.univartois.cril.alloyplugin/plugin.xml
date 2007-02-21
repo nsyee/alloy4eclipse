@@ -34,14 +34,14 @@
   <wizard
         category="fr.univartois.cril.alloyplugin"
         class="fr.univartois.cril.alloyplugin.wizards.AlloyFileWizard"
-        icon="icon/icon.gif"
+        icon="icons/icon.gif"
         id="fr.univartois.cril.alloyplugin.wizards.SampleNewWizard"
     name="Alloy 4 Model"
         project="false"/>
   <wizard
         category="fr.univartois.cril.alloyplugin"
         class="fr.univartois.cril.alloyplugin.wizards.AlloyProjectWizard"
-        icon="icon/icon.gif"
+        icon="icons/ProjectAlloy.gif"
         id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject"
         name="Alloy 4 Project"
         project="true"/>
