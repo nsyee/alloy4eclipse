@@ -36,6 +36,14 @@
         class="fr.univartois.cril.alloyplugin.wizards.SampleNewWizard"
         icon="icon/icon.gif"
         id="fr.univartois.cril.alloyplugin.wizards.SampleNewWizard"
-        name="alloy file"/>
+        name="alloy file"
+        project="false"/>
+  <wizard
+        category="fr.univartois.cril.alloyplugin"
+        class="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject"
+        icon="icon/icon.gif"
+        id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject"
+        name="New Alloy Project"
+        project="true"/>
 </extension>
 </plugin>
