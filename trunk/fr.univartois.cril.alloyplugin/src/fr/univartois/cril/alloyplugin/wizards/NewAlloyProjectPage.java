@@ -55,7 +55,7 @@ public class NewAlloyProjectPage extends WizardPage {
 		layout.numColumns = 3;
 		layout.verticalSpacing = 9;
 		Label label = new Label(container, SWT.NULL);
-		/*label.setText("&Container:");
+		label.setText("&Container:");
 
 		containerText = new Text(container, SWT.BORDER | SWT.SINGLE);
 		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
@@ -64,20 +64,20 @@ public class NewAlloyProjectPage extends WizardPage {
 			public void modifyText(ModifyEvent e) {
 				dialogChanged();
 			}
-		});*/
+		});
 
-		/*Button button = new Button(container, SWT.PUSH);
+		Button button = new Button(container, SWT.PUSH);
 		button.setText("Browse...");
 		button.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				handleBrowse();
 			}
-		});*/
+		});
 		label = new Label(container, SWT.NULL);
 		label.setText("&File name:");
 
 		fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
-		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
 		fileText.setLayoutData(gd);
 		fileText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
