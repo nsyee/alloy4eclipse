@@ -26,7 +26,7 @@ import org.eclipse.ui.dialogs.ContainerSelectionDialog;
  * OR with the extension that matches the expected one (mpe).
  */
 
-public class NewAlloyProjectPage extends WizardPage {
+public class AlloyFileWizardPage extends WizardPage {
 	private Text containerText;
 
 	private Text fileText;
@@ -38,10 +38,10 @@ public class NewAlloyProjectPage extends WizardPage {
 	 * 
 	 * @param pageName
 	 */
-	public NewAlloyProjectPage(ISelection selection) {
+	public AlloyFileWizardPage(ISelection selection) {
 		super("wizardPage");
-		setTitle("Alloy Project");
-		setDescription("This wizard creates a new Alloy project.");
+		setTitle("Alloy File");
+		setDescription("This wizard creates a new file with *.als extension.");
 		this.selection = selection;
 	}
 
@@ -86,7 +86,6 @@ public class NewAlloyProjectPage extends WizardPage {
 		});
 		initialize();
 		dialogChanged();
-		
 		setControl(container);
 	}
 
@@ -110,7 +109,7 @@ public class NewAlloyProjectPage extends WizardPage {
 				containerText.setText(container.getFullPath().toString());
 			}
 		}
-		fileText.setText("new_alloy_project");
+		fileText.setText("new_file.als");
 	}
 
 	/**
@@ -135,11 +134,11 @@ public class NewAlloyProjectPage extends WizardPage {
 	 */
 
 	private void dialogChanged() {
-	//IResource container = ResourcesPlugin.getWorkspace().getRoot()
-		//		.findMember(new Path(getContainerName()));
+		IResource container = ResourcesPlugin.getWorkspace().getRoot()
+				.findMember(new Path(getContainerName()));
 		String fileName = getFileName();
 
-		/*if (getContainerName().length() == 0) {
+		if (getContainerName().length() == 0) {
 			updateStatus("File container must be specified");
 			return;
 		}
@@ -151,7 +150,7 @@ public class NewAlloyProjectPage extends WizardPage {
 		if (!container.isAccessible()) {
 			updateStatus("Project must be writable");
 			return;
-		}*/
+		}
 		if (fileName.length() == 0) {
 			updateStatus("File name must be specified");
 			return;
@@ -159,7 +158,7 @@ public class NewAlloyProjectPage extends WizardPage {
 		if (fileName.replace('\\', '/').indexOf('/', 1) > 0) {
 			updateStatus("File name must be valid");
 			return;
-		}/*
+		}
 		int dotLoc = fileName.lastIndexOf('.');
 		if (dotLoc != -1) {
 			String ext = fileName.substring(dotLoc + 1);
@@ -167,7 +166,7 @@ public class NewAlloyProjectPage extends WizardPage {
 				updateStatus("File extension must be \"als\"");
 				return;
 			}
-		}*/
+		}
 		updateStatus(null);
 	}
 

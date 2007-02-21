@@ -2,57 +2,38 @@ package fr.univartois.cril.alloyplugin.wizards;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchWizard;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.core.internal.resources.Project;
-import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.runtime.*;
 import org.eclipse.jface.operation.*;
-
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.core.resources.*;
 import org.eclipse.core.runtime.CoreException;
 import java.io.*;
-
 import org.eclipse.ui.*;
 import org.eclipse.ui.ide.IDE;
-import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
-import sun.security.util.Resources;
+/**
+ * This is a sample new wizard. Its role is to create a new file 
+ * resource in the provided container. If the container resource
+ * (a folder or a project) is selected in the workspace 
+ * when the wizard is opened, it will accept it as the target
+ * container. The wizard creates one file with the extension
+ * "als". If a sample multi-page editor (also available
+ * as a template) is registered for the same extension, it will
+ * be able to open it.
+ */
 
-
-public class NewAlloyProject extends BasicNewProjectResourceWizard {
-
-	protected void createProject(String r, IProgressMonitor monitor) throws CoreException
-	{
-	
-		 IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-	    
-	      IProject project = root.getProject(r);
-	      IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
-	
-	      description.setNatureIds(new String[] { "nature" });
-	      ICommand command = description.newCommand();
-	      command.setBuilderName("nom");
-	      description.setBuildSpec(new ICommand[] { command });
-	      project.create(description,monitor);
-
-	      project.open(monitor);}
-	
-	private NewAlloyProjectPage page;
+public class AlloyFileWizard extends Wizard implements INewWizard {
+	private AlloyFileWizardPage page;
 	private ISelection selection;
 
 	/**
 	 * Constructor for SampleNewWizard.
 	 */
-	public NewAlloyProject() {
+	public AlloyFileWizard() {
 		super();
 		setNeedsProgressMonitor(true);
 	}
@@ -62,7 +43,7 @@ public class NewAlloyProject extends BasicNewProjectResourceWizard {
 	 */
 
 	public void addPages() {
-		page = new NewAlloyProjectPage(selection);
+		page = new AlloyFileWizardPage(selection);
 		addPage(page);
 	}
 
@@ -72,12 +53,12 @@ public class NewAlloyProject extends BasicNewProjectResourceWizard {
 	 * using wizard as execution context.
 	 */
 	public boolean performFinish() {
-		//final String containerName = page.getContainerName();
+		final String containerName = page.getContainerName();
 		final String fileName = page.getFileName();
 		IRunnableWithProgress op = new IRunnableWithProgress() {
 			public void run(IProgressMonitor monitor) throws InvocationTargetException {
 				try {
-					doFinish(fileName, monitor);
+					doFinish(containerName, fileName, monitor);
 				} catch (CoreException e) {
 					throw new InvocationTargetException(e);
 				} finally {
@@ -104,11 +85,11 @@ public class NewAlloyProject extends BasicNewProjectResourceWizard {
 	 */
 
 	private void doFinish(
-		//String containerName,
+		String containerName,
 		String fileName,
 		IProgressMonitor monitor)
 		throws CoreException {
-		/*create a sample file
+		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IResource resource = root.findMember(new Path(containerName));
@@ -139,8 +120,7 @@ public class NewAlloyProject extends BasicNewProjectResourceWizard {
 				}
 			}
 		});
-		monitor.worked(1);*/
-	createProject(fileName,monitor);
+		monitor.worked(1);
 	}
 	
 	/**
@@ -168,5 +148,4 @@ public class NewAlloyProject extends BasicNewProjectResourceWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.selection = selection;
 	}
-	
 }
