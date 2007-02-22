@@ -13,6 +13,7 @@ import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
+//import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 
 public class LaunchCompiler {
@@ -32,8 +33,10 @@ public class LaunchCompiler {
 		// Load the visualizer (You only need to do this if you plan to visualize an Alloy solution)
 		// VizGUI viz = new VizGUI(false, "", null);
 		//		 Parse the model
-		Console.clearConsole(filename);
-		Console.printToConsole("\n=========== Parsing \""+filename+"\" =============",filename);
+		//Console.clearConsole(filename);
+		//AlloyMessageConsole amc=Console.findAlloyConsole(filename);
+		
+		Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
 		
 				
 //		This log records diagnostic messages
@@ -48,12 +51,16 @@ public class LaunchCompiler {
 		
 			world.typecheck(log, warnings);
 		
-		for(Err e:warnings) Console.printToConsole("Relevance Warning:\n"+e+"\n\n",filename);
-
+		for(Err e:warnings) {
+			Console.printToConsoleBold("============ Relevance Warning: ============\n",filename);
+			Console.printToConsole(e+"\n",filename);
+		}
+		
 		// Now, you can call getType() on each node in world to find out its type.
 
 		//Let's display all the messages so far
 		Console.printToConsole(log.toString(),filename);
+		Console.printToConsoleBold("=========== End Parsing \""+filename+"\" =============",filename);
 		log.setLength(0);
 
 		// Choose some default options for how you want to execute the commands
@@ -63,7 +70,7 @@ public class LaunchCompiler {
 
 		for (Command cmd: world.getRootModule().getAllCommands()) {
 			// Execute the command
-			Console.printToConsole("============ Command "+cmd+": ============\n",filename);
+			Console.printToConsoleBold("============ Command "+cmd+": ============",filename);
 			A4Solution ans;
 
 				ans = TranslateAlloyToKodkod.execute_command(world, cmd, options, null, null);
@@ -72,9 +79,10 @@ public class LaunchCompiler {
 			Console.printToConsole(log.toString(),filename);
 			log.setLength(0);
 			// Print the outcome
-			Console.printToConsole("Answer:\n" + ans,filename);
+			Console.printToConsoleBold("============ Answer ============",filename);
+			Console.printToConsole(ans.toString(),filename);
 			// If satisfiable...
-			if (ans.satisfiable()) {
+			if (ans.satisfiable()) {				
 				// You can query "ans" to find out the values of each set or type.
 				// This can be useful for debugging.
 				//
@@ -85,8 +93,8 @@ public class LaunchCompiler {
 				// viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");
 			}
 		}//for all command
-		Console.printToConsole("\n=========== End Parsing \""+filename+"\" =============",filename);
 		
+		Console.revealConsoleView(filename);
 	}
 
 }
