@@ -37,8 +37,8 @@ public class ConsoleListener implements IPatternMatchListener {
 	}
 
 	public void matchFound(PatternMatchEvent event) {
-		System.out.println("+++"+console.getFileLocation());
-		Console.addFileLink(console,console.getFileLocation(),event.getOffset(),event.getLength(),console.getLine());	
+		
+		Console.addFileLink(console,console.getFileName(),event.getOffset(),event.getLength(),console.getLine());	
 
 	}
 
