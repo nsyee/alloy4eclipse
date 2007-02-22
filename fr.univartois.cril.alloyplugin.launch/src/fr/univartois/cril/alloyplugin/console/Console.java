@@ -50,7 +50,7 @@ public class Console {
 	
 	/** add a link**/
 	public static void addFileLink(MessageConsole myConsole,String filelocation,int offset,int lenght,int line){		
-		
+		if (filelocation==null) return;
 		IFile iff = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(filelocation));		
 
 		if(iff==null) return;
