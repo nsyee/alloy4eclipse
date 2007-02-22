@@ -134,9 +134,11 @@ public class AlloyFileWizardPage extends WizardPage {
 	 */
 
 	private void dialogChanged() {
+		String fileName = getFileName();
 		IResource container = ResourcesPlugin.getWorkspace().getRoot()
 				.findMember(new Path(getContainerName()));
-		String fileName = getFileName();
+		
+		
 
 		if (getContainerName().length() == 0) {
 			updateStatus("File container must be specified");
@@ -159,6 +161,15 @@ public class AlloyFileWizardPage extends WizardPage {
 			updateStatus("File name must be valid");
 			return;
 		}
+//		rajouté çà
+		IResource file = ResourcesPlugin.getWorkspace().getRoot()
+		.findMember(new Path(getContainerName()).append(fileName));
+		
+		
+		if (!container.isAccessible()) {
+			updateStatus("Project must be writable");
+			return;
+		}
 		int dotLoc = fileName.lastIndexOf('.');
 		if (dotLoc != -1) {
 			String ext = fileName.substring(dotLoc + 1);
@@ -166,6 +177,11 @@ public class AlloyFileWizardPage extends WizardPage {
 				updateStatus("File extension must be \"als\"");
 				return;
 			}
+		}
+		//et pis  çà aussi
+		if (file != null) {
+			updateStatus("File already exists");
+			return;
 		}
 		updateStatus(null);
 	}
