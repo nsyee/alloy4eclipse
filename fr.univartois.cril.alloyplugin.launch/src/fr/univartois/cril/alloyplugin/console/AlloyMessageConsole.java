@@ -29,6 +29,8 @@ public class AlloyMessageConsole extends MessageConsole {
 		if (e!=null&&e.pos!=Pos.UNKNOWN)
 			return e.pos.filename;		
 		return null;
+		
+		
 	}
-
+	
 }
