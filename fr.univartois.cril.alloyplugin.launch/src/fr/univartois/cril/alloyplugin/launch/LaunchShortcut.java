@@ -15,7 +15,7 @@ import edu.mit.csail.sdg.alloy4.Err;
 import fr.univartois.cril.alloyplugin.console.Console;
 
 public class LaunchShortcut implements ILaunchShortcut {
-
+/**launch from selection*/
 	public void launch(ISelection selection, String mode) {
 		
 		StructuredSelection sel;
@@ -23,17 +23,18 @@ public class LaunchShortcut implements ILaunchShortcut {
 		if (selection instanceof StructuredSelection)
 		{   
 			sel=(StructuredSelection)selection;
-			Console.revealConsoleView(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-					,getFileLocation(getResource(sel)));
+			Console.revealConsoleView(/*PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),*/
+					getFileLocation(getResource(sel)));
 			launch(getFileLocation(getResource(sel)));
 			
 		}
 	}
-
+	/**launch from editor*/
 	public void launch(IEditorPart editor, String mode) {		
-		Console.revealConsoleView(editor.getSite().getPage(),getFileLocation(getResource(editor)));
+		Console.revealConsoleView(/*editor.getSite().getPage(),*/getFileLocation(getResource(editor)));
 		//IWorkbenchPage page
 		launch(getFileLocation(getResource(editor)));
+		
 
 	}
 	/**
@@ -41,9 +42,11 @@ public class LaunchShortcut implements ILaunchShortcut {
 	 */
 	private void launch(String fileLocation) {		
 		try {			
-			LaunchCompiler.command(fileLocation);
+			LaunchCompiler.command(fileLocation);			
 		} catch (Err e) {
-			Console.printToConsoleErr(e.getMessage(), fileLocation);}		
+			Console.findAlloyConsole(fileLocation).setErr(e);
+			Console.printToConsoleErr(e.getMessage(), fileLocation);			
+			}		
 	}
 	/**
 	 * Try to return an IResource object from a IEditorPart. Returns null if no such object can be found.  
