@@ -1,6 +1,6 @@
 package fr.univartois.cril.alloyplugin.editor;
 
-import fr.univartois.cril.alloyplugin.launch.LaunchCompiler;
+import fr.univartois.cril.alloyplugin.launch.LaunchShortcut;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -37,7 +37,7 @@ public class ALSEditor extends TextEditor {
 	private void launchParser(){
 		IResource res=getResource();
 		if(res!=null)			
-			LaunchCompiler.parser(res.getLocation().toString());
+			LaunchShortcut.launchParser(res.getLocation().toString());
 	}
 
 	/**
