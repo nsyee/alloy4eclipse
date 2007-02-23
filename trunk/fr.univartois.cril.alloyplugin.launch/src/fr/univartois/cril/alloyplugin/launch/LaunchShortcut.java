@@ -22,7 +22,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 		if (selection instanceof StructuredSelection)
 		{   
 			sel=(StructuredSelection)selection;
-			Console.revealConsoleView(getFileLocation(getResource(sel)));
+			
 			launch(getFileLocation(getResource(sel)));
 
 		}
@@ -38,27 +38,27 @@ public class LaunchShortcut implements ILaunchShortcut {
 	 * Launch the Alloy compiler for a given file. 
 	 */
 	private void launch(String fileLocation) {
-		Console.revealConsoleView(fileLocation);
+		Console.revealAlloyConsoleView(fileLocation);
 		try {			
 			LaunchCompiler.command(fileLocation);			
 		} catch (Err e) {
-			Console.findAlloyConsole(fileLocation).setErr(e);
-			Console.printToConsoleErr(e.getMessage(), fileLocation);			
+			Console.revealAlloyParserConsoleView(fileLocation);
+			Console.findAlloyParserConsole(fileLocation).setErr(e);
+			Console.printToParserConsoleErr(e.getMessage(), fileLocation);			
 		}		
 	}
 	/**
-	 * parse a file (can be used by external package).	  
+	 * parse a file (can be used by external package).
+	 *  	  
 	 */
 
 	public static void launchParser(String filename) {
-		Console.revealConsoleView(filename);	
-		Console.clearConsole(filename);
+		Console.revealAlloyParserConsoleView(filename);	
 		try {
-			LaunchCompiler.localParser(filename, false);
-		} catch (Err e) {
-			Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
-			Console.findAlloyConsole(filename).setErr(e);
-			Console.printToConsoleErr(e.getMessage(), filename);
+			LaunchCompiler.localParser(filename);
+		} catch (Err e) {			
+			Console.findAlloyParserConsole(filename).setErr(e);
+			Console.printToParserConsoleErr(e.getMessage(), filename);
 			return;
 		}
 

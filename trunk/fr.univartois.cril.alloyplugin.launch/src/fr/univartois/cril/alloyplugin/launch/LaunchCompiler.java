@@ -24,12 +24,10 @@ public class LaunchCompiler {
 	 * (used for external package)
 	 * @param affichage set if informations have to be send to console output.
 	 * */
-	protected static World localParser(String filename, Boolean affichage) throws Err 
+	protected static World localParser(String filename) throws Err 
 
-	{	
-		
-		if(affichage)Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
-
+	{	Console.clearParserConsole(filename);
+		Console.printToParserConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
 //		This log records diagnostic messages
 		Log log = new LogToStringBuilder();
 		World world;		
@@ -39,19 +37,17 @@ public class LaunchCompiler {
 
 		// Typecheck the model, and print out all the warnings.
 		List<ErrorWarning> warnings = new ArrayList<ErrorWarning>();
-
 		world.typecheck(log, warnings);
-
 		for(Err e:warnings) {
-			Console.printToConsoleBold("============ Relevance Warning: ============\n",filename);
-			Console.printToConsole(e+"\n",filename);
+			Console.printToParserConsoleBold("============ Relevance Warning: ============\n",filename);
+			Console.printToParserConsole(e+"\n",filename);
 		}
 
 		// Now, you can call getType() on each node in world to find out its type.
 
 		//Let's display all the messages so far
-		if(affichage)Console.printToConsole(log.toString(),filename);
-		if(affichage)Console.printToConsoleBold("=========== End Parsing \""+filename+"\" =============",filename);
+		Console.printToParserConsole(log.toString(),filename);
+		Console.printToParserConsoleBold("=========== End Parsing \""+filename+"\" =============",filename);
 		log.setLength(0);
 		return world;
 	}
@@ -68,7 +64,7 @@ public class LaunchCompiler {
 	 * and they may contain filename/line/column information.
 	 */
 	public static final void command(String filename) throws Err {
-		World world= localParser(filename, true);
+		World world= localParser(filename);
 		// Load the visualizer (You only need to do this if you plan to visualize an Alloy solution)
 		// VizGUI viz = new VizGUI(false, "", null);
 		//		 Parse the model
@@ -107,7 +103,7 @@ public class LaunchCompiler {
 			}
 		}//for all command
 
-		Console.revealConsoleView(filename);
+		//Console.revealAlloyConsoleView(filename);
 	}
 
 

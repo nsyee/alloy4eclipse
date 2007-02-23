@@ -32,8 +32,7 @@ public class Console {
  * Create one if not found.
  * */	
 	
-	public static AlloyMessageConsole findAlloyConsole(String fileLocation) {
-		String consoleId=getConsoleId(fileLocation);
+	public static AlloyMessageConsole findConsole(String consoleId){
 		ConsolePlugin plugin = ConsolePlugin.getDefault();
 		IConsoleManager conMan = plugin.getConsoleManager();
 		IConsole[] existing = conMan.getConsoles();
@@ -41,11 +40,23 @@ public class Console {
 			if (consoleId.equals(existing[i].getName()))
 				return (AlloyMessageConsole) existing[i];
 		//no console found, so create a new one
-		AlloyMessageConsole myConsole = new AlloyMessageConsole(consoleId,fileLocation);
+		AlloyMessageConsole myConsole = new AlloyMessageConsole(consoleId);
 		IPatternMatchListener listener =  new ConsoleListener();
 		myConsole.addPatternMatchListener(listener);		
 		conMan.addConsoles(new IConsole[]{myConsole});		
 		return myConsole;
+	}
+	
+	
+	public static AlloyMessageConsole findAlloyConsole(String filename){
+		return findConsole(getAlloyConsoleId(filename));
+		
+	}
+	public static AlloyMessageConsole findAlloyParserConsole(String filename){
+		AlloyMessageConsole amc=findConsole(getAlloyParserConsoleId(filename));
+		amc.setFileLocation(filename);
+		return amc;
+		
 	}
 	
 	/** add a link**/
@@ -65,23 +76,14 @@ public class Console {
 		}
 	}
 	
-	/**
-	 * Print a message to an Alloy spec console.
-	 * @param message
-	 * @param ConsoleId
-	 */
-	public static void printToConsole(String message,String filelocation){	  
-		MessageConsole myConsole = findAlloyConsole(filelocation);
-		MessageConsoleStream out = myConsole.newMessageStream();
-		out.println(message);
-	}
+	
 	/**
 	 * Print a message to an Alloy spec console with a specific color.
 	 * @param message
 	 * @param ConsoleId
 	 */
-	public static void printToConsoleColor(String message,String filelocation,Color c,int style){	  
-		MessageConsole myConsole = findAlloyConsole(filelocation);
+	private static void printToConsoleColor(String message,String consoleID,Color c,int style){	  
+		MessageConsole myConsole = findConsole(consoleID);
 		MessageConsoleStream out = myConsole.newMessageStream();
 		out.setColor(c);
 		out.setFontStyle(style);
@@ -95,25 +97,32 @@ public class Console {
 		}
 		
 	}
-	public static void printToConsoleErr(String message,String filelocation){		
-		printToConsoleColor(message,filelocation,new Color(null,255 ,0,0),SWT.DEFAULT);		
+	public static void printToConsoleErr(String message,String fileLocation){		
+		printToConsoleColor(message,getAlloyConsoleId(fileLocation),new Color(null,255 ,0,0),SWT.DEFAULT);		
 	}
-	public static void printToConsoleBold(String message,String filelocation){		
-		printToConsoleColor(message,filelocation,new Color(null,0,0,0),SWT.BOLD);		
-	}
-	
-	public static void clearConsole(String filelocation){	  
-		MessageConsole myConsole = findAlloyConsole(filelocation);
-		myConsole.getDocument().set("");
+	public static void printToConsoleBold(String message,String fileLocation){		
+		printToConsoleColor(message,getAlloyConsoleId(fileLocation),new Color(null,0,0,0),SWT.BOLD);		
+	}	
+	public static void printToConsole(String message,String fileLocation){	  
+		printToConsoleColor(message,getAlloyConsoleId(fileLocation),new Color(null,0,0,0),SWT.DEFAULT);
 	}
 	
+	public static void printToParserConsoleErr(String message,String fileLocation){		
+		printToConsoleColor(message,getAlloyParserConsoleId(fileLocation),new Color(null,255 ,0,0),SWT.DEFAULT);		
+	}
+	public static void printToParserConsoleBold(String message,String fileLocation){		
+		printToConsoleColor(message,getAlloyParserConsoleId(fileLocation),new Color(null,0,0,0),SWT.BOLD);		
+	}	
+	public static void printToParserConsole(String message,String fileLocation){	  
+		printToConsoleColor(message,getAlloyParserConsoleId(fileLocation),new Color(null,0,0,0),SWT.DEFAULT);
+	}
 	/**
-	 * Returns the Console Id of an Alloy file.
-	 * @param ConsoleId
-	 * @return
+	 * Clear Parser Console
+	 * @param fileLocation
 	 */
-	private static String getConsoleId(String ConsoleId) {		
-		return "[Alloy Console] "+ConsoleId;
+	public static void clearParserConsole(String fileLocation){	  
+		MessageConsole myConsole = findAlloyParserConsole(fileLocation);
+		myConsole.getDocument().set("");
 	}
 	
 	/**
@@ -122,13 +131,15 @@ public class Console {
 	 * @param ConsoleId
 	 */
 	
-	public static void revealConsoleView(String filelocation) {
+	private static void revealConsoleView(String consoleID) {
 		IWorkbenchPage page=PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-		IConsole myConsole = findAlloyConsole(filelocation);	    
+		IConsole myConsole = findConsole(consoleID);	    
 		String id = IConsoleConstants.ID_CONSOLE_VIEW;
 		IConsoleView view;
 		try {
 			view = (IConsoleView) page.showView(id);
+			view.setPinned(false);
+			//System.out.println("display");
 			view.display(myConsole);			
 		} catch (PartInitException e) {
 			
@@ -136,4 +147,28 @@ public class Console {
 		}
 
 	}
+	public static void revealAlloyConsoleView(String filelocation) {
+		revealConsoleView(getAlloyConsoleId(filelocation));		
+	}
+	public static void revealAlloyParserConsoleView(String filelocation) {
+		revealConsoleView(getAlloyParserConsoleId(filelocation));		
+	}
+	
+	/**
+	 * Returns the Console Id of an Alloy file.
+	 * @param ConsoleId
+	 * @return
+	 */
+	private static String getAlloyConsoleId(String filename) {		
+		return "[Alloy Console] "+filename;
+	}
+	/**
+	 * Returns the Parser Console Id of an Alloy file.
+	 * @param ConsoleId
+	 * @return
+	 */
+	private static String getAlloyParserConsoleId(String filename) {		
+		return "[Alloy Parser Console]";
+	}
+	
 }
