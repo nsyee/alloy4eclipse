@@ -1,7 +1,7 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 import fr.univartois.cril.alloyplugin.launch.LaunchCompiler;
-//import edu.mit.csail.sdg.alloy4compiler.ast.World;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ui.editors.text.TextEditor;
 
@@ -18,7 +18,7 @@ public class ALSEditor extends TextEditor {
 		super.initializeEditor();
 		// Attache la configuration
 		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());	
-		//LaunchCompiler.parser("");	à tester
+		LaunchCompiler.parser("");//	Ã  tester
 	}
 	
 

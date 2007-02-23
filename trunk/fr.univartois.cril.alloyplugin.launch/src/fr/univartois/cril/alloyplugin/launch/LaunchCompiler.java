@@ -20,8 +20,25 @@ public class LaunchCompiler {
 
 /**
  * parse a file.
+ * (used for external package)
+ * 
  * */
-	public static World parser(String filename) throws Err 
+	
+	public static void parser(String filename) {
+		try {
+			localParser(filename);
+		} catch (Err e) {
+			
+			Console.findAlloyConsole(filename).setErr(e);
+			Console.printToConsoleErr(e.getMessage(), filename);
+		}
+	}
+	
+	/**
+	 * parse a file. return the World (!!).
+	 * (used for external package)
+	 * */
+	private static World localParser(String filename) throws Err 
 
 	{	
 
@@ -65,7 +82,7 @@ public class LaunchCompiler {
 	 * and they may contain filename/line/column information.
 	 */
 	public static final void command(String filename) throws Err {
-		World world= parser(filename);
+		World world= localParser(filename);
 		// Load the visualizer (You only need to do this if you plan to visualize an Alloy solution)
 		// VizGUI viz = new VizGUI(false, "", null);
 		//		 Parse the model
