@@ -26,23 +26,26 @@ public class LaunchCompiler {
 	
 	public static void parser(String filename) {
 		try {
-			localParser(filename);
+			localParser(filename, false);
 		} catch (Err e) {
-			
+			Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
 			Console.findAlloyConsole(filename).setErr(e);
 			Console.printToConsoleErr(e.getMessage(), filename);
+			return;
 		}
+		
 	}
 	
 	/**
 	 * parse a file. return the World (!!).
 	 * (used for external package)
+	 * @param affichage TODO
 	 * */
-	private static World localParser(String filename) throws Err 
+	private static World localParser(String filename, Boolean affichage) throws Err 
 
 	{	
 
-		Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
+		if(affichage)Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
 
 //		This log records diagnostic messages
 		Log log = new LogToStringBuilder();
@@ -64,8 +67,8 @@ public class LaunchCompiler {
 		// Now, you can call getType() on each node in world to find out its type.
 
 		//Let's display all the messages so far
-		Console.printToConsole(log.toString(),filename);
-		Console.printToConsoleBold("=========== End Parsing \""+filename+"\" =============",filename);
+		if(affichage)Console.printToConsole(log.toString(),filename);
+		if(affichage)Console.printToConsoleBold("=========== End Parsing \""+filename+"\" =============",filename);
 		log.setLength(0);
 		return world;
 	}
@@ -82,7 +85,7 @@ public class LaunchCompiler {
 	 * and they may contain filename/line/column information.
 	 */
 	public static final void command(String filename) throws Err {
-		World world= localParser(filename);
+		World world= localParser(filename, true);
 		// Load the visualizer (You only need to do this if you plan to visualize an Alloy solution)
 		// VizGUI viz = new VizGUI(false, "", null);
 		//		 Parse the model
