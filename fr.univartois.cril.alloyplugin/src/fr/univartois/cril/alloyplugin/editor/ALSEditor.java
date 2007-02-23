@@ -4,11 +4,10 @@ import fr.univartois.cril.alloyplugin.launch.LaunchCompiler;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.editors.text.TextEditor;
 
 /**
- * Classe gérant le comportement de l'éditeur Alloy. 
+ * Class for Alloy editor. 
  */
 public class ALSEditor extends TextEditor {
 	/**
@@ -26,12 +25,19 @@ public class ALSEditor extends TextEditor {
 
 	public void doSave(IProgressMonitor progressMonitor){
 		super.doSave(progressMonitor);
-		System.out.println("coucou");
+		launchParser();		
+	}
+	public void doSaveAs(){		
+		super.doSaveAs();
+		launchParser();		
+	}
+	/**
+	 * Launch the Alloy Parser.
+	 * */
+	private void launchParser(){
 		IResource res=getResource();
-		if( res!=null)
-			//System.out.println("ok");
-			LaunchCompiler.parser(res.getLocation().toString());//	à tester
-		else System.out.println("bug");
+		if(res!=null)			
+			LaunchCompiler.parser(res.getLocation().toString());
 	}
 
 	/**
