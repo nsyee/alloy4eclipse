@@ -52,6 +52,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 
 	public static void launchParser(String filename) {
 		Console.revealConsoleView(filename);	
+		Console.clearConsole(filename);
 		try {
 			LaunchCompiler.localParser(filename, false);
 		} catch (Err e) {
