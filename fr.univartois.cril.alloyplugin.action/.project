@@ -25,4 +25,21 @@
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>bin/binaries</name>
+			<type>2</type>
+			<location>/tmp/bourre/Bin::fr.univartois.cril.alloy.plugin.action</location>
+		</link>
+		<link>
+			<name>binaries</name>
+			<type>2</type>
+			<location>/tmp/bourre/Bin::fr.univartois.cril.alloy.plugin.action</location>
+		</link>
+		<link>
+			<name>bin/binaries/binaries</name>
+			<type>2</type>
+			<location>/tmp/bourre/Bin::fr.univartois.cril.alloy.plugin.launch</location>
+		</link>
+	</linkedResources>
 </projectDescription>
