@@ -41,7 +41,7 @@
   <wizard
         category="fr.univartois.cril.alloyplugin"
         class="fr.univartois.cril.alloyplugin.wizards.AlloyProjectWizard"
-        icon="icons/ProjectAlloy.gif"
+        icon="icons/AlloyProject.gif"
         id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject"
         name="Alloy 4 Project"
         project="true"/>
