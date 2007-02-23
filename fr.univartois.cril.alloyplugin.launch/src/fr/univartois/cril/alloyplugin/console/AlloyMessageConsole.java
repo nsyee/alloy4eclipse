@@ -7,18 +7,24 @@ import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pos;
 
 public class AlloyMessageConsole extends MessageConsole {
-	String fileLocation;	
+	String fileLocation="";	
 	Err e=null;
 
 	public AlloyMessageConsole(String name,String fileLocation) {
 		super(name, null);
 		this.fileLocation=fileLocation;
 	}
+	
+	public AlloyMessageConsole(String name) {
+		super(name, null);
+		
+	}
 
 	public String getFileLocation(){return fileLocation;}
 	/**set an Err exeption*/
 
 	public void setErr(Err e){this.e=e;}
+	public void setFileLocation(String s){this.fileLocation=s;}
 	/** get the line of a syntax execption*/
 	public int getLine(){
 		if (e!=null&&e.pos!=Pos.UNKNOWN)
