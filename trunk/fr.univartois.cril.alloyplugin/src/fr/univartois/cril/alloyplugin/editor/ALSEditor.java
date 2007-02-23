@@ -18,7 +18,7 @@ public class ALSEditor extends TextEditor {
 		super.initializeEditor();
 		// Attache la configuration
 		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());	
-		//LaunchCompiler.parser("");	
+		//LaunchCompiler.parser("");	à tester
 	}
 	
 
