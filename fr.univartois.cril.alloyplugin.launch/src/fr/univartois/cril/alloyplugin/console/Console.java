@@ -130,7 +130,7 @@ public class Console {
 			view = (IConsoleView) page.showView(id);
 			view.display(myConsole);			
 		} catch (PartInitException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 

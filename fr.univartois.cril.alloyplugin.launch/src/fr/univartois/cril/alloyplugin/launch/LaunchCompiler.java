@@ -18,33 +18,16 @@ import fr.univartois.cril.alloyplugin.console.Console;
 
 public class LaunchCompiler {
 
-/**
- * parse a file.
- * (used for external package)
- * 
- * */
-	
-	public static void parser(String filename) {
-		try {
-			localParser(filename, false);
-		} catch (Err e) {
-			Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
-			Console.findAlloyConsole(filename).setErr(e);
-			Console.printToConsoleErr(e.getMessage(), filename);
-			return;
-		}
-		
-	}
 	
 	/**
 	 * parse a file. return the World (!!).
 	 * (used for external package)
-	 * @param affichage TODO
+	 * @param affichage set if informations have to be send to console output.
 	 * */
-	private static World localParser(String filename, Boolean affichage) throws Err 
+	protected static World localParser(String filename, Boolean affichage) throws Err 
 
 	{	
-
+		
 		if(affichage)Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
 
 //		This log records diagnostic messages
