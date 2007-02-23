@@ -15,39 +15,55 @@ import edu.mit.csail.sdg.alloy4.Err;
 import fr.univartois.cril.alloyplugin.console.Console;
 
 public class LaunchShortcut implements ILaunchShortcut {
-/**launch from selection*/
+	/**launch from selection*/
 	public void launch(ISelection selection, String mode) {
-		
+
 		StructuredSelection sel;
-		
+
 		if (selection instanceof StructuredSelection)
 		{   
 			sel=(StructuredSelection)selection;
-			Console.revealConsoleView(/*PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),*/
-					getFileLocation(getResource(sel)));
+			Console.revealConsoleView(getFileLocation(getResource(sel)));
 			launch(getFileLocation(getResource(sel)));
-			
+
 		}
 	}
 	/**launch from editor*/
 	public void launch(IEditorPart editor, String mode) {		
-		Console.revealConsoleView(/*editor.getSite().getPage(),*/getFileLocation(getResource(editor)));
+
 		//IWorkbenchPage page
 		launch(getFileLocation(getResource(editor)));
-		
-
 	}
+
 	/**
 	 * Launch the Alloy compiler for a given file. 
 	 */
-	private void launch(String fileLocation) {		
+	private void launch(String fileLocation) {
+		Console.revealConsoleView(fileLocation);
 		try {			
 			LaunchCompiler.command(fileLocation);			
 		} catch (Err e) {
 			Console.findAlloyConsole(fileLocation).setErr(e);
 			Console.printToConsoleErr(e.getMessage(), fileLocation);			
-			}		
+		}		
 	}
+	/**
+	 * parse a file (can be used by external package).	  
+	 */
+
+	public static void launchParser(String filename) {
+		Console.revealConsoleView(filename);	
+		try {
+			LaunchCompiler.localParser(filename, false);
+		} catch (Err e) {
+			Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
+			Console.findAlloyConsole(filename).setErr(e);
+			Console.printToConsoleErr(e.getMessage(), filename);
+			return;
+		}
+
+	}
+
 	/**
 	 * Try to return an IResource object from a IEditorPart. Returns null if no such object can be found.  
 	 */
