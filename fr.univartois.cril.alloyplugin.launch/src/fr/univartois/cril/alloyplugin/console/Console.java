@@ -103,9 +103,10 @@ public class Console {
 	}
 	
 	public static void clearConsole(String filelocation){	  
-		//MessageConsole myConsole = findConsole(getConsoleId(filelocation));
-		//myConsole.clearConsole();
+		MessageConsole myConsole = findAlloyConsole(filelocation);
+		myConsole.getDocument().set("");
 	}
+	
 	/**
 	 * Returns the Console Id of an Alloy file.
 	 * @param ConsoleId
