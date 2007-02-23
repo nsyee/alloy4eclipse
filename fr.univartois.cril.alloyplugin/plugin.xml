@@ -7,7 +7,7 @@
          point="org.eclipse.ui.editors">
       <editor
             class="fr.univartois.cril.alloyplugin.editor.ALSEditor"
-            icon="icons/icon.gif"
+            icon="icons/AlloyFile.gif"
             default="true"
             name="Small Alloy editor beta 0.0.1"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
@@ -34,7 +34,7 @@
   <wizard
         category="fr.univartois.cril.alloyplugin"
         class="fr.univartois.cril.alloyplugin.wizards.AlloyFileWizard"
-        icon="icons/icon.gif"
+        icon="icons/AlloySpec.gif"
         id="fr.univartois.cril.alloyplugin.wizards.SampleNewWizard"
     name="Alloy 4 Model"
         project="false"/>
