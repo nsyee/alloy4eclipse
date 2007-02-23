@@ -29,7 +29,7 @@
 		<link>
 			<name>binaries</name>
 			<type>2</type>
-			<location>/tmp/bourre/bin</location>
+			<location>C:/tmp/bourre/bin</location>
 		</link>
 	</linkedResources>
 </projectDescription>
