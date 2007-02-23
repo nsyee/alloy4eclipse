@@ -26,8 +26,7 @@ public class ConsoleListener implements IPatternMatchListener {
 	}
 
 	public void connect(TextConsole console) {
-		// TODO Auto-generated method stub
-		System.out.println("connect");
+		// TODO Auto-generated method stub		
 		this.console=(AlloyMessageConsole) console;
 	}
 
