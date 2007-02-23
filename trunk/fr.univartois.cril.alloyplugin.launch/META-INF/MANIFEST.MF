@@ -16,3 +16,5 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ClassPath: alloy4.jar,
  .
 Bundle-Vendor: CRIL - Université d'Artois
+Export-Package: edu.mit.csail.sdg.alloy4compiler.ast,
+ fr.univartois.cril.alloyplugin.launch

@@ -18,6 +18,42 @@ import fr.univartois.cril.alloyplugin.console.Console;
 
 public class LaunchCompiler {
 
+/**
+ * parse a file.
+ * */
+	public static World parser(String filename) throws Err 
+
+	{	
+
+		Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
+
+//		This log records diagnostic messages
+		Log log = new LogToStringBuilder();
+		World world;		
+		world = CompUtil.parseEverything_fromFile(null, null, filename, log);		
+		//MessageDialog.openInformation(null,null,"Run Alloy4...");
+		// Now, "world" is the root of the the abstract syntax tree.
+
+		// Typecheck the model, and print out all the warnings.
+		List<ErrorWarning> warnings = new ArrayList<ErrorWarning>();
+
+		world.typecheck(log, warnings);
+
+		for(Err e:warnings) {
+			Console.printToConsoleBold("============ Relevance Warning: ============\n",filename);
+			Console.printToConsole(e+"\n",filename);
+		}
+
+		// Now, you can call getType() on each node in world to find out its type.
+
+		//Let's display all the messages so far
+		Console.printToConsole(log.toString(),filename);
+		Console.printToConsoleBold("=========== End Parsing \""+filename+"\" =============",filename);
+		log.setLength(0);
+		return world;
+	}
+
+
 	/*
 	 * Execute every command in every file.
 	 *
@@ -29,39 +65,13 @@ public class LaunchCompiler {
 	 * and they may contain filename/line/column information.
 	 */
 	public static final void command(String filename) throws Err {
-
+		World world= parser(filename);
 		// Load the visualizer (You only need to do this if you plan to visualize an Alloy solution)
 		// VizGUI viz = new VizGUI(false, "", null);
 		//		 Parse the model
 		//Console.clearConsole(filename);
 		//AlloyMessageConsole amc=Console.findAlloyConsole(filename);
-		
-		Console.printToConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
-		
-				
-//		This log records diagnostic messages
 		Log log = new LogToStringBuilder();
-		World world;		
-		world = CompUtil.parseEverything_fromFile(null, null, filename, log);		
-		//MessageDialog.openInformation(null,null,"Run Alloy4...");
-		// Now, "world" is the root of the the abstract syntax tree.
-
-		// Typecheck the model, and print out all the warnings.
-		List<ErrorWarning> warnings = new ArrayList<ErrorWarning>();
-		
-			world.typecheck(log, warnings);
-		
-		for(Err e:warnings) {
-			Console.printToConsoleBold("============ Relevance Warning: ============\n",filename);
-			Console.printToConsole(e+"\n",filename);
-		}
-		
-		// Now, you can call getType() on each node in world to find out its type.
-
-		//Let's display all the messages so far
-		Console.printToConsole(log.toString(),filename);
-		Console.printToConsoleBold("=========== End Parsing \""+filename+"\" =============",filename);
-		log.setLength(0);
 
 		// Choose some default options for how you want to execute the commands
 		A4Options options = new A4Options(log);
@@ -73,7 +83,7 @@ public class LaunchCompiler {
 			Console.printToConsoleBold("============ Command "+cmd+": ============",filename);
 			A4Solution ans;
 
-				ans = TranslateAlloyToKodkod.execute_command(world, cmd, options, null, null);
+			ans = TranslateAlloyToKodkod.execute_command(world, cmd, options, null, null);
 
 			// Print all the diagnostic messages
 			Console.printToConsole(log.toString(),filename);
@@ -93,9 +103,12 @@ public class LaunchCompiler {
 				// viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");
 			}
 		}//for all command
-		
+
 		Console.revealConsoleView(filename);
 	}
+
+
+	
 
 }
 
