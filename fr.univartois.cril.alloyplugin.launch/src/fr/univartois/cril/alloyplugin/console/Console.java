@@ -133,14 +133,16 @@ public class Console {
 	
 	private static void revealConsoleView(String consoleID) {
 		IWorkbenchPage page=PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-		IConsole myConsole = findConsole(consoleID);	    
+		AlloyMessageConsole myConsole = findConsole(consoleID);	    
 		String id = IConsoleConstants.ID_CONSOLE_VIEW;
 		IConsoleView view;
 		try {
 			view = (IConsoleView) page.showView(id);
 			view.setPinned(false);
-			//System.out.println("display");
-			view.display(myConsole);			
+			//System.out.println("display");			
+			view.display(myConsole);
+			myConsole.activate();
+			
 		} catch (PartInitException e) {
 			
 			e.printStackTrace();
