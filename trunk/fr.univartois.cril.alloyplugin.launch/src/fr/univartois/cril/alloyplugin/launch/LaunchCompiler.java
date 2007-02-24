@@ -14,41 +14,50 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
 //import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
+import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 
 public class LaunchCompiler {
 
-	
-	/**
-	 * parse a file. return the World (!!).
-	 * (used for external package)
-	 * @param affichage set if informations have to be send to console output.
-	 * */
-	protected static World localParser(String filename) throws Err 
 
-	{	Console.clearParserConsole(filename);
-		Console.printToParserConsoleBold("=========== Parsing \""+filename+"\" =============",filename);
+	/**
+	 * parse a .als file. return the World (!!).
+	 * */
+	protected static World parse(String filename) 
+	{
+		
+		AlloyMessageConsole alloyParserConsole=Console.findAlloyParserConsole(filename);
+		alloyParserConsole.clear();
+		alloyParserConsole.reveal();
+		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
 //		This log records diagnostic messages
 		Log log = new LogToStringBuilder();
-		World world;		
-		world = CompUtil.parseEverything_fromFile(null, null, filename, log);		
-		//MessageDialog.openInformation(null,null,"Run Alloy4...");
-		// Now, "world" is the root of the the abstract syntax tree.
+		World world;
+		try{
+			world = CompUtil.parseEverything_fromFile(null, null, filename, log);		
+			//MessageDialog.openInformation(null,null,"Run Alloy4...");
+			// Now, "world" is the root of the the abstract syntax tree.
 
-		// Typecheck the model, and print out all the warnings.
-		List<ErrorWarning> warnings = new ArrayList<ErrorWarning>();
-		world.typecheck(log, warnings);
-		for(Err e:warnings) {
-			Console.printToParserConsoleBold("============ Relevance Warning: ============\n",filename);
-			Console.printToParserConsole(e+"\n",filename);
+			// Typecheck the model, and print out all the warnings.
+			List<ErrorWarning> warnings = new ArrayList<ErrorWarning>();
+			world.typecheck(log, warnings);
+			for(Err e:warnings) {
+				alloyParserConsole.printInfo("============ Relevance Warning: ============\n");
+				alloyParserConsole.printInfo(e+"\n");
+			}
+
+			// Now, you can call getType() on each node in world to find out its type.
+
+			//Let's display all the messages so far
+			alloyParserConsole.print(log.toString());
+			alloyParserConsole.printInfo("=========== End Parsing \""+filename+"\" =============");
+			log.setLength(0);
 		}
-
-		// Now, you can call getType() on each node in world to find out its type.
-
-		//Let's display all the messages so far
-		Console.printToParserConsole(log.toString(),filename);
-		Console.printToParserConsoleBold("=========== End Parsing \""+filename+"\" =============",filename);
-		log.setLength(0);
+		catch (Err e){			
+			alloyParserConsole.reveal();			
+			alloyParserConsole.printErr(e);
+			return null;
+		}
 		return world;
 	}
 
@@ -63,8 +72,12 @@ public class LaunchCompiler {
 	 * You should catch them and display them,
 	 * and they may contain filename/line/column information.
 	 */
-	public static final void command(String filename) throws Err {
-		World world= localParser(filename);
+	public static final void command(String filename) {
+		World world= parse(filename);
+		if (world==null) return;
+		AlloyMessageConsole alloyConsole=Console.findAlloyConsole(filename);
+		alloyConsole.reveal();
+		try {
 		// Load the visualizer (You only need to do this if you plan to visualize an Alloy solution)
 		// VizGUI viz = new VizGUI(false, "", null);
 		//		 Parse the model
@@ -79,17 +92,19 @@ public class LaunchCompiler {
 
 		for (Command cmd: world.getRootModule().getAllCommands()) {
 			// Execute the command
-			Console.printToConsoleBold("============ Command "+cmd+": ============",filename);
+			alloyConsole.printInfo("============ Command "+cmd+": ============");
 			A4Solution ans;
 
-			ans = TranslateAlloyToKodkod.execute_command(world, cmd, options, null, null);
+			
+				ans = TranslateAlloyToKodkod.execute_command(world, cmd, options, null, null);
+			
 
 			// Print all the diagnostic messages
-			Console.printToConsole(log.toString(),filename);
+			alloyConsole.print(log.toString());
 			log.setLength(0);
 			// Print the outcome
-			Console.printToConsoleBold("============ Answer ============",filename);
-			Console.printToConsole(ans.toString(),filename);
+			alloyConsole.printInfo("============ Answer ============");
+			alloyConsole.print(ans.toString());
 			// If satisfiable...
 			if (ans.satisfiable()) {				
 				// You can query "ans" to find out the values of each set or type.
@@ -103,11 +118,15 @@ public class LaunchCompiler {
 			}
 		}//for all command
 
-		//Console.revealAlloyConsoleView(filename);
+		
+		} catch (Err e) {			
+			alloyConsole.reveal();			
+			alloyConsole.printErr(e);		
+		}
 	}
 
 
-	
+
 
 }
 
