@@ -6,9 +6,6 @@ import org.eclipse.debug.ui.ILaunchShortcut;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
-
-
-
 import org.eclipse.core.resources.IResource;
 import edu.mit.csail.sdg.alloy4.Err;
 import fr.univartois.cril.alloyplugin.console.Console;
@@ -22,7 +19,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 		if (selection instanceof StructuredSelection)
 		{   
 			sel=(StructuredSelection)selection;
-			
+
 			launch(getFileLocation(getResource(sel)));
 
 		}
@@ -38,29 +35,22 @@ public class LaunchShortcut implements ILaunchShortcut {
 	 * Launch the Alloy compiler for a given file. 
 	 */
 	private void launch(String fileLocation) {
-		Console.revealAlloyConsoleView(fileLocation);
-		try {			
-			LaunchCompiler.command(fileLocation);			
-		} catch (Err e) {
-			Console.revealAlloyParserConsoleView(fileLocation);
-			Console.findAlloyParserConsole(fileLocation).setErr(e);
-			Console.printToParserConsoleErr(e.getMessage(), fileLocation);			
-		}		
+
+
+		LaunchCompiler.command(fileLocation);			
+
+
+
 	}
 	/**
 	 * parse a file (can be used by external package).
 	 *  	  
 	 */
 
-	public static void launchParser(String filename) {
-		Console.revealAlloyParserConsoleView(filename);	
-		try {
-			LaunchCompiler.localParser(filename);
-		} catch (Err e) {			
-			Console.findAlloyParserConsole(filename).setErr(e);
-			Console.printToParserConsoleErr(e.getMessage(), filename);
-			return;
-		}
+	public static void launchParser(String filename) {		
+
+		LaunchCompiler.parse(filename);
+
 
 	}
 
