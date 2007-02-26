@@ -33,7 +33,8 @@ public class ALSPartitionScanner extends RuleBasedPartitionScanner {
 		IPredicateRule[] rules = new IPredicateRule[] {
 
 				new MultiLineRule("/*","*/", alsComment),
-				new EndOfLineRule("//", alsComment)
+				new EndOfLineRule("//", alsComment),
+                new EndOfLineRule("--", alsComment)
 			};
 		// Prend en compte les règles
 		setPredicateRules(rules);
