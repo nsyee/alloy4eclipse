@@ -1,5 +1,5 @@
-#summary One-sentence summary of this page.
 #labels Phase-Deploy,Featured
+#installing the plugin on your computer.
 
 = How to install the plugin =
 
