@@ -1,0 +1,15 @@
+#summary One-sentence summary of this page.
+#labels Phase-Deploy,Featured
+
+= How to install the plugin =
+
+  # go to eclipse home directory
+  # unzip the content of the alloy4eclipsexxxx.zip file
+  # launch eclipse using the -clean parameter
+
+= How to update the plugin =
+
+  # go to eclipse home directory
+  # remove the three jar files starting with fr.univartois.cril
+  # unzip the content of the alloy4eclipsexxxx.zip file
+  # launch eclipse using the -clean parameter
