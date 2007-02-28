@@ -7,8 +7,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.core.resources.IResource;
-import edu.mit.csail.sdg.alloy4.Err;
-import fr.univartois.cril.alloyplugin.console.Console;
+
 
 public class LaunchShortcut implements ILaunchShortcut {
 	/**launch from selection*/
