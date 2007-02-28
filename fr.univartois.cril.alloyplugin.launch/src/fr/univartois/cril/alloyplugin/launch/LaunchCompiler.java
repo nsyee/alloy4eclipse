@@ -26,8 +26,7 @@ public class LaunchCompiler {
 	protected static World parse(String filename) 
 	{
 		
-		AlloyMessageConsole alloyParserConsole=Console.findAlloyParserConsole(filename);
-		alloyParserConsole.clear();
+		AlloyMessageConsole alloyParserConsole=Console.findAlloyErrorConsole(filename);		
 		alloyParserConsole.reveal();
 		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
 //		This log records diagnostic messages
@@ -35,7 +34,7 @@ public class LaunchCompiler {
 		World world;
 		try{
 			world = CompUtil.parseEverything_fromFile(null, null, filename, log);		
-			//MessageDialog.openInformation(null,null,"Run Alloy4...");
+			
 			// Now, "world" is the root of the the abstract syntax tree.
 
 			// Typecheck the model, and print out all the warnings.
@@ -54,8 +53,8 @@ public class LaunchCompiler {
 			log.setLength(0);
 		}
 		catch (Err e){			
-			alloyParserConsole.reveal();			
-			alloyParserConsole.printErr(e);
+						
+			Console.printErr(e);
 			return null;
 		}
 		return world;
@@ -119,9 +118,9 @@ public class LaunchCompiler {
 		}//for all command
 
 		
-		} catch (Err e) {			
-			alloyConsole.reveal();			
-			alloyConsole.printErr(e);		
+		} catch (Err e) {
+						
+			Console.printErr(e);		
 		}
 	}
 
