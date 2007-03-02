@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.launch;
+package fr.univartois.cril.alloyplugin.launch.ui;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -6,6 +6,10 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.actions.SelectionProviderAction;
+
+import fr.univartois.cril.alloyplugin.launch.Activator;
+import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
+import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 
 
 
