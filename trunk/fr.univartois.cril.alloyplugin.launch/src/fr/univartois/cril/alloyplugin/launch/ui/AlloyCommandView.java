@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.launch.views;
+package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 
@@ -13,6 +13,7 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.ui.views.IViewDescriptor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.graphics.Image;
@@ -22,11 +23,10 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 import fr.univartois.cril.alloyplugin.launch.Activator;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.launch.CommandAction;
 
 
 /**
- * 
+ * This view display Command to be executed.
  * The view uses a label provider to define how model
  * objects should be presented in the view. 
  * 
@@ -100,11 +100,11 @@ public class AlloyCommandView extends ViewPart {
 	 */
 	public AlloyCommandView() {
 		defaultAlloyCommandView=this;
-		/*
+		
 		for (IViewDescriptor viewDescriptor:PlatformUI.getWorkbench().getViewRegistry().getViews()){
 			System.out.println(viewDescriptor.getId());			
 		}
-		*/
+		
 	}
 	public void dispose(){
 		defaultAlloyCommandView=null;

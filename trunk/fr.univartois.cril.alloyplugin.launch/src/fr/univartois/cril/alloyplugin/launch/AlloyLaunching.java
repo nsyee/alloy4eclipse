@@ -13,7 +13,7 @@ import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
-import fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView;
+import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
 
 public class AlloyLaunching {
 
