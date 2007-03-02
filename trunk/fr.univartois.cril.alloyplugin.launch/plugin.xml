@@ -5,7 +5,7 @@
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
             class="fr.univartois.cril.alloyplugin.launch.LaunchShortcut"
-            icon="icon/icon.gif"
+            icon="icons/icon.gif"
             id="fr.univartois.cril.alloyplugin.shortcut"
             label="Alloy Specification"
             modes="run,debug">
@@ -22,6 +22,49 @@
             </enablement>
          </contextualLaunch>
       </shortcut>
+   </extension>
+    <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
+            name="Alloy"/>
+      <view
+            allowMultiple="false"
+            category="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
+            class="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
+            icon="icons/icon.gif"
+            id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
+            name="Commands"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+         <view
+               closeable="true"
+               id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
+               moveable="true"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.TaskList"
+               visible="true"/>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="fr.univartois.cril.alloyplugin.launch.category"
+            description="Alloy command"
+            id="fr.univartois.cril.alloyplugin.launch.runalloycommand"
+            name="Run Alloy command"/>
+      <category
+            id="fr.univartois.cril.alloyplugin.launch.category"
+            name="Alloy"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="fr.univartois.cril.alloyplugin.launch.runalloycommand"
+            icon="icons/AlloyCommand.gif"/>
    </extension>
    
 </plugin>

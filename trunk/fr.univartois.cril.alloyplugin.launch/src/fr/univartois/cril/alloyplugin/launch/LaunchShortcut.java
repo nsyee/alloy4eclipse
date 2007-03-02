@@ -36,22 +36,12 @@ public class LaunchShortcut implements ILaunchShortcut {
 	private void launch(String fileLocation) {
 
 
-		LaunchCompiler.command(fileLocation);			
+		AlloyLaunching.command(fileLocation);			
 
 
 
 	}
-	/**
-	 * parse a file (can be used by external package).
-	 *  	  
-	 */
-
-	public static void launchParser(String filename) {		
-
-		LaunchCompiler.parse(filename);
-
-
-	}
+	
 
 	/**
 	 * Try to return an IResource object from a IEditorPart. Returns null if no such object can be found.  

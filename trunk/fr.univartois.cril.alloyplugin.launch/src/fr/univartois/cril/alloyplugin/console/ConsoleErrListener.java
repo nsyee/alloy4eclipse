@@ -74,7 +74,7 @@ public class ConsoleErrListener implements IPatternMatchListener {
 	}
 
 	public void matchFound(PatternMatchEvent event) {
-		System.out.println("match");
+		
 //		console.addFileLink(getFileName(),event.getOffset()+event.getLength()+4,getFileName().length(),getLine());	
 		console.addFileLink(getFileName(),event.getOffset(),event.getLength(),getLine());
 
