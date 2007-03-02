@@ -19,8 +19,8 @@ import fr.univartois.cril.alloyplugin.util.ALSTextAttributeProvider;
 public class AlloyPlugin extends AbstractUIPlugin {
 	private static AlloyPlugin plugin;
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.eclipse.contribution.alloyplugin";
-	private static final String listenerId="org.eclipse.contribution.junit.listeners";
+	public static final String PLUGIN_ID = "fr.univartois.cril.alloyplugin";
+	private static final String listenerId="fr.univartois.cril.alloyplugin.listeners";
 	public static final String ALS_PARTITIONING = "__pos_als_partitioning";
 	private List<ITestRunListener> listeners;//=new ArrayList();
 	private IPartitionTokenScanner fPartitionScanner;
@@ -63,18 +63,18 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	}
 	
 	
-	public void fireTestsStarted(int testCount) {
+	public void fireCommandsStarted(int testCount) {
 		// TODO avertit les listeners
 	}
 
-	public void fireTestsFinished() {
+	public void fireCommandsFinished() {
 		// TODO avertit les listeners
 	}
-	public void fireTestStarted(String klass, String method) {
+	public void fireCommandStarted(String klass, String method) {
 		// TODO avertit les listeners
 	}
 
-	public void fireTestFailed(String klass, String method, String trace) {
+	public void fireCommandFailed(String klass, String method, String trace) {
 		// TODO avertit les listeners
 	}
 

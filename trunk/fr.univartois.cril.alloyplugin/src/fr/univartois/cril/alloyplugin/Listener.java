@@ -14,7 +14,7 @@ public  class Listener implements ITestRunListener {
 		public void executionFinished() {
 			// TODO Auto-generated method stub
 			String message=passed?"Success ": "fail";
-			MessageDialog.openInformation(null,"Résultats de test",message);
+			MessageDialog.openInformation(null,"Results",message);
 		}
 		public void runStarted(String klass, String method) {
 			// TODO Auto-generated method stub
