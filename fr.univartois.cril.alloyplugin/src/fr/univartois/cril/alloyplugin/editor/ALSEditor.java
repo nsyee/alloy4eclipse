@@ -1,15 +1,18 @@
 package fr.univartois.cril.alloyplugin.editor;
 
-import fr.univartois.cril.alloyplugin.launch.LaunchShortcut;
+import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ui.editors.text.TextEditor;
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 /**
  * Class for Alloy editor. 
  */
+
 public class ALSEditor extends TextEditor {
+	private AlloyContentOutlinePage fOutlinePage;
 	/**
 	 * Method called at editor initialization.
 	 * Set the SourceViewer.
@@ -23,9 +26,22 @@ public class ALSEditor extends TextEditor {
 
 	}
 
+	public Object getAdapter(Class required) {
+		if (IContentOutlinePage.class.equals(required)) {			
+			if (fOutlinePage == null) {
+				fOutlinePage= new AlloyContentOutlinePage(getDocumentProvider(), this);
+				if (getEditorInput() != null)
+					fOutlinePage.setInput(getEditorInput());
+			}
+			return fOutlinePage;
+		}
+		return super.getAdapter(required);
+	}
+	
 	public void doSave(IProgressMonitor progressMonitor){
 		super.doSave(progressMonitor);
-		launchParser();		
+		launchParser();	
+		
 	}
 	public void doSaveAs(){		
 		super.doSaveAs();
@@ -37,7 +53,7 @@ public class ALSEditor extends TextEditor {
 	private void launchParser(){
 		IResource res=getResource();
 		if(res!=null)			
-			LaunchShortcut.launchParser(res.getLocation().toString());
+			AlloyLaunching.launchParser(res.getLocation().toString());
 	}
 
 	/**

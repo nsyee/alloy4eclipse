@@ -1,31 +1,18 @@
 package fr.univartois.cril.alloyplugin.wizards;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWizard;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.core.internal.resources.Project;
-import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.runtime.*;
 import org.eclipse.jface.operation.*;
-
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.core.resources.*;
 import org.eclipse.core.runtime.CoreException;
-import java.io.*;
-
-import org.eclipse.ui.*;
-import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
-import sun.security.util.Resources;
+
 
 
 public class AlloyProjectWizard extends BasicNewProjectResourceWizard {
@@ -38,10 +25,10 @@ public class AlloyProjectWizard extends BasicNewProjectResourceWizard {
 	      IProject project = root.getProject(r);
 	      IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
 	//TODO create a Alloy nature
-	      description.setNatureIds(new String[] { "Alloy nature" });
+	   //   description.setNatureIds(new String[] { "Alloy nature" });
 	      ICommand command = description.newCommand();
 	  	//TODO create a Alloy builder	      
-	      command.setBuilderName("Alloy builder");
+	     // command.setBuilderName("Alloy builder");
 	      description.setBuildSpec(new ICommand[] { command });
 	      project.create(description,monitor);
 
@@ -144,22 +131,7 @@ public class AlloyProjectWizard extends BasicNewProjectResourceWizard {
 	createProject(fileName,monitor);
 	}
 	
-	/**
-	 * We will initialize file contents with a sample text.
-	 */
-
-	private InputStream openContentStream(IFile filename) {
-		String contents =
-			"module "+filename.getProjectRelativePath().toString().substring(0,(filename.getProjectRelativePath().toString().length()-filename.getFileExtension().length())-1);
-		
-		return new ByteArrayInputStream(contents.getBytes());
-	}
-
-	private void throwCoreException(String message) throws CoreException {
-		IStatus status =
-			new Status(IStatus.ERROR, "fr.univartois.cril.alloyplugin", IStatus.OK, message, null);
-		throw new CoreException(status);
-	}
+	
 
 	/**
 	 * We will accept the selection in the workbench to see if
