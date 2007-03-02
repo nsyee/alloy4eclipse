@@ -46,4 +46,13 @@
         name="Alloy 4 Project"
         project="true"/>
 </extension>
+<extension
+      point="org.eclipse.ui.perspectives">
+   <perspective
+         class="fr.univartois.cril.alloyplugin.PerspectiveFactory"
+         fixed="true"
+         icon="icons/AlloyProject.gif"
+         id="fr.univartois.cril.alloyplugin.Alloyperspective"
+         name="Alloy perspective"/>
+</extension>
 </plugin>
