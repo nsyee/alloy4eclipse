@@ -15,7 +15,8 @@
             extensions="als"/>
 </extension>
    
-<extension-point id="fr.univartois.cril.alloyplugin.listeners" name="Test Listeners"/>
+<extension-point id="fr.univartois.cril.alloyplugin.listeners" name="Command Listeners"/>
+<extension-point id="fr.univartois.cril.alloyplugin.editorlisteners" name="Editor Listeners"/>
 <extension point ="fr.univartois.cril.alloyplugin.listeners">
 	<listener class="fr.univartois.cril.alloyplugin.listener">
 	</listener>
@@ -33,26 +34,34 @@
         name="Alloy"/>
   <wizard
         category="fr.univartois.cril.alloyplugin"
-        class="fr.univartois.cril.alloyplugin.wizards.AlloyFileWizard"
+        class="fr.univartois.cril.alloyplugin.ui.AlloyFileWizard"
         icon="icons/AlloySpec.gif"
-        id="fr.univartois.cril.alloyplugin.wizards.SampleNewWizard"
+        id="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard"
     name="Alloy 4 Model"
         project="false"/>
   <wizard
         category="fr.univartois.cril.alloyplugin"
-        class="fr.univartois.cril.alloyplugin.wizards.AlloyProjectWizard"
+        class="fr.univartois.cril.alloyplugin.ui.AlloyProjectWizard"
+        finalPerspective="fr.univartois.cril.alloyplugin.alloyperspective"
         icon="icons/AlloyProject.gif"
         id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject"
         name="Alloy 4 Project"
+        preferredPerspectives="fr.univartois.cril.alloyplugin.alloyperspective"
         project="true"/>
 </extension>
 <extension
       point="org.eclipse.ui.perspectives">
    <perspective
-         class="fr.univartois.cril.alloyplugin.PerspectiveFactory"
-         fixed="true"
+         class="fr.univartois.cril.alloyplugin.ui.PerspectiveFactory"
          icon="icons/AlloyProject.gif"
-         id="fr.univartois.cril.alloyplugin.Alloyperspective"
+         id="fr.univartois.cril.alloyplugin.alloyperspective"
          name="Alloy perspective"/>
+</extension>
+<extension
+      point="org.eclipse.ui.perspectiveExtensions">
+   <perspectiveExtension targetID="fr.univartois.cril.alloyplugin.alloyperspective">
+      <newWizardShortcut id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject"/>
+      <newWizardShortcut id="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard"/>
+   </perspectiveExtension>
 </extension>
 </plugin>
