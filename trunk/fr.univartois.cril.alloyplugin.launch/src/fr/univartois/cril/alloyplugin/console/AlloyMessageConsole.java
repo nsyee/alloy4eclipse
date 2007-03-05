@@ -55,7 +55,7 @@ public class AlloyMessageConsole extends MessageConsole {
 		try {
 			out.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			// TODO Display message error?
 			e.printStackTrace();
 		}
 
@@ -86,7 +86,7 @@ public class AlloyMessageConsole extends MessageConsole {
 			//this.addHyperlink(fl,offset+lenght+4,iff.getLocation().toString().length());
 			this.addHyperlink(fl,offset,lenght);
 		} catch (BadLocationException e) {
-			// TODO Auto-generated catch block			
+			// TODO Display message error?			
 			e.printStackTrace();
 		}
 	}

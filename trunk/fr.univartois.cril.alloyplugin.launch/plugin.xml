@@ -21,6 +21,7 @@
                </with>
             </enablement>
          </contextualLaunch>
+         <perspective id="fr.univartois.cril.alloyplugin.alloyperspective"/>
       </shortcut>
    </extension>
     <extension
@@ -52,6 +53,22 @@
       <image
             commandId="fr.univartois.cril.alloyplugin.launch.runalloycommand"
             icon="icons/AlloyCommand.gif"/>
+   </extension>
+   <extension
+         point="fr.univartois.cril.alloyplugin.editorlisteners">
+      <Generic class="fr.univartois.cril.alloyplugin.launch.EditorListener"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="fr.univartois.cril.alloyplugin.alloyperspective">
+         <view
+               closeable="true"
+               id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
+               moveable="true"
+               relationship="right"
+               relative="org.eclipse.ui.console.ConsoleView"
+               visible="true"/>
+      </perspectiveExtension>
    </extension>
    
 </plugin>
