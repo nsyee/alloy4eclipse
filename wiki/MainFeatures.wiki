@@ -3,7 +3,7 @@
 = Current features =
 
   * Basic syntax coloring for als files
-  * Compilation of Alloy4 files from Eclipse ("compile on save" behavior)
+  * Compilation of Alloy4 files from Eclipse (*"compile on save" behavior*)
   * Output on Eclipse console
   * Alloy project nature
   * Hyperlink to source code in case of errors
