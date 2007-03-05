@@ -68,6 +68,7 @@
                relationship="right"
                relative="org.eclipse.ui.console.ConsoleView"
                visible="true"/>
+         <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"/>
       </perspectiveExtension>
    </extension>
    
