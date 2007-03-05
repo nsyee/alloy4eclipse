@@ -7,6 +7,12 @@
   * Output on Eclipse console
   * Alloy project nature
   * Hyperlink to source code in case of errors
+  
+= Features available from SVN = 
+
+  * Improved _compile on save_ behavior
+  * Separate Command view
+  * Single command launch
 
 = Upcoming features =
 
