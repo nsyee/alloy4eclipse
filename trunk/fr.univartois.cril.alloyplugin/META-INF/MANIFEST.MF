@@ -15,6 +15,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.ui.views
 Eclipse-LazyStart: true
-Import-Package: fr.univartois.cril.alloyplugin.launch
 Bundle-Vendor: CRIL - Université d'Artois
+Export-Package: fr.univartois.cril.alloyplugin.ui
 
