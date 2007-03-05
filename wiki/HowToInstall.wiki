@@ -1,5 +1,5 @@
+#summary installing the plugin on your computer.
 #labels Phase-Deploy,Featured
-# installing the plugin on your computer.
 
 = How to install the plugin =
 
