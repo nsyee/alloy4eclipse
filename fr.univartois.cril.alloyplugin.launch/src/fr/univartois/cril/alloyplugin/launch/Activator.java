@@ -10,7 +10,9 @@ public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "fr.univartois.cril.alloyplugin.launch";
-
+	//
+	public static final String COMMAND_VIEW_ID = "fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView";
+												 	
 	// The shared instance
 	private static Activator plugin;
 	

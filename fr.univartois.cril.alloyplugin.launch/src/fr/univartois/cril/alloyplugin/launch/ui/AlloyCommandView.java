@@ -9,7 +9,11 @@ import java.net.URL;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IActionBars;
 
+import org.eclipse.ui.IPropertyListener;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
@@ -22,21 +26,24 @@ import org.eclipse.jface.action.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 import fr.univartois.cril.alloyplugin.launch.Activator;
+import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
-
-
+import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
+;
 /**
- * This view display Command to be executed.
- * The view uses a label provider to define how model
- * objects should be presented in the view. 
+ * This view displays Alloy commands to be executed.
+ * The view uses a content provider and a label provider to define how model
+ * objects should be presented. 
  * 
  */
 
-public class AlloyCommandView extends ViewPart {
+public class AlloyCommandView extends ViewPart{
 	protected static AlloyCommandView defaultAlloyCommandView;
+	protected static ViewContentProvider viewContentProvider;
 	private TableViewer viewer;
-	private Action action1;
+	private Action commandAction;
 	
+
 	private static ImageDescriptor elementImage;
 	static {
 		URL url = null;
@@ -58,23 +65,7 @@ public class AlloyCommandView extends ViewPart {
 	 * (like Task List, for example).
 	 */
 
-	class ViewContentProvider implements IStructuredContentProvider {
-		ExecutableCommand[] elements={};
-		
-		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
-		
-		}			
-		public void dispose() {
-			System.out.println("dispose");
-		}
-		public void setElements(ExecutableCommand []elements){
-			this.elements=elements;				
-		}
-		public ExecutableCommand[] getElements(Object parent) {		
-			return elements;					
-		}
-		
-	}
+	
 	class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
 		public String getColumnText(Object obj, int index) {
 			//AlloyRunCommandAction a=(AlloyRunCommandAction) obj;
@@ -91,7 +82,7 @@ public class AlloyCommandView extends ViewPart {
 			//if (a.getImageDescriptor()==null) {System.out.println("null elements");return null;}
 			return elementImage.createImage();
 			//return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
-			
+
 		}
 	}
 
@@ -100,54 +91,63 @@ public class AlloyCommandView extends ViewPart {
 	 */
 	public AlloyCommandView() {
 		defaultAlloyCommandView=this;
-		
+//		affiche les view présentes:
+		/*
 		for (IViewDescriptor viewDescriptor:PlatformUI.getWorkbench().getViewRegistry().getViews()){
 			System.out.println(viewDescriptor.getId());			
-		}
-		
+		}*/
+		System.out.println("init");
 	}
 	public void dispose(){
+		System.out.println("dispose");
 		defaultAlloyCommandView=null;
 	}
 	public static AlloyCommandView getDefault(){
-		/*IViewDescriptor vd = PlatformUI.getWorkbench().getViewRegistry().find("fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView");
-		if (vd!=null)
+		if(defaultAlloyCommandView==null){
 			try {
-				return (AlloyCommandView) vd.createView();
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
-			try {
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView");				
+				IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();			
+				if (window!=null) 
+				{System.out.println("ici");
+					IWorkbenchPage page=window.getActivePage();				
+					if (page!=null)
+						return (AlloyCommandView) page.showView("fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView");
+					else System.out.println("page null");
+				}
 			} catch (PartInitException e) {
-				// TODO Auto-generated catch block
+				// TODO display error message?
 				e.printStackTrace();
 			}
-			 
-			
-				
+		}
 		return defaultAlloyCommandView;
 
 	}
-	/**
-	 * This is a callback that will allow us
-	 * to create the viewer and initialize it.
-	 */
+	
 	public void createPartControl(Composite parent) {
-		
+		System.out.println("create");
 		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		viewer.setContentProvider(new ViewContentProvider());		
+		viewer.setContentProvider(getContentProvider());		
 		viewer.setLabelProvider(new ViewLabelProvider());		
 		viewer.setInput(getViewSite());
-		
+
 		makeActions();
 		hookContextMenu();
 		hookDoubleClickAction();
 		contributeToActionBars();
-		
-	}
+		/*IPropertyListener l = ;
+		};*/
+		/*
+		this.addPropertyListener(new IPropertyListener(){
+			public void propertyChanged(Object source,int propId){
+				System.out.println("coucou");}
+		}
+		);*/
 
+	};
+
+	private static  ViewContentProvider getContentProvider() {
+		if (viewContentProvider==null) viewContentProvider=new ViewContentProvider();
+		return viewContentProvider;
+	}
 	private void hookContextMenu() {		
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
@@ -168,28 +168,26 @@ public class AlloyCommandView extends ViewPart {
 	}
 
 	private void fillLocalPullDown(IMenuManager manager) {
-		manager.add(action1);
+		manager.add(commandAction);
 		manager.add(new Separator());
-		
+
 	}
 
 	private void fillContextMenu(IMenuManager manager) {		
-		manager.add(action1);
-		
+		manager.add(commandAction);
+
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(action1);
-		
+		manager.add(commandAction);
+
 	}
 
 	private void makeActions() {
-		action1 = new CommandAction(viewer);
-		
-		
-/*
+		commandAction = new CommandAction(viewer);
+		/*
 		doubleClickAction = new Action() {
 			public void run() {
 				ISelection selection = viewer.getSelection();
@@ -197,39 +195,51 @@ public class AlloyCommandView extends ViewPart {
 				showMessage("Double-click detected on "+obj.toString());
 			}
 		};
-		*/
+		 */
 	}
 
 	private void hookDoubleClickAction() {
 		viewer.addDoubleClickListener(new IDoubleClickListener() {
 			public void doubleClick(DoubleClickEvent event) {
-				action1.run();
+				commandAction.run();
 			}
 		});
 	}
-	
+
 	/*private void showMessage(String message) {	
-		
+
 		MessageDialog.openInformation(
 				viewer.getControl().getShell(),
 				"Alloy commands",
 				message);
 	}
-*/
+	 */
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */
 	public void setFocus() {
 		viewer.getControl().setFocus();
 	}
-	public ContentViewer getViewer(){
+	
+	
+	/**
+	 * Set elements to the ContentProvider and display them.
+	 * */
+	public static void setElements(ExecutableCommand[] elements) {
+		System.out.println("set elements");
+		
+		((ViewContentProvider) getContentProvider()).setElements(elements);		
+		AlloyCommandView view = getDefault();
+		StructuredViewer viewer2 = null;
+		if(view!=null)
+			viewer2=view.getViewer();
+		if(viewer2!=null)
+			viewer2.refresh();		
+	}
+	/**
+	 * returns viewer; 
+	 */
+	private StructuredViewer getViewer() {		
 		return viewer;
 	}
-	private ViewContentProvider getContentProvider(){
-		return (ViewContentProvider) viewer.getContentProvider();
-	}
-	public void setElements(ExecutableCommand[] elements) {
-		getContentProvider().setElements(elements);	
-		viewer.refresh();		
-			}
 }

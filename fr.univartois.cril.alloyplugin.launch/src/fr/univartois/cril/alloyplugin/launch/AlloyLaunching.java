@@ -14,7 +14,10 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
-
+/**
+ * Static methods to launch Alloy parser or command.
+ * 
+ * */
 public class AlloyLaunching {
 
 	/**
@@ -41,9 +44,10 @@ public class AlloyLaunching {
 	 * Parse a file (can be used by external package).
 	 * For the moment display Syntax error in console. 	  
 	 * This method update the AlloyCommandView.
+	 * @return 
 	 */
 
-	public static void launchParser(String filename) {		
+	public static ExecutableCommand[] launchParser(String filename) {		
 //		This log records diagnostic messages
 		Log log = new LogToStringBuilder();		
 		ExecutableCommand[] exec_cmds;
@@ -54,9 +58,11 @@ public class AlloyLaunching {
 			exec_cmds=new ExecutableCommand[0];			
 		}
 		
-		AlloyCommandView acw = AlloyCommandView.getDefault();
-		if(acw!=null) acw.setElements(exec_cmds);
-		
+		//AlloyCommandView acw = AlloyCommandView.getDefault();
+		/*if(acw!=null) {			
+			acw.setElements(exec_cmds);
+			}*/
+		return exec_cmds;
 	}
 
 	/**
@@ -66,7 +72,8 @@ public class AlloyLaunching {
 	protected static ExecutableCommand[] parse(String filename,Log log) throws Err 
 	{
 
-		AlloyMessageConsole alloyParserConsole=Console.findAlloyErrorConsole(filename);		
+		AlloyMessageConsole alloyParserConsole=Console.findAlloyErrorConsole(filename);
+		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
 
 		World world;
