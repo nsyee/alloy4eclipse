@@ -1,20 +1,15 @@
 package fr.univartois.cril.alloyplugin.editor;
 
-
-
 import org.eclipse.core.resources.IResource;
-import org.eclipse.jface.text.DocumentEvent;
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.text.IDocumentListener;
+
+
+
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.editors.text.TextEditor;
-import org.eclipse.ui.editors.text.TextFileDocumentProvider;
-import org.eclipse.ui.texteditor.IDocumentProvider;
-import org.eclipse.ui.texteditor.IElementStateListener;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-//import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
+//
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
@@ -32,19 +27,7 @@ public class ALSEditor extends TextEditor {
 	protected void initializeEditor() {
 		super.initializeEditor();
 		// Attache la configuration
-		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());
-		IDocumentListener listener = new IDocumentListener(){
-
-			public void documentAboutToBeChanged(DocumentEvent event) {				
-			}
-
-			public void documentChanged(DocumentEvent event) {
-				AlloyPlugin.getDefault().fireFileChanged(getFileInputLocation());
-				
-			}};
-			 IDocumentProvider provider = this.getDocumentProvider();
-			//IDocument document = provider.getDocument(null);
-			//document.addDocumentListener(listener);
+		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());		
 			
 		
 	}
@@ -52,12 +35,9 @@ public class ALSEditor extends TextEditor {
 	public void init(IEditorSite site,IEditorInput input) throws PartInitException{		
 		super.init(site, input);
 		AlloyPlugin.getDefault().fireFileLoaded(getFileInputLocation());		
-		//IDocument doc=(IDocument) input.getAdapter(IDocument.class);
-		//System.out.println("doc:"+doc);
-		//System.out.println("docprovider:"+.);
-		TextFileDocumentProvider d=(TextFileDocumentProvider) this.getDocumentProvider();
+		//TextFileDocumentProvider d=(TextFileDocumentProvider) this.getDocumentProvider();
 	//	System.out.println("d:"+d. .getDocument(null));
-		//this.getAdapter(requi)
+		
 	}
 	public void setFocus() {
 		super.setFocus();
@@ -66,7 +46,7 @@ public class ALSEditor extends TextEditor {
 /**
  * Used for contentoutline (not implement yet)
  * */
-	//TODO use Contentline
+	
 	public Object getAdapter(Class required) {
 		if (IContentOutlinePage.class.equals(required)) {			
 			if (fOutlinePage == null) {

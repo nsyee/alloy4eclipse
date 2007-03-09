@@ -1,6 +1,10 @@
-package fr.univartois.cril.alloyplugin.wizards;
+package fr.univartois.cril.alloyplugin.ui;
 
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 
 import org.eclipse.jface.wizard.WizardPage;
@@ -15,19 +19,25 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
-/**
- * The "New" wizard page allows setting the container for the new file as well
- * as the file name. The page will only accept file name without the extension
- * OR with the extension that matches the expected one (mpe).
- */
+
 
 public class AlloyProjectWizardPage extends WizardPage {
 
 
+	private static ImageDescriptor wizardImage;
 	private Text projectText;
-
-	@SuppressWarnings("unused")
+	static {
+		URL url = null;
+		try {
+			url = new URL(AlloyPlugin.getDefault().getBundle().getEntry("/"),
+			"icons/AlloyLogo.gif");
+		} catch (MalformedURLException e) {
+		}
+		wizardImage = ImageDescriptor.createFromURL(url);
+	}
+	
 	private ISelection selection;
 
 	/**
@@ -36,8 +46,9 @@ public class AlloyProjectWizardPage extends WizardPage {
 	 * @param pageName
 	 */
 	public AlloyProjectWizardPage(ISelection selection) {
-		super("wizardPage");
-		setTitle("Alloy Project");
+		//super();
+		super("wizardPage","Alloy Project", wizardImage	);
+		
 		setDescription("This wizard creates a new Alloy project.");
 		this.selection = selection;
 	}
@@ -47,6 +58,7 @@ public class AlloyProjectWizardPage extends WizardPage {
 	 */
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
+
 		GridLayout layout = new GridLayout();
 		container.setLayout(layout);
 		layout.numColumns = 3;
