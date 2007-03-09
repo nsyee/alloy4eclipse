@@ -2,10 +2,10 @@ package fr.univartois.cril.alloyplugin.launch;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.ErrorWarning;
-import edu.mit.csail.sdg.alloy4.Log;
-import edu.mit.csail.sdg.alloy4.LogToStringBuilder;
 import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.World;
@@ -26,18 +26,20 @@ public class AlloyLaunching {
 	 * If there are syntax or type errors, it display them in console.
 	 * They may contain filename/line/column information.
 	 */
-	public static final void command(String filename) {
-		Log log = new LogToStringBuilder();
-
-		command(filename,log); 
+	public static final void command(String filename) {		
+		A4Reporter rep=new Reporter(filename); 
+		
+		command(filename,rep); 
 	}
 
 	/** 
 	 * Execute ExecutableCommands previously created.
 	 */
 	public static final void ExecCommand(ExecutableCommand[] executablesCommands){
-		Log log = new LogToStringBuilder();
-		ExecCommand(executablesCommands,log);
+		if(executablesCommands.length==0) return;
+		
+		A4Reporter rep=new Reporter(executablesCommands[0].getFilename());
+		ExecCommand(executablesCommands,rep);
 	}
 
 	/**
@@ -48,11 +50,11 @@ public class AlloyLaunching {
 	 */
 
 	public static ExecutableCommand[] launchParser(String filename) {		
-//		This log records diagnostic messages
-		Log log = new LogToStringBuilder();		
+		A4Reporter rep=new Reporter(filename);		
+				
 		ExecutableCommand[] exec_cmds;
 		try {
-			exec_cmds = AlloyLaunching.parse(filename,log);
+			exec_cmds = AlloyLaunching.parse(filename,rep);
 		} catch (Err e) {			
 			Console.printErr(e);
 			exec_cmds=new ExecutableCommand[0];			
@@ -69,7 +71,7 @@ public class AlloyLaunching {
 	 * Parse a .als file. Returns executable commands which can be executed later.
 	 * @throws Err 
 	 * */
-	protected static ExecutableCommand[] parse(String filename,Log log) throws Err 
+	protected static ExecutableCommand[] parse(String filename,A4Reporter rep) throws Err 
 	{
 
 		AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
@@ -78,27 +80,24 @@ public class AlloyLaunching {
 
 		World world;
 		
-			world = CompUtil.parseEverything_fromFile(null, null, filename, log);		
+			world = CompUtil.parseEverything_fromFile(null, null, filename, rep);		
 
 			// Now, "world" is the root of the the abstract syntax tree.
 
 			// Typecheck the model, and print out all the warnings.
-			List<ErrorWarning> warnings = new ArrayList<ErrorWarning>();
-			world.typecheck(log, warnings);
-			for(Err e:warnings) {
-				alloyParserConsole.printInfo("============ Relevance Warning: ============\n");
-				alloyParserConsole.printInfo(e+"\n");
-			}
+			
+			world.typecheck(rep);
+			
 
 			// Now, you can call getType() on each node in world to find out its type.
 
 			//Let's display all the messages so far
-			alloyParserConsole.print(log.toString());
+			
 			alloyParserConsole.printInfo("=========== End Parsing \""+filename+"\" =============");
-			log.setLength(0);
+			
 		
 
-		//	stores all command in ExecutableCommand
+		//	convert all commands in ExecutableCommand[]
 		SafeList<Command> list = world.getRootModule().getAllCommands();
 		ExecutableCommand [] exec_cmds=new ExecutableCommand[list.size()];		
 		for(int i=0;i<exec_cmds.length;i++){
@@ -113,10 +112,10 @@ public class AlloyLaunching {
  * Executes all commands from a file.
  * */
 
-	private static final void command(String filename,Log log) {
+	private static final void command(String filename,A4Reporter rep) {
 		ExecutableCommand[] exec_cmds;
 		try {
-			exec_cmds = parse(filename,log);
+			exec_cmds = parse(filename,rep);
 		} catch (Err e) {
 			
 			Console.printErr(e);
@@ -129,14 +128,14 @@ public class AlloyLaunching {
 		//AlloyMessageConsole amc=Console.findAlloyConsole(filename);
 		
 		// Execute the command
-		ExecCommand(exec_cmds,log);				
+		ExecCommand(exec_cmds,rep);				
 
 	}
 /**
  * Executes commands.
  * 
  */
-	private static final void ExecCommand(ExecutableCommand[] exec_cmds,Log log)  {
+	private static final void ExecCommand(ExecutableCommand[] exec_cmds,A4Reporter rep)  {
 		if (exec_cmds.length==0) return;
 
 		for (ExecutableCommand cmd:exec_cmds) {
@@ -146,11 +145,8 @@ public class AlloyLaunching {
 				alloyConsole.printInfo("============ Command "+cmd+": ============");
 				A4Solution ans;		
 
-				ans = cmd.execute(log);
-
-				// Print all the diagnostic messages		
-				alloyConsole.print(log.toString());
-				log.setLength(0);
+				ans = cmd.execute(rep);		
+				
 				// Print the outcome
 				alloyConsole.printInfo("============ Answer ============");
 				alloyConsole.print(ans.toString());
