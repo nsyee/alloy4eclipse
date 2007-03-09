@@ -6,29 +6,31 @@ import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
 public class EditorListener implements IAlloyEditorListener {
 
 	public void fileChanged(String fileLocation) {
-		System.out.println("coucou!");
-
 	}
 	public void fileLoaded(String fileLocation) {
-		System.out.println("fileLoaded");
-		launchParser(fileLocation);
+		parseCommandsFor(fileLocation);
 	}
 	public void fileSaved(String fileLocation) {
-		launchParser(fileLocation);
-		System.out.println("fileSaved");
+		parseCommandsFor(fileLocation);
+
 	}
 	public void fileSetFocus(String fileLocation) {
-		System.out.println("coucou!");		
-		launchParser(fileLocation);
+		displayCommandsFor(fileLocation);
 	}
-	private void launchParser(String fileLocation){
-		
-		
-		System.out.println("launch");
-		AlloyCommandView.setElements(AlloyLaunching.launchParser(fileLocation));		
-	}
+
 	public void fileClosed(String fileLocation) {
-		// TODO Auto-generated method stub
-		
+	}
+	/**
+	 * Displays all the commands of an als file. 
+	 */
+	private void displayCommandsFor(String fileLocation){		
+		AlloyCommandView.displayCommands(fileLocation);		
+	}
+	/**
+	 * Launch Alloy parser for an als file. 
+	 */
+	private void parseCommandsFor(String fileLocation){		
+		AlloyCommandView.setCommands(AlloyLaunching.launchParser(fileLocation),fileLocation);
+		displayCommandsFor(fileLocation);
 	}
 }

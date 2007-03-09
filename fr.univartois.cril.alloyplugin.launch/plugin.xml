@@ -65,8 +65,8 @@
                closeable="true"
                id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
                moveable="true"
-               relationship="right"
-               relative="org.eclipse.ui.console.ConsoleView"
+               relationship="stack"
+               relative="org.eclipse.ui.views.ContentOutline"
                visible="true"/>
          <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"/>
       </perspectiveExtension>

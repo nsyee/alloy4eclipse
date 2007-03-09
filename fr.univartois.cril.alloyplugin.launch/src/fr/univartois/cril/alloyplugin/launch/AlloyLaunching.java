@@ -13,7 +13,7 @@ import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
-import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
+
 /**
  * Static methods to launch Alloy parser or command.
  * 
@@ -72,7 +72,7 @@ public class AlloyLaunching {
 	protected static ExecutableCommand[] parse(String filename,Log log) throws Err 
 	{
 
-		AlloyMessageConsole alloyParserConsole=Console.findAlloyErrorConsole(filename);
+		AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
 		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
 
