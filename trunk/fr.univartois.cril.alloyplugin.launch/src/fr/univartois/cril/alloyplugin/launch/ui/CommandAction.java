@@ -32,7 +32,7 @@ public class CommandAction extends SelectionProviderAction {
 		URL url = null;
 		try {
 			url = new URL(Activator.getDefault().getBundle().getEntry("/"),
-			"icons/D_alloy.gif");
+			"icons/D_Alloy.gif");
 		} catch (MalformedURLException e) {
 		}
 		disableImage = ImageDescriptor.createFromURL(url);
