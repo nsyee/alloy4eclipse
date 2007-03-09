@@ -30,7 +30,8 @@ public class EditorListener implements IAlloyEditorListener {
 	 * Launch Alloy parser for an als file. 
 	 */
 	private void parseCommandsFor(String fileLocation){		
-		AlloyCommandView.setCommands(AlloyLaunching.launchParser(fileLocation),fileLocation);
+		AlloyCommandView.setCommands(
+				AlloyLaunching.launchParser(fileLocation),fileLocation);
 		displayCommandsFor(fileLocation);
 	}
 }

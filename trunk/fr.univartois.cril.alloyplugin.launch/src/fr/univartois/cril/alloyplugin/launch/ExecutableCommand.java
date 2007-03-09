@@ -1,7 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch;
 
+import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
-import edu.mit.csail.sdg.alloy4.Log;
 import edu.mit.csail.sdg.alloy4.Pref;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.World;
@@ -30,15 +30,15 @@ public class ExecutableCommand {
 		this.command=command;		
 	}
 
-	public A4Solution execute(Log log) throws Err {
-		return TranslateAlloyToKodkod.execute_command(world, command, getOptions(log), null, null);
+	public A4Solution execute(A4Reporter rep) throws Err {
+		return TranslateAlloyToKodkod.execute_command(world, command, getOptions(rep), null, null);
 	}
 
-	public static A4Options getOptions(Log log) {
+	public static A4Options getOptions(A4Reporter rep) {
 //		 Choose some default options for how you want to execute the commands		
-		A4Options options = new A4Options(log);
+		A4Options options = new A4Options();
 		options.solver = Pref.SatSolver.SAT4J;
-		options.verbosity = 2;
+		options.setReporter(rep);
 		return options;
 	}
 	public String toString(){

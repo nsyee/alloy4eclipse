@@ -7,6 +7,7 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.actions.SelectionProviderAction;
 
+import edu.mit.csail.sdg.alloy4.A4Reporter;
 import fr.univartois.cril.alloyplugin.launch.Activator;
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
@@ -37,11 +38,12 @@ public class CommandAction extends SelectionProviderAction {
 		}
 		disableImage = ImageDescriptor.createFromURL(url);
 	}
-	private IStructuredSelection selection;
+	private IStructuredSelection selection;	
 	
 	
 	public CommandAction(ISelectionProvider sp) {
 		super(sp,"Execute command");
+		
 		this.setEnabled(false);
 		setImageDescriptor(enableImage);
 		setDisabledImageDescriptor(disableImage);

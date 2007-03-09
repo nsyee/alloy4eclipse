@@ -14,7 +14,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.console,
  org.eclipse.jface.text,
  fr.univartois.cril.alloyplugin
-Bundle-ClassPath: alloy4.jar,
- .
+Bundle-ClassPath: .,
+ alloy4.jar
 Bundle-Vendor: CRIL - Université d'Artois
 Export-Package: fr.univartois.cril.alloyplugin.launch
