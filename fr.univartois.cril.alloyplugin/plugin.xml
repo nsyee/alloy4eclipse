@@ -43,6 +43,7 @@
         category="fr.univartois.cril.alloyplugin"
         class="fr.univartois.cril.alloyplugin.ui.AlloyProjectWizard"
         finalPerspective="fr.univartois.cril.alloyplugin.alloyperspective"
+        hasPages="true"
         icon="icons/AlloyProject.gif"
         id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject"
         name="Alloy 4 Project"
