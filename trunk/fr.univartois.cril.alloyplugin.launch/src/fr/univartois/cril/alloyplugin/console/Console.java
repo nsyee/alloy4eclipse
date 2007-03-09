@@ -38,8 +38,8 @@ public class Console {
 		return findConsole(getAlloyConsoleId(filename),filename);
 
 	}
-	public static AlloyMessageConsole findAlloyErrorConsole(String filename){
-		AlloyMessageConsole amc=findConsole(getAlloyErrorConsoleId(filename),filename);		
+	public static AlloyMessageConsole findAlloyInfoConsole(String filename){
+		AlloyMessageConsole amc=findConsole(getAlloyInfoConsoleId(filename),filename);		
 		return amc;
 
 	}	
@@ -48,7 +48,7 @@ public class Console {
 	 * Print a Err exception in the console with Hyperlink if needed.
 	 */
 	public static void printErr(Err e) {
-		AlloyMessageConsole amc=findAlloyErrorConsole("");
+		AlloyMessageConsole amc=findAlloyInfoConsole("");
 		amc.clear();
 		amc.addErrListener(e);
 		amc.reveal();
@@ -64,8 +64,8 @@ public class Console {
 	 * Returns the Parser Console Id of an Alloy file.
 	 * 
 	 */
-	private static String getAlloyErrorConsoleId(String filename) {		
-		return "[Alloy Error Console]";
+	private static String getAlloyInfoConsoleId(String filename) {		
+		return "[Alloy Info Console]";
 	}
 
 	/**
