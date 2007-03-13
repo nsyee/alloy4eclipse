@@ -19,7 +19,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 		{   
 			sel=(StructuredSelection)selection;
 
-			launch(getFileLocation(getResource(sel)));
+			launch(getResource(sel));
 
 		}
 	}
@@ -27,16 +27,16 @@ public class LaunchShortcut implements ILaunchShortcut {
 	public void launch(IEditorPart editor, String mode) {		
 
 		//IWorkbenchPage page
-		launch(getFileLocation(getResource(editor)));
+		launch(getResource(editor));
 	}
 
 	/**
 	 * Launch the Alloy compiler for a given file. 
 	 */
-	private void launch(String fileLocation) {
+	private void launch(IResource res) {
 
 
-		AlloyLaunching.command(fileLocation);			
+		AlloyLaunching.command(res);			
 
 
 

@@ -26,10 +26,10 @@ public class AlloyLaunching {
 	 * If there are syntax or type errors, it display them in console.
 	 * They may contain filename/line/column information.
 	 */
-	public static final void command(String filename) {		
-		A4Reporter rep=new Reporter(filename); 
+	public static final void command(IResource res) {		
+		A4Reporter rep=new Reporter(res); 
 		
-		command(filename,rep); 
+		command(res,rep); 
 	}
 
 	/** 
@@ -38,7 +38,7 @@ public class AlloyLaunching {
 	public static final void ExecCommand(ExecutableCommand[] executablesCommands){
 		if(executablesCommands.length==0) return;
 		
-		A4Reporter rep=new Reporter(executablesCommands[0].getFilename());
+		A4Reporter rep=new Reporter(executablesCommands[0].getRes());
 		ExecCommand(executablesCommands,rep);
 	}
 
@@ -50,29 +50,21 @@ public class AlloyLaunching {
 	 */
 
 	public static ExecutableCommand[] launchParser(IResource res) {	
-        String filename = res.getLocation().toString();
         try {
             res.deleteMarkers(IMarker.PROBLEM, false,0);
         } catch (CoreException e2) {
             // TODO Auto-generated catch block
             e2.printStackTrace();
         }
-		A4Reporter rep=new Reporter(filename);		
+		A4Reporter rep=new Reporter(res);		
 				
 		ExecutableCommand[] exec_cmds;
 		try {
-			exec_cmds = AlloyLaunching.parse(filename,rep);
+			exec_cmds = AlloyLaunching.parse(res,rep);
 		} catch (Err e) {			
 			Console.printErr(e);
             
-            try {
-                IMarker marker = res.createMarker(IMarker.PROBLEM);
-                marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
-                marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
-                marker.setAttribute(IMarker.MESSAGE, e.getMessage());
-            } catch (CoreException e1) {
-                e1.printStackTrace();
-            }
+            displayErrorInProblemView(res, e);
 			exec_cmds=new ExecutableCommand[0];			
 		}
 		
@@ -83,13 +75,24 @@ public class AlloyLaunching {
 		return exec_cmds;
 	}
 
+    private static void displayErrorInProblemView(IResource res, Err e) {
+        try {
+            IMarker marker = res.createMarker(IMarker.PROBLEM);
+            marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+            marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
+            marker.setAttribute(IMarker.MESSAGE, e.msg);
+        } catch (CoreException e1) {
+            e1.printStackTrace();
+        }
+    }
+
 	/**
 	 * Parse a .als file. Returns executable commands which can be executed later.
 	 * @throws Err 
 	 * */
-	protected static ExecutableCommand[] parse(String filename,A4Reporter rep) throws Err 
+	protected static ExecutableCommand[] parse(IResource res,A4Reporter rep) throws Err 
 	{
-
+	    String filename = res.getLocation().toString();
 		AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
 		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
@@ -117,7 +120,7 @@ public class AlloyLaunching {
 		SafeList<Command> list = world.getRootModule().getAllCommands();
 		ExecutableCommand [] exec_cmds=new ExecutableCommand[list.size()];		
 		for(int i=0;i<exec_cmds.length;i++){
-			exec_cmds[i]=new ExecutableCommand(filename,list.get(i),world);
+			exec_cmds[i]=new ExecutableCommand(res,list.get(i),world);
 			
 		}
 		return exec_cmds;
@@ -128,13 +131,14 @@ public class AlloyLaunching {
  * Executes all commands from a file.
  * */
 
-	private static final void command(String filename,A4Reporter rep) {
+	private static final void command(IResource res,A4Reporter rep) {
 		ExecutableCommand[] exec_cmds;
 		try {
-			exec_cmds = parse(filename,rep);
+			exec_cmds = parse(res,rep);
 		} catch (Err e) {
 			
 			Console.printErr(e);
+            displayErrorInProblemView(res, e);
 			return;
 		}
 		// Load the visualizer (You only need to do this if you plan to visualize an Alloy solution)
@@ -179,6 +183,7 @@ public class AlloyLaunching {
 				}
 			} catch (Err e) {				
 				Console.printErr(e);
+                displayErrorInProblemView(cmd.getRes(), e);
 			}
 		}//for all command
 
