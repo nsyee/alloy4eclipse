@@ -56,12 +56,12 @@ public class ALSCodeScanner extends RuleBasedScanner {
 	static class ALSWordDetector implements IWordDetector {
 
 		public boolean isWordPart(char c) {
-		    return (Character.isLetterOrDigit(c) 		            
+		    return (Character.isJavaIdentifierPart(c) 		            
 		            );
 		}	
 
 		public boolean isWordStart(char c) {
-			return (Character.isLetter(c) ||
+			return (Character.isJavaIdentifierStart(c) ||
 			        c == '\'' );
 		}
 	}
