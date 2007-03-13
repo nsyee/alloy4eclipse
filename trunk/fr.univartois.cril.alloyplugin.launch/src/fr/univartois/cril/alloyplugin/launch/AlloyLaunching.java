@@ -68,8 +68,6 @@ public class AlloyLaunching {
 		try {
 			exec_cmds = AlloyLaunching.parse(res,rep);
 		} catch (Err e) {			
-			Console.printErr(e);
-            
             displayErrorInProblemView(res, e);
 			exec_cmds=new ExecutableCommand[0];			
 		}
@@ -142,8 +140,6 @@ public class AlloyLaunching {
 		try {
 			exec_cmds = parse(res,rep);
 		} catch (Err e) {
-			
-			Console.printErr(e);
             displayErrorInProblemView(res, e);
 			return;
 		}
@@ -187,7 +183,6 @@ public class AlloyLaunching {
 					// viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");
 				}
 			} catch (Err e) {				
-				Console.printErr(e);
                 displayErrorInProblemView(cmd.getRes(), e);
 			}
 		}//for all command
