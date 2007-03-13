@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.*;
 import org.eclipse.jface.text.rules.IPartitionTokenScanner;
 import org.eclipse.jface.text.rules.ITokenScanner;
@@ -97,24 +98,21 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	}
 
 
-	public void fireFileLoaded(String fileLocation){
+	public void fireFileLoaded(IResource resource){
 		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileLoaded(fileLocation);
+			listener.fileLoaded(resource);
 		}
 	}	
-	public void fireFileSaved(String fileLocation){
+	public void fireFileSaved(IResource resource){
 		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileSaved(fileLocation);
+			listener.fileSaved(resource);
 		}
 	}	
-	public void fireFileChanged(String fileLocation){
+			
+	
+	public void fireSetFocus(IResource resource) {
 		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileSaved(fileLocation);
-		}		
-	}
-	public void fireSetFocus(String fileLocation) {
-		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileSetFocus(fileLocation);
+			listener.fileSetFocus(resource);
 		}		
 	}
 	/**
