@@ -1,5 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch;
 
+import org.eclipse.core.resources.IResource;
+
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
@@ -16,15 +18,15 @@ public class ExecutableCommand {
 
 	private World world;
 	private Command command;
-	private String filename;
+	private IResource resource;
 	
 	
 	
-	public ExecutableCommand(String filename,Command command, World world) {
-		assert(filename!=null);
+	public ExecutableCommand(IResource res,Command command, World world) {
+		assert(res!=null);
 		assert(command!=null);
 		assert(world!=null);
-		this.filename=filename;
+		this.resource=res;
 		this.world=world;
 		this.command=command;		
 	}
@@ -47,10 +49,14 @@ public class ExecutableCommand {
 		return command.toString();
 	}
 
+    public IResource getRes() {
+        return resource;
+    }
+    
 	public String getFilename() {
 		
 		
-		return filename;
+		return resource.getLocation().toString();
 	}
 	
 }
