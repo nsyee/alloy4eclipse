@@ -81,7 +81,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 */
 	private ExecutableCommand[] getCommandFromFile(IResource resource) {
 		System.out.println("launch:"+getFileLocation(resource));
-		return AlloyLaunching.launchParser(getFileLocation(resource));		
+		return AlloyLaunching.launchParser(resource);		
 	}
 	/**
 	 * Set the current resource for displaying its content (commands).
