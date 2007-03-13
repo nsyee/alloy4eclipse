@@ -10,10 +10,10 @@
   
 = Features available from SVN = 
 
-  * Error and warnings reported as usual in Eclipse
 
 http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-a.png
 
+  * Error and warnings reported as usual in Eclipse
   * Improved _compile on save_ behavior
   * Separate Command view
   * Single command launch
@@ -31,7 +31,6 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-b.png
   * Remembering last run (compilation or commands)
   * Visualization using Graphviz+Swing
   * Managing properties the Eclipse way
-
 
 
 
