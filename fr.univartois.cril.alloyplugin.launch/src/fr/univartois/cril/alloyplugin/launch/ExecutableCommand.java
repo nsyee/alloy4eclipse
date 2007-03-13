@@ -2,7 +2,6 @@ package fr.univartois.cril.alloyplugin.launch;
 
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
-import edu.mit.csail.sdg.alloy4.Pref;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.World;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
@@ -37,8 +36,11 @@ public class ExecutableCommand {
 	public static A4Options getOptions(A4Reporter rep) {
 //		 Choose some default options for how you want to execute the commands		
 		A4Options options = new A4Options();
-		options.solver = Pref.SatSolver.SAT4J;
+		
+		options.solver = A4Options.SatSolver.SAT4J;
 		options.setReporter(rep);
+		
+        
 		return options;
 	}
 	public String toString(){
