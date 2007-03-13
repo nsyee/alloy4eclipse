@@ -11,8 +11,10 @@ import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.World;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
+import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
+import fr.univartois.cril.alloyplugin.launch.ui.CommandReporter;
 
 /**
  * Static methods to launch Alloy parser or command.
@@ -26,6 +28,7 @@ public class AlloyLaunching {
 	 * If there are syntax or type errors, it display them in console.
 	 * They may contain filename/line/column information.
 	 */
+
 	public static final void command(IResource res) {		
 		A4Reporter rep=new Reporter(res); 
 		
@@ -38,7 +41,9 @@ public class AlloyLaunching {
 	public static final void ExecCommand(ExecutableCommand[] executablesCommands){
 		if(executablesCommands.length==0) return;
 		
+
 		A4Reporter rep=new Reporter(executablesCommands[0].getRes());
+
 		ExecCommand(executablesCommands,rep);
 	}
 
@@ -49,6 +54,7 @@ public class AlloyLaunching {
 	 * @return 
 	 */
 
+		
 	public static ExecutableCommand[] launchParser(IResource res) {	
         try {
             res.deleteMarkers(IMarker.PROBLEM, false,0);
@@ -163,10 +169,9 @@ public class AlloyLaunching {
 			alloyConsole.reveal();
 			try {
 				alloyConsole.printInfo("============ Command "+cmd+": ============");
-				A4Solution ans;		
-
-				ans = cmd.execute(rep);		
-				
+				A4Solution ans;
+				//ans = cmd.execute(rep);
+				ans=TranslateAlloyToKodkod.execute_command(cmd.getWorld(), cmd.getCommand(), cmd.getOptions(rep), null, null);
 				// Print the outcome
 				alloyConsole.printInfo("============ Answer ============");
 				alloyConsole.print(ans.toString());
