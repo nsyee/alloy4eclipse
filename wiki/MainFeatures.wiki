@@ -8,8 +8,7 @@
   * Alloy project nature
   * Hyperlink to source code in case of errors
   
-= Features available from SVN = 
-
+= Features available from SVN =
 
 http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-a.png
 
@@ -21,8 +20,6 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-a.png
 
 http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-b.png
 
-
-
 = Upcoming features =
 
   * Code format
@@ -31,6 +28,7 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-b.png
   * Remembering last run (compilation or commands)
   * Visualization using Graphviz+Swing
   * Managing properties the Eclipse way
+
 
 
 
