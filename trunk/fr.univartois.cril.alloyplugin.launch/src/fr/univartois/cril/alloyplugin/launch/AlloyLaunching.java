@@ -1,11 +1,11 @@
 package fr.univartois.cril.alloyplugin.launch;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
-import edu.mit.csail.sdg.alloy4.ErrorWarning;
 import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.World;
@@ -49,7 +49,14 @@ public class AlloyLaunching {
 	 * @return 
 	 */
 
-	public static ExecutableCommand[] launchParser(String filename) {		
+	public static ExecutableCommand[] launchParser(IResource res) {	
+        String filename = res.getLocation().toString();
+        try {
+            res.deleteMarkers(IMarker.PROBLEM, false,0);
+        } catch (CoreException e2) {
+            // TODO Auto-generated catch block
+            e2.printStackTrace();
+        }
 		A4Reporter rep=new Reporter(filename);		
 				
 		ExecutableCommand[] exec_cmds;
@@ -57,6 +64,15 @@ public class AlloyLaunching {
 			exec_cmds = AlloyLaunching.parse(filename,rep);
 		} catch (Err e) {			
 			Console.printErr(e);
+            
+            try {
+                IMarker marker = res.createMarker(IMarker.PROBLEM);
+                marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+                marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
+                marker.setAttribute(IMarker.MESSAGE, e.getMessage());
+            } catch (CoreException e1) {
+                e1.printStackTrace();
+            }
 			exec_cmds=new ExecutableCommand[0];			
 		}
 		
