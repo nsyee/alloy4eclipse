@@ -34,14 +34,14 @@ public class ALSEditor extends TextEditor {
 	
 	public void init(IEditorSite site,IEditorInput input) throws PartInitException{		
 		super.init(site, input);
-		AlloyPlugin.getDefault().fireFileLoaded(getFileInputLocation());		
+		AlloyPlugin.getDefault().fireFileLoaded(getResource());		
 		//TextFileDocumentProvider d=(TextFileDocumentProvider) this.getDocumentProvider();
 	//	System.out.println("d:"+d. .getDocument(null));
 		
 	}
 	public void setFocus() {
 		super.setFocus();
-		AlloyPlugin.getDefault().fireSetFocus(getFileInputLocation());		
+		AlloyPlugin.getDefault().fireSetFocus(getResource());		
 	}
 /**
  * Used for contentoutline (not implement yet)
@@ -65,21 +65,11 @@ public class ALSEditor extends TextEditor {
 		super.editorSaved();
 		
 		//launchParser();
-		AlloyPlugin.getDefault().fireFileSaved(getFileInputLocation());
+		AlloyPlugin.getDefault().fireFileSaved(getResource());
 	}
 	
 	
-	/**
-	 * Try to get the location of the file edited by this editor. 
-	 * Returns the file location or null;
-	 */
-	private String getFileInputLocation(){
-		IResource res=getResource();
-		if(res!=null)
-			return res.getLocation().toString();
-		else
-			return null;
-	}
+
 	/**
 	 * Try to return an IResource from editor.
 	 * Returns null if no such object can be found.  
