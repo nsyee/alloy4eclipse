@@ -42,8 +42,7 @@ public class CommandAction extends SelectionProviderAction {
 	
 	
 	public CommandAction(ISelectionProvider sp) {
-		super(sp,"Execute command");
-		
+		super(sp,"Execute command");		
 		this.setEnabled(false);
 		setImageDescriptor(enableImage);
 		setDisabledImageDescriptor(disableImage);
@@ -52,8 +51,7 @@ public class CommandAction extends SelectionProviderAction {
 		
 	}
 	public void selectionChanged(IStructuredSelection selection)
-	{
-		
+	{	
 		this.selection=selection;
 		if (selection.isEmpty()) this.setEnabled(false);
 		else this.setEnabled(true);
@@ -62,8 +60,7 @@ public class CommandAction extends SelectionProviderAction {
 		Object[] list =  selection.toArray();
 		ExecutableCommand [] exec_cmds=new ExecutableCommand[list.length];		
 		for(int i=0;i<exec_cmds.length;i++){
-			exec_cmds[i]=(ExecutableCommand) list[i];
-			
+			exec_cmds[i]=(ExecutableCommand) list[i];			
 		}
 		AlloyLaunching.ExecCommand(exec_cmds);
 	}

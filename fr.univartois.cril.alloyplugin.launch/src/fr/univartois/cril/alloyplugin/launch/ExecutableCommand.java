@@ -19,6 +19,11 @@ public class ExecutableCommand {
 	private World world;
 	private Command command;
 	private IResource resource;
+	private A4Options options;
+
+	public ExecutableCommand(String filename,Command command, World world,A4Options options) {
+		assert(filename!=null);
+	}
 	
 	
 	
@@ -26,37 +31,52 @@ public class ExecutableCommand {
 		assert(res!=null);
 		assert(command!=null);
 		assert(world!=null);
+
+		if(options==null){
+			this.options = new A4Options();		
+			this.options.solver = A4Options.SatSolver.SAT4J;
+		}
+		else this.options=options;
+		
+
+		this.resource=res;
+
+		this.resource=res;
 		this.resource=res;
 		this.world=world;
 		this.command=command;		
 	}
-
-	public A4Solution execute(A4Reporter rep) throws Err {
-		return TranslateAlloyToKodkod.execute_command(world, command, getOptions(rep), null, null);
+	public ExecutableCommand(String filename,Command command, World world) {
+		this(filename,command, world,null);		
 	}
 
-	public static A4Options getOptions(A4Reporter rep) {
-//		 Choose some default options for how you want to execute the commands		
-		A4Options options = new A4Options();
-		
-		options.solver = A4Options.SatSolver.SAT4J;
+	public A4Options getOptions(A4Reporter rep) {
 		options.setReporter(rep);
-		
-        
 		return options;
 	}
 	public String toString(){
 		return command.toString();
 	}
-
     public IResource getRes() {
         return resource;
-    }
-    
+    }    
+
 	public String getFilename() {
 		
 		
 		return resource.getLocation().toString();
 	}
-	
+
+
+
+	public World getWorld() {
+
+		return world;
+	}
+
+	public Command getCommand() {
+
+		return command;
+	}
+
 }

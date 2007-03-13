@@ -20,8 +20,10 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.graphics.Image;
@@ -46,8 +48,10 @@ import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 public class AlloyCommandView extends ViewPart{
 	protected static AlloyCommandView defaultAlloyCommandView;
 	protected  static ViewContentProvider viewContentProvider;
-	private TableViewer viewer;
+	private TableViewer commandsViewer;
 	private Action commandAction;
+	private ListViewer resultsViewer;
+	private StringBuilder result=null;
 	private static ImageDescriptor elementImage;
 	private static String viewTitle="";
 	static {
@@ -75,46 +79,49 @@ public class AlloyCommandView extends ViewPart{
 		public String getColumnText(Object obj, int index) {
 			//AlloyRunCommandAction a=(AlloyRunCommandAction) obj;
 			//return a.getCommand().toString();
-			return getText(obj);
+			return getText(obj);			
 		}
 		public Image getColumnImage(Object obj, int index) {
 			return getImage(obj);
 		}
-		public Image getImage(Object obj) {
-			//Action a=(Action) obj;
-			//if(a==null) {System.out.println("null");return null;}
-			//System.out.println("actionID:"+a.getActionDefinitionId());
-			//if (a.getImageDescriptor()==null) {System.out.println("null elements");return null;}
+		public Image getImage(Object obj) {	
 			return elementImage.createImage();
 			//return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
-
 		}
-
 	}
 
+	class ResultLabelProvider extends LabelProvider {		
+		public String getText(Object obj) {
+			//return("dd\nttt\nttt");
+			return super.getText(obj);
+				}
+		public Image getImage(Object obj) {		
+			return elementImage.createImage();
+				}
+		 
+		}
 	/**
 	 * The constructor.
 	 */
 	public AlloyCommandView() {
 		defaultAlloyCommandView=this;
 //		affiche les view presentes:
-		/*		
+		/*
 		for (IViewDescriptor viewDescriptor:
 			PlatformUI.getWorkbench().getViewRegistry().getViews()){
 			System.out.println(viewDescriptor.getId());			
 		}
-		System.out.println("init");*/
+		 */
 	}
 	public void dispose(){
-//		System.out.println("dispose");
+		//TODO implements this dispose method
 		defaultAlloyCommandView=null;
 	}
 
 	/**
-	 * Returns commands view or null. 
+	 * Returns commands view or null if not created yet. 
 	 */
 	public static AlloyCommandView getDefault(){
-
 		return defaultAlloyCommandView;
 
 	}
@@ -122,16 +129,19 @@ public class AlloyCommandView extends ViewPart{
 
 	public void createPartControl(Composite parent) {		
 
-		//RowLayout layout = new RowLayout();
-		//layout.type=SWT.VERTICAL;
-		//parent.setLayout(layout);
-		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		viewer.setContentProvider(getContentProvider());		
-		viewer.setLabelProvider(new ViewLabelProvider());		
-		viewer.setInput(getViewSite());
+		FillLayout layout = new FillLayout();
+		layout.type=SWT.VERTICAL;
+		parent.setLayout(layout);
+		commandsViewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+		commandsViewer.setContentProvider(getContentProvider());		
+		commandsViewer.setLabelProvider(new ViewLabelProvider());		
+		commandsViewer.setInput(getViewSite());
 		//Sash sash=new Sash(parent, SWT.HORIZONTAL);
 		//sash.
-		//new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+		resultsViewer=new ListViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);		
+		resultsViewer.setLabelProvider(new ResultLabelProvider());
+		resultsViewer.add(getResult());
+		
 		setTitle("["+viewTitle+"]");
 		makeActions();
 		hookContextMenu();
@@ -152,9 +162,9 @@ public class AlloyCommandView extends ViewPart{
 				AlloyCommandView.this.fillContextMenu(manager);
 			}
 		});
-		Menu menu = menuMgr.createContextMenu(viewer.getControl());
-		viewer.getControl().setMenu(menu);		
-		getSite().registerContextMenu(menuMgr, viewer);
+		Menu menu = menuMgr.createContextMenu(commandsViewer.getControl());
+		commandsViewer.getControl().setMenu(menu);		
+		getSite().registerContextMenu(menuMgr, commandsViewer);
 	}
 
 	private void contributeToActionBars() {
@@ -181,7 +191,8 @@ public class AlloyCommandView extends ViewPart{
 	}
 
 	private void makeActions() {
-		commandAction = new CommandAction(viewer);
+		commandAction = new CommandAction(commandsViewer);
+		//new CommandActionListener();
 		/*
 		doubleClickAction = new Action() {
 			public void run() {
@@ -194,7 +205,7 @@ public class AlloyCommandView extends ViewPart{
 	}
 
 	private void hookDoubleClickAction() {		
-		viewer.addDoubleClickListener(new IDoubleClickListener() {
+		commandsViewer.addDoubleClickListener(new IDoubleClickListener() {
 			public void doubleClick(DoubleClickEvent event) {
 				commandAction.run();
 			}
@@ -213,7 +224,7 @@ public class AlloyCommandView extends ViewPart{
 	 * Passing the focus request to the viewer's control.
 	 */
 	public void setFocus() {
-		viewer.getControl().setFocus();
+		commandsViewer.getControl().setFocus();
 	}
 
 	/**
@@ -240,7 +251,7 @@ public class AlloyCommandView extends ViewPart{
 	 * returns viewer; 
 	 */
 	private StructuredViewer getViewer() {		
-		return viewer;
+		return commandsViewer;
 	}
 	/**
 	 * Sets commands from a file to the ContentProvider.
@@ -248,13 +259,13 @@ public class AlloyCommandView extends ViewPart{
 	public static void setCommands(IResource resource) {		
 		((ViewContentProvider) getContentProvider()).addElements(resource);
 	}
-	
+
 	/**
 	 * Displays the commands of a file.
 	 * (if setCommand() has been called before with the same file)	 
 	 */
 	public static void displayCommands(IResource resource) {		
-		
+
 		if(resource.equals(getContentProvider().getCurrent()))
 			return;
 		forceDisplayCommands(resource);
@@ -273,6 +284,42 @@ public class AlloyCommandView extends ViewPart{
 		if(viewer2!=null)			
 			viewer2.refresh();			
 		view.setTitle("["+viewTitle+"]");
+
+	}
+	/**
+	 * Print in the resultview. 
+	 */
+	public static void printResult(String string) {
+		AlloyCommandView view = getDefault();
 		
+		StringBuilder sb;
+		if (view!=null) {
+			
+			view.refreshResult(string);
+			}
+		
+		
+		//view2.r
+	}
+	private void refreshResult(String string) {
+		StringBuilder sb = getResult();
+		sb.replace(0,sb.length(), string);
+		ListViewer view2 = null;
+		view2=getResultViewer();
+		if (view2==null)return;
+		
+		view2.update(result, null);
+		
+	}
+	private StringBuilder getResult() {
+		if (result==null) result=new StringBuilder("No result at this time.");
+		return result;	
+		
+	}
+	/**
+	 * return the results viewer or null if not created yet. 
+	 */
+	private ListViewer getResultViewer() {		
+		return resultsViewer;
 	}
 }
