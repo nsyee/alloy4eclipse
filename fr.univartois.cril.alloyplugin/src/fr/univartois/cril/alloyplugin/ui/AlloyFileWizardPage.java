@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.wizards;
+package fr.univartois.cril.alloyplugin.ui;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
