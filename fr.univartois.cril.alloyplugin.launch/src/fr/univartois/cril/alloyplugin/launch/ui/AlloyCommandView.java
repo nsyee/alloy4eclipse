@@ -283,7 +283,7 @@ public class AlloyCommandView extends ViewPart{
 		StructuredViewer viewer2=view.getViewer();
 		if(viewer2!=null)			
 			viewer2.refresh();			
-		view.setTitle("["+viewTitle+"]");
+		view.setPartName("["+viewTitle+"]");
 
 	}
 	/**
