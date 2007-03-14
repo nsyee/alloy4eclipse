@@ -11,7 +11,7 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
 
 /**
- * A command with its world and its filename. 
+ * A command with its world and its resource. 
  * Can be executed.
  */
 public class ExecutableCommand {
@@ -21,34 +21,26 @@ public class ExecutableCommand {
 	private IResource resource;
 	private A4Options options;
 
-	public ExecutableCommand(String filename,Command command, World world,A4Options options) {
-		assert(filename!=null);
-	}
-	
-	
-	
-	public ExecutableCommand(IResource res,Command command, World world) {
-		assert(res!=null);
-		assert(command!=null);
-		assert(world!=null);
-
+	public ExecutableCommand(IResource res,Command command, World world,A4Options options) {		
 		if(options==null){
 			this.options = new A4Options();		
 			this.options.solver = A4Options.SatSolver.SAT4J;
 		}
 		else this.options=options;
-		
+		assert(res!=null);
+		assert(command!=null);
+		assert(world!=null);
 
-		this.resource=res;
-
-		this.resource=res;
 		this.resource=res;
 		this.world=world;
-		this.command=command;		
+		this.command=command;
 	}
-	public ExecutableCommand(String filename,Command command, World world) {
-		this(filename,command, world,null);		
+
+	
+	public ExecutableCommand(IResource res,Command command, World world) {
+		this(res,command,world,null);				
 	}
+	
 
 	public A4Options getOptions(A4Reporter rep) {
 		options.setReporter(rep);
@@ -62,9 +54,8 @@ public class ExecutableCommand {
     }    
 
 	public String getFilename() {
-		
-		
-		return resource.getLocation().toString();
+		//TODO can be null
+return resource.getLocation().toString();
 	}
 
 

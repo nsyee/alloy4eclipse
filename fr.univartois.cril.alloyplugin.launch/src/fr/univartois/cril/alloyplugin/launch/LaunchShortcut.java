@@ -36,7 +36,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 	private void launch(IResource res) {
 
 
-		AlloyLaunching.command(res);			
+		AlloyLaunching.execAllCommandsfromAFile(res);			
 
 
 

@@ -3,9 +3,11 @@ package fr.univartois.cril.alloyplugin.launch;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.ui.PlatformUI;
 
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
+import edu.mit.csail.sdg.alloy4.Pos;
 import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.World;
@@ -15,6 +17,7 @@ import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.launch.ui.CommandReporter;
+import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 /**
  * Static methods to launch Alloy parser or command.
@@ -22,29 +25,20 @@ import fr.univartois.cril.alloyplugin.launch.ui.CommandReporter;
  * */
 public class AlloyLaunching {
 
-	/**
-	 * Execute every command in a file.
-	 * This method parses the file, then execute every command.
-	 * If there are syntax or type errors, it display them in console.
-	 * They may contain filename/line/column information.
-	 */
 
-	public static final void command(IResource res) {		
-		A4Reporter rep=new Reporter(res); 
-		
-		command(res,rep); 
-	}
+
+
 
 	/** 
 	 * Execute ExecutableCommands previously created.
 	 */
 	public static final void ExecCommand(ExecutableCommand[] executablesCommands){
 		if(executablesCommands.length==0) return;
-		
+
 
 		A4Reporter rep=new Reporter(executablesCommands[0].getRes());
 
-		ExecCommand(executablesCommands,rep);
+		execCommands(executablesCommands,rep);
 	}
 
 	/**
@@ -54,24 +48,24 @@ public class AlloyLaunching {
 	 * @return 
 	 */
 
-		
+
 	public static ExecutableCommand[] launchParser(IResource res) {	
-        try {
-            res.deleteMarkers(IMarker.PROBLEM, false,0);
-        } catch (CoreException e2) {
-            // TODO Auto-generated catch block
-            e2.printStackTrace();
-        }
+		try {
+			res.deleteMarkers(IMarker.PROBLEM, false,0);
+		} catch (CoreException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		A4Reporter rep=new Reporter(res);		
-				
+
 		ExecutableCommand[] exec_cmds;
 		try {
 			exec_cmds = AlloyLaunching.parse(res,rep);
 		} catch (Err e) {			
-            displayErrorInProblemView(res, e);
+			displayErrorInProblemView(res, e);
 			exec_cmds=new ExecutableCommand[0];			
 		}
-		
+
 		//AlloyCommandView acw = AlloyCommandView.getDefault();
 		/*if(acw!=null) {			
 			acw.setElements(exec_cmds);
@@ -79,16 +73,23 @@ public class AlloyLaunching {
 		return exec_cmds;
 	}
 
-    private static void displayErrorInProblemView(IResource res, Err e) {
-        try {
-            IMarker marker = res.createMarker(IMarker.PROBLEM);
-            marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
-            marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
-            marker.setAttribute(IMarker.MESSAGE, e.msg);
-        } catch (CoreException e1) {
-            e1.printStackTrace();
-        }
-    }
+	private static void displayErrorInProblemView(IResource res, Err e) {		
+		if(e.pos!=Pos.UNKNOWN)
+		{
+			if(!e.pos.filename.equals(Util.getFileLocation(res)))
+			{
+				res=Util.getFileForLocation(e.pos.filename);
+			}
+		}
+		try {
+			IMarker marker = res.createMarker(IMarker.PROBLEM);
+			marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+			marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
+			marker.setAttribute(IMarker.MESSAGE, e.msg);
+		} catch (CoreException e1) {
+			e1.printStackTrace();
+		}
+	}
 
 	/**
 	 * Parse a .als file. Returns executable commands which can be executed later.
@@ -96,68 +97,54 @@ public class AlloyLaunching {
 	 * */
 	protected static ExecutableCommand[] parse(IResource res,A4Reporter rep) throws Err 
 	{
-	    String filename = res.getLocation().toString();
+		String filename = res.getLocation().toString();
 		AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
 		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
+		World world;		
+		world = CompUtil.parseEverything_fromFile(null, null, filename, rep);		
 
-		World world;
-		
-			world = CompUtil.parseEverything_fromFile(null, null, filename, rep);		
+		// Now, "world" is the root of the the abstract syntax tree.
+		// Typecheck the model, and print out all the warnings.			
+		world.typecheck(rep);			
 
-			// Now, "world" is the root of the the abstract syntax tree.
-
-			// Typecheck the model, and print out all the warnings.
-			
-			world.typecheck(rep);
-			
-
-			// Now, you can call getType() on each node in world to find out its type.
-
-			//Let's display all the messages so far
-			
-			alloyParserConsole.printInfo("=========== End Parsing \""+filename+"\" =============");
-			
-		
-
+		// Now, you can call getType() on each node in world to find out its type.
+		//Let's display all the messages so far			
+		alloyParserConsole.printInfo("=========== End Parsing \""+filename+"\" =============");
 		//	convert all commands in ExecutableCommand[]
 		SafeList<Command> list = world.getRootModule().getAllCommands();
 		ExecutableCommand [] exec_cmds=new ExecutableCommand[list.size()];		
 		for(int i=0;i<exec_cmds.length;i++){
 			exec_cmds[i]=new ExecutableCommand(res,list.get(i),world);
-			
+
 		}
 		return exec_cmds;
 	}
 
 
-/**
- * Executes all commands from a file.
- * */
-
-	private static final void command(IResource res,A4Reporter rep) {
+	/**
+	 * Execute every command in a file.
+	 * This method parse the file, then execute every command.
+	 * If there are syntax or type errors, it display them.
+	 * They may contain filename/line/column information.
+	 */
+	public static final void execAllCommandsfromAFile(IResource res) {
+		A4Reporter rep=new Reporter(res);
 		ExecutableCommand[] exec_cmds;
 		try {
 			exec_cmds = parse(res,rep);
 		} catch (Err e) {
-            displayErrorInProblemView(res, e);
+			displayErrorInProblemView(res,e);
 			return;
 		}
-		// Load the visualizer (You only need to do this if you plan to visualize an Alloy solution)
-		// VizGUI viz = new VizGUI(false, "", null);
-		//		 Parse the model
-		//Console.clearConsole(filename);
-		//AlloyMessageConsole amc=Console.findAlloyConsole(filename);
-		
-		// Execute the command
-		ExecCommand(exec_cmds,rep);				
+		execCommands(exec_cmds,rep);				
 
 	}
-/**
- * Executes commands.
- * 
- */
-	private static final void ExecCommand(ExecutableCommand[] exec_cmds,A4Reporter rep)  {
+	/**
+	 * Executes commands.
+	 * 
+	 */
+	private static final void execCommands(ExecutableCommand[] exec_cmds,A4Reporter rep)  {
 		if (exec_cmds.length==0) return;
 
 		for (ExecutableCommand cmd:exec_cmds) {
@@ -183,7 +170,7 @@ public class AlloyLaunching {
 					// viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");
 				}
 			} catch (Err e) {				
-                displayErrorInProblemView(cmd.getRes(), e);
+				displayErrorInProblemView(cmd.getRes(), e);
 			}
 		}//for all command
 

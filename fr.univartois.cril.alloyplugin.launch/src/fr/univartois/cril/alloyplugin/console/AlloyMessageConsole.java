@@ -15,6 +15,7 @@ import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 
 import edu.mit.csail.sdg.alloy4.Err;
+import fr.univartois.cril.alloyplugin.launch.util.Util;
 /**
  * A MessageConsole with useful methods for infos and Err printing.
  */
@@ -78,7 +79,7 @@ public class AlloyMessageConsole extends MessageConsole {
 	 */
 	protected void addFileLink(String filename,int offset,int lenght,int line){		
 		if (filename==null) return;
-		IFile iff = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(filename));		
+		IFile iff = Util.getFileForLocation(filename);		
 		if(iff==null) return;
 		FileLink fl=new FileLink(iff,null, -1, -1,line);
 

@@ -283,7 +283,12 @@ public class AlloyCommandView extends ViewPart{
 		StructuredViewer viewer2=view.getViewer();
 		if(viewer2!=null)			
 			viewer2.refresh();			
-		view.setPartName("["+viewTitle+"]");
+		
+		view.setTitle("["+viewTitle+"]");
+		//this doesn't do the same. Bien que la doc dise qu'il faille
+		//utiliser за а la place c'est vrai :-/ .
+		//
+//		view.setPartName("["+viewTitle+"]");
 
 	}
 	/**

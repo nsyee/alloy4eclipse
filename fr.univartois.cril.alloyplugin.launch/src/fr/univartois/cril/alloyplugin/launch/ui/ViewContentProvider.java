@@ -9,6 +9,8 @@ import org.eclipse.jface.viewers.Viewer;
 
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.launch.util.Util;
+//import fr.univartois.cril.alloyplugin.launch.util.Util;
 /**
  * Content provider for commands view.
  * */
@@ -50,18 +52,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	}
 	//TODO implement this method
 	public void removeElements(IResource resource){}
-	/**
-	 * Try to get the location of the resource. 
-	 * Returns the file location or null;
-	 * @param resource 
-	 */
-	//TODO move in a static util class?
-	private static String getFileLocation(IResource resource){		
-		if(resource!=null)
-			return resource.getLocation().toString();
-		else
-			return null;
-	}
+	
 	/**
 	 * This method from IStructuredContentProvider is used by the viewer which this content provider is associed.
 	 * Returns all the commands for the current resource.
@@ -80,7 +71,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 * Launch the Alloy parser to get commands from the resource.
 	 */
 	private ExecutableCommand[] getCommandFromFile(IResource resource) {
-		System.out.println("launch:"+getFileLocation(resource));
+		System.out.println("launch:"+Util.getFileLocation(resource));
 		return AlloyLaunching.launchParser(resource);		
 	}
 	/**
