@@ -74,13 +74,23 @@ class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
 	public Image getImage(Object obj) {
 		ExecutableCommand cmd=(ExecutableCommand) obj;
 		if (cmd.getResult().equals(ExecutableCommand.SAT))
-			if (cmd.getCommand().check) return elementImageRed.createImage();
-			else return elementImageGreen.createImage();
+			if (cmd.getCommand().check) {
+				if(cmd.getCommand().expects==0)
+					return elementImageRed.createImage();// not expected sat check command
+				else
+					return elementImageBlue.createImage();// expected sat check command
+			}
+			else return elementImageGreen.createImage();//Sat Run command 
 		if (cmd.getResult().equals(ExecutableCommand.UNSAT))
-			if (cmd.getCommand().check) return elementImageGreen.createImage();
-			else return elementImageRed.createImage();
-			
-		
+			if (cmd.getCommand().check) return elementImageGreen.createImage();//OK
+			else {
+				if(cmd.getCommand().expects==0)
+					return elementImageBlue.createImage();
+				else
+					return elementImageRed.createImage();
+			}
+
+
 		return elementImage.createImage();
 		//return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
 	}
