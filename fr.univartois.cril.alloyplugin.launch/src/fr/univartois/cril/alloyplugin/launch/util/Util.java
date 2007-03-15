@@ -15,7 +15,7 @@ public class Util {
 	//TODO move in a static util class?
 	public static String getFileLocation(IResource resource){		
 		if(resource!=null)
-			return resource.getLocation().toString();
+			return resource.getLocation().toOSString();
 		else
 			return null;
 	}

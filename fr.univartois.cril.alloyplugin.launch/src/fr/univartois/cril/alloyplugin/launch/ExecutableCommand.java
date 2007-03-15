@@ -15,12 +15,16 @@ import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
  * Can be executed.
  */
 public class ExecutableCommand {
-
+	
+	public static final String SAT = "[SAT]";
+	public static final String UNSAT = "[UNSAT]";
 	private World world;
 	private Command command;
 	private IResource resource;
 	private A4Options options;
-
+	private String result;
+	
+	
 	public ExecutableCommand(IResource res,Command command, World world,A4Options options) {		
 		if(options==null){
 			this.options = new A4Options();		
@@ -32,15 +36,17 @@ public class ExecutableCommand {
 		assert(world!=null);
 
 		this.resource=res;
+			
 		this.world=world;
 		this.command=command;
+		result="";
 	}
 
-	
+
 	public ExecutableCommand(IResource res,Command command, World world) {
 		this(res,command,world,null);				
 	}
-	
+
 
 	public A4Options getOptions(A4Reporter rep) {
 		options.setReporter(rep);
@@ -49,25 +55,40 @@ public class ExecutableCommand {
 	public String toString(){
 		return command.toString();
 	}
-    public IResource getRes() {
-        return resource;
-    }    
-
+	public IResource getRes() {
+		return resource;
+	}    
+/**
+ *  
+ */
 	public String getFilename() {
-		//TODO can be null
-return resource.getLocation().toString();
+		//TODO can be null: use safe method
+		return resource.getLocation().toString();
 	}
 
-
-
 	public World getWorld() {
-
 		return world;
 	}
 
 	public Command getCommand() {
-
 		return command;
+	}
+
+	public String getResult() {		
+		return result;		
+	}
+
+	public A4Solution execute(Reporter rep) throws Err {
+		rep.setExecCommand(this);
+		A4Solution ans = TranslateAlloyToKodkod.execute_command(getWorld(),getCommand(),getOptions(rep), null, null); 
+		return ans;
+	}
+
+
+	public void setSat(boolean sat) {
+		if (sat) result=SAT;
+		else result=UNSAT;
+		
 	}
 
 }

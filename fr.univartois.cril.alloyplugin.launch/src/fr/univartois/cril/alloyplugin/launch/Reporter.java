@@ -16,6 +16,7 @@ public final class Reporter extends A4Reporter {
     private int warningCount=0;
 	private String filename;
     private IResource resource;
+	private ExecutableCommand execCommand;
     
 	public Reporter(IResource res){
         this.filename=res.getLocation().toOSString();
@@ -78,10 +79,12 @@ public final class Reporter extends A4Reporter {
         //sb.append(""+solvingTime+"ms.");
         print(sb.toString());
         AlloyCommandView.printResult(sb.toString());
+        execCommand.setSat(true);
     }
 
     @Override public void resultUNSAT
     (Object command, long solvingTime, String filename) {
+    	execCommand.setSat(false);
         Command cmd = (Command)command;
         StringBuilder sb = new StringBuilder("");
         if (cmd.check) {
@@ -129,6 +132,11 @@ public final class Reporter extends A4Reporter {
     public void bound(String msg) {
 //    	print("bound:"+msg);
     }
+
+	public void setExecCommand(ExecutableCommand cmd) {
+		this.execCommand=cmd;
+		
+	}
 
   
 

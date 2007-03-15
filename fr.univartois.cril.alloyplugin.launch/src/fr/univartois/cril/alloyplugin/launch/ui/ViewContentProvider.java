@@ -22,6 +22,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 		//TODO fusionner avec l'editorListener?		
 		map.put(current, elements);
 	}		
+	//TODO uses this
 	public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 		//System.out.println("v:"+v);
 		//System.out.println("oldInput:"+oldInput);
@@ -37,19 +38,17 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 * and stores its commands.
 	 * If no, it associate a null value to the resource.
 	 */
-	public void addElements(IResource resource){
-		AlloyCommandView view = AlloyCommandView.getDefault();
-		ExecutableCommand[] elements=null;
-		System.out.print("ajoute");
-		if (view!=null) elements=getCommandFromFile(resource);
-		System.out.println(elements);
-		putElement(resource,elements);
-		
+	public void addElements(ExecutableCommand[] exec_cmds,IResource resource){		
+		putElement(resource,exec_cmds);		
 	}
 
 	private Object[] putElement(IResource resource, ExecutableCommand[] elements) {
 		return map.put(resource, elements);		
 	}
+
+	/**
+	 * Remove a resource and its commands from map. 
+	 */
 	//TODO implement this method
 	public void removeElements(IResource resource){}
 	
@@ -58,22 +57,11 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 * Returns all the commands for the current resource.
 	 */
 	public Object[] getElements(Object parent) {		
-		ExecutableCommand[] exec_cmds = map.get(current);
-		System.out.println("get"+exec_cmds);
-		if (exec_cmds==null) 
-			{exec_cmds=getCommandFromFile(current);
-			putElement(current,exec_cmds);
-			return exec_cmds;}
-			
+		ExecutableCommand[] exec_cmds = map.get(current);			
+		//if (exec_cmds==null) return new ExecutableCommand[0];
 		return exec_cmds;
 	}
-	/**
-	 * Launch the Alloy parser to get commands from the resource.
-	 */
-	private ExecutableCommand[] getCommandFromFile(IResource resource) {
-		System.out.println("launch:"+Util.getFileLocation(resource));
-		return AlloyLaunching.launchParser(resource);		
-	}
+	
 	/**
 	 * Set the current resource for displaying its content (commands).
 	 */

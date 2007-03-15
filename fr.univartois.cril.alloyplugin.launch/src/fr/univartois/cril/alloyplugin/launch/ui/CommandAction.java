@@ -58,11 +58,14 @@ public class CommandAction extends SelectionProviderAction {
 	}
 	public void run(){		
 		Object[] list =  selection.toArray();
-		ExecutableCommand [] exec_cmds=new ExecutableCommand[list.length];		
-		for(int i=0;i<exec_cmds.length;i++){
-			exec_cmds[i]=(ExecutableCommand) list[i];			
+		//ExecutableCommand [] exec_cmds=new ExecutableCommand[list.length];		
+		for(int i=0;i<list.length;i++){
+			AlloyLaunching.ExecCommand((ExecutableCommand) list[i]);
+			AlloyCommandView.refresh();
 		}
-		AlloyLaunching.ExecCommand(exec_cmds);
+		
+		//AlloyCommandView.setCommands(resource,exec_cmds);
+		//AlloyCommandView.forceDisplayCommands(resource);
 	}
 
 }

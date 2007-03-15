@@ -1,14 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
 
-
-
-
-import java.net.MalformedURLException;
-import java.net.URL;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Layout;
-import org.eclipse.swt.widgets.Sash;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPage;
@@ -17,25 +10,19 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
-import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.jface.action.*;
 import org.eclipse.swt.widgets.Menu;
-
 import org.eclipse.swt.SWT;
-import fr.univartois.cril.alloyplugin.launch.Activator;
-import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
+
 
 ;
 /**
@@ -52,51 +39,18 @@ public class AlloyCommandView extends ViewPart{
 	private Action commandAction;
 	private ListViewer resultsViewer;
 	private StringBuilder result=null;
-	private static ImageDescriptor elementImage;
+
 	private static String viewTitle="";
-	static {
-		URL url = null;
-		try {
-			url = new URL(Activator.getDefault().getBundle().getEntry("/"),
-			"icons/AlloyCommand.gif");
-		} catch (MalformedURLException e) {
-		}
-		elementImage = ImageDescriptor.createFromURL(url);
-	}
+	
 
-	/*
-	 * The content provider class is responsible for
-	 * providing objects to the view. It can wrap
-	 * existing objects in adapters or simply return
-	 * objects as-is. These objects may be sensitive
-	 * to the current input of the view, or ignore
-	 * it and always show the same content 
-	 * (like Task List, for example).
-	 */
-
-
-	class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
-		public String getColumnText(Object obj, int index) {
-			//AlloyRunCommandAction a=(AlloyRunCommandAction) obj;
-			//return a.getCommand().toString();
-			return getText(obj);			
-		}
-		public Image getColumnImage(Object obj, int index) {
-			return getImage(obj);
-		}
-		public Image getImage(Object obj) {	
-			return elementImage.createImage();
-			//return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
-		}
-	}
-
+	
 	class ResultLabelProvider extends LabelProvider {		
 		public String getText(Object obj) {
 			//return("dd\nttt\nttt");
 			return super.getText(obj);
 				}
 		public Image getImage(Object obj) {		
-			return elementImage.createImage();
+			return null;
 				}
 		 
 		}
@@ -106,12 +60,12 @@ public class AlloyCommandView extends ViewPart{
 	public AlloyCommandView() {
 		defaultAlloyCommandView=this;
 //		affiche les view presentes:
-		/*
-		for (IViewDescriptor viewDescriptor:
+		
+/*		for (IViewDescriptor viewDescriptor:
 			PlatformUI.getWorkbench().getViewRegistry().getViews()){
 			System.out.println(viewDescriptor.getId());			
-		}
-		 */
+		}*/
+		 
 	}
 	public void dispose(){
 		//TODO implements this dispose method
@@ -139,7 +93,7 @@ public class AlloyCommandView extends ViewPart{
 		//Sash sash=new Sash(parent, SWT.HORIZONTAL);
 		//sash.
 		resultsViewer=new ListViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);		
-		resultsViewer.setLabelProvider(new ResultLabelProvider());
+		//resultsViewer.setLabelProvider(new ResultLabelProvider());
 		resultsViewer.add(getResult());
 		
 		setTitle("["+viewTitle+"]");
@@ -256,16 +210,16 @@ public class AlloyCommandView extends ViewPart{
 	/**
 	 * Sets commands from a file to the ContentProvider.
 	 * */
-	public static void setCommands(IResource resource) {		
-		((ViewContentProvider) getContentProvider()).addElements(resource);
+	public static void setCommands(IResource res,ExecutableCommand[] exec_cmds) {		
+		((ViewContentProvider) getContentProvider()).addElements(exec_cmds,res);
 	}
-
+	
 	/**
 	 * Displays the commands of a file.
 	 * (if setCommand() has been called before with the same file)	 
 	 */
-	public static void displayCommands(IResource resource) {		
-
+	public static void displayCommands(IResource resource) {
+		
 		if(resource.equals(getContentProvider().getCurrent()))
 			return;
 		forceDisplayCommands(resource);
@@ -326,5 +280,10 @@ public class AlloyCommandView extends ViewPart{
 	 */
 	private ListViewer getResultViewer() {		
 		return resultsViewer;
+	}
+	public static void refresh() {
+		AlloyCommandView view = getDefault();
+		if(view!=null)
+			view.getViewer().refresh();		
 	}
 }
