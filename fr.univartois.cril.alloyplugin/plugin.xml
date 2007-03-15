@@ -15,12 +15,9 @@
             extensions="als"/>
 </extension>
    
-<extension-point id="fr.univartois.cril.alloyplugin.listeners" name="Command Listeners"/>
+
 <extension-point id="fr.univartois.cril.alloyplugin.editorlisteners" name="Editor Listeners"/>
-<extension point ="fr.univartois.cril.alloyplugin.listeners">
-	<listener class="fr.univartois.cril.alloyplugin.listener">
-	</listener>
-</extension>
+
 <extension
       point="org.eclipse.core.filebuffers.documentSetup">
    <participant
