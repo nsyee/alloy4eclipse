@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
@@ -21,47 +22,8 @@ import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 
 
 class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
-	private static ImageDescriptor elementImage;
-	private static ImageDescriptor elementImageGreen;
-	private static ImageDescriptor elementImageRed;
-	private static ImageDescriptor elementImageBlue;
-	//TODO changer ces bouts de codes !!!!!! (faire un registre d'image)
-	static {
-		URL url = null;
-		try {
-			url = new URL(Activator.getDefault().getBundle().getEntry("/"),
-			"icons/AlloyCommand.gif");
-		} catch (MalformedURLException e) {
-		}
-		elementImage = ImageDescriptor.createFromURL(url);
-	}
-	static {
-		URL url = null;
-		try {
-			url = new URL(Activator.getDefault().getBundle().getEntry("/"),
-			"icons/AlloyCommandGreen.gif");
-		} catch (MalformedURLException e) {
-		}
-		elementImageGreen = ImageDescriptor.createFromURL(url);
-	}
-	static {
-		URL url = null;
-		try {
-			url = new URL(Activator.getDefault().getBundle().getEntry("/"),
-			"icons/AlloyCommandRed.gif");
-		} catch (MalformedURLException e) {
-		}
-		elementImageRed = ImageDescriptor.createFromURL(url);
-	}
-	static {
-		URL url = null;
-		try {
-			url = new URL(Activator.getDefault().getBundle().getEntry("/"),
-			"icons/AlloyCommandBlue.gif");
-		} catch (MalformedURLException e) {
-		}
-		elementImageBlue = ImageDescriptor.createFromURL(url);
-	}
+	
+	
 	public String getColumnText(Object obj, int index) {
 		//AlloyRunCommandAction a=(AlloyRunCommandAction) obj;
 		//return a.getCommand().toString();
@@ -72,26 +34,32 @@ class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
 		return getImage(obj);
 	}
 	public Image getImage(Object obj) {
+		
 		ExecutableCommand cmd=(ExecutableCommand) obj;
+		ImageRegistry reg = Activator.getDefault().getImageRegistry();
 		if (cmd.getResult().equals(ExecutableCommand.SAT))
 			if (cmd.getCommand().check) {
 				if(cmd.getCommand().expects==0)
-					return elementImageRed.createImage();// not expected sat check command
+					return reg.get(Activator.RED_CHECK_ID);// not expected sat check command
 				else
-					return elementImageBlue.createImage();// expected sat check command
+					return reg.get(Activator.BLUE_CHECK_ID);// expected sat check command
 			}
-			else return elementImageGreen.createImage();//Sat Run command 
+			else return reg.get(Activator.GREEN_RUN_ID);;//Sat Run command 
 		if (cmd.getResult().equals(ExecutableCommand.UNSAT))
-			if (cmd.getCommand().check) return elementImageGreen.createImage();//OK
+			if (cmd.getCommand().check) return reg.get(Activator.GREEN_CHECK_ID);//OK
 			else {
 				if(cmd.getCommand().expects==0)
-					return elementImageBlue.createImage();
+					return reg.get(Activator.BLUE_RUN_ID);
 				else
-					return elementImageRed.createImage();
+					return reg.get(Activator.RED_RUN_ID);
 			}
 
 
-		return elementImage.createImage();
+		return reg.get(Activator.COMMAND_ID);
 		//return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
+	}
+	private Object getImageRegistry() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
