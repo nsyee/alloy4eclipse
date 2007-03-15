@@ -24,52 +24,52 @@ public class AlloyContentOutlinePage implements IContentOutlinePage {
 	}
 
 	public void createControl(Composite parent) {
-		// TODO Auto-generated method stub
+		// TODO Outline
 		
 	}
 
 	public void dispose() {
-		// TODO Auto-generated method stub
+		// TODO Outline
 		
 	}
 
 	public Control getControl() {
-		// TODO Auto-generated method stub
+		// TODO Outline
 		return null;
 	}
 
 	public void setActionBars(IActionBars actionBars) {
-		// TODO Auto-generated method stub
+		// TODO Outline 
 		
 	}
 
 	public void setFocus() {
-		// TODO Auto-generated method stub
+		// TODO Outline
 		
 	}
 
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
-		// TODO Auto-generated method stub
+		// TODO Outline
 		
 	}
 
 	public ISelection getSelection() {
-		// TODO Auto-generated method stub
+		// TODO Outline
 		return null;
 	}
 
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
-		// TODO Auto-generated method stub
+		// TODO Outline
 		
 	}
 
 	public void setSelection(ISelection selection) {
-		// TODO Auto-generated method stub
+		// TODO Outline
 		
 	}
 
 	public void setInput(IEditorInput editorInput) {
-		// TODO Auto-generated method stub
+		// TODO Outline
 		
 	}
 
