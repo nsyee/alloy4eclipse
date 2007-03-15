@@ -69,6 +69,7 @@
                relative="org.eclipse.ui.views.ContentOutline"
                visible="true"/>
          <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"/>
+         <actionSet id="org.eclipse.debug.ui.launchActionSet"/>
       </perspectiveExtension>
    </extension>
    
