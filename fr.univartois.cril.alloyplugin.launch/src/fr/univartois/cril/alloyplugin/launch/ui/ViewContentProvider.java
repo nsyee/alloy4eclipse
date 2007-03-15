@@ -39,7 +39,8 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 */
 	public void addElements(ExecutableCommand[] exec_cmds,IResource resource){		
 		//putElement(resource,exec_cmds);
-		map.put(resource, elements);
+		
+		map.put(resource, exec_cmds);
 	}
 
 	
@@ -57,6 +58,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	public Object[] getElements(Object parent) {		
 		ExecutableCommand[] exec_cmds = map.get(current);			
 		//if (exec_cmds==null) return new ExecutableCommand[0];
+		
 		return exec_cmds;
 	}
 
