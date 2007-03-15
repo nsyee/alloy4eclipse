@@ -18,11 +18,11 @@ class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
 	
 	public String getColumnText(Object obj, int index) {		
 		ExecutableCommand cmd=(ExecutableCommand) obj;
-		if (cmd.getResult()!=ExecutableCommand.UNKNOW)
+		if (cmd.getResult()==ExecutableCommand.UNKNOW)
 			return cmd.toString();
 		if (cmd.getResult()!=ExecutableCommand.SAT)
-			return cmd.toString()+" [SAT]";
-		else return cmd.toString()+" [UNSAT]";			
+			return cmd.toString()+" [UNSAT]";
+		else return cmd.toString()+" [SAT]";			
 	}
 	public Image getColumnImage(Object obj, int index) {
 		return getImage(obj);
