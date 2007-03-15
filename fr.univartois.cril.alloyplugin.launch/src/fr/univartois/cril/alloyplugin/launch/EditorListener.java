@@ -23,11 +23,11 @@ public class EditorListener implements IAlloyEditorListener {
 	}
 
 	public void fileChanged(IResource resource) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	public void fileClosed(IResource resource) {
-		// TODO Auto-generated method stub	
+		// TODO enlever les commandes du fichier de AlloyCommandView	
 	}
 	
 	

@@ -98,7 +98,7 @@ public class Activator extends AbstractUIPlugin {
 	/**
 	 * Add image in image registry. Pour taper moins de code 
 	 * la clé de l'image est aussi le chemin d'accès de l'image dans le plugin. 
-	 * @param reg TODO
+	 * @param reg 
 	 */
 		
 	private void addImage(String localPathKey, ImageRegistry reg) {

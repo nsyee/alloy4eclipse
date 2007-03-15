@@ -22,12 +22,12 @@ public class ConsoleErrListener implements IPatternMatchListener {
 		this.e=e;
 	}
 	public int getCompilerFlags(){
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
 	public String getLineQualifier() {
-		// TODO Auto-generated method stub		
+				
 		return null;
 	}
 	/**
@@ -65,12 +65,12 @@ public class ConsoleErrListener implements IPatternMatchListener {
 
 
 	public void connect(TextConsole console) {
-		// TODO Auto-generated method stub		
+				
 		this.console=(AlloyMessageConsole) console;
 	}
 
 	public void disconnect() {
-		// TODO Auto-generated method stub
+		
 	}
 
 	public void matchFound(PatternMatchEvent event) {

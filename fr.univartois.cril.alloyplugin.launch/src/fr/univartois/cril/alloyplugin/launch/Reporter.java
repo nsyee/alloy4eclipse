@@ -1,9 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch;
 
-import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.CoreException;
 
+import org.eclipse.core.resources.IResource;
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.ErrorWarning;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
@@ -28,15 +26,7 @@ public final class Reporter extends A4Reporter {
         // the location is in "e.pos"
         printInfo("Warning #"+warningCount);
         printInfo(e.msg.trim());
-        try {
-            IMarker marker = resource.createMarker(IMarker.PROBLEM);
-            marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_WARNING);
-            marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
-            marker.setAttribute(IMarker.MESSAGE, e.msg);
-        } catch (CoreException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
+        AlloyLaunching.displayErrorInProblemView(resource,e);
         
     }
 

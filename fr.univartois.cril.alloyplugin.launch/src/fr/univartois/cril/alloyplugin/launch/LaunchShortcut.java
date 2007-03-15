@@ -1,7 +1,6 @@
 package fr.univartois.cril.alloyplugin.launch;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.debug.ui.ILaunchShortcut;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -58,13 +57,5 @@ public class LaunchShortcut implements ILaunchShortcut {
 		IResource ir=(IResource) ((IAdaptable)sel.getFirstElement()).getAdapter(IResource.class);
 		return ir;
 	}
-	/**
-	 * Returns a portable String of the IResource file location. 
-	 * @param ir
-	 * @return
-	 */
-	private String getFileLocation(IResource ir) {
-		IPath ip=ir.getLocation();
-		return ip.toPortableString();		
-	}
+	
 }
