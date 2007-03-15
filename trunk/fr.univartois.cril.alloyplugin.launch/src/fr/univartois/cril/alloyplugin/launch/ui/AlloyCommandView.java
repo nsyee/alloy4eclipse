@@ -239,25 +239,22 @@ public class AlloyCommandView extends ViewPart{
 			viewer2.refresh();			
 		
 		view.setTitle("["+viewTitle+"]");
+		//TODO change this deprecated method.
+		//			view.setPartName("["+viewTitle+"]");
 		//this doesn't do the same. Bien que la doc dise qu'il faille
 		//utiliser за а la place c'est vrai :-/ .
 		//
-//		view.setPartName("["+viewTitle+"]");
+
 
 	}
 	/**
 	 * Print in the resultview. 
 	 */
 	public static void printResult(String string) {
-		AlloyCommandView view = getDefault();
-		
-		StringBuilder sb;
-		if (view!=null) {
-			
+		AlloyCommandView view = getDefault();		
+		if (view!=null) {			
 			view.refreshResult(string);
-			}
-		
-		
+			}		
 		//view2.r
 	}
 	private void refreshResult(String string) {

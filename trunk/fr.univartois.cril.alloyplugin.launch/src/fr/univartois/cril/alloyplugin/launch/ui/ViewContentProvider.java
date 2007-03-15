@@ -6,20 +6,20 @@ import java.util.HashMap;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-
-import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.launch.util.Util;
-//import fr.univartois.cril.alloyplugin.launch.util.Util;
+
+
 /**
- * Content provider for commands view.
- * */
+ * Content provider for commands view. It stores ExecutableCommand[] associated with resource.
+ * When Alloy Command view ask for elements (getElements()), the provider returns ExecutableCommand
+ * associated with the current Resource.
+ */
+
 public class ViewContentProvider implements IStructuredContentProvider {
 	ExecutableCommand[] elements={};
 	HashMap<IResource, ExecutableCommand[]> map=new HashMap<IResource, ExecutableCommand[]>();
 	IResource current=null;
-	public ViewContentProvider(){
-		//TODO fusionner avec l'editorListener?		
+	public ViewContentProvider(){		
 		map.put(current, elements);
 	}		
 	//TODO uses this
@@ -29,29 +29,27 @@ public class ViewContentProvider implements IStructuredContentProvider {
 		//System.out.println("newInput:"+newInput);
 	}			
 	public void dispose() {
-//		TODO implement this method
+//		TODO dispose the hasMap?
+		
 	}
 
 	/**
-	 * Add a resource to the content provider.
-	 * If the AlloyCommandView is open, it call getCommandFromFile(resource)
-	 * and stores its commands.
-	 * If no, it associate a null value to the resource.
+	 * Add a resource to the content provider and its commands.
+	 * 
 	 */
 	public void addElements(ExecutableCommand[] exec_cmds,IResource resource){		
-		putElement(resource,exec_cmds);		
+		//putElement(resource,exec_cmds);
+		map.put(resource, elements);
 	}
 
-	private Object[] putElement(IResource resource, ExecutableCommand[] elements) {
-		return map.put(resource, elements);		
-	}
-
+	
 	/**
 	 * Remove a resource and its commands from map. 
 	 */
-	//TODO implement this method
+	//TODO implement this method: when a file is closed in the alloy editor, editor listener
+	//should call a method who dispose all commands associated with the  file
 	public void removeElements(IResource resource){}
-	
+
 	/**
 	 * This method from IStructuredContentProvider is used by the viewer which this content provider is associed.
 	 * Returns all the commands for the current resource.
@@ -61,7 +59,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 		//if (exec_cmds==null) return new ExecutableCommand[0];
 		return exec_cmds;
 	}
-	
+
 	/**
 	 * Set the current resource for displaying its content (commands).
 	 */
