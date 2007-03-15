@@ -25,20 +25,13 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
  * */
 public class AlloyLaunching {
 
-
-
-
-
 	/** 
-	 * Execute ExecutableCommands previously created.
+	 * Execute an ExecutableCommand previously created after a parsing.
 	 */
-	public static final void ExecCommand(ExecutableCommand[] executablesCommands){
-		if(executablesCommands.length==0) return;
-
-
-		A4Reporter rep=new Reporter(executablesCommands[0].getRes());
-
-		execCommands(executablesCommands,rep);
+	public static final void ExecCommand(ExecutableCommand command){
+		assert(command!=null);
+		Reporter rep=new Reporter(command.getRes());
+		execCommand(command,rep);
 	}
 
 	/**
@@ -72,15 +65,11 @@ public class AlloyLaunching {
 			}*/
 		return exec_cmds;
 	}
-
-	private static void displayErrorInProblemView(IResource res, Err e) {		
-		if(e.pos!=Pos.UNKNOWN)
-		{
-			if(!e.pos.filename.equals(Util.getFileLocation(res)))
-			{
-				res=Util.getFileForLocation(e.pos.filename);
-			}
-		}
+/**
+ * Displays an Err execption in problem view.
+ */
+	private static void displayErrorInProblemView(IResource res, Err e) {	
+		res= getResourceFromErr(res, e);
 		try {
 			IMarker marker = res.createMarker(IMarker.PROBLEM);
 			marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
@@ -89,6 +78,20 @@ public class AlloyLaunching {
 		} catch (CoreException e1) {
 			e1.printStackTrace();
 		}
+	}
+	/**
+	 * Get the ressource where the Err is located. 
+	 */
+	private  static IResource getResourceFromErr(IResource res,Err e)
+	{
+		if(e.pos!=Pos.UNKNOWN)
+		{
+			if(!e.pos.filename.equals(Util.getFileLocation(res)))
+			{
+				return Util.getFileForLocation(e.pos.filename);
+			}
+		}
+		return res;
 	}
 
 	/**
@@ -129,7 +132,7 @@ public class AlloyLaunching {
 	 * They may contain filename/line/column information.
 	 */
 	public static final void execAllCommandsfromAFile(IResource res) {
-		A4Reporter rep=new Reporter(res);
+		Reporter rep=new Reporter(res);
 		ExecutableCommand[] exec_cmds;
 		try {
 			exec_cmds = parse(res,rep);
@@ -137,42 +140,40 @@ public class AlloyLaunching {
 			displayErrorInProblemView(res,e);
 			return;
 		}
-		execCommands(exec_cmds,rep);				
-
+		for(ExecutableCommand cmd:exec_cmds){
+			execCommand(cmd,rep);				
+		}
 	}
 	/**
-	 * Executes commands.
+	 * Execute a command.
 	 * 
 	 */
-	private static final void execCommands(ExecutableCommand[] exec_cmds,A4Reporter rep)  {
-		if (exec_cmds.length==0) return;
-
-		for (ExecutableCommand cmd:exec_cmds) {
-			AlloyMessageConsole alloyConsole=Console.findAlloyConsole(cmd.getFilename());
-			alloyConsole.reveal();
-			try {
-				alloyConsole.printInfo("============ Command "+cmd+": ============");
-				A4Solution ans;
-				//ans = cmd.execute(rep);
-				ans=TranslateAlloyToKodkod.execute_command(cmd.getWorld(), cmd.getCommand(), cmd.getOptions(rep), null, null);
-				// Print the outcome
-				alloyConsole.printInfo("============ Answer ============");
-				alloyConsole.print(ans.toString());
-				// If satisfiable...
-				if (ans.satisfiable()) {				
-					// You can query "ans" to find out the values of each set or type.
-					// This can be useful for debugging.
-					//
-					// You can also write the outcome to an XML file
-					// ans.writeXML("output.xml", false);
-					//
-					// You can then visualize the XML file by calling this:
-					// viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");
-				}
-			} catch (Err e) {				
-				displayErrorInProblemView(cmd.getRes(), e);
+	private static final void execCommand(ExecutableCommand command,Reporter rep)  {
+		AlloyMessageConsole alloyConsole=Console.findAlloyConsole(command.getFilename());
+		alloyConsole.reveal();
+		try {
+			alloyConsole.printInfo("============ Command "+command+": ============");
+			A4Solution ans;
+			//ans = cmd.execute(rep);
+			ans=command.execute(rep);
+			// Print the outcome
+			alloyConsole.printInfo("============ Answer ============");
+			alloyConsole.print(ans.toString());
+			// If satisfiable...
+			if (ans.satisfiable()) {				
+				// You can query "ans" to find out the values of each set or type.
+				// This can be useful for debugging.
+				//
+				// You can also write the outcome to an XML file
+				// ans.writeXML("output.xml", false);
+				//
+				// You can then visualize the XML file by calling this:
+				// viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");
 			}
-		}//for all command
+		} catch (Err e) {				
+			displayErrorInProblemView(command.getRes(), e);
+		}
+
 
 	}
 
