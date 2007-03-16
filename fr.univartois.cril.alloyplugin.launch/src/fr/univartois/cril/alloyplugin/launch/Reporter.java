@@ -15,7 +15,9 @@ public final class Reporter extends A4Reporter {
 	private String filename;
     private IResource resource;
 	private ExecutableCommand execCommand;
-    
+    /**
+     * Create a reporter which is associated with one resource. 
+     */
 	public Reporter(IResource res){
         this.filename=res.getLocation().toOSString();
         this.resource = res;

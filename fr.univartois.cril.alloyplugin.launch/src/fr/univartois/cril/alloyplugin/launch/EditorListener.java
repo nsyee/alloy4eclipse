@@ -42,8 +42,8 @@ public class EditorListener implements IAlloyEditorListener {
 	 */
 	private void parseCommandsFor(IResource resource){
 		ExecutableCommand[] exec_cmds = AlloyLaunching.launchParser(resource);
-		AlloyCommandView.setCommands(resource,exec_cmds);
-		AlloyCommandView.forceDisplayCommands(resource);
+		AlloyCommandView.addCommandsToDisplay(resource,exec_cmds);
+		AlloyCommandView.refreshCommands(resource);
 		
 	}
 	
