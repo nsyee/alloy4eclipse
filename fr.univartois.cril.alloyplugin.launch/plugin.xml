@@ -74,10 +74,11 @@
    </extension>
    <extension point="org.eclipse.debug.core.launchConfigurationTypes">
     <launchConfigurationType
-        name="Java Applet"
-        delegate="fr.univartois.cril.alloyplugin.launch.ui.JavaAppletLaunchConfigurationDelegate"
-        modes="run, debug"               
-        id="org.eclipse.jdt.launching.javaApplet">        
+          delegate="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationDelegate"
+          id="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType"
+          modes="run"
+          name="Alloy command"
+          public="true">        
     </launchConfigurationType>
 </extension>
 </plugin>
