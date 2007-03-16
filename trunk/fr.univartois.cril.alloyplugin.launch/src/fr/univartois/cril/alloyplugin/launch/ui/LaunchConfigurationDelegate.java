@@ -10,7 +10,7 @@ public class LaunchConfigurationDelegate implements ILaunchConfigurationDelegate
 
 	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) throws CoreException {
 		// TODO à implémenter
-		
+		System.out.println("yoh");
 	}
 
 }

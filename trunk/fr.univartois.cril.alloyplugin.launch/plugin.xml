@@ -78,7 +78,26 @@
           id="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType"
           modes="run"
           name="Alloy command"
-          public="true">        
+          public="true">
+       <fileExtension
+             default="true"
+             extension="als"/>        
     </launchConfigurationType>
 </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType"
+            icon="icons/AlloyCommand.gif"
+            id="fr.univartois.cril.alloyplugin.launch.launchConfigurationTypeImage1"/>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationTabGroups"
+            id="fr.univartois.cril.alloyplugin.launch.launchConfigurationTabGroup1"
+            type="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType">
+      </launchConfigurationTabGroup>
+
+ </extension>
 </plugin>
