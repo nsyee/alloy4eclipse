@@ -75,7 +75,7 @@
    <extension point="org.eclipse.debug.core.launchConfigurationTypes">
     <launchConfigurationType
         name="Java Applet"
-        delegate="org.eclipse.jdt.internal.launching.JavaAppletLaunchConfigurationDelegate"
+        delegate="fr.univartois.cril.alloyplugin.launch.ui.JavaAppletLaunchConfigurationDelegate"
         modes="run, debug"               
         id="org.eclipse.jdt.launching.javaApplet">        
     </launchConfigurationType>

@@ -9,7 +9,7 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 public class JavaAppletLaunchConfigurationDelegate implements ILaunchConfigurationDelegate{
 
 	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) throws CoreException {
-		// TODO Auto-generated method stub
+		// TODO à implémenter
 		
 	}
 
