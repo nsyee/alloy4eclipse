@@ -55,10 +55,10 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 * This method from IStructuredContentProvider is used by the viewer which this content provider is associed.
 	 * Returns all the commands for the current resource.
 	 */
-	public Object[] getElements(Object parent) {		
+	public ExecutableCommand[] getElements(Object parent) {		
 		ExecutableCommand[] exec_cmds = map.get(current);			
 		//if (exec_cmds==null) return new ExecutableCommand[0];
-		
+		assert(exec_cmds!=null);		
 		return exec_cmds;
 	}
 
@@ -74,5 +74,8 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 */	  
 	public IResource getCurrent() {
 		return current;
+	}
+	public ExecutableCommand[] getCurrentCommands() {
+		return getElements(null);		
 	};
 }

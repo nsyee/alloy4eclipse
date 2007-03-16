@@ -2,7 +2,9 @@ package fr.univartois.cril.alloyplugin.console;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.ConsolePlugin;
@@ -73,7 +75,12 @@ public class Console {
 	 */
 
 	protected static void revealConsoleView(AlloyMessageConsole console) {
-		IWorkbenchPage page=PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();			    
+		//TODO change this
+		IWorkbench wb = PlatformUI.getWorkbench();
+		if (wb==null) return;
+		IWorkbenchWindow aww = wb.getActiveWorkbenchWindow();
+		if (aww==null) return;
+		IWorkbenchPage page=aww.getActivePage();			    
 		String id = IConsoleConstants.ID_CONSOLE_VIEW;
 		IConsoleView view;
 		try {

@@ -79,20 +79,6 @@ public class AlloyLaunching {
 			e1.printStackTrace();
 		}
 	}
-	/*
-	o you mean you want a way to know all included files?
-			If so, then you can get it from parseEverything_fromFile().
-
-			Currently, I'm assuming you're calling it like this:
-			parseEverything_fromFile(null, ...)
-
-			You can change it to this:
-			Map filemap = new HashMap();
-			parseEverything(filemap, ...)
-
-			Then afterwards, filemap.keySet() contains the main file's filename,
-			and the filenames of all subfiles.
-			*/
 
 	/**
 	 * Get the ressource where the Err is located. 
@@ -182,6 +168,7 @@ public class AlloyLaunching {
 		AlloyMessageConsole alloyConsole=Console.findAlloyConsole(command.getFilename());
 		alloyConsole.reveal();
 		try {
+
 			alloyConsole.printInfo("============ Command "+command+": ============");
 			A4Solution ans;
 			//ans = cmd.execute(rep);
