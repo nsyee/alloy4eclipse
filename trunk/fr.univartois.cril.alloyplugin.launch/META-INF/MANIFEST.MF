@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.editors,
  org.eclipse.ui.console,
  org.eclipse.jface.text,
- fr.univartois.cril.alloyplugin
+ fr.univartois.cril.alloyplugin,
+ org.eclipse.debug.core
 Bundle-ClassPath: .,
  alloy4.jar
 Bundle-Vendor: CRIL - Université d'Artois
