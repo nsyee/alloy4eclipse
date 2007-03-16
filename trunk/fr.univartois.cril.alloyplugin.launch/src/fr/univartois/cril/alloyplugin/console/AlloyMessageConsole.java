@@ -11,6 +11,7 @@ import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.IPatternMatchListener;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
@@ -51,9 +52,9 @@ public class AlloyMessageConsole extends MessageConsole {
 	 */
 	protected  void print(final String message,final Color c,final int style){
 		{	
-			//TODO implement this method to prevent SWT invalid thread access.
-			//try to get the display ......
-			Display display = null;
+			//TODO SWT THREAD PROBLEM
+			//try to get the display ......			
+			Display display = PlatformUI.getWorkbench().getDisplay();
 			//this.
 			if (display!=null)//demande a display d'executer le print (dans un thread graphique)
 			display.syncExec(

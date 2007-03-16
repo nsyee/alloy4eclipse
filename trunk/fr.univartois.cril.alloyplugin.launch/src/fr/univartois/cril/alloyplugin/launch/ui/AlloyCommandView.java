@@ -2,6 +2,7 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPage;
@@ -239,7 +240,7 @@ public class AlloyCommandView extends ViewPart{
 	 */
 	public static ExecutableCommand[] getCurrentCommands(){
 		return getContentProvider().getCurrentCommands();
-		
+
 	}
 	/**
 	 * Displays the commands of a file if they are not at the moment.
@@ -279,7 +280,7 @@ public class AlloyCommandView extends ViewPart{
 	public static void printResult(String string) {
 		AlloyCommandView view = getDefault();		
 		if (view!=null) {			
-			//view.refreshResult(string);
+			view.refreshResult(string);
 		}		
 		//view2.r
 	}
@@ -287,10 +288,20 @@ public class AlloyCommandView extends ViewPart{
 	private void refreshResult(String string) {
 		StringBuilder sb = getResult();
 		sb.replace(0,sb.length(), string);
-		ListViewer view2 = null;
-		view2=getResultViewer();
-		if (view2==null)return;
-		//view2.update(result, null);
+		//TODO SWT THREAD PROBLEM
+		Display display = PlatformUI.getWorkbench().getDisplay();		
+		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
+			display.syncExec(
+					new Runnable() {
+						public void run(){
+							ListViewer view2 = null;
+							view2=getResultViewer();
+							if (view2==null)return;
+							view2.update(result, null);
+						}
+					});
+
+
 	}
 	/**@deprecated*/
 	private StringBuilder getResult() {
@@ -309,8 +320,18 @@ public class AlloyCommandView extends ViewPart{
 	 * refresh AlloyCommandview.
 	 */
 	public static void refresh() {
-		AlloyCommandView view = getDefault();
-		if(view!=null)
-			view.getViewer().refresh();		
+		//TODO SWT THREAD PROBLEM
+		Display display = PlatformUI.getWorkbench().getDisplay();		
+		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
+			display.syncExec(
+					new Runnable() {
+						public void run(){
+							AlloyCommandView view = getDefault();
+							if(view==null) return;
+							view.getViewer().refresh();
+						}
+					});
+		
+				
 	}
 }

@@ -16,7 +16,8 @@ public class LaunchConfigurationDelegate implements ILaunchConfigurationDelegate
 		ExecutableCommand[] tab = AlloyCommandView.getCurrentCommands();
 		System.out.println(tab);
 		for (ExecutableCommand command : tab) {
-			AlloyLaunching.ExecCommand(command);	
+			AlloyLaunching.ExecCommand(command);
+			AlloyCommandView.refresh();
 		}
 		 
 	}

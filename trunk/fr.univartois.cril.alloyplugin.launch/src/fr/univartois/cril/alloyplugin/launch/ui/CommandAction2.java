@@ -15,7 +15,7 @@ import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 /**
  * This listens a selectionProvider and can execute selected ExecutableCommand from it.  
  * */
-public class CommandAction extends SelectionProviderAction {
+public class CommandAction2 extends SelectionProviderAction {
 	private static ImageDescriptor enableImage;
 	private static ImageDescriptor disableImage;
 	static {
@@ -39,7 +39,7 @@ public class CommandAction extends SelectionProviderAction {
 	private IStructuredSelection selection;	
 	
 	
-	public CommandAction(ISelectionProvider sp) {
+	public CommandAction2(ISelectionProvider sp) {
 		super(sp,"Execute command");		
 		this.setEnabled(false);
 		setImageDescriptor(enableImage);
