@@ -1,5 +1,10 @@
 package fr.univartois.cril.alloyplugin.launch;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -23,7 +28,8 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
  * 
  * */
 public class AlloyLaunching {
-
+	
+	private static Map<IResource, Map<String,String>> resourceWithIncludedFileMap=new HashMap<IResource, Map<String, String>>();
 	/** 
 	 * Execute an ExecutableCommand previously created after a parsing.
 	 */
@@ -42,12 +48,7 @@ public class AlloyLaunching {
 
 
 	public static ExecutableCommand[] launchParser(IResource res) {	
-		try {
-			res.deleteMarkers(IMarker.PROBLEM, false,0);
-		} catch (CoreException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
+		
 		A4Reporter rep=new Reporter(res);		
 
 		ExecutableCommand[] exec_cmds;
@@ -64,9 +65,9 @@ public class AlloyLaunching {
 			}*/
 		return exec_cmds;
 	}
-/**
- * Displays an Err execption in problem view.
- */
+	/**
+	 * Displays an Err execption in problem view.
+	 */
 	public static void displayErrorInProblemView(IResource res, Err e) {	
 		res= getResourceFromErr(res, e);
 		try {
@@ -78,6 +79,21 @@ public class AlloyLaunching {
 			e1.printStackTrace();
 		}
 	}
+	/*
+	o you mean you want a way to know all included files?
+			If so, then you can get it from parseEverything_fromFile().
+
+			Currently, I'm assuming you're calling it like this:
+			parseEverything_fromFile(null, ...)
+
+			You can change it to this:
+			Map filemap = new HashMap();
+			parseEverything(filemap, ...)
+
+			Then afterwards, filemap.keySet() contains the main file's filename,
+			and the filenames of all subfiles.
+			*/
+
 	/**
 	 * Get the ressource where the Err is located. 
 	 */
@@ -99,13 +115,28 @@ public class AlloyLaunching {
 	 * */
 	protected static ExecutableCommand[] parse(IResource res,A4Reporter rep) throws Err 
 	{
+		try {
+			
+			Map<String, String> map = resourceWithIncludedFileMap.get(res);
+			if(map!=null){				
+				for (String filename: map.keySet()) {
+					System.out.println(filename);
+					IFile res2 = Util.getFileForLocation(filename);
+					if(res2!=null&&res2.exists())
+						res2.deleteMarkers(IMarker.PROBLEM, false,0);					
+				}
+			}
+		} catch (CoreException e2) {			
+			e2.printStackTrace();
+		}
 		String filename = res.getLocation().toString();
 		AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
 		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
-		World world;		
-		world = CompUtil.parseEverything_fromFile(null, null, filename, rep);		
-
+		World world;
+		Map <String,String>filemap = new HashMap<String, String>();
+		world = CompUtil.parseEverything_fromFile(filemap, null, filename, rep);		
+		resourceWithIncludedFileMap.put(res,filemap);
 		// Now, "world" is the root of the the abstract syntax tree.
 		// Typecheck the model, and print out all the warnings.			
 		world.typecheck(rep);			
