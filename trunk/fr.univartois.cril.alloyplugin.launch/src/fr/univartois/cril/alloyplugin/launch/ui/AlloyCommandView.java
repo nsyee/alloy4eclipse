@@ -229,12 +229,18 @@ public class AlloyCommandView extends ViewPart{
 		return commandsViewer;
 	}
 	/**
-	 * add commands from a file to the ContentProvider.
+	 * Add commands from a file to the ContentProvider.
 	 * */
 	public static void addCommandsToDisplay(IResource res,ExecutableCommand[] exec_cmds) {		
 		((ViewContentProvider) getContentProvider()).addElements(exec_cmds,res);
 	}
-
+	/**
+	 * Get current displayed commands.
+	 */
+	public static ExecutableCommand[] getCurrentCommands(){
+		return getContentProvider().getCurrentCommands();
+		
+	}
 	/**
 	 * Displays the commands of a file if they are not at the moment.
 	 * (if addCommandsToDisplay() has been called before with the same resource)	 
@@ -273,7 +279,7 @@ public class AlloyCommandView extends ViewPart{
 	public static void printResult(String string) {
 		AlloyCommandView view = getDefault();		
 		if (view!=null) {			
-			view.refreshResult(string);
+			//view.refreshResult(string);
 		}		
 		//view2.r
 	}
@@ -284,7 +290,7 @@ public class AlloyCommandView extends ViewPart{
 		ListViewer view2 = null;
 		view2=getResultViewer();
 		if (view2==null)return;
-		view2.update(result, null);
+		//view2.update(result, null);
 	}
 	/**@deprecated*/
 	private StringBuilder getResult() {

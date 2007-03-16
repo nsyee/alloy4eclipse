@@ -10,6 +10,7 @@ import org.eclipse.debug.ui.console.FileLink;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.console.IPatternMatchListener;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
@@ -22,13 +23,13 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 public class AlloyMessageConsole extends MessageConsole {
 
-	
+
 	IPatternMatchListener listener;
 	public AlloyMessageConsole(String name) {
 		super(name, null);
-		
+
 	}
-	
+
 	/**
 	 * Add an listener which matchs the filename from Err in the console,
 	 * and transform it in a Hyperlink.
@@ -38,17 +39,34 @@ public class AlloyMessageConsole extends MessageConsole {
 		this.removePatternMatchListener(listener);
 		listener =new ConsoleErrListener(e);
 		this.addPatternMatchListener(listener);		
-		}
-	
+	}
+
 	//public void addPatternMatchListener(IPatternMatchListener listener){
-		//this.setPatternMatch
+	//this.setPatternMatch
 	//}
-	
+
 
 	/**
 	 * Print message in the console.
 	 */
-	protected void print(String message,Color c,int style){		
+	protected  void print(final String message,final Color c,final int style){
+		{	
+			//TODO implement this method to prevent SWT invalid thread access.
+			//try to get the display ......
+			Display display = null;
+			//this.
+			if (display!=null)//demande a display d'executer le print (dans un thread graphique)
+			display.syncExec(
+					new Runnable() {
+						public void run(){
+							print2(message,c,style);
+						}
+					});
+			else//execute le print dans le thread courant (pas forcément graphique)
+				print2(message,c,style);//
+		}
+	}
+	protected void print2(String message,Color c,int style){		
 		MessageConsoleStream out = this.newMessageStream();
 		out.setColor(c);
 		out.setFontStyle(style);
