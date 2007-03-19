@@ -28,7 +28,7 @@ public final class Reporter extends A4Reporter {
         // the location is in "e.pos"
         printInfo("Warning #"+warningCount);
         printInfo(e.msg.trim());
-        AlloyLaunching.displayErrorInProblemView(resource,e);
+        AlloyLaunching.displayWarningInProblemView(resource,e);
         
     }
 

@@ -68,11 +68,11 @@ public class AlloyLaunching {
 	/**
 	 * Displays an Err execption in problem view.
 	 */
-	public static void displayErrorInProblemView(IResource res, Err e) {	
+	public static void displayErrorInProblemView(IResource res, Err e, int severity) {	
 		res= getResourceFromErr(res, e);
 		try {
 			IMarker marker = res.createMarker(IMarker.PROBLEM);
-			marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+			marker.setAttribute(IMarker.SEVERITY,severity);
 			marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
 			marker.setAttribute(IMarker.MESSAGE, e.msg);
 		} catch (CoreException e1) {
@@ -80,6 +80,14 @@ public class AlloyLaunching {
 		}
 	}
 
+	public static void displayErrorInProblemView(IResource res, Err e) {
+		displayErrorInProblemView(res,e,IMarker.SEVERITY_ERROR);
+	}
+	
+	public static void displayWarningInProblemView(IResource res, Err e) {
+		displayErrorInProblemView(res,e,IMarker.SEVERITY_WARNING);
+	}
+	
 	/**
 	 * Get the ressource where the Err is located. 
 	 */
@@ -111,6 +119,8 @@ public class AlloyLaunching {
 					if(res2!=null&&res2.exists())
 						res2.deleteMarkers(IMarker.PROBLEM, false,0);					
 				}
+			} else {
+				res.deleteMarkers(IMarker.PROBLEM, false,0);
 			}
 		} catch (CoreException e2) {			
 			e2.printStackTrace();
