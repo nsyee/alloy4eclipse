@@ -110,7 +110,7 @@ public class AlloyCommandView extends ViewPart{
 
 		resultsViewer.add(getResult());
 //		TODO change this depreciated method
-		setTitle("["+viewTitle+"]");
+		setPartName("["+viewTitle+"]");
 		makeActions();
 		hookContextMenu();
 		hookDoubleClickAction();
@@ -266,7 +266,7 @@ public class AlloyCommandView extends ViewPart{
 		StructuredViewer viewer2=view.getViewer();
 		if(viewer2!=null)			
 		{viewer2.refresh();}			
-		view.setTitle("["+viewTitle+"]");		
+		view.setPartName("["+viewTitle+"]");		
 		//TODO change this deprecated method.
 		//			view.setPartName("["+viewTitle+"]");
 		//this doesn't do the same. Bien que la doc dise qu'il faille
