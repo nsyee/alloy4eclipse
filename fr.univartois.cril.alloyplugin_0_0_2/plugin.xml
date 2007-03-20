@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   
+
+<extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.univartois.cril.alloyplugin.editor.ALSEditor"
+            icon="icons/AlloyFile.gif"
+            default="true"
+            name="Small Alloy editor beta 0.0.1"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            id="fr.univartois.cril.alloyplugin.editor.ALSEditor"
+            extensions="als"/>
+</extension>
+   
+
+<extension-point id="fr.univartois.cril.alloyplugin.editorlisteners" name="Editor Listeners"/>
+
+<extension
+      point="org.eclipse.core.filebuffers.documentSetup">
+   <participant
+         class="fr.univartois.cril.alloyplugin.editor.ALSDocumentSetupParticipant"
+         extensions="als"/>
+</extension>   
+<extension
+      point = "org.eclipse.ui.newWizards">
+  <category
+        id="fr.univartois.cril.alloyplugin"
+        name="Alloy"/>
+  <wizard
+        category="fr.univartois.cril.alloyplugin"
+        class="fr.univartois.cril.alloyplugin.ui.AlloyFileWizard"
+        icon="icons/AlloySpec.gif"
+        id="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard"
+    name="Alloy 4 Model"
+        project="false"/>
+  <wizard
+        category="fr.univartois.cril.alloyplugin"
+        class="fr.univartois.cril.alloyplugin.ui.AlloyProjectWizard"
+        finalPerspective="fr.univartois.cril.alloyplugin.alloyperspective"
+        hasPages="true"
+        icon="icons/AlloyProject.gif"
+        id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject"
+        name="Alloy 4 Project"
+        preferredPerspectives="fr.univartois.cril.alloyplugin.alloyperspective"
+        project="true"/>
+</extension>
+<extension
+      point="org.eclipse.ui.perspectives">
+   <perspective
+         class="fr.univartois.cril.alloyplugin.ui.PerspectiveFactory"
+         icon="icons/AlloyProject.gif"
+         id="fr.univartois.cril.alloyplugin.alloyperspective"
+         name="Alloy perspective"/>
+</extension>
+<extension
+      point="org.eclipse.ui.perspectiveExtensions">
+   <perspectiveExtension targetID="fr.univartois.cril.alloyplugin.alloyperspective">
+      <newWizardShortcut id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject"/>
+      <newWizardShortcut id="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard"/>
+   </perspectiveExtension>
+</extension>
+</plugin>
