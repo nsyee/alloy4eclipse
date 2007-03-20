@@ -1,7 +1,10 @@
 #summary Some tips to improve user experience.
 #labels Featured,Phase-Support
 
+= Editor =
+
+  * Just hover an error or warning marker to see the message instead of going to the problems view.
+
 = Commands =
 
   * A double clic on a command in the commands view will execute that command.
-
