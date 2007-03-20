@@ -29,7 +29,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 		//System.out.println("newInput:"+newInput);
 	}			
 	public void dispose() {
-//		TODO dispose the hasMap?
+//		TODO dispose the hasMap(?)
 		
 	}
 

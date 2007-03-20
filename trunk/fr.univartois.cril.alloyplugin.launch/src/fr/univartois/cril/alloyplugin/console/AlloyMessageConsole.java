@@ -4,8 +4,7 @@ package fr.univartois.cril.alloyplugin.console;
 import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.Path;
+
 import org.eclipse.debug.ui.console.FileLink;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.swt.SWT;
@@ -52,8 +51,8 @@ public class AlloyMessageConsole extends MessageConsole {
 	 */
 	protected  void print(final String message,final Color c,final int style){
 		{	
-			//TODO SWT THREAD PROBLEM
-			//try to get the display ......			
+			//TODO SWT THREAD PROBLEM FIX
+			//try to get the display from platform......			
 			Display display = PlatformUI.getWorkbench().getDisplay();
 			//this.
 			if (display!=null)//demande a display d'executer le print (dans un thread graphique)

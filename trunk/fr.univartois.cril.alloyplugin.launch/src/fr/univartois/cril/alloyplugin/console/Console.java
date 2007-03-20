@@ -49,7 +49,7 @@ public class Console {
 	/**
 	 * Print a Err exception in the console with Hyperlink if needed.
 	 */
-	public static void printErr(Err e) {
+	public static void printErr2(Err e) {
 		AlloyMessageConsole amc=findAlloyInfoConsole("");
 		amc.clear();
 		amc.addErrListener(e);
@@ -74,8 +74,7 @@ public class Console {
 	 * Reveals the default Eclipse Console View and display the given console.
 	 */
 
-	protected static void revealConsoleView(AlloyMessageConsole console) {
-		//TODO change this
+	protected static void revealConsoleView(AlloyMessageConsole console) {		
 		IWorkbench wb = PlatformUI.getWorkbench();
 		if (wb==null) return;
 		IWorkbenchWindow aww = wb.getActiveWorkbenchWindow();

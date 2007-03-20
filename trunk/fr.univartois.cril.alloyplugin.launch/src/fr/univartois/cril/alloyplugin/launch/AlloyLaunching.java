@@ -1,7 +1,6 @@
 package fr.univartois.cril.alloyplugin.launch;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
@@ -28,7 +27,10 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
  * 
  * */
 public class AlloyLaunching {
-	
+	/**
+	 * Hashmap which store included files from a resource.  
+	 * It's used for deleting problem markers (even included files markers) before a resource is parsed.
+	 */
 	private static Map<IResource, Map<String,String>> resourceWithIncludedFileMap=new HashMap<IResource, Map<String, String>>();
 	/** 
 	 * Execute an ExecutableCommand previously created after a parsing.
@@ -45,7 +47,6 @@ public class AlloyLaunching {
 	 * This method update the AlloyCommandView.
 	 * @return 
 	 */
-
 
 	public static ExecutableCommand[] launchParser(IResource res) {	
 		
@@ -66,7 +67,7 @@ public class AlloyLaunching {
 		return exec_cmds;
 	}
 	/**
-	 * Displays an Err execption in problem view.
+	 * Displays an Err exception in problem view.
 	 */
 	public static void displayErrorInProblemView(IResource res, Err e, int severity) {	
 		res= getResourceFromErr(res, e);
