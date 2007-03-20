@@ -1,0 +1,7 @@
+#summary Some tips to improve user experience.
+#labels Featured,Phase-Support
+
+= Commands =
+
+  * A double clic on a command in the commands view will execute that command.
+
