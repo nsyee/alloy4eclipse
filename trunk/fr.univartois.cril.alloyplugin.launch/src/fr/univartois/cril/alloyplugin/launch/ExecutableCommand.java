@@ -23,19 +23,19 @@ public class ExecutableCommand {
 	/**
 	 * The Command's world . 
 	 */
-	private World world;
+	private final World world;
 	/**
 	 * The command itself. 
 	 */
-	private Command command;
+	private final Command command;
 	/**
 	 * The resource which has provided the command. 
 	 */
-	private IResource resource;
+	private final IResource resource;
 	/**
 	 * An Options for execution. 
 	 */
-	private A4Options options;
+	private final A4Options options;
 	/**
 	 * result can be executable.SAT executable.UNSAT or executable.UNKNOWN.
 	 */
@@ -117,7 +117,7 @@ public class ExecutableCommand {
 	 * */
 	public A4Solution execute(Reporter rep) throws Err {
 		rep.setExecCommand(this);
-		A4Solution ans = TranslateAlloyToKodkod.execute_command(getWorld(),getCommand(),getOptions(rep), null, null); 
+		A4Solution ans = TranslateAlloyToKodkod.execute_command(world,command,getOptions(rep), null, null); 
 		return ans;
 	}
 
