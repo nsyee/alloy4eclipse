@@ -1,19 +1,15 @@
 #summary Main features of the plugin
 #labels Featured
-= Current features =
+= Current features (version 0.0.2) =
 
   * Basic syntax coloring for als files
   * Compilation of Alloy4 files from Eclipse (*"compile on save" behavior*)
   * Output on Eclipse console
   * Alloy project nature
-  * Hyperlink to source code in case of errors
   
-= Features available from SVN =
-
 http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-a.png
 
   * Error and warnings reported as usual in Eclipse
-  * Improved _compile on save_ behavior
   * Separate Command view
   * Single command launch
 
@@ -31,5 +27,4 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-b.png
 
 
 Note that some features might be easily implemented at some point so they will likely be added before the ones needed more work, even if of lower priority.
-
 
