@@ -9,21 +9,15 @@ public class LaunchConfigurationTabGroups extends
 		AbstractLaunchConfigurationTabGroup {
 
 	public LaunchConfigurationTabGroups() {
-		// TODO Auto-generated constructor stub
-		System.out.println("youpi");
+		
 	}
 
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-		// TODO Auto-generated method stub
-		//dialog.
-		//dialog.
-		System.out.println("yeah");
-		 
+		//TODO make a tab launch configuration (for choosing commands to be executed, solver etc...)				 
 		CommonTab c=new CommonTab();
 		ILaunchConfigurationTab[] tab = new ILaunchConfigurationTab[1];
 		tab[0]=c;
 		setTabs(tab);
-
 	}
 
 }

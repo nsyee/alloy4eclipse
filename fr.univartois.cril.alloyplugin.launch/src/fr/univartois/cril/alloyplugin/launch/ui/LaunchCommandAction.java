@@ -41,7 +41,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 	 * the selection which is associated.
 	 */
 	private IStructuredSelection selection;
-	private ICommandActionListener listener=null;
+	
 	//private Object[] lastCommands;	
 
 
@@ -70,14 +70,9 @@ public class LaunchCommandAction extends SelectionProviderAction {
 			AlloyLaunching.ExecCommand((ExecutableCommand) commands[i]);
 			AlloyCommandView.refresh();
 		}
-		changeLastCommands(commands);
+		
 	}
-	/**
-	 * Avertit l'eventuel listener enregistré sur l'execution de commandes.  
-	 */
-	private void changeLastCommands(ExecutableCommand[] commands) {		
-		if (listener!=null)listener.commandsExecuted(commands);
-	}
+	
 	/**
 	 * create commands from selection.
 	 */
@@ -87,12 +82,6 @@ public class LaunchCommandAction extends SelectionProviderAction {
 			cmds[i]=(ExecutableCommand) commands[i];			
 		}
 		return cmds;	
-	}
-	/**
-	 * add a listener qui sera prévenu d'e l'execution de commandes.
-	 */
-	public void addListener(ICommandActionListener listener){
-		this.listener=listener;		
 	}
 	
 }

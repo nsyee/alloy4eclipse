@@ -4,7 +4,10 @@ import org.eclipse.core.resources.IResource;
 
 import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
 import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
-
+/**
+ * This class listens AlsEditor. 
+ * TODO used for extension: [fr.univartois.cril.alloyplugin.launch.EditorListener].
+ */
 public class EditorListener implements IAlloyEditorListener {
 
 
@@ -27,9 +30,8 @@ public class EditorListener implements IAlloyEditorListener {
 		
 	}
 	public void fileClosed(IResource resource) {
-		// TODO enlever les commandes du fichier de AlloyCommandView	
+		// TODO enlever les commandes du fichier de AlloyCommandView liées avec la ressource.	
 	}
-	
 	
 	/**
 	 * Displays all the commands of an als file. 

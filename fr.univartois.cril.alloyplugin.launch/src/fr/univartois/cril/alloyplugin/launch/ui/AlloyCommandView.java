@@ -51,11 +51,7 @@ public class AlloyCommandView extends ViewPart{
 	/**
 	 * this action is added in the view for launching selected commands. 
 	 */
-	private LaunchCommandAction commandAction;
-	/**
-	 * this action is added in the view for launching last commands. 
-	 */
-	private LaunchLastCommandAction lastCommandAction;
+	private LaunchCommandAction commandAction;	
 	/**
 	 * the result to be displayed. 
 	 */
@@ -108,9 +104,9 @@ public class AlloyCommandView extends ViewPart{
 		commandsViewer.setInput(getViewSite());
 		resultsViewer=new ListViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);		
 
-		resultsViewer.add(getResult());
-//		TODO change this depreciated method
-		setPartName("["+viewTitle+"]");
+		resultsViewer.add(getResult());		
+		setContentDescription("["+viewTitle+"]");
+		//setPartName("["+viewTitle+"]");
 		makeActions();
 		hookContextMenu();
 		hookDoubleClickAction();
@@ -149,8 +145,7 @@ public class AlloyCommandView extends ViewPart{
 	}
 
 	private void fillLocalPullDown(IMenuManager manager) {
-		manager.add(commandAction);
-		manager.add(lastCommandAction);
+		manager.add(commandAction);		
 		manager.add(new Separator());
 
 	}
@@ -162,14 +157,12 @@ public class AlloyCommandView extends ViewPart{
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(commandAction);
-		manager.add(lastCommandAction);
+		manager.add(commandAction);		
 	}
 
 	private void makeActions() {
 		commandAction = new LaunchCommandAction(commandsViewer);
-		lastCommandAction = new LaunchLastCommandAction();
-		commandAction.addListener(lastCommandAction);
+		
 		//new CommandActionListener();
 		/*
 		doubleClickAction = new Action() {
@@ -266,12 +259,13 @@ public class AlloyCommandView extends ViewPart{
 		StructuredViewer viewer2=view.getViewer();
 		if(viewer2!=null)			
 		{viewer2.refresh();}			
-		view.setPartName("["+viewTitle+"]");		
-		//TODO change this deprecated method.
+		//view.setPartName("["+viewTitle+"]");
+		view.setContentDescription("["+viewTitle+"]");
+		//
 		//			view.setPartName("["+viewTitle+"]");
 		//this doesn't do the same. Bien que la doc dise qu'il faille
 		//utiliser çà à la place c'est vrai :-/ .
-		//
+		//o pire on retire le titre et cette méthode.
 	}
 	/**
 	 * Print in the resultview.
@@ -288,7 +282,7 @@ public class AlloyCommandView extends ViewPart{
 	private void refreshResult(String string) {
 		StringBuilder sb = getResult();
 		sb.replace(0,sb.length(), string);
-		//TODO SWT THREAD PROBLEM
+		//TODO SWT THREAD PROBLEM FIX
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
 			display.syncExec(
@@ -320,7 +314,7 @@ public class AlloyCommandView extends ViewPart{
 	 * refresh AlloyCommandview.
 	 */
 	public static void refresh() {
-		//TODO SWT THREAD PROBLEM
+		//TODO SWT THREAD PROBLEM FIX
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
 			display.syncExec(
