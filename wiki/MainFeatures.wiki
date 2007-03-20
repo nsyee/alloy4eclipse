@@ -20,16 +20,16 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-a.png
 
 http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-b.png
 
-= Upcoming features =
+= Upcoming features (in order of priority) =
 
-  * Code format
-  * Quick fix
-  * Outline
-  * Remembering last run (compilation or commands)
-  * Visualization using Graphviz+Swing
-  * Managing properties the Eclipse way
+  # Visualization using Graphviz+Swing
+  # Managing properties the Eclipse way
+  # Commands launched using Eclipse Launch mechanism
+  # Code format
+  # Quick fix
+  # Outline
 
 
-
+Note that some features might be easily implemented at some point so they will likely be added before the ones needed more work, even if of lower priority.
 
 
