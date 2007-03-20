@@ -29,47 +29,47 @@ public class AlloyContentOutlinePage implements IContentOutlinePage {
 	}
 
 	public void dispose() {
-		// TODO Outline
+		
 		
 	}
 
 	public Control getControl() {
-		// TODO Outline
+		
 		return null;
 	}
 
 	public void setActionBars(IActionBars actionBars) {
-		// TODO Outline 
+		 
 		
 	}
 
 	public void setFocus() {
-		// TODO Outline
+		
 		
 	}
 
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
-		// TODO Outline
+		
 		
 	}
 
 	public ISelection getSelection() {
-		// TODO Outline
+		
 		return null;
 	}
 
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
-		// TODO Outline
+		
 		
 	}
 
 	public void setSelection(ISelection selection) {
-		// TODO Outline
+		
 		
 	}
 
 	public void setInput(IEditorInput editorInput) {
-		// TODO Outline
+		
 		
 	}
 
