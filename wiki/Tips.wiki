@@ -9,6 +9,8 @@
 
   * A double click on a command in the commands view will execute that command.
 
-= Compile on save =
+= Compiling and tracking errors =
 
   * The current alloy file will be compiled as it is saved.  Allows much more rapid feedback of errors.
+
+  * Only a single error is usually shown, due to the way the Alloy compiler works.  Correct this to see the next error.  Multiple warnings will be shown, however.
