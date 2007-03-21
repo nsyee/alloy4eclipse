@@ -9,6 +9,6 @@
 
   * A double click on a command in the commands view will execute that command.
 
-= Compile on save
+= Compile on save =
 
   * The current alloy file will be compiled as it is saved.  Allows much more rapid feedback of errors.
