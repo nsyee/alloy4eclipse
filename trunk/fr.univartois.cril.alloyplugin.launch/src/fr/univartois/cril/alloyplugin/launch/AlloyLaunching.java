@@ -19,6 +19,7 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
+import fr.univartois.cril.alloyplugin.launch.ui.GraphView;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 /**
@@ -192,11 +193,7 @@ public class AlloyLaunching {
 				// This can be useful for debugging.
 				//
 				// You can also write the outcome to an XML file
-				ans.writeXML("output.xml", false);
-				//
-				// You can then visualize the XML file by calling this:
-                VizGUI viz = new VizGUI(false,"",null);
-				viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");
+				GraphView.Visualize(ans);
 			}
 		} catch (Err e) {				
 			displayErrorInProblemView(command.getRes(), e);
