@@ -33,8 +33,8 @@ public class GraphView extends ViewPart {
 	@Override
 
 	public void createPartControl(Composite parent) {
-		 c = new Composite(parent, SWT.SCROLL_PAGE| SWT.EMBEDDED);
-		frame = SWT_AWT.new_Frame(c);
+		 // c = new Composite(parent, SWT.SCROLL_PAGE| SWT.EMBEDDED);
+		frame = SWT_AWT.new_Frame(parent);
 		//JPanel panel = new JPanel();
 		//panel.add(new JLabel("coucou"));
 		frame.add(getPanel());	
