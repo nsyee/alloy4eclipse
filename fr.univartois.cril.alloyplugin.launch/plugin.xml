@@ -36,6 +36,12 @@
             icon="icons/icon.gif"
             id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
             name="Commands"/>
+      <view
+            allowMultiple="false"
+            category="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
+            class="fr.univartois.cril.alloyplugin.launch.ui.GraphView"
+            id="fr.univartois.cril.alloyplugin.launch.views.GraphView"
+            name="Graphic result"/>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
@@ -70,6 +76,16 @@
                visible="true"/>
          <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"/>
          <actionSet id="org.eclipse.debug.ui.launchActionSet"/>
+         <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.GraphView"/>
+         <view
+               closeable="true"
+               id="fr.univartois.cril.alloyplugin.launch.views.GraphView"
+               moveable="true"
+               relationship="stack"
+               relative="org.eclipse.ui.console.ConsoleView"
+               showTitle="true"
+               standalone="true"
+               visible="true"/>
       </perspectiveExtension>
    </extension>
    <extension point="org.eclipse.debug.core.launchConfigurationTypes">
