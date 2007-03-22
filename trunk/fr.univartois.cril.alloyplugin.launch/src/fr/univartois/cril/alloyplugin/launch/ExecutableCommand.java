@@ -40,6 +40,10 @@ public class ExecutableCommand {
 	 * result can be executable.SAT executable.UNSAT or executable.UNKNOWN.
 	 */
 	private int result;
+	/**
+	 * 
+	 */
+	private String stringResult;
 
 	/**
 	 * Constructor. 
@@ -122,12 +126,25 @@ public class ExecutableCommand {
 	}
 
 	/**
-	 * set this Command sat. 
+	 * Set this command sat. 
 	 */
 	public void setSat(boolean sat) {
 		if (sat) result=SAT;
 		else result=UNSAT;
 
 	}
+
+	/**
+	 * Set the string result for this command. 
+	 */
+	public void setStringResult(String s) {
+		stringResult=s;
+	}
+	/**
+	 * Get the string result of this command. 
+	 */
+	public String getStringResult() {
+		return stringResult;
+	}	
 
 }

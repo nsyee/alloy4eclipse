@@ -13,7 +13,9 @@ import org.eclipse.ui.part.ViewPart;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ListViewer;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.layout.FillLayout;
@@ -55,7 +57,7 @@ public class AlloyCommandView extends ViewPart{
 	/**
 	 * the result to be displayed. 
 	 */
-	private StringBuilder result=null;
+	private myString result=null;
 	/**
 	 * title of the view.
 	 */
@@ -101,9 +103,14 @@ public class AlloyCommandView extends ViewPart{
 		commandsViewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		commandsViewer.setContentProvider(getContentProvider());		
 		commandsViewer.setLabelProvider(new ViewLabelProvider());		
-		commandsViewer.setInput(getViewSite());
+		commandsViewer.setInput(getViewSite());		
 		resultsViewer=new ListViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);		
+		commandsViewer.addSelectionChangedListener(new ISelectionChangedListener(){
 
+			public void selectionChanged(SelectionChangedEvent event) {
+				//if (event.getSelection().isEmpty()) AlloyCommandView.this.refreshResult(string);
+				
+			}});
 		resultsViewer.add(getResult());		
 		setContentDescription("["+viewTitle+"]");
 		//setPartName("["+viewTitle+"]");
@@ -161,8 +168,7 @@ public class AlloyCommandView extends ViewPart{
 	}
 
 	private void makeActions() {
-		commandAction = new LaunchCommandAction(commandsViewer);
-		
+		commandAction = new LaunchCommandAction(commandsViewer);		
 		//new CommandActionListener();
 		/*
 		doubleClickAction = new Action() {
@@ -269,7 +275,7 @@ public class AlloyCommandView extends ViewPart{
 	}
 	/**
 	 * Print in the resultview.
-	 * @deprecated : resultView will be deleted soon, RIP.
+	 * @deprecated : resultView will be deleted soon (or moved in another view part), RIP.
 	 */
 	public static void printResult(String string) {
 		AlloyCommandView view = getDefault();		
@@ -279,9 +285,11 @@ public class AlloyCommandView extends ViewPart{
 		//view2.r
 	}
 	/**@deprecated*/
-	private void refreshResult(String string) {
-		StringBuilder sb = getResult();
-		sb.replace(0,sb.length(), string);
+	private void refreshResult(final String string) {
+		myString res = getResult();
+		res.update(string);
+		//sb.replace(0,sb.length(), string);
+		
 		//TODO SWT THREAD PROBLEM FIX
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
@@ -290,16 +298,16 @@ public class AlloyCommandView extends ViewPart{
 						public void run(){
 							ListViewer view2 = null;
 							view2=getResultViewer();
-							if (view2==null)return;
-							view2.update(result, null);
+							if (view2==null)return;							
+							view2.refresh(result);						
 						}
 					});
 
 
 	}
 	/**@deprecated*/
-	private StringBuilder getResult() {
-		if (result==null) result=new StringBuilder("No result at this time.");
+	private myString getResult() {
+		if (result==null) result=new myString("No result at this time.");
 		return result;	
 
 	}
