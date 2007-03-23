@@ -1,6 +1,7 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.jface.viewers.TreeViewer;
 
 
 
@@ -8,6 +9,8 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.editors.text.TextEditor;
+import org.eclipse.ui.editors.text.TextFileDocumentProvider;
+import org.eclipse.ui.texteditor.AbstractTextEditor;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 //
 
@@ -18,7 +21,8 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
  */
 
 public class ALSEditor extends TextEditor {
-	private AlloyContentOutlinePage fOutlinePage;
+	private AlloyContentOutlinePage fOutlinePage=null;
+	AlloySolutionViewer asv;
 	/**
 	 * Method called at editor initialization.
 	 * Set the SourceViewer.
@@ -35,8 +39,8 @@ public class ALSEditor extends TextEditor {
 	public void init(IEditorSite site,IEditorInput input) throws PartInitException{		
 		super.init(site, input);
 		AlloyPlugin.getDefault().fireFileLoaded(getResource());		
-		//TextFileDocumentProvider d=(TextFileDocumentProvider) this.getDocumentProvider();
-	//	System.out.println("d:"+d. .getDocument(null));
+		TextFileDocumentProvider d=(TextFileDocumentProvider) this.getDocumentProvider();
+		System.out.println("d:"+(d.getDocument(null)));
 		
 	}
 	public void setFocus() {
@@ -52,15 +56,19 @@ public class ALSEditor extends TextEditor {
  * */
 	
 	public Object getAdapter(Class required) {
-		if (IContentOutlinePage.class.equals(required)) {			
+		if (IContentOutlinePage.class.equals(required)) {	
 			if (fOutlinePage == null) {
 				fOutlinePage= new AlloyContentOutlinePage(getDocumentProvider(), this);
+				if (asv==null) asv=new AlloySolutionViewer();
 				if (getEditorInput() != null)
 					fOutlinePage.setInput(getEditorInput());
 			}
-			return fOutlinePage;
+			return asv;
 		}
+		
+		
 		return super.getAdapter(required);
+		
 	}
 	/**
 	 * Extends editorSaved() for launching Alloy parser.
