@@ -16,13 +16,14 @@ import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
  */
 
 public class ViewContentProvider implements IStructuredContentProvider {
+	
 	ExecutableCommand[] elements={};
 	HashMap<IResource, ExecutableCommand[]> map=new HashMap<IResource, ExecutableCommand[]>();
 	IResource current=null;
 	public ViewContentProvider(){		
 		map.put(current, elements);
 	}		
-	//TODO uses this
+	
 	public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 		//System.out.println("v:"+v);
 		//System.out.println("oldInput:"+oldInput);
@@ -39,7 +40,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 */
 	public void addElements(ExecutableCommand[] exec_cmds,IResource resource){		
 		//putElement(resource,exec_cmds);
-		
+		assert(resource!=null);//null is reserved for no resource
 		map.put(resource, exec_cmds);
 	}
 
@@ -47,23 +48,27 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	/**
 	 * Remove a resource and its commands from map. 
 	 */
-	//TODO implement this method: when a file is closed in the alloy editor, editor listener
-	//should call a method who dispose all commands associated with the  file
-	public void removeElements(IResource resource){}
+
+	public void removeElements(IResource resource){
+		ExecutableCommand[] tab = map.remove(resource);
+		assert(tab!=null);		
+	}
 
 	/**
 	 * This method from IStructuredContentProvider is used by the viewer which this content provider is associed.
 	 * Returns all the commands for the current resource.
 	 */
 	public ExecutableCommand[] getElements(Object parent) {		
-		ExecutableCommand[] exec_cmds = map.get(current);			
-		//if (exec_cmds==null) return new ExecutableCommand[0];
-		assert(exec_cmds!=null);		
+		ExecutableCommand[] exec_cmds = map.get(current);
+		System.out.println("getElements:"+exec_cmds);
+		if (exec_cmds==null) return new ExecutableCommand[0];
+		//assert(exec_cmds!=null);		
 		return exec_cmds;
 	}
 
 	/**
 	 * Set the current resource for displaying its content (commands).
+	 * if newResource is null, no content will be displayed.
 	 */
 	public void setCurrent(IResource newResource){
 		if(map.containsKey(newResource))
