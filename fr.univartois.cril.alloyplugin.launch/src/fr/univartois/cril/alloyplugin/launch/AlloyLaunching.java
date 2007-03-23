@@ -49,7 +49,7 @@ public class AlloyLaunching {
 	 */
 
 	public static ExecutableCommand[] launchParser(IResource res) {	
-		
+
 		A4Reporter rep=new Reporter(res);		
 
 		ExecutableCommand[] exec_cmds;
@@ -69,10 +69,10 @@ public class AlloyLaunching {
 	/**
 	 * Displays an Err exception in problem view.
 	 */
-	public static void displayErrorInProblemView(IResource res, Err e, int severity) {	
+	public static void displayErrInProblemView(IResource res, Err e, int severity) {	
 		res= getResourceFromErr(res, e);
 		try {
-			IMarker marker = res.createMarker(IMarker.PROBLEM);
+			IMarker marker = res.createMarker(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM);
 			marker.setAttribute(IMarker.SEVERITY,severity);
 			marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
 			marker.setAttribute(IMarker.MESSAGE, e.msg);
@@ -80,15 +80,36 @@ public class AlloyLaunching {
 			e1.printStackTrace();
 		}
 	}
+	/**
+	 * Remove Err exception added previously in problem view by parsing the resource.
+	 */
+	private static void removeErrorInProblemView(IResource res) {
+		try {
+
+			Map<String, String> map = resourceWithIncludedFileMap.get(res);
+			if(map!=null){				
+				for (String filename: map.keySet()) {					
+					IFile res2 = Util.getFileForLocation(filename);
+					if(res2!=null&&res2.exists())
+						res2.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);					
+				}
+			} else {
+				res.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
+			}
+		} catch (CoreException e2) {			
+			e2.printStackTrace();
+		}
+
+	}
 
 	public static void displayErrorInProblemView(IResource res, Err e) {
-		displayErrorInProblemView(res,e,IMarker.SEVERITY_ERROR);
+		displayErrInProblemView(res,e,IMarker.SEVERITY_ERROR);
 	}
-	
+
 	public static void displayWarningInProblemView(IResource res, Err e) {
-		displayErrorInProblemView(res,e,IMarker.SEVERITY_WARNING);
+		displayErrInProblemView(res,e,IMarker.SEVERITY_WARNING);
 	}
-	
+
 	/**
 	 * Get the ressource where the Err is located. 
 	 */
@@ -110,22 +131,7 @@ public class AlloyLaunching {
 	 * */
 	protected static ExecutableCommand[] parse(IResource res,A4Reporter rep) throws Err 
 	{
-		try {
-			
-			Map<String, String> map = resourceWithIncludedFileMap.get(res);
-			if(map!=null){				
-				for (String filename: map.keySet()) {
-					System.out.println(filename);
-					IFile res2 = Util.getFileForLocation(filename);
-					if(res2!=null&&res2.exists())
-						res2.deleteMarkers(IMarker.PROBLEM, false,0);					
-				}
-			} else {
-				res.deleteMarkers(IMarker.PROBLEM, false,0);
-			}
-		} catch (CoreException e2) {			
-			e2.printStackTrace();
-		}
+		removeErrorInProblemView(res);
 		String filename = res.getLocation().toString();
 		AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
 		alloyParserConsole.clear();
@@ -151,6 +157,8 @@ public class AlloyLaunching {
 		return exec_cmds;
 	}
 
+
+	
 
 	/**
 	 * Execute every command in a file.

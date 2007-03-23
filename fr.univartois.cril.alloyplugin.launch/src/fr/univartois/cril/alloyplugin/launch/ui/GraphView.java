@@ -23,7 +23,7 @@ public class GraphView extends ViewPart {
 	
 	public Composite c;
 	public java.awt.Frame frame;
-	public JPanel panel;
+	public static JPanel panel;
 	public static GraphView defaut;
 
 	public GraphView() {
@@ -40,7 +40,7 @@ public class GraphView extends ViewPart {
 		frame.add(getPanel());	
 	}
 
-	private JPanel getPanel() {		
+	private static JPanel getPanel() {		
 		if (panel==null) panel = new JPanel();
 		return panel;
 	}
@@ -61,12 +61,9 @@ public class GraphView extends ViewPart {
 		// You can then visualize the XML file by calling this:
 		MyVizGUI viz = new MyVizGUI(false,"",null);
 		viz.run(MyVizGUI.evs_loadInstanceForcefully, "output.xml");
-		
-		if (defaut==null) return;		
-		defaut.getPanel().add(viz.getGraphPanel());
-		
-		
-
+				
+		//getPanel().removeAll();
+		//getPanel().add(viz.getGraphPanel());
 
 	}
 
