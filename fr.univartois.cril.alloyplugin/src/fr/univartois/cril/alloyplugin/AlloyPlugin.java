@@ -3,13 +3,16 @@ package fr.univartois.cril.alloyplugin;
 import java.util.List;
 import java.util.ArrayList;
 
+
+import org.eclipse.core.resources.IProjectNatureDescriptor;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.*;
 import org.eclipse.jface.text.rules.IPartitionTokenScanner;
 import org.eclipse.jface.text.rules.ITokenScanner;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
 import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
@@ -36,6 +39,13 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	public AlloyPlugin(){
 		super();
 		plugin=this;
+		//Workspace workspace=PlatformUI.getWorkbench().ge;
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		IProjectNatureDescriptor descriptor = workspace.getNatureDescriptor(ProjectNature.NATURE_ID);
+		
+			System.out.println("truc:"+descriptor);	
+		
+		
 	}
 	
 	/**

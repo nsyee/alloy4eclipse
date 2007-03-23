@@ -12,28 +12,35 @@ import org.eclipse.core.resources.*;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
+import fr.univartois.cril.alloyplugin.ProjectNature;
+
 
 
 
 public class AlloyProjectWizard extends BasicNewProjectResourceWizard {
-
-	protected void createProject(String r, IProgressMonitor monitor) throws CoreException
+	/**
+	 * 
+	 */
+	private void createProject(String projectName, IProgressMonitor monitor) throws CoreException
 	{
-	
-		 IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-	    
-	      IProject project = root.getProject(r);
-	      IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
-	//TODO create a Alloy nature
-	   //   description.setNatureIds(new String[] { "Alloy nature" });
-	      ICommand command = description.newCommand();
-	  	//TODO create a Alloy builder	      
-	     // command.setBuilderName("Alloy builder");
-	      description.setBuildSpec(new ICommand[] { command });
-	      project.create(description,monitor);
 
-	      project.open(monitor);}
-	
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+
+		IProject project = root.getProject(projectName);
+		IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
+		//TODO create a Alloy nature
+		description.setNatureIds(new String[] {ProjectNature.NATURE_ID});
+		ICommand command = description.newCommand();
+		//TODO create a Alloy builder	      
+		// command.setBuilderName("Alloy builder");
+		description.setBuildSpec(new ICommand[] { command });
+
+		project.create(description,monitor);
+
+		project.open(monitor);
+		project.setDescription(description, null);
+	}
+
 	private AlloyProjectWizardPage page;
 	private ISelection selection;
 
@@ -44,7 +51,7 @@ public class AlloyProjectWizard extends BasicNewProjectResourceWizard {
 		super();
 		setNeedsProgressMonitor(true);
 	}
-	
+
 	/**
 	 * Adding the page to the wizard.
 	 */
@@ -84,7 +91,7 @@ public class AlloyProjectWizard extends BasicNewProjectResourceWizard {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * The worker method. It will find the container, create the
 	 * file if missing or just replace its contents, and open
@@ -92,46 +99,15 @@ public class AlloyProjectWizard extends BasicNewProjectResourceWizard {
 	 */
 
 	private void doFinish(
-		//String containerName,
-		String fileName,
-		IProgressMonitor monitor)
-		throws CoreException {
-		/*create a sample file
-		monitor.beginTask("Creating " + fileName, 2);
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		IResource resource = root.findMember(new Path(containerName));
-		if (!resource.exists() || !(resource instanceof IContainer)) {
-			throwCoreException("Container \"" + containerName + "\" does not exist.");
-		}
-		IContainer container = (IContainer) resource;
-		final IFile file = container.getFile(new Path(fileName));
-		try {
-			InputStream stream = openContentStream(file);
-			if (file.exists()) {
-				file.setContents(stream, true, true, monitor);
-			} else {
-				file.create(stream, true, monitor);
-			}
-			stream.close();
-		} catch (IOException e) {
-		}
-		monitor.worked(1);
-		monitor.setTaskName("Opening file for editing...");
-		getShell().getDisplay().asyncExec(new Runnable() {
-			public void run() {
-				IWorkbenchPage page =
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-				try {
-					IDE.openEditor(page, file, true);
-				} catch (PartInitException e) {
-				}
-			}
-		});
-		monitor.worked(1);*/
-	createProject(fileName,monitor);
+			//String containerName,
+			String fileName,
+			IProgressMonitor monitor)
+	throws CoreException {
+
+		createProject(fileName,monitor);
 	}
-	
-	
+
+
 
 	/**
 	 * We will accept the selection in the workbench to see if
@@ -141,5 +117,5 @@ public class AlloyProjectWizard extends BasicNewProjectResourceWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.selection = selection;
 	}
-	
+
 }

@@ -62,4 +62,40 @@
       <newWizardShortcut id="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard"/>
    </perspectiveExtension>
 </extension>
+<extension
+      id="AlloyProjectNature"
+      name="Alloy Project Nature"
+      point="org.eclipse.core.resources.natures">
+   <runtime>
+      <run class="fr.univartois.cril.alloyplugin.ProjectNature"/>
+   </runtime>
+</extension>
+
+ <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            nameFilter="*"
+            id="fr.univartois.cril.alloyplugin.contribution">
+         <action
+               label="Show Project Nature"
+               class="fr.univartois.cril.alloyplugin.ShowNatureAction"
+               menubarPath="additions"
+               enablesFor="+"
+               id="fr.univartois.cril.alloyplugin.ShowNatureAction">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="AlloyProblem"
+         name="Alloy Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
 </plugin>
