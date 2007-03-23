@@ -25,6 +25,7 @@ public class GraphView extends ViewPart {
 	public java.awt.Frame frame;
 	public static JPanel panel;
 	public static GraphView defaut;
+	private static MyVizGUI viz;
 
 	public GraphView() {
 		defaut = this;
@@ -37,7 +38,9 @@ public class GraphView extends ViewPart {
 		frame = SWT_AWT.new_Frame(c);
 		//JPanel panel = new JPanel();
 		//panel.add(new JLabel("coucou"));
-		frame.add(getPanel());	
+		if(viz!=null) getPanel().add(viz.getGraphPanel());
+		frame.add(getPanel());
+		
 	}
 
 	private static JPanel getPanel() {		
@@ -59,12 +62,12 @@ public class GraphView extends ViewPart {
 		ans.writeXML("output.xml", false);
 		//
 		// You can then visualize the XML file by calling this:
-		MyVizGUI viz = new MyVizGUI(false,"",null);
+		viz = new MyVizGUI(false,"",null);
 		viz.run(MyVizGUI.evs_loadInstanceForcefully, "output.xml");
 				
-		//getPanel().removeAll();
-		//getPanel().add(viz.getGraphPanel());
-
+		getPanel().removeAll();		
+		getPanel().add(viz.getGraphPanel());
 	}
+	
 
 }
