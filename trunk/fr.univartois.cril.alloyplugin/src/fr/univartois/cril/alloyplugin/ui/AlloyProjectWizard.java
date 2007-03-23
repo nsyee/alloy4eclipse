@@ -28,7 +28,7 @@ public class AlloyProjectWizard extends BasicNewProjectResourceWizard {
 
 		IProject project = root.getProject(projectName);
 		IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
-		//TODO create a Alloy nature
+		//TODO create a Alloy nature which works
 		description.setNatureIds(new String[] {ProjectNature.NATURE_ID});
 		ICommand command = description.newCommand();
 		//TODO create a Alloy builder	      

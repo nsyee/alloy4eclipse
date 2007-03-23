@@ -43,6 +43,10 @@ public class ALSEditor extends TextEditor {
 		super.setFocus();
 		AlloyPlugin.getDefault().fireSetFocus(getResource());		
 	}
+	public void dispose() {
+		super.dispose();
+		AlloyPlugin.getDefault().fireFileClosed(getResource());
+	}
 /**
  * Used for contentoutline (not implement yet)
  * */
@@ -62,8 +66,7 @@ public class ALSEditor extends TextEditor {
 	 * Extends editorSaved() for launching Alloy parser.
 	 * */
 	public void editorSaved(){		
-		super.editorSaved();
-		
+		super.editorSaved();		
 		//launchParser();
 		AlloyPlugin.getDefault().fireFileSaved(getResource());
 	}

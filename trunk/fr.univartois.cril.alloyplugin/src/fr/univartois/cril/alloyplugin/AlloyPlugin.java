@@ -97,7 +97,12 @@ public class AlloyPlugin extends AbstractUIPlugin {
 			listener.fileSetFocus(resource);
 		}		
 	}
-	
+	public void fireFileClosed(IResource resource) {
+		for(IAlloyEditorListener listener: getEditorListeners()){
+			listener.fileClosed(resource);
+		}		
+		
+	}
 	
 
 	public void start(BundleContext context) throws Exception {
@@ -140,6 +145,8 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		}
 		return fCodeScanner;
 	}
+
+	
 	
 
 }
