@@ -45,7 +45,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 	//private Object[] lastCommands;	
 
 
-	public LaunchCommandAction(ISelectionProvider sp) {
+	public LaunchCommandAction(ISelectionProvider sp) {		
 		super(sp,"Execute command");		
 		this.setEnabled(false);
 		setImageDescriptor(enableImage);

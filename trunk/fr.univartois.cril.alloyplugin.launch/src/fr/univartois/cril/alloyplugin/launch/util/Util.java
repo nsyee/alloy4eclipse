@@ -1,10 +1,15 @@
 package fr.univartois.cril.alloyplugin.launch.util;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
+
+import fr.univartois.cril.alloyplugin.launch.Activator;
 
 public class Util {
 
@@ -30,4 +35,17 @@ public class Util {
 	public static IFile getFileForLocation(String filename){
 		return ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(filename));
 	}
+	
+	/**
+	 * Get the url.
+	 * */
+	public static URL getUrl(String localPathKey){	
+	URL url = null;
+	try {
+		url = new URL(Activator.getDefault().getBundle().getEntry("/"),
+				localPathKey);
+	} catch (MalformedURLException e) {
+	}
+	return url;
+}
 }

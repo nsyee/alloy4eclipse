@@ -75,23 +75,25 @@ public class Console {
 	 */
 
 	protected static void revealConsoleView(AlloyMessageConsole console) {		
-		IWorkbench wb = PlatformUI.getWorkbench();
+		/*IWorkbench wb = PlatformUI.getWorkbench();
 		if (wb==null) return;
 		IWorkbenchWindow aww = wb.getActiveWorkbenchWindow();
 		if (aww==null) return;
 		IWorkbenchPage page=aww.getActivePage();			    
 		String id = IConsoleConstants.ID_CONSOLE_VIEW;
 		IConsoleView view;
-		try {
+		*/
+		/*try {
 			view = (IConsoleView) page.showView(id);
 			view.setPinned(false);						
 			view.display(console);
-			console.activate();
+			
 
 		} catch (PartInitException e) {
 
 			e.printStackTrace();
-		}
+		}*/
+		//console.activate();
 	}
 
 }
