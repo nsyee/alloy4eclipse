@@ -58,10 +58,12 @@ public class AlloyCommandView extends ViewPart{
 	 * the result to be displayed. 
 	 */
 	private myString result=null;
+	private static String defautTitle="No file open";
 	/**
 	 * title of the view.
 	 */
-	private static String viewTitle="";
+	private static String viewTitle=defautTitle;
+
 	/**
 	 * The constructor.
 	 */
@@ -74,7 +76,7 @@ public class AlloyCommandView extends ViewPart{
 		}*/
 	}
 	public void dispose(){
-		//TODO implements this dispose method
+		//TODO implements this dispose method?
 		defaultAlloyCommandView=null;
 	}
 
@@ -109,7 +111,7 @@ public class AlloyCommandView extends ViewPart{
 
 			public void selectionChanged(SelectionChangedEvent event) {
 				//if (event.getSelection().isEmpty()) AlloyCommandView.this.refreshResult(string);
-				
+
 			}});
 		resultsViewer.add(getResult());		
 		setContentDescription("["+viewTitle+"]");
@@ -223,9 +225,9 @@ public class AlloyCommandView extends ViewPart{
 		return null;
 	}
 	/**
-	 * returns viewer; 
+	 * returns Commands viewer; 
 	 */
-	private StructuredViewer getViewer() {		
+	private StructuredViewer getCommandsViewer() {		
 		return commandsViewer;
 	}
 	/**
@@ -242,36 +244,34 @@ public class AlloyCommandView extends ViewPart{
 
 	}
 	/**
-	 * Displays the commands of a file if they are not at the moment.
-	 * (if addCommandsToDisplay() has been called before with the same resource)	 
+	 * Displays the commands of a ressource.
+	 * addCommandsToDisplay() must have been called before with the same resource.	 
 	 */
 	public static void displayCommands(IResource resource) {
-		if(resource.equals(getContentProvider().getCurrent()))
-			return;
-		refreshCommands(resource);
-
+		if(!resource.equals(getContentProvider().getCurrent()))
+		{
+			getContentProvider().setCurrent(resource);
+			setViewTitle(resource.getName());
+		}
+		refreshCommands();		
 	}
 	private static void setViewTitle(String name) {
 		viewTitle=name;		
 	}
 	/**
-	 * Displays Commands even if they are displayed. (refresh)
+	 * Refresh Commands. If commands have been changed (setSat) since last refresh, 
+	 * it's will be displayed.	  
 	 */
-	public static void refreshCommands(IResource resource) {
-		getContentProvider().setCurrent(resource);
-		setViewTitle(resource.getName());
+	public static void refreshCommands() {		
 		AlloyCommandView view = getDefault();		
 		if (view==null) return;
-		StructuredViewer viewer2=view.getViewer();
+		StructuredViewer viewer2=view.getCommandsViewer();
 		if(viewer2!=null)			
-		{viewer2.refresh();}			
+		{
+			viewer2.refresh();
+		}			
 		//view.setPartName("["+viewTitle+"]");
-		view.setContentDescription("["+viewTitle+"]");
-		//
-		//			view.setPartName("["+viewTitle+"]");
-		//this doesn't do the same. Bien que la doc dise qu'il faille
-		//utiliser çà à la place c'est vrai :-/ .
-		//o pire on retire le titre et cette méthode.
+		view.setContentDescription("["+viewTitle+"]");		
 	}
 	/**
 	 * Print in the resultview.
@@ -289,7 +289,7 @@ public class AlloyCommandView extends ViewPart{
 		myString res = getResult();
 		res.update(string);
 		//sb.replace(0,sb.length(), string);
-		
+
 		//TODO SWT THREAD PROBLEM FIX
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
@@ -330,10 +330,16 @@ public class AlloyCommandView extends ViewPart{
 						public void run(){
 							AlloyCommandView view = getDefault();
 							if(view==null) return;
-							view.getViewer().refresh();
+							view.getCommandsViewer().refresh();
 						}
 					});
-		
-				
+
+
+	}
+	public static void removeCommandsFromDisplay(IResource resource) {
+		getContentProvider().removeElements(resource);
+		getContentProvider().setCurrent(null);
+		setViewTitle(defautTitle);
+		refreshCommands();
 	}
 }

@@ -29,8 +29,8 @@ public class EditorListener implements IAlloyEditorListener {
 		
 		
 	}
-	public void fileClosed(IResource resource) {
-		// TODO enlever les commandes du fichier de AlloyCommandView liées avec la ressource.	
+	public void fileClosed(IResource resource) {		
+		AlloyCommandView.removeCommandsFromDisplay(resource);		
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class EditorListener implements IAlloyEditorListener {
 	private void parseCommandsFor(IResource resource){
 		ExecutableCommand[] exec_cmds = AlloyLaunching.launchParser(resource);
 		AlloyCommandView.addCommandsToDisplay(resource,exec_cmds);
-		AlloyCommandView.refreshCommands(resource);
+		AlloyCommandView.refreshCommands();
 		
 	}
 	
