@@ -489,6 +489,10 @@ DAMAGES.
        END OF TERMS AND CONDITIONS
    </license>
 
+   <url>
+      <update label="Alloy 4 official update site" url="http://alloy4eclipse.googlecode.com/svn/trunk/updatesite/"/>
+   </url>
+
    <requires>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
@@ -513,8 +517,8 @@ DAMAGES.
 
    <plugin
          id="fr.univartois.cril.alloyplugin.launch"
-         download-size="0"
-         install-size="0"
+         download-size="5200"
+         install-size="5200"
          version="0.0.0"
          unpack="false"/>
 
