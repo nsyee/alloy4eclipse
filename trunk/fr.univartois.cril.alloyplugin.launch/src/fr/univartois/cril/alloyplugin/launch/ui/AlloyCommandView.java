@@ -18,10 +18,13 @@ import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.jface.action.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
+
+import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 
 
@@ -42,6 +45,7 @@ public class AlloyCommandView extends ViewPart{
 	 * the view content provider stores all commands used by command view.
 	 */
 	protected  static ViewContentProvider viewContentProvider;
+	private static String viewTitle="no file opened.";
 	/**
 	 * viewer used for commands display. 
 	 */
@@ -58,11 +62,6 @@ public class AlloyCommandView extends ViewPart{
 	 * the result to be displayed. 
 	 */
 	private myString result=null;
-	private static String defautTitle="No file open";
-	/**
-	 * title of the view.
-	 */
-	private static String viewTitle=defautTitle;
 
 	/**
 	 * The constructor.
@@ -105,16 +104,16 @@ public class AlloyCommandView extends ViewPart{
 		commandsViewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		commandsViewer.setContentProvider(getContentProvider());		
 		commandsViewer.setLabelProvider(new ViewLabelProvider());		
-		commandsViewer.setInput(getViewSite());		
+		commandsViewer.setInput(this);
+		//setViewTitle(viewTitle);
+		setContentDescription("["+viewTitle+"]");
 		resultsViewer=new ListViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);		
-		commandsViewer.addSelectionChangedListener(new ISelectionChangedListener(){
-
+		/*commandsViewer.addSelectionChangedListener(new ISelectionChangedListener(){
 			public void selectionChanged(SelectionChangedEvent event) {
 				//if (event.getSelection().isEmpty()) AlloyCommandView.this.refreshResult(string);
 
-			}});
+			}});*/
 		resultsViewer.add(getResult());		
-		setContentDescription("["+viewTitle+"]");
 		//setPartName("["+viewTitle+"]");
 		makeActions();
 		hookContextMenu();
@@ -122,6 +121,7 @@ public class AlloyCommandView extends ViewPart{
 		contributeToActionBars();		
 
 	};
+
 	/**
 	 * get contentProvider. 
 	 */
@@ -207,6 +207,7 @@ public class AlloyCommandView extends ViewPart{
 	/**
 	 * Try to show Commands view in the active workbench window.
 	 * Returns the command view or null if can't be show.
+	 * NOT USED AT THIS TIME
 	 */
 	public static AlloyCommandView showCommandView(){
 		try {
@@ -218,8 +219,7 @@ public class AlloyCommandView extends ViewPart{
 					return (AlloyCommandView) page.showView("fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView");
 				//else System.out.println("page null");
 			}
-		} catch (PartInitException e) {
-			// TODO display error message?
+		} catch (PartInitException e) {			
 			e.printStackTrace();
 		}
 		return null;
@@ -231,10 +231,33 @@ public class AlloyCommandView extends ViewPart{
 		return commandsViewer;
 	}
 	/**
-	 * Add commands from a file to the ContentProvider.
+	 * Add commands from a file to the ContentProvider and display them.
 	 * */
-	public static void addCommandsToDisplay(IResource res,ExecutableCommand[] exec_cmds) {		
-		((ViewContentProvider) getContentProvider()).addElements(exec_cmds,res);
+	public static void addCommands(IResource resource) {
+		ExecutableCommand[] exec_cmds = AlloyLaunching.launchParser(resource);
+		((ViewContentProvider) getContentProvider()).addElements(exec_cmds,resource);
+		refreshCommands();
+	}
+	/**
+	 * Displays the commands of a ressource.
+	 * Call addCommands() if it hasn't been called before with the same resource.	 
+	 */
+	public static void refreshCommands(IResource resource) {
+		getContentProvider().setCurrent(resource);			
+		if(getContentProvider().getCurrentCommands()==null){
+			addCommands(resource);
+		}
+		else refreshCommands();
+
+	}
+	/**
+	 * 
+	 * Remove Commands of a resource.
+	 * */
+	public static void removeCommandsFromDisplay(IResource resource) {
+		getContentProvider().removeElements(resource);
+		//getContentProvider().setCurrent(null);		
+		refreshCommands();
 	}
 	/**
 	 * Get current displayed commands.
@@ -244,19 +267,14 @@ public class AlloyCommandView extends ViewPart{
 
 	}
 	/**
-	 * Displays the commands of a ressource.
-	 * addCommandsToDisplay() must have been called before with the same resource.	 
+	 * update Description of the view.
 	 */
-	public static void displayCommands(IResource resource) {
-		if(!resource.equals(getContentProvider().getCurrent()))
-		{
-			getContentProvider().setCurrent(resource);
-			setViewTitle(resource.getName());
-		}
-		refreshCommands();		
-	}
-	private static void setViewTitle(String name) {
+
+	protected static void setViewTitle(String name) {
 		viewTitle=name;		
+		AlloyCommandView view = getDefault();
+		if(view!=null)
+			view.setContentDescription("["+name+"]");		
 	}
 	/**
 	 * Refresh Commands. If commands have been changed (setSat) since last refresh, 
@@ -264,14 +282,15 @@ public class AlloyCommandView extends ViewPart{
 	 */
 	public static void refreshCommands() {		
 		AlloyCommandView view = getDefault();		
-		if (view==null) return;
+		if (view==null) return;		
+		view.setContentDescription("["+viewTitle+"]");
 		StructuredViewer viewer2=view.getCommandsViewer();
 		if(viewer2!=null)			
 		{
 			viewer2.refresh();
 		}			
 		//view.setPartName("["+viewTitle+"]");
-		view.setContentDescription("["+viewTitle+"]");		
+		//view.setContentDescription("["+viewTitle+"]");		
 	}
 	/**
 	 * Print in the resultview.
@@ -290,7 +309,6 @@ public class AlloyCommandView extends ViewPart{
 		res.update(string);
 		//sb.replace(0,sb.length(), string);
 
-		//TODO SWT THREAD PROBLEM FIX
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
 			display.syncExec(
@@ -322,7 +340,7 @@ public class AlloyCommandView extends ViewPart{
 	 * refresh AlloyCommandview.
 	 */
 	public static void refresh() {
-		//TODO SWT THREAD PROBLEM FIX
+		// SWT THREAD PROBLEM FIX
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
 			display.syncExec(
@@ -336,10 +354,8 @@ public class AlloyCommandView extends ViewPart{
 
 
 	}
-	public static void removeCommandsFromDisplay(IResource resource) {
-		getContentProvider().removeElements(resource);
-		getContentProvider().setCurrent(null);
-		setViewTitle(defautTitle);
-		refreshCommands();
-	}
+
+
+
+
 }

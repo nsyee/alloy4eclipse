@@ -85,7 +85,7 @@ public class Activator extends AbstractUIPlugin {
 		return imageRegistry;		
 	}
 	public void initializeImageRegistry(ImageRegistry reg){
-		System.out.println("initIR");
+		//System.out.println("initIR");
 		addImage(COMMAND_ID, reg);
 		addImage(CHECK_ID, reg);
 		addImage(RED_CHECK_ID, reg);
@@ -98,7 +98,7 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	public ImageRegistry createImageRegistry(){
-		System.out.println("createIR");
+		//System.out.println("createIR");
 		ImageRegistry reg=new ImageRegistry();	
 		initializeImageRegistry(reg);
 		return reg;

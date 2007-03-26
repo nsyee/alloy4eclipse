@@ -65,7 +65,7 @@
    </extension>
    <extension
          point="fr.univartois.cril.alloyplugin.editorlisteners">
-      <Generic class="fr.univartois.cril.alloyplugin.launch.EditorListener"/>
+      <Generic class="fr.univartois.cril.alloyplugin.launch.ALSEditorListener"/>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
