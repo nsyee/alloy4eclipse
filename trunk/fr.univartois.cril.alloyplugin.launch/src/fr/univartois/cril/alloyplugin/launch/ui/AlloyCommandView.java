@@ -26,6 +26,7 @@ import org.eclipse.swt.SWT;
 
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 
 ;
@@ -233,19 +234,19 @@ public class AlloyCommandView extends ViewPart{
 	/**
 	 * Add commands from a file to the ContentProvider and display them.
 	 * */
-	public static void addCommands(IResource resource) {
-		ExecutableCommand[] exec_cmds = AlloyLaunching.launchParser(resource);
-		((ViewContentProvider) getContentProvider()).addElements(exec_cmds,resource);
+	public static void addCommands(IALSFile file) {
+		ExecutableCommand[] exec_cmds = AlloyLaunching.launchParser(file.getResource());
+		((ViewContentProvider) getContentProvider()).addElements(exec_cmds,file);
 		refreshCommands();
 	}
 	/**
 	 * Displays the commands of a ressource.
 	 * Call addCommands() if it hasn't been called before with the same resource.	 
 	 */
-	public static void refreshCommands(IResource resource) {
-		getContentProvider().setCurrent(resource);			
+	public static void refreshCommands(IALSFile file) {
+		getContentProvider().setCurrent(file);			
 		if(getContentProvider().getCurrentCommands()==null){
-			addCommands(resource);
+			addCommands(file);
 		}
 		else refreshCommands();
 
@@ -254,8 +255,8 @@ public class AlloyCommandView extends ViewPart{
 	 * 
 	 * Remove Commands of a resource.
 	 * */
-	public static void removeCommandsFromDisplay(IResource resource) {
-		getContentProvider().removeElements(resource);
+	public static void removeCommandsFromDisplay(IALSFile file) {
+		getContentProvider().removeElements(file);
 		//getContentProvider().setCurrent(null);		
 		refreshCommands();
 	}

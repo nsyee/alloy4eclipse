@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin.launch;
 import org.eclipse.core.resources.IResource;
 
 import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
+import fr.univartois.cril.alloyplugin.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
 /**
  * This class listens AlsEditor. 
@@ -11,50 +12,49 @@ import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
 public class ALSEditorListener implements IAlloyEditorListener {
 
 
-	public void fileLoaded(IResource resource) {
-		System.out.println("load:"+resource.hashCode()+":"+resource.getName());
-		parseCommandsFor(resource);
+	public void fileLoaded(IALSFile file) {
+		
+		parseCommandsFor(file);
 
 	}
 
-	public void fileSaved(IResource resource) {
-		System.out.println("save:"+resource.hashCode()+":"+resource.getName());
-		parseCommandsFor(resource);
+	public void fileSaved(IALSFile file) {
+	
+		parseCommandsFor(file);
 
 	}
-	public void fileSetFocus(IResource resource) {
-			System.out.println("focus:"+resource.hashCode()+":"+resource.getName());
+	public void fileSetFocus(IALSFile file) {
+		
 			
-		displayCommandsFor(resource);
+		displayCommandsFor(file);
 
 
 	}
 
-	public void fileChanged(IResource resource) {
+	public void fileChanged(IALSFile file) {
 
 
 	}
-	public void fileClosed(IResource resource) {
-		System.out.println("close:"+resource.hashCode()+":"+resource.getName());
-		AlloyCommandView.removeCommandsFromDisplay(resource);		
+	public void fileClosed(IALSFile file) {
+		
+		AlloyCommandView.removeCommandsFromDisplay(file);		
 	}
 
 	/**
 	 * Displays all the commands of an als file. 
 	 */
-	private void displayCommandsFor(IResource resource){
-		if (!resource.exists())return;
-		//if(AlloyCommandView.haveCommandsFor(resource))
-		AlloyCommandView.refreshCommands(resource);
-		//else
-		//parseCommandsFor(resource);
+	private void displayCommandsFor(IALSFile file){
+		if (!file.getResource().exists())return;
+		
+		AlloyCommandView.refreshCommands(file);
+		
 	}
 	/**
 	 * Launch Alloy parser for an als file. 
 	 */
-	private void parseCommandsFor(IResource resource){
-		if (!resource.exists())return;		
-		AlloyCommandView.addCommands(resource);
+	private void parseCommandsFor(IALSFile file){
+		if (!file.getResource().exists())return;		
+		AlloyCommandView.addCommands(file);
 		
 
 	}
