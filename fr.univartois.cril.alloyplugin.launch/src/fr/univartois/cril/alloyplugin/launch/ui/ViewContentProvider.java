@@ -16,27 +16,32 @@ import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
  */
 
 public class ViewContentProvider implements IStructuredContentProvider {
-	
-	ExecutableCommand[] elements={};
+	/**
+	 * the current 
+	 */
+	IResource currentResource=null;
+	ExecutableCommand[] currentCommands=null;
 	HashMap<IResource, ExecutableCommand[]> map=new HashMap<IResource, ExecutableCommand[]>();
-	IResource current=null;
-	public ViewContentProvider(){		
-		map.put(current, elements);
-	}		
 	
+	
+	public ViewContentProvider(){		
+		map.put(currentResource, currentCommands);
+	}		
+
 	public void inputChanged(Viewer v, Object oldInput, Object newInput) {
+		//assert(newInput!=null);
+		//view=(AlloyCommandView) newInput;
 		//System.out.println("v:"+v);
 		//System.out.println("oldInput:"+oldInput);
 		//System.out.println("newInput:"+newInput);
 	}			
 	public void dispose() {
 //		TODO dispose the hasMap(?)
-		
+
 	}
 
 	/**
-	 * Add a resource to the content provider and its commands.
-	 * 
+	 * Add a resource to the content provider and its commands.	  
 	 */
 	public void addElements(ExecutableCommand[] exec_cmds,IResource resource){		
 		//putElement(resource,exec_cmds);
@@ -44,25 +49,34 @@ public class ViewContentProvider implements IStructuredContentProvider {
 		map.put(resource, exec_cmds);
 	}
 
-	
+
 	/**
 	 * Remove a resource and its commands from map. 
 	 */
 
 	public void removeElements(IResource resource){
+		assert(resource!=null);
 		ExecutableCommand[] tab = map.remove(resource);
-		assert(tab!=null);		
+		assert(tab!=null);
+		if (currentResource==resource)setCurrent(null);
 	}
 
 	/**
-	 * This method from IStructuredContentProvider is used by the viewer which this content provider is associed.
+	 * This method is used by viewer to get elements to display.
 	 * Returns all the commands for the current resource.
+	 * If current resource is null return a empty array.
+	 * this update the content description of commands view.
 	 */
 	public ExecutableCommand[] getElements(Object parent) {		
-		ExecutableCommand[] exec_cmds = map.get(current);
-		System.out.println("getElements:"+exec_cmds);
-		if (exec_cmds==null) return new ExecutableCommand[0];
-		//assert(exec_cmds!=null);		
+
+		if (currentResource==null) {
+			AlloyCommandView.setViewTitle("No file opened.");
+			return new ExecutableCommand[0];
+		}
+		ExecutableCommand[] exec_cmds = map.get(currentResource);
+		//System.out.println("getElements:"+exec_cmds);
+		assert(exec_cmds!=null);
+		AlloyCommandView.setViewTitle(currentResource.getName());		
 		return exec_cmds;
 	}
 
@@ -71,16 +85,24 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 * if newResource is null, no content will be displayed.
 	 */
 	public void setCurrent(IResource newResource){
-		if(map.containsKey(newResource))
-			current=newResource;
+		//if(map.containsKey(newResource))
+		
+			currentResource=newResource;			
+		
+		//else {System.out.println("pas trouvé");}
+		//view.setViewTitle(defautTitle);
+
 	}
 	/**
-	 * I have no idea what this function does...
+	 * 
 	 */	  
 	public IResource getCurrent() {
-		return current;
+		return currentResource;
 	}
+	
 	public ExecutableCommand[] getCurrentCommands() {
-		return getElements(null);		
+		ExecutableCommand[] rrr = map.get(currentResource);
+		System.out.println("rrr:"+rrr);
+		return rrr;
 	};
 }
