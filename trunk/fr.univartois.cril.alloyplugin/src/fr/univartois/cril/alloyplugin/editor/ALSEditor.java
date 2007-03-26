@@ -1,17 +1,12 @@
 package fr.univartois.cril.alloyplugin.editor;
 
-import org.eclipse.core.resources.IFile;
+
 import org.eclipse.core.resources.IResource;
-import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.editors.text.TextEditor;
-
-
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-
-
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
 /**
@@ -21,6 +16,8 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
 public class ALSEditor extends /*Abstract*/TextEditor {
 	private AlloyContentOutlinePage fOutlinePage=null;
 	AlloySolutionViewer asv;
+	private ALSFile file;
+	
 	/**
 	 * Method called at editor initialization.
 	 * Set the SourceViewer.
@@ -34,22 +31,22 @@ public class ALSEditor extends /*Abstract*/TextEditor {
 
 	public void init(IEditorSite site,IEditorInput input) throws PartInitException{		
 		super.init(site, input);
-		//this.se
-		AlloyPlugin.getDefault().fireFileLoaded(getResource());		
-
+		//file=new ALSFile(getResource());		
+		AlloyPlugin.getDefault().fireFileLoaded(getALSFile());		
+		
 
 	}
 	public void setFocus() {
 		super.setFocus();
-		AlloyPlugin.getDefault().fireSetFocus(getResource());	
+		AlloyPlugin.getDefault().fireSetFocus(getALSFile());	
 	}
 	public void close(boolean save) {
 		super.close(save);		
-		AlloyPlugin.getDefault().fireFileClosed(getResource());
+		AlloyPlugin.getDefault().fireFileClosed(getALSFile());
 	}
 	public void dispose() {
 		super.dispose();		
-		AlloyPlugin.getDefault().fireFileClosed(getResource());
+		AlloyPlugin.getDefault().fireFileClosed(getALSFile());
 	}
 	/**
 	 * Used for contentoutline (not implement yet)
@@ -76,23 +73,25 @@ public class ALSEditor extends /*Abstract*/TextEditor {
 	public void editorSaved(){		
 		super.editorSaved();		
 		//launchParser();
-		AlloyPlugin.getDefault().fireFileSaved(getResource());
+		AlloyPlugin.getDefault().fireFileSaved(getALSFile());
 	}
 
 	/**
-	 * Try to return an IResource from eIEditorInput.
+	 * Try to return an IResource from IEditorInput.
 	 * Returns null if no such object can be found.  
 	 */
 	private IResource getResource(IEditorInput input) {		
-		IResource ir=(IResource)input.getAdapter(IResource.class);
+		IResource ir=(IResource)input.getAdapter(IResource.class);		
 		return ir;		
 	}
 	
 	/**
-	 * Try to return an IResource from the editor.
-	 * Returns null if no such object can be found.  
+	 * Return an ALSFile from the editor.
+	 *   
 	 */
-	private IResource getResource() {		
-		return getResource(getEditorInput());				
+	private ALSFile getALSFile() {
+		if (file==null)file=new ALSFile(getResource(getEditorInput()));
+		else file.setResource(getResource(getEditorInput()));
+		return file;
 	}
 }

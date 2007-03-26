@@ -15,6 +15,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
+import fr.univartois.cril.alloyplugin.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
 import fr.univartois.cril.alloyplugin.util.ALSTextAttributeProvider;
 
@@ -80,26 +81,26 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	}
 
 
-	public void fireFileLoaded(IResource resource){
+	public void fireFileLoaded(IALSFile file){
 		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileLoaded(resource);
+			listener.fileLoaded(file);
 		}
 	}	
-	public void fireFileSaved(IResource resource){
+	public void fireFileSaved(IALSFile file){
 		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileSaved(resource);
+			listener.fileSaved(file);
 		}
 	}	
 			
 	
-	public void fireSetFocus(IResource resource) {
+	public void fireSetFocus(IALSFile file) {
 		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileSetFocus(resource);
+			listener.fileSetFocus(file);
 		}		
 	}
-	public void fireFileClosed(IResource resource) {
+	public void fireFileClosed(IALSFile file) {
 		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileClosed(resource);
+			listener.fileClosed(file);
 		}		
 		
 	}
