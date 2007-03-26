@@ -125,7 +125,7 @@ public class AlloyCommandView extends ViewPart{
 	/**
 	 * get contentProvider. 
 	 */
-	private static ViewContentProvider getContentProvider() {
+	protected static ViewContentProvider getContentProvider() {
 		if (viewContentProvider==null) viewContentProvider=new ViewContentProvider();
 		return viewContentProvider;
 	}
