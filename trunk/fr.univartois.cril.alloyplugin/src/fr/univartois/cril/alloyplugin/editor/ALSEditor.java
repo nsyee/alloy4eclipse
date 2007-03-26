@@ -1,18 +1,16 @@
 package fr.univartois.cril.alloyplugin.editor;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.jface.viewers.TreeViewer;
-
-
-
+import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.editors.text.TextEditor;
-import org.eclipse.ui.editors.text.TextFileDocumentProvider;
-import org.eclipse.ui.texteditor.AbstractTextEditor;
+
+
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-//
+
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
@@ -20,7 +18,7 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
  * Class for Alloy editor. 
  */
 
-public class ALSEditor extends TextEditor {
+public class ALSEditor extends /*Abstract*/TextEditor {
 	private AlloyContentOutlinePage fOutlinePage=null;
 	AlloySolutionViewer asv;
 	/**
@@ -32,29 +30,31 @@ public class ALSEditor extends TextEditor {
 		super.initializeEditor();
 		// Attache la configuration
 		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());		
-			
-		
 	}
-	
+
 	public void init(IEditorSite site,IEditorInput input) throws PartInitException{		
 		super.init(site, input);
+		//this.se
 		AlloyPlugin.getDefault().fireFileLoaded(getResource());		
-		TextFileDocumentProvider d=(TextFileDocumentProvider) this.getDocumentProvider();
-		System.out.println("d:"+(d.getDocument(null)));
-		
+
+
 	}
 	public void setFocus() {
 		super.setFocus();
-		AlloyPlugin.getDefault().fireSetFocus(getResource());		
+		AlloyPlugin.getDefault().fireSetFocus(getResource());	
 	}
-	public void dispose() {
-		super.dispose();
+	public void close(boolean save) {
+		super.close(save);		
 		AlloyPlugin.getDefault().fireFileClosed(getResource());
 	}
-/**
- * Used for contentoutline (not implement yet)
- * */
-	
+	public void dispose() {
+		super.dispose();		
+		AlloyPlugin.getDefault().fireFileClosed(getResource());
+	}
+	/**
+	 * Used for contentoutline (not implement yet)
+	 * */
+
 	public Object getAdapter(Class required) {
 		if (IContentOutlinePage.class.equals(required)) {	
 			if (fOutlinePage == null) {
@@ -78,15 +78,21 @@ public class ALSEditor extends TextEditor {
 		//launchParser();
 		AlloyPlugin.getDefault().fireFileSaved(getResource());
 	}
-	
-	
 
 	/**
-	 * Try to return an IResource from editor.
+	 * Try to return an IResource from eIEditorInput.
+	 * Returns null if no such object can be found.  
+	 */
+	private IResource getResource(IEditorInput input) {		
+		IResource ir=(IResource)input.getAdapter(IResource.class);
+		return ir;		
+	}
+	
+	/**
+	 * Try to return an IResource from the editor.
 	 * Returns null if no such object can be found.  
 	 */
 	private IResource getResource() {		
-		IResource ir=(IResource)this.getEditorInput().getAdapter(IResource.class);
-		return ir;		
+		return getResource(getEditorInput());				
 	}
 }
