@@ -7,6 +7,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 
 /**
@@ -19,13 +20,13 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	/**
 	 * the current 
 	 */
-	IResource currentResource=null;
+	IALSFile currentALSFile=null;
 	ExecutableCommand[] currentCommands=null;
-	HashMap<IResource, ExecutableCommand[]> map=new HashMap<IResource, ExecutableCommand[]>();
+	HashMap<IALSFile, ExecutableCommand[]> map=new HashMap<IALSFile, ExecutableCommand[]>();
 	
 	
 	public ViewContentProvider(){		
-		map.put(currentResource, currentCommands);
+		map.put(currentALSFile, currentCommands);
 	}		
 
 	public void inputChanged(Viewer v, Object oldInput, Object newInput) {
@@ -43,10 +44,10 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	/**
 	 * Add a resource to the content provider and its commands.	  
 	 */
-	public void addElements(ExecutableCommand[] exec_cmds,IResource resource){		
+	public void addElements(ExecutableCommand[] exec_cmds,IALSFile file){		
 		//putElement(resource,exec_cmds);
-		assert(resource!=null);//null is reserved for no resource
-		map.put(resource, exec_cmds);
+		assert(file!=null);//null is reserved for no resource
+		map.put(file, exec_cmds);
 	}
 
 
@@ -54,11 +55,11 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 * Remove a resource and its commands from map. 
 	 */
 
-	public void removeElements(IResource resource){
-		assert(resource!=null);
-		ExecutableCommand[] tab = map.remove(resource);
+	public void removeElements(IALSFile file){
+		assert(file!=null);
+		ExecutableCommand[] tab = map.remove(file);
 		assert(tab!=null);
-		if (currentResource==resource)setCurrent(null);
+		if (currentALSFile==file)setCurrent(null);
 	}
 
 	/**
@@ -69,14 +70,14 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 */
 	public ExecutableCommand[] getElements(Object parent) {		
 
-		if (currentResource==null) {
+		if (currentALSFile==null) {
 			AlloyCommandView.setViewTitle("No file opened.");
 			return new ExecutableCommand[0];
 		}
-		ExecutableCommand[] exec_cmds = map.get(currentResource);
+		ExecutableCommand[] exec_cmds = map.get(currentALSFile);
 		//System.out.println("getElements:"+exec_cmds);
 		assert(exec_cmds!=null);
-		AlloyCommandView.setViewTitle(currentResource.getName());		
+		AlloyCommandView.setViewTitle(currentALSFile.getResource().getName());		
 		return exec_cmds;
 	}
 
@@ -84,10 +85,10 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	 * Set the current resource for displaying its content (commands).
 	 * if newResource is null, no content will be displayed.
 	 */
-	public void setCurrent(IResource newResource){
+	public void setCurrent(IALSFile newResource){
 		//if(map.containsKey(newResource))
 		
-			currentResource=newResource;			
+			currentALSFile=newResource;			
 		
 		//else {System.out.println("pas trouvé");}
 		//view.setViewTitle(defautTitle);
@@ -96,13 +97,11 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	/**
 	 * 
 	 */	  
-	public IResource getCurrent() {
-		return currentResource;
+	public IALSFile getCurrent() {
+		return currentALSFile;
 	}
 	
 	public ExecutableCommand[] getCurrentCommands() {
-		ExecutableCommand[] rrr = map.get(currentResource);
-		System.out.println("rrr:"+rrr);
-		return rrr;
+		return map.get(currentALSFile);		
 	};
 }
