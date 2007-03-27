@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.Display;
  */
 public class ALSTextAttributeProvider {
 	public static final String KEYWORD_ATTRIBUTE = "__pos_als_keyword_attribute";
+	public static final String QUANTIFIER_ATTRIBUTE = "__pos_als_quantifier_attribute";
 	public static final String COMMAND_ATTRIBUTE = "__pos_als_command_attribute";
 	public static final String DIRECTIVE_ATTRIBUTE = "__pos_als_directive_attribute";
 	public static final String COMMENT_ATTRIBUTE = "__pos_als_comment_attribute";
@@ -32,6 +33,10 @@ public class ALSTextAttributeProvider {
 		fAttributes.put(KEYWORD_ATTRIBUTE,
 				new TextAttribute(new Color(Display.getCurrent(), 
 									new RGB(127, 0, 85)), null, SWT.BOLD));
+        //	quantifiers
+		fAttributes.put(QUANTIFIER_ATTRIBUTE,
+				new TextAttribute(new Color(Display.getCurrent(), 
+									new RGB(127, 0, 85)), null, SWT.BOLD | SWT.ITALIC));
 		//	commandes
 		fAttributes.put(COMMAND_ATTRIBUTE,
 				new TextAttribute(new Color(Display.getCurrent(), 
