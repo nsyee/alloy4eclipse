@@ -66,7 +66,17 @@ public class ALSCodeScanner extends RuleBasedScanner {
 		}
 	}
 	
-	
+	static class ALSSignatureDetector implements IWordDetector {
+
+        public boolean isWordPart(char c) {
+            return Character.isJavaIdentifierPart(c);
+        }
+
+        public boolean isWordStart(char c) {
+            return Character.isLetter(c)&&Character.isUpperCase(c);
+        }        
+    }
+    
 	/**
 	 * Constructor. Create rules used by color syntax.
 	 * @param provider Classe fournissant les attributs de texte.
@@ -84,7 +94,7 @@ public class ALSCodeScanner extends RuleBasedScanner {
 		IToken undefined 	= new Token(provider.getAttribute(ALSTextAttributeProvider.DEFAULT_ATTRIBUTE));
 		IToken decNumber 	= new Token(provider.getAttribute(ALSTextAttributeProvider.DECIMAL_NUMBER_ATTRIBUTE));	
 		//IToken string 		= new Token(provider.getAttribute(ALSTextAttributeProvider.STRING_ATTRIBUTE));
-
+        IToken signature       = new Token(provider.getAttribute(ALSTextAttributeProvider.SIGNATURE_ATTRIBUTE));
 		
 		//rules.add(new SingleLineRule("\"", "\"", string, '\0', true));
 		//rules.add(new SingleLineRule("'", "'", string, '\0', true));
@@ -96,6 +106,7 @@ public class ALSCodeScanner extends RuleBasedScanner {
 		}));
 		
 	
+        rules.add(new WordRule(new ALSSignatureDetector(),signature));
 		
 		
 							// Si le mot n'est pas dans la liste, renvoie undefined
@@ -114,7 +125,6 @@ public class ALSCodeScanner extends RuleBasedScanner {
 		
 		rules.add(wr);
 		rules.add(new NumberRule(decNumber));// pour les nombres
-		
 		
 		IRule[] param = new IRule[rules.size()];
 		rules.toArray(param);
