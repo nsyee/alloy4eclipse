@@ -187,7 +187,6 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
      * Method called when a new file 
      */
     public String put(String key, String value) {
-        System.out.println("K:"+key+" V:"+value);
         IFile res = Util.getFileForLocation(key);
         if(res!=null&&res.exists())
             try {
