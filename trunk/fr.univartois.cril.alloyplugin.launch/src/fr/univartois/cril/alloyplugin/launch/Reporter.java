@@ -1,15 +1,31 @@
 package fr.univartois.cril.alloyplugin.launch;
 
 
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
+
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.ErrorWarning;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
+import fr.univartois.cril.alloyplugin.launch.util.Util;
 
-public final class Reporter extends A4Reporter {
+/**
+ * Allow to display within the Eclipse framework events reported by Alloy4 compiler.
+ * It implements the Map interface in order to get notified of included AlloySpecification file
+ * through the method put(String key,String value) where key is the absolute filename of the included file.
+ * 
+ * @author leberre
+ *
+ */
+public final class Reporter extends A4Reporter implements Map <String,String>{
 
 	private int warningCount=0;
 	private String filename;
@@ -137,6 +153,65 @@ public final class Reporter extends A4Reporter {
 		this.execCommand=cmd;
 
 	}
+
+    public void clear() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    public boolean containsKey(Object key) {
+        return false;
+    }
+
+    public boolean containsValue(Object value) {
+        return false;
+    }
+
+    public Set<java.util.Map.Entry<String, String>> entrySet() {
+        return null;
+    }
+
+    public String get(Object key) {
+        return null;
+    }
+
+    public boolean isEmpty() {
+        return false;
+    }
+
+    public Set<String> keySet() {
+        return null;
+    }
+
+    /**
+     * Method called when a new file 
+     */
+    public String put(String key, String value) {
+        System.out.println("K:"+key+" V:"+value);
+        IFile res = Util.getFileForLocation(key);
+        if(res!=null&&res.exists())
+            try {
+                res.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
+            } catch (CoreException e) {
+                e.printStackTrace();
+            }                   
+        return null;
+    }
+
+    public void putAll(Map<? extends String, ? extends String> m) {
+    }
+
+    public String remove(Object key) {
+        return null;
+    }
+
+    public int size() {
+        return 0;
+    }
+
+    public Collection<String> values() {
+         return null;
+    }
 
 
 
