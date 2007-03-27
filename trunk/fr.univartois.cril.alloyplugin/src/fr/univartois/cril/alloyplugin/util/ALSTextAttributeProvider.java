@@ -23,7 +23,7 @@ public class ALSTextAttributeProvider {
 	public static final String DECIMAL_NUMBER_ATTRIBUTE = "__pos_als_decimal_number_attribute";
 	
 	public static final String STRING_ATTRIBUTE = "__pos_als_string_attribute";	
-	
+    public static final String SIGNATURE_ATTRIBUTE = "__pos_als_signature_attribute";
 	
 	private Map<String, TextAttribute> fAttributes = new HashMap<String, TextAttribute>();
 
@@ -58,13 +58,17 @@ public class ALSTextAttributeProvider {
 		fAttributes.put(STRING_ATTRIBUTE, 
 				new TextAttribute(new Color(Display.getCurrent(),
 									new RGB(0, 0, 255))));
+        
+        fAttributes.put(SIGNATURE_ATTRIBUTE, 
+                new TextAttribute(new Color(Display.getCurrent(),
+                                    new RGB(0, 0, 127)),null,SWT.ITALIC));
 
 	}
 	
 	public TextAttribute getAttribute(String type) {
-		TextAttribute attr = (TextAttribute)fAttributes.get(type);
+		TextAttribute attr = fAttributes.get(type);
 		if(attr == null) {
-			attr = (TextAttribute) fAttributes.get(DEFAULT_ATTRIBUTE);
+			attr = fAttributes.get(DEFAULT_ATTRIBUTE);
 		}
 		return attr;
 	}
