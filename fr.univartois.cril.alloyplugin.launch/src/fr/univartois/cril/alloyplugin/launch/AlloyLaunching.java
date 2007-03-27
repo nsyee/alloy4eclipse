@@ -28,11 +28,6 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
  * 
  * */
 public class AlloyLaunching {
-	/**
-	 * Hashmap which store included files from a resource.  
-	 * It's used for deleting problem markers (even included files markers) before a resource is parsed.
-	 */
-	private static Map<IResource, Map<String,String>> resourceWithIncludedFileMap=new HashMap<IResource, Map<String, String>>();
 	/** 
 	 * Execute an ExecutableCommand previously created after a parsing.
 	 */
@@ -51,7 +46,7 @@ public class AlloyLaunching {
 
 	public static ExecutableCommand[] launchParser(IResource res) {	
 
-		A4Reporter rep=new Reporter(res);		
+		Reporter rep=new Reporter(res);		
 
 		ExecutableCommand[] exec_cmds;
 		try {
@@ -81,29 +76,8 @@ public class AlloyLaunching {
 			e1.printStackTrace();
 		}
 	}
-	/**
-	 * Remove Err exception added previously in problem view by parsing the resource.
-	 */
-	private static void removeErrorInProblemView(IResource res) {
-		try {
 
-			Map<String, String> map = resourceWithIncludedFileMap.get(res);
-			if(map!=null){				
-				for (String filename: map.keySet()) {					
-					IFile res2 = Util.getFileForLocation(filename);
-					if(res2!=null&&res2.exists())
-						res2.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);					
-				}
-			} else {
-				res.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
-			}
-		} catch (CoreException e2) {			
-			e2.printStackTrace();
-		}
-
-	}
-
-	public static void displayErrorInProblemView(IResource res, Err e) {
+    public static void displayErrorInProblemView(IResource res, Err e) {
 		displayErrInProblemView(res,e,IMarker.SEVERITY_ERROR);
 	}
 
@@ -130,17 +104,14 @@ public class AlloyLaunching {
 	 * Parse a .als file. Returns executable commands which can be executed later.
 	 * @throws Err 
 	 * */
-	protected static ExecutableCommand[] parse(IResource res,A4Reporter rep) throws Err 
+	protected static ExecutableCommand[] parse(IResource res,Reporter rep) throws Err 
 	{
-		removeErrorInProblemView(res);
 		String filename = res.getLocation().toString();
 		AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
 		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
 		World world;
-		Map <String,String>filemap = new HashMap<String, String>();
-		world = CompUtil.parseEverything_fromFile(filemap, null, filename, rep);		
-		resourceWithIncludedFileMap.put(res,filemap);
+		world = CompUtil.parseEverything_fromFile(rep, null, filename, rep);		
 		// Now, "world" is the root of the the abstract syntax tree.
 		// Typecheck the model, and print out all the warnings.			
 		world.typecheck(rep);			
