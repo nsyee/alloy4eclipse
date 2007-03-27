@@ -1,14 +1,9 @@
 package fr.univartois.cril.alloyplugin.launch;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 
-import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pos;
 import edu.mit.csail.sdg.alloy4.SafeList;
@@ -19,8 +14,6 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
-import fr.univartois.cril.alloyplugin.launch.ui.GraphView;
-import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 /**
