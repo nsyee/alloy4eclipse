@@ -32,10 +32,10 @@ class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
 		ImageRegistry reg = Activator.getDefault().getImageRegistry();
 		if (cmd.getResult()==ExecutableCommand.SAT)
 			if (cmd.getCommand().check) {
-				if(cmd.getCommand().expects==0)
-					return reg.get(Activator.RED_CHECK_ID);// not expected sat check command
+				if(cmd.getCommand().expects==1)
+					return reg.get(Activator.BLUE_CHECK_ID);// not expected sat check command
 				else
-					return reg.get(Activator.BLUE_CHECK_ID);// expected sat check command
+					return reg.get(Activator.RED_CHECK_ID);// expected sat check command
 			}
 			else return reg.get(Activator.GREEN_RUN_ID);;//Sat Run command 
 		if (cmd.getResult()==ExecutableCommand.UNSAT)
