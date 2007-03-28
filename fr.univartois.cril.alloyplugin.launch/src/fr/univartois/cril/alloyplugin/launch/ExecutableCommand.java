@@ -10,12 +10,13 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
+import fr.univartois.cril.alloyplugin.ui.IALSCommand;
 
 /**
  * A command with its world and its resource. 
  * Can be executed.
  */
-public class ExecutableCommand {
+public class ExecutableCommand implements IALSCommand {
 
 	public static final int SAT = 1;
 	public static final int UNSAT = 2;

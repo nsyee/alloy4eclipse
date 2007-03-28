@@ -5,7 +5,7 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridLayout;
+
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -23,8 +23,7 @@ public class LaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 		//layout.verticalSpacing = 9;
 		System.out.println("layout:"+parent.getLayout());
 		Label label = new Label(container, SWT.NULL);
-		label.setText("&Commands:");
-		
+		label.setText("&Commands:");		
 		commandsViewer = new TableViewer(container, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		commandsViewer.setContentProvider(AlloyCommandView.getContentProvider());		
 		commandsViewer.setLabelProvider(new ViewLabelProvider());		
@@ -33,7 +32,7 @@ public class LaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 	}
 
 	public String getName() {
-		
+		//get
 		return "Choose Alloy Commands (not finish)";
 	}
 

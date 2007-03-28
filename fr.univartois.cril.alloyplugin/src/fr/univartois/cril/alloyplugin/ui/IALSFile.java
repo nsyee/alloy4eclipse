@@ -8,4 +8,6 @@ public interface IALSFile {
  * */
 public IResource getResource();
 
+public void setCommand(IALSCommand cmd[]);
+
 }
