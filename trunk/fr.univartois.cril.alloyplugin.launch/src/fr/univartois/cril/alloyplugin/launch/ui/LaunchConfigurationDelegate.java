@@ -18,10 +18,16 @@ public class LaunchConfigurationDelegate implements ILaunchConfigurationDelegate
 		ExecutableCommand[] tab = AlloyCommandView.getCurrentCommands();
 		//execute alls command from current file
 		//TODO try to memorize commands to be execute in configuration
+		monitor.setTaskName("Running Alloy command");
+		monitor.beginTask("Starting",tab.length);
+		int tasks = 0;
 		for (ExecutableCommand command : tab) {
+			monitor.subTask(command.toString());
 			AlloyLaunching.ExecCommand(command);
 			AlloyCommandView.refresh();
-		}		 
+			monitor.worked(++tasks);
+		}		
+		monitor.done();
 	}
 	
 }
