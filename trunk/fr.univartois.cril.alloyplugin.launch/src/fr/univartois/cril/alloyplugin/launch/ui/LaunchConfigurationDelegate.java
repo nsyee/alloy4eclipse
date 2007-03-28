@@ -9,25 +9,28 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 
-public class LaunchConfigurationDelegate implements ILaunchConfigurationDelegate{
+public class LaunchConfigurationDelegate implements
+		ILaunchConfigurationDelegate {
 
-	
+	public void launch(ILaunchConfiguration configuration, String mode,
+			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 
-	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) throws CoreException {
-		
 		ExecutableCommand[] tab = AlloyCommandView.getCurrentCommands();
-		//execute alls command from current file
-		//TODO try to memorize commands to be execute in configuration
+		// execute alls command from current file
+		// TODO try to memorize commands to be execute in configuration
 		monitor.setTaskName("Running Alloy command");
-		monitor.beginTask("Starting",tab.length);
-		int tasks = 0;
-		for (ExecutableCommand command : tab) {
-			monitor.subTask(command.toString());
-			AlloyLaunching.ExecCommand(command);
-			AlloyCommandView.refresh();
-			monitor.worked(++tasks);
-		}		
-		monitor.done();
+		try {
+			monitor.beginTask("Starting", tab.length);
+			for (ExecutableCommand command : tab) {
+				if (monitor.isCanceled()) break;
+				monitor.subTask(command.toString());
+				AlloyLaunching.ExecCommand(command);
+				AlloyCommandView.refresh();
+				monitor.worked(1);
+			}
+		} finally {
+			monitor.done();
+		}
 	}
-	
+
 }
