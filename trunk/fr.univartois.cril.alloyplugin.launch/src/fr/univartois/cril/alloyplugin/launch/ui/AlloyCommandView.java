@@ -235,7 +235,7 @@ public class AlloyCommandView extends ViewPart{
 	 * Add commands from a file to the ContentProvider and display them.
 	 * */
 	public static void addCommands(IALSFile file) {
-		ExecutableCommand[] exec_cmds = AlloyLaunching.launchParser(file.getResource());
+		ExecutableCommand[] exec_cmds = AlloyLaunching.launchParser(file);
 		((ViewContentProvider) getContentProvider()).addElements(exec_cmds,file);
 		refreshCommands();
 	}
@@ -355,6 +355,11 @@ public class AlloyCommandView extends ViewPart{
 
 
 	}
+	public static IALSFile getCurrentALSFile() {		
+		return getContentProvider().getCurrent();
+	}
+
+	
 
 
 

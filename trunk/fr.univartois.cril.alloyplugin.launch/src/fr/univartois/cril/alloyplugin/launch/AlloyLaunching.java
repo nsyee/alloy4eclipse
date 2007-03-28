@@ -15,6 +15,7 @@ import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
+import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 /**
  * Static methods to launch Alloy parser or command.
@@ -37,13 +38,14 @@ public class AlloyLaunching {
 	 * @return 
 	 */
 
-	public static ExecutableCommand[] launchParser(IResource res) {	
+	public static ExecutableCommand[] launchParser(IALSFile file) {
+		IResource res = file.getResource();
 
 		Reporter rep=new Reporter(res);		
 
 		ExecutableCommand[] exec_cmds;
 		try {
-			exec_cmds = AlloyLaunching.parse(res,rep);
+			exec_cmds = AlloyLaunching.parse(file,rep);
 		} catch (Err e) {			
 			displayErrorInProblemView(res, e);
 			exec_cmds=new ExecutableCommand[0];			
@@ -97,14 +99,16 @@ public class AlloyLaunching {
 	 * Parse a .als file. Returns executable commands which can be executed later.
 	 * @throws Err 
 	 * */
-	protected static ExecutableCommand[] parse(IResource res,Reporter rep) throws Err 
-	{
+	protected static ExecutableCommand[] parse(IALSFile file,Reporter rep) throws Err 
+	{IResource res=file.getResource();
 		String filename = res.getLocation().toString();
 		AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
 		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
 		World world;
-		world = CompUtil.parseEverything_fromFile(rep, null, filename, rep);		
+		
+		world = CompUtil.parseEverything_fromFile(rep, null, filename, rep);
+		
 		// Now, "world" is the root of the the abstract syntax tree.
 		// Typecheck the model, and print out all the warnings.			
 		world.typecheck(rep);			
@@ -119,6 +123,7 @@ public class AlloyLaunching {
 			exec_cmds[i]=new ExecutableCommand(res,list.get(i),world);
 
 		}
+		file.setCommand(exec_cmds);
 		return exec_cmds;
 	}
 
@@ -131,11 +136,12 @@ public class AlloyLaunching {
 	 * If there are syntax or type errors, it display them.
 	 * They may contain filename/line/column information.
 	 */
-	public static final void execAllCommandsfromAFile(IResource res) {
+	public static final void execAllCommandsfromAFile(IALSFile file) {
+		IResource res = file.getResource();
 		Reporter rep=new Reporter(res);
 		ExecutableCommand[] exec_cmds;
 		try {
-			exec_cmds = parse(res,rep);
+			exec_cmds = parse(file,rep);
 		} catch (Err e) {
 			displayErrorInProblemView(res,e);
 			return;

@@ -90,7 +90,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 		
 			currentALSFile=newResource;			
 		
-		//else {System.out.println("pas trouvé");}
+		//else {System.out.println("pas trouvï¿½");}
 		//view.setViewTitle(defautTitle);
 
 	}
