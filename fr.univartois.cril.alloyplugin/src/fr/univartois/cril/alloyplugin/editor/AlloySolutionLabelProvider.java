@@ -8,13 +8,11 @@ import org.eclipse.swt.graphics.Image;
 public class AlloySolutionLabelProvider implements ILabelProvider {
 
 	public Image getImage(Object element) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String getText(Object element) {
-		// TODO Auto-generated method stub
-		return null;
+		return element.toString();
 	}
 
 	public void addListener(ILabelProviderListener listener) {
