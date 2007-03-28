@@ -1,18 +1,23 @@
 package fr.univartois.cril.alloyplugin.editor;
 
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.viewers.IContentProvider;
+import java.util.logging.Logger;
+
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-public class AlloySolutionContentProvider implements ITreeContentProvider {
+public class AlloyTreeContentProvider implements ITreeContentProvider {
 
+	private static final String FUNCTIONS = "Functions";
+	private static final String SIGNATURES = "Signatures";
+	private static final Logger log = Logger.getLogger("alloy");
+	
 	public void dispose() {
-		// TODO Auto-generated method stub
+		log.info("Dispose");
 
 	}
 
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		log.info("Changed");
 		// TODO Auto-generated method stub
 		//if (newInput != null) {
 			//IDocument document= fDocumentProvider.getDocument(newInput);
@@ -25,23 +30,23 @@ public class AlloySolutionContentProvider implements ITreeContentProvider {
 	}
 
 	public Object[] getChildren(Object parentElement) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Get children for "+parentElement);
+		return new Object[0];
 	}
 
 	public Object getParent(Object element) {
-		// TODO Auto-generated method stub
+		log.info("Get parent for "+element);
 		return null;
 	}
 
 	public boolean hasChildren(Object element) {
-		// TODO Auto-generated method stub
+		log.info("has children? "+element);
 		return false;
 	}
 
 	public Object[] getElements(Object inputElement) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("get elements for "+inputElement);
+		return new String[] {SIGNATURES,FUNCTIONS,"Predicates","Commands"};
 	}
 
 }

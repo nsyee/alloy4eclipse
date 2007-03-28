@@ -1,6 +1,8 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 
+import java.util.logging.Logger;
+
 import org.eclipse.core.resources.IResource;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
@@ -14,6 +16,8 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
  */
 
 public class ALSEditor extends /*Abstract*/TextEditor {
+	private static final Logger log = Logger.getLogger("alloy");
+
 	private AlloyContentOutlinePage fOutlinePage=null;
 	AlloySolutionViewer asv;
 	private ALSFile file;
@@ -53,20 +57,20 @@ public class ALSEditor extends /*Abstract*/TextEditor {
 	 * */
 
 	public Object getAdapter(Class required) {
+		log.info("Adapter for "+required+" required");
 		if (IContentOutlinePage.class.equals(required)) {	
+			log.info("Providing adapter for IContentOutlinePage");
 			if (fOutlinePage == null) {
-				fOutlinePage= new AlloyContentOutlinePage(getDocumentProvider(), this);
-				if (asv==null) asv=new AlloySolutionViewer();
-				if (getEditorInput() != null)
-					fOutlinePage.setInput(getEditorInput());
+				log.info("Ours is null, creating a new one");
+				fOutlinePage= new AlloyContentOutlinePage(this);
+				// if (asv==null) asv=new AlloySolutionViewer();
 			}
-			return asv;
+			log.info("Providing my adapter");
+			return fOutlinePage;
 		}
-		
-		
-		return super.getAdapter(required);
-		
+		return super.getAdapter(required);		
 	}
+	
 	/**
 	 * Extends editorSaved() for launching Alloy parser.
 	 * */
