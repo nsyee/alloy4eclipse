@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-   
 
+<extension-point id="fr.univartois.cril.alloyplugin.editorlisteners" name="Editor Listeners"/>   
+<extension-point id="fr.univartois.cril.alloyplugin.projectbuilderscontribution" name="Project nature contributions"/>
 <extension
          point="org.eclipse.ui.editors">
       <editor
@@ -14,10 +15,6 @@
             id="fr.univartois.cril.alloyplugin.editor.ALSEditor"
             extensions="als"/>
 </extension>
-   
-
-<extension-point id="fr.univartois.cril.alloyplugin.editorlisteners" name="Editor Listeners"/>
-
 <extension
       point="org.eclipse.core.filebuffers.documentSetup">
    <participant
@@ -97,5 +94,13 @@
       <persistent
             value="true">
       </persistent>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.contentTypes">
+      <content-type
+            file-extensions="als"
+            id="fr.univartois.cril.alloyplugin.alsfile"
+            name="ALS file"
+            priority="normal"/>
    </extension>
 </plugin>
