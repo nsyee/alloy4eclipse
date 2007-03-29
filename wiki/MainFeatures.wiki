@@ -1,6 +1,6 @@
 #summary Main features of the plugin
 #labels Featured
-= Current features (version 0.0.2) =
+= Current features (version 0.0.4) =
 
   * Basic syntax coloring for als files
   * Compilation of Alloy4 files from Eclipse (*"compile on save" behavior*)
@@ -16,6 +16,10 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-a.png
 
 http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-b.png
 
+  * Basic visualization outside Eclipse
+  * Improved syntax coloring
+  * Eclipse launch mechanism available using Run ... menu
+
 = Upcoming features (in order of priority) =
 
   # Visualization using Graphviz+Swing
@@ -27,4 +31,3 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-b.png
 
 
 Note that some features might be easily implemented at some point so they will likely be added before the ones needed more work, even if of lower priority.
-
