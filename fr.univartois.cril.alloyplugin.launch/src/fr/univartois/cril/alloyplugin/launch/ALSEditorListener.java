@@ -1,5 +1,6 @@
 package fr.univartois.cril.alloyplugin.launch;
 
+import fr.univartois.cril.alloyplugin.launch.ui.ViewContentProvider;
 import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
@@ -15,7 +16,7 @@ public class ALSEditorListener implements IAlloyEditorListener {
 	
 	
 	public void fileSaved(IALSFile file) {
-		parseCommandsFor(file);
+		//parseCommandsFor(file);
 	}
 	
 	
@@ -40,9 +41,11 @@ public class ALSEditorListener implements IAlloyEditorListener {
 	/**
 	 * Displays all the commands of an als file. 
 	 */
-	private void displayCommandsFor(IALSFile file){
-		if (file.getResource().exists())
-			AlloyCommandView.refreshCommands(file);
+
+	private void displayCommandsFor(IALSFile file){		
+		ViewContentProvider.getContentProvider().setCurrent(file);
+		
+
 	}
 
 	
@@ -51,7 +54,10 @@ public class ALSEditorListener implements IAlloyEditorListener {
 	 * Launch Alloy parser for an als file. 
 	 */
 	private void parseCommandsFor(IALSFile file){
-		if (file.getResource().exists())		
-			AlloyCommandView.addCommands(file);
+
+	//	CommandsProvider.getCommandsProvider().addCommandsFrom(file);
+		
+
+
 	}
 }

@@ -15,7 +15,7 @@ public class LaunchConfigurationDelegate implements
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 
-		ExecutableCommand[] tab = AlloyCommandView.getCurrentCommands();
+	/*	ExecutableCommand[] tab = CommandsView.getCurrentCommands();
 		// execute alls command from current file
 		// TODO try to memorize commands to be execute in configuration
 		monitor.setTaskName("Running Alloy command");
@@ -25,12 +25,12 @@ public class LaunchConfigurationDelegate implements
 				if (monitor.isCanceled()) break;
 				monitor.subTask(command.toString());
 				AlloyLaunching.ExecCommand(command);
-				AlloyCommandView.refresh();
+				CommandsView.refresh();
 				monitor.worked(1);
 			}
 		} finally {
 			monitor.done();
 		}
-	}
+	*/}
 
 }

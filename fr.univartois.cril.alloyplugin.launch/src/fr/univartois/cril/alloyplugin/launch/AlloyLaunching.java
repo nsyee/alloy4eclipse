@@ -18,7 +18,7 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 /**
- * Static methods to launch Alloy parser or command.
+ * Static methods to launch Alloy parser or execute a command.
  * 
  * */
 public class AlloyLaunching {
@@ -43,12 +43,13 @@ public class AlloyLaunching {
 	
 	
 	/**
-	 * Parse a file (can be used by external package).
-	 * For the moment display Syntax error in console. 	  
-	 * This method update the AlloyCommandView.
-	 * @return 
+	 * Parse a als file.
+	 * @return an array (can be empty if there is no command in the file.)
 	 */
 	public static ExecutableCommand[] launchParser(IALSFile file) {
+				
+		System.out.println("LaunchParser for :"+file.getResource().getName());
+		if (!file.getResource().exists()) return new ExecutableCommand[0];
 		IResource res = file.getResource();
 
 		Reporter rep=new Reporter(res);		
@@ -60,11 +61,12 @@ public class AlloyLaunching {
 			displayErrorInProblemView(res, e);
 			exec_cmds=new ExecutableCommand[0];			
 		}
-
+		file.setCommand(exec_cmds);
 		//AlloyCommandView acw = AlloyCommandView.getDefault();
 		/*if(acw!=null) {			
 			acw.setElements(exec_cmds);
 			}*/
+		System.out.println("END LaunchParser for :"+file.getResource().getName());
 		return exec_cmds;
 	}
 	
@@ -142,7 +144,6 @@ public class AlloyLaunching {
 		ExecutableCommand [] exec_cmds=new ExecutableCommand[list.size()];		
 		for(int i=0;i<exec_cmds.length;i++){
 			exec_cmds[i]=new ExecutableCommand(res,list.get(i),world);
-
 		}
 		file.setCommand(exec_cmds);
 		return exec_cmds;
@@ -155,6 +156,7 @@ public class AlloyLaunching {
 	 * This method parse the file, then execute every command.
 	 * If there are syntax or type errors, it display them.
 	 * They may contain filename/line/column information.
+	 * (It's not used).
 	 */
 	public static final void execAllCommandsfromAFile(IALSFile file) {
 		IResource res = file.getResource();
@@ -206,8 +208,7 @@ public class AlloyLaunching {
 	
 	
 	private static void displayAns(A4Solution ans) throws Err {
-//		GraphView.Visualize(ans);
-		
+//		GraphView.Visualize(ans);		
 		ans.writeXML("output.xml", false);
 		//
 		// You can then visualize the XML file by calling this:
