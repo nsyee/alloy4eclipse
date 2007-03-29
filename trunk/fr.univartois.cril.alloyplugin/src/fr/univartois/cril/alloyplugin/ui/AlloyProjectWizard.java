@@ -83,10 +83,10 @@ public class AlloyProjectWizard extends Wizard implements INewWizard,IExecutable
 		IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
 		//TODO create a Alloy nature which works
 		description.setNatureIds(new String[] {ProjectNature.NATURE_ID});
-		ICommand command = description.newCommand();
+		/*ICommand command = description.newCommand();
 		//TODO create a Alloy builder	      
 		// command.setBuilderName("Alloy builder");
-		description.setBuildSpec(new ICommand[] { command });
+		description.setBuildSpec(new ICommand[] { command });*/
 
 		project.create(monitor);//description,monitor);
 		project.open(monitor);

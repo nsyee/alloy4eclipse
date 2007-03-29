@@ -1,5 +1,6 @@
 package fr.univartois.cril.alloyplugin;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -27,12 +28,16 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	
 	
 	/** extension editor listener ID*/
-	private static final String editorListenerId="fr.univartois.cril.alloyplugin.editorlisteners";
+	private static final String editorListenerExtensionId="fr.univartois.cril.alloyplugin.editorlisteners";
+	/** extension project builders ID*/
+	private static final String projectBuildersExtensionId="fr.univartois.cril.alloyplugin.projectbuilderscontribution";
 	/***/
 	public static final String ALS_PARTITIONING = "__pos_als_partitioning";
-	/** listeners for commands */
 	
+	/** listeners for commands */	
 	private List<IAlloyEditorListener> editorListeners;
+	
+	private List<String> projectBuildersID;
 	private IPartitionTokenScanner fPartitionScanner;
 	private ALSTextAttributeProvider fTextAttributeProvider;
 	private ALSCodeScanner fCodeScanner;
@@ -57,13 +62,46 @@ public class AlloyPlugin extends AbstractUIPlugin {
 			editorListeners=computeEditorListeners();
 		return editorListeners;	
 	}
+	/**
+	 * Returns command listeners.
+	 * */	
+	public String[] getProjectBuildersID(){
+		if (projectBuildersID==null)
+			projectBuildersID=computeProjectNaturesID();
+		String[] projectNaturesIDTab=new String[projectBuildersID.size()];
+		int i=0;
+		for (String id : projectBuildersID) {
+			projectNaturesIDTab[i++]=id;
+		}
+		
+		return projectNaturesIDTab;	
+	}
 	
+	private List<String> computeProjectNaturesID() {
+		IExtensionRegistry registry = Platform.getExtensionRegistry();
+		IExtensionPoint extensionPoint= registry.getExtensionPoint(projectBuildersExtensionId);
+		IExtension[] extensions = extensionPoint.getExtensions();
+		ArrayList<String> results = new ArrayList<String>();
+		for(int i = 0 ;i< extensions.length;i++){
+			IConfigurationElement[] elements=extensions[i].getConfigurationElements();
+			for(int j=0;j<elements.length;j++){
+				//try{
+					String s=elements[j].getAttribute("projectBuilderId");					
+				if(s!=null&&!results.contains(s))
+					{System.out.println("ajoutebuilderIDExtensionFound:"+s);
+					results.add(s);
+					}
+			}
+		}
+		return results;
+	}
+
 	/**
 	 * Adds editor listeners from existing extension points to the plugin.
 	 * */
 	private List<IAlloyEditorListener> computeEditorListeners() {
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IExtensionPoint extensionPoint= registry.getExtensionPoint(editorListenerId);
+		IExtensionPoint extensionPoint= registry.getExtensionPoint(editorListenerExtensionId);
 		IExtension[] extensions = extensionPoint.getExtensions();
 		ArrayList<IAlloyEditorListener> results = new ArrayList<IAlloyEditorListener>();
 		for(int i = 0 ;i< extensions.length;i++){

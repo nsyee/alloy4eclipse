@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.editor;
+package fr.univartois.cril.alloyplugin.core.ui;
 
 import org.eclipse.core.resources.IResource;
 
@@ -10,21 +10,25 @@ import fr.univartois.cril.alloyplugin.ui.IALSFile;
 public class ALSFile implements IALSFile {
 
 	private IResource resource;
-	public ALSFile(IResource resource) {
+	private IALSCommand[] cmds;
+	protected ALSFile(IResource resource) {
 		setResource(resource);
 	}
 	public IResource getResource() {
 		return resource;
 	}
-	protected void setResource(IResource resource){
+	public void setResource(IResource resource){
 		this.resource=resource;
 	}
 	public void setWorld(Object world) {
 		// TODO Auto-generated method stub
 		
 	}
-	public void setCommand(IALSCommand[] cmd) {
-		// TODO Auto-generated method stub
-		
+	public void setCommand(IALSCommand[] cmds) {
+		this.cmds=cmds;		
 	}
+	public IALSCommand[] getCommand() {
+		return cmds;	
+	}
+	public void dispose(){};
 }
