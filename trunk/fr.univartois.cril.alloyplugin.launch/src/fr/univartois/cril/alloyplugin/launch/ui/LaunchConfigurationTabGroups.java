@@ -2,16 +2,11 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 import org.eclipse.core.resources.IResource;
-import org.eclipse.debug.core.ILaunch;
-import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
-import org.eclipse.debug.ui.ILaunchConfigurationTabGroup;
-
-import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 
 public class LaunchConfigurationTabGroups extends

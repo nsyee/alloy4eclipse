@@ -17,35 +17,42 @@ import fr.univartois.cril.alloyplugin.ui.IALSCommand;
  * Can be executed.
  */
 public class ExecutableCommand implements IALSCommand {
-
 	public static final int SAT = 1;
 	public static final int UNSAT = 2;
 	public static final int UNKNOW = 0;
+
 	/**
 	 * The Command's world . 
 	 */
 	private final World world;
+	
 	/**
 	 * The command itself. 
 	 */
 	private final Command command;
+	
 	/**
 	 * The resource which has provided the command. 
 	 */
 	private final IResource resource;
+	
 	/**
 	 * An Options for execution. 
 	 */
 	private final A4Options options;
+	
 	/**
 	 * result can be executable.SAT executable.UNSAT or executable.UNKNOWN.
 	 */
 	private int result;
+	
 	/**
 	 * 
 	 */
 	private String stringResult;
 
+	
+	
 	/**
 	 * Constructor. 
 	 */
@@ -54,18 +61,21 @@ public class ExecutableCommand implements IALSCommand {
 			this.options = new A4Options();		
 			this.options.solver = A4Options.SatSolver.SAT4J;
 		}
-		else this.options=options;
+		else
+			this.options=options;
+		
 		assert(res!=null);
 		assert(command!=null);
 		assert(world!=null);
 
-		this.resource=res;
-
-		this.world=world;
-		this.command=command;
-		result=UNKNOW;
+		this.resource = res;
+		this.world    = world;
+		this.command  = command;
+		this.result   = UNKNOW;
 	}
 
+	
+	
 	/**
 	 * Constructor. 
 	 */
@@ -73,6 +83,8 @@ public class ExecutableCommand implements IALSCommand {
 		this(res,command,world,null);				
 	}
 
+	
+	
 	/**
 	 * Get the option.
 	 * */
@@ -80,43 +92,63 @@ public class ExecutableCommand implements IALSCommand {
 		options.setReporter(rep);
 		return options;
 	}
+	
+	
+	
 	/**
 	 * Display the text from command. 
 	 */
 	public String toString(){
 		return command.toString();
 	}
+	
+	
+	
 	/**
 	 * Get the resource.
 	 */
 	public IResource getRes() {
 		return resource;
-	}    
+	}
+	
+	
+	
 	/**
 	 *  Get the location of the file where this command is located.
 	 */
 	public String getFilename() {		
 		return Util.getFileLocation(resource);		
 	}
+	
+	
+	
 	/**
 	 * return the world. 
 	 */
 	public World getWorld() {
 		return world;
 	}
+	
+	
+	
 	/**
 	 * return the command. 
 	 */
 	public Command getCommand() {
 		return command;
 	}
+	
+	
+	
 	/**
 	 * Return the result. 
 	 */
 	public int getResult() {		
 		return result;		
-
 	}
+	
+	
+	
 	/**
 	 * Execute this command whith te given reporter.
 	 * */
@@ -126,26 +158,31 @@ public class ExecutableCommand implements IALSCommand {
 		return ans;
 	}
 
+	
+	
 	/**
 	 * Set this command sat. 
 	 */
 	public void setSat(boolean sat) {
 		if (sat) result=SAT;
 		else result=UNSAT;
-
 	}
 
+	
+	
 	/**
 	 * Set the string result for this command. 
 	 */
 	public void setStringResult(String s) {
 		stringResult=s;
 	}
+	
+	
+	
 	/**
 	 * Get the string result of this command. 
 	 */
 	public String getStringResult() {
 		return stringResult;
-	}	
-
+	}
 }

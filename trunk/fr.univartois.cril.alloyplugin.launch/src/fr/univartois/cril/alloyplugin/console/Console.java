@@ -2,16 +2,9 @@ package fr.univartois.cril.alloyplugin.console;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
-import org.eclipse.ui.console.IConsoleConstants;
 import org.eclipse.ui.console.IConsoleManager;
-import org.eclipse.ui.console.IConsoleView;
 
 import edu.mit.csail.sdg.alloy4.Err;
 
@@ -22,13 +15,15 @@ public class Console {
 	 * Create one if not found.
 	 */	
 
-	public static AlloyMessageConsole findConsole(String consoleId,String filename){
-		ConsolePlugin plugin = ConsolePlugin.getDefault();
+	public static AlloyMessageConsole findConsole (String consoleId, String filename){
+		ConsolePlugin plugin   = ConsolePlugin.getDefault();
 		IConsoleManager conMan = plugin.getConsoleManager();
-		IConsole[] existing = conMan.getConsoles();
+		IConsole[] existing    = conMan.getConsoles();
+		
 		for (int i = 0; i < existing.length; i++)
 			if (consoleId.equals(existing[i].getName()))
 				return (AlloyMessageConsole) existing[i];
+		
 		//no console found, so create a new one
 		AlloyMessageConsole myConsole = new AlloyMessageConsole(consoleId);				
 		conMan.addConsoles(new IConsole[]{myConsole});		
@@ -40,12 +35,15 @@ public class Console {
 		return findConsole(getAlloyConsoleId(filename),filename);
 
 	}
-	public static AlloyMessageConsole findAlloyInfoConsole(String filename){
-		AlloyMessageConsole amc=findConsole(getAlloyInfoConsoleId(filename),filename);		
-		return amc;
 
+	
+	
+	public static AlloyMessageConsole findAlloyInfoConsole(String filename){
+		return findConsole(getAlloyInfoConsoleId(filename),filename);		
 	}	
 
+	
+	
 	/**
 	 * Print a Err exception in the console with Hyperlink if needed.
 	 */
@@ -56,12 +54,18 @@ public class Console {
 		amc.reveal();
 		amc.print(e.getMessage(),new Color(null,255 ,0,0),SWT.DEFAULT);		
 	}
+	
+	
+	
 	/**
 	 * Returns the Console Id of an Alloy model file.	
 	 */
 	private static String getAlloyConsoleId(String filename) {		
 		return "[Alloy Console] "+filename;
 	}
+	
+	
+	
 	/**
 	 * Returns the Parser Console Id of an Alloy file.
 	 * 
@@ -70,11 +74,12 @@ public class Console {
 		return "[Alloy Info Console]";
 	}
 
+	
+	
 	/**
 	 * Reveals the default Eclipse Console View and display the given console.
 	 */
-
-	protected static void revealConsoleView(AlloyMessageConsole console) {		
+	protected static void revealConsoleView (AlloyMessageConsole console) {		
 		/*IWorkbench wb = PlatformUI.getWorkbench();
 		if (wb==null) return;
 		IWorkbenchWindow aww = wb.getActiveWorkbenchWindow();
@@ -95,5 +100,4 @@ public class Console {
 		}*/
 		//console.activate();
 	}
-
 }

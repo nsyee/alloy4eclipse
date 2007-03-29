@@ -1,15 +1,9 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
-import java.awt.Component;
-import java.awt.Frame;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.awt.SWT_AWT;
-import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
@@ -18,13 +12,10 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 
 
 public class GraphView extends ViewPart {
-
-
-	
 	public Composite c;
 	public java.awt.Frame frame;
-	public static JPanel panel;
-	public static GraphView defaut;
+	static JPanel panel;
+	static GraphView defaut;
 	private static MyVizGUI viz;
 
 	public GraphView() {
@@ -58,7 +49,6 @@ public class GraphView extends ViewPart {
 
 
 	public static void Visualize(A4Solution ans) throws Err {
-
 		ans.writeXML("output.xml", false);
 		//
 		// You can then visualize the XML file by calling this:

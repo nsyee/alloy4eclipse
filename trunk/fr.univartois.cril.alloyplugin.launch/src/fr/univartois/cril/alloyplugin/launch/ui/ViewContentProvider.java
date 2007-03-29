@@ -3,9 +3,9 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 import java.util.HashMap;
 
-import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
@@ -15,7 +15,6 @@ import fr.univartois.cril.alloyplugin.ui.IALSFile;
  * When Alloy Command view ask for elements (getElements()), the provider returns ExecutableCommand
  * associated with the current Resource.
  */
-
 public class ViewContentProvider implements IStructuredContentProvider {
 	/**
 	 * the current 
