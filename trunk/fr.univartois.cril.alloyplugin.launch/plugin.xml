@@ -121,5 +121,19 @@
       </launchConfigurationTabGroup>
 
  </extension>
+   <extension
+         id="builder"
+         name="Alloy Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="false"
+            isConfigurable="false">
+         <run class="fr.univartois.cril.alloyplugin.launch.ProjectBuilder"/>
+      </builder>
+   </extension>
+   <extension
+         point="fr.univartois.cril.alloyplugin.projectbuilderscontribution">
+      <Generic projectBuilderId="fr.univartois.cril.alloyplugin.launch.builder"/>
+   </extension>
    
 </plugin>

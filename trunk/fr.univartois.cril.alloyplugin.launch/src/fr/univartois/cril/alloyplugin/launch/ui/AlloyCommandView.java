@@ -1,21 +1,8 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
 
-import org.eclipse.jface.action.IMenuListener;
-import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.action.Separator;
-import org.eclipse.jface.viewers.DoubleClickEvent;
-import org.eclipse.jface.viewers.IDoubleClickListener;
-import org.eclipse.jface.viewers.ListViewer;
-import org.eclipse.jface.viewers.StructuredViewer;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPage;
@@ -23,6 +10,19 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ListViewer;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.jface.action.*;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.SWT;
 
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
@@ -38,15 +38,14 @@ import fr.univartois.cril.alloyplugin.ui.IALSFile;
  */
 
 public class AlloyCommandView extends ViewPart{
+	private static final String DEFAULT_CONTENT_DESCRIPTION = "no file opened.";
+
 	/**
 	 * the Alloy command view. 
 	 */
 	protected static AlloyCommandView defaultAlloyCommandView;
-	/**
-	 * the view content provider stores all commands used by command view.
-	 */
-	protected  static ViewContentProvider viewContentProvider;
-	private static String viewTitle="no file opened.";
+
+	private static String viewContentDescription=DEFAULT_CONTENT_DESCRIPTION;
 	/**
 	 * viewer used for commands display. 
 	 */
@@ -103,11 +102,11 @@ public class AlloyCommandView extends ViewPart{
 		layout.type=SWT.VERTICAL;
 		parent.setLayout(layout);
 		commandsViewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		commandsViewer.setContentProvider(getContentProvider());		
+		commandsViewer.setContentProvider(ViewContentProvider.getContentProvider());		
 		commandsViewer.setLabelProvider(new ViewLabelProvider());		
 		commandsViewer.setInput(this);
 		//setViewTitle(viewTitle);
-		setContentDescription("["+viewTitle+"]");
+		setContentDescription("["+viewContentDescription+"]");
 		resultsViewer=new ListViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);		
 		/*commandsViewer.addSelectionChangedListener(new ISelectionChangedListener(){
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -123,13 +122,7 @@ public class AlloyCommandView extends ViewPart{
 
 	};
 
-	/**
-	 * get contentProvider. 
-	 */
-	protected static ViewContentProvider getContentProvider() {
-		if (viewContentProvider==null) viewContentProvider=new ViewContentProvider();
-		return viewContentProvider;
-	}
+
 	/**
 	 * create popup menu. 
 	 */
@@ -231,67 +224,48 @@ public class AlloyCommandView extends ViewPart{
 	private StructuredViewer getCommandsViewer() {		
 		return commandsViewer;
 	}
-	/**
-	 * Add commands from a file to the ContentProvider and display them.
-	 * */
-	public static void addCommands(IALSFile file) {
-		ExecutableCommand[] exec_cmds = AlloyLaunching.launchParser(file);
-		((ViewContentProvider) getContentProvider()).addElements(exec_cmds,file);
-		refreshCommands();
-	}
-	/**
-	 * Displays the commands of a ressource.
-	 * Call addCommands() if it hasn't been called before with the same resource.	 
-	 */
-	public static void refreshCommands(IALSFile file) {
-		getContentProvider().setCurrent(file);			
-		if(getContentProvider().getCurrentCommands()==null){
-			addCommands(file);
-		}
-		else refreshCommands();
 
-	}
+
 	/**
 	 * 
 	 * Remove Commands of a resource.
 	 * */
 	public static void removeCommandsFromDisplay(IALSFile file) {
-		getContentProvider().removeElements(file);
+		ViewContentProvider.getContentProvider().removeElements(file);
 		//getContentProvider().setCurrent(null);		
 		refreshCommands();
 	}
-	/**
-	 * Get current displayed commands.
-	 */
-	public static ExecutableCommand[] getCurrentCommands(){
-		return getContentProvider().getCurrentCommands();
 
-	}
 	/**
 	 * update Description of the view.
 	 */
 
-	protected static void setViewTitle(String name) {
-		viewTitle=name;		
-		AlloyCommandView view = getDefault();
-		if(view!=null)
-			view.setContentDescription("["+name+"]");		
+	protected static void setViewContentDescription(IALSFile newFile) {
+		if( newFile==null) viewContentDescription=DEFAULT_CONTENT_DESCRIPTION;
+		else
+			viewContentDescription=newFile.getResource().getName();
 	}
 	/**
 	 * Refresh Commands. If commands have been changed (setSat) since last refresh, 
-	 * it's will be displayed.	  
+	 * the changes will be displayed.	  
 	 */
-	public static void refreshCommands() {		
-		AlloyCommandView view = getDefault();		
-		if (view==null) return;		
-		view.setContentDescription("["+viewTitle+"]");
-		StructuredViewer viewer2=view.getCommandsViewer();
-		if(viewer2!=null)			
-		{
-			viewer2.refresh();
-		}			
-		//view.setPartName("["+viewTitle+"]");
-		//view.setContentDescription("["+viewTitle+"]");		
+	public static void refreshCommands() {
+		Display display = PlatformUI.getWorkbench().getDisplay();		
+		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
+			display.syncExec(
+					new Runnable() {
+						public void run(){
+							AlloyCommandView view = getDefault();		
+							if (view==null) return;		
+							view.setContentDescription("["+viewContentDescription+"]");
+							StructuredViewer viewer2=view.getCommandsViewer();
+							if(viewer2!=null)			
+							{
+								viewer2.refresh();
+							}						
+						}
+					});
+					
 	}
 	/**
 	 * Print in the resultview.
@@ -355,11 +329,9 @@ public class AlloyCommandView extends ViewPart{
 
 
 	}
-	public static IALSFile getCurrentALSFile() {		
-		return getContentProvider().getCurrent();
-	}
 
-	
+
+
 
 
 

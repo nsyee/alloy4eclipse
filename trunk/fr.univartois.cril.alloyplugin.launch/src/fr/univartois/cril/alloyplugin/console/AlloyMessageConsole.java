@@ -59,8 +59,7 @@ public class AlloyMessageConsole extends MessageConsole {
 							print2(message,c,style);
 						}
 					});
-		else//execute le print dans le thread courant (pas forc�ment graphique)
-			print2(message,c,style);//
+		
 	}
 	
 	
@@ -123,7 +122,17 @@ public class AlloyMessageConsole extends MessageConsole {
 	 * Clear console content.
 	 */
 	public void clear() {
-		this.getDocument().set("");
+		Display display = PlatformUI.getWorkbench().getDisplay();
+		//this.
+		if (display!=null)//demande a display d'executer le print (dans un thread graphique)
+			display.syncExec(
+					new Runnable() {
+						public void run(){
+							AlloyMessageConsole.this.getDocument().set("");
+						}
+					});
+		
+		
 
 	}
 	

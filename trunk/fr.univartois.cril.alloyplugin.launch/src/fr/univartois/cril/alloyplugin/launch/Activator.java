@@ -9,6 +9,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import edu.mit.csail.sdg.alloy4.Util;
+import fr.univartois.cril.alloyplugin.launch.ui.ViewContentProvider;
 
 
 /**
@@ -169,4 +170,6 @@ public class Activator extends AbstractUIPlugin {
 	        // Record the locations
 	        System.setProperty("alloy.dotbin0", platformBinary+fileSeparator+"dotbin");
 	    }
+	
+		//AlloyLaunching.launchParser(file);
 }
