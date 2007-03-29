@@ -21,8 +21,6 @@ public class Activator extends AbstractUIPlugin {
 	//
 	public static final String COMMAND_VIEW_ID = "fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView";
 
-
-
 	// The shared instance
 	private static Activator plugin;
 	/**
@@ -40,17 +38,19 @@ public class Activator extends AbstractUIPlugin {
 	public static final String GREEN_RUN_ID = "icons/RunCommandGreen.gif";
 
 	/** The system-specific file separator (forward-slash on UNIX, back-slash on Windows, etc.) */
-    private static final String fs = System.getProperty("file.separator");
+    private static final String fileSeparator = System.getProperty("file.separator");
 	
     
 	/**
 	 * The constructor
 	 */
 	public Activator() {
-		plugin = this;		
+		plugin = this;
 		copyFromJAR();
 	}
 
+	
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
@@ -59,6 +59,8 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 	}
 
+	
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
@@ -69,6 +71,8 @@ public class Activator extends AbstractUIPlugin {
 		super.stop(context);
 	}
 
+	
+	
 	/**
 	 * Returns the shared instance
 	 *
@@ -78,12 +82,17 @@ public class Activator extends AbstractUIPlugin {
 		return plugin;
 	}
 
+	
+	
 	public ImageRegistry getImageRegistry(){
-		if (imageRegistry == null) {
+		if (imageRegistry == null)
 			imageRegistry=createImageRegistry();			
-		}
+
 		return imageRegistry;		
 	}
+	
+	
+	
 	public void initializeImageRegistry(ImageRegistry reg){
 		//System.out.println("initIR");
 		addImage(COMMAND_ID, reg);
@@ -97,18 +106,22 @@ public class Activator extends AbstractUIPlugin {
 		addImage(GREEN_RUN_ID, reg);
 	}
 
+	
+	
 	public ImageRegistry createImageRegistry(){
 		//System.out.println("createIR");
 		ImageRegistry reg=new ImageRegistry();	
 		initializeImageRegistry(reg);
 		return reg;
 	}
+	
+	
+	
 	/**
 	 * Add image in image registry. Pour taper moins de code 
-	 * la clé de l'image est aussi le chemin d'accès de l'image dans le plugin. 
+	 * la clï¿½ de l'image est aussi le chemin d'accï¿½s de l'image dans le plugin. 
 	 * @param reg 
 	 */
-		
 	private void addImage(String localPathKey, ImageRegistry reg) {
 		URL url = null;
 		try {
@@ -119,14 +132,28 @@ public class Activator extends AbstractUIPlugin {
 		ImageDescriptor des = ImageDescriptor.createFromURL(url);		
 		reg.put(localPathKey,des);
 	}
+	
+	
+	
 	 private void copyFromJAR() {
 	        // Compute the appropriate platform
 	        String os = System.getProperty("os.name").toLowerCase().replace(' ','-');
-	        if (os.startsWith("mac-")) os="mac"; else if (os.startsWith("windows-")) os="windows";
+	        
+	        if (os.startsWith("mac-"))
+	        	os="mac";
+	        else if (os.startsWith("windows-"))
+	        	os="windows";
+	        
 	        String arch = System.getProperty("os.arch").toLowerCase().replace(' ','-');
-	        if (arch.equals("powerpc")) arch="ppc-"+os; else arch=arch.replaceAll("\\Ai[3456]86\\z","x86")+"-"+os;
+	        
+	        if (arch.equals("powerpc"))
+	        	arch="ppc-"+os;
+	        else
+	        	arch=arch.replaceAll("\\Ai[3456]86\\z","x86")+"-"+os;
+	        
 	        // Find out the appropriate Alloy directory
-	        final String platformBinary=Helper.alloyHome()+fs+"binary";
+	        final String platformBinary=Helper.alloyHome()+fileSeparator+"binary";
+	        
 	        // Copy the platform-dependent binaries
 	        Util.copy(true, false, false, platformBinary,
 	           arch+"/libminisat.so", arch+"/libminisat.jnilib",
@@ -140,6 +167,6 @@ public class Activator extends AbstractUIPlugin {
 	           arch+"/zlib1.dll", arch+"/z.dll", arch+"/freetype6.dll", arch+"/png.dll");
 	              
 	        // Record the locations
-	        System.setProperty("alloy.dotbin0", platformBinary+fs+"dotbin");
+	        System.setProperty("alloy.dotbin0", platformBinary+fileSeparator+"dotbin");
 	    }
 }

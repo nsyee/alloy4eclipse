@@ -22,6 +22,15 @@ import fr.univartois.cril.alloyplugin.ui.IALSFile;
  * 
  * */
 public class AlloyLaunching {
+	/**
+	 * private constructor to prevent user trying to instanciate this class
+	 *
+	 */
+	private AlloyLaunching(){
+	}
+	
+	
+	
 	/** 
 	 * Execute an ExecutableCommand previously created after a parsing.
 	 */
@@ -31,13 +40,14 @@ public class AlloyLaunching {
 		execCommand(command,rep);
 	}
 
+	
+	
 	/**
 	 * Parse a file (can be used by external package).
 	 * For the moment display Syntax error in console. 	  
 	 * This method update the AlloyCommandView.
 	 * @return 
 	 */
-
 	public static ExecutableCommand[] launchParser(IALSFile file) {
 		IResource res = file.getResource();
 
@@ -57,6 +67,9 @@ public class AlloyLaunching {
 			}*/
 		return exec_cmds;
 	}
+	
+	
+	
 	/**
 	 * Displays an Err exception in problem view.
 	 */
@@ -72,14 +85,20 @@ public class AlloyLaunching {
 		}
 	}
 
+	
+	
     public static void displayErrorInProblemView(IResource res, Err e) {
 		displayErrInProblemView(res,e,IMarker.SEVERITY_ERROR);
 	}
 
+    
+    
 	public static void displayWarningInProblemView(IResource res, Err e) {
 		displayErrInProblemView(res,e,IMarker.SEVERITY_WARNING);
 	}
 
+	
+	
 	/**
 	 * Get the ressource where the Err is located. 
 	 */
@@ -95,6 +114,8 @@ public class AlloyLaunching {
 		return res;
 	}
 
+	
+	
 	/**
 	 * Parse a .als file. Returns executable commands which can be executed later.
 	 * @throws Err 
@@ -129,7 +150,6 @@ public class AlloyLaunching {
 
 
 	
-
 	/**
 	 * Execute every command in a file.
 	 * This method parse the file, then execute every command.
@@ -150,6 +170,9 @@ public class AlloyLaunching {
 			execCommand(cmd,rep);				
 		}
 	}
+
+	
+	
 	/**
 	 * Execute a command.
 	 * 
@@ -178,10 +201,10 @@ public class AlloyLaunching {
 		} catch (Err e) {				
 			displayErrorInProblemView(command.getRes(), e);
 		}
-
-
 	}
 
+	
+	
 	private static void displayAns(A4Solution ans) throws Err {
 //		GraphView.Visualize(ans);
 		
@@ -189,12 +212,8 @@ public class AlloyLaunching {
 		//
 		// You can then visualize the XML file by calling this:
 		VizGUI viz = new VizGUI(false,"",null);
-		viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");
-		
+		viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");	
 	}
-
-
-
 }
 
 

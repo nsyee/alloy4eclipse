@@ -13,23 +13,28 @@ import edu.mit.csail.sdg.alloy4.Pos;
  *
  */
 public class ConsoleErrListener implements IPatternMatchListener {
-	
-	private Err e;
+	private Err error;
 	private AlloyMessageConsole console;
 	
 	
 	public ConsoleErrListener(Err e){		
-		this.e=e;
+		this.error=e;
 	}
+	
+	
+	
 	public int getCompilerFlags(){
-		
 		return 0;
 	}
 
+	
+	
 	public String getLineQualifier() {
-				
 		return null;
 	}
+
+	
+	
 	/**
 	 * Add an escape symbol ("\") before each ("\") found in the path.	  
 	 */
@@ -43,41 +48,50 @@ public class ConsoleErrListener implements IPatternMatchListener {
 		return buffer.toString();
 	}
 
+	
+	
 	public String getPattern() {		
 		return escapeForwardSlash(getFileName());		
 	}
+
+	
+	
 	/**
 	 * Returns filename from Err.	 
 	 */
 	private String getFileName() {		
-		if (e!=null&&e.pos!=Pos.UNKNOWN&&(e.pos.filename.length()>0))
-			return e.pos.filename;		
+		if (error!=null && error.pos!=Pos.UNKNOWN && (error.pos.filename.length()>0))
+			return error.pos.filename;		
 		return "";
 	}
+
+	
+	
 	/**
 	 * Returns a line number from Err.	 
 	 */
 	private int getLine(){
-		if (e!=null&&e.pos!=Pos.UNKNOWN)
-			return e.pos.y;
+		if (error!=null && error.pos!=Pos.UNKNOWN)
+			return error.pos.y;
 		else return -1;
 	}
 
+	
 
-	public void connect(TextConsole console) {
-				
+	public void connect(TextConsole console) {			
 		this.console=(AlloyMessageConsole) console;
 	}
 
-	public void disconnect() {
-		
+	
+	
+	public void disconnect() {	
 	}
 
+	
+	
 	public void matchFound(PatternMatchEvent event) {
 		
 //		console.addFileLink(getFileName(),event.getOffset()+event.getLength()+4,getFileName().length(),getLine());	
 		console.addFileLink(getFileName(),event.getOffset(),event.getLength(),getLine());
-
 	}
-
 }

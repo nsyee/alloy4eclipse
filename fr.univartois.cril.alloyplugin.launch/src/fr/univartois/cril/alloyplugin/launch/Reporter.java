@@ -26,7 +26,6 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
  *
  */
 public final class Reporter extends A4Reporter implements Map <String,String>{
-
 	private int warningCount=0;
 	private String filename;
 	private IResource resource;
@@ -39,6 +38,8 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 		this.resource = res;
 	}
 
+	
+	
 	@Override public void warning(final ErrorWarning e) {
 		warningCount++;
 		// the location is in "e.pos"
@@ -48,6 +49,8 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 
 	}
 
+	
+	
 	@Override public void translate
 	(String solver, int bitwidth,
 			int maxseq, int skolemDepth, int symmetry) {
@@ -60,6 +63,8 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 		);
 	}
 
+	
+	
 	@Override public void solve
 	(int primaryVars, int totalVars, int clauses) {
 		print("Var="+totalVars
@@ -69,10 +74,15 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 		);
 	}
 
+	
+	
 	@Override public void resultCNF(final String filename) {
 		printInfo("CNF file written to "+filename+"\n");
 	}
 
+	
+	
+	@SuppressWarnings("deprecation")
 	@Override public void resultSAT
 	(Object command, long solvingTime, String filename) {
 		Command cmd = (Command)command;
@@ -90,6 +100,9 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 		updateExecCommand(true,sb.toString());
 	}
 
+	
+	
+	@SuppressWarnings("deprecation")
 	@Override public void resultUNSAT
 	(Object command, long solvingTime, String filename) {    	
 		Command cmd = (Command)command;
@@ -106,6 +119,9 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 		updateExecCommand(false,sb.toString());		
 		AlloyCommandView.printResult(sb.toString());        
 	}
+	
+	
+	
 	/**
 	 * update associated command if there is one.  
 	 */
@@ -115,23 +131,32 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 			execCommand.setStringResult(resultMessage);
 		}
 	}
+
+	
+	
 	private void printInfo(String string) {		
 		//System.out.println("reporting:"+string);
 		AlloyMessageConsole console = Console.findAlloyInfoConsole("");
 		console.print(string);
 	}
+
+	
+	
 	private void print(String string) {		
 		//System.out.println("reporting:"+string);
 		AlloyMessageConsole console = Console.findAlloyConsole(filename);
 		console.print(string);
 	}
 
+	
 
 	/** This method is called by the parser to report parser events. */
 	public void parse(String msg) {
 		printInfo(msg);
 	}
 
+	
+	
 	/** This method is called by the typechecker to report the type for each field/function/predicate/assertion, etc. */
 	public void typecheck(String msg) {
 		printInfo(msg);
@@ -144,45 +169,63 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 		//print("scope:"+msg);
 	}
 
+	
+	
 	/** This method is called by the BoundsComputer to report the bounds chosen for each sig and each field. */
 	public void bound(String msg) {
 //		print("bound:"+msg);
 	}
 
+	
+	
 	public void setExecCommand(ExecutableCommand cmd) {
 		this.execCommand=cmd;
-
 	}
 
+	
+	
     public void clear() {
-        // TODO Auto-generated method stub
-        
+        // TODO Auto-generated method stub   
     }
 
+    
+    
     public boolean containsKey(Object key) {
         return false;
     }
 
+    
+    
     public boolean containsValue(Object value) {
         return false;
     }
 
+    
+    
     public Set<java.util.Map.Entry<String, String>> entrySet() {
         return null;
     }
 
+    
+    
     public String get(Object key) {
         return null;
     }
 
+    
+    
     public boolean isEmpty() {
         return false;
     }
 
+    
+    
     public Set<String> keySet() {
         return null;
     }
 
+    
+    
     /**
      * Method called when a new file 
      */
@@ -197,22 +240,26 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
         return null;
     }
 
+    
+    
     public void putAll(Map<? extends String, ? extends String> m) {
     }
 
+    
+    
     public String remove(Object key) {
         return null;
     }
 
+    
+    
     public int size() {
         return 0;
     }
 
+    
+    
     public Collection<String> values() {
          return null;
     }
-
-
-
-
 }

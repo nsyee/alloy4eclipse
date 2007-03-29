@@ -22,8 +22,6 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
  */
 
 public class AlloyMessageConsole extends MessageConsole {
-
-
 	IPatternMatchListener listener;
 	public AlloyMessageConsole(String name) {
 		super(name, null);
@@ -50,24 +48,25 @@ public class AlloyMessageConsole extends MessageConsole {
 	 * Print message in the console.
 	 */
 	protected  void print(final String message,final Color c,final int style){
-		{	
-			//TODO SWT THREAD PROBLEM FIX
-			//try to get the display from platform......			
-			Display display = PlatformUI.getWorkbench().getDisplay();
-			//this.
-			if (display!=null)//demande a display d'executer le print (dans un thread graphique)
+		//TODO SWT THREAD PROBLEM FIX
+		//try to get the display from platform......			
+		Display display = PlatformUI.getWorkbench().getDisplay();
+		//this.
+		if (display!=null)//demande a display d'executer le print (dans un thread graphique)
 			display.syncExec(
 					new Runnable() {
 						public void run(){
 							print2(message,c,style);
 						}
 					});
-			else//execute le print dans le thread courant (pas forcément graphique)
-				print2(message,c,style);//
-		}
+		else//execute le print dans le thread courant (pas forcï¿½ment graphique)
+			print2(message,c,style);//
 	}
+	
+	
+	
 	protected void print2(String message,Color c,int style){		
-		MessageConsoleStream out = this.newMessageStream();
+		final MessageConsoleStream out = this.newMessageStream();
 		out.setColor(c);
 		out.setFontStyle(style);
 		out.println(message);
@@ -77,38 +76,49 @@ public class AlloyMessageConsole extends MessageConsole {
 			// TODO Display message error?
 			e.printStackTrace();
 		}
-
 	}
+	
+	
+	
 	/**
 	 * Print message in the console.
 	 */
-	public void print(String message) {
+	public void print (final String message) {
 		print(message,new Color(null,0,0,0),SWT.DEFAULT);		
 	}
+	
+	
+	
 	/**
 	 * Print message in the console.
 	 */
-	public void printInfo(String message) {
+	public void printInfo (String message) {
 		print(message,new Color(null,0,0,0),SWT.BOLD);		
 	}
 
 	/** 
 	 * Add a Filelink in the console.
 	 */
-	protected void addFileLink(String filename,int offset,int lenght,int line){		
-		if (filename==null) return;
-		IFile iff = Util.getFileForLocation(filename);		
-		if(iff==null) return;
-		FileLink fl=new FileLink(iff,null, -1, -1,line);
+	protected void addFileLink (String filename, int offset, int lenght, int line){		
+		if (filename!=null){
+			IFile iff = Util.getFileForLocation(filename);
+			
+			if (iff!=null){
+				FileLink fl=new FileLink(iff,null, -1, -1,line);
 
-		try {			
-			//this.addHyperlink(fl,offset+lenght+4,iff.getLocation().toString().length());
-			this.addHyperlink(fl,offset,lenght);
-		} catch (BadLocationException e) {
-			// TODO Display message error?			
-			e.printStackTrace();
+				try {			
+					//this.addHyperlink(fl,offset+lenght+4,iff.getLocation().toString().length());
+					this.addHyperlink(fl,offset,lenght);
+				} catch (BadLocationException e) {
+					// TODO Display message error?			
+					e.printStackTrace();
+				}
+			}
 		}
 	}
+	
+	
+	
 	/**
 	 * Clear console content.
 	 */
@@ -116,11 +126,13 @@ public class AlloyMessageConsole extends MessageConsole {
 		this.getDocument().set("");
 
 	}
+	
+	
+	
 	/**
 	 * Reveal the console in the consoleview.
 	 */
 	public void reveal(){
 		Console.revealConsoleView(this);	
 	}
-
 }
