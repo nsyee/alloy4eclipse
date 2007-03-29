@@ -1,18 +1,6 @@
 #summary installing the plugin on your computer.
 #labels Phase-Deploy,Featured
 
-= How to install the plugin =
-
-  # go to eclipse home directory
-  # unzip the content of the alloy4eclipsexxxx.zip file
-  # *launch eclipse using the -clean parameter*: `eclipse -clean`
-
-= How to update the plugin =
-
-  # go to eclipse home directory
-  # remove the three jar files starting with fr.univartois.cril in the plugins directory
-  # unzip the content of the alloy4eclipsexxxx.zip file
-  # *launch eclipse using the -clean parameter*: `eclipse -clean`
 
 = Install and update using Eclipse Update Manager =
   # *uninstall first former hand-installed version of the plugin*
