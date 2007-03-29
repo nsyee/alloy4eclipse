@@ -25,11 +25,4 @@
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>binaries</name>
-			<type>2</type>
-			<location>/tmp/C::/tmp/bourre/bin</location>
-		</link>
-	</linkedResources>
 </projectDescription>
