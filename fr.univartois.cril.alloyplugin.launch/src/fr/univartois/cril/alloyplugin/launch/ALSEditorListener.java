@@ -3,7 +3,7 @@ package fr.univartois.cril.alloyplugin.launch;
 
 
 import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
-import fr.univartois.cril.alloyplugin.launch.ui.ViewContentProvider;
+import fr.univartois.cril.alloyplugin.launch.ui.CommandsProvider;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
 /**
