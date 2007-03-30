@@ -18,6 +18,7 @@ import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 public class ViewContentProvider implements IStructuredContentProvider {
 	
 	
+	private static final IALSCommand[] EMPTY_COMMANDS =new IALSCommand[0];
 	HashMap<IALSFile, IALSCommand[]> map=new HashMap<IALSFile, IALSCommand[]>();
 	/**
 	 * the view content provider stores all commands used by commands view.
@@ -43,17 +44,7 @@ public class ViewContentProvider implements IStructuredContentProvider {
 
 	}
 
-	/**
-	 * Add a als file to the content provider and its commands.	  
-	 */
-	private void addCommands(IALSFile file){		
-		//putElement(resource,exec_cmds);		
-		assert(file!=null);//null is reserved for no resource
-		assert(file.getCommand()!=null);
-		map.put(file, file.getCommand());		
-		
-	}
-
+	
 
 	/**
 	 * Remove a als file and its commands from provider. 
@@ -98,7 +89,19 @@ public class ViewContentProvider implements IStructuredContentProvider {
 		return map.get(file);		
 	}
 	/**
-	 * add an ALS file to the provider.
+	 * Add a als file to the content provider and its commands.	  
+	 */
+	private void addCommands(IALSFile file){		
+		//putElement(resource,exec_cmds);		
+		assert(file!=null);//null is reserved for no resource
+		if(file.getCommand()==null) map.put(file, EMPTY_COMMANDS);
+		else
+		map.put(file, file.getCommand());		
+		
+	}
+
+	/**
+	 * Add an ALS file to the provider.
 	 * */
 	public  void addCommandsFrom(IALSFile file) {
 		
