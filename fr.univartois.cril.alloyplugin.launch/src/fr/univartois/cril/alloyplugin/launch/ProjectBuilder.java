@@ -67,7 +67,7 @@ IncrementalProjectBuilder {
 	void checkALSFile(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(".als")) {			
 			IALSFile file=ALSFileFactory.getALSFile(resource);
-			if(file!=null)AlloyLaunching.launchParserOneFile(file);						
+			if(file!=null)AlloyLaunching.launchParserOneFile(file.getResource());						
 		}
 	}
 
