@@ -1,19 +1,41 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
+import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
+import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
+import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.ui.IALSFile;
+
 public class LaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-
-	/*	ExecutableCommand[] tab = CommandsView.getCurrentCommands();
-		// execute alls command from current file
+		
+		IALSFile file=null;
+		try {
+			IResource[] res = configuration.getMappedResources();
+			
+			if(res!=null&&res.length>0)
+			{
+				file=ALSFileFactory.getALSFile(res[0]);				
+			}			 
+			
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();			
+		}
+		if (file==null) return;
+		
+		
+		ExecutableCommand[] tab = (ExecutableCommand[]) file.getCommand();
+		// execute alls command from file
 		// TODO try to memorize commands to be execute in configuration
 		monitor.setTaskName("Running Alloy command");
 		try {
@@ -22,12 +44,12 @@ public class LaunchConfigurationDelegate implements
 				if (monitor.isCanceled()) break;
 				monitor.subTask(command.toString());
 				AlloyLaunching.ExecCommand(command);
-				CommandsView.refresh();
+				AlloyCommandView.setCurrent(file);
 				monitor.worked(1);
 			}
 		} finally {
 			monitor.done();
 		}
-	*/}
+	}
 
 }
