@@ -62,15 +62,23 @@ IncrementalProjectBuilder {
 		}
 	}
 	/**	 
-	 * Check the resource. 
+	 * Check the resource if it's a file and ends by ".als" . 
 	 */
-	void checkALSFile(IResource resource) {
+	private void checkALSFile(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(".als")) {			
 			IALSFile file=ALSFileFactory.getALSFile(resource);
 			if(file!=null)AlloyLaunching.launchParserOneFile(file.getResource());						
 		}
 	}
-
+	/**	 
+	 * Evaluate et modifie the .
+	 */
+	private void parseALSFile(IResource resource) {
+		if (resource instanceof IFile && resource.getName().endsWith(".als")) {			
+			IALSFile file=ALSFileFactory.getALSFile(resource);
+			if(file!=null)AlloyLaunching.launchParser(file);						
+		}
+	}
 
 	protected void incrementalBuild(IResourceDelta delta,
 			IProgressMonitor monitor) throws CoreException {
@@ -88,7 +96,7 @@ IncrementalProjectBuilder {
 			switch (delta.getKind()) {
 			case IResourceDelta.ADDED:
 				// handle added resource
-				checkALSFile(resource);
+				parseALSFile(resource);
 				break;
 			case IResourceDelta.REMOVED:
 				// handle removed resource
@@ -96,7 +104,7 @@ IncrementalProjectBuilder {
 				break;
 			case IResourceDelta.CHANGED:
 				// handle changed resource
-				checkALSFile(resource);
+				parseALSFile(resource);
 				break;
 			}
 			//return true to continue visiting children.
