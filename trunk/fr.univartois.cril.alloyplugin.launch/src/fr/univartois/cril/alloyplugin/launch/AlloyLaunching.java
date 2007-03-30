@@ -20,6 +20,7 @@ import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.ui.IALSFileListener;
 
 /**
  * Static methods to launch Alloy parser or execute a command.
@@ -38,7 +39,7 @@ public class AlloyLaunching {
 	 */
 	public static final void ExecCommand(ExecutableCommand command){
 		assert(command!=null);
-		Reporter rep=new Reporter(command.getRes());
+		Reporter rep=new Reporter(command.getResource());
 		execCommand(command,rep);
 	}	
 
@@ -116,6 +117,7 @@ public class AlloyLaunching {
 	}
 	/**
 	 * set the fields of an alsFile. (commands, signatures..)
+	 * fire changed() on the als file for listeners.
 	 * */
 	private static void updateALSFile(World world, IALSFile file) throws Err {
 //		convert all commands in ExecutableCommand[]
@@ -143,7 +145,8 @@ public class AlloyLaunching {
 		for(int i=0;i<sigs.length;i++){
 			sigs[i]=new Signature(sigList.get(i));
 		}
-
+		file.fireChanged();
+			
 
 
 	}
@@ -174,7 +177,7 @@ public class AlloyLaunching {
 				displayAns(ans);
 			}
 		} catch (Err e) {				
-			displayErrorInProblemView(command.getRes(), e);
+			displayErrorInProblemView(command.getResource(), e);
 		}
 	}
 

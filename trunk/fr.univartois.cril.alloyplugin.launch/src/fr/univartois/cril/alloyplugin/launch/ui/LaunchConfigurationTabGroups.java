@@ -2,9 +2,7 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.ILaunchConfiguration;
-import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
@@ -25,43 +23,5 @@ public class LaunchConfigurationTabGroups extends
 		setTabs(tabs);
 	}
 
-	/*public void dispose() {	}
-
-	public ILaunchConfigurationTab[] getTabs() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-
-	public void launched(ILaunch launch) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Auto-generated method stub
-		
-	}
-*/
-	public void initializeFrom(ILaunchConfiguration configuration) {
-		try {
-			System.out.print("trucbidul:"+configuration.getMappedResources());
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		//IResource res=CommandsView.getCurrentALSFile().getResource();
-		
-	//	co//nfiguration.rename(res.getName()); //setAttribute(attributeName, value)
-		
-		
-		//IResource[] resources={res};
-		//configuration.setMappedResources(resources);
-		
-	}
 
 }

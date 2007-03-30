@@ -1,5 +1,6 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
@@ -14,8 +15,10 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 
+import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
@@ -35,8 +38,8 @@ public class LaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 		System.out.println("layout:"+parent.getLayout());
 		Label label = new Label(container, SWT.NULL);
 		label.setText("&Commands:");		
-		commandsViewer = new TableViewer(container, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		//commandsViewer.setContentProvider(CommandsFromALSFileProvider.getContentProvider());
+		commandsViewer = new TableViewer(container, SWT.H_SCROLL | SWT.V_SCROLL);
+		//commandsViewer.setContentProvider(ViewContentProvider.getContentProvider());
 		
 		//ExecutableCommand[] exec_cmds = ViewContentProvider.getContentProvider().getCommands(getALSFile());
 		//if(exec_cmds==null){
@@ -89,7 +92,7 @@ public class LaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 
 		if (page != null) {
-			ISelection selection = page.getSelection();
+			ISelection selection = page.getSelection();			
 			if (selection instanceof IStructuredSelection) {
 				IStructuredSelection ss = (IStructuredSelection)selection;
 				if (!ss.isEmpty()) {
@@ -97,22 +100,30 @@ public class LaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 					if (obj instanceof IALSFile) {
 						return (IALSFile)obj;
 					}
-					/*if (obj instanceof IResource) {
-						IJavaElement je = JavaCore.create((IResource)obj);
-						if (je == null) {
-							IProject pro = ((IResource)obj).getProject();
-							je = JavaCore.create(pro);
+					if (obj instanceof ExecutableCommand) {
+						//TODO stores all the selected commands from selection
+						IResource res = ((ExecutableCommand)obj).getResource();
+						IALSFile file=ALSFileFactory.getALSFile(res);
+						if(file!=null) return file;						
+					}
+					if (obj instanceof IResource) {
+						IALSFile file= ALSFileFactory.getALSFile((IResource) obj);
+						if (file == null) {
+							//IProject pro = ((IResource)obj).getProject();
+							//je = JavaCore.create(pro);
 						}
-						if (je != null) {
-							return je;
+						if (file != null) {
+							return file;
 						}
-					}*/
+					}
 				}
 			}
 			IEditorPart part = page.getActiveEditor();
 			if (part != null) {
 				IEditorInput input = part.getEditorInput();
-				return (IALSFile) input.getAdapter(IALSFile.class);
+				IResource res=(IResource) input.getAdapter(IResource.class);
+				IALSFile file=ALSFileFactory.getALSFile(res);
+				if(file!=null) return file;
 			}
 		}
 		return null;

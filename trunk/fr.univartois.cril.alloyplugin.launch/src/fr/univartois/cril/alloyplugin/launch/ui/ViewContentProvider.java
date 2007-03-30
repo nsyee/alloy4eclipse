@@ -7,6 +7,7 @@ import org.eclipse.jface.viewers.Viewer;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.ui.IALSFileListener;
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 
 /**
@@ -15,7 +16,7 @@ import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
  * associated with the current Resource.
  */
 
-public class ViewContentProvider implements IStructuredContentProvider {
+public class ViewContentProvider implements IStructuredContentProvider, IALSFileListener {
 	
 	
 	private static final IALSCommand[] EMPTY_COMMANDS =new IALSCommand[0];
@@ -37,7 +38,9 @@ public class ViewContentProvider implements IStructuredContentProvider {
 	}		
 
 	public void inputChanged(Viewer v, Object oldInput, Object newInput) {
-		
+		if (newInput==null) return;
+		IALSFile file=(IALSFile)newInput;
+		file.addListener(this);
 	}			
 	public void dispose() {
 //		TODO dispose the hasMap(?)
@@ -57,24 +60,27 @@ public class ViewContentProvider implements IStructuredContentProvider {
 		if (AlloyCommandView.getCurrent()==file) AlloyCommandView.setCurrent(null);
 	}
 
-	/**
+	/*
 	 * This method is used by viewer to get elements to display.
 	 * Returns all the commands for the current als file.
 	 * If current als file is null return a empty array.
 	 * this update the content description of commands view.
 	 */
-	public IALSCommand[] getElements(Object parent) {
+	public IALSCommand[] getElements(Object inputElement) {		
 		//
-		IALSFile currentALSFile=AlloyCommandView.getCurrent();
+		IALSFile currentALSFile=(IALSFile) inputElement;
+		System.out.println("icicicici0000:"+inputElement);
 		if (currentALSFile==null) {			
 			return new ExecutableCommand[0];
 		}
 		IALSCommand[] exec_cmds =getCommands(currentALSFile);
 		if (exec_cmds==null)				
 				{
+			System.out.println("pas trouve :"+inputElement);
 					addCommandsFrom(currentALSFile);
 					return currentALSFile.getCommand();
 					}
+		System.out.println("trouve :"+inputElement);
 		
 		return exec_cmds;
 	}
@@ -109,6 +115,11 @@ public class ViewContentProvider implements IStructuredContentProvider {
 		addCommands(file);		
 		//return exec_cmds;
 
+	}
+
+	public void changed(IALSFile file) {
+		System.out.println("je suis un listener");
+		
 	}
 	
 
