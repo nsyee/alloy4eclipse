@@ -17,10 +17,11 @@ public class LaunchConfigurationTabGroups extends
 		//TODO make a tab launch configuration (for choosing commands to be executed, solver etc...)				 
 		CommonTab c=new CommonTab();	
 		
-		LaunchConfigurationTab tabPerso=new LaunchConfigurationTab();
+		ChooseCommandsTab tabPerso=new ChooseCommandsTab();
 		ILaunchConfigurationTab[] tabs = {c,tabPerso};
 		//tab[0]=c;
 		setTabs(tabs);
+		
 	}
 
 

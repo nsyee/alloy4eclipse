@@ -19,23 +19,28 @@ import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
  */
 
 public class CommandsProvider implements IStructuredContentProvider, IALSFileListener {
-	
-	
+
+
 	private static final IALSCommand[] EMPTY_COMMANDS =new IALSCommand[0];
-	
+
 	private Viewer viewer;
-	
-			
+
+
 
 	public void inputChanged(Viewer v, Object oldInput, Object newInput) {
-		viewer=v;		
-		System.out.println("viewer:"+v);
-		if (newInput==null) return;
-		IALSFile file=(IALSFile)newInput;
-		file.addListener(this);
+		viewer=v;
+		if (oldInput!=null){
+			IALSFile file=(IALSFile)oldInput;
+			file.removeListener(this);
+		}
+		if (newInput!=null){
+			IALSFile file=(IALSFile)newInput;
+			file.addListener(this);
+		}
+
 	}			
 	public void dispose() {
-//		TODO dispose the hasMap(?)
+
 
 	}
 
@@ -54,14 +59,14 @@ public class CommandsProvider implements IStructuredContentProvider, IALSFileLis
 			return EMPTY_COMMANDS;
 		}
 		IALSCommand[] exec_cmds =currentALSFile.getCommand();
-		
+
 		if (exec_cmds==null)				
-				{
+		{
 			System.out.println("commandes null:"+currentALSFile);
-					return EMPTY_COMMANDS;
-					}
+			return EMPTY_COMMANDS;
+		}
 		System.out.println("nb commands:"+exec_cmds.length);
-		
+
 		return exec_cmds;
 	}
 
@@ -76,9 +81,9 @@ public class CommandsProvider implements IStructuredContentProvider, IALSFileLis
 							viewer.refresh();					
 						}
 					});
-		
-		
+
+
 	}
-	
+
 
 }

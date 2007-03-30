@@ -1,6 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -60,23 +61,25 @@ public class AlloyLaunching {
 			displayErrorInProblemView(res, e);					
 		}				
 	}
-/**
- * parse one file.
- * */
-	public static void launchParserOneFile(IResource resource) {
-		if (!resource.exists()) return;
+	/**
+	 * parse one file.
+	 * @return 
+	 * */
+	public static List<Command> launchParserOneFile(IResource resource) {
+		if (!resource.exists()) return null;
 		try {
 			resource.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
-        } catch (CoreException e) {
-            e.printStackTrace();
-        }                   
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}  
+		List<Command> list=null;
 		try {
-			CompUtil.parseOneModule_fromFile(resource.getLocation().toString());
+			list = CompUtil.parseOneModule_fromFile(resource.getLocation().toString());
 		} catch (Err e) {			
 			displayErrorInProblemView(resource, e);					
 		}				
+		return list;
 
-        
 	}
 	/**
 	 * Displays an Err exception in problem view.
@@ -132,7 +135,7 @@ public class AlloyLaunching {
 	updateALSFile(world,file);	
 	}
 
-	
+
 	/**
 	 * set the fields of an alsFile. (commands, signatures..)
 	 * fire changed() on the als file for listeners.
