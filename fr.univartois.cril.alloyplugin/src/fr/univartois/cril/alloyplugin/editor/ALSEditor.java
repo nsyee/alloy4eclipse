@@ -55,7 +55,6 @@ public class ALSEditor extends TextEditor {
 			if (fOutlinePage == null) {
 				log.info("Ours is null, creating a new one");
 				fOutlinePage= new AlloyContentOutlinePage(this);
-				// if (asv==null) asv=new AlloySolutionViewer();
 			}
 			log.info("Providing my adapter");
 			return fOutlinePage;
@@ -67,7 +66,7 @@ public class ALSEditor extends TextEditor {
 	 * Try to return an IResource from IEditorInput.
 	 * Returns null if no such object can be found.  
 	 */
-	private IResource getResource(IEditorInput input) {				
+	public IResource getResource(IEditorInput input) {				
 		IResource ir=(IResource)input.getAdapter(IResource.class);		
 		return ir;		
 	}
