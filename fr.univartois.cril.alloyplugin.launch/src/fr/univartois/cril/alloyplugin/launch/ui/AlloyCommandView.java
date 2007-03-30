@@ -99,8 +99,8 @@ public class AlloyCommandView extends ViewPart{
 		layout.type=SWT.VERTICAL;
 		parent.setLayout(layout);
 		commandsViewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		commandsViewer.setContentProvider(new ViewContentProvider());		
-		commandsViewer.setLabelProvider(new ViewLabelProvider());		
+		commandsViewer.setContentProvider(new CommandsProvider());		
+		commandsViewer.setLabelProvider(new CommandsLabelProvider());		
 		commandsViewer.setInput(currentALSFile);
 		
 		//setViewTitle(viewTitle);
