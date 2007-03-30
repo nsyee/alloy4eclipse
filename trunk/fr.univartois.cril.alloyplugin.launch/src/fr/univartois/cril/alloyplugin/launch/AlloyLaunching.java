@@ -60,7 +60,24 @@ public class AlloyLaunching {
 			displayErrorInProblemView(res, e);					
 		}				
 	}
+/**
+ * parse one file.
+ * */
+	public static void launchParserOneFile(IALSFile file) {
+		if (!file.getResource().exists()) return;
+		try {
+			file.getResource().deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
+        } catch (CoreException e) {
+            e.printStackTrace();
+        }                   
+		try {
+			CompUtil.parseOneModule_fromFile(file.getResource().getLocation().toString());
+		} catch (Err e) {			
+			displayErrorInProblemView(file.getResource(), e);					
+		}				
 
+        
+	}
 	/**
 	 * Displays an Err exception in problem view.
 	 */
@@ -102,19 +119,20 @@ public class AlloyLaunching {
 	 * Parse a .als file. The ALSfile fields are modidied.
 	 * @throws Err 
 	 * */
-	protected static void parse(IALSFile file,Reporter rep) throws Err 
+	private static void parse(IALSFile file,Reporter rep) throws Err 
 	{IResource res=file.getResource();
 	String filename = res.getLocation().toString();
 	AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
 	alloyParserConsole.clear();
 	alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
 	World world;
-	world = CompUtil.parseEverything_fromFile(rep, null, filename, rep);
+	world = CompUtil.parseEverything_fromFile(rep, null, filename, rep);	
 	world.typecheck(rep);			
 	alloyParserConsole.printInfo("=========== End Parsing \""+filename+"\" =============");
-	updateALSFile(world,file);
-	
+	updateALSFile(world,file);	
 	}
+
+	
 	/**
 	 * set the fields of an alsFile. (commands, signatures..)
 	 * fire changed() on the als file for listeners.
@@ -146,7 +164,7 @@ public class AlloyLaunching {
 			sigs[i]=new Signature(sigList.get(i));
 		}
 		file.fireChanged();
-			
+
 
 
 	}
@@ -191,6 +209,7 @@ public class AlloyLaunching {
 		VizGUI viz = new VizGUI(false,"",null);
 		viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");	
 	}
+
 }
 
 

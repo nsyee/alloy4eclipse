@@ -14,7 +14,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
-import fr.univartois.cril.alloyplugin.launch.ui.ViewContentProvider;
+import fr.univartois.cril.alloyplugin.launch.ui.CommandsProvider;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 
@@ -67,7 +67,7 @@ IncrementalProjectBuilder {
 	void checkALSFile(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(".als")) {			
 			IALSFile file=ALSFileFactory.getALSFile(resource);
-			if(file!=null)AlloyLaunching.launchParser(file);						
+			if(file!=null)AlloyLaunching.launchParserOneFile(file);						
 		}
 	}
 

@@ -1,6 +1,10 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
@@ -8,18 +12,14 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
-
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
-import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
@@ -35,21 +35,15 @@ public class LaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 		container.setLayout(layout);
 		//layout.numColumns = 3;		
 		//layout.verticalSpacing = 9;
-		System.out.println("layout:"+parent.getLayout());
+
 		Label label = new Label(container, SWT.NULL);
 		label.setText("&Commands:");		
 		commandsViewer = new TableViewer(container, SWT.H_SCROLL | SWT.V_SCROLL);
-		//commandsViewer.setContentProvider(ViewContentProvider.getContentProvider());
+		commandsViewer.setContentProvider(new CommandsProvider());
+		System.out.println("createControl:"+file);
+		commandsViewer.setInput(file);				
+		commandsViewer.setLabelProvider(new CommandsLabelProvider());		
 		
-		//ExecutableCommand[] exec_cmds = ViewContentProvider.getContentProvider().getCommands(getALSFile());
-		//if(exec_cmds==null){
-			//exec_cmds=AlloyLaunching.launchParser(getALSFile());
-		//}
-		
-		
-		//commandsViewer.add();
-		commandsViewer.setLabelProvider(new ViewLabelProvider());		
-		//commandsViewer.setInput(this);
 		setControl(container);
 
 	}
@@ -62,31 +56,54 @@ public class LaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		// TODO Auto-generated method stub
-
+		System.out.println("initialize from");
 
 	}
 
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		// TODO Auto-generated method stub
-
+		System.out.println("perform apply:file:"+file);
 	}
 
+
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
+		//if (file==null) file=getALSFileFromContext();
+		System.out.println("set default");		
+		IResource[] resources=null;
+		try {			
+			resources = configuration.getMappedResources();
+
+		} catch (CoreException e) {
+
+			e.printStackTrace();
+		}
+		if (resources==null)		
+		{
+			System.out.println("resource null");
+			file=getALSFileFromContext();
+			if(file!=null)
+			{			
+				System.out.println("set default : viewer:"+commandsViewer);
+				System.out.println("set default: file:"+file);
+				resources=new IResource[1];
+				resources[0]=file.getResource();
+				configuration.setMappedResources(resources);
+
+			}
+		}
+		//configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_MAIN_FILE, (List)null);
 		// TODO Auto-generated method stub
 		//IALSFile file = getALSFile();
 		//List<IALSFile> list = new ArrayList<IALSFile>();
 		//list.add(file);
-		
+
 		//file.s
 		//configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_MAP, list);
 	}
-	
-	private IALSFile getALSFile() {
-		if (file==null) file=getALSFileFromContext();
-		return file;
-	}
 
-	protected IALSFile getALSFileFromContext() {
+	
+
+	private IALSFile getALSFileFromContext() {
 
 		IWorkbenchPage page =
 			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
