@@ -17,13 +17,10 @@ public class ALSFile implements IALSFile {
 	public IResource getResource() {
 		return resource;
 	}
-	public void setResource(IResource resource){
+	protected void setResource(IResource resource){
 		this.resource=resource;
 	}
-	public void setWorld(Object world) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	public void setCommand(IALSCommand[] cmds) {
 		this.cmds=cmds;		
 	}

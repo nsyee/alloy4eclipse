@@ -1,12 +1,9 @@
 package fr.univartois.cril.alloyplugin;
 
-import java.util.Iterator;
+
 import java.util.List;
 import java.util.ArrayList;
-
-
 import org.eclipse.core.resources.IProjectNatureDescriptor;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.*;
@@ -16,6 +13,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
+
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
 import fr.univartois.cril.alloyplugin.util.ALSTextAttributeProvider;
@@ -23,24 +21,33 @@ import fr.univartois.cril.alloyplugin.util.ALSTextAttributeProvider;
 public class AlloyPlugin extends AbstractUIPlugin {
 	/** instance of the plugin*/
 	private static AlloyPlugin plugin;
-	/** The plug-in ID*/
+	/**
+	 *  The plug-in ID.
+	 */
 	public static final String PLUGIN_ID = "fr.univartois.cril.alloyplugin";
-	
-	
-	/** extension editor listener ID*/
-	private static final String editorListenerExtensionId="fr.univartois.cril.alloyplugin.editorlisteners";
-	/** extension project builders ID*/
+	/**
+	 *  extension project builders ID
+	 */
 	private static final String projectBuildersExtensionId="fr.univartois.cril.alloyplugin.projectbuilderscontribution";
 	/***/
 	public static final String ALS_PARTITIONING = "__pos_als_partitioning";
-	
+	/**
+	 * Default project builder Id.  
+	 */
+	private static final String PROJECT_BUILDER_ID = "fr.univartois.cril.alloyplugin.builder";
+
 	/** listeners for commands */	
 	private List<IAlloyEditorListener> editorListeners;
-	
-	private List<String> projectBuildersID;
+	/**
+	 * project builders.
+	 */
+	private String[] projectBuildersID;
+
+
 	private IPartitionTokenScanner fPartitionScanner;
 	private ALSTextAttributeProvider fTextAttributeProvider;
 	private ALSCodeScanner fCodeScanner;
+
 
 	public AlloyPlugin(){
 		super();
@@ -48,89 +55,61 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		//Workspace workspace=PlatformUI.getWorkbench().ge;
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		IProjectNatureDescriptor descriptor = workspace.getNatureDescriptor(ProjectNature.NATURE_ID);
-		
-			System.out.println("truc:"+descriptor);	
-		
-		
+
+		System.out.println("truc:"+descriptor);	
+
+
 	}
-	
+
 	/**
 	 * Returns command listeners.
 	 * */	
 	public List<IAlloyEditorListener> getEditorListeners(){
 		if (editorListeners==null)
-			editorListeners=computeEditorListeners();
+			editorListeners=new ArrayList<IAlloyEditorListener>();
 		return editorListeners;	
 	}
 	/**
-	 * Returns command listeners.
+	 * Returns project builders listeners.
 	 * */	
 	public String[] getProjectBuildersID(){
+
 		if (projectBuildersID==null)
-			projectBuildersID=computeProjectNaturesID();
-		String[] projectNaturesIDTab=new String[projectBuildersID.size()];
-		int i=0;
-		for (String id : projectBuildersID) {
-			projectNaturesIDTab[i++]=id;
+		{
+			List<String> projectBuildersIDList= new ArrayList<String>();
+			projectBuildersIDList.add(PROJECT_BUILDER_ID);
+			computeProjectNaturesID(projectBuildersIDList);
+			projectBuildersID=new String[projectBuildersIDList.size()];
+			int i=0;
+			for (String id : projectBuildersIDList) {
+				projectBuildersID[i++]=id;
+			}
 		}
-		
-		return projectNaturesIDTab;	
+		return projectBuildersID;	
 	}
-	
-	private List<String> computeProjectNaturesID() {
+	/**
+	 *  get the project builders contribution from plugins which declare fr.univartois.cril.alloyplugin.projectbuilderscontribution extension.
+	 */
+	private void computeProjectNaturesID(List<String> projectBuildersIDList) {
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
 		IExtensionPoint extensionPoint= registry.getExtensionPoint(projectBuildersExtensionId);
 		IExtension[] extensions = extensionPoint.getExtensions();
-		ArrayList<String> results = new ArrayList<String>();
+
 		for(int i = 0 ;i< extensions.length;i++){
 			IConfigurationElement[] elements=extensions[i].getConfigurationElements();
 			for(int j=0;j<elements.length;j++){
 				//try{
-					String s=elements[j].getAttribute("projectBuilderId");					
-				if(s!=null&&!results.contains(s))
-					{System.out.println("ajoutebuilderIDExtensionFound:"+s);
-					results.add(s);
-					}
-			}
-		}
-		return results;
-	}
-
-	/**
-	 * Adds editor listeners from existing extension points to the plugin.
-	 * */
-	private List<IAlloyEditorListener> computeEditorListeners() {
-		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IExtensionPoint extensionPoint= registry.getExtensionPoint(editorListenerExtensionId);
-		IExtension[] extensions = extensionPoint.getExtensions();
-		ArrayList<IAlloyEditorListener> results = new ArrayList<IAlloyEditorListener>();
-		for(int i = 0 ;i< extensions.length;i++){
-			IConfigurationElement[] elements=extensions[i].getConfigurationElements();
-			for(int j=0;j<elements.length;j++){
-				try{Object listener=elements[j].createExecutableExtension("class");
-				if(listener instanceof IAlloyEditorListener)
-					results.add((IAlloyEditorListener)listener);
-				}catch(CoreException e){
-					e.printStackTrace();
+				String s=elements[j].getAttribute("projectBuilderId");					
+				if(s!=null&&!projectBuildersIDList.contains(s))
+				{System.out.println("ajoutebuilderIDExtensionFound:"+s);
+				projectBuildersIDList.add(s);
 				}
 			}
 		}
-		return results;
+
 	}
 
 
-	public void fireFileLoaded(IALSFile file){
-		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileLoaded(file);
-		}
-	}	
-	public void fireFileSaved(IALSFile file){
-		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileSaved(file);
-		}
-	}	
-			
-	
 	public void fireSetFocus(IALSFile file) {
 		for(IAlloyEditorListener listener: getEditorListeners()){
 			listener.fileSetFocus(file);
@@ -138,11 +117,12 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	}
 	public void fireFileClosed(IALSFile file) {
 		for(IAlloyEditorListener listener: getEditorListeners()){
+			
 			listener.fileClosed(file);
 		}		
-		
+
 	}
-	
+
 
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
@@ -184,8 +164,15 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		}
 		return fCodeScanner;
 	}
+	/**
+	 * add a editor listener.
+	 * */
+	public static void addEditorListener(IAlloyEditorListener alsEditorListener) {
+		getDefault().getEditorListeners().add(alsEditorListener);
 
-	
-	
+	}
+
+
+
 
 }

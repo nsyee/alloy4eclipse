@@ -10,4 +10,7 @@ public IResource getResource();
 
 public void setCommand(IALSCommand cmd[]);
 
+
+public IALSCommand[] getCommand();
+
 }

@@ -10,7 +10,7 @@ public class ALSFileFactory {
 	static HashMap <IResource,ALSFile>map=new HashMap<IResource,ALSFile>();
 	public static ALSFile getALSFile(IResource resource) {
 		ALSFile file = map.get(resource);
-		if (file==null)
+		if (file==null&&resource.exists())
 		{
 			file=new ALSFile(resource);
 			

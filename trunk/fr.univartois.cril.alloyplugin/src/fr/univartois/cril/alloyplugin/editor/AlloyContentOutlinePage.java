@@ -22,7 +22,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
  */
 public class AlloyContentOutlinePage extends ContentOutlinePage {
 
-	//private static final Logger log = Logger.getLogger("alloy");
+	private static final Logger log = Logger.getLogger("alloy");
 	private final ALSEditor editor;
 	
 	public AlloyContentOutlinePage(ALSEditor editor) {
@@ -31,17 +31,17 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
 	public void createControl(Composite parent) {
 		super.createControl(parent);
-		//log.info("Creating Outline Page");
+		log.info("Creating Outline Page");
 		TreeViewer viewer = getTreeViewer();
-		//log.info("Adding label provider");
+		log.info("Adding label provider");
 		viewer.setLabelProvider(new AlloySolutionLabelProvider());
-		//log.info("Adding content provider");
+		log.info("Adding content provider");
 		viewer.setContentProvider(new AlloyTreeContentProvider());
 		Object input = editor.getEditorInput();
 		if (input!=null)
 			viewer.setInput(input);
 		viewer.expandAll();
-		//log.info("Creation look OK");
+		log.info("Creation look OK");
 	}
 
 }
