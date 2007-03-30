@@ -1,10 +1,5 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
@@ -43,10 +38,10 @@ public class LaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 		commandsViewer = new TableViewer(container, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		//commandsViewer.setContentProvider(CommandsFromALSFileProvider.getContentProvider());
 		
-		ExecutableCommand[] exec_cmds = ViewContentProvider.getContentProvider().getCommands(getALSFile());
-		if(exec_cmds==null){
-			exec_cmds=AlloyLaunching.launchParser(getALSFile());
-		}
+		//ExecutableCommand[] exec_cmds = ViewContentProvider.getContentProvider().getCommands(getALSFile());
+		//if(exec_cmds==null){
+			//exec_cmds=AlloyLaunching.launchParser(getALSFile());
+		//}
 		
 		
 		//commandsViewer.add();

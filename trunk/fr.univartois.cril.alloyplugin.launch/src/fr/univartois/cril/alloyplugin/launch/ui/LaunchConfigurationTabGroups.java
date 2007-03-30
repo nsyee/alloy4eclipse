@@ -1,25 +1,14 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
 
-import org.eclipse.core.resources.IResource;
 
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
-
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PlatformUI;
-
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 public class LaunchConfigurationTabGroups extends
 		AbstractLaunchConfigurationTabGroup {

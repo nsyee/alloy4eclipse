@@ -6,9 +6,6 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
-import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
-import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
-
 public class LaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 

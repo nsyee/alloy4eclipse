@@ -46,10 +46,9 @@ public class AlloyLaunching {
 	 * Parse a als file.
 	 * @return an array (can be empty if there is no command in the file.)
 	 */
-	public static ExecutableCommand[] launchParser(IALSFile file) {
-				
-		System.out.println("LaunchParser for :"+file.getResource().getName());
-		if (!file.getResource().exists()) return new ExecutableCommand[0];
+	public static void launchParser(IALSFile file) {				
+		
+		if (!file.getResource().exists()) return;
 		IResource res = file.getResource();
 
 		Reporter rep=new Reporter(res);		
@@ -61,13 +60,7 @@ public class AlloyLaunching {
 			displayErrorInProblemView(res, e);
 			exec_cmds=new ExecutableCommand[0];			
 		}
-		file.setCommand(exec_cmds);
-		//AlloyCommandView acw = AlloyCommandView.getDefault();
-		/*if(acw!=null) {			
-			acw.setElements(exec_cmds);
-			}*/
-		System.out.println("END LaunchParser for :"+file.getResource().getName());
-		return exec_cmds;
+		file.setCommand(exec_cmds);		
 	}
 	
 	

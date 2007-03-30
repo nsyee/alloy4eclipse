@@ -26,14 +26,14 @@ public class ProjectBuilder extends
 
 	public ProjectBuilder() {
 		// TODO Auto-generated constructor stub
-		System.out.println("ProjectBuilder");
+		
 		
 	}
 
 	@Override
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 	throws CoreException {
-		System.out.println("ProjectBuilder build");
+		
 		if (kind == FULL_BUILD) {
 			fullBuild(monitor);
 		} else {
@@ -48,7 +48,7 @@ public class ProjectBuilder extends
 	}
 	protected void fullBuild(final IProgressMonitor monitor)
 	throws CoreException {
-		System.out.println("ProjectBuilder full build");
+		
 		try {
 			getProject().accept(new SampleResourceVisitor());
 		} catch (CoreException e) {
@@ -65,14 +65,22 @@ public class ProjectBuilder extends
 	 * Check the resource. 
 	 */
 	void checkALSFile(IResource resource) {
-		if (resource instanceof IFile && resource.getName().endsWith(".als")) {
-			System.out.println("check:"+resource.getName());
+		if (resource instanceof IFile && resource.getName().endsWith(".als")) {			
 			IALSFile file=ALSFileFactory.getALSFile(resource);
-			System.out.println("check file:"+file);
+			System.out.println("check resource:"+resource.hashCode()+" associated ALS file:"+file);
 			ViewContentProvider.getContentProvider().addCommandsFrom(file);
-			//if(ViewContentProvider.getContentProvider().getCurrent()==file) CommandsView.refreshCommands();			
-			
-		}else System.out.println("can't check:"+resource.getName());
+			if(AlloyCommandView.getCurrent()==file) AlloyCommandView.refreshCommands();			
+		}
+	}
+	/**
+	 * Remove from ContentProvider.
+	 */
+	private void removeALSFile(IResource resource) {
+		IALSFile file=ALSFileFactory.getALSFile(resource);
+		System.out.println("remove resource:"+resource.hashCode()+" associated ALS file:"+file);
+		ViewContentProvider.getContentProvider().removeElements(file);
+		if(AlloyCommandView.getCurrent()==file) AlloyCommandView.refreshCommands();
+		
 	}
 
 	protected void incrementalBuild(IResourceDelta delta,
@@ -95,6 +103,7 @@ public class ProjectBuilder extends
 				break;
 			case IResourceDelta.REMOVED:
 				// handle removed resource
+				removeALSFile(resource);
 				break;
 			case IResourceDelta.CHANGED:
 				// handle changed resource
@@ -104,5 +113,7 @@ public class ProjectBuilder extends
 			//return true to continue visiting children.
 			return true;
 		}
+
+		
 	}
 }

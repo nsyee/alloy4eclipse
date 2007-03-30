@@ -9,8 +9,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import edu.mit.csail.sdg.alloy4.Util;
-import fr.univartois.cril.alloyplugin.launch.ui.ViewContentProvider;
-
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -40,6 +39,7 @@ public class Activator extends AbstractUIPlugin {
 
 	/** The system-specific file separator (forward-slash on UNIX, back-slash on Windows, etc.) */
     private static final String fileSeparator = System.getProperty("file.separator");
+	private ALSEditorListener alsEditorListener;
 	
     
 	/**
@@ -47,6 +47,9 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public Activator() {
 		plugin = this;
+		alsEditorListener = new ALSEditorListener();
+		AlloyPlugin.addEditorListener(alsEditorListener);
+		//TODO remove this Alloy.jar copyed method
 		copyFromJAR();
 	}
 
