@@ -100,17 +100,15 @@ public class ExecutableCommand implements IALSCommand {
 	 */
 	public String toString(){
 		return command.toString();
-	}
-	
+	}	
 	
 	
 	/**
-	 * Get the resource.
+	 * Get the resource which this command is from.
 	 */
-	public IResource getRes() {
+	public IResource getResource() {
 		return resource;
-	}
-	
+	}	
 	
 	
 	/**
@@ -118,9 +116,7 @@ public class ExecutableCommand implements IALSCommand {
 	 */
 	public String getFilename() {		
 		return Util.getFileLocation(resource);		
-	}
-	
-	
+	}	
 	
 	/**
 	 * return the world. 

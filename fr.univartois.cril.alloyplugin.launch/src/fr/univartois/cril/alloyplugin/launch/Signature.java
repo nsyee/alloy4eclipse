@@ -7,7 +7,8 @@ public class Signature implements IALSSignature {
 
 	private Sig sig;
 	public Signature(Sig sig) {
-	this.sig=sig;
+		this.sig=sig;
+
 	}
 	public String toString(){
 		return "signature";

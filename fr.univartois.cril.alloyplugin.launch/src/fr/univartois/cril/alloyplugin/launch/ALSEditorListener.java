@@ -12,13 +12,11 @@ public class ALSEditorListener implements IAlloyEditorListener {
 
 	
 	public void fileSetFocus(IALSFile file) {
-		
-		AlloyCommandView.setCurrent(file);
-		
+		System.out.println("focus:"+file);
+		AlloyCommandView.setCurrent(file);		
 	}
 	
-	public void fileClosed(IALSFile file) {
-		
+	public void fileClosed(IALSFile file) {		
 		//ViewContentProvider.getContentProvider().removeElements(file);
 		if(AlloyCommandView.getCurrent()==file) AlloyCommandView.setCurrent(null);// refreshCommands();		
 	}

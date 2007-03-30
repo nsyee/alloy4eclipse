@@ -41,6 +41,8 @@ public class AlloyCommandView extends ViewPart{
 	private static String viewContentDescription=DEFAULT_CONTENT_DESCRIPTION;
 
 	private static IALSFile currentALSFile;
+
+	
 	/**
 	 * viewer used for commands display. 
 	 */
@@ -99,7 +101,8 @@ public class AlloyCommandView extends ViewPart{
 		commandsViewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		commandsViewer.setContentProvider(ViewContentProvider.getContentProvider());		
 		commandsViewer.setLabelProvider(new ViewLabelProvider());		
-		commandsViewer.setInput(this);
+		commandsViewer.setInput(currentALSFile);
+		
 		//setViewTitle(viewTitle);
 		setContentDescription("["+viewContentDescription+"]");
 		resultsViewer=new ListViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);		
@@ -237,6 +240,7 @@ public class AlloyCommandView extends ViewPart{
 	 * This method is executed in a SWT thread.
 	 */
 	public static void refreshCommands() {
+		System.out.println("refresh commands");
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
 			display.syncExec(
@@ -245,10 +249,12 @@ public class AlloyCommandView extends ViewPart{
 							AlloyCommandView view = getDefault();		
 							if (view==null) return;		
 							view.setContentDescription("["+viewContentDescription+"]");
-							StructuredViewer viewer2=view.getCommandsViewer();
-							if(viewer2!=null)			
+							StructuredViewer viewer=view.getCommandsViewer();
+							if(viewer!=null)			
 							{
-								viewer2.refresh();
+								System.out.println("refresh commandviewer");
+								viewer.setInput(currentALSFile);
+								
 							}						
 						}
 					});
@@ -298,36 +304,24 @@ public class AlloyCommandView extends ViewPart{
 	private ListViewer getResultViewer() {		
 		return resultsViewer;
 	}
-	/**
-	 * refresh AlloyCommandview.
-	 */
-	public static void refresh() {
-		// SWT THREAD PROBLEM FIX
-		Display display = PlatformUI.getWorkbench().getDisplay();		
-		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
-			display.syncExec(
-					new Runnable() {
-						public void run(){
-							AlloyCommandView view = getDefault();
-							if(view==null) return;
-							view.getCommandsViewer().refresh();
-						}
-					});
+	
 
 
-	}
+	
 	/**
 	 * Set the current ALS file for displaying its content (commands).
 	 * if newFile is null, no content will be displayed.
 	 * refresh Commands view.
 	 */
-	public static void setCurrent(IALSFile newFile){		
-		AlloyCommandView.setViewContentDescription(newFile);
+	public static void setCurrent(IALSFile newFile){
 		currentALSFile=newFile;
+		
+		setViewContentDescription(newFile);		
 		refreshCommands();								
 			}
 		//
 
+	
 	public static IALSFile getCurrent() {
 		
 		return currentALSFile;
