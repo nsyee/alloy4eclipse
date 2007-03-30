@@ -21,7 +21,7 @@ public class ALSEditor extends TextEditor {
 	private static final Logger log = Logger.getLogger("alloy");
 
 	private AlloyContentOutlinePage fOutlinePage=null;
-	AlloySolutionViewer asv;
+	//AlloySolutionViewer asv;
 	private ALSFile file;
 	
 	/**

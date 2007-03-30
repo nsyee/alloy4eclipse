@@ -31,8 +31,9 @@ public class ALSFile implements IALSFile {
 	public IResource getResource() {
 		return resource;
 	}
-	public void addListener(IALSFileListener listener) {		
-		getListeners().add(listener);
+	public void addListener(IALSFileListener listener) {
+		if (listener!=null)
+			getListeners().add(listener);
 	}
 	public void removeListener(IALSFileListener listener) {		
 		if(listeners!=null)listeners.remove(listener);
