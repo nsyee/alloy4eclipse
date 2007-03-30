@@ -1,14 +1,18 @@
 package fr.univartois.cril.alloyplugin.launch;
 
+import java.util.ArrayList;
+
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
-
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pos;
 import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
+import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
+import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
 import edu.mit.csail.sdg.alloy4compiler.ast.World;
+import edu.mit.csail.sdg.alloy4compiler.ast.Func.Func0;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
@@ -27,10 +31,8 @@ public class AlloyLaunching {
 	 *
 	 */
 	private AlloyLaunching(){
-	}
-	
-	
-	
+	}	
+
 	/** 
 	 * Execute an ExecutableCommand previously created after a parsing.
 	 */
@@ -38,33 +40,26 @@ public class AlloyLaunching {
 		assert(command!=null);
 		Reporter rep=new Reporter(command.getRes());
 		execCommand(command,rep);
-	}
+	}	
 
-	
-	
 	/**
 	 * Parse a als file.
 	 * @return an array (can be empty if there is no command in the file.)
 	 */
 	public static void launchParser(IALSFile file) {				
-		
+
 		if (!file.getResource().exists()) return;
 		IResource res = file.getResource();
 
-		Reporter rep=new Reporter(res);		
+		Reporter rep=new Reporter(res);
 
-		ExecutableCommand[] exec_cmds;
 		try {
-			exec_cmds = AlloyLaunching.parse(file,rep);
+			AlloyLaunching.parse(file,rep);
 		} catch (Err e) {			
-			displayErrorInProblemView(res, e);
-			exec_cmds=new ExecutableCommand[0];			
-		}
-		file.setCommand(exec_cmds);		
+			displayErrorInProblemView(res, e);					
+		}				
 	}
-	
-	
-	
+
 	/**
 	 * Displays an Err exception in problem view.
 	 */
@@ -78,22 +73,13 @@ public class AlloyLaunching {
 		} catch (CoreException e1) {
 			e1.printStackTrace();
 		}
-	}
-
-	
-	
-    public static void displayErrorInProblemView(IResource res, Err e) {
+	}	
+	public static void displayErrorInProblemView(IResource res, Err e) {
 		displayErrInProblemView(res,e,IMarker.SEVERITY_ERROR);
-	}
-
-    
-    
+	}    
 	public static void displayWarningInProblemView(IResource res, Err e) {
 		displayErrInProblemView(res,e,IMarker.SEVERITY_WARNING);
-	}
-
-	
-	
+	}	
 	/**
 	 * Get the ressource where the Err is located. 
 	 */
@@ -109,65 +95,59 @@ public class AlloyLaunching {
 		return res;
 	}
 
-	
-	
+
+
 	/**
-	 * Parse a .als file. Returns executable commands which can be executed later.
+	 * Parse a .als file. The ALSfile fields are modidied.
 	 * @throws Err 
 	 * */
-	protected static ExecutableCommand[] parse(IALSFile file,Reporter rep) throws Err 
+	protected static void parse(IALSFile file,Reporter rep) throws Err 
 	{IResource res=file.getResource();
-		String filename = res.getLocation().toString();
-		AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
-		alloyParserConsole.clear();
-		alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
-		World world;
-		
-		world = CompUtil.parseEverything_fromFile(rep, null, filename, rep);
-		
-		// Now, "world" is the root of the the abstract syntax tree.
-		// Typecheck the model, and print out all the warnings.			
-		world.typecheck(rep);			
-
-		// Now, you can call getType() on each node in world to find out its type.
-		//Let's display all the messages so far			
-		alloyParserConsole.printInfo("=========== End Parsing \""+filename+"\" =============");
-		//	convert all commands in ExecutableCommand[]
+	String filename = res.getLocation().toString();
+	AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
+	alloyParserConsole.clear();
+	alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
+	World world;
+	world = CompUtil.parseEverything_fromFile(rep, null, filename, rep);
+	world.typecheck(rep);			
+	alloyParserConsole.printInfo("=========== End Parsing \""+filename+"\" =============");
+	updateALSFile(world,file);
+	
+	}
+	/**
+	 * set the fields of an alsFile. (commands, signatures..)
+	 * */
+	private static void updateALSFile(World world, IALSFile file) throws Err {
+//		convert all commands in ExecutableCommand[]
 		SafeList<Command> list = world.getRootModule().getAllCommands();
 		ExecutableCommand [] exec_cmds=new ExecutableCommand[list.size()];		
 		for(int i=0;i<exec_cmds.length;i++){
-			exec_cmds[i]=new ExecutableCommand(res,list.get(i),world);
+			exec_cmds[i]=new ExecutableCommand(file.getResource(),list.get(i),world);
 		}
 		file.setCommand(exec_cmds);
-		return exec_cmds;
+		SafeList<Expr> factsList=world.getRootModule().getAllFacts();
+		Fact[] facts=new Fact[factsList.size()];		
+		for(int i=0;i<facts.length;i++){
+			facts[i]=new Fact(factsList.get(i));
+		}		
+		file.setFacts(facts);
+
+		SafeList<Func0> funcList=world.getRootModule().getAllFunc0();
+		Function[] funcs=new Function[funcList.size()];		
+		for(int i=0;i<funcs.length;i++){
+			funcs[i]=new Function(funcList.get(i));
+		}
+		file.setFunctions(funcs);
+		SafeList<Sig> sigList=world.getRootModule().getAllSigs();
+		Signature[] sigs=new Signature[sigList.size()];		
+		for(int i=0;i<sigs.length;i++){
+			sigs[i]=new Signature(sigList.get(i));
+		}
+
+
+
 	}
 
-
-	
-	/**
-	 * Execute every command in a file.
-	 * This method parse the file, then execute every command.
-	 * If there are syntax or type errors, it display them.
-	 * They may contain filename/line/column information.
-	 * (It's not used).
-	 */
-	public static final void execAllCommandsfromAFile(IALSFile file) {
-		IResource res = file.getResource();
-		Reporter rep=new Reporter(res);
-		ExecutableCommand[] exec_cmds;
-		try {
-			exec_cmds = parse(file,rep);
-		} catch (Err e) {
-			displayErrorInProblemView(res,e);
-			return;
-		}
-		for(ExecutableCommand cmd:exec_cmds){
-			execCommand(cmd,rep);				
-		}
-	}
-
-	
-	
 	/**
 	 * Execute a command.
 	 * 
@@ -190,7 +170,7 @@ public class AlloyLaunching {
 				// This can be useful for debugging.
 				//
 				// You can also write the outcome to an XML file
-				
+
 				displayAns(ans);
 			}
 		} catch (Err e) {				
@@ -198,8 +178,8 @@ public class AlloyLaunching {
 		}
 	}
 
-	
-	
+
+
 	private static void displayAns(A4Solution ans) throws Err {
 //		GraphView.Visualize(ans);		
 		ans.writeXML("output.xml", false);
