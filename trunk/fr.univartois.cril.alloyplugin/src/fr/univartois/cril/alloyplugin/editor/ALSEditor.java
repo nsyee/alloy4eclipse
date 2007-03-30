@@ -6,8 +6,9 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.ALSFile;
+import fr.univartois.cril.alloyplugin.core.ALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 
 /**
@@ -39,7 +40,8 @@ public class ALSEditor extends TextEditor {
 	}
 	
 	public void dispose() {
-		super.dispose();		
+		super.dispose();	
+
 		AlloyPlugin.getDefault().fireFileClosed(getALSFile());
 	}
 	/**
