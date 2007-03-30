@@ -7,11 +7,16 @@ import org.eclipse.core.resources.IResource;
 
 import fr.univartois.cril.alloyplugin.core.ALSFile;
 
-
+/**
+ * This class provide a method to get an ALSFile from a resource.
+ */
 
 public class ALSFileFactory {
 	static HashMap <IResource,ALSFile>map=new HashMap<IResource,ALSFile>();
 
+	/**
+	 * Get the als file associated with this resource or null if this kind of resource can't be associated with an ALSFile. 
+	 */
 	public static ALSFile getALSFile(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(".als")) {
 			ALSFile file = map.get(resource);
