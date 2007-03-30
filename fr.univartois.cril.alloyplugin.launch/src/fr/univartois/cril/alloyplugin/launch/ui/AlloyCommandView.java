@@ -10,22 +10,15 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ListViewer;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.jface.action.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
-
-import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
-import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 
@@ -46,6 +39,8 @@ public class AlloyCommandView extends ViewPart{
 	protected static AlloyCommandView defaultAlloyCommandView;
 
 	private static String viewContentDescription=DEFAULT_CONTENT_DESCRIPTION;
+
+	private static IALSFile currentALSFile;
 	/**
 	 * viewer used for commands display. 
 	 */
@@ -61,7 +56,7 @@ public class AlloyCommandView extends ViewPart{
 	/**
 	 * the result to be displayed. 
 	 */
-	private myString result=null;
+	private MyString result=null;
 
 	/**
 	 * The constructor.
@@ -226,15 +221,6 @@ public class AlloyCommandView extends ViewPart{
 	}
 
 
-	/**
-	 * 
-	 * Remove Commands of a resource.
-	 * */
-	public static void removeCommandsFromDisplay(IALSFile file) {
-		ViewContentProvider.getContentProvider().removeElements(file);
-		//getContentProvider().setCurrent(null);		
-		refreshCommands();
-	}
 
 	/**
 	 * update Description of the view.
@@ -248,6 +234,7 @@ public class AlloyCommandView extends ViewPart{
 	/**
 	 * Refresh Commands. If commands have been changed (setSat) since last refresh, 
 	 * the changes will be displayed.	  
+	 * This method is executed in a SWT thread.
 	 */
 	public static void refreshCommands() {
 		Display display = PlatformUI.getWorkbench().getDisplay();		
@@ -280,7 +267,7 @@ public class AlloyCommandView extends ViewPart{
 	}
 	/**@deprecated*/
 	private void refreshResult(final String string) {
-		myString res = getResult();
+		MyString res = getResult();
 		res.update(string);
 		//sb.replace(0,sb.length(), string);
 
@@ -299,8 +286,8 @@ public class AlloyCommandView extends ViewPart{
 
 	}
 	/**@deprecated*/
-	private myString getResult() {
-		if (result==null) result=new myString("No result at this time.");
+	private MyString getResult() {
+		if (result==null) result=new MyString("No result at this time.");
 		return result;	
 
 	}
@@ -328,6 +315,22 @@ public class AlloyCommandView extends ViewPart{
 					});
 
 
+	}
+	/**
+	 * Set the current ALS file for displaying its content (commands).
+	 * if newFile is null, no content will be displayed.
+	 * refresh Commands view.
+	 */
+	public static void setCurrent(IALSFile newFile){		
+		AlloyCommandView.setViewContentDescription(newFile);
+		currentALSFile=newFile;
+		refreshCommands();								
+			}
+		//
+
+	public static IALSFile getCurrent() {
+		
+		return currentALSFile;
 	}
 
 

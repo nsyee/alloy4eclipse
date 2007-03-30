@@ -1,63 +1,28 @@
 package fr.univartois.cril.alloyplugin.launch;
 
-import fr.univartois.cril.alloyplugin.launch.ui.ViewContentProvider;
+
 import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
+import fr.univartois.cril.alloyplugin.launch.ui.ViewContentProvider;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
 /**
- * This class listens AlsEditor. 
- * Used with extension: [fr.univartois.cril.alloyplugin.launch.EditorListener].
+ * This class is a AlsEditor listener.
  */
 public class ALSEditorListener implements IAlloyEditorListener {
-	public void fileLoaded(IALSFile file) {
-		parseCommandsFor(file);
-	}
 
-	
-	
-	public void fileSaved(IALSFile file) {
-		//parseCommandsFor(file);
-	}
-	
-	
 	
 	public void fileSetFocus(IALSFile file) {
-		displayCommandsFor(file);
+		
+		AlloyCommandView.setCurrent(file);
+		
 	}
-
-	
-	
-	public void fileChanged(IALSFile file) {
-	}
-
-	
 	
 	public void fileClosed(IALSFile file) {
-		AlloyCommandView.removeCommandsFromDisplay(file);		
-	}
-
-	
-	
-	/**
-	 * Displays all the commands of an als file. 
-	 */
-
-	private void displayCommandsFor(IALSFile file){		
-		ViewContentProvider.getContentProvider().setCurrent(file);
 		
-
+		//ViewContentProvider.getContentProvider().removeElements(file);
+		if(AlloyCommandView.getCurrent()==file) AlloyCommandView.setCurrent(null);// refreshCommands();		
 	}
 
 	
-	
-	/**
-	 * Launch Alloy parser for an als file. 
-	 */
-	private void parseCommandsFor(IALSFile file){
 
-	//	CommandsProvider.getCommandsProvider().addCommandsFrom(file);
-		
-
-
-	}
 }
