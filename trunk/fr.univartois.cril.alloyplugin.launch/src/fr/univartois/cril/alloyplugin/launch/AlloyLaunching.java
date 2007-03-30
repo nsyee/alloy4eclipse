@@ -63,17 +63,17 @@ public class AlloyLaunching {
 /**
  * parse one file.
  * */
-	public static void launchParserOneFile(IALSFile file) {
-		if (!file.getResource().exists()) return;
+	public static void launchParserOneFile(IResource resource) {
+		if (!resource.exists()) return;
 		try {
-			file.getResource().deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
+			resource.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
         } catch (CoreException e) {
             e.printStackTrace();
         }                   
 		try {
-			CompUtil.parseOneModule_fromFile(file.getResource().getLocation().toString());
+			CompUtil.parseOneModule_fromFile(resource.getLocation().toString());
 		} catch (Err e) {			
-			displayErrorInProblemView(file.getResource(), e);					
+			displayErrorInProblemView(resource, e);					
 		}				
 
         
