@@ -99,7 +99,7 @@ public class AlloyCommandView extends ViewPart{
 		layout.type=SWT.VERTICAL;
 		parent.setLayout(layout);
 		commandsViewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		commandsViewer.setContentProvider(ViewContentProvider.getContentProvider());		
+		commandsViewer.setContentProvider(new ViewContentProvider());		
 		commandsViewer.setLabelProvider(new ViewLabelProvider());		
 		commandsViewer.setInput(currentALSFile);
 		
@@ -240,7 +240,7 @@ public class AlloyCommandView extends ViewPart{
 	 * This method is executed in a SWT thread.
 	 */
 	public static void refreshCommands() {
-		System.out.println("refresh commands");
+		
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
 			display.syncExec(
@@ -251,10 +251,9 @@ public class AlloyCommandView extends ViewPart{
 							view.setContentDescription("["+viewContentDescription+"]");
 							StructuredViewer viewer=view.getCommandsViewer();
 							if(viewer!=null)			
-							{
-								System.out.println("refresh commandviewer");
-								viewer.setInput(currentALSFile);
-								
+							{								
+								viewer.setInput(currentALSFile);			
+								System.out.println("set Input:"+currentALSFile);					
 							}						
 						}
 					});
@@ -314,8 +313,7 @@ public class AlloyCommandView extends ViewPart{
 	 * refresh Commands view.
 	 */
 	public static void setCurrent(IALSFile newFile){
-		currentALSFile=newFile;
-		
+		currentALSFile=newFile;		
 		setViewContentDescription(newFile);		
 		refreshCommands();								
 			}

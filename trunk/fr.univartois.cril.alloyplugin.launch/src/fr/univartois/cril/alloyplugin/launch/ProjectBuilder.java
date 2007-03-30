@@ -22,18 +22,18 @@ import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 
 public class ProjectBuilder extends
- IncrementalProjectBuilder {
+IncrementalProjectBuilder {
 
 	public ProjectBuilder() {
 		// TODO Auto-generated constructor stub
-		
-		
+
+
 	}
 
 	@Override
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 	throws CoreException {
-		
+
 		if (kind == FULL_BUILD) {
 			fullBuild(monitor);
 		} else {
@@ -48,7 +48,7 @@ public class ProjectBuilder extends
 	}
 	protected void fullBuild(final IProgressMonitor monitor)
 	throws CoreException {
-		
+
 		try {
 			getProject().accept(new SampleResourceVisitor());
 		} catch (CoreException e) {
@@ -67,21 +67,10 @@ public class ProjectBuilder extends
 	void checkALSFile(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(".als")) {			
 			IALSFile file=ALSFileFactory.getALSFile(resource);
-			System.out.println("check resource:"+resource.hashCode()+" associated ALS file:"+file);
-			ViewContentProvider.getContentProvider().addCommandsFrom(file);
-			if(AlloyCommandView.getCurrent()==file) AlloyCommandView.refreshCommands();			
+			if(file!=null)AlloyLaunching.launchParser(file);						
 		}
 	}
-	/**
-	 * Remove from ContentProvider.
-	 */
-	private void removeALSFile(IResource resource) {
-		IALSFile file=ALSFileFactory.getALSFile(resource);
-		System.out.println("remove resource:"+resource.hashCode()+" associated ALS file:"+file);
-		ViewContentProvider.getContentProvider().removeElements(file);
-		if(AlloyCommandView.getCurrent()==file) AlloyCommandView.refreshCommands();
-		
-	}
+
 
 	protected void incrementalBuild(IResourceDelta delta,
 			IProgressMonitor monitor) throws CoreException {
@@ -103,7 +92,7 @@ public class ProjectBuilder extends
 				break;
 			case IResourceDelta.REMOVED:
 				// handle removed resource
-				removeALSFile(resource);
+
 				break;
 			case IResourceDelta.CHANGED:
 				// handle changed resource
@@ -114,6 +103,6 @@ public class ProjectBuilder extends
 			return true;
 		}
 
-		
+
 	}
 }
