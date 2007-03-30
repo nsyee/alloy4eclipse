@@ -4,18 +4,7 @@ package fr.univartois.cril.alloyplugin.ui;
  * It's a listener for als files opened in ALS editor.
  */
 public interface IAlloyEditorListener {
-	/**
-	 * when an als file is loaded. 
-	 */
-	public void fileLoaded(IALSFile file);
-	/**
-	 * when an als file is saved. 
-	 */
-	public void fileSaved(IALSFile file);
-	/**
-	 * when an als file change (not supported). 
-	 */
-	public void fileChanged(IALSFile file);
+	
 	/**
 	 * when an als file is closed. 
 	 */

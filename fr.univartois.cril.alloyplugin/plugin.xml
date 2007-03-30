@@ -2,7 +2,6 @@
 <?eclipse version="3.2"?>
 <plugin>
 
-<extension-point id="fr.univartois.cril.alloyplugin.editorlisteners" name="Editor Listeners"/>   
 <extension-point id="fr.univartois.cril.alloyplugin.projectbuilderscontribution" name="Project nature contributions"/>
 <extension
          point="org.eclipse.ui.editors">
@@ -102,5 +101,31 @@
             id="fr.univartois.cril.alloyplugin.alsfile"
             name="ALS file"
             priority="normal"/>
+   </extension>
+    <extension
+         id="builder"
+         name="Alloy Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="false"
+            isConfigurable="false">
+         <run class="fr.univartois.cril.alloyplugin.ProjectBuilder"/>
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            nameFilter="*"
+            id="fr.univartois.cril.alloyplugin.contribution2">
+         <action
+               class="fr.univartois.cril.alloyplugin.ui.ToggleNatureAction"
+               enablesFor="+"
+               id="fr.univartois.cril.alloyplugin.addremovebutton"
+               label="Add/Remove Alloy project Nature"
+               menubarPath="additions">
+         </action>
+      </objectContribution>
    </extension>
 </plugin>

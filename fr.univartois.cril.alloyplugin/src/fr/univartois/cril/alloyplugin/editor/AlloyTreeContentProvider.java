@@ -9,15 +9,15 @@ public class AlloyTreeContentProvider implements ITreeContentProvider {
 
 	private static final String FUNCTIONS = "Functions";
 	private static final String SIGNATURES = "Signatures";
-	//private static final Logger log = Logger.getLogger("alloy");
+	private static final Logger log = Logger.getLogger("alloy");
 	
 	public void dispose() {
-		//log.info("Dispose");
+		log.info("Dispose");
 
 	}
 
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		//log.info("Changed");
+		log.info("Changed");
 		// TODO Auto-generated method stub
 		//if (newInput != null) {
 			//IDocument document= fDocumentProvider.getDocument(newInput);
@@ -30,22 +30,22 @@ public class AlloyTreeContentProvider implements ITreeContentProvider {
 	}
 
 	public Object[] getChildren(Object parentElement) {
-		//log.info("Get children for "+parentElement);
+		log.info("Get children for "+parentElement);
 		return new Object[0];
 	}
 
 	public Object getParent(Object element) {
-		//log.info("Get parent for "+element);
+		log.info("Get parent for "+element);
 		return null;
 	}
 
 	public boolean hasChildren(Object element) {
-	//	log.info("has children? "+element);
+		log.info("has children? "+element);
 		return false;
 	}
 
 	public Object[] getElements(Object inputElement) {
-		//log.info("get elements for "+inputElement);
+		log.info("get elements for "+inputElement);
 		return new String[] {SIGNATURES,FUNCTIONS,"Predicates","Commands"};
 	}
 

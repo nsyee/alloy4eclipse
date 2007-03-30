@@ -2,7 +2,6 @@ package fr.univartois.cril.alloyplugin.ui;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IWorkspaceRoot;

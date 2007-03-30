@@ -38,10 +38,10 @@ public class AlloyProjectWizardPage extends WizardPage {
 		wizardImage = ImageDescriptor.createFromURL(url);
 	}
 	
-	private ISelection selection;
+	
 
 	/**
-	 * Constructor for SampleNewWizardPage.
+	 * Constructor for New Project Wizard Page.
 	 * 
 	 * @param pageName
 	 */
@@ -50,7 +50,7 @@ public class AlloyProjectWizardPage extends WizardPage {
 		super("wizardPage","Alloy Project", wizardImage	);
 		
 		setDescription("This wizard creates a new Alloy project.");
-		this.selection = selection;
+		
 	}
 
 	/**
