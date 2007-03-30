@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 
+
 /**
  *  This project builder is the default builder for the plugin.
  *  It does nothing for the moment.  
@@ -74,9 +75,9 @@ public class ProjectBuilder extends
 	 * when a .als file is removed.
 	 */
 	private void removeALSFile(IResource resource) {
-		;
+		//ALSFileFactory.removeALSFile(resource);
 		
-	}
+	}	
 
 	protected void incrementalBuild(IResourceDelta delta,
 			IProgressMonitor monitor) throws CoreException {
