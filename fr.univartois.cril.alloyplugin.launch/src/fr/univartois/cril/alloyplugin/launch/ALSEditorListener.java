@@ -1,6 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch;
 
 
+
 import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
 import fr.univartois.cril.alloyplugin.launch.ui.ViewContentProvider;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
@@ -18,7 +19,18 @@ public class ALSEditorListener implements IAlloyEditorListener {
 	
 	public void fileClosed(IALSFile file) {		
 		//ViewContentProvider.getContentProvider().removeElements(file);
-		if(AlloyCommandView.getCurrent()==file) AlloyCommandView.setCurrent(null);// refreshCommands();		
+		System.out.println("set Input00:"+file);
+		if(AlloyCommandView.getCurrent()==file)
+		{
+			System.out.println("set Input0:"+file);
+			AlloyCommandView.setCurrent(null);// refreshCommands();
+		}
+	}
+
+	public void fileOpened(IALSFile file) {
+		System.out.println("opened:"+file);
+		AlloyLaunching.launchParser(file);
+		
 	}
 
 	
