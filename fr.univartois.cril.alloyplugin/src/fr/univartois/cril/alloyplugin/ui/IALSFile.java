@@ -5,6 +5,7 @@ import org.eclipse.core.resources.IResource;
 
 
 
+
 public interface IALSFile {
 /**
  * An interface for .als files. External plugins  which wants
@@ -26,4 +27,5 @@ public void setFunctions(IALSFunction[] func);
 public void setSignatures(IALSSignature[] sig);
 public void fireChanged();
 public void addListener(IALSFileListener listener);
+public void removeListener(IALSFileListener listener);
 }
