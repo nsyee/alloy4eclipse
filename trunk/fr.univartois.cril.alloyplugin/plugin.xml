@@ -2,6 +2,7 @@
 <?eclipse version="3.2"?>
 <plugin>
 
+<extension-point id="fr.univartois.cril.alloyplugin.editorlistener" name="editorlistener"/>
 <extension-point id="fr.univartois.cril.alloyplugin.projectbuilderscontribution" name="Project nature contributions"/>
 <extension
          point="org.eclipse.ui.editors">

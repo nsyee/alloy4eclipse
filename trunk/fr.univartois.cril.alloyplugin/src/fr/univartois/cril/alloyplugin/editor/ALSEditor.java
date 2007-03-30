@@ -4,6 +4,8 @@ package fr.univartois.cril.alloyplugin.editor;
 import java.util.logging.Logger;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
@@ -30,7 +32,18 @@ public class ALSEditor extends TextEditor {
 	protected void initializeEditor() {
 		super.initializeEditor();
 		// Attache la configuration
-		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());		
+		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());
+		
+		
+	}
+
+
+	@Override
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+		
+		super.init(site, input);
+		
+		AlloyPlugin.getDefault().fireFileOpen(getALSFile());
 	}
 
 
@@ -40,8 +53,8 @@ public class ALSEditor extends TextEditor {
 	}
 	
 	public void dispose() {
-		super.dispose();	
-
+		super.dispose();
+		System.out.println("dispose");
 		AlloyPlugin.getDefault().fireFileClosed(getALSFile());
 	}
 	/**

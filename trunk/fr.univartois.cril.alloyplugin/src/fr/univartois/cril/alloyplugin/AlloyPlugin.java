@@ -11,6 +11,8 @@ import org.eclipse.jface.text.rules.IPartitionTokenScanner;
 import org.eclipse.jface.text.rules.ITokenScanner;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
+import fr.univartois.cril.alloyplugin.core.ALSFile;
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
 
@@ -29,6 +31,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	 *  extension project builders ID
 	 */
 	private static final String projectBuildersExtensionId="fr.univartois.cril.alloyplugin.projectbuilderscontribution";
+	private static final String listenerId="fr.univartois.cril.alloyplugin.editorlistener";
 	/***/
 	public static final String ALS_PARTITIONING = "__pos_als_partitioning";
 	/**
@@ -47,6 +50,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	private IPartitionTokenScanner fPartitionScanner;
 	private ALSTextAttributeProvider fTextAttributeProvider;
 	private ALSCodeScanner fCodeScanner;
+	
 
 
 	public AlloyPlugin(){
@@ -66,7 +70,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	 * */	
 	public List<IAlloyEditorListener> getEditorListeners(){
 		if (editorListeners==null)
-			editorListeners=new ArrayList<IAlloyEditorListener>();
+			editorListeners=computeListeners();
 		return editorListeners;	
 	}
 	/**
@@ -108,6 +112,27 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		}
 
 	}
+	/**
+	 * Adds commands listeners from existing extension points to the plugin.
+	 * */
+	private List<IAlloyEditorListener> computeListeners() {
+		IExtensionRegistry registry = Platform.getExtensionRegistry();
+		IExtensionPoint extensionPoint= registry.getExtensionPoint(listenerId);
+		IExtension[] extensions = extensionPoint.getExtensions();
+		ArrayList<IAlloyEditorListener> results = new ArrayList<IAlloyEditorListener>();
+		for(int i = 0 ;i< extensions.length;i++){
+			IConfigurationElement[] elements=extensions[i].getConfigurationElements();
+			for(int j=0;j<elements.length;j++){
+				try{Object listener=elements[j].createExecutableExtension("class");
+				if(listener instanceof IAlloyEditorListener)
+					results.add((IAlloyEditorListener)listener);
+				}catch(CoreException e){
+					e.printStackTrace();
+				}
+			}
+		}
+		return results;
+	}
 
 
 	public void fireSetFocus(IALSFile file) {
@@ -116,11 +141,18 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		}		
 	}
 	public void fireFileClosed(IALSFile file) {
-		for(IAlloyEditorListener listener: getEditorListeners()){
+for(IAlloyEditorListener listener: getEditorListeners()){
 			
 			listener.fileClosed(file);
+		}	
+	}
+	public void fireFileOpen(ALSFile file) {
+		for(IAlloyEditorListener listener: getEditorListeners()){
+			
+			listener.fileOpened(file);
 		}		
 
+		
 	}
 
 
@@ -171,6 +203,8 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		getDefault().getEditorListeners().add(alsEditorListener);
 
 	}
+
+	
 
 
 
