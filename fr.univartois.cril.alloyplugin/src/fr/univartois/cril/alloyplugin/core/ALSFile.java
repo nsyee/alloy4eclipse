@@ -20,10 +20,10 @@ public class ALSFile implements IALSFile {
 
 	private List <IALSFileListener>listeners;
 	private IResource resource;
-	private IALSCommand[] cmds;
-	private IALSFact[] pred;
-	private IALSFunction[] func;
-	private IALSSignature[] sig;
+	private  List<IALSCommand> cmds;
+	private List <IALSFact> pred;
+	private List <IALSFunction> func;
+	private List <IALSSignature> sig;
 	public ALSFile(IResource resource) {
 		this.resource=resource;
 	}
@@ -48,32 +48,36 @@ public class ALSFile implements IALSFile {
 			listener.changed(this);
 		}
 	} 
-	public IALSCommand[] getCommand() {
+	/**
+	 * return a list of commands.
+	 * */
+	public List <IALSCommand> getCommand() {
+		assert(cmds!=null);
 		return cmds;	
 	}	
 
-	public IALSFunction[] getFunctions() {		
+	public List<IALSFunction> getFunctions() {		
 		return func;
 	}
-	public IALSFact[] getPredicates() {		
+	public List<IALSFact> getPredicates() {		
 		return pred;
 	}
-	public IALSSignature[] getSignatures() {
+	public List<IALSSignature> getSignatures() {
 
 		return sig;
 	}
-	public void setFunctions(IALSFunction[] func) {
+	public void setFunctions(List<IALSFunction> func) {
 		this.func=func;
 
 	}
-	public void setFacts(IALSFact[] pred) {
+	public void setFacts(List<IALSFact> pred) {
 		this.pred=pred;
 
 	}
-	public void setSignatures(IALSSignature[] sig) {
+	public void setSignatures(List<IALSSignature> sig) {
 		this.sig=sig;		
 	};
-	public void setCommand(IALSCommand[] cmds) {
+	public void setCommand(List <IALSCommand> cmds) {
 		this.cmds=cmds;		
 	}
 }

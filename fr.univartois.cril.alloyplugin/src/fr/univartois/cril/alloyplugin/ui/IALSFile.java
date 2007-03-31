@@ -1,6 +1,10 @@
 package fr.univartois.cril.alloyplugin.ui;
 
+import java.util.List;
+
 import org.eclipse.core.resources.IResource;
+
+
 
 
 
@@ -17,14 +21,14 @@ public interface IALSFile {
 public IResource getResource();
 
 
-public IALSCommand[] getCommand();
-public IALSFact[] getPredicates();
-public IALSFunction[] getFunctions();
-public IALSSignature[] getSignatures();
-public void setCommand(IALSCommand cmd[]);
-public void setFacts(IALSFact[] pred);
-public void setFunctions(IALSFunction[] func);
-public void setSignatures(IALSSignature[] sig);
+public List<IALSCommand> getCommand();
+public List<IALSFact> getPredicates();
+public List<IALSFunction> getFunctions();
+public List<IALSSignature> getSignatures();
+public void setCommand(List<IALSCommand> cmds);
+public void setFacts(List<IALSFact> pred);
+public void setFunctions(List<IALSFunction> func);
+public void setSignatures(List <IALSSignature> sig);
 public void fireChanged();
 public void addListener(IALSFileListener listener);
 public void removeListener(IALSFileListener listener);
