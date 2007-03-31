@@ -20,6 +20,7 @@ import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
+import fr.univartois.cril.alloyplugin.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.ui.IALSFileListener;
 
@@ -49,8 +50,7 @@ public class AlloyLaunching {
 	 * @return an array (can be empty if there is no command in the file.)
 	 */
 	public static void launchParser(IALSFile file) {				
-
-		if (!file.getResource().exists()) return;
+		if (file==null||!file.getResource().exists()) return;
 		IResource res = file.getResource();
 
 		Reporter rep=new Reporter(res);
@@ -143,33 +143,31 @@ public class AlloyLaunching {
 	private static void updateALSFile(World world, IALSFile file) throws Err {
 //		convert all commands in ExecutableCommand[]
 		SafeList<Command> list = world.getRootModule().getAllCommands();
-		ExecutableCommand [] exec_cmds=new ExecutableCommand[list.size()];		
-		for(int i=0;i<exec_cmds.length;i++){
-			exec_cmds[i]=new ExecutableCommand(file.getResource(),list.get(i),world);
-		}
+		List<IALSCommand>  exec_cmds=new ArrayList<IALSCommand>();//new ExecutableCommand[list.size()];		
+		for (Command command : list) {
+			exec_cmds.add(new ExecutableCommand(file.getResource(),command,world));	
+		}				
 		file.setCommand(exec_cmds);
 		SafeList<Expr> factsList=world.getRootModule().getAllFacts();
 		Fact[] facts=new Fact[factsList.size()];		
 		for(int i=0;i<facts.length;i++){
 			facts[i]=new Fact(factsList.get(i));
 		}		
-		file.setFacts(facts);
+		//file.setFacts(facts);
 
 		SafeList<Func0> funcList=world.getRootModule().getAllFunc0();
 		Function[] funcs=new Function[funcList.size()];		
 		for(int i=0;i<funcs.length;i++){
 			funcs[i]=new Function(funcList.get(i));
 		}
-		file.setFunctions(funcs);
+		//file.setFunctions(funcs);
 		SafeList<Sig> sigList=world.getRootModule().getAllSigs();
 		Signature[] sigs=new Signature[sigList.size()];		
 		for(int i=0;i<sigs.length;i++){
 			sigs[i]=new Signature(sigList.get(i));
 		}
 		file.fireChanged();
-
-
-
+		System.out.println("ALSFile changed");
 	}
 
 	/**

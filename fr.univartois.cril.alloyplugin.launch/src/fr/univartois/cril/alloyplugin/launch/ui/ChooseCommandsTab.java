@@ -1,9 +1,6 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -13,8 +10,10 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -29,8 +28,14 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 
 	private TableViewer commandsViewer;
 	private Label label;
-	private IALSFile file;
-
+	private IALSFile currentALSFile;
+	Composite container;
+	/**
+	 * Config being modified
+	 */
+	private ILaunchConfiguration launchConfig;
+	private IResource currentResource;
+	private boolean valid;
 
 
 	public ChooseCommandsTab() {
@@ -38,20 +43,39 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 		System.out.println("construct:"+System.currentTimeMillis());
 	}
 
-	public void createControl(Composite parent) {	
+	public void createControl(Composite parent) {
+
+
+		Composite container = new Composite(parent, SWT.NONE);
+		container.setLayout(new GridLayout(1, false));
+		container.setFont(parent.getFont());
+		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+		//gd.horizontalSpan = hspan;
+		container.setLayoutData(gd);
+		//((GridLayout)container.getLayout()).verticalSpacing = 0;
+
+		Group container2 = new Group(container, SWT.NONE);
+		container2.setText("&Commands:");
+		container2.setLayout(new GridLayout(1, false));
+		container2.setFont(container.getFont());
+		GridData gd2 = new GridData(GridData.FILL_BOTH);
+		//gd.horizontalSpan = hspan;
+		container2.setLayoutData(gd2);
+		//((GridLayout)container2.getLayout()).verticalSpacing = 0;
+
 		//System.out.println("createcontrol:"+System.currentTimeMillis());
-		Composite container = new Composite(parent, SWT.NULL);
-		RowLayout layout = new RowLayout(SWT.VERTICAL);
-		container.setLayout(layout);
+		//container = new Composite(parent, SWT.NULL);
+		//FillLayout layout = new FillLayout(SWT.VERTICAL);
+		//container.setLayout(layout);
 		//layout.numColumns = 3;		
 		//layout.verticalSpacing = 9;
 
-		label = new Label(container, SWT.NULL);
+		label = new Label(container2, SWT.NULL);
 
 		//	label.setText("&Commands from: "+file.getResource().getName());
 
-		label.setText("&Commands from:");
-		commandsViewer = new TableViewer(container, SWT.H_SCROLL | SWT.V_SCROLL);
+		label.setText("&From:");
+		commandsViewer = new TableViewer(container2, SWT.H_SCROLL | SWT.V_SCROLL);
 		commandsViewer.setContentProvider(new CommandsProvider());
 		//System.out.println("createControl:file:"+file);
 		//commandsViewer.setInput(file);				
@@ -68,49 +92,106 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 
 
 	public void initializeFrom(ILaunchConfiguration configuration) {
-
-		System.out.println("initalize:"+System.currentTimeMillis());
+		this.launchConfig=configuration;
+		IResource resource=null;
 		try {
-			IResource[] res = configuration.getMappedResources();
-			IALSFile file=null;
+
+			IResource[] res = configuration.getMappedResources();			
 			if(res!=null&&res.length>0)
 			{
-				file=ALSFileFactory.getALSFile(res[0]);				
+				resource=res[0];
 			}			 
-			updateTab(file);
+
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			updateTab(null);
+			e.printStackTrace();			
+		}
+		initializeTabFields(resource);
+		initializeTabControls();
+		checkConfig();
+	}
+
+	/**
+	 * update tab fields. 
+	 */
+	private void initializeTabFields(IResource resource) {
+		valid=false;
+		currentResource=resource;
+		if (resource==null)
+		{
+			currentALSFile=null;//updateStatus("No Alloy file selected");		
+		}
+		else
+		{
+			currentALSFile=ALSFileFactory.getALSFile(resource);
+			//provisoire: normalement on demandera de sauvegarder le fichier avant de lancer le launch
+			//et le fichier sera donc deja parse. (par le builder dans un thread a part, car ici c'est un thread graphique (il me semble))
+			if (currentALSFile!=null&&currentALSFile.getCommand()==null)
+				AlloyLaunching.launchParser(currentALSFile);
 		}
 
+	}
+/**
+ * Refresh the control for this tab.
+ * */
+	private void initializeTabControls() {
+		if(commandsViewer!=null) 
+		{
+			commandsViewer.setInput(currentALSFile);			
+		}
+		if(label!=null&&currentALSFile!=null)label.setText("&From: "+currentALSFile.getResource().getName());
+		else label.setText("&From: ");
+	}
+
+	/**
+	 * Check the parameters modifyed by this tab.
+	 * */
+	private void checkConfig(){
+		if (currentResource==null)
+		{
+			updateStatus("Alloy file not selected.");
+			return;
+		}
+		if (currentALSFile==null)
+		{
+			updateStatus("The selected file isn't an Alloy file.");
+			return;
+		}
+		if (currentALSFile.getCommand().size()==0)
+		{
+			updateStatus("The selected Alloy file doesn't contains any commands.");
+			return;
+		}
+
+		updateStatus(null);
 
 	}
 	/**
-	 * update the tab. 
+	 * Update Status. Display an error message.
+	 * If the message is null the tab is declared valid. 
 	 */
-	private void updateTab(IALSFile file) {
-		this.file=file;
-		if (file!=null&&file.getCommand()==null)
-			AlloyLaunching.launchParser(file);
-		if(commandsViewer!=null) commandsViewer.setInput(file);
-		if(label!=null&&file!=null)label.setText("&Commands from: "+file.getResource().getName());
-		else label.setText("&Commands from: ");
+	private void updateStatus(String message) {
+		setErrorMessage(message);
+		valid=(message==null);
 	}
 
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Auto-generated method stub
-
+		checkConfig();
 	}
-	
-	public boolean isValid(ILaunchConfiguration launchConfig) {
-		// TODO Auto-generated method stub
-		return file!=null;
+	/**
+	 * this method return if this tab authorize running.
+	 * */
+	public boolean isValid(ILaunchConfiguration launchConfig) {		
+		return valid;
 	}
-
+	/**
+	 * This method is called when a configuration is created.
+	 * All informations have to been stored in the configuration, not in this class fields
+	 * because this class can be disposed and re-created later.	 
+	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		//if (file==null) file=getALSFileFromContext();
-		System.out.println("setdefault:"+System.currentTimeMillis());		
+
+
 		IResource[] resources=null;
 		try {			
 			resources = configuration.getMappedResources();
@@ -121,7 +202,6 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 		}
 		if (resources==null)		
 		{
-
 			IALSFile file=getALSFileFromContext();
 			if(file!=null)
 			{				
@@ -132,11 +212,12 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 
 			}
 		}
-		//configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_MAIN_FILE, (List)null);
-		// TODO Auto-generated method stub
+		//ajoute une liste de commandes a la configuration (vide pour l'instant) 
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LIST,new ArrayList());
+
 		//IALSFile file = getALSFile();
 		//List<IALSFile> list = new ArrayList<IALSFile>();
-		//list.add(file);
+		//list.add(file.getCommand());
 
 		//file.s
 		//configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_MAP, list);
@@ -159,7 +240,8 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 						return (IALSFile)obj;
 					}
 					if (obj instanceof ExecutableCommand) {
-						//TODO stores all the selected commands from selection						
+						//TODO stores all the selected commands from selection
+						//for selecting them by default
 						IResource res = ((ExecutableCommand)obj).getResource();
 						IALSFile file=ALSFileFactory.getALSFile(res);
 						if(file!=null) return file;						
