@@ -1,5 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
+import java.util.List;
+
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -10,6 +12,7 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 public class LaunchConfigurationDelegate implements
@@ -34,16 +37,16 @@ public class LaunchConfigurationDelegate implements
 		if (file==null) return;
 		
 		
-		ExecutableCommand[] tab = (ExecutableCommand[]) file.getCommand();
+		List <IALSCommand> list =  file.getCommand();
 		// execute alls command from file
 		// TODO try to memorize commands to be execute in configuration
 		monitor.setTaskName("Running Alloy command");
 		try {
-			monitor.beginTask("Starting", tab.length);
-			for (ExecutableCommand command : tab) {
+			monitor.beginTask("Starting", list.size());
+			for (IALSCommand command : list) {
 				if (monitor.isCanceled()) break;
 				monitor.subTask(command.toString());
-				AlloyLaunching.ExecCommand(command);
+				AlloyLaunching.ExecCommand((ExecutableCommand) command);
 				AlloyCommandView.setCurrent(file);
 				monitor.worked(1);
 			}

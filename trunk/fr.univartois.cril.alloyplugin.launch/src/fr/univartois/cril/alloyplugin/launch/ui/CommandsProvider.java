@@ -2,6 +2,8 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 import java.util.HashMap;
+import java.util.List;
+
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.Viewer;
@@ -51,21 +53,17 @@ public class CommandsProvider implements IStructuredContentProvider, IALSFileLis
 	 * If current als file is null return a empty array.
 	 * this update the content description of commands view.
 	 */
-	public IALSCommand[] getElements(Object inputElement) {		
+	public Object[] getElements(Object inputElement) {		
 		//
 		IALSFile currentALSFile=(IALSFile) inputElement;
-		System.out.println("get elements:"+currentALSFile.getResource());
+		
 		if (currentALSFile==null) {			
 			return EMPTY_COMMANDS;
 		}
-		IALSCommand[] exec_cmds =currentALSFile.getCommand();
-
-		if (exec_cmds==null)				
-		{
-			System.out.println("commandes null:"+currentALSFile);
-			return EMPTY_COMMANDS;
-		}
-		System.out.println("nb commands:"+exec_cmds.length);
+		
+		List<IALSCommand> exec_cmds_list =currentALSFile.getCommand();
+		Object[] exec_cmds=exec_cmds_list.toArray();
+		
 
 		return exec_cmds;
 	}
