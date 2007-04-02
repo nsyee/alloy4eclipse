@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin;
+package fr.univartois.cril.alloyplugin.ui;
 
 import java.util.Iterator;
 
@@ -12,7 +12,9 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
-
+/**
+ * This action displays nature of a project. It's used for testing.
+ * */
 public class ShowNatureAction implements IObjectActionDelegate {
 
 	private ISelection selection;

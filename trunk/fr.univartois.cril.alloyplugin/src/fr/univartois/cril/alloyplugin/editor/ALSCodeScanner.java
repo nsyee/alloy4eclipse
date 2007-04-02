@@ -13,7 +13,7 @@ import org.eclipse.jface.text.rules.Token;
 import org.eclipse.jface.text.rules.WhitespaceRule;
 import org.eclipse.jface.text.rules.WordRule;
 
-import fr.univartois.cril.alloyplugin.util.ALSTextAttributeProvider;
+import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
 
 /**
  * Scanner used to analyse and color Alloy code.

@@ -5,12 +5,12 @@ import java.util.List;
 
 import org.eclipse.core.resources.IResource;
 
-import fr.univartois.cril.alloyplugin.ui.IALSCommand;
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.ui.IALSFileListener;
-import fr.univartois.cril.alloyplugin.ui.IALSFunction;
-import fr.univartois.cril.alloyplugin.ui.IALSFact;
-import fr.univartois.cril.alloyplugin.ui.IALSSignature;
+import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
+import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
 /**
  * This class represents an als file.  
  * This plugin implements IALSFile.
@@ -43,7 +43,7 @@ public class ALSFile implements IALSFile {
 		return listeners;
 
 	}
-	public void fireChanged(){
+	public void fireChange(){
 		for (IALSFileListener listener : getListeners()) {
 			listener.changed(this);
 		}
@@ -78,6 +78,10 @@ public class ALSFile implements IALSFile {
 		this.sig=sig;		
 	};
 	public void setCommand(List <IALSCommand> cmds) {
+		assert(cmds!=null);
 		this.cmds=cmds;		
+	}
+	public String toString(){return getResource().getName()+"@"+hashCode();
+		
 	}
 }

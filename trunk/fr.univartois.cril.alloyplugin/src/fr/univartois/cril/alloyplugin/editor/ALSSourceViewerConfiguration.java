@@ -13,7 +13,7 @@ import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.util.ALSTextAttributeProvider;
+import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
 
 
 ;/**

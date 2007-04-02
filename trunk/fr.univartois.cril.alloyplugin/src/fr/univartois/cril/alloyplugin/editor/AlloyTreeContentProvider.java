@@ -1,16 +1,13 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 import java.util.List;
-import java.util.logging.Logger;
-
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
-
 import fr.univartois.cril.alloyplugin.core.ALSFile;
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.ui.IALSFileListener;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
 
 public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileListener {
 
@@ -27,21 +24,31 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 
 
 
-	public void dispose() {
-	//	log.info("Dispose");
+	public AlloyTreeContentProvider() {
+		super();
+		
+	}
 
+	public void dispose() {
+		//	log.info("Dispose");
+		
+		//removeListeningALSFile();
+		
+		
 	}
 
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		System.out.println("input changed: new Input"+newInput);
 		this.viewer=viewer;
-		//log.info("Changed"+newInput);		
-		//if (newInput!=null)
-		//input=(IEditorInput) newInput;
-		if (newInput != null) {
-			ALSEditor editor=(ALSEditor) newInput;
-			af=editor.getALSFile();
-			if(af!=null)
-				af.addListener(this);			
+		
+		if (oldInput != null)
+			{						
+			removeListeningALSFile();
+			}
+		editor=(ALSEditor) newInput;
+		if (newInput != null)
+		{			
+			addListeningALSFile();
 		}
 		//IDocument document= fDocumentProvider.getDocument(newInput);
 		//if (document != null) {
@@ -52,15 +59,31 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 		//}
 	}
 
+	/**
+	 * Make this class listens changes on ALSFile from editor.
+	 */	
+	private void addListeningALSFile() {		
+		af=editor.getALSFile();
+		
+		if(af!=null)
+			af.addListener(this);
+	}
+	/**
+	 * Make this class doesn't listen the ALSFile anymore.	 
+	 */
+	private void removeListeningALSFile() 
+	{			
+		if(af!=null)
+		{
+			af.removeListener(this);
+			af=null;
+		}
+	}
+
+
 	public Object[] getChildren(Object parentElement) {
-	//	log.info("Get children for "+parentElement);
-
-		System.out.println("input children="+editor);
-
-		if(af==null) return EMPTY_TAB;
-
-		List list =  af.getCommand();
-		Object[] tab=list.toArray();
+		//	log.info("Get children for "+parentElement);
+		if(af==null) return EMPTY_TAB;		
 
 		if (parentElement.equals(SIGNATURES))
 			return EMPTY_TAB;//new Object[] {"tata"};
@@ -69,12 +92,12 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 		if (parentElement.equals(PREDICATES))
 			return EMPTY_TAB;//new Object[] {"titi"};
 		if (parentElement.equals(COMMANDS))
-			return tab;
+			return af.getCommand().toArray();
 		return EMPTY_TAB;
 	}
 
 	public Object getParent(Object element) {
-	//	log.info("Get parent for "+element);
+		//	log.info("Get parent for "+element);
 		return null;
 	}
 
@@ -85,11 +108,17 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 	}
 
 	public Object[] getElements(Object inputElement) {
-	//	log.info("get elements for "+inputElement);
+		//	log.info("get elements for "+inputElement);
 		System.out.println("get elements for :"+inputElement);
 		return new String[] {SIGNATURES,FUNCTIONS,PREDICATES,COMMANDS};
 	}
 
+	
+	/**
+	 * This method is called when changes are made on the ALSFile.
+	 * The viewer is refresh for displaying changes.
+	 * It's done in a SWT thread. 
+	 */
 	public void changed(IALSFile file) {		
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)
@@ -99,8 +128,8 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 							viewer.refresh();					
 						}
 					});
-
-
 	}
+	
+	
 
 }

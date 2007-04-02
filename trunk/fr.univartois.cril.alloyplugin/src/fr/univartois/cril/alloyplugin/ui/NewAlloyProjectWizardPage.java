@@ -3,27 +3,24 @@ package fr.univartois.cril.alloyplugin.ui;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
-
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
 
-
-public class AlloyProjectWizardPage extends WizardPage {
+/**
+ * New Alloy project wizard Page.
+ * */
+public class NewAlloyProjectWizardPage extends WizardPage {
 
 
 	private static ImageDescriptor wizardImage;
@@ -45,7 +42,7 @@ public class AlloyProjectWizardPage extends WizardPage {
 	 * 
 	 * @param pageName
 	 */
-	public AlloyProjectWizardPage(ISelection selection) {
+	public NewAlloyProjectWizardPage(ISelection selection) {
 		//super();
 		super("wizardPage","Alloy Project", wizardImage	);
 		
@@ -90,12 +87,6 @@ public class AlloyProjectWizardPage extends WizardPage {
 		
 	}
 
-	/**
-	 * Uses the standard container selection dialog to choose the new value for
-	 * the container field.
-	 */
-
-	//private void handleBrowse() {	}
 
 	/**
 	 * Ensures that both text fields are set.

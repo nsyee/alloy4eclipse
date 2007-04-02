@@ -28,14 +28,14 @@
         name="Alloy"/>
   <wizard
         category="fr.univartois.cril.alloyplugin"
-        class="fr.univartois.cril.alloyplugin.ui.AlloyFileWizard"
+        class="fr.univartois.cril.alloyplugin.ui.NewAlloyFileWizard"
         icon="icons/AlloySpec.gif"
         id="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard"
     name="Alloy 4 Model"
         project="false"/>
   <wizard
         category="fr.univartois.cril.alloyplugin"
-        class="fr.univartois.cril.alloyplugin.ui.AlloyProjectWizard"
+        class="fr.univartois.cril.alloyplugin.ui.NewAlloyProjectWizard"
         finalPerspective="fr.univartois.cril.alloyplugin.alloyperspective"
         hasPages="true"
         icon="icons/AlloyProject.gif"
@@ -77,7 +77,7 @@
             id="fr.univartois.cril.alloyplugin.contribution">
          <action
                label="Show Project Nature"
-               class="fr.univartois.cril.alloyplugin.ShowNatureAction"
+               class="fr.univartois.cril.alloyplugin.ui.ShowNatureAction"
                menubarPath="additions"
                enablesFor="+"
                id="fr.univartois.cril.alloyplugin.ShowNatureAction">

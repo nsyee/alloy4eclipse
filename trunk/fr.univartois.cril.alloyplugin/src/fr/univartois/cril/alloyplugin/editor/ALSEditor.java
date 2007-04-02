@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin.editor;
 
 import java.util.logging.Logger;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
@@ -18,7 +19,7 @@ import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
  */
 
 public class ALSEditor extends TextEditor {
-	private static final Logger log = Logger.getLogger("alloy");
+	
 
 	private AlloyContentOutlinePage fOutlinePage=null;
 	//AlloySolutionViewer asv;
@@ -53,8 +54,9 @@ public class ALSEditor extends TextEditor {
 	}
 	
 	public void dispose() {
+		
 		super.dispose();
-		System.out.println("dispose");
+		
 		AlloyPlugin.getDefault().fireFileClosed(getALSFile());
 	}
 	/**
@@ -64,12 +66,12 @@ public class ALSEditor extends TextEditor {
 	public Object getAdapter(Class required) {
 		//log.info("Adapter for "+required+" required");
 		if (IContentOutlinePage.class.equals(required)) {	
-			log.info("Providing adapter for IContentOutlinePage");
+			
 			if (fOutlinePage == null) {
-				log.info("Ours is null, creating a new one");
+			
 				fOutlinePage= new AlloyContentOutlinePage(this);
 			}
-			log.info("Providing my adapter");
+			
 			return fOutlinePage;
 		}
 		return super.getAdapter(required);		
@@ -90,5 +92,12 @@ public class ALSEditor extends TextEditor {
 	 */
 	protected ALSFile getALSFile() {
 		return ALSFileFactory.getALSFile(getResource(getEditorInput()));		
+	}
+
+
+	@Override
+	protected void doSetInput(IEditorInput input) throws CoreException {		
+		super.doSetInput(input);
+		if(fOutlinePage!=null) fOutlinePage.setViewerInput();
 	}
 }
