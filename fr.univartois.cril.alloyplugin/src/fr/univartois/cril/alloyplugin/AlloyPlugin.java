@@ -13,12 +13,12 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import fr.univartois.cril.alloyplugin.core.ALSFile;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ui.IAlloyEditorListener;
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
 
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.ui.IAlloyEditorListener;
-import fr.univartois.cril.alloyplugin.util.ALSTextAttributeProvider;
+import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
 
 public class AlloyPlugin extends AbstractUIPlugin {
 	/** instance of the plugin*/

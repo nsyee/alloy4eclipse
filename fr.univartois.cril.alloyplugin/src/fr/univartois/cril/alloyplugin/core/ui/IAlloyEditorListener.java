@@ -1,10 +1,11 @@
-package fr.univartois.cril.alloyplugin.ui;
+package fr.univartois.cril.alloyplugin.core.ui;
 
-import fr.univartois.cril.alloyplugin.core.ALSFile;
 
 /**
- * This interface is provided for use with the extension point defined in this plugin. 
+ * This interface is provided for use with the listener extension point defined in this plugin. 
  * It's a listener for als files opened in ALS editor.
+ * It's a temporary class.
+ * It's used for allow Launch plugin to listening opened als files for parsing them.
  */
 public interface IAlloyEditorListener {
 	

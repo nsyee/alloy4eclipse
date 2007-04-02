@@ -16,24 +16,18 @@ import org.eclipse.ui.*;
 import org.eclipse.ui.ide.IDE;
 
 /**
- * This is a sample new wizard. Its role is to create a new file 
- * resource in the provided container. If the container resource
- * (a folder or a project) is selected in the workspace 
- * when the wizard is opened, it will accept it as the target
- * container. The wizard creates one file with the extension
- * "als". If a sample multi-page editor (also available
- * as a template) is registered for the same extension, it will
- * be able to open it.
+ * This is a new wizard for Alloy model file. 
+ * It creates one file with the extension "als". 
  */
 
-public class AlloyFileWizard extends Wizard implements INewWizard {
-	private AlloyFileWizardPage page;
+public class NewAlloyFileWizard extends Wizard implements INewWizard {
+	private NewAlloyFileWizardPage page;
 	private ISelection selection;
 
 	/**
-	 * Constructor for SampleNewWizard.
+	 * Constructor for AlloyWizard.
 	 */
-	public AlloyFileWizard() {
+	public NewAlloyFileWizard() {
 		super();
 		setNeedsProgressMonitor(true);
 	}
@@ -43,7 +37,7 @@ public class AlloyFileWizard extends Wizard implements INewWizard {
 	 */
 
 	public void addPages() {
-		page = new AlloyFileWizardPage(selection);
+		page = new NewAlloyFileWizardPage(selection);
 		addPage(page);
 	}
 

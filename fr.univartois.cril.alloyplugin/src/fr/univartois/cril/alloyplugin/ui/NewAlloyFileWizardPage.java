@@ -26,7 +26,7 @@ import org.eclipse.ui.dialogs.ContainerSelectionDialog;
  * OR with the extension that matches the expected one (mpe).
  */
 
-public class AlloyFileWizardPage extends WizardPage {
+public class NewAlloyFileWizardPage extends WizardPage {
 	private Text containerText;
 
 	private Text fileText;
@@ -38,7 +38,7 @@ public class AlloyFileWizardPage extends WizardPage {
 	 * 
 	 * @param pageName
 	 */
-	public AlloyFileWizardPage(ISelection selection) {
+	public NewAlloyFileWizardPage(ISelection selection) {
 		super("wizardPage");
 		setTitle("Alloy File");
 		setDescription("This wizard creates a new file with *.als extension.");

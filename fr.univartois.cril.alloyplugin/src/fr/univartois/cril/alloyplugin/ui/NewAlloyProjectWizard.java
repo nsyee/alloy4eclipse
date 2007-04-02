@@ -21,13 +21,15 @@ import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
 import fr.univartois.cril.alloyplugin.ProjectNature;
 
-public class AlloyProjectWizard extends Wizard implements INewWizard,IExecutableExtension {
-	private AlloyProjectWizardPage page;
+
+/**
+ *  New Alloy project wizard. 
+ * */
+public class NewAlloyProjectWizard extends Wizard implements INewWizard,IExecutableExtension {
+	private NewAlloyProjectWizardPage page;
 	private ISelection selection;
 	private IConfigurationElement configElement;
-	public AlloyProjectWizard() {
-		// TODO Auto-generated constructor stub
-	}
+
 
 	@Override
 	public boolean performFinish() {
@@ -55,55 +57,49 @@ public class AlloyProjectWizard extends Wizard implements INewWizard,IExecutable
 		}
 
 		BasicNewProjectResourceWizard.updatePerspective(configElement);
-		
+
 		//selectAndReveal(fSecondPage.getJavaProject().getProject());
 
 		return true;
 	}
 
 
-	public void init(IWorkbench workbench, IStructuredSelection selection) {
+	public void init(IWorkbench workbench, IStructuredSelection selection) {		
 		this.selection = selection;
-
 	}
 
 
 	public void addPages() {
-		page = new AlloyProjectWizardPage(selection);
+		page = new NewAlloyProjectWizardPage(selection);
 		addPage(page);
 	}
-
-	private void createProject(String projectName, IProgressMonitor monitor) throws CoreException
-	{
-
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-
-		IProject project = root.getProject(projectName);
-		IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
-		//TODO create a Alloy nature which works
-		description.setNatureIds(new String[] {ProjectNature.NATURE_ID});
-		/*ICommand command = description.newCommand();
-		//TODO create a Alloy builder	      
-		// command.setBuilderName("Alloy builder");
-		description.setBuildSpec(new ICommand[] { command });*/
-
-		project.create(monitor);//description,monitor);
-		project.open(monitor);
-		project.setDescription(description, null);
-		
-	}
+	
 	private void doFinish(
 			//String containerName,
 			String fileName,
 			IProgressMonitor monitor)
 	throws CoreException {
-
 		createProject(fileName,monitor);
 	}
 
 	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) throws CoreException {
-		 configElement=config;		 
+		configElement=config;		 
 	}
+	
+	/**
+	 * Create the Alloy project with specified name. 
+	 * */
+	private void createProject(String projectName, IProgressMonitor monitor) throws CoreException
+	{
 
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		IProject project = root.getProject(projectName);
+		IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());		
+		description.setNatureIds(new String[] {ProjectNature.NATURE_ID});		
+		project.create(monitor);//description,monitor);		
+		project.open(monitor);
+		project.setDescription(description, null);
+
+	}
 
 }

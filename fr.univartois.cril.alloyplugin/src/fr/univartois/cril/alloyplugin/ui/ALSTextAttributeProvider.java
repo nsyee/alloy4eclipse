@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.util;
+package fr.univartois.cril.alloyplugin.ui;
 
 import java.util.HashMap;
 import java.util.Map;

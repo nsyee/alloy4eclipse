@@ -18,8 +18,8 @@ import fr.univartois.cril.alloyplugin.ProjectNature;
 
 
 /**
- *  its a temporary class: this action add or remove alloy project nature on project.
- *  for old projects which don't have nature/builder.
+ *  Its a temporary class: this action add or remove alloy project nature on project.
+ *  for old projects which don't have Alloy nature and its new builders.
  * */
 public class ToggleNatureAction implements IObjectActionDelegate {
 

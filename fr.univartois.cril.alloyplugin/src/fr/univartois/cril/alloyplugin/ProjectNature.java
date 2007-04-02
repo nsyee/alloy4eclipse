@@ -16,9 +16,7 @@ public class ProjectNature implements IProjectNature {
 	private IProject project;
 
 
-	public void configure() throws CoreException {
-		//TODO implements projectnature
-		System.out.println("nature project:configure");
+	public void configure() throws CoreException {		
 		IProjectDescription desc = project.getDescription();
 		ICommand[] commands = desc.getBuildSpec();
 		ArrayList <String>buildersNotFound=getBuildersIdNotFound(commands);
