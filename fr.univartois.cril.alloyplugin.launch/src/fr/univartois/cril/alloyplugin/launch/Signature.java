@@ -1,7 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch;
 
 import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
-import fr.univartois.cril.alloyplugin.ui.IALSSignature;
+import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
 
 public class Signature implements IALSSignature {
 

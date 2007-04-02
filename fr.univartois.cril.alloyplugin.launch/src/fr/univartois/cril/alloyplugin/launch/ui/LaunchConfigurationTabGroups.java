@@ -13,11 +13,10 @@ public class LaunchConfigurationTabGroups extends
 
 	
 
-	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {		
-		//TODO make a tab launch configuration (for choosing commands to be executed, solver etc...)				 
+	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {						 
 		CommonTab c=new CommonTab();	
 		
-		ChooseCommandsTab tabPerso=new ChooseCommandsTab();
+		LaunchCommandsTab tabPerso=new LaunchCommandsTab();
 		ILaunchConfigurationTab[] tabs = {c,tabPerso};
 		//tab[0]=c;
 		setTabs(tabs);

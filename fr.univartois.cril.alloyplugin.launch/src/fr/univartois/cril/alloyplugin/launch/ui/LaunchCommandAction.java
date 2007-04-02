@@ -14,6 +14,7 @@ import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 
 /**
  * This listens a selectionProvider and can execute selected ExecutableCommand from it.  
+ * This action don't use eclipse launching mechanism so it will be replaced/deleted soon. (i hope)
  */
 public class LaunchCommandAction extends SelectionProviderAction {
 	private static ImageDescriptor enableImage;
@@ -44,7 +45,9 @@ public class LaunchCommandAction extends SelectionProviderAction {
 	
 	//private Object[] lastCommands;	
 
-
+/**
+ * Constructor. 
+ * */
 	public LaunchCommandAction(ISelectionProvider sp) {		
 		super(sp,"Execute command");		
 		this.setEnabled(false);
@@ -68,7 +71,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 
 		for(int i=0;i<commands.length;i++){
 			AlloyLaunching.ExecCommand((ExecutableCommand) commands[i]);
-			AlloyCommandView.refreshCommands();
+			CommandsView.refreshCommands();
 		}
 		
 	}

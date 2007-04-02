@@ -33,7 +33,7 @@
       <view
             allowMultiple="false"
             category="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
-            class="fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView"
+            class="fr.univartois.cril.alloyplugin.launch.ui.CommandsView"
             icon="icons/icon.gif"
             id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
             name="Commands"/>

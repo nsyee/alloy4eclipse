@@ -18,16 +18,12 @@ public class LaunchShortcut implements ILaunchShortcut {
 			launch(getResource(sel));
 		}
 	}
-
-	
 	
 	/**launch from editor*/
 	public void launch(IEditorPart editor, String mode) {		
 		//IWorkbenchPage page
 		launch(getResource(editor));
 	}
-
-	
 	
 	/**
 	 * Launch the Alloy compiler for a given file. 

@@ -8,7 +8,7 @@ import org.eclipse.ui.part.ViewPart;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 
-
+//TODO create graph view
 public class GraphView extends ViewPart {
 	public Composite c;
 	public java.awt.Frame frame;

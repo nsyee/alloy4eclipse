@@ -9,8 +9,8 @@ import edu.mit.csail.sdg.alloy4compiler.ast.World;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
+import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
-import fr.univartois.cril.alloyplugin.ui.IALSCommand;
 
 /**
  * A command with its world and its resource. 

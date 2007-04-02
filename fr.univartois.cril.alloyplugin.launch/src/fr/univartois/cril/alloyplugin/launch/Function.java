@@ -1,7 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch;
 
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
-import fr.univartois.cril.alloyplugin.ui.IALSFunction;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
 
 public class Function implements IALSFunction {
 	

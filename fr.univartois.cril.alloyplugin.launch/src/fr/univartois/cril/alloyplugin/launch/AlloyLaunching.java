@@ -19,10 +19,10 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
+import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
-import fr.univartois.cril.alloyplugin.ui.IALSCommand;
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.ui.IALSFileListener;
+
 
 /**
  * Static methods to launch Alloy parser or execute a command.
@@ -166,8 +166,8 @@ public class AlloyLaunching {
 		for(int i=0;i<sigs.length;i++){
 			sigs[i]=new Signature(sigList.get(i));
 		}
-		file.fireChanged();
-		System.out.println("ALSFile changed");
+		file.fireChange();
+		System.out.println("ALSFile changed:"+file);
 	}
 
 	/**
