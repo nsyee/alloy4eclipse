@@ -10,10 +10,10 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
+import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.ui.IALSCommand;
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
 public class LaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
@@ -47,7 +47,7 @@ public class LaunchConfigurationDelegate implements
 				if (monitor.isCanceled()) break;
 				monitor.subTask(command.toString());
 				AlloyLaunching.ExecCommand((ExecutableCommand) command);
-				AlloyCommandView.setCurrent(file);
+				CommandsView.setCurrent(file);
 				monitor.worked(1);
 			}
 		} finally {

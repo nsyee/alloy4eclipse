@@ -10,17 +10,17 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 
+import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.ui.IALSCommand;
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.ui.IALSFileListener;
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 
 /**
  * Content provider for commands view.
  */
 
-public class CommandsProvider implements IStructuredContentProvider, IALSFileListener {
+public class CommandsContentProvider implements IStructuredContentProvider, IALSFileListener {
 
 
 	private static final IALSCommand[] EMPTY_COMMANDS =new IALSCommand[0];

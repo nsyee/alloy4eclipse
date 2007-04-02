@@ -20,11 +20,11 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
 
-public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
+public class LaunchCommandsTab extends AbstractLaunchConfigurationTab {
 
 	private TableViewer commandsViewer;
 	private Label label;
@@ -38,14 +38,12 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 	private boolean valid;
 
 
-	public ChooseCommandsTab() {
+	public LaunchCommandsTab() {
 		super();
 		System.out.println("construct:"+System.currentTimeMillis());
 	}
 
 	public void createControl(Composite parent) {
-
-
 		Composite container = new Composite(parent, SWT.NONE);
 		container.setLayout(new GridLayout(1, false));
 		container.setFont(parent.getFont());
@@ -76,7 +74,7 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 
 		label.setText("&From:");
 		commandsViewer = new TableViewer(container2, SWT.H_SCROLL | SWT.V_SCROLL);
-		commandsViewer.setContentProvider(new CommandsProvider());
+		commandsViewer.setContentProvider(new CommandsContentProvider());
 		//System.out.println("createControl:file:"+file);
 		//commandsViewer.setInput(file);				
 		commandsViewer.setLabelProvider(new CommandsLabelProvider());		
@@ -141,6 +139,7 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 		}
 		if(label!=null&&currentALSFile!=null)label.setText("&From: "+currentALSFile.getResource().getName());
 		else label.setText("&From: ");
+		container.update();
 	}
 
 	/**
@@ -240,8 +239,9 @@ public class ChooseCommandsTab extends AbstractLaunchConfigurationTab {
 						return (IALSFile)obj;
 					}
 					if (obj instanceof ExecutableCommand) {
-						//TODO stores all the selected commands from selection
+						//TODO stores all the selected commands from context
 						//for selecting them by default
+						//in LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LIST;
 						IResource res = ((ExecutableCommand)obj).getResource();
 						IALSFile file=ALSFileFactory.getALSFile(res);
 						if(file!=null) return file;						

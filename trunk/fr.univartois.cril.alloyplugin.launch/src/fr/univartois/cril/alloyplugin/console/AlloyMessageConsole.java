@@ -47,8 +47,7 @@ public class AlloyMessageConsole extends MessageConsole {
 	/**
 	 * Print message in the console.
 	 */
-	protected  void print(final String message,final Color c,final int style){
-		//TODO SWT THREAD PROBLEM FIX
+	protected  void print(final String message,final Color c,final int style){		
 		//try to get the display from platform......			
 		Display display = PlatformUI.getWorkbench().getDisplay();
 		//this.
@@ -72,7 +71,7 @@ public class AlloyMessageConsole extends MessageConsole {
 		try {
 			out.close();
 		} catch (IOException e) {
-			// TODO Display message error?
+//			 TODO Auto-generated method stub
 			e.printStackTrace();
 		}
 	}
@@ -109,7 +108,7 @@ public class AlloyMessageConsole extends MessageConsole {
 					//this.addHyperlink(fl,offset+lenght+4,iff.getLocation().toString().length());
 					this.addHyperlink(fl,offset,lenght);
 				} catch (BadLocationException e) {
-					// TODO Display message error?			
+//					 TODO Auto-generated method stub			
 					e.printStackTrace();
 				}
 			}

@@ -14,7 +14,7 @@ import edu.mit.csail.sdg.alloy4.ErrorWarning;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
-import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
+import fr.univartois.cril.alloyplugin.launch.ui.CommandsView;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 /**
@@ -96,7 +96,7 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 		else if (cmd.expects==1) sb.append(", as expected.");
 		//sb.append(""+solvingTime+"ms.");
 		print(sb.toString());
-		AlloyCommandView.printResult(sb.toString());
+		CommandsView.printResult(sb.toString());
 		updateExecCommand(true,sb.toString());
 	}
 
@@ -117,7 +117,7 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 		//sb.append(""+solvingTime+"ms.\n");
 		print(sb.toString());
 		updateExecCommand(false,sb.toString());		
-		AlloyCommandView.printResult(sb.toString());        
+		CommandsView.printResult(sb.toString());        
 	}
 	
 	
@@ -184,9 +184,7 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 
 	
 	
-    public void clear() {
-        // TODO Auto-generated method stub   
-    }
+    
 
     
     
@@ -262,4 +260,11 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
     public Collection<String> values() {
          return null;
     }
+
+
+
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -19,30 +19,29 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.jface.action.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
+
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 
 
 ;
 /**
- * This view displays Alloy commands to be executed.
- * The view uses a content provider and a label provider to define how model
- * objects should be presented. 
- * 
+ * This view displays Alloy commands from a ALSFile.
+ * The view uses a CommandsContentProvider and a Commandslabelprovider. 
  */
 
-public class AlloyCommandView extends ViewPart{
+public class CommandsView extends ViewPart{
 	private static final String DEFAULT_CONTENT_DESCRIPTION = "no file opened.";
 
 	/**
 	 * the Alloy command view. 
 	 */
-	protected static AlloyCommandView defaultAlloyCommandView;
+	protected static CommandsView defaultAlloyCommandView;
 
 	private static String viewContentDescription=DEFAULT_CONTENT_DESCRIPTION;
 
 	private static IALSFile currentALSFile;
 
-	
+
 	/**
 	 * viewer used for commands display. 
 	 */
@@ -63,23 +62,22 @@ public class AlloyCommandView extends ViewPart{
 	/**
 	 * The constructor.
 	 */
-	public AlloyCommandView() {
+	public CommandsView() {
 		defaultAlloyCommandView=this;
-//		affiche les view presentes:
+//		affiche les ids des vues presentes: (pour tests)
 		/*		for (IViewDescriptor viewDescriptor:
 			PlatformUI.getWorkbench().getViewRegistry().getViews()){
 			System.out.println(viewDescriptor.getId());			
 		}*/
 	}
-	public void dispose(){
-		//TODO implements this dispose method?
+	public void dispose(){		
 		defaultAlloyCommandView=null;
 	}
 
 	/**
 	 * Returns commands view or null if not created yet. 
 	 */
-	public static AlloyCommandView getDefault(){
+	public static CommandsView getDefault(){
 		return defaultAlloyCommandView;
 
 	}
@@ -99,10 +97,10 @@ public class AlloyCommandView extends ViewPart{
 		layout.type=SWT.VERTICAL;
 		parent.setLayout(layout);
 		commandsViewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		commandsViewer.setContentProvider(new CommandsProvider());		
+		commandsViewer.setContentProvider(new CommandsContentProvider());		
 		commandsViewer.setLabelProvider(new CommandsLabelProvider());		
 		commandsViewer.setInput(currentALSFile);
-		
+
 		//setViewTitle(viewTitle);
 		setContentDescription("["+viewContentDescription+"]");
 		resultsViewer=new ListViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);		
@@ -129,7 +127,7 @@ public class AlloyCommandView extends ViewPart{
 		menuMgr.setRemoveAllWhenShown(true);
 		menuMgr.addMenuListener(new IMenuListener() {
 			public void menuAboutToShow(IMenuManager manager) {				
-				AlloyCommandView.this.fillContextMenu(manager);
+				CommandsView.this.fillContextMenu(manager);
 			}
 		});
 		Menu menu = menuMgr.createContextMenu(commandsViewer.getControl());
@@ -201,14 +199,14 @@ public class AlloyCommandView extends ViewPart{
 	 * Returns the command view or null if can't be show.
 	 * NOT USED AT THIS TIME
 	 */
-	public static AlloyCommandView showCommandView(){
+	public static CommandsView showCommandView(){
 		try {
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();			
 			if (window!=null) 
 			{//System.out.println("ici");
 				IWorkbenchPage page=window.getActivePage();				
 				if (page!=null)
-					return (AlloyCommandView) page.showView("fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView");
+					return (CommandsView) page.showView("fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView");
 				//else System.out.println("page null");
 			}
 		} catch (PartInitException e) {			
@@ -240,13 +238,13 @@ public class AlloyCommandView extends ViewPart{
 	 * This method is executed in a SWT thread.
 	 */
 	public static void refreshCommands() {
-		
+
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)//demande a display d'executer le update (dans un thread graphique)
 			display.syncExec(
 					new Runnable() {
 						public void run(){
-							AlloyCommandView view = getDefault();		
+							CommandsView view = getDefault();		
 							if (view==null) return;		
 							view.setContentDescription("["+viewContentDescription+"]");
 							StructuredViewer viewer=view.getCommandsViewer();
@@ -257,14 +255,14 @@ public class AlloyCommandView extends ViewPart{
 							}						
 						}
 					});
-					
+
 	}
 	/**
 	 * Print in the resultview.
 	 * @deprecated : resultView will be deleted soon (or moved in another view part), RIP.
 	 */
 	public static void printResult(String string) {
-		AlloyCommandView view = getDefault();		
+		CommandsView view = getDefault();		
 		if (view!=null) {			
 			view.refreshResult(string);
 		}		
@@ -303,10 +301,10 @@ public class AlloyCommandView extends ViewPart{
 	private ListViewer getResultViewer() {		
 		return resultsViewer;
 	}
-	
 
 
-	
+
+
 	/**
 	 * Set the current ALS file for displaying its content (commands).
 	 * if newFile is null, no content will be displayed.
@@ -316,16 +314,32 @@ public class AlloyCommandView extends ViewPart{
 		currentALSFile=newFile;		
 		setViewContentDescription(newFile);		
 		refreshCommands();								
-			}
-		//
+	}
+	//
 
-	
+
 	public static IALSFile getCurrent() {
-		
+
 		return currentALSFile;
 	}
 
+	/**
+	 * Internal class for encapsulate a String.
+	 * */
+	public class MyString {
+		String string;
+		MyString(String s){
+			update(s);
+		}
+		public String toString(){
+			return string;	
+		}
 
+		public void update(String s){
+			assert(s!=null);
+			string=s;
+		}
+	}
 
 
 

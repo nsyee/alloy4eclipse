@@ -13,9 +13,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
-import fr.univartois.cril.alloyplugin.launch.ui.AlloyCommandView;
-import fr.univartois.cril.alloyplugin.launch.ui.CommandsProvider;
-import fr.univartois.cril.alloyplugin.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.launch.ui.CommandsView;
+import fr.univartois.cril.alloyplugin.launch.ui.CommandsContentProvider;
 
 
 
@@ -25,9 +25,7 @@ public class ProjectBuilder extends
 IncrementalProjectBuilder {
 
 	public ProjectBuilder() {
-		// TODO Auto-generated constructor stub
-
-
+		
 	}
 
 	@Override
