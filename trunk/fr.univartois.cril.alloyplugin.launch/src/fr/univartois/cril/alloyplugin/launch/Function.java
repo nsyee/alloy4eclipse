@@ -12,6 +12,6 @@ public class Function implements IALSFunction {
 	}
 
 	public String toString(){
-		return "function";
+		return func.toString();
 	}
 }

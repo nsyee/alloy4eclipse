@@ -11,6 +11,6 @@ public class Signature implements IALSSignature {
 
 	}
 	public String toString(){
-		return "signature";
+		return sig.toString();
 	}
 }

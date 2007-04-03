@@ -11,6 +11,6 @@ public class Fact implements IALSFact {
 	this.expr=expr;	
 	}
 	public String toString(){		
-		return "fact";//expr.toString();
+		return expr.toString();
 	}
 }
