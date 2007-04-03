@@ -22,7 +22,8 @@ public class ExecutableCommand implements IALSCommand {
 	public static final int UNSAT = 2;
 	public static final int UNKNOW = 0;
 
-	public static final Image icon = Activator.getDefault().getImage(Activator.RUN_ICON_ID);
+	public static final Image iconrun = Activator.getDefault().getImage(Activator.RUN_ICON_ID);
+	public static final Image iconcheck = Activator.getDefault().getImage(Activator.CHECK_ICON_ID);
 	
 	/**
 	 * The Command's world . 
@@ -187,6 +188,6 @@ public class ExecutableCommand implements IALSCommand {
 
 	
 	public Image getIcon() {
-		return icon;
+		return command.check?iconcheck:iconrun;
 	}
 }
