@@ -5,11 +5,11 @@ import java.net.URL;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import edu.mit.csail.sdg.alloy4.Util;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -37,6 +37,12 @@ public class Activator extends AbstractUIPlugin {
 	public static final String BLUE_RUN_ID = "icons/RunCommandBlue.gif";
 	public static final String GREEN_RUN_ID = "icons/RunCommandGreen.gif";
 
+	public static final String SIGNATURE_ICON_ID="icons/sig.gif";
+	public static final String FACT_ICON_ID="icons/fact.gif";
+	public static final String FUNCTION_ICON_ID="icons/function.gif";
+	public static final String PREDICATE_ICON_ID="icons/predicate.gif";
+	public static final String RUN_ICON_ID="icons/run.gif";
+	
 	/** The system-specific file separator (forward-slash on UNIX, back-slash on Windows, etc.) */
     private static final String fileSeparator = System.getProperty("file.separator");
 	
@@ -107,6 +113,11 @@ public class Activator extends AbstractUIPlugin {
 		addImage(RED_RUN_ID, reg);
 		addImage(BLUE_RUN_ID, reg);
 		addImage(GREEN_RUN_ID, reg);
+		addImage(SIGNATURE_ICON_ID, reg);
+		addImage(FACT_ICON_ID, reg);
+		addImage(FUNCTION_ICON_ID, reg);
+		addImage(PREDICATE_ICON_ID, reg);
+		addImage(RUN_ICON_ID, reg);
 	}
 
 	
@@ -118,7 +129,9 @@ public class Activator extends AbstractUIPlugin {
 		return reg;
 	}
 	
-	
+	public Image getImage(String id) {
+		return getImageRegistry().get(id);
+	}
 	
 	/**
 	 * Add image in image registry. Pour taper moins de code 
