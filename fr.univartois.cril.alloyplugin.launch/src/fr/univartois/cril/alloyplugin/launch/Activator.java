@@ -42,6 +42,7 @@ public class Activator extends AbstractUIPlugin {
 	public static final String FUNCTION_ICON_ID="icons/function.gif";
 	public static final String PREDICATE_ICON_ID="icons/predicate.gif";
 	public static final String RUN_ICON_ID="icons/run.gif";
+	public static final String CHECK_ICON_ID="icons/check.gif";
 	
 	/** The system-specific file separator (forward-slash on UNIX, back-slash on Windows, etc.) */
     private static final String fileSeparator = System.getProperty("file.separator");
@@ -118,6 +119,7 @@ public class Activator extends AbstractUIPlugin {
 		addImage(FUNCTION_ICON_ID, reg);
 		addImage(PREDICATE_ICON_ID, reg);
 		addImage(RUN_ICON_ID, reg);
+		addImage(CHECK_ICON_ID, reg);
 	}
 
 	
