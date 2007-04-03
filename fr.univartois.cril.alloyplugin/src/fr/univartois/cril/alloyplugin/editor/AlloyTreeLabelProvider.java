@@ -1,19 +1,18 @@
 package fr.univartois.cril.alloyplugin.editor;
 
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.ImageData;
-import org.eclipse.swt.graphics.ImageLoader;
+
+import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
 
 public class AlloyTreeLabelProvider implements ILabelProvider {
 
 	public Image getImage(Object element) {
-		
-	    //Image i = new Image( null,"../../../../../../icons/AlloyFile.gif");
-		//return i;
+		if (element instanceof IALSTreeDecorated) {
+			return ((IALSTreeDecorated)element).getIcon();
+		}
 		return null;
 	}
 
