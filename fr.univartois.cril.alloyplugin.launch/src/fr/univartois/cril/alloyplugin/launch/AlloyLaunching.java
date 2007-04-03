@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pos;
 import edu.mit.csail.sdg.alloy4.SafeList;
@@ -20,7 +21,11 @@ import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
+import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
+import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 
@@ -149,23 +154,30 @@ public class AlloyLaunching {
 		}				
 		file.setCommand(exec_cmds);
 		SafeList<Expr> factsList=world.getRootModule().getAllFacts();
-		Fact[] facts=new Fact[factsList.size()];		
-		for(int i=0;i<facts.length;i++){
-			facts[i]=new Fact(factsList.get(i));
+		List<IALSFact> facts=new ArrayList<IALSFact>(factsList.size());		
+		for(Expr expr : factsList){
+			facts.add(new Fact(expr));
 		}		
-		//file.setFacts(facts);
+		file.setFacts(facts);
 
 		SafeList<Func0> funcList=world.getRootModule().getAllFunc0();
-		Function[] funcs=new Function[funcList.size()];		
-		for(int i=0;i<funcs.length;i++){
-			funcs[i]=new Function(funcList.get(i));
+		List<IALSFunction> funcs=new ArrayList<IALSFunction>(funcList.size());	
+        List<IALSPredicate> preds=new ArrayList<IALSPredicate>(funcList.size());  
+		for(Func0 fun : funcList){
+            if (fun.isPred) {
+                preds.add(new Predicate(fun));
+            } else {
+			    funcs.add(new Function(fun));
+            }
 		}
-		//file.setFunctions(funcs);
+		file.setFunctions(funcs);
+        file.setPredicates(preds);
 		SafeList<Sig> sigList=world.getRootModule().getAllSigs();
-		Signature[] sigs=new Signature[sigList.size()];		
-		for(int i=0;i<sigs.length;i++){
-			sigs[i]=new Signature(sigList.get(i));
+		List<IALSSignature> sigs=new ArrayList<IALSSignature>(sigList.size());		
+		for(Sig sig : sigList){
+			sigs.add(new Signature(sig));
 		}
+        file.setSignatures(sigs);
 		file.fireChange();
 		System.out.println("ALSFile changed:"+file);
 	}
