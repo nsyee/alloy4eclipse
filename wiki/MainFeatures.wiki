@@ -20,6 +20,11 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-b.png
   * Improved syntax coloring
   * Eclipse launch mechanism available using Run ... menu
 
+= Available on SVN =
+
+  * Outline view
+http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-0.0.6.png
+
 = Upcoming features (in order of priority) =
 
   # Visualization using Graphviz+Swing
@@ -27,7 +32,6 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-b.png
   # Commands launched using Eclipse Launch mechanism
   # Code format
   # Quick fix
-  # Outline
 
 
 Note that some features might be easily implemented at some point so they will likely be added before the ones needed more work, even if of lower priority.
