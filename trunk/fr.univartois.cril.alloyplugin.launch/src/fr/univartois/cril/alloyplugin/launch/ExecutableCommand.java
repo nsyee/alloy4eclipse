@@ -1,6 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
@@ -21,6 +22,8 @@ public class ExecutableCommand implements IALSCommand {
 	public static final int UNSAT = 2;
 	public static final int UNKNOW = 0;
 
+	public static final Image icon = Activator.getDefault().getImage(Activator.RUN_ICON_ID);
+	
 	/**
 	 * The Command's world . 
 	 */
@@ -180,5 +183,10 @@ public class ExecutableCommand implements IALSCommand {
 	 */
 	public String getStringResult() {
 		return stringResult;
+	}
+
+	
+	public Image getIcon() {
+		return icon;
 	}
 }

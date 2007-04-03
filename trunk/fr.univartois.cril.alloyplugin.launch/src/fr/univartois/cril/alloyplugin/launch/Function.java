@@ -1,10 +1,14 @@
 package fr.univartois.cril.alloyplugin.launch;
 
+import org.eclipse.swt.graphics.Image;
+
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
 
 public class Function implements IALSFunction {
 	
+	public static final Image icon = Activator.getDefault().getImage(Activator.FUNCTION_ICON_ID);
+
 	private Func func;
 
 	public Function(Func func) {
@@ -13,5 +17,9 @@ public class Function implements IALSFunction {
 
 	public String toString(){
 		return func.toString();
+	}
+
+	public Image getIcon() {
+		return icon;
 	}
 }
