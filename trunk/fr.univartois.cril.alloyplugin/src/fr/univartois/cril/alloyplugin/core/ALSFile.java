@@ -10,6 +10,7 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
+import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
 import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
 /**
  * This class represents an als file.  
@@ -21,7 +22,8 @@ public class ALSFile implements IALSFile {
 	private List <IALSFileListener>listeners;
 	private IResource resource;
 	private  List<IALSCommand> cmds;
-	private List <IALSFact> pred;
+	private List <IALSPredicate> pred;
+    private List <IALSFact> fact;
 	private List <IALSFunction> func;
 	private List <IALSSignature> sig;
 	public ALSFile(IResource resource) {
@@ -59,19 +61,23 @@ public class ALSFile implements IALSFile {
 	public List<IALSFunction> getFunctions() {		
 		return func;
 	}
-	public List<IALSFact> getPredicates() {		
+	public List<IALSPredicate> getPredicates() {		
 		return pred;
 	}
 	public List<IALSSignature> getSignatures() {
-
 		return sig;
 	}
+    
+    public List<IALSFact> getFacts() {
+        return fact;
+    }
+    
 	public void setFunctions(List<IALSFunction> func) {
 		this.func=func;
 
 	}
-	public void setFacts(List<IALSFact> pred) {
-		this.pred=pred;
+	public void setFacts(List<IALSFact> fact) {
+		this.fact=fact;
 
 	}
 	public void setSignatures(List<IALSSignature> sig) {
@@ -81,6 +87,11 @@ public class ALSFile implements IALSFile {
 		assert(cmds!=null);
 		this.cmds=cmds;		
 	}
+    
+    public void setPredicates(List<IALSPredicate> pred) {
+        this.pred = pred;
+    }
+    
 	public String toString(){return getResource().getName()+"@"+hashCode();
 		
 	}

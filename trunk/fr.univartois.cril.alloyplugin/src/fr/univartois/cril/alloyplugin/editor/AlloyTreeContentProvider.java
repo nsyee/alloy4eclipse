@@ -1,10 +1,10 @@
 package fr.univartois.cril.alloyplugin.editor;
 
-import java.util.List;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
+
 import fr.univartois.cril.alloyplugin.core.ALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
@@ -13,7 +13,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 
 	private static final String FUNCTIONS = "Functions";
 	private static final String SIGNATURES = "Signatures";
-
+    private static final String FACTS = "Facts";
 	private static final String PREDICATES = "Predicates";
 	private static final String COMMANDS = "Commands";
 	private	ALSEditor editor;	
@@ -86,11 +86,13 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 		if(af==null) return EMPTY_TAB;		
 
 		if (parentElement.equals(SIGNATURES))
-			return EMPTY_TAB;//new Object[] {"tata"};
+			return af.getSignatures().toArray(); //EMPTY_TAB;//new Object[] {"tata"};
+        if (parentElement.equals(FACTS))
+            return af.getFacts().toArray();
 		if (parentElement.equals(FUNCTIONS))
-			return EMPTY_TAB;//Object[] {"toto"};
+			return af.getFunctions().toArray(); // EMPTY_TAB;//Object[] {"toto"};
 		if (parentElement.equals(PREDICATES))
-			return EMPTY_TAB;//new Object[] {"titi"};
+			return af.getPredicates().toArray();//new Object[] {"titi"};
 		if (parentElement.equals(COMMANDS))
 			return af.getCommand().toArray();
 		return EMPTY_TAB;
@@ -103,14 +105,13 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 
 	public boolean hasChildren(Object element) {
 		//log.info("has children? "+element);
-		if (element.equals(COMMANDS)) return true;
-		return false;
+		return element.equals(COMMANDS)|| element.equals(SIGNATURES)|| element.equals(FUNCTIONS) || element.equals(PREDICATES)|| element.equals(FACTS);
 	}
 
 	public Object[] getElements(Object inputElement) {
 		//	log.info("get elements for "+inputElement);
 		System.out.println("get elements for :"+inputElement);
-		return new String[] {SIGNATURES,FUNCTIONS,PREDICATES,COMMANDS};
+		return new String[] {SIGNATURES,FACTS,FUNCTIONS,PREDICATES,COMMANDS};
 	}
 
 	
