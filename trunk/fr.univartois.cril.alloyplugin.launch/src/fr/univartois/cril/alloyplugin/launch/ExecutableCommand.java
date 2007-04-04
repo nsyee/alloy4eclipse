@@ -190,4 +190,10 @@ public class ExecutableCommand implements IALSCommand {
 	public Image getIcon() {
 		return command.check?iconcheck:iconrun;
 	}
+
+
+
+	public int getLine() {
+		return command.pos.y;
+	}
 }

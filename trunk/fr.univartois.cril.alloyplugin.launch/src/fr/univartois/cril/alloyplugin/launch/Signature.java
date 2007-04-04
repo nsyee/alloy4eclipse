@@ -20,4 +20,7 @@ public class Signature implements IALSSignature {
 	public Image getIcon() {
 		return icon;
 	}
+	public int getLine() {
+		return sig.pos.y;
+	}
 }

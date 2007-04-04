@@ -139,7 +139,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab {
 		}
 		if(label!=null&&currentALSFile!=null)label.setText("&From: "+currentALSFile.getResource().getName());
 		else label.setText("&From: ");
-		container.update();
+		//container.update();
 	}
 
 	/**

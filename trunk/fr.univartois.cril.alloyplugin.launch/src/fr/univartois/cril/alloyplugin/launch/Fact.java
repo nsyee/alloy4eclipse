@@ -20,4 +20,7 @@ public class Fact implements IALSFact {
 	public Image getIcon() {
 		return icon;
 	}
+	public int getLine() {
+		return expr.pos.y;
+	}
 }

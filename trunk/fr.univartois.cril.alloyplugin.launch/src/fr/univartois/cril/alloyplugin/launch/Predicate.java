@@ -22,4 +22,8 @@ public class Predicate implements IALSPredicate {
 	public Image getIcon() {
 		return icon;
 	}
+
+	public int getLine() {
+		return func.pos.y;
+	}
 }
