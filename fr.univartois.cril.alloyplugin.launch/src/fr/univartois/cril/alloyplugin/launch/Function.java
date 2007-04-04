@@ -22,4 +22,8 @@ public class Function implements IALSFunction {
 	public Image getIcon() {
 		return icon;
 	}
+
+	public int getLine() {
+		return func.pos.y;
+	}
 }
