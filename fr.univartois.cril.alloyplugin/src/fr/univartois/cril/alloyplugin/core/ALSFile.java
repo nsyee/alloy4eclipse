@@ -21,11 +21,11 @@ public class ALSFile implements IALSFile {
 
 	private List <IALSFileListener>listeners;
 	private IResource resource;
-	private  List<IALSCommand> cmds;
-	private List <IALSPredicate> pred;
-    private List <IALSFact> fact;
-	private List <IALSFunction> func;
-	private List <IALSSignature> sig;
+	private  List<IALSCommand> cmds=new ArrayList<IALSCommand>();
+	private List <IALSPredicate> pred=new ArrayList<IALSPredicate>();
+    private List <IALSFact> fact=new ArrayList<IALSFact>();
+	private List <IALSFunction> func=new ArrayList<IALSFunction>();
+	private List <IALSSignature> sig=new ArrayList<IALSSignature>();
 	public ALSFile(IResource resource) {
 		this.resource=resource;
 	}

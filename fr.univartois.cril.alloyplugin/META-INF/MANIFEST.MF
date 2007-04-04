@@ -13,10 +13,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.core.resources,
  org.eclipse.ui.ide,
- org.eclipse.ui.views
+ org.eclipse.ui.views,
+ fr.univartois.cril.alloyplugin.launch,
+ org.eclipse.debug.core,
+ org.eclipse.debug.ui,
+ org.eclipse.ui.console
 Eclipse-LazyStart: true
 Bundle-Vendor: CRIL - Université d'Artois
-Export-Package: fr.univartois.cril.alloyplugin,
- fr.univartois.cril.alloyplugin.core.ui,
- fr.univartois.cril.alloyplugin.ui
 

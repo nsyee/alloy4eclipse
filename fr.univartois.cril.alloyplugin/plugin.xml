@@ -129,4 +129,126 @@
          </action>
       </objectContribution>
    </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="fr.univartois.cril.alloyplugin.launch.LaunchShortcut"
+            icon="icons/icon.gif"
+            id="fr.univartois.cril.alloyplugin.shortcut"
+            label="Alloy Specification"
+            modes="run,debug">
+         <contextualLaunch>
+            <enablement>
+               <with variable="selection">
+               <count value="1"/>
+               <iterate operator="or">
+                  <test
+                        property="org.eclipse.debug.ui.matchesPattern"
+                        value="*.als"/>
+               </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+         <perspective id="fr.univartois.cril.alloyplugin.alloyperspective"/>
+      </shortcut>
+   </extension>
+
+    <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
+            name="Alloy"/>
+      <view
+            allowMultiple="false"
+            category="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
+            class="fr.univartois.cril.alloyplugin.launch.ui.CommandsView"
+            icon="icons/icon.gif"
+            id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
+            name="Commands"/>
+         <!-- 
+         <view
+            allowMultiple="false"
+            category="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
+            class="fr.univartois.cril.alloyplugin.launch.ui.GraphView"
+            id="fr.univartois.cril.alloyplugin.launch.views.GraphView"
+            name="Graphic result"/>
+            -->
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="fr.univartois.cril.alloyplugin.launch.category"
+            description="Alloy command"
+            id="fr.univartois.cril.alloyplugin.launch.runalloycommand"
+            name="Run Alloy command"/>
+      <category
+            id="fr.univartois.cril.alloyplugin.launch.category"
+            name="Alloy"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="fr.univartois.cril.alloyplugin.launch.runalloycommand"
+            icon="icons/AlloyCommand.gif"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="fr.univartois.cril.alloyplugin.alloyperspective">
+         <view
+               closeable="true"
+               id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
+               moveable="true"
+               relationship="stack"
+               relative="org.eclipse.ui.views.ContentOutline"
+               visible="true"/>
+         <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"/>
+         <actionSet id="org.eclipse.debug.ui.launchActionSet"/>
+            <!-- 
+         <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.GraphView"/>
+         <view
+               closeable="true"
+               id="fr.univartois.cril.alloyplugin.launch.views.GraphView"
+               moveable="true"
+               relationship="stack"
+               relative="org.eclipse.ui.console.ConsoleView"
+               showTitle="true"
+               standalone="true"
+               visible="true"/>
+                        -->
+      </perspectiveExtension>
+   </extension>
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+    <launchConfigurationType
+          delegate="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationDelegate"
+          id="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType"
+          modes="run"
+          name="Alloy command"
+          public="true">
+       <fileExtension
+             default="true"
+             extension="als"/>        
+    </launchConfigurationType>
+</extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType"
+            icon="icons/AlloyCommand.gif"
+            id="fr.univartois.cril.alloyplugin.launch.launchConfigurationTypeImage1"/>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationTabGroups"
+            id="fr.univartois.cril.alloyplugin.launch.launchConfigurationTabGroup1"
+            type="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType">
+      </launchConfigurationTabGroup>
+
+ </extension>
+      <extension
+         point="fr.univartois.cril.alloyplugin.editorlistener">
+      <Generic class="fr.univartois.cril.alloyplugin.launch.ALSEditorListener"/>
+   </extension>
+   
+   
 </plugin>
