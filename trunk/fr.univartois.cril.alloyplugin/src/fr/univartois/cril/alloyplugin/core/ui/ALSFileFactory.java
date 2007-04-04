@@ -19,16 +19,18 @@ public class ALSFileFactory {
 	 */
 	public static ALSFile getALSFile(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(".als")) {
+			System.out.println("factory");
 			ALSFile file = map.get(resource);
 			if (file==null&&resource.exists())
 			{
 				file=new ALSFile(resource);
-
+				System.out.println("create alsfile:"+file);
 				map.put(resource,file);
-
 			}
+			System.out.println("get alsfile:"+file);
 			return file;
 		}
+		System.out.println("ici0000");
 		return null;
 	}
 	protected void remove(IResource Resource){

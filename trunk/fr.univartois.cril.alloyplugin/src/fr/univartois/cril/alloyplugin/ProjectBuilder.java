@@ -12,6 +12,10 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
+
 
 
 /**
@@ -58,17 +62,29 @@ public class ProjectBuilder extends
 	 * */
 	class ResourceVisitor implements IResourceVisitor {
 		public boolean visit(IResource resource) {
-			checkALSFile(resource);
+			parseALSFile(resource);
 			//return true to continue visiting children.
 			return true;
 		}
 	}
+	
 	/**	 
-	 * Check the resource. 
+	 * Check the resource if it's a file and ends by ".als" . 
 	 */
-	void checkALSFile(IResource resource) {
-		if (resource instanceof IFile && resource.getName().endsWith(".als")) {
-						
+	private void parseALSFile(IResource resource) {
+		if (resource instanceof IFile && resource.getName().endsWith(".als")) {		
+			
+				AlloyLaunching.launchParserOneFile(resource);						
+		}
+	}
+	/**	 
+	 * Evaluate et modifie the .
+	 */
+	private void parseALSFileFull(IResource resource) {
+		if (resource instanceof IFile && resource.getName().endsWith(".als")) {			
+			IALSFile file=ALSFileFactory.getALSFile(resource);
+			if(file!=null)AlloyLaunching.launchParser(file);	
+			System.out.println("ICI là:"+resource);
 		}
 	}
 	/**
@@ -99,7 +115,7 @@ public class ProjectBuilder extends
 			switch (delta.getKind()) {
 			case IResourceDelta.ADDED:
 				// handle added resource
-				checkALSFile(resource);
+				parseALSFileFull(resource);
 				break;
 			case IResourceDelta.REMOVED:
 				// handle removed resource
@@ -107,7 +123,7 @@ public class ProjectBuilder extends
 				break;
 			case IResourceDelta.CHANGED:
 				// handle changed resource
-				checkALSFile(resource);
+				parseALSFileFull(resource);
 				break;
 			}
 			//return true to continue visiting children.
