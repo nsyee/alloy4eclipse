@@ -11,11 +11,11 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
 
 public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileListener {
 
-	private static final String FUNCTIONS = "Functions";
-	private static final String SIGNATURES = "Signatures";
-    private static final String FACTS = "Facts";
-	private static final String PREDICATES = "Predicates";
-	private static final String COMMANDS = "Commands";
+	public static final String FUNCTIONS = "Functions";
+	public static final String SIGNATURES = "Signatures";
+    public static final String FACTS = "Facts";
+	public static final String PREDICATES = "Predicates";
+	public static final String COMMANDS = "Commands";
 	private	ALSEditor editor;	
 	private ALSFile af;
 	private Viewer viewer;
