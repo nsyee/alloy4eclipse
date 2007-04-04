@@ -5,4 +5,6 @@ import org.eclipse.swt.graphics.Image;
 public interface IALSTreeDecorated {
 
 	Image getIcon(); 
+	
+	int getLine();
 }
