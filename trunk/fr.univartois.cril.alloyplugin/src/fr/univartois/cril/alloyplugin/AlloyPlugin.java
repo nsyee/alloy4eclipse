@@ -35,23 +35,16 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	 */
 	public static final String PLUGIN_ID = "fr.univartois.cril.alloyplugin";
 	/**
-	 *  extension project builders ID
+	 *  extension listenerID (for commands view temporary) 
 	 */
-	private static final String projectBuildersExtensionId="fr.univartois.cril.alloyplugin.projectbuilderscontribution";
+	
 	private static final String listenerId="fr.univartois.cril.alloyplugin.editorlistener";
 	/***/
 	public static final String ALS_PARTITIONING = "__pos_als_partitioning";
-	/**
-	 * Default project builder Id.  
-	 */
-	private static final String PROJECT_BUILDER_ID = "fr.univartois.cril.alloyplugin.builder";
 
-	/** listeners for commands */	
+
+	/** listeners for commands views */	
 	private List<IAlloyEditorListener> editorListeners;
-	/**
-	 * project builders.
-	 */
-	private String[] projectBuildersID;
 
 
 	private IPartitionTokenScanner fPartitionScanner;
@@ -63,11 +56,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	public AlloyPlugin(){
 		super();
 		plugin=this;
-		//Workspace workspace=PlatformUI.getWorkbench().ge;
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		IProjectNatureDescriptor descriptor = workspace.getNatureDescriptor(ProjectNature.NATURE_ID);
-
-			
+				
 		copyFromJAR();
 
 	}
@@ -80,45 +69,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 			editorListeners=computeListeners();
 		return editorListeners;	
 	}
-	/**
-	 * Returns project builders listeners.
-	 * */	
-	public String[] getProjectBuildersID(){
-
-		if (projectBuildersID==null)
-		{
-			List<String> projectBuildersIDList= new ArrayList<String>();
-			projectBuildersIDList.add(PROJECT_BUILDER_ID);
-			computeProjectNaturesID(projectBuildersIDList);
-			projectBuildersID=new String[projectBuildersIDList.size()];
-			int i=0;
-			for (String id : projectBuildersIDList) {
-				projectBuildersID[i++]=id;
-			}
-		}
-		return projectBuildersID;	
-	}
-	/**
-	 *  get the project builders contribution from plugins which declare fr.univartois.cril.alloyplugin.projectbuilderscontribution extension.
-	 */
-	private void computeProjectNaturesID(List<String> projectBuildersIDList) {
-		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IExtensionPoint extensionPoint= registry.getExtensionPoint(projectBuildersExtensionId);
-		IExtension[] extensions = extensionPoint.getExtensions();
-
-		for(int i = 0 ;i< extensions.length;i++){
-			IConfigurationElement[] elements=extensions[i].getConfigurationElements();
-			for(int j=0;j<elements.length;j++){
-				//try{
-				String s=elements[j].getAttribute("projectBuilderId");					
-				if(s!=null&&!projectBuildersIDList.contains(s))
-				{System.out.println("ajoutebuilderIDExtensionFound:"+s);
-				projectBuildersIDList.add(s);
-				}
-			}
-		}
-
-	}
+	
 	/**
 	 * Adds commands listeners from existing extension points to the plugin.
 	 * */

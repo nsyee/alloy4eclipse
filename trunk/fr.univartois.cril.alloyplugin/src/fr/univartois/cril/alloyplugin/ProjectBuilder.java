@@ -25,10 +25,11 @@ import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
  * */
 public class ProjectBuilder extends
  IncrementalProjectBuilder {
+	/**
+	 * Default project builder Id.  
+	 */
+	public static final String PROJECT_BUILDER_ID = "fr.univartois.cril.alloyplugin.builder";
 
-	public ProjectBuilder() {
-				
-	}
 
 	@Override
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
