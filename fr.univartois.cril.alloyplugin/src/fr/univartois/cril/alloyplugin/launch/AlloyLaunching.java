@@ -8,10 +8,12 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 
 import edu.mit.csail.sdg.alloy4.Err;
+import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4.Pos;
 import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
+import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
 import edu.mit.csail.sdg.alloy4compiler.ast.World;
 import edu.mit.csail.sdg.alloy4compiler.ast.Func.Func0;
@@ -163,17 +165,17 @@ public class AlloyLaunching {
 			exec_cmds.add(dd);
 		}				
 		file.setCommand(exec_cmds);
-		SafeList<Expr> factsList=world.getRootModule().getAllFacts();
+		SafeList<Pair<String,Expr>> factsList=world.getRootModule().getAllFacts();
 		List<IALSFact> facts=new ArrayList<IALSFact>(factsList.size());		
-		for(Expr expr : factsList){
-			facts.add(new Fact(expr));
+		for(Pair<String,Expr> fact : factsList){
+			facts.add(new Fact(fact));
 		}		
 		file.setFacts(facts);
 
-		SafeList<Func0> funcList=world.getRootModule().getAllFunc0();
+		SafeList<Func> funcList=world.getRootModule().getAllFunc();
 		List<IALSFunction> funcs=new ArrayList<IALSFunction>(funcList.size());	
         List<IALSPredicate> preds=new ArrayList<IALSPredicate>(funcList.size());  
-		for(Func0 fun : funcList){
+		for(Func fun : funcList){
             if (fun.isPred) {
                 preds.add(new Predicate(fun));
             } else {
