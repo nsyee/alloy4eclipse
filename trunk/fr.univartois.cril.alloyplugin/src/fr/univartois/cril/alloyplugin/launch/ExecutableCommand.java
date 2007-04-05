@@ -1,6 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4.A4Reporter;
@@ -189,7 +190,27 @@ public class ExecutableCommand implements IALSCommand {
 
 	
 	public Image getIcon() {
-		return command.check?iconcheck:iconrun;
+		//return command.check?iconcheck:iconrun;
+		ExecutableCommand cmd=this;
+		ImageRegistry reg = AlloyPlugin.getDefault().getImageRegistry();
+		if (cmd.getResult()==ExecutableCommand.SAT)
+			if (cmd.getCommand().check) {
+				if(cmd.getCommand().expects==1)
+					return reg.get(AlloyPlugin.BLUE_CHECK_ID);// not expected sat check command
+				else
+					return reg.get(AlloyPlugin.RED_CHECK_ID);// expected sat check command
+			}
+			else return reg.get(AlloyPlugin.GREEN_RUN_ID);;//Sat Run command 
+		if (cmd.getResult()==ExecutableCommand.UNSAT)
+			if (cmd.getCommand().check) return reg.get(AlloyPlugin.GREEN_CHECK_ID);//OK
+			else {
+				if(cmd.getCommand().expects==0)
+					return reg.get(AlloyPlugin.BLUE_RUN_ID);
+				else
+					return reg.get(AlloyPlugin.RED_RUN_ID);
+			}
+		return reg.get(AlloyPlugin.COMMAND_ID);
+		
 	}
 
 

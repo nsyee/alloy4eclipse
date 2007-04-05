@@ -97,6 +97,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 			return af.getCommand().toArray();
 		return EMPTY_TAB;
 	}
+	
 
 	public Object getParent(Object element) {
 		//	log.info("Get parent for "+element);

@@ -47,7 +47,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab {
 	}
 
 	public void createControl(Composite parent) {
-		Composite container = new Composite(parent, SWT.NONE);
+		Composite container = new Composite(parent, SWT.CHECK);
 		container.setLayout(new FillLayout());
 		/*container.setLayout(new GridLayout(1, false));
 		container.setFont(parent.getFont());

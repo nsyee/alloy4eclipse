@@ -26,9 +26,14 @@ class CommandsLabelProvider extends LabelProvider implements ITableLabelProvider
 			return cmd.toString()+" [UNSAT]";
 		else return cmd.toString()+" [SAT]";			
 	}
+	
+	
 	public Image getColumnImage(Object obj, int index) {
 		return getImage(obj);
 	}
+	
+	
+	
 	public Image getImage(Object obj) {		
 		ExecutableCommand cmd=(ExecutableCommand) obj;
 		ImageRegistry reg = AlloyPlugin.getDefault().getImageRegistry();

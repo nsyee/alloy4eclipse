@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeSelection;
@@ -16,6 +18,9 @@ import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 
 import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
+import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
+import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.launch.ui.CommandsView;
 
 /**
  * 
@@ -43,6 +48,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 		viewer.setContentProvider(new AlloyTreeContentProvider());
 		// IEditorInput input = editor.getEditorInput();
 		this.addSelectionChangedListener(new MySelectionListener());
+		viewer.addDoubleClickListener(new MyDoubleClickListener());
 		setViewerInput();
 		viewer.expandAll();
 		viewer.refresh();
@@ -83,4 +89,18 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 		}
 	}
 
+	class MyDoubleClickListener implements IDoubleClickListener{
+
+		public void doubleClick(DoubleClickEvent event) {
+			Object selection = ((TreeSelection) event.getSelection()).getFirstElement();
+			if (selection instanceof IALSTreeDecorated) {
+				IALSTreeDecorated elem = (IALSTreeDecorated) selection;
+				if (elem instanceof ExecutableCommand){
+				AlloyLaunching.ExecCommand((ExecutableCommand) elem);
+				viewer.refresh();		
+				}
+			}	
+		}
+	}
+	
 }
