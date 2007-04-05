@@ -159,7 +159,8 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 
 					for (Object object : commandIdList) {
 						String commandId=(String)object;
-						commandsViewer.setChecked(currentALSFile.getCommand(commandId), true);
+						IALSCommand cmd = currentALSFile.getCommand(commandId);
+						if(cmd!=null)commandsViewer.setChecked(cmd, true);
 					}
 				} catch (CoreException e) {
 					// TODO Auto-generated catch block
