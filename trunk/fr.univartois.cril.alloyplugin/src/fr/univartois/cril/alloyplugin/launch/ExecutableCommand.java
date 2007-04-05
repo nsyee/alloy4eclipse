@@ -27,40 +27,40 @@ public class ExecutableCommand implements IALSCommand {
 
 	public static final Image iconrun = AlloyPlugin.getDefault().getImage(AlloyPlugin.RUN_ICON_ID);
 	public static final Image iconcheck = AlloyPlugin.getDefault().getImage(AlloyPlugin.CHECK_ICON_ID);
-	
+
 	/**
 	 * The Command's world . 
 	 */
 	private final World world;
-	
+
 	/**
 	 * The command itself. 
 	 */
 	private final Command command;
-	
+
 	/**
 	 * The ALS file which has provided the command. 
 	 */
 	private final IALSFile file;
-	
+
 	/**
 	 * An Options for execution. 
 	 */
 	private final A4Options options;
-	
+
 	/**
 	 * result can be executable.SAT executable.UNSAT or executable.UNKNOWN.
 	 */
 	private int result;
-	
+
 	/**
 	 * 
 	 */
 	private String stringResult;
 	private A4Solution ans;
 
-	
-	
+
+
 	/**
 	 * Constructor. 
 	 */
@@ -71,7 +71,7 @@ public class ExecutableCommand implements IALSCommand {
 		}
 		else
 			this.options=options;
-		
+
 		assert(file!=null);
 		assert(command!=null);
 		assert(world!=null);
@@ -82,8 +82,8 @@ public class ExecutableCommand implements IALSCommand {
 		this.result   = UNKNOW;
 	}
 
-	
-	
+
+
 	/**
 	 * Constructor. 
 	 */
@@ -91,8 +91,8 @@ public class ExecutableCommand implements IALSCommand {
 		this(file,command,world,null);				
 	}
 
-	
-	
+
+
 	/**
 	 * Get the option.
 	 * */
@@ -100,60 +100,60 @@ public class ExecutableCommand implements IALSCommand {
 		options.setReporter(rep);
 		return options;
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Display the text from command. 
 	 */
 	public String toString(){
 		return command.toString();
 	}	
-	
-	
+
+
 	/**
 	 * Get the resource which this command is from.
 	 */
 	public IResource getResource() {
 		return file.getResource();
 	}	
-	
-	
+
+
 	/**
 	 *  Get the location of the file where this command is located.
 	 */
 	public String getFilename() {		
 		return Util.getFileLocation(file.getResource());		
 	}	
-	
+
 	/**
 	 * return the world. 
 	 */
 	public World getWorld() {
 		return world;
 	}
-	
-	
-	
+
+
+
 	/**
 	 * return the command. 
 	 */
 	public Command getCommand() {
 		return command;
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Return the result. 
 	 */
 	public int getResult() {
-		
+
 		return result;		
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Execute this command whith te given reporter.
 	 * */
@@ -164,8 +164,8 @@ public class ExecutableCommand implements IALSCommand {
 		return ans;
 	}
 
-	
-	
+	public A4Solution getAns(){return ans;}
+
 	/**
 	 * Set this command sat. 
 	 */
@@ -175,17 +175,17 @@ public class ExecutableCommand implements IALSCommand {
 		file.fireChange();
 	}
 
-	
-	
+
+
 	/**
 	 * Set the string result for this command. 
 	 */
 	public void setStringResult(String s) {
 		stringResult=s;
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Get the string result of this command. 
 	 */
@@ -193,29 +193,35 @@ public class ExecutableCommand implements IALSCommand {
 		return stringResult;
 	}
 
-	
+
 	public Image getIcon() {
 		//return command.check?iconcheck:iconrun;
-		ExecutableCommand cmd=this;
+
 		ImageRegistry reg = AlloyPlugin.getDefault().getImageRegistry();
-		if (cmd.getResult()==ExecutableCommand.SAT)
-			if (cmd.getCommand().check) {
-				if(cmd.getCommand().expects==1)
+
+		if (getResult()==ExecutableCommand.SAT)
+			if (getCommand().check) {
+				if(getCommand().expects==1)
 					return reg.get(AlloyPlugin.BLUE_CHECK_ID);// not expected sat check command
 				else
 					return reg.get(AlloyPlugin.RED_CHECK_ID);// expected sat check command
 			}
 			else return reg.get(AlloyPlugin.GREEN_RUN_ID);;//Sat Run command 
-		if (cmd.getResult()==ExecutableCommand.UNSAT)
-			if (cmd.getCommand().check) return reg.get(AlloyPlugin.GREEN_CHECK_ID);//OK
-			else {
-				if(cmd.getCommand().expects==0)
-					return reg.get(AlloyPlugin.BLUE_RUN_ID);
-				else
-					return reg.get(AlloyPlugin.RED_RUN_ID);
-			}
-		return reg.get(AlloyPlugin.COMMAND_ID);
-		
+			if (getResult()==ExecutableCommand.UNSAT)
+				if (getCommand().check) return reg.get(AlloyPlugin.GREEN_CHECK_ID);//OK
+				else {
+					if(getCommand().expects==0)
+						return reg.get(AlloyPlugin.BLUE_RUN_ID);
+					else
+						return reg.get(AlloyPlugin.RED_RUN_ID);
+				}
+			if (getCommand().check)
+				return reg.get(AlloyPlugin.CHECK_ID);
+			else
+				return reg.get(AlloyPlugin.RUN_ID);
+
+			//return reg.get(AlloyPlugin.COMMAND_ID);
+
 	}
 
 
@@ -228,13 +234,13 @@ public class ExecutableCommand implements IALSCommand {
 
 	public String getName() {
 		return command.name;
-		
+
 	}
 
-	
 
 
 
-	
-	
+
+
+
 }
