@@ -91,10 +91,10 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		label.setText("&From:");
 		commandsViewer = new CheckboxTableViewer(new Table(group, SWT.CHECK|SWT.H_SCROLL | SWT.V_SCROLL));
 		commandsViewer.addCheckStateListener(this);
-		commandsViewer.setContentProvider(new CommandsContentProvider());
+		commandsViewer.setContentProvider(new CommandsContentProvider2());
 		//System.out.println("createControl:file:"+file);
 
-		commandsViewer.setLabelProvider(new CommandsLabelProvider());		
+		commandsViewer.setLabelProvider(new CommandsLabelProvider2());		
 
 		setControl(container);
 

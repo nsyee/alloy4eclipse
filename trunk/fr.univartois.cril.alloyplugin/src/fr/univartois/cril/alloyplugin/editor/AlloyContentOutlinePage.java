@@ -20,7 +20,7 @@ import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.launch.ui.CommandsView;
+
 
 /**
  * 

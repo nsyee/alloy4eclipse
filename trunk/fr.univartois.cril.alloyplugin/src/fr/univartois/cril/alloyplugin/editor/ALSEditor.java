@@ -39,26 +39,9 @@ public class ALSEditor extends TextEditor {
 	}
 
 
-	@Override
-	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
-		
-		super.init(site, input);
-		
-		AlloyPlugin.getDefault().fireFileOpen(getALSFile());
-	}
-
-
-	public void setFocus() {
-		super.setFocus();
-		AlloyPlugin.getDefault().fireSetFocus(getALSFile());	
-	}
 	
-	public void dispose() {
-		
-		super.dispose();
-		
-		AlloyPlugin.getDefault().fireFileClosed(getALSFile());
-	}
+
+
 	/**
 	 * Used for contentoutline (not implement yet)
 	 * */

@@ -15,7 +15,7 @@ import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
  */
 
 
-class CommandsLabelProvider extends LabelProvider implements ITableLabelProvider {
+class CommandsLabelProvider2 extends LabelProvider implements ITableLabelProvider {
 	
 	
 	public String getColumnText(Object obj, int index) {		

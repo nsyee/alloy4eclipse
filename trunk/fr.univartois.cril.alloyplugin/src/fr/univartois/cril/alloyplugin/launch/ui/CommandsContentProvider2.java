@@ -20,7 +20,7 @@ import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
  * Content provider for commands view.
  */
 
-public class CommandsContentProvider implements IStructuredContentProvider, IALSFileListener {
+public class CommandsContentProvider2 implements IStructuredContentProvider, IALSFileListener {
 
 
 	private static final IALSCommand[] EMPTY_COMMANDS =new IALSCommand[0];
