@@ -28,6 +28,7 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
 import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
 import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
+import fr.univartois.cril.alloyplugin.launch.ui.CommandsView;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 
@@ -153,16 +154,7 @@ public class AlloyLaunching {
 		List<IALSCommand>  exec_cmds=new ArrayList<IALSCommand>();//new ExecutableCommand[list.size()];		
 		
 		for (Command command : list) {			
-				ExecutableCommand dd=null ;
-			try{
-			 dd = new ExecutableCommand(file.getResource(),command,world);
-			
-			}
-			catch(java.lang.ExceptionInInitializerError e){
-				System.out.println("erreur:"+e.getCause());
-				
-			}
-			exec_cmds.add(dd);
+			exec_cmds.add(new ExecutableCommand(file,command,world));
 		}				
 		file.setCommand(exec_cmds);
 		SafeList<Pair<String,Expr>> factsList=world.getRootModule().getAllFacts();
@@ -222,6 +214,8 @@ public class AlloyLaunching {
 		} catch (Err e) {				
 			displayErrorInProblemView(command.getResource(), e);
 		}
+		
+		
 	}
 
 

@@ -15,8 +15,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
@@ -149,17 +147,16 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 	 * */
 	private void initializeTabControls()  {
 		if(commandsViewer!=null) 
-		{
-			System.out.println("setinput00045:"+currentALSFile);
+		{			
 			commandsViewer.setInput(currentALSFile);
 			if(currentALSFile!=null){
-				List commandIdList;
+				List commandLabelList;
 				try {
-					commandIdList = launchConfig.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LIST, new ArrayList());
+					commandLabelList = launchConfig.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, new ArrayList());
 
-					for (Object object : commandIdList) {
-						String commandId=(String)object;
-						IALSCommand cmd = currentALSFile.getCommand(commandId);
+					for (Object object : commandLabelList) {
+						String commandLabel=(String)object;
+						IALSCommand cmd = currentALSFile.getCommand(commandLabel);
 						if(cmd!=null)commandsViewer.setChecked(cmd, true);
 					}
 				} catch (CoreException e) {
@@ -221,11 +218,14 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {		
 		List<String> list=new ArrayList<String>();
 		Object[] selectedCommands = commandsViewer.getCheckedElements();
+		System.out.println("perform aplly:");
 		for (Object object : selectedCommands) {
 			list.add(((ExecutableCommand)object).getName());
+			System.out.println("add:"+((ExecutableCommand)object).getName());
 		}		
-		System.out.println("perform aplly:"+list.size());
-		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LIST,list);
+		
+		
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,list);
 
 	}
 	/**
@@ -261,7 +261,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 			}
 		}
 		//ajoute une liste de commandes a la configuration (vide pour l'instant) 
-		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LIST,new ArrayList<String>());
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,new ArrayList<String>());
 
 		//IALSFile file = getALSFile();
 		//List<IALSFile> list = new ArrayList<IALSFile>();

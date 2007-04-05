@@ -43,7 +43,7 @@ ILaunchConfigurationDelegate {
 		}
 		if (file==null) return;
 		System.out.println("coucocu");
-		List commandIdList=configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LIST, (List)null);
+		List commandIdList=configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, (List)null);
 		currentCommandsList =  file.getCommand();		
 		monitor.setTaskName("Running Alloy command");
 		AlloyMessageConsole console = Console.findAlloyConsole(Util.getFileLocation(file.getResource()));

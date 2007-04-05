@@ -13,6 +13,7 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 /**
@@ -38,9 +39,9 @@ public class ExecutableCommand implements IALSCommand {
 	private final Command command;
 	
 	/**
-	 * The resource which has provided the command. 
+	 * The ALS file which has provided the command. 
 	 */
-	private final IResource resource;
+	private final IALSFile file;
 	
 	/**
 	 * An Options for execution. 
@@ -56,13 +57,14 @@ public class ExecutableCommand implements IALSCommand {
 	 * 
 	 */
 	private String stringResult;
+	private A4Solution ans;
 
 	
 	
 	/**
 	 * Constructor. 
 	 */
-	public ExecutableCommand(IResource res,Command command, World world,A4Options options) {		
+	public ExecutableCommand(IALSFile file,Command command, World world,A4Options options) {		
 		if(options==null){
 			this.options = new A4Options();		
 			this.options.solver = A4Options.SatSolver.SAT4J;
@@ -70,11 +72,11 @@ public class ExecutableCommand implements IALSCommand {
 		else
 			this.options=options;
 		
-		assert(res!=null);
+		assert(file!=null);
 		assert(command!=null);
 		assert(world!=null);
 
-		this.resource = res;
+		this.file = file;
 		this.world    = world;
 		this.command  = command;
 		this.result   = UNKNOW;
@@ -85,8 +87,8 @@ public class ExecutableCommand implements IALSCommand {
 	/**
 	 * Constructor. 
 	 */
-	public ExecutableCommand(IResource res,Command command, World world) {
-		this(res,command,world,null);				
+	public ExecutableCommand(IALSFile file,Command command, World world) {
+		this(file,command,world,null);				
 	}
 
 	
@@ -113,7 +115,7 @@ public class ExecutableCommand implements IALSCommand {
 	 * Get the resource which this command is from.
 	 */
 	public IResource getResource() {
-		return resource;
+		return file.getResource();
 	}	
 	
 	
@@ -121,7 +123,7 @@ public class ExecutableCommand implements IALSCommand {
 	 *  Get the location of the file where this command is located.
 	 */
 	public String getFilename() {		
-		return Util.getFileLocation(resource);		
+		return Util.getFileLocation(file.getResource());		
 	}	
 	
 	/**
@@ -145,7 +147,8 @@ public class ExecutableCommand implements IALSCommand {
 	/**
 	 * Return the result. 
 	 */
-	public int getResult() {		
+	public int getResult() {
+		
 		return result;		
 	}
 	
@@ -157,6 +160,7 @@ public class ExecutableCommand implements IALSCommand {
 	public A4Solution execute(Reporter rep) throws Err {
 		rep.setExecCommand(this);
 		A4Solution ans = TranslateAlloyToKodkod.execute_command(world,command,getOptions(rep), null, null); 
+		this.ans=ans;
 		return ans;
 	}
 
@@ -168,6 +172,7 @@ public class ExecutableCommand implements IALSCommand {
 	public void setSat(boolean sat) {
 		if (sat) result=SAT;
 		else result=UNSAT;
+		file.fireChange();
 	}
 
 	
@@ -225,4 +230,11 @@ public class ExecutableCommand implements IALSCommand {
 		return command.name;
 		
 	}
+
+	
+
+
+
+	
+	
 }
