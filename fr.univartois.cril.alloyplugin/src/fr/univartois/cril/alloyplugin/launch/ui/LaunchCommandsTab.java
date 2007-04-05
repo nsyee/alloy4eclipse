@@ -1,11 +1,10 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
@@ -27,6 +26,7 @@ import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements ICheckStateListener {
 
@@ -61,41 +61,17 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		layout.marginHeight=10;
 		layout.marginWidth=10;
 		container.setLayout(layout);
-		/*container.setLayout(new GridLayout(1, false));
-		container.setFont(parent.getFont());
-		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-		//gd.horizontalSpan = hspan;
-		container.setLayoutData(gd);
-		//((GridLayout)container.getLayout()).verticalSpacing = 0;
-		 */
 		Group group = new Group(container, SWT.NONE);
 		group.setText("&Commands:");
 		group.setLayout(new FillLayout());
-		group.setFont(container.getFont());
-
-		//gd.horizontalSpan = hspan;
-
-		/*((GridLayout)container2.getLayout()).verticalSpacing = 0;
-
-		//System.out.println("createcontrol:"+System.currentTimeMillis());
-		//container = new Composite(parent, SWT.NULL);
-		//FillLayout layout = new FillLayout(SWT.VERTICAL);
-		//container.setLayout(layout);
-		//layout.numColumns = 3;		
-		//layout.verticalSpacing = 9;
-		 */
+		group.setFont(container.getFont());		
 		label = new Label(group, SWT.NULL);
-
-		//	label.setText("&Commands from: "+file.getResource().getName());
-
 		label.setText("&From:");
 		commandsViewer = new CheckboxTableViewer(new Table(group, SWT.CHECK|SWT.H_SCROLL | SWT.V_SCROLL));
 		commandsViewer.addCheckStateListener(this);
 		commandsViewer.setContentProvider(new CommandsContentProvider2());
 		//System.out.println("createControl:file:"+file);
-
-		commandsViewer.setLabelProvider(new CommandsLabelProvider2());		
-
+		commandsViewer.setLabelProvider(new CommandsLabelProvider2());
 		setControl(container);
 
 	}
@@ -222,9 +198,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		for (Object object : selectedCommands) {
 			list.add(((ExecutableCommand)object).getName());
 			System.out.println("add:"+((ExecutableCommand)object).getName());
-		}		
-		
-		
+		}
 		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,list);
 
 	}
@@ -236,42 +210,42 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 	}
 	/**
 	 * This method is called when a configuration is created.
-	 * All informations have to been stored in the configuration, not in this class fields
-	 * because this class can be disposed and re-created later.	 
+	 * All default attributes are stored in the configuration.
+	 * Informations are taken from context.
+	 * 	 
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		IResource[] resources=null;
-		try {			
-			resources = configuration.getMappedResources();
 
-		} catch (CoreException e) {
+		setdefaultsAttributes(getALSFileFromContext(),configuration);
 
-			e.printStackTrace();
-		}
-		if (resources==null)		
-		{
-			IALSFile file=getALSFileFromContext();
-			if(file!=null)
-			{				
-				configuration.rename(file.getResource().getName());
-				resources=new IResource[1];
-				resources[0]=file.getResource();
-				configuration.setMappedResources(resources);
 
-			}
-		}
-		//ajoute une liste de commandes a la configuration (vide pour l'instant) 
-		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,new ArrayList<String>());
-
-		//IALSFile file = getALSFile();
-		//List<IALSFile> list = new ArrayList<IALSFile>();
-		//list.add(file.getCommand());
-
-		//file.s
-		//configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_MAP, list);
 	}
 
 
+	/**
+	 * This method set all Alloy commands launching defaults attributes to a launch configuration.
+	 * All informations are taken from the als file. 
+	 * Clients can use this method to configure their own launch configuration.
+	 */
+	public void setdefaultsAttributes(IALSFile file,ILaunchConfigurationWorkingCopy configuration) {
+		IResource[] resources=null;		
+		if(file!=null)
+		{				
+			String name = DebugPlugin.getDefault().getLaunchManager().generateUniqueLaunchConfigurationNameFrom(file.getResource().getName());
+			configuration.rename(name);
+			resources=new IResource[1];
+			resources[0]=file.getResource();			
+			configuration.setMappedResources(resources);			
+			configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,Util.getFileLocation(file.getResource()));
+			configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,new ArrayList<String>());
+			List<String> list=new ArrayList<String>();			
+			for (IALSCommand cmd : file.getCommand()) {
+				list.add(cmd.getName());				
+			}
+			configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,list);
+		}
+
+	}
 
 	private IALSFile getALSFileFromContext() {
 

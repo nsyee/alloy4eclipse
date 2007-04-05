@@ -21,14 +21,11 @@ public class Util {
 	 */
 
 	public static String getFileLocation(IResource resource){		
-		if(resource!=null)
-		{
-			IPath loc = resource.getLocation();
-			if(loc!=null)return loc.toOSString();
-			return null;
-		}
-		else
-			return null;
+		assert(resource!=null);
+		IPath loc = resource.getLocation();
+		if(loc!=null)
+			return loc.toOSString();
+		return null;
 	}
 	/**
 	 * Get a file from a absolute location. (I think) 
@@ -36,17 +33,17 @@ public class Util {
 	public static IFile getFileForLocation(String filename){
 		return ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(filename));
 	}
-	
+
 	/**
 	 * Get the url.
 	 * */
 	public static URL getUrl(String localPathKey){	
-	URL url = null;
-	try {
-		url = new URL(AlloyPlugin.getDefault().getBundle().getEntry("/"),
-				localPathKey);
-	} catch (MalformedURLException e) {
+		URL url = null;
+		try {
+			url = new URL(AlloyPlugin.getDefault().getBundle().getEntry("/"),
+					localPathKey);
+		} catch (MalformedURLException e) {
+		}
+		return url;
 	}
-	return url;
-}
 }
