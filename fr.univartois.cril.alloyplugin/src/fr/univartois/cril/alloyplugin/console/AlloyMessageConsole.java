@@ -93,6 +93,10 @@ public class AlloyMessageConsole extends MessageConsole {
 	public void printInfo (String message) {
 		print(message,new Color(null,0,0,0),SWT.BOLD);		
 	}
+	public void printErr(String message) {
+		print(message,new Color(null,128,0,0),SWT.DEFAULT);
+		
+	}
 
 	/** 
 	 * Add a Filelink in the console.
@@ -143,4 +147,6 @@ public class AlloyMessageConsole extends MessageConsole {
 	public void reveal(){
 		Console.revealConsoleView(this);	
 	}
+
+	
 }

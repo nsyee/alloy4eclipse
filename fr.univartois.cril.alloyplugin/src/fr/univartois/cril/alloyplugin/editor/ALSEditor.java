@@ -1,7 +1,7 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 
-import java.util.logging.Logger;
+
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IEditorInput;
@@ -23,7 +23,7 @@ public class ALSEditor extends TextEditor {
 
 	private AlloyContentOutlinePage fOutlinePage=null;
 	//AlloySolutionViewer asv;
-	private ALSFile file;
+	
 	
 	/**
 	 * Method called at editor initialization.

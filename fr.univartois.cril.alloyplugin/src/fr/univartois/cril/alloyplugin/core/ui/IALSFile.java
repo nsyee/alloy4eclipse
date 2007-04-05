@@ -34,4 +34,5 @@ public void setPredicates(List <IALSPredicate> pred);
 public void fireChange();
 public void addListener(IALSFileListener listener);
 public void removeListener(IALSFileListener listener);
+public IALSCommand getCommand(String commandId);
 }
