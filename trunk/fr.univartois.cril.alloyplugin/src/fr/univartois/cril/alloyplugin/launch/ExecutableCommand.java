@@ -218,4 +218,11 @@ public class ExecutableCommand implements IALSCommand {
 	public int getLine() {
 		return command.pos.y;
 	}
+
+
+
+	public String getName() {
+		return command.name;
+		
+	}
 }

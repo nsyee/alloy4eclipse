@@ -1,7 +1,9 @@
 package fr.univartois.cril.alloyplugin.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IResource;
 
@@ -19,6 +21,7 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
  */
 public class ALSFile implements IALSFile {
 
+	Map<String, IALSCommand> commandsMap=new HashMap<String,IALSCommand>();
 	private List <IALSFileListener>listeners;
 	private IResource resource;
 	private  List<IALSCommand> cmds=new ArrayList<IALSCommand>();
@@ -84,7 +87,11 @@ public class ALSFile implements IALSFile {
 		this.sig=sig;		
 	};
 	public void setCommand(List <IALSCommand> cmds) {
-		assert(cmds!=null);
+		assert(cmds!=null);		
+		commandsMap.clear();
+		for (IALSCommand command : cmds) {
+			commandsMap.put(command.getName(), command);	
+		}		
 		this.cmds=cmds;		
 	}
     
@@ -94,5 +101,13 @@ public class ALSFile implements IALSFile {
     
 	public String toString(){return getResource().getName()+"@"+hashCode();
 		
+	}
+	/**
+	 * get a command from his id. 
+	 * NOTE:the id of a command his its name for the moment 
+	 * commands can have same name so it's a problem.
+	 * */
+	public IALSCommand getCommand(String commandId) {		
+		return commandsMap.get(commandId);
 	}
 }
