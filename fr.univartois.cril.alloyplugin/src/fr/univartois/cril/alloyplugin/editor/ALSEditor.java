@@ -13,6 +13,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
+import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 
 /**
  * Class for Alloy editor. 
@@ -39,7 +40,13 @@ public class ALSEditor extends TextEditor {
 	}
 
 
-	
+	@Override
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+		
+		super.init(site, input);
+		
+	AlloyLaunching.launchParser(getALSFile());
+	}
 
 
 	/**
