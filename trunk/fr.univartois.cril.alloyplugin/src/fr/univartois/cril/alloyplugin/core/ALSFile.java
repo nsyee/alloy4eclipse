@@ -19,6 +19,7 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
  * This plugin implements IALSFile.
  *  
  */
+//TODO move this file in core.ui?
 public class ALSFile implements IALSFile {
 
 	Map<String, IALSCommand> commandsMap=new HashMap<String,IALSCommand>();
@@ -103,11 +104,10 @@ public class ALSFile implements IALSFile {
 		
 	}
 	/**
-	 * get a command from his id. 
-	 * NOTE:the id of a command his its name for the moment 
-	 * commands can have same name so it's a problem.
+	 * Get a command from his label. 
+	 *   
 	 * */
-	public IALSCommand getCommand(String commandId) {		
-		return commandsMap.get(commandId);
+	public IALSCommand getCommand(String commandLabel) {		
+		return commandsMap.get(commandLabel);
 	}
 }
