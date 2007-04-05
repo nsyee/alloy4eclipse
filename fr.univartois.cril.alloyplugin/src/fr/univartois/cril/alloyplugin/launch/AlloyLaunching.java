@@ -28,7 +28,7 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
 import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
 import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
-import fr.univartois.cril.alloyplugin.launch.ui.CommandsView;
+
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 

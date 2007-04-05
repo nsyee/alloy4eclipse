@@ -71,7 +71,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 
 		for(int i=0;i<commands.length;i++){
 			AlloyLaunching.ExecCommand((ExecutableCommand) commands[i]);
-			CommandsView.refreshCommands();
+			
 		}
 		
 	}

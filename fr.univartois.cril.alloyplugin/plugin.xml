@@ -153,27 +153,6 @@
       </shortcut>
    </extension>
 
-    <extension
-         point="org.eclipse.ui.views">
-      <category
-            id="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
-            name="Alloy"/>
-      <view
-            allowMultiple="false"
-            category="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
-            class="fr.univartois.cril.alloyplugin.launch.ui.CommandsView"
-            icon="icons/icon.gif"
-            id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
-            name="Commands"/>
-         <!-- 
-         <view
-            allowMultiple="false"
-            category="fr.univartois.cril.alloyplugin.launch.view.alloycategory"
-            class="fr.univartois.cril.alloyplugin.launch.ui.GraphView"
-            id="fr.univartois.cril.alloyplugin.launch.views.GraphView"
-            name="Graphic result"/>
-            -->
-   </extension>
    <extension
          point="org.eclipse.ui.commands">
       <command
@@ -194,14 +173,6 @@
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension targetID="fr.univartois.cril.alloyplugin.alloyperspective">
-         <view
-               closeable="true"
-               id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"
-               moveable="true"
-               relationship="stack"
-               relative="org.eclipse.ui.views.ContentOutline"
-               visible="true"/>
-         <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView"/>
          <actionSet id="org.eclipse.debug.ui.launchActionSet"/>
             <!-- 
          <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.GraphView"/>
@@ -245,10 +216,6 @@
       </launchConfigurationTabGroup>
 
  </extension>
-      <extension
-         point="fr.univartois.cril.alloyplugin.editorlistener">
-      <Generic class="fr.univartois.cril.alloyplugin.launch.ALSEditorListener"/>
-   </extension>
    
    
 </plugin>

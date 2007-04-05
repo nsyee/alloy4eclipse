@@ -5,9 +5,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.ArrayList;
-import org.eclipse.core.resources.IProjectNatureDescriptor;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.*;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
@@ -34,17 +31,13 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	 *  The plug-in ID.
 	 */
 	public static final String PLUGIN_ID = "fr.univartois.cril.alloyplugin";
-	/**
-	 *  extension listenerID (for commands view temporary) 
-	 */
 	
-	private static final String listenerId="fr.univartois.cril.alloyplugin.editorlistener";
+	
 	/***/
 	public static final String ALS_PARTITIONING = "__pos_als_partitioning";
 
 
-	/** listeners for commands views */	
-	private List<IAlloyEditorListener> editorListeners;
+	
 
 
 	private IPartitionTokenScanner fPartitionScanner;
@@ -61,57 +54,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 
 	}
 
-	/**
-	 * Returns command listeners.
-	 * */	
-	public List<IAlloyEditorListener> getEditorListeners(){
-		if (editorListeners==null)
-			editorListeners=computeListeners();
-		return editorListeners;	
-	}
 	
-	/**
-	 * Adds commands listeners from existing extension points to the plugin.
-	 * */
-	private List<IAlloyEditorListener> computeListeners() {
-		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IExtensionPoint extensionPoint= registry.getExtensionPoint(listenerId);
-		IExtension[] extensions = extensionPoint.getExtensions();
-		ArrayList<IAlloyEditorListener> results = new ArrayList<IAlloyEditorListener>();
-		for(int i = 0 ;i< extensions.length;i++){
-			IConfigurationElement[] elements=extensions[i].getConfigurationElements();
-			for(int j=0;j<elements.length;j++){
-				try{Object listener=elements[j].createExecutableExtension("class");
-				if(listener instanceof IAlloyEditorListener)
-					results.add((IAlloyEditorListener)listener);
-				}catch(CoreException e){
-					e.printStackTrace();
-				}
-			}
-		}
-		return results;
-	}
-
-
-	public void fireSetFocus(IALSFile file) {
-		for(IAlloyEditorListener listener: getEditorListeners()){
-			listener.fileSetFocus(file);
-		}		
-	}
-	public void fireFileClosed(IALSFile file) {
-for(IAlloyEditorListener listener: getEditorListeners()){
-			
-			listener.fileClosed(file);
-		}	
-	}
-	public void fireFileOpen(ALSFile file) {
-		for(IAlloyEditorListener listener: getEditorListeners()){
-			
-			listener.fileOpened(file);
-		}		
-
-		
-	}
 
 
 	public void start(BundleContext context) throws Exception {
@@ -154,13 +97,7 @@ for(IAlloyEditorListener listener: getEditorListeners()){
 		}
 		return fCodeScanner;
 	}
-	/**
-	 * add a editor listener.
-	 * */
-	public static void addEditorListener(IAlloyEditorListener alsEditorListener) {
-		getDefault().getEditorListeners().add(alsEditorListener);
 
-	}
 
 	//
 	public static final String COMMAND_VIEW_ID = "fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView";
