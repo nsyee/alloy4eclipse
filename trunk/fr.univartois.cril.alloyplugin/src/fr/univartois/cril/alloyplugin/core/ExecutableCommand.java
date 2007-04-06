@@ -11,6 +11,7 @@ import edu.mit.csail.sdg.alloy4compiler.ast.World;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
+import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
@@ -239,7 +240,14 @@ public class ExecutableCommand implements IALSCommand {
 		
 	}
 
-
+	public  void displayAns() throws Err {
+//      GraphView.Visualize(ans);                
+     ans.writeXML("output.xml", false);
+     //
+     // You can then visualize the XML file by calling this:
+     VizGUI viz = new VizGUI(false,"",null);
+     viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");        
+}
 
 
 
