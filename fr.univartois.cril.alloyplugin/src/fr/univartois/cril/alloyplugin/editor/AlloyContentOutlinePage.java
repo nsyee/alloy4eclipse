@@ -158,28 +158,6 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 	public void setFocus() {
 		this.getControl().setFocus();
 	}
-
-	/*
-	public static CommandsView showCommandView(){
-		try {
-			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();			
-			if (window!=null) 
-			{//System.out.println("ici");
-				IWorkbenchPage page=window.getActivePage();				
-				if (page!=null)
-					return (CommandsView) page.showView("fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView");
-				//else System.out.println("page null");
-			}
-		} catch (PartInitException e) {			
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	
-	private StructuredViewer getCommandsViewer() {		
-		return commandsViewer;
-	}*/
 	
 	
 	
