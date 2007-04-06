@@ -209,37 +209,16 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 		public void doubleClick(DoubleClickEvent event) {
 			Object selection = ((TreeSelection) event.getSelection()).getFirstElement();
 			
-			if (AlloyTreeContentProvider.SIGNATURES.equals(selection)){
-				if (viewer.getExpandedState(AlloyTreeContentProvider.SIGNATURES))
-					viewer.collapseToLevel(AlloyTreeContentProvider.SIGNATURES, -1);
+			if (AlloyTreeContentProvider.SIGNATURES.equals(selection)
+                    ||AlloyTreeContentProvider.FACTS.equals(selection)
+                    ||AlloyTreeContentProvider.FUNCTIONS.equals(selection)
+                    ||AlloyTreeContentProvider.PREDICATES.equals(selection)
+                    ||AlloyTreeContentProvider.COMMANDS.equals(selection)){
+				if (viewer.getExpandedState(selection))
+					viewer.collapseToLevel(selection, -1);
 				else
-					viewer.expandToLevel(AlloyTreeContentProvider.SIGNATURES, 1);
-			}
-			if (AlloyTreeContentProvider.FACTS.equals(selection)) {
-				if (viewer.getExpandedState(AlloyTreeContentProvider.FACTS))
-					viewer.collapseToLevel(AlloyTreeContentProvider.FACTS, -1);
-				else
-					viewer.expandToLevel(AlloyTreeContentProvider.FACTS, 1);
-	        }
-	        if (AlloyTreeContentProvider.FUNCTIONS.equals(selection)) {
-	        	if (viewer.getExpandedState(AlloyTreeContentProvider.FUNCTIONS))
-					viewer.collapseToLevel(AlloyTreeContentProvider.FUNCTIONS, -1);
-				else
-					viewer.expandToLevel(AlloyTreeContentProvider.FUNCTIONS, 1);
-	        }
-	        if (AlloyTreeContentProvider.PREDICATES.equals(selection)) {
-	        	if (viewer.getExpandedState(AlloyTreeContentProvider.PREDICATES))
-					viewer.collapseToLevel(AlloyTreeContentProvider.PREDICATES, -1);
-				else
-					viewer.expandToLevel(AlloyTreeContentProvider.PREDICATES, 1);
-	        }
-	        if (AlloyTreeContentProvider.COMMANDS.equals(selection)) {
-	        	if (viewer.getExpandedState(AlloyTreeContentProvider.COMMANDS))
-					viewer.collapseToLevel(AlloyTreeContentProvider.COMMANDS, -1);
-				else
-					viewer.expandToLevel(AlloyTreeContentProvider.COMMANDS, 1);
-	        }
-			if (selection instanceof IALSTreeDecorated) {
+					viewer.expandToLevel(selection, 1);
+			} else	if (selection instanceof IALSTreeDecorated) {
 				IALSTreeDecorated elem = (IALSTreeDecorated) selection;
 				if (elem instanceof ExecutableCommand){
 				AlloyLaunching.ExecCommand((ExecutableCommand) elem);
