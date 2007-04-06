@@ -22,7 +22,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
@@ -64,7 +64,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 			ILaunchConfigurationType configType = getConfigurationType();
 			wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom(""));
 			LaunchCommandsTab tab = new LaunchCommandsTab();
-			IALSFile file=ALSFileFactory.getALSFile(resource);
+			IALSFile file=AlloyPlugin.getDefault().getALSFile(resource);
 			tab.setdefaultsAttributes(file, wc);
 			config = wc.doSave();
 		} catch (CoreException e) {

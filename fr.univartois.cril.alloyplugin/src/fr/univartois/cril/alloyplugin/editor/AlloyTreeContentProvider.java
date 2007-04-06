@@ -4,8 +4,6 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
-
-import fr.univartois.cril.alloyplugin.core.ALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
 

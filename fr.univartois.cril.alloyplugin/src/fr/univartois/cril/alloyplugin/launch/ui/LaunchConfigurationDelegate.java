@@ -1,8 +1,7 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -10,12 +9,11 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
-import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
@@ -23,7 +21,6 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
 public class LaunchConfigurationDelegate implements
 ILaunchConfigurationDelegate {
 
-	private List<IALSCommand> currentCommandsList;
 
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
@@ -34,7 +31,7 @@ ILaunchConfigurationDelegate {
 
 			if(res!=null&&res.length>0)
 			{
-				file=ALSFileFactory.getALSFile(res[0]);				
+				file=AlloyPlugin.getDefault().getALSFile(res[0]);				
 			}			 
 
 		} catch (CoreException e) {
@@ -42,16 +39,15 @@ ILaunchConfigurationDelegate {
 			e.printStackTrace();			
 		}
 		if (file==null) return;
-		System.out.println("coucocu");
+		
 		List commandIdList=configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, (List)null);
-		currentCommandsList =  file.getCommand();		
+		
 		monitor.setTaskName("Running Alloy command");
 		AlloyMessageConsole console = Console.findAlloyConsole(Util.getFileLocation(file.getResource()));
 		console.clear();
 		System.out.println("list:"+commandIdList);
 		if(commandIdList!=null)		
-			try {
-				System.out.println("size:"+commandIdList.size());
+			try {		
 				monitor.beginTask("Starting", commandIdList.size());
 
 				for (Object object : commandIdList) {
@@ -61,8 +57,7 @@ ILaunchConfigurationDelegate {
 					ExecutableCommand cmd = (ExecutableCommand) file.getCommand(commandId);
 					if(cmd!=null)
 					{
-						AlloyLaunching.ExecCommand(cmd);
-						System.out.println("cmd:"+cmd);
+						AlloyLaunching.ExecCommand(cmd);						
 					}
 					else
 					{

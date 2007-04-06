@@ -47,7 +47,7 @@ public class Console {
 	/**
 	 * Print a Err exception in the console with Hyperlink if needed.
 	 */
-	public static void printErr2(Err e) {
+	public static void printErr(Err e) {
 		AlloyMessageConsole amc=findAlloyInfoConsole("");
 		amc.clear();
 		amc.addErrListener(e);
