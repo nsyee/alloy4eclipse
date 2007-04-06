@@ -193,14 +193,7 @@ public class AlloyLaunching {
 			alloyConsole.printInfo("============ Answer ============");
 			alloyConsole.print(ans.toString());
 			// If satisfiable...
-			if (ans.satisfiable()) {				
-				// You can query "ans" to find out the values of each set or type.
-				// This can be useful for debugging.
-				//
-				// You can also write the outcome to an XML file
-
-				displayAns(ans);
-			}
+			
 		} catch (Err e) {				
 			displayErrorInProblemView(command.getResource(), e);
 		}

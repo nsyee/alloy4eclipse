@@ -1,5 +1,6 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.core.resources.IResource;
@@ -216,11 +217,24 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 	 * 	 
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-
-		setdefaultsAttributes(getALSFileFromContext(),configuration);
-
-
+		IStructuredSelection sel=getSelectionfromContext();
+		if (sel!=null)
+		{List <ExecutableCommand>cmds=getExecutableCommandFromSelection(sel);
+		if (!cmds.isEmpty()){			
+			setdefaultsAttributes(cmds, configuration);
+			String name = DebugPlugin.getDefault().getLaunchManager().generateUniqueLaunchConfigurationNameFrom(cmds.get(0).getResource().getName());
+			configuration.rename(name);
+			return;}
+		}
+		IALSFile file=getALSFileFromContext();		
+		if(file!=null)
+		{
+			String name = DebugPlugin.getDefault().getLaunchManager().generateUniqueLaunchConfigurationNameFrom(file.getResource().getName());
+			configuration.rename(name);
+			setdefaultsAttributes(file,configuration);
+		}
 	}
+
 
 
 	/**
@@ -229,68 +243,112 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 	 * Clients can use this method to configure their own launch configuration.
 	 */
 	public void setdefaultsAttributes(IALSFile file,ILaunchConfigurationWorkingCopy configuration) {
-		IResource[] resources=null;		
-		if(file!=null)
-		{				
-			String name = DebugPlugin.getDefault().getLaunchManager().generateUniqueLaunchConfigurationNameFrom(file.getResource().getName());
-			configuration.rename(name);
-			resources=new IResource[1];
-			resources[0]=file.getResource();			
-			configuration.setMappedResources(resources);			
-			configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,Util.getFileLocation(file.getResource()));
-			configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,new ArrayList<String>());
-			List<String> list=new ArrayList<String>();			
-			for (IALSCommand cmd : file.getCommand()) {
-				list.add(cmd.getName());				
-			}
-			configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,list);
+		IResource[] resources=null;				
+		resources=new IResource[1];
+		resources[0]=file.getResource();			
+		configuration.setMappedResources(resources);			
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,Util.getFileLocation(file.getResource()));
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,new ArrayList<String>());
+		List<String> list=new ArrayList<String>();			
+		for (IALSCommand cmd : file.getCommand()) {
+			list.add(cmd.getName());				
 		}
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,list);
 
+
+	}
+
+	/**
+	 * This method set all Alloy commands launching defaults attributes to a launch configuration.
+	 * All informations are taken from a list of als commands. 
+	 * Clients can use this method to configure their own launch configuration.
+	 */
+	public void setdefaultsAttributes(List<ExecutableCommand> cmds, ILaunchConfigurationWorkingCopy configuration) {
+		IResource[] resources=null;		
+
+		resources=new IResource[1];
+		resources[0]=cmds.get(0).getResource();			
+		configuration.setMappedResources(resources);			
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,Util.getFileLocation(cmds.get(0).getResource()));
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,new ArrayList<String>());
+		List<String> list=new ArrayList<String>();			
+		for (IALSCommand cmd : cmds) {
+			list.add(cmd.getName());				
+		}
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,list);
+
+	}
+
+
+
+	private IStructuredSelection getSelectionfromContext() {
+
+		IWorkbenchPage page =
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();		
+		if (page != null) {
+			System.out.println("get selection from context|page:"+page);
+			ISelection selection = page.getSelection();
+			System.out.println("get selection from context|sel"+selection);
+			if (selection instanceof IStructuredSelection) 
+				return (IStructuredSelection)selection;
+		}
+		return null;
+	}
+
+	public List<ExecutableCommand> getExecutableCommandFromSelection( IStructuredSelection selection) {
+		ArrayList<ExecutableCommand> list = null;
+		if (!selection.isEmpty()) {
+			for ( Iterator iterator = selection.iterator();iterator.hasNext();) {
+				Object obj=iterator.next();
+				if (obj instanceof ExecutableCommand) {
+					System.out.println("executable command selected");				
+					if (list==null) list=new ArrayList<ExecutableCommand>();
+					list.add((ExecutableCommand) obj);											
+				}
+			}
+		}
+		return list;
 	}
 
 	private IALSFile getALSFileFromContext() {
 
-		IWorkbenchPage page =
-			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-		System.out.println("getcontext");
-		if (page != null) {
-			ISelection selection = page.getSelection();			
-			if (selection instanceof IStructuredSelection) {
-				IStructuredSelection ss = (IStructuredSelection)selection;
-				if (!ss.isEmpty()) {
-					Object obj = ss.getFirstElement();
-					if (obj instanceof IALSFile) {
-						return (IALSFile)obj;
-					}
-					if (obj instanceof ExecutableCommand) {
-						//TODO stores all the selected commands from context
-						//for selecting them by default
-						//in LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LIST;
-						IResource res = ((ExecutableCommand)obj).getResource();
-						IALSFile file=AlloyPlugin.getDefault().getALSFile(res);
-						if(file!=null) return file;						
-					}
-					if (obj instanceof IResource) {
-						System.out.println("resource selected");
-						IALSFile file= AlloyPlugin.getDefault().getALSFile((IResource) obj);
-						if (file == null) {
-							//IProject pro = ((IResource)obj).getProject();
-							//je = JavaCore.create(pro);
-						}
-						if (file != null) {
-							return file;
-						}
+		ISelection selection =getSelectionfromContext();		
+		System.out.println("get als file from context|sel="+selection);
+		if (selection!=null&&selection instanceof IStructuredSelection) {
+			IStructuredSelection ss = (IStructuredSelection)selection;
+			if (!ss.isEmpty()) {
+				Object obj = ss.getFirstElement();
+				if (obj instanceof IALSFile) {
+					return (IALSFile)obj;
+				}
+				if (obj instanceof ExecutableCommand) {
+					IResource res = ((ExecutableCommand)obj).getResource();
+					IALSFile file=AlloyPlugin.getDefault().getALSFile(res);
+					if(file!=null) return file;						
+				}
+				if (obj instanceof IResource) {
+					System.out.println("resource selected");
+					IALSFile file= AlloyPlugin.getDefault().getALSFile((IResource) obj);					
+					if (file != null) {
+						return file;
 					}
 				}
 			}
+		}
+		System.out.println("get als file from active editor");
+		IWorkbenchPage page =
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+		if(page!=null){
 			IEditorPart part = page.getActiveEditor();
 			if (part != null) {
 				IEditorInput input = part.getEditorInput();
 				IResource res=(IResource) input.getAdapter(IResource.class);
+				System.out.println("get als file from active editor|resource");
 				IALSFile file=AlloyPlugin.getDefault().getALSFile(res);
 				if(file!=null) return file;
 			}
 		}
+
 		return null;
 	}
 

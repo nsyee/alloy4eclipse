@@ -56,17 +56,22 @@ public class LaunchShortcut implements ILaunchShortcut {
 			DebugUITools.launch(config, LaunchConfigurationConstants.RUN_MODE);
 		}			
 	}
-
+	/**
+	 * Create a default configuration from an resource.
+	 * */
 	protected ILaunchConfiguration createConfiguration(IResource resource) {
 		ILaunchConfiguration config = null;
 		ILaunchConfigurationWorkingCopy wc = null;
 		try {
 			ILaunchConfigurationType configType = getConfigurationType();
-			wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom(""));
+
 			LaunchCommandsTab tab = new LaunchCommandsTab();
 			IALSFile file=AlloyPlugin.getDefault().getALSFile(resource);
-			tab.setdefaultsAttributes(file, wc);
-			config = wc.doSave();
+			if(file!=null){
+				wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom(file.getResource().getName()));				
+				tab.setdefaultsAttributes(file, wc);
+				config = wc.doSave();
+			}
 		} catch (CoreException e) {
 //			TODO Auto-generated catch block
 			e.printStackTrace();

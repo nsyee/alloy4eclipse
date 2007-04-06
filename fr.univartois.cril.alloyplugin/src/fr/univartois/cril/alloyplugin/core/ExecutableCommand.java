@@ -101,11 +101,6 @@ public class ExecutableCommand implements IALSCommand {
 		return options;
 	}
 
-
-
-		
-
-
 	/**
 	 * Get the resource which this command is from.
 	 */
