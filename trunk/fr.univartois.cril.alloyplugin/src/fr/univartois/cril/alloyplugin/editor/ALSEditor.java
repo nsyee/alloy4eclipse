@@ -5,15 +5,10 @@ package fr.univartois.cril.alloyplugin.editor;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorSite;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ALSFile;
-import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
-import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 
 /**
@@ -69,11 +64,11 @@ public class ALSEditor extends TextEditor {
 	}
 	
 	/**
-	 * Return an ALSFile from the editor.
+	 * Return an IALSFile from the editor.
 	 *   
 	 */
 	protected IALSFile getALSFile() {
-		return ALSFileFactory.getALSFile(getResource(getEditorInput()));		
+		return AlloyPlugin.getDefault().getALSFile(getResource(getEditorInput()));		
 	}
 
 

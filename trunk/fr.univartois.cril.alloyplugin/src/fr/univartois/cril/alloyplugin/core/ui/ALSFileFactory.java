@@ -15,13 +15,13 @@ import fr.univartois.cril.alloyplugin.core.ALSFile;
  */
 
 public class ALSFileFactory {
-	static Hashtable <IResource,ALSFile>map=new Hashtable<IResource,ALSFile>();
+	private Hashtable <IResource,ALSFile>map=new Hashtable<IResource,ALSFile>();
 
 	/**
-	 * Get the als file associated with this resource or null if this kind of resource can't be associated with an ALSFile.
-	 * If the file doesn't exist, it's created and compiled. 
+	 * Get the ALSFile associated with this resource or null if this kind of resource can't be associated with an ALSFile.
+	 * If the file doesn't exist yet, it's created and compiled. 
 	 */
-	public static IALSFile getALSFile(IResource resource) {
+	public ALSFile getALSFile(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(".als")) {
 		
 			ALSFile file = map.get(resource);
@@ -30,7 +30,7 @@ public class ALSFileFactory {
 				
 				file=new ALSFile(resource);
 				map.put(resource,file);
-				AlloyPlugin.getParser().launchParser(file);
+				AlloyPlugin.getDefault().getParser().launchParser(file);
 				/*try {
 					resource.touch(null);
 				} catch (CoreException e) {
@@ -44,7 +44,10 @@ public class ALSFileFactory {
 		
 		return null;
 	}
-	protected void remove(IResource Resource){
+	/**
+	 * remove a ALSFile
+	 * */
+	public void remove(IResource Resource){
 		map.remove(Resource);		
 	}
 

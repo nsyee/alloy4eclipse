@@ -23,8 +23,8 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
@@ -114,7 +114,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		}
 		else
 		{
-			currentALSFile=ALSFileFactory.getALSFile(resource);						
+			currentALSFile=AlloyPlugin.getDefault().getALSFile(resource);						
 		}
 
 	}
@@ -267,12 +267,12 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 						//for selecting them by default
 						//in LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LIST;
 						IResource res = ((ExecutableCommand)obj).getResource();
-						IALSFile file=ALSFileFactory.getALSFile(res);
+						IALSFile file=AlloyPlugin.getDefault().getALSFile(res);
 						if(file!=null) return file;						
 					}
 					if (obj instanceof IResource) {
 						System.out.println("resource selected");
-						IALSFile file= ALSFileFactory.getALSFile((IResource) obj);
+						IALSFile file= AlloyPlugin.getDefault().getALSFile((IResource) obj);
 						if (file == null) {
 							//IProject pro = ((IResource)obj).getProject();
 							//je = JavaCore.create(pro);
@@ -287,7 +287,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 			if (part != null) {
 				IEditorInput input = part.getEditorInput();
 				IResource res=(IResource) input.getAdapter(IResource.class);
-				IALSFile file=ALSFileFactory.getALSFile(res);
+				IALSFile file=AlloyPlugin.getDefault().getALSFile(res);
 				if(file!=null) return file;
 			}
 		}
