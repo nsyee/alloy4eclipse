@@ -119,7 +119,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 	 * The viewer is refresh for displaying changes.
 	 * It's done in a SWT thread. 
 	 */
-	public void changed(IALSFile file) {		
+	public void changed(IALSFile file) {	
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)
 			display.syncExec(

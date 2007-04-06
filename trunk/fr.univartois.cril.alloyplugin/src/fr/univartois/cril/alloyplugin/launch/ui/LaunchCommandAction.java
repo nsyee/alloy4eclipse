@@ -7,7 +7,11 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.actions.SelectionProviderAction;
 
+import edu.mit.csail.sdg.alloy4.Err;
+import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
+import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 
@@ -49,32 +53,53 @@ public class LaunchCommandAction extends SelectionProviderAction {
 /**
  * Constructor. 
  * */
-	public LaunchCommandAction(ISelectionProvider sp) {		
-		super(sp,"Execute command");		
-		this.setEnabled(false);
-		setImageDescriptor(enableImage);
-		setDisabledImageDescriptor(disableImage);
-		setToolTipText("Execute an Alloy command");
-		this.setActionDefinitionId("fr.univartois.cril.alloyplugin.launch.runalloycommand");
+	public LaunchCommandAction(ISelectionProvider sp, String text) {	
 
+		super(sp,text);
+		if (("Execute Command").equals(text)){
+	
+			this.setEnabled(false);
+			setImageDescriptor(enableImage);
+			setDisabledImageDescriptor(disableImage);
+			setToolTipText("Execute an Alloy command");
+			this.setActionDefinitionId("fr.univartois.cril.alloyplugin.launch.runalloycommand");
+			}
+		if (("Display Ans").equals(text)){
+			this.setEnabled(false);
+			setImageDescriptor(enableImage);
+			setDisabledImageDescriptor(disableImage);
+			setToolTipText("Display an answer");
+			this.displayAns();
+			}
 	}
+	
+	
 	public void selectionChanged(IStructuredSelection selection)
 	{	
 		this.selection=selection;
 		if (selection.isEmpty()) this.setEnabled(false);
 		else this.setEnabled(true);
 	}
+	
+	public void displayAns(){
+		System.out.println("Answer displayed");
+	}
+	
 	/**
 	 * this method execute all ExecutableCommand present in selection.
 	 * */
 	public void run(){		
 		ExecutableCommand[] commands = createCommands(selection.toArray());
-
-		for(int i=0;i<commands.length;i++){
-			AlloyLaunching.ExecCommand((ExecutableCommand) commands[i]);
-			
-		}
 		
+		A4Solution ans;
+		for(int i=0;i<commands.length;i++){
+			
+			ans=commands[i].getAns();
+			AlloyMessageConsole alloyConsole=Console.findAlloyConsole(commands[i].getFilename());
+			alloyConsole.reveal();
+			alloyConsole.printInfo("============ Answer ============");
+			alloyConsole.print(ans.toString());
+		}
 	}
 	
 	/**
