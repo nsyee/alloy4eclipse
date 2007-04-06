@@ -12,11 +12,11 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
+import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
+import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
-import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 

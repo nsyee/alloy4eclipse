@@ -19,7 +19,7 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
  * This plugin implements IALSFile.
  *  
  */
-//TODO move this file in core.ui?
+
 public class ALSFile implements IALSFile {
 
 	Map<String, IALSCommand> commandsMap=new HashMap<String,IALSCommand>();

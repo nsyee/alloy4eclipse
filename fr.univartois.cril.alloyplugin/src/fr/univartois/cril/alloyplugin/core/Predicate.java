@@ -1,18 +1,18 @@
-package fr.univartois.cril.alloyplugin.launch;
+package fr.univartois.cril.alloyplugin.core;
 
 import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
+import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
 
-public class Function implements IALSFunction {
+public class Predicate implements IALSPredicate {
 	
-	public static final Image icon =AlloyPlugin.getDefault().getImage(AlloyPlugin.FUNCTION_ICON_ID);
+	public static final Image icon = AlloyPlugin.getDefault().getImage(AlloyPlugin.PREDICATE_ICON_ID);
 
 	private Func func;
 
-	public Function(Func func) {
+	public Predicate(Func func) {
 		this.func=func;
 	}
 

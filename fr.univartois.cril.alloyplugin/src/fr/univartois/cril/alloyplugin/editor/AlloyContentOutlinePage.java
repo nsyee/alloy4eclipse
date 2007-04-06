@@ -16,10 +16,9 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
-
+import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
+import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
-import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
-import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 
 
 /**

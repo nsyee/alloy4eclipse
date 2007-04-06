@@ -10,11 +10,11 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 
+import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
+import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
-import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
 
 /**
  * Content provider for commands view.

@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.launch;
+package fr.univartois.cril.alloyplugin.core;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.resource.ImageRegistry;
@@ -41,7 +41,7 @@ public class ExecutableCommand implements IALSCommand {
 	/**
 	 * The ALS file which has provided the command. 
 	 */
-	private final IALSFile file;
+	private final ALSFile file;
 
 	/**
 	 * An Options for execution. 
@@ -64,7 +64,7 @@ public class ExecutableCommand implements IALSCommand {
 	/**
 	 * Constructor. 
 	 */
-	public ExecutableCommand(IALSFile file,Command command, World world,A4Options options) {		
+	public ExecutableCommand(ALSFile file,Command command, World world,A4Options options) {		
 		if(options==null){
 			this.options = new A4Options();		
 			this.options.solver = A4Options.SatSolver.SAT4J;
@@ -87,7 +87,7 @@ public class ExecutableCommand implements IALSCommand {
 	/**
 	 * Constructor. 
 	 */
-	public ExecutableCommand(IALSFile file,Command command, World world) {
+	public ExecutableCommand(ALSFile file,Command command, World world) {
 		this(file,command,world,null);				
 	}
 
@@ -103,12 +103,7 @@ public class ExecutableCommand implements IALSCommand {
 
 
 
-	/**
-	 * Display the text from command. 
-	 */
-	public String toString(){
-		return command.toString();
-	}	
+		
 
 
 	/**
@@ -171,7 +166,7 @@ public class ExecutableCommand implements IALSCommand {
 	 */
 	public void setSat(boolean sat) {
 		if (sat) result=SAT;
-		else result=UNSAT;
+		else result=UNSAT;		
 		file.fireChange();
 	}
 
@@ -235,6 +230,14 @@ public class ExecutableCommand implements IALSCommand {
 	public String getName() {
 		return command.name;
 
+	}
+	public String toString(){		
+			if (this.getResult()==ExecutableCommand.UNKNOW)
+				return command.toString();
+			if (this.getResult()!=ExecutableCommand.SAT)
+				return command.toString()+" [UNSAT]";
+			else return command.toString()+" [SAT]";	
+		
 	}
 
 

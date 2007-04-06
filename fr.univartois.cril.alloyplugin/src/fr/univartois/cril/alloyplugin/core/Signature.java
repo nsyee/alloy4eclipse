@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.launch;
+package fr.univartois.cril.alloyplugin.core;
 
 import org.eclipse.swt.graphics.Image;
 
