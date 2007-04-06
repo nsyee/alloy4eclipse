@@ -84,12 +84,16 @@ public class DisplayCommandAnswerAction extends SelectionProviderAction {
 			else
 				alloyConsole.printInfo("No answer yet");
 			if (ans!=null)
-				alloyConsole.print(ans.toString());
+			alloyConsole.print(ans.toString());
 			try {
+				if (!(ans.satisfiable()))
+					alloyConsole.printInfo("Cannot display graph : Answer not satisfiable");
+				else
 				commands[i].displayAns();
 			} catch (Err e) {
 				e.printStackTrace();
-			}
+				}
+			
 		}
 
 	}
