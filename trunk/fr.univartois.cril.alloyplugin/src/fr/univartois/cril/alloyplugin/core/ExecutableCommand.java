@@ -236,12 +236,13 @@ public class ExecutableCommand implements IALSCommand {
 	}
 
 	public  void displayAns() throws Err {
-//      GraphView.Visualize(ans);                
+//      GraphView.Visualize(ans);   
+		if (ans.satisfiable()){
      ans.writeXML("output.xml", false);
      //
      // You can then visualize the XML file by calling this:
      VizGUI viz = new VizGUI(false,"",null);
-     viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");        
+     viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");}        
 }
 
 
