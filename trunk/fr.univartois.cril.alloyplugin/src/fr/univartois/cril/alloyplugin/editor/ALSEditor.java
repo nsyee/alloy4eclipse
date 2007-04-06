@@ -12,8 +12,9 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ALSFile;
+import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
-import fr.univartois.cril.alloyplugin.launch.AlloyLaunching;
+import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 
 /**
  * Class for Alloy editor. 
@@ -37,15 +38,6 @@ public class ALSEditor extends TextEditor {
 		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());
 		
 		
-	}
-
-
-	@Override
-	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
-		
-		super.init(site, input);
-		
-	AlloyLaunching.launchParser(getALSFile());
 	}
 
 
@@ -80,7 +72,7 @@ public class ALSEditor extends TextEditor {
 	 * Return an ALSFile from the editor.
 	 *   
 	 */
-	protected ALSFile getALSFile() {
+	protected IALSFile getALSFile() {
 		return ALSFileFactory.getALSFile(getResource(getEditorInput()));		
 	}
 

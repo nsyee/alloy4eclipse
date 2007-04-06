@@ -22,10 +22,11 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
+
+import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements ICheckStateListener {

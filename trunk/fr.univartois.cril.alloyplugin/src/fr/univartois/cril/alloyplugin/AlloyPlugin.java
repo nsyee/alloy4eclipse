@@ -3,9 +3,6 @@ package fr.univartois.cril.alloyplugin;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
-import java.util.ArrayList;
-import org.eclipse.core.runtime.*;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.text.rules.IPartitionTokenScanner;
@@ -13,15 +10,11 @@ import org.eclipse.jface.text.rules.ITokenScanner;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-
 import edu.mit.csail.sdg.alloy4.Util;
-import fr.univartois.cril.alloyplugin.core.ALSFile;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.core.ui.IAlloyEditorListener;
+import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
 import fr.univartois.cril.alloyplugin.Helper;
-
 import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
 
 public class AlloyPlugin extends AbstractUIPlugin {
@@ -107,6 +100,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	 * An image registry which store create and dispose images.
 	 */
 	public static ImageRegistry imageRegistry;
+	private static AlloyLaunching parser;
 	public static final String COMMAND_ID = "icons/AlloyCommand.gif";
 	public static final String CHECK_ID = "icons/CheckCommand.gif";
 	public static final String RED_CHECK_ID = "icons/CheckCommandRed.gif";
@@ -223,8 +217,16 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	        // Record the locations
 	        System.setProperty("alloy.dotbin0", platformBinary+fileSeparator+"dotbin");
 	    }
+
+
+
+
+	public static AlloyLaunching getParser() {
+		if (parser==null) parser=new AlloyLaunching();
+		return parser;
+	}
 	
-		//AlloyLaunching.launchParser(file);
+		
 
 
 

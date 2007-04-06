@@ -6,8 +6,8 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
-import fr.univartois.cril.alloyplugin.launch.ExecutableCommand;
 
 public class AlloyTreeLabelProvider implements ILabelProvider {
 
@@ -34,13 +34,7 @@ public class AlloyTreeLabelProvider implements ILabelProvider {
 	}
 
 	public String getText(Object element) {
-		if (element instanceof ExecutableCommand){
-			if (((ExecutableCommand) element).getResult()==ExecutableCommand.UNKNOW)
-				return element.toString();
-			if (((ExecutableCommand) element).getResult()!=ExecutableCommand.SAT)
-				return element.toString()+" [UNSAT]";
-			else return element.toString()+" [SAT]";	
-		}
+	
 		return element.toString();
 	}
 

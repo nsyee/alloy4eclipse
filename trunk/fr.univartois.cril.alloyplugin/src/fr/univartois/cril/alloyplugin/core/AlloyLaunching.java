@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.launch;
+package fr.univartois.cril.alloyplugin.core;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.List;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
-
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4.Pos;
@@ -16,7 +15,6 @@ import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
 import edu.mit.csail.sdg.alloy4compiler.ast.World;
-import edu.mit.csail.sdg.alloy4compiler.ast.Func.Func0;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
@@ -24,11 +22,9 @@ import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
 import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
 import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
-
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 
@@ -37,12 +33,6 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
  * 
  * */
 public class AlloyLaunching {
-	/**
-	 * private constructor to prevent user trying to instanciate this class
-	 *
-	 */
-	private AlloyLaunching(){
-	}	
 
 	/** 
 	 * Execute an ExecutableCommand previously created after a parsing.
@@ -57,7 +47,7 @@ public class AlloyLaunching {
 	 * Parse a als file.
 	 * @return an array (can be empty if there is no command in the file.)
 	 */
-	public static void launchParser(IALSFile file) {				
+	public void launchParser(ALSFile file) {				
 		if (file==null||!file.getResource().exists()) return;
 		IResource res = file.getResource();
 
@@ -70,10 +60,10 @@ public class AlloyLaunching {
 		}				
 	}
 	/**
-	 * parse one file.
-	 * @return 
+	 * Parse one file.(not its subfiles)
+	 * Don't update associated ALSFile. 
 	 * */
-	public static List<Command> launchParserOneFile(IResource resource) {
+	public List<Command> parseOneFile(IResource resource) {
 		if (!resource.exists()) return null;
 		try {
 			resource.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
@@ -130,7 +120,7 @@ public class AlloyLaunching {
 	 * Parse a .als file. The ALSfile fields are modidied.
 	 * @throws Err 
 	 * */
-	private static void parse(IALSFile file,Reporter rep) throws Err 
+	private static void parse(ALSFile file,Reporter rep) throws Err 
 	{IResource res=file.getResource();
 	String filename = res.getLocation().toString();
 	AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
@@ -148,7 +138,7 @@ public class AlloyLaunching {
 	 * set the fields of an alsFile. (commands, signatures..)
 	 * fire changed() on the als file for listeners.
 	 * */
-	private static void updateALSFile(World world, IALSFile file) throws Err {
+	private static void updateALSFile(World world, ALSFile file) throws Err {
 //		convert all commands in ExecutableCommand[]
 		SafeList<Command> list = world.getRootModule().getAllCommands();
 		List<IALSCommand>  exec_cmds=new ArrayList<IALSCommand>();//new ExecutableCommand[list.size()];		

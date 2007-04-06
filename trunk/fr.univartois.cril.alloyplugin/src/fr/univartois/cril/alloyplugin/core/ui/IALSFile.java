@@ -22,16 +22,6 @@ public List<IALSPredicate> getPredicates();
 public List<IALSFact> getFacts();
 public List<IALSFunction> getFunctions();
 public List<IALSSignature> getSignatures();
-public void setCommand(List<IALSCommand> cmds);
-public void setFacts(List<IALSFact> pred);
-public void setFunctions(List<IALSFunction> func);
-public void setSignatures(List <IALSSignature> sig);
-public void setPredicates(List <IALSPredicate> pred);
-
-/**
- * When this method is called the alsfile call change() on its listeners.
- * */
-public void fireChange();
 public void addListener(IALSFileListener listener);
 public void removeListener(IALSFileListener listener);
 public IALSCommand getCommand(String commandId);

@@ -17,7 +17,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 	public static final String PREDICATES = "Predicates";
 	public static final String COMMANDS = "Commands";
 	private	ALSEditor editor;	
-	private ALSFile af;
+	private IALSFile af;
 	private Viewer viewer;
 //	private static final Logger log = Logger.getLogger("alloy");
 	private static final Object[] EMPTY_TAB = new Object[0];
