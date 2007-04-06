@@ -27,6 +27,8 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
+
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
@@ -206,6 +208,37 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
 		public void doubleClick(DoubleClickEvent event) {
 			Object selection = ((TreeSelection) event.getSelection()).getFirstElement();
+			
+			if (AlloyTreeContentProvider.SIGNATURES.equals(selection)){
+				if (viewer.getExpandedState(AlloyTreeContentProvider.SIGNATURES))
+					viewer.collapseToLevel(AlloyTreeContentProvider.SIGNATURES, -1);
+				else
+					viewer.expandToLevel(AlloyTreeContentProvider.SIGNATURES, 1);
+			}
+			if (AlloyTreeContentProvider.FACTS.equals(selection)) {
+				if (viewer.getExpandedState(AlloyTreeContentProvider.FACTS))
+					viewer.collapseToLevel(AlloyTreeContentProvider.FACTS, -1);
+				else
+					viewer.expandToLevel(AlloyTreeContentProvider.FACTS, 1);
+	        }
+	        if (AlloyTreeContentProvider.FUNCTIONS.equals(selection)) {
+	        	if (viewer.getExpandedState(AlloyTreeContentProvider.FUNCTIONS))
+					viewer.collapseToLevel(AlloyTreeContentProvider.FUNCTIONS, -1);
+				else
+					viewer.expandToLevel(AlloyTreeContentProvider.FUNCTIONS, 1);
+	        }
+	        if (AlloyTreeContentProvider.PREDICATES.equals(selection)) {
+	        	if (viewer.getExpandedState(AlloyTreeContentProvider.PREDICATES))
+					viewer.collapseToLevel(AlloyTreeContentProvider.PREDICATES, -1);
+				else
+					viewer.expandToLevel(AlloyTreeContentProvider.PREDICATES, 1);
+	        }
+	        if (AlloyTreeContentProvider.COMMANDS.equals(selection)) {
+	        	if (viewer.getExpandedState(AlloyTreeContentProvider.COMMANDS))
+					viewer.collapseToLevel(AlloyTreeContentProvider.COMMANDS, -1);
+				else
+					viewer.expandToLevel(AlloyTreeContentProvider.COMMANDS, 1);
+	        }
 			if (selection instanceof IALSTreeDecorated) {
 				IALSTreeDecorated elem = (IALSTreeDecorated) selection;
 				if (elem instanceof ExecutableCommand){
