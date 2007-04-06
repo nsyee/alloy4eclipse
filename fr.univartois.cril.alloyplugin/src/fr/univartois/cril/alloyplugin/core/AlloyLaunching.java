@@ -210,7 +210,7 @@ public class AlloyLaunching {
 
 
 
-	private static void displayAns(A4Solution ans) throws Err {
+	public static void displayAns(A4Solution ans) throws Err {
 //		GraphView.Visualize(ans);		
 		ans.writeXML("output.xml", false);
 		//
