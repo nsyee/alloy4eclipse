@@ -7,6 +7,7 @@ public class LaunchConfigurationConstants {
 	protected static final String ATTRIBUTE_COMMANDS_LABEL_LIST = "commands_list";
 	/**
 	 * Attribute for the location of the .als file where commands are stored.
+	 * 
 	 */
 	protected static final String ATTRIBUTE_FILE_NAME = "attribut_filename";
 	
@@ -14,6 +15,11 @@ public class LaunchConfigurationConstants {
 	public static final String CHOOSE_CONFIGURATION_TITLE = "choose a configuration";
 	public static final String CHOOSE_CONFIGURATION_MESSAGE = "&Select existing configuration";
 	public static final String RUN_MODE = "run";
+	/**
+	 * Attribute for a quick config. 
+	 * 
+	 */
+	public static final String ATTRIBUTE_QUICK_CONFIG = "quick_config_attribute";
 
 	
 }

@@ -67,9 +67,13 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	public static final String PREDICATE_ICON_ID="icons/predicate.gif";
 	public static final String RUN_ICON_ID="icons/run.gif";
 	public static final String CHECK_ICON_ID="icons/check.gif";
-
+	public static final String GRAPH_ICON_ID = "icons/graph.gif";
+	public static final String EXECUTE_ICON_ID = "icons/execute.gif";
+	public static final String DISABLE_EXECUTE_ICON_ID = "icons/DisableAlloyLaunch.gif";
+	
 	/** The system-specific file separator (forward-slash on UNIX, back-slash on Windows, etc.) */
 	private static final String fileSeparator = System.getProperty("file.separator");
+	
 
 
 
@@ -154,6 +158,10 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		addImage(PREDICATE_ICON_ID, reg);
 		addImage(RUN_ICON_ID, reg);
 		addImage(CHECK_ICON_ID, reg);
+		addImage(GRAPH_ICON_ID, reg);
+		addImage(EXECUTE_ICON_ID, reg);
+		addImage(DISABLE_EXECUTE_ICON_ID, reg);
+		
 	}
 
 
@@ -166,6 +174,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	}
 
 	public Image getImage(String id) {
+		
 		return getImageRegistry().get(id);
 	}
 

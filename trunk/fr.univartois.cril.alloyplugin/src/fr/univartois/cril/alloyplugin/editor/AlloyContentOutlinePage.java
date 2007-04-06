@@ -33,7 +33,8 @@ import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
-import fr.univartois.cril.alloyplugin.launch.ui.LaunchCommandAction;
+import fr.univartois.cril.alloyplugin.launch.ui.DisplayCommandAnswerAction;
+import fr.univartois.cril.alloyplugin.launch.ui.LaunchQuickConfigAction;
 
 
 /**
@@ -45,9 +46,9 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 	private static final Logger log = Logger.getLogger("alloy");
 
 	private final ALSEditor editor;
-	
-	private LaunchCommandAction commandAction;	
-	private LaunchCommandAction commandAction2;	
+
+	private LaunchQuickConfigAction launchCommandAction;	
+	private DisplayCommandAnswerAction displayCommandAnswerAction;	
 
 	private TreeViewer viewer;
 
@@ -69,17 +70,17 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 		setViewerInput();
 		viewer.expandAll();
 		viewer.refresh();
-		
-//pour le menu
-		
-		
-		
+
+//		pour le menu
+
+
+
 		makeActions();
 		hookContextMenu();
 		hookDoubleClickAction();
 		contributeToActionBars();
-		
-		
+
+
 		log.info("Creation look OK");
 	}
 
@@ -105,14 +106,14 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 				AlloyContentOutlinePage.this.fillContextMenu(manager);
 			}
 
-			
+
 		});
 		Menu menu = menuMgr.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
 		getSite().registerContextMenu(null, menuMgr,viewer);
 	}
-	
-	
+
+
 	private void contributeToActionBars() {
 		IActionBars bars = getSite().getActionBars();
 		fillLocalPullDown(bars.getMenuManager());
@@ -120,14 +121,15 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 	}
 
 	private void fillLocalPullDown(IMenuManager manager) {
-		//manager.add(commandAction);		
+		manager.add(launchCommandAction);		
 		//manager.add(new Separator());
-		manager.add(commandAction2);		
+		manager.add(displayCommandAnswerAction);		
 		manager.add(new Separator());
 
 	}
-	
+
 	private void hookDoubleClickAction() {		
+		System.out.println("dzdzdz");
 		viewer.addDoubleClickListener(new IDoubleClickListener() {
 			public void doubleClick(DoubleClickEvent event) {
 			}
@@ -135,38 +137,38 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 	}
 
 	private void fillContextMenu(IMenuManager manager) {		
-		//manager.add(commandAction);
+		manager.add(launchCommandAction);
 		// Other plug-ins can contribute there actions here
 		//manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-		manager.add(commandAction2);
+		manager.add(displayCommandAnswerAction);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
-	
+
 	private void fillLocalToolBar(IToolBarManager manager) {
-		//manager.add(commandAction);		
-		manager.add(commandAction2);	
+		manager.add(launchCommandAction);		
+		manager.add(displayCommandAnswerAction);	
 	}
-	
-	
+
+
 	private void makeActions() {
-		//commandAction = new LaunchCommandAction(viewer,"Execute Command");
-		commandAction2 = new LaunchCommandAction(viewer,"Display Ans");
+		launchCommandAction = new LaunchQuickConfigAction(viewer);
+		displayCommandAnswerAction = new DisplayCommandAnswerAction(viewer);
 	}
-	
+
 	public void setFocus() {
 		this.getControl().setFocus();
 	}
-	
-	
-	
+
+
+
 	class MySelectionListener implements ISelectionChangedListener {
 
 		public void selectionChanged(SelectionChangedEvent event) {
 
 			Object selection = ((TreeSelection) event.getSelection())
-					.getFirstElement();
+			.getFirstElement();
 			if (selection instanceof IALSTreeDecorated) {
 				IALSTreeDecorated elem = (IALSTreeDecorated) selection;
 				IDocumentProvider provider = editor.getDocumentProvider();
@@ -186,24 +188,20 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
 		public void doubleClick(DoubleClickEvent event) {
 			Object selection = ((TreeSelection) event.getSelection()).getFirstElement();
-			
+
 			if (AlloyTreeContentProvider.SIGNATURES.equals(selection)
-                    ||AlloyTreeContentProvider.FACTS.equals(selection)
-                    ||AlloyTreeContentProvider.FUNCTIONS.equals(selection)
-                    ||AlloyTreeContentProvider.PREDICATES.equals(selection)
-                    ||AlloyTreeContentProvider.COMMANDS.equals(selection)){
+					||AlloyTreeContentProvider.FACTS.equals(selection)
+					||AlloyTreeContentProvider.FUNCTIONS.equals(selection)
+					||AlloyTreeContentProvider.PREDICATES.equals(selection)
+					||AlloyTreeContentProvider.COMMANDS.equals(selection)){
 				if (viewer.getExpandedState(selection))
 					viewer.collapseToLevel(selection, -1);
 				else
 					viewer.expandToLevel(selection, 1);
-			} else	if (selection instanceof IALSTreeDecorated) {
-				IALSTreeDecorated elem = (IALSTreeDecorated) selection;
-				if (elem instanceof ExecutableCommand){
-				AlloyLaunching.ExecCommand((ExecutableCommand) elem);
-				viewer.refresh();		
-				}
-			}	
+			} 
+
+
 		}
 	}
-	
+
 }
