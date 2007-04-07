@@ -3,5 +3,5 @@
    <description url="http://alloy4eclipse.googlecode.com/svn/trunk/updatesite/">
       Alloy4 Eclipse official update site.
    </description>
-   <feature url="features/fr.univartois.cril.alloy4feature_0.0.6.jar" id="fr.univartois.cril.alloy4feature" version="0.0.6"/>
+   <feature url="features/fr.univartois.cril.alloy4feature_0.1.0.jar" id="fr.univartois.cril.alloy4feature" version="0.1.0"/>
 </site>
