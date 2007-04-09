@@ -2,7 +2,7 @@
 #labels Phase-Deploy,Featured
 
 
-= Install and update using Eclipse Update Manager =
+= Install and update using Eclipse Update Manager (preferred option) =
   # *uninstall first former hand-installed version of the plugin*
   # within Eclipse, go to Help/Software Update/Find and install ...
   # select "Search for new features to install".
@@ -12,4 +12,20 @@
   # follows Eclipse directions
 
 New versions will be automatically managed by Eclipse Update Manager.
+
+= How to install the plugin by hand =
+
+First of all, [http://code.google.com/p/alloy4eclipse/downloads/list download] the latest zip file 
+
+== First time ==
+  # go to eclipse home directory
+  # unzip the content of the alloy4eclipsexxxx.zip file
+  # *launch eclipse using the -clean parameter*: `eclipse -clean`
+
+== How to update the plugin ==
+
+  # go to eclipse home directory
+  # remove the jar files starting with fr.univartois.cril in the features and plugins directory
+  # unzip the content of the alloy4eclipsexxxx.zip file
+  # *launch eclipse using the -clean parameter*: `eclipse -clean`
 
