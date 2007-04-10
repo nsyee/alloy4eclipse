@@ -24,9 +24,9 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-0.1.1.png
 = Upcoming features (in order of priority) =
   # Embedding the Graphical view into an eclipse view
   # Managing configuration/properties the Eclipse way
+  # Manage platform dependent binaries (SAT solvers, dotbin) with Eclipse plugins
   # ~~Code format~~ (looks too dependent of Alloy4 compiler)
   # Quick fix
 
 
 Note that some features might be easily implemented at some point so they will likely be added before the ones needed more work, even if of lower priority.
-
