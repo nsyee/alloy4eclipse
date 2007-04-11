@@ -216,6 +216,17 @@
       </launchConfigurationTabGroup>
 
  </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage"
+            id="fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage"
+            name="Alloy Preferences"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="fr.univartois.cril.alloyplugin.preferences.PreferenceInitializer"/>
+   </extension>
    
    
 </plugin>

@@ -5,7 +5,7 @@ package fr.univartois.cril.alloyplugin.core.ui;
  * */
 public interface IALSCommand extends IALSTreeDecorated {
 public String toString();
-
+public boolean isCheck();
 public String getName();
 
 }
