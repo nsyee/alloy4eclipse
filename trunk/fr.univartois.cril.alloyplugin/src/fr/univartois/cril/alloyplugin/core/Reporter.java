@@ -2,6 +2,7 @@ package fr.univartois.cril.alloyplugin.core;
 
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -29,6 +30,9 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 	private String filename;
 	private IResource resource;
 	private ExecutableCommand execCommand;
+    
+    private Map<String,String> contents = new HashMap<String,String>();
+    
 	/**
 	 * Create a reporter which is associated with one resource. 
 	 */
@@ -180,45 +184,39 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 	public void setExecCommand(ExecutableCommand cmd) {
 		this.execCommand=cmd;
 	}
-
-	
-	
-    
-
-    
     
     public boolean containsKey(Object key) {
-        return false;
+        return contents.containsKey(key);
     }
 
     
     
     public boolean containsValue(Object value) {
-        return false;
+        return contents.containsValue(value);
     }
 
     
     
     public Set<java.util.Map.Entry<String, String>> entrySet() {
-        return null;
+        return contents.entrySet();
     }
 
     
     
     public String get(Object key) {
-        return null;
+        return contents.get(key);
     }
 
     
     
     public boolean isEmpty() {
-        return false;
+        return contents.isEmpty();
     }
 
     
     
     public Set<String> keySet() {
-        return null;
+        return contents.keySet();
     }
 
     
@@ -227,6 +225,7 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
      * Method called when a new file 
      */
     public String put(String key, String value) {
+        contents.put(key, value);
         IFile res = Util.getFileForLocation(key);
         if(res!=null&&res.exists())
             try {
@@ -240,30 +239,30 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
     
     
     public void putAll(Map<? extends String, ? extends String> m) {
+        contents.putAll(m);
     }
 
     
     
     public String remove(Object key) {
-        return null;
+        return contents.remove(key);
     }
 
     
     
     public int size() {
-        return 0;
+        return contents.size();
     }
 
     
     
     public Collection<String> values() {
-         return null;
+         return contents.values();
     }
 
 
 
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		contents.clear();		
 	}
 }
