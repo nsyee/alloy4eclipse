@@ -223,7 +223,7 @@ public class ExecutableCommand implements IALSCommand {
 
 
 	public String getName() {
-		return command.name;
+		return command.toString();
 
 	}
 	public String toString(){		
@@ -244,6 +244,11 @@ public class ExecutableCommand implements IALSCommand {
      VizGUI viz = new VizGUI(false,"",null);
      viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");}        
 }
+
+
+	public boolean isCheck() {
+		return command.check;
+	}
 
 
 

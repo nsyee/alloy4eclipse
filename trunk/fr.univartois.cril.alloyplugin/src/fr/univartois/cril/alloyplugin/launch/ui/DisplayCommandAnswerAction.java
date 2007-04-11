@@ -33,34 +33,45 @@ public class DisplayCommandAnswerAction extends SelectionProviderAction {
 	 * Constructor. 
 	 * */
 	public DisplayCommandAnswerAction(ISelectionProvider sp) {	
-		super(sp,"Display Ans");
+		super(sp,"Display Answer");
 		this.setEnabled(false);
 		setImageDescriptor(iconrun);			
 		setToolTipText("Display an answer");
 		setActionDefinitionId(ACTION_ID);
-
+		
 	}
 
 
 	public void selectionChanged(IStructuredSelection selection)
 	{	
-		//A4Solution ans;
+		A4Solution ans;
+		
 		this.selection=selection;
 		if (selection.isEmpty()) {
 			this.setEnabled(false);
 			return;
 		}
-		else this.setEnabled(true);
-
+		//else this.setEnabled(true);
 		Object[] tab=selection.toArray();
-
+		if (tab.length>1)
+			this.setText("Show answer");
+		//TODO : make constants 
 		for (int i=0;i<tab.length;i++){
 			if (tab[i] instanceof ExecutableCommand){
-				//ans=((ExecutableCommand) tab[i]).getAns();
-				//if (ans!=null)
+				if (((ExecutableCommand) tab[i]).isCheck())
+					this.setText("Show Counter example");
+				else
+					this.setText("Show model");
+				ans = ((ExecutableCommand) tab[i]).getAns();
+				if (ans!=null){
 				this.setEnabled(true);
+				}else{
+					this.setEnabled(false);
+				}
 			}
-			else this.setEnabled(false);
+			else {this.setEnabled(false);
+			break;
+			}
 		}
 
 	}
