@@ -5,6 +5,7 @@ package fr.univartois.cril.alloyplugin.editor;
 
 import java.util.logging.Logger;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -15,6 +16,7 @@ import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
@@ -35,6 +37,7 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.launch.ui.DisplayCommandAnswerAction;
 import fr.univartois.cril.alloyplugin.launch.ui.LaunchQuickConfigAction;
+import fr.univartois.cril.alloyplugin.launch.ui.LaunchShortcut;
 
 
 /**
@@ -66,7 +69,6 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 		viewer.setContentProvider(new AlloyTreeContentProvider());
 		// IEditorInput input = editor.getEditorInput();
 		this.addSelectionChangedListener(new MySelectionListener());
-		viewer.addDoubleClickListener(new MyDoubleClickListener());
 		setViewerInput();
 		viewer.expandAll();
 		viewer.refresh();
@@ -129,12 +131,34 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 	}
 
 	private void hookDoubleClickAction() {		
-		System.out.println("dzdzdz");
-		viewer.addDoubleClickListener(new IDoubleClickListener() {
+		viewer.addDoubleClickListener(new IDoubleClickListener(){
+
 			public void doubleClick(DoubleClickEvent event) {
+				Object selection = ((TreeSelection) event.getSelection()).getFirstElement();
+				
+				if (selection instanceof IALSTreeDecorated) {
+					launchCommandAction.run();
+				}
+
+				if (AlloyTreeContentProvider.SIGNATURES.equals(selection)
+						||AlloyTreeContentProvider.FACTS.equals(selection)
+						||AlloyTreeContentProvider.FUNCTIONS.equals(selection)
+						||AlloyTreeContentProvider.PREDICATES.equals(selection)
+						||AlloyTreeContentProvider.COMMANDS.equals(selection)){
+					if (viewer.getExpandedState(selection))
+						viewer.collapseToLevel(selection, -1);
+					else
+						viewer.expandToLevel(selection, 1);
+				} 
+
+
 			}
 		});
+
 	}
+
+		
+	
 
 	private void fillContextMenu(IMenuManager manager) {		
 		manager.add(launchCommandAction);
@@ -184,24 +208,5 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 		}
 	}
 
-	class MyDoubleClickListener implements IDoubleClickListener{
-
-		public void doubleClick(DoubleClickEvent event) {
-			Object selection = ((TreeSelection) event.getSelection()).getFirstElement();
-
-			if (AlloyTreeContentProvider.SIGNATURES.equals(selection)
-					||AlloyTreeContentProvider.FACTS.equals(selection)
-					||AlloyTreeContentProvider.FUNCTIONS.equals(selection)
-					||AlloyTreeContentProvider.PREDICATES.equals(selection)
-					||AlloyTreeContentProvider.COMMANDS.equals(selection)){
-				if (viewer.getExpandedState(selection))
-					viewer.collapseToLevel(selection, -1);
-				else
-					viewer.expandToLevel(selection, 1);
-			} 
-
-
-		}
-	}
-
+	
 }
