@@ -20,6 +20,8 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-0.1.1.png
 
 = Available on SVN =
 
+  * Improved commands contextual menus
+  * Fix for spec files included in Alloy4.jar 
 
 = Upcoming features (in order of priority) =
   # Embedding the Graphical view into an eclipse view
