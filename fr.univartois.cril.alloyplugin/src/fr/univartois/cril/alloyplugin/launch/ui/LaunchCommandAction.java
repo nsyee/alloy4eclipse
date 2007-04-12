@@ -37,7 +37,9 @@ public class LaunchCommandAction extends SelectionProviderAction {
 
 	private TreeViewer viewer;
 
-	private Object[] commands;
+	
+	
+	private boolean commandRootSelected;
 
 	//
 
@@ -49,6 +51,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 		super(treeViewerWithAnAlloyTreeContentProvider,TEXT_DEFAULT);
 		this.viewer=treeViewerWithAnAlloyTreeContentProvider;
 		this.setEnabled(false);
+		commandRootSelected=false;
 		setImageDescriptor(enableImage);
 		setDisabledImageDescriptor(disableImage);
 		setToolTipText("Launch Alloy command(s) in quick launch configuration");
@@ -60,7 +63,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 
 	public void selectionChanged(IStructuredSelection selection)
 	{	
-		commands=null;
+		commandRootSelected=false;
 		this.selection=selection;
 		if (selection.isEmpty()) this.setEnabled(false);
 		else {
@@ -70,11 +73,11 @@ public class LaunchCommandAction extends SelectionProviderAction {
 				{
 
 					AlloyTreeContentProvider contentProvider = (AlloyTreeContentProvider) viewer.getContentProvider();
-					commands=contentProvider.getChildren(o);
-					if (commands.length>=1)
+					//commands=contentProvider.getChildren(o);
+					if (contentProvider.getChildren(o).length>=1)
 					{
 						this.setEnabled(true);
-						
+						commandRootSelected=true;
 							setText(TEXT_ALL_COMMAND);
 						
 						return;
@@ -83,6 +86,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 				else
 					if (o instanceof ExecutableCommand){
 						setText(TEXT_DEFAULT);
+						
 						this.setEnabled(true);
 						return;
 					}
@@ -102,8 +106,10 @@ public class LaunchCommandAction extends SelectionProviderAction {
 
 	public void run() {
 		List<ExecutableCommand> commandsList = null;
-		if (commands!=null){
+		if (commandRootSelected){
 			commandsList=new ArrayList<ExecutableCommand>();
+			AlloyTreeContentProvider contentProvider = (AlloyTreeContentProvider) viewer.getContentProvider();
+			Object[] commands = contentProvider.getChildren(AlloyTreeContentProvider.COMMANDS);
 			for (int i = 0; i < commands.length; i++) {
 				commandsList.add((ExecutableCommand) commands[i]);
 			}
@@ -113,7 +119,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 			commandsList= getExecutableCommandFromSelection(selection);
 
 		if (!commandsList.isEmpty())
-		{				
+		{			
 			launch(LaunchQuickConfigFactory.getInstance().create(commandsList));
 		}
 	}
