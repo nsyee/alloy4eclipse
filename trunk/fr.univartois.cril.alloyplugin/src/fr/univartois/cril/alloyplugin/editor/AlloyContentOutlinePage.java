@@ -36,7 +36,7 @@ import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.launch.ui.DisplayCommandAnswerAction;
-import fr.univartois.cril.alloyplugin.launch.ui.LaunchQuickConfigAction;
+import fr.univartois.cril.alloyplugin.launch.ui.LaunchCommandAction;
 import fr.univartois.cril.alloyplugin.launch.ui.LaunchShortcut;
 
 
@@ -50,7 +50,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
 	private final ALSEditor editor;
 
-	private LaunchQuickConfigAction launchCommandAction;	
+	private LaunchCommandAction launchCommandAction;	
 	private DisplayCommandAnswerAction displayCommandAnswerAction;	
 
 	private TreeViewer viewer;
@@ -177,7 +177,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
 
 	private void makeActions() {
-		launchCommandAction = new LaunchQuickConfigAction(viewer);
+		launchCommandAction = new LaunchCommandAction(viewer);
 		displayCommandAnswerAction = new DisplayCommandAnswerAction(viewer);
 	}
 
