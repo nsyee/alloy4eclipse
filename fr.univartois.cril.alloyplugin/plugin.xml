@@ -9,11 +9,19 @@
       <editor
             class="fr.univartois.cril.alloyplugin.editor.ALSEditor"
             icon="icons/AlloyFile.gif"
-            default="true"
+            default="false"
             name="Small Alloy editor beta 0.0.1"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             id="fr.univartois.cril.alloyplugin.editor.ALSEditor"
             extensions="als"/>
+      <editor
+            class="fr.univartois.cril.alloyplugin.editor.MultiPageEditor"
+            contributorClass="fr.univartois.cril.alloyplugin.editor.MultiPageEditorContributor"
+            default="true"
+            extensions="als"
+            icon="icons/AlloyFile.gif"
+            id="fr.univartois.cril.alloyplugin.editors.MultiPageEditor"
+            name="Small Alloy editor beta 0.0.1"/>
 </extension>
 <extension
       point="org.eclipse.core.filebuffers.documentSetup">
