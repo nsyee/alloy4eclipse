@@ -178,10 +178,10 @@ public class ExecutableCommand implements IALSCommand {
         rep.setExecCommand(this);
         A4Solution ans = TranslateAlloyToKodkod.execute_command(world,command,getOptions(rep), null, null);
         this.ans=ans;
-        System.out.println("dispaly ans:"+AlloyPlugin.getDefault().getPreferenceStore().getBoolean( PreferenceConstants.P_BOOLEAN_SHOW_ANSWER));
-        if(AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER))
+        
+        if(AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
         {
-            System.out.println("dispaly ans:ICI");
+         
             Display display = PlatformUI.getWorkbench().getDisplay();        
             if (display!=null)
                 display.asyncExec(

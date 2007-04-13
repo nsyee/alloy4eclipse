@@ -26,7 +26,7 @@ implements IWorkbenchPreferencePage {
 	public AlloyPreferencePage() {
 		super(GRID);
 		setPreferenceStore(AlloyPlugin.getDefault().getPreferenceStore());
-		setDescription("Alloy preference page");
+		setDescription("You can set up your Alloy preferences here:");
 	}
 
 	/**
@@ -40,8 +40,8 @@ implements IWorkbenchPreferencePage {
 				"&Output.xml directory:", getFieldEditorParent()));
 		addField(
 				new BooleanFieldEditor(
-						PreferenceConstants.P_BOOLEAN_SHOW_ANSWER,
-						"&Display answer after command executed",
+						PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER,
+						"Automatically &Show XML answer after command execution",
 						getFieldEditorParent()));
 
 		addField(new RadioGroupFieldEditor(
