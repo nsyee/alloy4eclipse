@@ -25,6 +25,9 @@ import fr.univartois.cril.alloyplugin.editor.MultiPageEditor;
 public class DisplayCommandAnswerAction extends SelectionProviderAction {
 	public static final ImageDescriptor iconrun = AlloyPlugin.getDefault().getImageRegistry().getDescriptor(AlloyPlugin.GRAPH_ICON_ID);
 	private static final String ACTION_ID = "fr.univartois.cril.alloyplugin.launch.displayalloycommandanswer";
+	public static final String MODEL = "Show Model";
+	public static final String ANSWER = "Show Answer";
+	public static final String COUNTER_EXEMPLE = "Show Counter exemple";
 
 	/**
 	 * the selection which is associated.
@@ -58,14 +61,13 @@ public class DisplayCommandAnswerAction extends SelectionProviderAction {
 		//else this.setEnabled(true);
 		Object[] tab=selection.toArray();
 		if (tab.length>1)
-			this.setText("Show answer");
-		//TODO : make constants 
+			this.setText(ANSWER);
 		for (int i=0;i<tab.length;i++){
 			if (tab[i] instanceof ExecutableCommand){
 				if (((ExecutableCommand) tab[i]).isCheck())
-					this.setText("Show Counter example");
+					this.setText(COUNTER_EXEMPLE);
 				else
-					this.setText("Show model");
+					this.setText(MODEL);
 				ans = ((ExecutableCommand) tab[i]).getAns();
 				if (ans!=null){
 				this.setEnabled(true);
