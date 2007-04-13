@@ -32,7 +32,6 @@ public class ALSEditor extends TextEditor {
 	
 
 	private AlloyContentOutlinePage fOutlinePage=null;
-	private AnswerDisplayPage[] swtAwtComponent;
 	
 	
 	/**
@@ -54,9 +53,6 @@ public class ALSEditor extends TextEditor {
 		}*/
 	}
 	
-	public AnswerDisplayPage[] getAnsDisplayPage(){
-		return swtAwtComponent;
-	}
 	
 	private ExecutableCommand[] createCommands(Object[] commands) {
 		ExecutableCommand[] cmds = new ExecutableCommand[commands.length];
