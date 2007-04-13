@@ -1,13 +1,9 @@
 package fr.univartois.cril.alloyplugin.XMLEditor;
 
-import org.eclipse.core.resources.IResource;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.editors.text.TextEditor;
-
-import edu.mit.csail.sdg.alloy4viz.VizGUI;
-import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 public class XMLEditor extends TextEditor {
 
