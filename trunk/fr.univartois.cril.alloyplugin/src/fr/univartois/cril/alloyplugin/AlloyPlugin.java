@@ -72,7 +72,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	public static final String DISABLE_EXECUTE_ICON_ID = "icons/DisableAlloyLaunch.gif";
 	
 	/** The system-specific file separator (forward-slash on UNIX, back-slash on Windows, etc.) */
-	private static final String fileSeparator = System.getProperty("file.separator");
+	public static final String FILE_SEPARATOR = System.getProperty("file.separator");
 	
 
 
@@ -213,7 +213,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 			arch=arch.replaceAll("\\Ai[3456]86\\z","x86")+"-"+os;
 
 		// Find out the appropriate Alloy directory
-		final String platformBinary=Helper.alloyHome()+fileSeparator+"binary";
+		final String platformBinary=Helper.alloyHome()+FILE_SEPARATOR+"binary";
 
 		// Copy the platform-dependent binaries
 		Util.copy(true, false, false, platformBinary,
@@ -228,7 +228,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 				arch+"/zlib1.dll", arch+"/z.dll", arch+"/freetype6.dll", arch+"/png.dll");
 
 		// Record the locations
-		System.setProperty("alloy.dotbin0", platformBinary+fileSeparator+"dotbin");
+		System.setProperty("alloy.dotbin0", platformBinary+FILE_SEPARATOR+"dotbin");
 	}
 
 

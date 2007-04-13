@@ -69,7 +69,7 @@ public class CommandsContentProvider2 implements IStructuredContentProvider, IAL
 		System.out.println("refresh");
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)
-			display.syncExec(
+			display.asyncExec(
 					new Runnable() {
 						public void run(){
 							viewer.refresh();					

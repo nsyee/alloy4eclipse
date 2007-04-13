@@ -3,6 +3,8 @@ package fr.univartois.cril.alloyplugin.core;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
 
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
@@ -70,13 +72,15 @@ public class ExecutableCommand implements IALSCommand {
 		if(options==null){
 			this.options = new A4Options();
 			SatSolver solver;//=A4Options.SatSolver.SAT4J;
-			String defaultSolver=AlloyPlugin.getDefault().getPreferenceStore().getDefaultString(PreferenceConstants.P_SOLVER_CHOICE);
+			String defaultSolver=AlloyPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_SOLVER_CHOICE);
 			if(PreferenceConstants.V_SOLVER_MINISAT_PIPE.equals(defaultSolver)) {			
 				solver = A4Options.SatSolver.MiniSatPIPE;
 			}
 			else {			
 				solver = A4Options.SatSolver.SAT4J;
 			}
+			
+			solver = A4Options.SatSolver.SAT4J;
 			this.options.solver=solver;
 		}
 		else
@@ -161,9 +165,25 @@ public class ExecutableCommand implements IALSCommand {
 		rep.setExecCommand(this);
 		A4Solution ans = TranslateAlloyToKodkod.execute_command(world,command,getOptions(rep), null, null); 
 		this.ans=ans;
-		System.out.println("dispaly ans:"+AlloyPlugin.getDefault().getPreferenceStore().getDefaultBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER));
-		if(AlloyPlugin.getDefault().getPreferenceStore().getDefaultBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER))
-			displayAns();
+		System.out.println("dispaly ans:"+AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER));
+		if(AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER))
+			{
+			System.out.println("dispaly ans:ICI");
+			Display display = PlatformUI.getWorkbench().getDisplay();		
+			if (display!=null)
+				display.asyncExec(
+						new Runnable() {
+							public void run(){
+								try {
+									ExecutableCommand.this.displayAns();
+								} catch (Err e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}					
+							}
+						});
+			
+			}
 		return ans;
 	}
 
@@ -247,11 +267,18 @@ public class ExecutableCommand implements IALSCommand {
 		else return command.toString()+" [SAT]";	
 
 	}
-
+/**
+ * Display answer.
+ * 
+ * */
 	public  void displayAns() throws Err {
 //		GraphView.Visualize(ans);   
+		
 		if (ans.satisfiable()){
-			ans.writeXML("output.xml", false);
+			String path=AlloyPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_OUTPUT_PATH);
+			if (!"".equals(path))path=path.concat(AlloyPlugin.FILE_SEPARATOR);
+			System.out.println("path:"+path);
+			ans.writeXML(path+"output.xml", false);
 			//
 			// You can then visualize the XML file by calling this:
 			VizGUI viz = new VizGUI(false,"",null);

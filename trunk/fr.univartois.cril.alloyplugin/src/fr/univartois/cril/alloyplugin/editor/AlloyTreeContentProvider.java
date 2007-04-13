@@ -122,7 +122,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider, IALSFileL
 	public void changed(IALSFile file) {	
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)
-			display.syncExec(
+			display.asyncExec(
 					new Runnable() {
 						public void run(){
 							viewer.refresh();					
