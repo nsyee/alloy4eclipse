@@ -3,6 +3,7 @@
  */
 package fr.univartois.cril.alloyplugin.editor;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import org.eclipse.core.resources.IResource;
@@ -15,6 +16,7 @@ import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.ListViewer;
@@ -138,6 +140,8 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 				
 				if (selection instanceof IALSTreeDecorated) {
 					launchCommandAction.run();
+					log.info("Selection mis à null");
+					//viewer.setSelection(null, true);
 				}
 
 				if (AlloyTreeContentProvider.SIGNATURES.equals(selection)
@@ -149,12 +153,11 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 						viewer.collapseToLevel(selection, -1);
 					else
 						viewer.expandToLevel(selection, 1);
+					
 				} 
-
-
 			}
 		});
-
+		
 	}
 
 		
@@ -179,6 +182,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 	private void makeActions() {
 		launchCommandAction = new LaunchCommandAction(viewer);
 		displayCommandAnswerAction = new DisplayCommandAnswerAction(viewer);
+		
 	}
 
 	public void setFocus() {

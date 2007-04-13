@@ -128,6 +128,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 		if (config != null) {
 
 			DebugUITools.launch(config, LaunchConfigurationConstants.RUN_MODE);
+			viewer.setSelection(null,true);
 		}
 	}
 
