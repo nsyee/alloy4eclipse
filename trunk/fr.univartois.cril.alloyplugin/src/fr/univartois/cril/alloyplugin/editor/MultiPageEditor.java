@@ -1,12 +1,14 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 
+import java.awt.Component;
 import java.io.StringWriter;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
+import javax.swing.JMenu;
 import javax.swing.JPanel;
 
 import org.eclipse.core.resources.IMarker;
@@ -43,10 +45,12 @@ import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.AnswerEditor.XMLEditor;
 import fr.univartois.cril.alloyplugin.core.ALSFile;
 import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
+import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 /**
  * An example showing how to create a multi-page editor.
@@ -60,8 +64,7 @@ import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
 public class MultiPageEditor extends MultiPageEditorPart implements IResourceChangeListener{
 
 	/** The text editor used in page 0. */
-	private ALSEditor editor;
-	private MyVizGUI viz;
+	private XMLEditor editor;
 
 	/** The font chosen in page 1. */
 	private Font font;
@@ -84,13 +87,10 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 	 * which contains a text editor.
 	 */
 	
-	public ALSEditor getEditor(){
-		return editor;
-	}
 	
 	void createPage1() {
 		try {
-			editor = new ALSEditor();
+			editor = new XMLEditor();
 			int index = addPage(editor, getEditorInput());
 			setPageText(index, editor.getTitle());
 		} catch (PartInitException e) {
@@ -105,39 +105,42 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 	void createPage2() {
 		
 		
-		ALSFile af=(ALSFile) editor.getALSFile();
+		/*ALSFile af=(ALSFile) editor.getALSFile();
 		Object[] tab=(af.getCommand()).toArray();
 		
 		
 		ExecutableCommand[] commands = createCommands(tab);
+		AnswerDisplayPage[] swtAwtComponent = new AnswerDisplayPage[commands.length];//editor.getAnsDisplayPage();
 		
-		for(int i=0;i<commands.length;i++){
+		for(int i=0;i<swtAwtComponent.length;i++){
 			
-				Composite swtAwtComponent = new Composite(getContainer(), SWT.EMBEDDED);
-				java.awt.Frame frame = SWT_AWT.new_Frame( swtAwtComponent );
-				swtAwtComponent.setData(viz);
-				javax.swing.JPanel panel = new JPanel();
-				frame.add(panel);
 				
+				*/
 		
-				//Composite composite = new Composite(getContainer(), SWT.NONE);
+				IEditorInput input;
+				input=editor.getEditorInput();
+				
+			    Composite swtAwtComponent = new Composite(getContainer(), SWT.EMBEDDED);
+				java.awt.Frame frame = SWT_AWT.new_Frame(swtAwtComponent );
+				
+				/*javax.swing.JPanel panel = new JPanel();
+				frame.add(panel);*/
+				
+				JMenu menu= new JMenu();
+				
+				VizGUI viz = new VizGUI(false,"",(JMenu) menu);
+				viz.run(VizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
+				swtAwtComponent.setData(viz);
+				
 				FillLayout layout = new FillLayout();
 				swtAwtComponent.setLayout(layout);
-				//text = new StyledText(composite, SWT.H_SCROLL | SWT.V_SCROLL);
+				//text = new StyledText(swtAwtComponent, SWT.H_SCROLL | SWT.V_SCROLL);
 				//text.setEditable(false);
 
 				int index = addPage(swtAwtComponent);
-				setPageText(index, "command n°"+(i+1)+" graph");
+				setPageText(index, "graph");
 			
-		}
-	}
-	
-	private ExecutableCommand[] createCommands(Object[] commands) {
-		ExecutableCommand[] cmds = new ExecutableCommand[commands.length];
-		for(int i=0;i<commands.length;i++){
-			cmds[i]=(ExecutableCommand) commands[i];			
-		}
-		return cmds;	
+		
 	}
 
 	
