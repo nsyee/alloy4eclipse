@@ -11,7 +11,13 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.FileEditorInput;
+
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
@@ -23,6 +29,7 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Options.SatSolver;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
+import fr.univartois.cril.alloyplugin.editor.MultiPageEditor;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
@@ -316,8 +323,23 @@ public class ExecutableCommand implements IALSCommand {
             ans.writeXML(Util.getFileLocation(outputFile), false);
             //
             // You can then visualize the XML file by calling this:
-            VizGUI viz = new VizGUI(false,"",null);
-            viz.run(VizGUI.evs_loadInstanceForcefully,Util.getFileLocation (outputFile));
+            IEditorInput editorInput = new FileEditorInput(outputFile);
+
+
+            IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+            IWorkbenchPage page = window.getActivePage();
+
+            
+            try {
+				page.openEditor(editorInput, MultiPageEditor.EDITOR_ID);
+			} catch (PartInitException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+      
+            
+            //outputFile. 
 
         }
 
