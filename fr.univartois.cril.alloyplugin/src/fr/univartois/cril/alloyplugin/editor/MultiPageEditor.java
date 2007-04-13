@@ -1,54 +1,24 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 
-import java.awt.Component;
-import java.io.StringWriter;
-import java.text.Collator;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.StringTokenizer;
-
-import javax.swing.JMenu;
 import javax.swing.JPanel;
-
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.awt.SWT_AWT;
-import org.eclipse.swt.custom.StyledText;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.FontDialog;
 import org.eclipse.ui.*;
-import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.ide.IDE;
-
-import edu.mit.csail.sdg.alloy4.Err;
-import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
-import edu.mit.csail.sdg.alloy4viz.VizGUI;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor;
-import fr.univartois.cril.alloyplugin.core.ALSFile;
-import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
@@ -67,16 +37,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 
 	/** The text editor used in page 0. */
 	private XMLEditor editor;
-
-	/** The font chosen in page 1. */
-	private Font font;
-
-	/** The text widget used in page 2. */
-	private StyledText text;
-	/**
-	 * Creates a multi-page editor example.
-	 */
-
 	
 	
 	public MultiPageEditor() {
@@ -85,7 +45,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		
 	}
 	/**
-	 * Creates page 0 of the multi-page editor,
+	 * Creates page 1 of the multi-page editor,
 	 * which contains a text editor.
 	 */
 	
@@ -103,21 +63,11 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 				e.getStatus());
 		}
 	}
-	
+	/**
+	 * Creates page 2 of the multi-page editor,
+	 * which contains a frame with the graph.
+	 */
 	void createPage2() {
-		
-		
-		/*ALSFile af=(ALSFile) editor.getALSFile();
-		Object[] tab=(af.getCommand()).toArray();
-		
-		
-		ExecutableCommand[] commands = createCommands(tab);
-		AnswerDisplayPage[] swtAwtComponent = new AnswerDisplayPage[commands.length];//editor.getAnsDisplayPage();
-		
-		for(int i=0;i<swtAwtComponent.length;i++){
-			
-				
-				*/
 		
 				IEditorInput input;
 				input=editor.getEditorInput();
@@ -127,22 +77,12 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 				
 				javax.swing.JPanel panel = new JPanel();
 				
-				
-				/*JMenu menu= new JMenu();
-				frame.add(menu);*/
-				
 				MyVizGUI viz = new MyVizGUI();
 				viz.run(MyVizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
 	
 				panel=viz.getGraphPanel();
 				if (panel!=null)
-					frame.add(panel);
-				
-				
-				
-				//swtAwtComponent.setData(frame);
-				
-				
+					frame.add(panel);	
 				
 				FillLayout layout = new FillLayout();
 				swtAwtComponent.setLayout(layout);
@@ -151,8 +91,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 				setPageText(index, "graph");
 		
 	}
-
-	
 	
 	/**
 	 * Creates the pages of the multi-page editor.
@@ -210,15 +148,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
-	/**
-	 * Calculates the contents of page 2 when the it is activated.
-	 */
-	protected void pageChange(int newPageIndex) {
-		super.pageChange(newPageIndex);
-		if (newPageIndex == 2) {
-			sortWords();
-		}
-	}
+	
 	/**
 	 * Closes all project files on project close.
 	 */
@@ -236,43 +166,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 				}            
 			});
 		}
-	}
-	/**
-	 * Sets the font related data to be applied to the text in page 2.
-	 */
-	void setFont() {
-		FontDialog fontDialog = new FontDialog(getSite().getShell());
-		fontDialog.setFontList(text.getFont().getFontData());
-		FontData fontData = fontDialog.open();
-		if (fontData != null) {
-			if (font != null)
-				font.dispose();
-			font = new Font(text.getDisplay(), fontData);
-			text.setFont(font);
-		}
-	}
-	/**
-	 * Sorts the words in page 0, and shows them in page 2.
-	 */
-	void sortWords() {
-
-		String editorText =
-			editor.getDocumentProvider().getDocument(editor.getEditorInput()).get();
-
-		StringTokenizer tokenizer =
-			new StringTokenizer(editorText, " \t\n\r\f!@#\u0024%^&*()-_=+`~[]{};:'\",.<>/?|\\");
-		ArrayList editorWords = new ArrayList();
-		while (tokenizer.hasMoreTokens()) {
-			editorWords.add(tokenizer.nextToken());
-		}
-
-		Collections.sort(editorWords, Collator.getInstance());
-		StringWriter displayText = new StringWriter();
-		for (int i = 0; i < editorWords.size(); i++) {
-			displayText.write(((String) editorWords.get(i)));
-			displayText.write(System.getProperty("line.separator"));
-		}
-		text.setText(displayText.toString());
 	}
 	
 }
