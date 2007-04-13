@@ -436,6 +436,10 @@ public final class MyVizGUI implements MultiRunnable, ComponentListener {
 	public void componentMoved(ComponentEvent e) {
 		Point p=frame.getLocation(); VizX.set(p.x); VizY.set(p.y);
 	}
+	
+	public void close(){
+		this.run(ev_close);
+	}
 
 	/** Invoked when the Visualizationwindow is shown. */
 	public void componentShown(ComponentEvent e) {}
