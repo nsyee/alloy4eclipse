@@ -13,22 +13,15 @@
             name="Small Alloy editor beta 0.0.1"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             id="fr.univartois.cril.alloyplugin.editor.ALSEditor"
-            extensions="als"/>
-      <editor
-            class="fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor"
-            icon="icons/graph.gif"
-            default="false"
-            name="Answer viewer"         
-            id="fr.univartois.cril.alloyplugin.AnswerEditor.XMLEditor"
-            extensions="xml"/>      
+            extensions="als"/>  
       <editor
             class="fr.univartois.cril.alloyplugin.editor.MultiPageEditor"
             contributorClass="fr.univartois.cril.alloyplugin.editor.MultiPageEditorContributor"
             default="true"
             extensions="xml"
-            icon="icons/sample.gif"
+            icon="icons/graph.gif"
             id="fr.univartois.cril.alloyplugin.editors.MultiPageEditor"
-            name="Multipage Small XML editor "/>
+            name="Alloy XML Answer viewer"/>
 </extension>
 <extension
       point="org.eclipse.core.filebuffers.documentSetup">
@@ -172,9 +165,14 @@
          point="org.eclipse.ui.commands">
       <command
             categoryId="fr.univartois.cril.alloyplugin.launch.category"
-            description="Alloy command"
+            description="launch Alloy command"
             id="fr.univartois.cril.alloyplugin.launch.runalloycommand"
             name="Run Alloy command"/>
+      <command
+            categoryId="fr.univartois.cril.alloyplugin.launch.category"
+            description="Display Alloy answer"
+            id="fr.univartois.cril.alloyplugin.launch.displayalloycommandanswer"
+            name="Show Alloy answer"/>
       <category
             id="fr.univartois.cril.alloyplugin.launch.category"
             name="Alloy"/>
@@ -241,6 +239,13 @@
    <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer class="fr.univartois.cril.alloyplugin.preferences.PreferenceInitializer"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/AlloyProject2.gif"
+            id="fr.univartois.cril.alloyplugin.image"
+            natureId="fr.univartois.cril.alloyplugin.AlloyProjectNature"/>
    </extension>
    
    
