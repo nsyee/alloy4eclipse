@@ -140,13 +140,6 @@ public class AlloyMessageConsole extends MessageConsole {
 	}
 	
 	
-	
-	/**
-	 * Reveal the console in the consoleview.
-	 */
-	public void reveal(){
-		Console.revealConsoleView(this);	
-	}
 
 	
 }

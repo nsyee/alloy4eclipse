@@ -174,7 +174,7 @@ public class ExecutableCommand implements IALSCommand {
     /**
      * Execute this command whith te given reporter.
      * */
-    public A4Solution execute(Reporter rep) throws Err {
+    protected A4Solution execute(Reporter rep) throws Err {
         rep.setExecCommand(this);
         A4Solution ans = TranslateAlloyToKodkod.execute_command(world,command,getOptions(rep), null, null);
         this.ans=ans;
@@ -269,9 +269,11 @@ public class ExecutableCommand implements IALSCommand {
 
 
     public String getName() {
-        return command.toString ();
+        return command.toString();
 
     }
+    
+    
     public String toString(){        
         if (this.getResult()==ExecutableCommand.UNKNOW)
             return command.toString();
@@ -285,17 +287,11 @@ public class ExecutableCommand implements IALSCommand {
      *
      * */
     public  void displayAns() throws Err {
-//        GraphView.Visualize(ans);   
-        System.out.println("displayAns");
+        
         if (ans.satisfiable()){
-            //String path=AlloyPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_OUTPUT_PATH );
-            System.out.println("Ans Sat");
-
             IFolder outputFolder=getResource().getParent().getFolder(new Path("output"));//=getResource().getProject().getFolder(path);
-
             if(!outputFolder.exists())
             {
-            
                 try {
 
                     outputFolder.create(false,true, null);// create(new ByteArrayInputStream(new byte[0]), true, null);
@@ -305,13 +301,11 @@ public class ExecutableCommand implements IALSCommand {
                     return;
                 }
             }
-            //ResourcesPlugin.getWorkspace().
-            System.out.println("ici");
+            
             IFile outputFile=outputFolder.getFile(getName()+".xml");
 
             if(!outputFile.exists())
             {
-                System.out.println ("existe pas, creer");
                 try {
                     outputFile.create(null/*new byte[0]*/, false, null);
                 } catch (CoreException e) {
@@ -319,27 +313,16 @@ public class ExecutableCommand implements IALSCommand {
                     e.printStackTrace();
                 }
             }
-            System.out.println("write XML:"+outputFile);
-            ans.writeXML(Util.getFileLocation(outputFile), false);
-            //
-            // You can then visualize the XML file by calling this:
+            ans.writeXML(Util.getFileLocation(outputFile), false);            
             IEditorInput editorInput = new FileEditorInput(outputFile);
-
-
             IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-            IWorkbenchPage page = window.getActivePage();
-
-            
+            IWorkbenchPage page = window.getActivePage();            
             try {
 				page.openEditor(editorInput, MultiPageEditor.EDITOR_ID);
 			} catch (PartInitException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-      
-            
-            //outputFile. 
 
         }
 
