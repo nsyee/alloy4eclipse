@@ -20,15 +20,15 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
  */
 
 public class AlloyPreferencePage
-	extends FieldEditorPreferencePage
-	implements IWorkbenchPreferencePage {
+extends FieldEditorPreferencePage
+implements IWorkbenchPreferencePage {
 
 	public AlloyPreferencePage() {
 		super(GRID);
 		setPreferenceStore(AlloyPlugin.getDefault().getPreferenceStore());
-		setDescription("A demonstration of a preference page implementation");
+		setDescription("Alloy preference page");
 	}
-	
+
 	/**
 	 * Creates the field editors. Field editors are abstractions of
 	 * the common GUI blocks needed to manipulate various types
@@ -36,23 +36,24 @@ public class AlloyPreferencePage
 	 * restore itself.
 	 */
 	public void createFieldEditors() {
-		addField(new DirectoryFieldEditor(PreferenceConstants.P_PATH, 
+		addField(new DirectoryFieldEditor(PreferenceConstants.P_OUTPUT_PATH, 
 				"&Directory preference:", getFieldEditorParent()));
 		addField(
-			new BooleanFieldEditor(
-				PreferenceConstants.P_BOOLEAN,
-				"&display an answer when execute (not implemented) ",
-				getFieldEditorParent()));
+				new BooleanFieldEditor(
+						PreferenceConstants.P_BOOLEAN_SHOW_ANSWER,
+						"&Display answer after command executed",
+						getFieldEditorParent()));
 
 		addField(new RadioGroupFieldEditor(
-				PreferenceConstants.P_CHOICE,
-			"An example of a multiple-choice preference",
-			1,
-			new String[][] { { "Solver &1", "choice1" }, {
-				"Solver &2", "choice2" }
-		}, getFieldEditorParent()));
+				PreferenceConstants.P_SOLVER_CHOICE,
+				"An example of a multiple-choice preference",
+				1,
+				new String[][] { { "&SAT4J", PreferenceConstants.V_SOLVER_SAT4J }, {
+					"&MiniSat pipe", PreferenceConstants.V_SOLVER_MINISAT_PIPE }},
+				getFieldEditorParent()));
+
 		addField(
-			new StringFieldEditor(PreferenceConstants.P_STRING, "A &text preference:", getFieldEditorParent()));
+				new StringFieldEditor(PreferenceConstants.P_STRING, "A &text preference:", getFieldEditorParent()));
 	}
 
 	/* (non-Javadoc)
@@ -60,5 +61,12 @@ public class AlloyPreferencePage
 	 */
 	public void init(IWorkbench workbench) {
 	}
-	
+
+	@Override
+	protected void performApply() {
+		
+		super.performApply();
+		System.out.println("dispaly ans222:"+AlloyPlugin.getDefault().getPreferenceStore().getDefaultBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER));
+	}
+
 }

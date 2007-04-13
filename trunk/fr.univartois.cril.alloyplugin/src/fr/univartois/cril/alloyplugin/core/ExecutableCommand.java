@@ -11,10 +11,12 @@ import edu.mit.csail.sdg.alloy4compiler.ast.World;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
+import edu.mit.csail.sdg.alloy4compiler.translator.A4Options.SatSolver;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
+import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
 /**
  * A command with its world and its resource. 
@@ -64,10 +66,18 @@ public class ExecutableCommand implements IALSCommand {
 	/**
 	 * Constructor. 
 	 */
-	public ExecutableCommand(ALSFile file,Command command, World world,A4Options options) {		
+	private ExecutableCommand(ALSFile file,Command command, World world,A4Options options) {		
 		if(options==null){
-			this.options = new A4Options();		
-			this.options.solver = A4Options.SatSolver.SAT4J;
+			this.options = new A4Options();
+			SatSolver solver;//=A4Options.SatSolver.SAT4J;
+			String defaultSolver=AlloyPlugin.getDefault().getPreferenceStore().getDefaultString(PreferenceConstants.P_SOLVER_CHOICE);
+			if(PreferenceConstants.V_SOLVER_MINISAT_PIPE.equals(defaultSolver)) {			
+				solver = A4Options.SatSolver.MiniSatPIPE;
+			}
+			else {			
+				solver = A4Options.SatSolver.SAT4J;
+			}
+			this.options.solver=solver;
 		}
 		else
 			this.options=options;
@@ -151,6 +161,9 @@ public class ExecutableCommand implements IALSCommand {
 		rep.setExecCommand(this);
 		A4Solution ans = TranslateAlloyToKodkod.execute_command(world,command,getOptions(rep), null, null); 
 		this.ans=ans;
+		System.out.println("dispaly ans:"+AlloyPlugin.getDefault().getPreferenceStore().getDefaultBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER));
+		if(AlloyPlugin.getDefault().getPreferenceStore().getDefaultBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER))
+			displayAns();
 		return ans;
 	}
 
@@ -227,23 +240,23 @@ public class ExecutableCommand implements IALSCommand {
 
 	}
 	public String toString(){		
-			if (this.getResult()==ExecutableCommand.UNKNOW)
-				return command.toString();
-			if (this.getResult()!=ExecutableCommand.SAT)
-				return command.toString()+" [UNSAT]";
-			else return command.toString()+" [SAT]";	
-		
+		if (this.getResult()==ExecutableCommand.UNKNOW)
+			return command.toString();
+		if (this.getResult()!=ExecutableCommand.SAT)
+			return command.toString()+" [UNSAT]";
+		else return command.toString()+" [SAT]";	
+
 	}
 
 	public  void displayAns() throws Err {
-//      GraphView.Visualize(ans);   
+//		GraphView.Visualize(ans);   
 		if (ans.satisfiable()){
-     ans.writeXML("output.xml", false);
-     //
-     // You can then visualize the XML file by calling this:
-     VizGUI viz = new VizGUI(false,"",null);
-     viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");}        
-}
+			ans.writeXML("output.xml", false);
+			//
+			// You can then visualize the XML file by calling this:
+			VizGUI viz = new VizGUI(false,"",null);
+			viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");}        
+	}
 
 
 	public boolean isCheck() {
