@@ -277,12 +277,20 @@ public class ExecutableCommand implements IALSCommand {
 		if (ans.satisfiable()){
 			String path=AlloyPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_OUTPUT_PATH);
 			if (!"".equals(path))path=path.concat(AlloyPlugin.FILE_SEPARATOR);
+			else {
+				
+				
+				
+			}
 			System.out.println("path:"+path);
+			System.out.println("fullpath:"+getResource().getFullPath());
+			
 			ans.writeXML(path+"output.xml", false);
 			//
 			// You can then visualize the XML file by calling this:
 			VizGUI viz = new VizGUI(false,"",null);
-			viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");}        
+			viz.run(VizGUI.evs_loadInstanceForcefully, path+"output.xml");
+			}        
 	}
 
 
