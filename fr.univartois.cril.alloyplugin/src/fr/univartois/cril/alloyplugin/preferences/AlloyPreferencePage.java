@@ -46,7 +46,7 @@ implements IWorkbenchPreferencePage {
 
 		addField(new RadioGroupFieldEditor(
 				PreferenceConstants.P_SOLVER_CHOICE,
-				"An example of a multiple-choice preference",
+				"Choose solver for commands:",
 				1,
 				new String[][] {
 						{ "&SAT4J", PreferenceConstants.V_SOLVER_SAT4J }, 
