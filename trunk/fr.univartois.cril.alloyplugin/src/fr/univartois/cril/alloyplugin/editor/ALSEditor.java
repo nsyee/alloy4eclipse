@@ -8,7 +8,6 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 
 /**
@@ -30,37 +29,14 @@ public class ALSEditor extends TextEditor {
 		super.initializeEditor();
 		// Attache la configuration
 		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());
-		
-		/*ALSFile af=(ALSFile) getALSFile();
-		Object[] tab=(af.getCommand()).toArray();
-		int length = tab.length;
-		
-		for(int i=0;i<swtAwtComponent.length;i++){
-			 swtAwtComponent[i] = new AnswerDisplayPage(null, SWT.EMBEDDED);
-		}*/
 	}
 	
 	
-	private ExecutableCommand[] createCommands(Object[] commands) {
-		ExecutableCommand[] cmds = new ExecutableCommand[commands.length];
-		for(int i=0;i<commands.length;i++){
-			cmds[i]=(ExecutableCommand) commands[i];			
-		}
-		return cmds;	
-	}
-	
-	
-	
-	
-	
-	
-
 	/**
 	 * Used for contentoutline (not implement yet)
 	 * */
 
 	public Object getAdapter(Class required) {
-		//log.info("Adapter for "+required+" required");
 		if (IContentOutlinePage.class.equals(required)) {	
 			
 			if (fOutlinePage == null) {

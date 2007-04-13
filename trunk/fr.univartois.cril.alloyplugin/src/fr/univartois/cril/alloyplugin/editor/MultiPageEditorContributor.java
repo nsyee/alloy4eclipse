@@ -26,7 +26,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 	 */
 	public MultiPageEditorContributor() {
 		super();
-		createActions();
+		//createActions();
 	}
 	/**
 	 * Returns the action registed with the given text editor.
@@ -80,7 +80,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 			actionBars.updateActionBars();
 		}
 	}
-	private void createActions() {
+	/*private void createActions() {
 		editorAction = new Action() {
 			public void run() {
 				MessageDialog.openInformation(null, "Alloy Plug-in", "Sample Action Executed");
@@ -90,7 +90,8 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		editorAction.setToolTipText("Sample Action tool tip");
 		editorAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
-	}
+	}*/
+	
 	public void contributeToMenu(IMenuManager manager) {
 		IMenuManager menu = new MenuManager("Editor &Menu");
 		manager.prependToGroup(IWorkbenchActionConstants.MB_ADDITIONS, menu);

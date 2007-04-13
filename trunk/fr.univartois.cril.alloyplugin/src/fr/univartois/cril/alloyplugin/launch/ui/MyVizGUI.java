@@ -3,11 +3,8 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 import java.io.File;
-
 import javax.swing.JPanel;
-
 import org.eclipse.jface.dialogs.MessageDialog;
-
 import edu.mit.csail.sdg.alloy4.Util;
 import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
 import edu.mit.csail.sdg.alloy4viz.StaticInstanceReader;

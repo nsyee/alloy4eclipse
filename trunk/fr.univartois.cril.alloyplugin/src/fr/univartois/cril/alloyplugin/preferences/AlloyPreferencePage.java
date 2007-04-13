@@ -56,6 +56,10 @@ implements IWorkbenchPreferencePage {
 				},
 				getFieldEditorParent()));
 
+
+		/*addField(
+				new StringFieldEditor(PreferenceConstants.P_STRING, "A &text preference:", getFieldEditorParent()));*/
+
 		/*		addField(
 				new StringFieldEditor(PreferenceConstants.P_STRING, "A &text preference:", getFieldEditorParent()));
 		 */

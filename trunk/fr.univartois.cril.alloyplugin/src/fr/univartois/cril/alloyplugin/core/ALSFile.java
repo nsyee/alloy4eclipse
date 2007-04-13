@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.ui.part.MultiPageEditorPart;
-
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
@@ -16,7 +12,6 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
 import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
 import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
-import fr.univartois.cril.alloyplugin.editor.MultiPageEditor;
 /**
  * This class represents an als file.  
  * This plugin implements IALSFile.
