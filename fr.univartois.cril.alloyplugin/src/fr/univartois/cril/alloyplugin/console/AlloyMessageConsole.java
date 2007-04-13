@@ -52,7 +52,7 @@ public class AlloyMessageConsole extends MessageConsole {
 		Display display = PlatformUI.getWorkbench().getDisplay();
 		//this.
 		if (display!=null)//demande a display d'executer le print (dans un thread graphique)
-			display.syncExec(
+			display.asyncExec(
 					new Runnable() {
 						public void run(){
 							print2(message,c,style);

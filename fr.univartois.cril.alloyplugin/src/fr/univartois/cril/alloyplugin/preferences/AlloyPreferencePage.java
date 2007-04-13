@@ -37,7 +37,7 @@ implements IWorkbenchPreferencePage {
 	 */
 	public void createFieldEditors() {
 		addField(new DirectoryFieldEditor(PreferenceConstants.P_OUTPUT_PATH, 
-				"&Directory preference:", getFieldEditorParent()));
+				"&Output.xml directory:", getFieldEditorParent()));
 		addField(
 				new BooleanFieldEditor(
 						PreferenceConstants.P_BOOLEAN_SHOW_ANSWER,
@@ -62,11 +62,5 @@ implements IWorkbenchPreferencePage {
 	public void init(IWorkbench workbench) {
 	}
 
-	@Override
-	protected void performApply() {
-		
-		super.performApply();
-		System.out.println("dispaly ans222:"+AlloyPlugin.getDefault().getPreferenceStore().getDefaultBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER));
-	}
-
+	
 }
