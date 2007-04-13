@@ -1,19 +1,17 @@
 package fr.univartois.cril.alloyplugin.core;
 
-import java.io.ByteArrayInputStream;
 
-import org.eclipse.core.internal.resources.Workspace;
+
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
-
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
@@ -290,7 +288,7 @@ public class ExecutableCommand implements IALSCommand {
 
 			if(!outputFolder.exists())
 			{
-				System.out.println("là");
+			
 				try {
 
 					outputFolder.create(false,true, null);// create(new ByteArrayInputStream(new byte[0]), true, null);
@@ -302,7 +300,7 @@ public class ExecutableCommand implements IALSCommand {
 			}
 			//ResourcesPlugin.getWorkspace().
 			System.out.println("ici");
-			IFile outputFile=outputFolder.getFile(getName());
+			IFile outputFile=outputFolder.getFile(getName()+".xml");
 
 			if(!outputFile.exists())
 			{
