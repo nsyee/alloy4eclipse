@@ -43,7 +43,6 @@ public class DisplayCommandAnswerAction extends SelectionProviderAction {
 		setToolTipText("Display an answer");
 		setActionDefinitionId(ACTION_ID);
 		
-		
 	}
 
 
