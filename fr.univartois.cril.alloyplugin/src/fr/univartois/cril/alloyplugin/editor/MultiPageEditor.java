@@ -123,19 +123,29 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 			    Composite swtAwtComponent = new Composite(getContainer(), SWT.EMBEDDED);
 				java.awt.Frame frame = SWT_AWT.new_Frame(swtAwtComponent );
 				
-				/*javax.swing.JPanel panel = new JPanel();
-				frame.add(panel);*/
+				javax.swing.JPanel panel = new JPanel();
 				
-				JMenu menu= new JMenu();
 				
-				VizGUI viz = new VizGUI(false,"",(JMenu) menu);
-				viz.run(VizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
-				swtAwtComponent.setData(viz);
+				/*JMenu menu= new JMenu();
+				frame.add(menu);*/
+				
+				MyVizGUI viz = new MyVizGUI(false,"",null);
+				viz.run(MyVizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
+				
+				String s=viz.getXMLfilename();
+				System.out.println("fichier xml :"+s);
+				
+				panel=viz.getGraphPanel();
+				if (panel!=null)
+					frame.add(panel);
+				
+				//swtAwtComponent.setData(frame);
+				//viz.run(MyVizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
+				
+				
 				
 				FillLayout layout = new FillLayout();
 				swtAwtComponent.setLayout(layout);
-				//text = new StyledText(swtAwtComponent, SWT.H_SCROLL | SWT.V_SCROLL);
-				//text.setEditable(false);
 
 				int index = addPage(swtAwtComponent);
 				setPageText(index, "graph");
