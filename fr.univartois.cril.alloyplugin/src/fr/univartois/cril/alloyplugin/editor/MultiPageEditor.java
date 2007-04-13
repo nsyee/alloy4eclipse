@@ -131,16 +131,14 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 				
 				MyVizGUI viz = new MyVizGUI(false,"",null);
 				viz.run(MyVizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
-				
-				String s=viz.getXMLfilename();
-				System.out.println("fichier xml :"+s);
-				
+	
 				panel=viz.getGraphPanel();
 				if (panel!=null)
 					frame.add(panel);
 				
+				viz.close();
+				
 				//swtAwtComponent.setData(frame);
-				//viz.run(MyVizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
 				
 				
 				
