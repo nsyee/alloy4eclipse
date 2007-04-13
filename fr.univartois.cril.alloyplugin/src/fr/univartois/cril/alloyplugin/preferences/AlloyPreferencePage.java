@@ -36,8 +36,8 @@ implements IWorkbenchPreferencePage {
 	 * restore itself.
 	 */
 	public void createFieldEditors() {
-		addField(new DirectoryFieldEditor(PreferenceConstants.P_OUTPUT_PATH, 
-				"&Output.xml directory:", getFieldEditorParent()));
+		/*addField(new DirectoryFieldEditor(PreferenceConstants.P_OUTPUT_PATH, 
+				"&Output.xml directory:", getFieldEditorParent()));*/
 		addField(
 				new BooleanFieldEditor(
 						PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER,
@@ -48,12 +48,17 @@ implements IWorkbenchPreferencePage {
 				PreferenceConstants.P_SOLVER_CHOICE,
 				"An example of a multiple-choice preference",
 				1,
-				new String[][] { { "&SAT4J", PreferenceConstants.V_SOLVER_SAT4J }, {
-					"&MiniSat pipe", PreferenceConstants.V_SOLVER_MINISAT_PIPE }},
+				new String[][] {
+						{ "&SAT4J", PreferenceConstants.V_SOLVER_SAT4J }, 
+						{"&MiniSat pipe", PreferenceConstants.V_SOLVER_MINISAT_PIPE },
+						{"&MiniSatProverJNI", PreferenceConstants.V_SOLVER_MiniSatProverJNI },
+						{"&ZChaffJNI", PreferenceConstants.V_SOLVER_ZChaffJNI }
+				},
 				getFieldEditorParent()));
 
-		addField(
+		/*		addField(
 				new StringFieldEditor(PreferenceConstants.P_STRING, "A &text preference:", getFieldEditorParent()));
+		 */
 	}
 
 	/* (non-Javadoc)
@@ -62,5 +67,5 @@ implements IWorkbenchPreferencePage {
 	public void init(IWorkbench workbench) {
 	}
 
-	
+
 }

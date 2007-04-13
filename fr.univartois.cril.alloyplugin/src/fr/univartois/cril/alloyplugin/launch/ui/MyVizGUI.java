@@ -3,8 +3,6 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 import java.io.File;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import javax.swing.JPanel;
 
