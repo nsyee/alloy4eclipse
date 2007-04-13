@@ -25,10 +25,10 @@
             class="fr.univartois.cril.alloyplugin.editor.MultiPageEditor"
             contributorClass="fr.univartois.cril.alloyplugin.editor.MultiPageEditorContributor"
             default="true"
-            extensions="als"
-            icon="icons/AlloyFile.gif"
+            extensions="xml"
+            icon="icons/sample.gif"
             id="fr.univartois.cril.alloyplugin.editors.MultiPageEditor"
-            name="Small Alloy editor beta 0.0.1"/>
+            name="Multipage Small XML editor "/>
 </extension>
 <extension
       point="org.eclipse.core.filebuffers.documentSetup">

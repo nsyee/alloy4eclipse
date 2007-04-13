@@ -20,6 +20,8 @@ import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.core.ALSFile;
+import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 
 /**
@@ -30,7 +32,7 @@ public class ALSEditor extends TextEditor {
 	
 
 	private AlloyContentOutlinePage fOutlinePage=null;
-	//AlloySolutionViewer asv;
+	private AnswerDisplayPage[] swtAwtComponent;
 	
 	
 	/**
@@ -43,8 +45,32 @@ public class ALSEditor extends TextEditor {
 		// Attache la configuration
 		setSourceViewerConfiguration(new ALSSourceViewerConfiguration());
 		
+		/*ALSFile af=(ALSFile) getALSFile();
+		Object[] tab=(af.getCommand()).toArray();
+		int length = tab.length;
+		
+		for(int i=0;i<swtAwtComponent.length;i++){
+			 swtAwtComponent[i] = new AnswerDisplayPage(null, SWT.EMBEDDED);
+		}*/
 	}
-
+	
+	public AnswerDisplayPage[] getAnsDisplayPage(){
+		return swtAwtComponent;
+	}
+	
+	private ExecutableCommand[] createCommands(Object[] commands) {
+		ExecutableCommand[] cmds = new ExecutableCommand[commands.length];
+		for(int i=0;i<commands.length;i++){
+			cmds[i]=(ExecutableCommand) commands[i];			
+		}
+		return cmds;	
+	}
+	
+	
+	
+	
+	
+	
 
 	/**
 	 * Used for contentoutline (not implement yet)
