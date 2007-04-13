@@ -1,6 +1,14 @@
 package fr.univartois.cril.alloyplugin.core;
 
+import java.io.ByteArrayInputStream;
+
+import org.eclipse.core.internal.resources.Workspace;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
@@ -79,7 +87,7 @@ public class ExecutableCommand implements IALSCommand {
 			else {			
 				solver = A4Options.SatSolver.SAT4J;
 			}
-			
+
 			solver = A4Options.SatSolver.SAT4J;
 			this.options.solver=solver;
 		}
@@ -167,7 +175,7 @@ public class ExecutableCommand implements IALSCommand {
 		this.ans=ans;
 		System.out.println("dispaly ans:"+AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER));
 		if(AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_ANSWER))
-			{
+		{
 			System.out.println("dispaly ans:ICI");
 			Display display = PlatformUI.getWorkbench().getDisplay();		
 			if (display!=null)
@@ -182,8 +190,8 @@ public class ExecutableCommand implements IALSCommand {
 								}					
 							}
 						});
-			
-			}
+
+		}
 		return ans;
 	}
 
@@ -267,30 +275,55 @@ public class ExecutableCommand implements IALSCommand {
 		else return command.toString()+" [SAT]";	
 
 	}
-/**
- * Display answer.
- * 
- * */
+	/**
+	 * Display answer.
+	 * 
+	 * */
 	public  void displayAns() throws Err {
 //		GraphView.Visualize(ans);   
-		
+		System.out.println("displayAns");
 		if (ans.satisfiable()){
-			String path=AlloyPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_OUTPUT_PATH);
-			if (!"".equals(path))path=path.concat(AlloyPlugin.FILE_SEPARATOR);
-			else {
-				
-				
-				
+			//String path=AlloyPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_OUTPUT_PATH);
+			System.out.println("Ans Sat");
+
+			IFolder outputFolder=getResource().getParent().getFolder(new Path("output"));//=getResource().getProject().getFolder(path);
+
+			if(!outputFolder.exists())
+			{
+				System.out.println("là");
+				try {
+
+					outputFolder.create(false,true, null);// create(new ByteArrayInputStream(new byte[0]), true, null);
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return;
+				}
 			}
-			System.out.println("path:"+path);
-			System.out.println("fullpath:"+getResource().getFullPath());
-			
-			ans.writeXML(path+"output.xml", false);
+			//ResourcesPlugin.getWorkspace().
+			System.out.println("ici");
+			IFile outputFile=outputFolder.getFile(getName());
+
+			if(!outputFile.exists())
+			{
+				System.out.println("existe pas, creer");
+				try {
+					outputFile.create(null/*new byte[0]*/, false, null);
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			System.out.println("write XML:"+outputFile);
+			ans.writeXML(Util.getFileLocation(outputFile), false);
 			//
 			// You can then visualize the XML file by calling this:
 			VizGUI viz = new VizGUI(false,"",null);
-			viz.run(VizGUI.evs_loadInstanceForcefully, path+"output.xml");
-			}        
+			viz.run(VizGUI.evs_loadInstanceForcefully,Util.getFileLocation(outputFile));
+
+		}
+
+
 	}
 
 
