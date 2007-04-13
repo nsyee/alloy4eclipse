@@ -15,7 +15,7 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
 public class Util {
 
 	/**
-	 * Try to get the location of the resource. 
+	 * Try to get the absolute path of the resource. 
 	 * Returns the file location or null;
 	 * @param resource 
 	 */
