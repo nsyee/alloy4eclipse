@@ -15,7 +15,7 @@
             id="fr.univartois.cril.alloyplugin.editor.ALSEditor"
             extensions="als"/>
       <editor
-            class="fr.univartois.cril.alloyplugin.AnswerEditor.XMLEditor"
+            class="fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor"
             icon="icons/graph.gif"
             default="false"
             name="Answer viewer"         

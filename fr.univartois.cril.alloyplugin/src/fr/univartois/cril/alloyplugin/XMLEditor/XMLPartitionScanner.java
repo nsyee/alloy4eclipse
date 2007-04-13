@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.AnswerEditor;
+package fr.univartois.cril.alloyplugin.XMLEditor;
 
 import org.eclipse.jface.text.rules.*;
 

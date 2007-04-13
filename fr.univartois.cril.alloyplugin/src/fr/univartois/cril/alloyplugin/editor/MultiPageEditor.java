@@ -45,7 +45,7 @@ import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.AnswerEditor.XMLEditor;
+import fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor;
 import fr.univartois.cril.alloyplugin.core.ALSFile;
 import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
@@ -82,7 +82,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 	public MultiPageEditor() {
 		super();
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
-
+		
 	}
 	/**
 	 * Creates page 0 of the multi-page editor,
@@ -149,7 +149,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 
 				int index = addPage(swtAwtComponent);
 				setPageText(index, "graph");
-			
 		
 	}
 
