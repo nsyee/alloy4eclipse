@@ -63,6 +63,8 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
  */
 public class MultiPageEditor extends MultiPageEditorPart implements IResourceChangeListener{
 
+	public static final String EDITOR_ID = "fr.univartois.cril.alloyplugin.editors.MultiPageEditor";
+
 	/** The text editor used in page 0. */
 	private XMLEditor editor;
 
