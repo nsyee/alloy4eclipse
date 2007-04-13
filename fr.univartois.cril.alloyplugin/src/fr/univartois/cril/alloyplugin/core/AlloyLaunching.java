@@ -182,7 +182,7 @@ public class AlloyLaunching {
 	 */
 	private static final void execCommand(ExecutableCommand command,Reporter rep)  {
 		AlloyMessageConsole alloyConsole=Console.findAlloyConsole(command.getFilename());
-		alloyConsole.reveal();
+		alloyConsole.activate();
 		try {
 
 			alloyConsole.printInfo("============ Command "+command+": ============");

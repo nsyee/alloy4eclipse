@@ -95,7 +95,7 @@ public class DisplayCommandAnswerAction extends SelectionProviderAction {
 			ans=commands[i].getAns();
 
 			AlloyMessageConsole alloyConsole=Console.findAlloyConsole(commands[i].getFilename());
-			alloyConsole.reveal();
+			alloyConsole.activate();
 			if (ans!=null)
 				alloyConsole.printInfo("============ Answer ============");
 			else

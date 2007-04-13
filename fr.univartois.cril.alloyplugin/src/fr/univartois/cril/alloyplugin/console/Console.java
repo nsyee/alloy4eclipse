@@ -51,7 +51,7 @@ public class Console {
 		AlloyMessageConsole amc=findAlloyInfoConsole("");
 		amc.clear();
 		amc.addErrListener(e);
-		amc.reveal();
+		amc.activate();
 		amc.print(e.getMessage(),new Color(null,255 ,0,0),SWT.DEFAULT);		
 	}
 	
@@ -76,28 +76,4 @@ public class Console {
 
 	
 	
-	/**
-	 * Reveals the default Eclipse Console View and display the given console.
-	 */
-	protected static void revealConsoleView (AlloyMessageConsole console) {		
-		/*IWorkbench wb = PlatformUI.getWorkbench();
-		if (wb==null) return;
-		IWorkbenchWindow aww = wb.getActiveWorkbenchWindow();
-		if (aww==null) return;
-		IWorkbenchPage page=aww.getActivePage();			    
-		String id = IConsoleConstants.ID_CONSOLE_VIEW;
-		IConsoleView view;
-		*/
-		/*try {
-			view = (IConsoleView) page.showView(id);
-			view.setPinned(false);						
-			view.display(console);
-			
-
-		} catch (PartInitException e) {
-
-			e.printStackTrace();
-		}*/
-		//console.activate();
-	}
 }
