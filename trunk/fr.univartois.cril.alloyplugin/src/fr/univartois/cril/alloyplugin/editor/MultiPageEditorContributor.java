@@ -20,7 +20,7 @@ import org.eclipse.ui.texteditor.ITextEditorActionConstants;
  */
 public class MultiPageEditorContributor extends MultiPageEditorActionBarContributor {
 	private IEditorPart activeEditorPart;
-	private Action sampleAction;
+	private Action editorAction;
 	/**
 	 * Creates a multi-page contributor.
 	 */
@@ -81,23 +81,23 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		}
 	}
 	private void createActions() {
-		sampleAction = new Action() {
+		editorAction = new Action() {
 			public void run() {
 				MessageDialog.openInformation(null, "Alloy Plug-in", "Sample Action Executed");
 			}
 		};
-		sampleAction.setText("Sample Action");
-		sampleAction.setToolTipText("Sample Action tool tip");
-		sampleAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+		editorAction.setText("Sample Action");
+		editorAction.setToolTipText("Sample Action tool tip");
+		editorAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
 	}
 	public void contributeToMenu(IMenuManager manager) {
 		IMenuManager menu = new MenuManager("Editor &Menu");
 		manager.prependToGroup(IWorkbenchActionConstants.MB_ADDITIONS, menu);
-		menu.add(sampleAction);
+		menu.add(editorAction);
 	}
 	public void contributeToToolBar(IToolBarManager manager) {
 		manager.add(new Separator());
-		manager.add(sampleAction);
+		manager.add(editorAction);
 	}
 }

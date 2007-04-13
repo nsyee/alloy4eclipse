@@ -711,7 +711,7 @@ public final class MyVizGUI implements MultiRunnable, ComponentListener {
 			settingsOpen=0;
 			thememenu.setEnabled(true);
 			windowmenu.setEnabled(true);
-			frame.setVisible(true);
+			frame.setVisible(false);
 			frame.setTitle("Alloy Visualizer "+Version.version()+" loading... Please wait...");
 			if ((frame.getExtendedState() & JFrame.MAXIMIZED_BOTH)!=JFrame.MAXIMIZED_BOTH)
 				frame.setExtendedState(JFrame.NORMAL);
