@@ -2,7 +2,7 @@
 <feature
       id="fr.univartois.cril.alloy4feature"
       label="Alloy 4 Feature"
-      version="0.1.3"
+      version="0.1.4"
       provider-name="Université d&apos;Artois">
 
    <description url="http://code.google.com/p/alloy4eclipse/">
