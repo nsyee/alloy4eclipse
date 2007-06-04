@@ -23,7 +23,7 @@ public class DisplayCommandAnswerAction extends SelectionProviderAction {
 	private static final String ACTION_ID = "fr.univartois.cril.alloyplugin.launch.displayalloycommandanswer";
 	public static final String MODEL = "Show Model";
 	public static final String ANSWER = "Show Answer";
-	public static final String COUNTER_EXEMPLE = "Show Counter exemple";
+	public static final String COUNTER_EXEMPLE = "Show Counter Example";
 
 	/**
 	 * the selection which is associated.

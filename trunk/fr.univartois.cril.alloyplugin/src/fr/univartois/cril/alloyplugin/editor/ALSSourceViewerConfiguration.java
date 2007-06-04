@@ -79,6 +79,11 @@ public class ALSSourceViewerConfiguration extends SourceViewerConfiguration {
 		reconciler.setDamager(ddr, ALSPartitionScanner.ALS_COMMENT);
 		reconciler.setRepairer(ddr, ALSPartitionScanner.ALS_COMMENT);
 	
+        ddr= new DefaultDamagerRepairer(
+                new SingleTokenScanner(provider.getAttribute(ALSTextAttributeProvider.COMMENT_ANDREW_ATTRIBUTE))
+                                    );
+        reconciler.setDamager(ddr, ALSPartitionScanner.ALS_COMMENT_ANDREW);
+        reconciler.setRepairer(ddr, ALSPartitionScanner.ALS_COMMENT_ANDREW);
 		return reconciler;
 	}
 
