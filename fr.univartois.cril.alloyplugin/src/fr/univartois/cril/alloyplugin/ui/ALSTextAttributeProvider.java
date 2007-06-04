@@ -19,6 +19,7 @@ public class ALSTextAttributeProvider {
 	public static final String COMMAND_ATTRIBUTE = "__pos_als_command_attribute";
 	public static final String DIRECTIVE_ATTRIBUTE = "__pos_als_directive_attribute";
 	public static final String COMMENT_ATTRIBUTE = "__pos_als_comment_attribute";
+    public static final String COMMENT_ANDREW_ATTRIBUTE = "__pos_als_comment_andrew_attribute";
 	public static final String DEFAULT_ATTRIBUTE = "__pos_als_default_attribute";
 
 	public static final String DECIMAL_NUMBER_ATTRIBUTE = "__pos_als_decimal_number_attribute";
@@ -49,6 +50,11 @@ public class ALSTextAttributeProvider {
 		fAttributes.put(COMMENT_ATTRIBUTE,
 				new TextAttribute(new Color(Display.getCurrent(), 
 									new RGB(63, 127, 95))));
+        
+        // Andrew's specific comments ////
+        fAttributes.put(COMMENT_ANDREW_ATTRIBUTE,
+                new TextAttribute(new Color(Display.getCurrent(), 
+                                    new RGB(224, 224, 224))));
 		// Par défaut
 		fAttributes.put(DEFAULT_ATTRIBUTE,
 				new TextAttribute(new Color(Display.getCurrent(), 
