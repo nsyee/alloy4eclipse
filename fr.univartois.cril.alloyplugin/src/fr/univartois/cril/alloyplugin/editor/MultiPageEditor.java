@@ -2,6 +2,7 @@ package fr.univartois.cril.alloyplugin.editor;
 
 
 import javax.swing.JPanel;
+
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
@@ -14,10 +15,17 @@ import org.eclipse.swt.awt.SWT_AWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.*;
+import org.eclipse.ui.IEditorActionBarContributor;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-import org.eclipse.ui.ide.IDE;
+
 import fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor;
 import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
@@ -38,12 +46,27 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 	/** The text editor used in page 0. */
 	private XMLEditor editor;
 	
+	private MyVizGUI viz;
+	
+	public MyVizGUI getVizGUI() {
+		return viz;
+	}
 	
 	public MultiPageEditor() {
 		super();
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
 		
 	}
+	
+	@Override
+	protected void pageChange(int newPageIndex) {
+		final IEditorActionBarContributor contributor = getEditorSite().getActionBarContributor();
+		if (contributor != null && contributor instanceof MultiPageEditorContributor) {
+			((MultiPageEditorContributor) contributor).setMultiPageEditor(this);
+		}
+		super.pageChange(newPageIndex);
+	}
+	
 	/**
 	 * Creates page 1 of the multi-page editor,
 	 * which contains a text editor.
@@ -77,7 +100,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 				
 				javax.swing.JPanel panel = new JPanel();
 				
-				MyVizGUI viz = new MyVizGUI();
+				viz = new MyVizGUI();
 				viz.run(MyVizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
 	
 				panel=viz.getGraphPanel();
