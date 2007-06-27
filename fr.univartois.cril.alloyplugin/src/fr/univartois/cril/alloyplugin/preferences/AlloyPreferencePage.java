@@ -51,7 +51,8 @@ implements IWorkbenchPreferencePage {
 				new String[][] {
 						{ "&SAT4J", PreferenceConstants.V_SOLVER_SAT4J }, 
 						{"&MiniSat pipe", PreferenceConstants.V_SOLVER_MINISAT_PIPE },
-						{"&MiniSatProverJNI", PreferenceConstants.V_SOLVER_MiniSatProverJNI },
+						{"MiniSatProver &JNI", PreferenceConstants.V_SOLVER_MiniSatProverJNI },
+						{"MiniSatProver &Unsat Core", PreferenceConstants.V_SOLVER_MiniSatProverUnsatCore },
 						{"&ZChaffJNI", PreferenceConstants.V_SOLVER_ZChaffJNI }
 				},
 				getFieldEditorParent()));
