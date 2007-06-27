@@ -1,7 +1,18 @@
 package fr.univartois.cril.alloyplugin.editor;
 
-import org.eclipse.jface.action.*;
-import org.eclipse.jface.dialogs.MessageDialog;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.emf.common.ui.dialogs.ResourceDialog;
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
+import org.eclipse.swt.SWT;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchActionConstants;
@@ -13,6 +24,8 @@ import org.eclipse.ui.part.MultiPageEditorActionBarContributor;
 import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.texteditor.ITextEditorActionConstants;
 
+import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
+
 /**
  * Manages the installation/deinstallation of global actions for multi-page editors.
  * Responsible for the redirection of global actions to the active editor.
@@ -21,6 +34,12 @@ import org.eclipse.ui.texteditor.ITextEditorActionConstants;
 public class MultiPageEditorContributor extends MultiPageEditorActionBarContributor {
 	private IEditorPart activeEditorPart;
 	private Action editorAction;
+	private MultiPageEditor multiPageEditor;
+	
+	public void setMultiPageEditor(MultiPageEditor multiPageEditor) {
+		this.multiPageEditor = multiPageEditor;
+	}
+	
 	/**
 	 * Creates a multi-page contributor.
 	 */
@@ -83,11 +102,29 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 	private void createActions() {
 		editorAction = new Action() {
 			public void run() {
-				MessageDialog.openInformation(null, "Alloy Plug-in", "work in progress");
+				ResourceDialog dialog = new ResourceDialog(null, "Select a visualization theme (*.thm)", SWT.OPEN | SWT.SINGLE){
+					protected boolean processResources() {
+					  final String path = getURIText();
+					  if (multiPageEditor != null) {
+						  MyVizGUI viz = multiPageEditor.getVizGUI();
+						  try {
+							  final URL themeUrl = FileLocator.toFileURL(new URL(path));
+							  viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
+						  } catch (MalformedURLException e) {
+							  return false;
+						  } catch (IOException e) {
+							  return false;
+						  }
+
+					  }
+					  return true;
+					}
+				};
+				dialog.open();
 			}
 		};
-		editorAction.setText("Sample Action");
-		editorAction.setToolTipText("Sample Action tool tip");
+		editorAction.setText("Apply Visualization Theme");
+		editorAction.setToolTipText("Alloy4Eclipse Visualization Theme");
 		editorAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
 	}

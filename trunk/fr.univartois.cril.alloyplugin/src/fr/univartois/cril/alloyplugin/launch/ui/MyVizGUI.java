@@ -3,6 +3,9 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 import java.io.File;
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.eclipse.jface.dialogs.MessageDialog;
 import edu.mit.csail.sdg.alloy4.Util;
@@ -51,9 +54,8 @@ public final class MyVizGUI {
 	/** This event loads a new XML instance file (reloading it from disk even if the filename equals the current filename) */
 	public static final int evs_loadInstanceForcefully = 103;
 
-
-
-
+    /** This events loads a specific theme file. */
+    private static final int evs_loadTheme = 203;
 
 	/** Performs the function given by "key" on the argument "arg"; returns true if it succeeds. */
 	public boolean run(final int key, final String arg) {
@@ -82,6 +84,20 @@ public final class MyVizGUI {
 			updateDisplay();
 		}
 
+		if (key==evs_loadTheme) {
+			if (myState==null) return false; // Can only load if there is a VizState loaded
+			String filename=Util.canon(arg);
+			try {
+				myState.loadPaletteXML(filename);
+			} catch (IOException ex) {
+				//JOptionPane.showMessageDialog(null,"Exception: "+ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				return false;
+			}
+			
+			if (myGraphPanel!=null) myGraphPanel.remakeAll();
+			updateDisplay();
+		}
+		 
 		return true;
 	}
 
