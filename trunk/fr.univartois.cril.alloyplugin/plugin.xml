@@ -17,10 +17,11 @@
       <editor
             class="fr.univartois.cril.alloyplugin.editor.MultiPageEditor"
             contributorClass="fr.univartois.cril.alloyplugin.editor.MultiPageEditorContributor"
-            default="true"
+            default="false"
             extensions="xml"
             icon="icons/graph.gif"
             id="fr.univartois.cril.alloyplugin.editors.MultiPageEditor"
+            matchingStrategy="fr.univartois.cril.alloyplugin.editor.AlloyXMLEditorMatchingStrategy"
             name="Alloy XML answer viewer"/>
 </extension>
 <extension
