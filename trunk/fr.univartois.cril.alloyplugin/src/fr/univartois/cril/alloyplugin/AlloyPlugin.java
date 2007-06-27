@@ -216,12 +216,12 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		final String platformBinary=Helper.alloyHome()+FILE_SEPARATOR+"binary";
 
 		// Copy the platform-dependent binaries
-		Util.copy(true, false, false, platformBinary,
+		Util.copy(true, false, platformBinary,
 				arch+"/libminisat.so", arch+"/libminisat.jnilib",
 				arch+"/libminisatprover.so", arch+"/libminisatprover.jnilib",
 				arch+"/libzchaff.so", arch+"/libzchaff.jnilib",
 				arch+"/minisat1", arch+"/berkmin", arch+"/dotbin");
-		Util.copy(false, false, false, platformBinary,
+		Util.copy(false, false, platformBinary,
 				arch+"/minisat.dll", arch+"/minisatprover.dll", arch+"/zchaff.dll",
 				arch+"/minisat1.exe", arch+"/berkmin.exe",
 				arch+"/dotbin.exe", arch+"/jpeg.dll", arch+"/libexpat.dll", arch+"/libexpatw.dll",

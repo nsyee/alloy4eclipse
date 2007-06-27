@@ -128,7 +128,6 @@ public class AlloyLaunching {
 	alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
 	World world;
 	world = CompUtil.parseEverything_fromFile(rep, null, filename, rep);	
-	world.typecheck(rep);			
 	alloyParserConsole.printInfo("=========== End Parsing \""+filename+"\" =============");
 	updateALSFile(world,file);	
 	}
