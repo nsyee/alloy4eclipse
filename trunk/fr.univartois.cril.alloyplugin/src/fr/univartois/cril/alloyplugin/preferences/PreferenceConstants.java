@@ -13,6 +13,6 @@ public class PreferenceConstants {
 	public static final String V_SOLVER_MINISAT_PIPE = "minisat_pipe";
 	public static final String V_SOLVER_ZChaffJNI = "ZChaffJNI";
 	public static final String V_SOLVER_MiniSatProverJNI = "MiniSatProverJNI";
-	
+	public static final String V_SOLVER_MiniSatProverUnsatCore = "MiniSatProverUnsatCore";
 	
 }

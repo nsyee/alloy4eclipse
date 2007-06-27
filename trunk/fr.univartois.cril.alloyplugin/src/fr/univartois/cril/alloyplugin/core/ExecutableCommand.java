@@ -110,14 +110,13 @@ public class ExecutableCommand implements IALSCommand {
 
 		if(PreferenceConstants.V_SOLVER_MINISAT_PIPE.equals(defaultSolver)) {            
 			solver = A4Options.SatSolver.MiniSatPIPE;
-		}
-		else if(PreferenceConstants.V_SOLVER_ZChaffJNI.equals(defaultSolver)) {            
+		} else if(PreferenceConstants.V_SOLVER_ZChaffJNI.equals(defaultSolver)) {            
 			solver = A4Options.SatSolver.ZChaffJNI;
-		}
-		else if(PreferenceConstants.V_SOLVER_MiniSatProverJNI.equals(defaultSolver)) {            
+		} else if(PreferenceConstants.V_SOLVER_MiniSatProverJNI.equals(defaultSolver)) {            
 			solver = A4Options.SatSolver.MiniSatProverJNI;
-		}
-		else {            
+		} else if(PreferenceConstants.V_SOLVER_MiniSatProverUnsatCore.equals(defaultSolver)) {            
+			solver = A4Options.SatSolver.MiniSatProverJNI;
+		} else {            
 			solver = A4Options.SatSolver.SAT4J;
 		}
 

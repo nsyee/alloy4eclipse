@@ -5,14 +5,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.emf.common.ui.dialogs.ResourceDialog;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchActionConstants;
@@ -102,25 +101,23 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 	private void createActions() {
 		editorAction = new Action() {
 			public void run() {
-				ResourceDialog dialog = new ResourceDialog(null, "Select a visualization theme (*.thm)", SWT.OPEN | SWT.SINGLE){
-					protected boolean processResources() {
-					  final String path = getURIText();
-					  if (multiPageEditor != null) {
-						  MyVizGUI viz = multiPageEditor.getVizGUI();
-						  try {
-							  final URL themeUrl = FileLocator.toFileURL(new URL(path));
-							  viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
-						  } catch (MalformedURLException e) {
-							  return false;
-						  } catch (IOException e) {
-							  return false;
-						  }
-
-					  }
-					  return true;
-					}
-				};
+				FileDialog dialog = new FileDialog(multiPageEditor.getEditorSite().getShell());
+				dialog.setFilterExtensions(new String[] {"thm"});
+				dialog.setText("Select a visualization theme");
 				dialog.open();
+				final String path = dialog.getFileName();
+				if (multiPageEditor != null) {
+					  MyVizGUI viz = multiPageEditor.getVizGUI();
+					  try {
+						  final URL themeUrl = FileLocator.toFileURL(new URL(path));
+						  viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
+					  } catch (MalformedURLException e) {
+						  // need to do something
+					  } catch (IOException e) {
+//						 need to do something
+					  }
+
+				  }
 			}
 		};
 		editorAction.setText("Apply Visualization Theme");
