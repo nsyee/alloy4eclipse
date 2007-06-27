@@ -30,3 +30,8 @@ An Alloy Builder was introduced in release 0.0.6.
 You can add the Alloy Builder to an older Alloy project by using the "Add/Remove Alloy Project Nature" in the contextual popup menu of the project.
 
 You can check that your project has the correct builders by taking a look at the builders tab in the project properties (available from the project contextual menu too).
+
+= Applying a visualization theme =
+
+Since release 0.1.5, it is possible to apply a visualization theme to Alloy graphs.
+The theme can be loaded thanks to the editor menu available on the main menu bar when the visualization editor is active.
