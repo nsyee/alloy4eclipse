@@ -12,6 +12,8 @@ import org.eclipse.core.runtime.CoreException;
 
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.ErrorWarning;
+import edu.mit.csail.sdg.alloy4.IdentitySet;
+import edu.mit.csail.sdg.alloy4.Pos;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
@@ -87,7 +89,7 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 	
 	@SuppressWarnings("deprecation")
 	@Override public void resultSAT
-	(Object command, long solvingTime, String filename) {
+	(Object command, long solvingTime, String formula,String filename) {
 		Command cmd = (Command)command;
 		StringBuilder sb = new StringBuilder("");
 		if (cmd.check) {
@@ -107,7 +109,7 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 	
 	@SuppressWarnings("deprecation")
 	@Override public void resultUNSAT
-	(Object command, long solvingTime, String filename) {    	
+	(Object command, long solvingTime, String formula, IdentitySet<Pos> core) {    	
 		Command cmd = (Command)command;
 		StringBuilder sb = new StringBuilder("");
 		if (cmd.check) {
