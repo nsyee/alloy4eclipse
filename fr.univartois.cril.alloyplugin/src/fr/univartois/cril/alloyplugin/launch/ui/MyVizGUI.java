@@ -5,9 +5,10 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 import java.io.File;
 import java.io.IOException;
 
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 import org.eclipse.jface.dialogs.MessageDialog;
+
 import edu.mit.csail.sdg.alloy4.Util;
 import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
 import edu.mit.csail.sdg.alloy4viz.StaticInstanceReader;

@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -101,15 +104,19 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 	private void createActions() {
 		editorAction = new Action() {
 			public void run() {
+				try {
 				FileDialog dialog = new FileDialog(multiPageEditor.getEditorSite().getShell());
-				dialog.setFilterExtensions(new String[] {"thm"});
+				dialog.setFilterExtensions(new String[] {"*.thm"});
+				IResource resource = (IResource) multiPageEditor.getEditorInput().getAdapter(IResource.class);
+				dialog.setFilterPath(resource.getProject().getLocation().toPortableString());
 				dialog.setText("Select a visualization theme");
 				dialog.open();
-				final String path = dialog.getFileName();
+				final IPath dir = new Path(dialog.getFilterPath());
+				final IPath path = dir.addTrailingSeparator().append(dialog.getFileName());
 				if (multiPageEditor != null) {
 					  MyVizGUI viz = multiPageEditor.getVizGUI();
 					  try {
-						  final URL themeUrl = FileLocator.toFileURL(new URL(path));
+						  final URL themeUrl = FileLocator.toFileURL(path.toFile().toURL());
 						  viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
 					  } catch (MalformedURLException e) {
 						  // need to do something
@@ -118,6 +125,9 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 					  }
 
 				  }
+				} catch (Exception e) {
+					// need to do something
+				}
 			}
 		};
 		editorAction.setText("Apply Visualization Theme");
