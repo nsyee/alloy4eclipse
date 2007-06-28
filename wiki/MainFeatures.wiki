@@ -17,15 +17,16 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-a.png
   * Outline view
 http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-0.1.1.png
   * Visualization using Graphviz+Swing
+  * Improved commands contextual menus
+  * Fix for spec files included in Alloy4.jar 
+  * Embedding the Graphical view into an eclipse view
+
 
 = Available on SVN =
 
-  * Improved commands contextual menus
-  * Fix for spec files included in Alloy4.jar 
 
 = Upcoming features (in order of priority) =
-  # Embedding the Graphical view into an eclipse view
-  # Managing configuration/properties the Eclipse way
+  # Improved configuration/properties management
   # Manage platform dependent binaries (SAT solvers, dotbin) with Eclipse plugins
   # ~~Code format~~ (looks too dependent of Alloy4 compiler)
   # Quick fix
