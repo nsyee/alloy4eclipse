@@ -32,12 +32,9 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
 import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
 /**
- * A command with its world and its resource.
+ * An Alloy command with its world and its resources.
  * Can be executed.
  */
-
-
-
 
 
 public class ExecutableCommand implements IALSCommand {
@@ -92,11 +89,6 @@ public class ExecutableCommand implements IALSCommand {
 		this.command  = command;
 		this.result    = UNKNOW;
 	}
-
-
-
-
-
 
 	/**
 	 * Get the option.
@@ -171,29 +163,17 @@ public class ExecutableCommand implements IALSCommand {
 
 
 	/**
-	 * Execute this command whith te given reporter.
+	 * Execute this command with te given reporter.
 	 * */
 	protected A4Solution execute(Reporter rep) throws Err {
 		rep.setExecCommand(this);
 		A4Solution ans = TranslateAlloyToKodkod.execute_command(world,command,getOptions(rep), null, null);
 		this.ans=ans;
 		file.fireChange();
-
+		//if preference "show answer after execution" is enable, display answer in a Graphic thread:
 		if(AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
 		{         
-			Display display = PlatformUI.getWorkbench().getDisplay();        
-			if (display!=null)
-				display.asyncExec(
-						new Runnable() {
-							public void run(){
-								try {
-									ExecutableCommand.this.displayAns();
-								} catch (Err e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}                    
-							}
-						});
+			displayAnsSafe();
 
 		}
 		return ans;
@@ -288,19 +268,8 @@ public class ExecutableCommand implements IALSCommand {
 	public  void displayAns() throws Err {
 
 		if (ans.satisfiable()){
-			IFolder outputFolder=getResource().getParent().getFolder(new Path("output"));//=getResource().getProject().getFolder(path);
-			if(!outputFolder.exists())
-			{
-				try {
-
-					outputFolder.create(false,true, null);// create(new ByteArrayInputStream(new byte[0]), true, null);
-				} catch (CoreException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					return;
-				}
-			}
-
+			IFolder outputFolder=getAnswerFolder("output");
+			if (outputFolder==null) return;
 			IFile outputFile=outputFolder.getFile(getName()+".xml");
 
 			if(!outputFile.exists())
@@ -328,6 +297,45 @@ public class ExecutableCommand implements IALSCommand {
 
 	}
 
+
+	/**
+	 * Get answer folder.
+	 * */
+	private IFolder getAnswerFolder(String folderName)
+	{
+		IFolder outputFolder=getResource().getParent().getFolder(new Path(folderName));
+		if(!outputFolder.exists())
+		{
+			try {
+				outputFolder.create(false,true, null);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+		}
+		return outputFolder;
+	}
+
+	/** 
+	 * Display Answer in a SWT thread. 
+	 **/
+	private void displayAnsSafe() {
+		Display display = PlatformUI.getWorkbench().getDisplay();        
+		if (display!=null)
+			display.asyncExec(
+					new Runnable() {
+						public void run(){
+							try {
+								ExecutableCommand.this.displayAns();
+							} catch (Err e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}                    
+						}
+					});
+
+	}
 
 	public boolean isCheck() {
 		return command.check;
