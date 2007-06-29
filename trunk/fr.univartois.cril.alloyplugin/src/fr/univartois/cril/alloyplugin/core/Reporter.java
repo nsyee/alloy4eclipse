@@ -182,7 +182,9 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 	}
 
 	
-	
+	/**
+	 * Set the ExecutableCommand to the reporter.
+	 * */
 	public void setExecCommand(ExecutableCommand cmd) {
 		this.execCommand=cmd;
 	}
