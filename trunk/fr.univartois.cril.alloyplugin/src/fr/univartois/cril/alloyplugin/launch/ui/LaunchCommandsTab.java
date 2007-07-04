@@ -150,7 +150,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 	}
 
 	/**
-	 * Check the parameters modifyed by this tab. set if valid or not.
+	 * Check the parameters modified by this tab. set if valid or not.
 	 * */
 	private void checkConfig(){
 

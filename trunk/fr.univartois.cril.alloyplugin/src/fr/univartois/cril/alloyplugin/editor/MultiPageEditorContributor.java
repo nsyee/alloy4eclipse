@@ -116,7 +116,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 				if (multiPageEditor != null) {
 					  MyVizGUI viz = multiPageEditor.getVizGUI();
 					  try {
-						  final URL themeUrl = FileLocator.toFileURL(path.toFile().toURL());
+						  final URL themeUrl = FileLocator.toFileURL(path.toFile().toURI().toURL());
 						  viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
 					  } catch (MalformedURLException e) {
 						  // need to do something
