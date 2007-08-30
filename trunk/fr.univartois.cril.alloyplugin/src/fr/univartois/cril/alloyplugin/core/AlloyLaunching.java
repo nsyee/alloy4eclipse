@@ -19,7 +19,7 @@ import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
-import edu.mit.csail.sdg.alloy4compiler.ast.World;
+import edu.mit.csail.sdg.alloy4compiler.parser.Module;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
@@ -161,8 +161,8 @@ public class AlloyLaunching {
 	AlloyMessageConsole alloyParserConsole=Console.findAlloyInfoConsole(filename);
 	alloyParserConsole.clear();
 	alloyParserConsole.printInfo("=========== Parsing \""+filename+"\" =============");
-	World world;
-	world = CompUtil.parseEverything_fromFile(rep, null, filename, rep);	
+	Module world;
+	world = CompUtil.parseEverything_fromFile(rep, null, filename);	
 	alloyParserConsole.printInfo("=========== End Parsing \""+filename+"\" =============");
 	updateALSFile(world,file);	
 	}
@@ -172,23 +172,23 @@ public class AlloyLaunching {
 	 * Set the fields of an alsFile. (commands, signatures..)
 	 * fire changed() on the als file for listeners.
 	 * */
-	private static void updateALSFile(World world, ALSFile file) throws Err {
+	private static void updateALSFile(Module world, ALSFile file) throws Err {
 //		convert all commands in ExecutableCommand[]
-		SafeList<Command> list = world.getRootModule().getAllCommands();
+		List<Pair<Command,Expr>> list = world.getAllCommandsWithFormulas();
 		List<IALSCommand>  exec_cmds=new ArrayList<IALSCommand>();//new ExecutableCommand[list.size()];		
 
-		for (Command command : list) {			
-			exec_cmds.add(new ExecutableCommand(file,command,world));
+		for (Pair<Command,Expr> command : list) {			
+			exec_cmds.add(new ExecutableCommand(file, command.a, command.b, world));
 		}				
 		file.setCommand(exec_cmds);
-		SafeList<Pair<String,Expr>> factsList=world.getRootModule().getAllFacts();
+		SafeList<Pair<String,Expr>> factsList=world.getAllFacts();
 		List<IALSFact> facts=new ArrayList<IALSFact>(factsList.size());		
 		for(Pair<String,Expr> fact : factsList){
 			facts.add(new Fact(fact));
 		}		
 		file.setFacts(facts);
 
-		SafeList<Func> funcList=world.getRootModule().getAllFunc();
+		SafeList<Func> funcList=world.getAllFunc();
 		List<IALSFunction> funcs=new ArrayList<IALSFunction>(funcList.size());	
 		List<IALSPredicate> preds=new ArrayList<IALSPredicate>(funcList.size());  
 		for(Func fun : funcList){
@@ -200,7 +200,7 @@ public class AlloyLaunching {
 		}
 		file.setFunctions(funcs);
 		file.setPredicates(preds);
-		SafeList<Sig> sigList=world.getRootModule().getAllSigs();
+		SafeList<Sig> sigList=world.getAllSigs();
 		List<IALSSignature> sigs=new ArrayList<IALSSignature>(sigList.size());		
 		for(Sig sig : sigList){
 			sigs.add(new Signature(sig));
@@ -242,7 +242,7 @@ public class AlloyLaunching {
 	@Deprecated
 	public static void displayAns(A4Solution ans) throws Err {
 //		GraphView.Visualize(ans);		
-		ans.writeXML("output.xml", false);
+		ans.writeXML("output.xml");
 		//
 		// You can then visualize the XML file by calling this:
 		VizGUI viz = new VizGUI(false,"",null);
