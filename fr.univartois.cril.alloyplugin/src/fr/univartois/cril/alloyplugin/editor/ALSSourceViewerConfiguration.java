@@ -2,6 +2,8 @@ package fr.univartois.cril.alloyplugin.editor;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.TextAttribute;
+import org.eclipse.jface.text.contentassist.ContentAssistant;
+import org.eclipse.jface.text.contentassist.IContentAssistant;
 import org.eclipse.jface.text.presentation.IPresentationReconciler;
 import org.eclipse.jface.text.presentation.PresentationReconciler;
 import org.eclipse.jface.text.rules.BufferedRuleBasedScanner;
@@ -17,7 +19,7 @@ import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
 
 
 ;/**
- *  
+ *  Configure scanner,color syntax,completion assist... 
  */
 public class ALSSourceViewerConfiguration extends SourceViewerConfiguration {
 	
@@ -57,8 +59,8 @@ public class ALSSourceViewerConfiguration extends SourceViewerConfiguration {
 	}
 	
 	/**
-	 * Met en place la coloration syntaxique. Attribute one damager and one repairers for each partition type.
-	 * @param sourceViewer SourceViewer pour lequel on configure le reconciler.
+	 * Syntax colors : Attribute one damager and one repairers for each partition type.
+	 * @param sourceViewer 
 	 * @return the reconciler.
 	 * @see org.eclipse.jface.text.source.SourceViewerConfiguration#getPresentationReconciler(org.eclipse.jface.text.source.ISourceViewer)
 	 */
@@ -67,12 +69,12 @@ public class ALSSourceViewerConfiguration extends SourceViewerConfiguration {
 		PresentationReconciler reconciler= new PresentationReconciler();
 		reconciler.setDocumentPartitioning(getConfiguredDocumentPartitioning(sourceViewer));
 		
-		// Crée le damager/repairer pour le code
+		// damager/repairer for code
 		DefaultDamagerRepairer ddr = new DefaultDamagerRepairer(AlloyPlugin.getDefault().getALSCodeScanner());
 		reconciler.setDamager(ddr, IDocument.DEFAULT_CONTENT_TYPE);
 		reconciler.setRepairer(ddr, IDocument.DEFAULT_CONTENT_TYPE);
 
-		// Crée le damager/repairer pour les commentaires
+		// repairer for comments
 		ddr= new DefaultDamagerRepairer(
 				new SingleTokenScanner(provider.getAttribute(ALSTextAttributeProvider.COMMENT_ATTRIBUTE))
 									);
@@ -92,4 +94,20 @@ public class ALSSourceViewerConfiguration extends SourceViewerConfiguration {
         return new DefaultAnnotationHover();
     }
     
+    @Override
+    public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
+    	System.out.println("COUCOU00");
+    	ContentAssistant assistant= new ContentAssistant();
+    	assistant.setContentAssistProcessor(new ALSCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
+    	//assistant.setContentAssistProcessor(new JavaDocCompletionProcessor(), JavaPartitionScanner.JAVA_DOC);
+    	assistant.enableAutoInsert(true);		
+		System.out.println("COUCOU000");		
+		assistant.enableAutoActivation(true);
+		assistant.setAutoActivationDelay(500);
+		assistant.setProposalPopupOrientation(IContentAssistant.PROPOSAL_OVERLAY);
+		assistant.setContextInformationPopupOrientation(IContentAssistant.CONTEXT_INFO_ABOVE);
+		//assistant.setContextInformationPopupBackground(JavaEditorEnvironment.getJavaColorProvider().getColor(new RGB(150, 150, 0)));
+   	
+    	return assistant;
+    }    
 }

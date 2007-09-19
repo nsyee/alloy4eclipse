@@ -2,10 +2,15 @@ package fr.univartois.cril.alloyplugin.editor;
 
 
 
+import java.util.ResourceBundle;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.action.IAction;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.editors.text.TextEditor;
+import org.eclipse.ui.texteditor.ContentAssistAction;
+import org.eclipse.ui.texteditor.ITextEditorActionDefinitionIds;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
@@ -33,7 +38,7 @@ public class ALSEditor extends TextEditor {
 	
 	
 	/**
-	 * Used for contentoutline (not implement yet)
+	 * Used for content outline
 	 * */
 
 	public Object getAdapter(Class required) {
@@ -47,6 +52,17 @@ public class ALSEditor extends TextEditor {
 			return fOutlinePage;
 		}
 		return super.getAdapter(required);		
+	}
+	@Override
+	protected void createActions() {
+		super.createActions();
+		ResourceBundle aResourceBundle=ResourceBundle.getBundle("messages");
+		IAction action=	new ContentAssistAction(aResourceBundle, "ContentAssistProposal.", this); //$NON-NLS-1$
+		action.setActionDefinitionId(ITextEditorActionDefinitionIds.CONTENT_ASSIST_PROPOSALS);
+		setAction("actionId", action); //$NON-NLS-1$
+		markAsStateDependentAction("actionId", true); //$NON-NLS-1$
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(action, "helpContextId");
+		
 	}
 
 	/**

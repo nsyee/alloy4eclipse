@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin.editor;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.IWhitespaceDetector;
@@ -16,8 +17,8 @@ import org.eclipse.jface.text.rules.WordRule;
 import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
 
 /**
- * Scanner used to analyse and color Alloy code.
- * 
+ * Scanner used for Alloy code.
+ * (associated with IDocument.DEFAULT_CONTENT_TYPE partition in ALSSourceViewerConfiguration)
  */
 public class ALSCodeScanner extends RuleBasedScanner {
 
@@ -27,22 +28,7 @@ public class ALSCodeScanner extends RuleBasedScanner {
 	 * fun iden if iff implies in Int int let lone module no none not one open
 	 * or part pred run set sig some sum then univ
 	 */
-	public static final String[] keywords = { "abstract", "and", "assert",
-			"but", "disj", "else", "exactly", "extends", "fact", "fun", "iden",
-			"if", "iff", "implies", "in", "Int", "int", "let", "not", "or",
-			"part", "pred", "set", "seq", "sig", "sum", "then", "this", "univ" // doute
-																				// sur
-																				// this
-	};
-
-	public static final String[] quantifiers = { "all", "lone", "no", "none",
-			"one", "some" };
-
-	/** commands */
-	public static final String[] commands = { "run", "check", "for", "expect" };
-
-	/** directives */
-	public static final String[] directives = { "module", "open", "as" };
+	
 
 	/**
 	 * Alloy allowed words detector.
@@ -80,7 +66,7 @@ public class ALSCodeScanner extends RuleBasedScanner {
 		List<IRule> rules = new ArrayList<IRule>(); // Contiendra les régles
 
 		/*
-		 * Création des tokens. Chaque token contient l'attribut à appliquer
+		 *  Chaque token contient l'attribut 
 		 * au texte correspondant.
 		 */
 		IToken keyword = new Token(provider
@@ -103,7 +89,7 @@ public class ALSCodeScanner extends RuleBasedScanner {
 
 		// rules.add(new SingleLineRule("\"", "\"", string, '\0', true));
 		// rules.add(new SingleLineRule("'", "'", string, '\0', true));
-		// Régle générique pour les espaces
+		// generic rules for spaces
 		rules.add(new WhitespaceRule(new IWhitespaceDetector() {
 			public boolean isWhitespace(char c) {
 				return Character.isWhitespace(c);
@@ -116,17 +102,17 @@ public class ALSCodeScanner extends RuleBasedScanner {
 		WordRule wr = new WordRule(new ALSWordDetector(), undefined);
 
 		// Ajout des mot clefs
-		for (int i = 0; i < keywords.length; ++i) {
-			wr.addWord(keywords[i], keyword);
+		for (int i = 0; i < AlloySyntaxConstants.keywords.length; ++i) {
+			wr.addWord(AlloySyntaxConstants.keywords[i], keyword);
 		}
-		for (int i = 0; i < quantifiers.length; ++i) {
-			wr.addWord(quantifiers[i], quantifier);
+		for (int i = 0; i < AlloySyntaxConstants.quantifiers.length; ++i) {
+			wr.addWord(AlloySyntaxConstants.quantifiers[i], quantifier);
 		}
-		for (int i = 0; i < commands.length; ++i) {
-			wr.addWord(commands[i], command);
+		for (int i = 0; i < AlloySyntaxConstants.commands.length; ++i) {
+			wr.addWord(AlloySyntaxConstants.commands[i], command);
 		}
-		for (int i = 0; i < directives.length; ++i) {
-			wr.addWord(directives[i], directive);
+		for (int i = 0; i < AlloySyntaxConstants.directives.length; ++i) {
+			wr.addWord(AlloySyntaxConstants.directives[i], directive);
 		}
 
 		rules.add(wr);
