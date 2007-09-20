@@ -210,7 +210,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		if (arch.equals("powerpc"))
 			arch="ppc-"+os;
 		else
-			arch=arch.replaceAll("\\Ai[3456]86\\z","x86")+"-"+os;
+			arch="x86-"+os;
 
 		// Find out the appropriate Alloy directory
 		final String platformBinary=Helper.alloyHome()+FILE_SEPARATOR+"binary";
