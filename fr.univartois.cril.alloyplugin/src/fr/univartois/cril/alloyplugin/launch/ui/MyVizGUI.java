@@ -27,7 +27,11 @@ public final class MyVizGUI {
 	/** The current instance and visualization settings; null if none is loaded. */
 	private VizState myState=null;
 
-
+	/**
+	 * @author nicolas.rouquette@jpl.nasa.gov
+	 */
+	public VizState getVizState() { return myState; }
+	
 	/** The graphical panel, null if it is not yet loaded. */
 	private VizGraphPanel myGraphPanel=null;
 
