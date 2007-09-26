@@ -1,6 +1,10 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.JPanel;
 
 import org.eclipse.core.resources.IMarker;
@@ -9,6 +13,7 @@ import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.awt.SWT_AWT;
@@ -41,15 +46,45 @@ import fr.univartois.cril.alloyplugin.launch.util.Util;
  */
 public class MultiPageEditor extends MultiPageEditorPart implements IResourceChangeListener{
 
+	/**
+	 * @author Nicolas.Rouquette@jpl.nasa.gov
+	 * @per Reducing Flicker
+	 * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
+	 */
+	static {
+		if (Platform.OS_WIN32.equals(Platform.getOS())) {
+			System.setProperty("sun.awt.noerasebackground", "true");
+		}
+	}
+	
 	public static final String EDITOR_ID = "fr.univartois.cril.alloyplugin.editors.MultiPageEditor";
 
 	/** The text editor used in page 0. */
 	private XMLEditor editor;
 	
-	private MyVizGUI viz;
+	private Map<String,MyVizGUI> vizMap = new HashMap<String, MyVizGUI>();
+	private Map<Integer,MyVizGUI> vizTable = new HashMap<Integer, MyVizGUI>();
 	
-	public MyVizGUI getVizGUI() {
-		return viz;
+	public MyVizGUI getVizGUI(final String pageName) {
+		return vizMap.get(pageName);
+	}
+	
+	public String getCurrentVizGUIName() {
+		final MyVizGUI viz = getCurrentVizGUI();
+		for (Map.Entry<String, MyVizGUI> entry : vizMap.entrySet()) {
+			if (viz.equals(entry.getValue())) {
+				return entry.getKey();
+			}
+		}
+		return "<NULL>";
+	}
+	
+	public int getCurrentVizGUIIndex() {
+		return getActivePage();
+	}
+	
+	public MyVizGUI getCurrentVizGUI() {
+		return vizTable.get(getActivePage());
 	}
 	
 	public MultiPageEditor() {
@@ -58,13 +93,70 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		
 	}
 	
-	@Override
-	protected void pageChange(int newPageIndex) {
+	/**
+	 * @return The MultiPageEditorContributor where we can add, for example, additional actions.
+	 */
+	public MultiPageEditorContributor getMultiPageEditorContributor() {
 		final IEditorActionBarContributor contributor = getEditorSite().getActionBarContributor();
 		if (contributor != null && contributor instanceof MultiPageEditorContributor) {
-			((MultiPageEditorContributor) contributor).setMultiPageEditor(this);
+			return (MultiPageEditorContributor) contributor;
+		}
+		return null;
+	}
+	
+	@Override
+	protected void pageChange(int newPageIndex) {
+		MultiPageEditorContributor contributor = getMultiPageEditorContributor();
+		if (null != contributor) {
+			contributor.setMultiPageEditor(this);
 		}
 		super.pageChange(newPageIndex);
+	}
+	
+	public MyVizGUI addAlloyVisualizationPage(final String pageName, final URL alloyVisualizationTheme) {
+		final IEditorInput input=editor.getEditorInput();
+		
+		Composite swtAwtComponent = new Composite(getContainer(), SWT.EMBEDDED | SWT.NO_BACKGROUND);
+		java.awt.Frame frame = SWT_AWT.new_Frame(swtAwtComponent );
+		
+		/**
+		 * @per Creating a Root Pane Container
+		 * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
+		 */
+		javax.swing.JApplet applet = new javax.swing.JApplet();
+		frame.add(applet);
+		
+		MyVizGUI viz = new MyVizGUI();
+		viz.run(MyVizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
+		if (alloyVisualizationTheme != null) {
+			viz.run(203 /* VizGUI.evs_loadTheme */, alloyVisualizationTheme.getFile());
+		}
+		
+		final JPanel panel=viz.getGraphPanel();
+		if (panel!=null)
+			applet.add(panel);	
+		
+		final FillLayout layout = new FillLayout();
+		swtAwtComponent.setLayout(layout);
+
+		int index = addPage(swtAwtComponent);
+		if (pageName != null) {
+			setPageText(index, pageName);
+		}
+		
+		vizMap.put(pageName, viz);
+		vizTable.put(index, viz);
+		return viz;
+	}
+	
+	public void setActivePage(final String activePageName) {
+		int c = getPageCount();
+		for (int i = 0; i<c; i++) {
+			final String pageName = getPageText(i);
+			if (activePageName.equals(pageName)) {
+				setActivePage(i);
+			}
+		}
 	}
 	
 	/**
@@ -89,29 +181,41 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 	/**
 	 * Creates page 2 of the multi-page editor,
 	 * which contains a frame with the graph.
+	 * 
+	 * @author Nicolas.Rouquette@jpl.nasa.gov
+	 * @per Using the SWT/AWT Bridge
+	 * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
 	 */
 	void createPage2() {
 		
 				IEditorInput input;
 				input=editor.getEditorInput();
 				
-			    Composite swtAwtComponent = new Composite(getContainer(), SWT.EMBEDDED);
+			    Composite swtAwtComponent = new Composite(getContainer(), SWT.EMBEDDED | SWT.NO_BACKGROUND);
 				java.awt.Frame frame = SWT_AWT.new_Frame(swtAwtComponent );
 				
-				javax.swing.JPanel panel = new JPanel();
+				/**
+				 * @per Creating a Root Pane Container
+				 * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
+				 */
+				javax.swing.JApplet applet = new javax.swing.JApplet();
+				frame.add(applet);
 				
-				viz = new MyVizGUI();
+				MyVizGUI viz = new MyVizGUI();
 				viz.run(MyVizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
 	
-				panel=viz.getGraphPanel();
+				JPanel panel=viz.getGraphPanel();
 				if (panel!=null)
-					frame.add(panel);	
+					applet.add(panel);	
 				
 				FillLayout layout = new FillLayout();
 				swtAwtComponent.setLayout(layout);
 
 				int index = addPage(swtAwtComponent);
-				setPageText(index, "graph");
+				String page = "graph";
+				setPageText(index, page);
+				vizMap.put(page, viz);
+				vizTable.put(index, viz);
 		
 	}
 	
@@ -164,6 +268,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		if (!(editorInput instanceof IFileEditorInput))
 			throw new PartInitException("Invalid Input: Must be IFileEditorInput");
 		super.init(site, editorInput);
+		setPartName(editorInput.getName());
+		IResource resource = (IResource) editorInput.getAdapter(IResource.class);
+		setContentDescription(resource.getProjectRelativePath().toPortableString());
 	}
 	/* (non-Javadoc)
 	 * Method declared on IEditorPart.
