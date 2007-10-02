@@ -18,13 +18,18 @@ public class AlloyXMLEditorMatchingStrategy implements IEditorMatchingStrategy {
 	public boolean matches(IEditorReference editorRef, IEditorInput input) {
 		try {
 			final IFileEditorInput fileEditorInput = (IFileEditorInput) input;
+			if (null == fileEditorInput) return false;
+			
 			final IFile fileInput = fileEditorInput.getFile();
-			final IProject project = fileInput.getProject();
-			if (project.hasNature(ProjectNature.NATURE_ID)) {
-				final IContentDescription desc = fileInput.getContentDescription();
-				final String id = desc.getContentType().getId();
-				if (XML_ID.equals(id)) return true;
-			}
+			if (null == fileInput) return false;
+			
+			final IEditorInput editorRefInput = editorRef.getEditorInput();
+			if (!(editorRefInput instanceof IFileEditorInput)) return false;
+			
+			final IFileEditorInput fileEditorRefInput = (IFileEditorInput) editorRefInput;
+			final IFile fileRefInput = fileEditorRefInput.getFile();
+			
+			return (fileInput.equals(fileRefInput));
 		} catch (CoreException e) {
 		} catch (NullPointerException e) {
 		} 

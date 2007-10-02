@@ -30,7 +30,9 @@ import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.texteditor.ITextEditorActionConstants;
 
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
+import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
 /**
  * Manages the installation/deinstallation of global actions for multi-page editors.
@@ -41,17 +43,21 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 	private IEditorPart activeEditorPart;
 	private Action editorAction1, editorAction2, editorAction3;
 	private MultiPageEditor multiPageEditor;
-	
+
 	public void setMultiPageEditor(MultiPageEditor multiPageEditor) {
 		this.multiPageEditor = multiPageEditor;
 	}
-	
+
 	/**
 	 * Creates a multi-page contributor.
 	 */
 	public MultiPageEditorContributor() {
 		super();
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.ctor().begin");
 		createActions();
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.ctor().end");
 	}
 	/**
 	 * Returns the action registed with the given text editor.
@@ -60,52 +66,60 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 	protected IAction getAction(ITextEditor editor, String actionID) {
 		return (editor == null ? null : editor.getAction(actionID));
 	}
+	
+	
 	/* (non-JavaDoc)
 	 * Method declared in AbstractMultiPageEditorActionBarContributor.
 	 */
-
 	public void setActivePage(IEditorPart part) {
-		if (activeEditorPart == part)
-			return;
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.setActivePage(part="+part+").begin");
+		try {
+			if (activeEditorPart == part)
+				return;
 
-		activeEditorPart = part;
+			activeEditorPart = part;
 
-		IActionBars actionBars = getActionBars();
-		if (actionBars != null) {
+			IActionBars actionBars = getActionBars();
+			if (actionBars != null) {
 
-			ITextEditor editor = (part instanceof ITextEditor) ? (ITextEditor) part : null;
+				ITextEditor editor = (part instanceof ITextEditor) ? (ITextEditor) part : null;
 
-			actionBars.setGlobalActionHandler(
-				ActionFactory.DELETE.getId(),
-				getAction(editor, ITextEditorActionConstants.DELETE));
-			actionBars.setGlobalActionHandler(
-				ActionFactory.UNDO.getId(),
-				getAction(editor, ITextEditorActionConstants.UNDO));
-			actionBars.setGlobalActionHandler(
-				ActionFactory.REDO.getId(),
-				getAction(editor, ITextEditorActionConstants.REDO));
-			actionBars.setGlobalActionHandler(
-				ActionFactory.CUT.getId(),
-				getAction(editor, ITextEditorActionConstants.CUT));
-			actionBars.setGlobalActionHandler(
-				ActionFactory.COPY.getId(),
-				getAction(editor, ITextEditorActionConstants.COPY));
-			actionBars.setGlobalActionHandler(
-				ActionFactory.PASTE.getId(),
-				getAction(editor, ITextEditorActionConstants.PASTE));
-			actionBars.setGlobalActionHandler(
-				ActionFactory.SELECT_ALL.getId(),
-				getAction(editor, ITextEditorActionConstants.SELECT_ALL));
-			actionBars.setGlobalActionHandler(
-				ActionFactory.FIND.getId(),
-				getAction(editor, ITextEditorActionConstants.FIND));
-			actionBars.setGlobalActionHandler(
-				IDEActionFactory.BOOKMARK.getId(),
-				getAction(editor, IDEActionFactory.BOOKMARK.getId()));
-			actionBars.updateActionBars();
+				actionBars.setGlobalActionHandler(
+						ActionFactory.DELETE.getId(),
+						getAction(editor, ITextEditorActionConstants.DELETE));
+				actionBars.setGlobalActionHandler(
+						ActionFactory.UNDO.getId(),
+						getAction(editor, ITextEditorActionConstants.UNDO));
+				actionBars.setGlobalActionHandler(
+						ActionFactory.REDO.getId(),
+						getAction(editor, ITextEditorActionConstants.REDO));
+				actionBars.setGlobalActionHandler(
+						ActionFactory.CUT.getId(),
+						getAction(editor, ITextEditorActionConstants.CUT));
+				actionBars.setGlobalActionHandler(
+						ActionFactory.COPY.getId(),
+						getAction(editor, ITextEditorActionConstants.COPY));
+				actionBars.setGlobalActionHandler(
+						ActionFactory.PASTE.getId(),
+						getAction(editor, ITextEditorActionConstants.PASTE));
+				actionBars.setGlobalActionHandler(
+						ActionFactory.SELECT_ALL.getId(),
+						getAction(editor, ITextEditorActionConstants.SELECT_ALL));
+				actionBars.setGlobalActionHandler(
+						ActionFactory.FIND.getId(),
+						getAction(editor, ITextEditorActionConstants.FIND));
+				actionBars.setGlobalActionHandler(
+						IDEActionFactory.BOOKMARK.getId(),
+						getAction(editor, IDEActionFactory.BOOKMARK.getId()));
+				actionBars.updateActionBars();
+			}
+		} finally {
+			if (AlloyPreferencePage.getShowDebugMessagesPreference())
+				AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.setActivePage(part="+part+").end");
 		}
 	}
-	
+
 	/**
 	 * @author Nicolas.Rouquette@jpl.nasa.gov
 	 * @param theme the IPath of the A4 visualization theme to use to visualize the current A4 solution instance.
@@ -115,12 +129,14 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		try {
 			return createApplyVisualizationAction(FileLocator.toFileURL(theme.toFile().toURI().toURL()));
 		} catch (MalformedURLException e) {
+			AlloyPlugin.getDefault().log(e);
 			return null;
 		} catch (IOException e) {
+			AlloyPlugin.getDefault().log(e);
 			return null;
 		}
 	}
-	
+
 	/**
 	 * @author Nicolas.Rouquette@jpl.nasa.gov
 	 * @param themeUrl the URL of the A4 visualization theme to use to visualize the current A4 solution instance.
@@ -132,12 +148,12 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 				try {
 					doApplyVisualizationAction(themeUrl);
 				} catch (Exception e) {
-					// need to do something
+					AlloyPlugin.getDefault().log(e);
 				}
 			}
 		};
 	}
-	
+
 	/**
 	 * @param theme the path to the A4 visualization theme to apply to the current graph pane.
 	 * @return true if the theme was successfully applied, false otherwise.
@@ -146,12 +162,14 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		try {
 			return doApplyVisualizationAction(FileLocator.toFileURL(theme.toFile().toURI().toURL()));
 		} catch (MalformedURLException e) {
+			AlloyPlugin.getDefault().log(e);
 			return false;
 		} catch (IOException e) {
+			AlloyPlugin.getDefault().log(e);
 			return false;
 		}
 	}
-	
+
 	/**
 	 * @param themeUrl the URL to the A4 visualization theme to apply to the current graph pane.
 	 * @return true if the theme was successfully applied, false otherwise.
@@ -164,7 +182,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		}
 		return false;
 	}
-	
+
 	/**
 	 * @author Nicolas.Rouquette@jpl.nasa.gov
 	 * @param pageName the name of a new tab with a new A4 visualization for the current A4 solution instance.
@@ -175,12 +193,14 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		try {
 			return createAddVisualizationAction(pageName, FileLocator.toFileURL(theme.toFile().toURI().toURL()));
 		} catch (MalformedURLException e) {
+			AlloyPlugin.getDefault().log(e);
 			return null;
 		} catch (IOException e) {
+			AlloyPlugin.getDefault().log(e);
 			return null;
 		}
 	}
-	
+
 	/**
 	 * @author Nicolas.Rouquette@jpl.nasa.gov
 	 * @param pageName the name of a new tab with a new A4 visualization for the current A4 solution instance.
@@ -193,12 +213,12 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 				try {
 					doAddVisualizationAction(pageName, themeUrl);
 				} catch (Exception e) {
-					// need to do something
+					AlloyPlugin.getDefault().log(e);
 				}
 			}
 		};
 	}
-	
+
 	/**
 	 * @author Nicolas.Rouquette@jpl.nasa.gov
 	 * @param pageName the name of a new tab with a new A4 visualization for the current A4 solution instance.
@@ -209,12 +229,14 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		try {
 			return doAddVisualizationAction(pageName, FileLocator.toFileURL(theme.toFile().toURI().toURL()));
 		} catch (MalformedURLException e) {
+			AlloyPlugin.getDefault().log(e);
 			return false;
 		} catch (IOException e) {
+			AlloyPlugin.getDefault().log(e);
 			return false;
 		}
 	}
-	
+
 	/**
 	 * @author Nicolas.Rouquette@jpl.nasa.gov
 	 * @param pageName the name of a new tab with a new A4 visualization for the current A4 solution instance.
@@ -225,12 +247,12 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		if (multiPageEditor != null) {
 			MyVizGUI viz = multiPageEditor.addAlloyVisualizationPage(pageName, themeUrl);
 			viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
-			multiPageEditor.setActivePage(pageName);
+			//multiPageEditor.setActivePage(pageName);
 			return true;
 		}
 		return false;
 	}
-	
+
 	private void createActions() {
 		editorAction1 = new Action() {
 			public void run() {
@@ -247,7 +269,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 						doApplyVisualizationAction(path);
 					}
 				} catch (Exception e) {
-					// need to do something
+					AlloyPlugin.getDefault().log(e);
 				}
 			}
 		};
@@ -255,7 +277,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		editorAction1.setToolTipText("Alloy4Eclipse Visualization Theme");
 		editorAction1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
-		
+
 		editorAction2 = new Action() {
 			public void run() {
 				try {
@@ -275,7 +297,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 						doAddVisualizationAction(pageName, path);
 					}
 				} catch (Exception e) {
-					// need to do something
+					AlloyPlugin.getDefault().log(e);
 				}
 			}
 		};
@@ -283,7 +305,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		editorAction2.setToolTipText("New Alloy4Eclipse Visualization Page");
 		editorAction2.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
-		
+
 		editorAction3 = new Action() {
 			public void run() {
 				try {
@@ -298,18 +320,18 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 						final IPath dir = new Path(fdialog.getFilterPath());
 						final IPath path = dir.addTrailingSeparator().append(fdialog.getFileName());
 						VizGUI viz = new VizGUI(false,"",null);
-    					viz.run(VizGUI.evs_loadInstanceForcefully, resource.getLocation().toOSString());
+						viz.run(VizGUI.evs_loadInstanceForcefully, resource.getLocation().toOSString());
 						try {
 							final URL themeUrl = FileLocator.toFileURL(path.toFile().toURI().toURL());
 							viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
 						} catch (MalformedURLException e) {
-							// need to do something
+							AlloyPlugin.getDefault().log(e);
 						} catch (IOException e) {
-							// need to do something
+							AlloyPlugin.getDefault().log(e);
 						}
 					}
 				} catch (Exception e) {
-					// need to do something
+					AlloyPlugin.getDefault().log(e);
 				}
 			}
 		};
@@ -318,41 +340,69 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		editorAction3.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
 	}
-	
+
 	public static String A4E_MENU_ID = MultiPageEditorContributor.class.getPackage().getName() + ".a4e.menu"; //$NON-NLS-1$
-	
+
 	public IToolBarManager getToolBarManager() {
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.getToolBarManager()");
 		IActionBars actionBar = getActionBars();
 		if (null == actionBar) return null;
-		
+
 		return actionBar.getToolBarManager();
 	}
-	
+
 	public IMenuManager getA4EMenu() {
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.getA4EMenu()");
 		IActionBars actionBar = getActionBars();
 		if (null == actionBar) return null;
-		
+
 		IMenuManager menuManager = actionBar.getMenuManager();
 		if (null == menuManager) return null;
-		
+
 		IContributionItem item = menuManager.find(A4E_MENU_ID);
 		if (null == item) return null;
-		
+
 		if (!(item instanceof IMenuManager)) return null;
 		return (IMenuManager) item;
 	}
-	
+
 	public void contributeToMenu(IMenuManager manager) {
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.contributeToMenu(manager="+manager+").begin");
 		IMenuManager menu = new MenuManager("&A4E Menu", A4E_MENU_ID);
 		manager.prependToGroup(IWorkbenchActionConstants.MB_ADDITIONS, menu);
 		menu.add(editorAction1);
 		menu.add(editorAction2);
 		menu.add(editorAction3);
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.contributeToMenu(manager="+manager+").end");
 	}
+	
 	public void contributeToToolBar(IToolBarManager manager) {
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.contributeToToolBar(manager="+manager+").begin");
 		manager.add(new Separator());
 		manager.add(editorAction1);
 		manager.add(editorAction2);
 		manager.add(editorAction3);
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.contributeToToolBar(manager="+manager+").end");	
 	}
+
+	@Override
+	public void setActiveEditor(IEditorPart part) {
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.setActiveEditor(part="+part+").begin");
+		if (part instanceof MultiPageEditor) {
+			setMultiPageEditor((MultiPageEditor) part);
+		} else {
+			setMultiPageEditor(null);
+		}
+		super.setActiveEditor(part);
+		if (AlloyPreferencePage.getShowDebugMessagesPreference())
+			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.setActiveEditor(part="+part+").end");
+	}
+
 }
