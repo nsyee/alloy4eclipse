@@ -57,6 +57,11 @@ implements IWorkbenchPreferencePage {
 				},
 				getFieldEditorParent()));
 
+		addField(
+				new BooleanFieldEditor(
+						PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES,
+						"Show &Debug Messages",
+						getFieldEditorParent()));
 
 		/*addField(
 				new StringFieldEditor(PreferenceConstants.P_STRING, "A &text preference:", getFieldEditorParent()));*/
@@ -73,4 +78,7 @@ implements IWorkbenchPreferencePage {
 	}
 
 
+	public static boolean getShowDebugMessagesPreference() {
+		return AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES);
+	}
 }

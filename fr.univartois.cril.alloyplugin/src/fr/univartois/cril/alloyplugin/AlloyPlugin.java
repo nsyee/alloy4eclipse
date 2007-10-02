@@ -5,6 +5,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.text.rules.IPartitionTokenScanner;
@@ -257,10 +259,33 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		if (ALSFileFactory==null) ALSFileFactory=new ALSFileFactory();
 		return ALSFileFactory;
 	}
+	
+	public IStatus createStatus(int severity, int code, String message, Throwable throwable) {
+		return new Status(severity, getBundle().getSymbolicName(), code, message, throwable);
+	}
 
+	public IStatus createError(int code, Throwable throwable) {
+		String message= throwable.getMessage();
+		if (message == null) {
+			message= throwable.getClass().getName();
+		}
+		return createStatus(IStatus.ERROR, code, message, throwable);
+	}
+	
+	public void logInfo(String message) {
+		getLog().log(createStatus(IStatus.INFO, IStatus.INFO, message, null));
+	}
 
+	public void logWarning(String message) {
+		getLog().log(createStatus(IStatus.WARNING, IStatus.INFO, message, null));
+	}	
+	
+	public void logError(String message) {
+		getLog().log(createStatus(IStatus.ERROR, IStatus.ERROR, message, null));
+	}	
 
-
-
+	public void log(Throwable t) {
+		getLog().log(createError(IStatus.ERROR, t));
+	}	
 
 }

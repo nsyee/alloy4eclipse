@@ -20,4 +20,15 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.console
 Eclipse-LazyStart: true
 Bundle-Vendor: CRIL - Université d'Artois
+Bundle-ClassPath: .
+Export-Package: fr.univartois.cril.alloyplugin,
+ fr.univartois.cril.alloyplugin.console,
+ fr.univartois.cril.alloyplugin.core,
+ fr.univartois.cril.alloyplugin.core.ui,
+ fr.univartois.cril.alloyplugin.editor,
+ fr.univartois.cril.alloyplugin.launch.ui,
+ fr.univartois.cril.alloyplugin.launch.util,
+ fr.univartois.cril.alloyplugin.preferences,
+ fr.univartois.cril.alloyplugin.ui,
+ fr.univartois.cril.alloyplugin.XMLEditor
 

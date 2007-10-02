@@ -20,6 +20,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		IPreferenceStore store = AlloyPlugin.getDefault()
 				.getPreferenceStore();
 		store.setDefault(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER, false);
+		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES, false);
 		store.setDefault(PreferenceConstants.P_SOLVER_CHOICE, PreferenceConstants.V_SOLVER_SAT4J);
 		store.setDefault(PreferenceConstants.P_STRING,
 				"Default value");
