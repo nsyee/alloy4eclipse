@@ -57,7 +57,11 @@ public class AlloyLaunching {
 	public void launchParser(ALSFile file) {				
 		if (file==null||!file.getResource().exists()) return;
 		IResource res = file.getResource();
-
+		try {
+			res.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		} 
 		Reporter rep=new Reporter(res);
 
 		try {
