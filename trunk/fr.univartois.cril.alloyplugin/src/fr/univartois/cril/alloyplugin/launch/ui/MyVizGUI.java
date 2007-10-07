@@ -39,10 +39,13 @@ public final class MyVizGUI {
 	/** The current XML file; "" if there is no XML file loaded. */
 	private String xmlFileName="";
 
+	private String thmFileName="";
+	
 	/** Returns the current XML filename; "" if no file is currently loaded. */
 	public String getXMLfilename() { return xmlFileName; }
 
-	
+	public String getThemefilename() { return thmFileName; }
+
 	public MyVizGUI() {
 
 	}
@@ -60,7 +63,7 @@ public final class MyVizGUI {
 	public static final int evs_loadInstanceForcefully = 103;
 
     /** This events loads a specific theme file. */
-    private static final int evs_loadTheme = 203;
+    public static final int evs_loadTheme = 203;
 
 	/** Performs the function given by "key" on the argument "arg"; returns true if it succeeds. */
 	public boolean run(final int key, final String arg) {
@@ -94,6 +97,7 @@ public final class MyVizGUI {
 			String filename=Util.canon(arg);
 			try {
 				myState.loadPaletteXML(filename);
+				thmFileName = filename;
 			} catch (IOException ex) {
 				//JOptionPane.showMessageDialog(null,"Exception: "+ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 				return false;

@@ -31,7 +31,6 @@ import org.eclipse.ui.texteditor.ITextEditorActionConstants;
 
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
 import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
 /**
@@ -41,7 +40,7 @@ import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
  */
 public class MultiPageEditorContributor extends MultiPageEditorActionBarContributor {
 	private IEditorPart activeEditorPart;
-	private Action editorAction1, editorAction2, editorAction3;
+	private Action editorAction1, editorAction2, editorAction3, editorAction4;
 	private MultiPageEditor multiPageEditor;
 
 	public void setMultiPageEditor(MultiPageEditor multiPageEditor) {
@@ -176,8 +175,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 	 */
 	public boolean doApplyVisualizationAction(final URL themeUrl) {
 		if (multiPageEditor != null) {
-			MyVizGUI viz = multiPageEditor.getCurrentVizGUI();
-			viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
+			/* MyVizGUI viz = */ multiPageEditor.applyAlloyVisualizationToCurrentPage(themeUrl);
 			return true;
 		}
 		return false;
@@ -245,8 +243,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 	 */
 	public boolean doAddVisualizationAction(final String pageName, final URL themeUrl) {
 		if (multiPageEditor != null) {
-			MyVizGUI viz = multiPageEditor.addAlloyVisualizationPage(pageName, themeUrl);
-			viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
+			/* MyVizGUI viz = */ multiPageEditor.addAlloyVisualizationPage(pageName, themeUrl);
 			//multiPageEditor.setActivePage(pageName);
 			return true;
 		}
@@ -335,9 +332,32 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 				}
 			}
 		};
+		
 		editorAction3.setText("Open with Alloy4 Visualizer");
 		editorAction3.setToolTipText("Open an Alloy4 visualizer on this instance");
 		editorAction3.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
+		
+
+		/**
+		 * Adapted from a suggestion by Felix Chang.
+		 * @link http://groups.yahoo.com/group/alloy-discuss/message/1122
+		 * @author Nicolas.Rouquette@jpl.nasa.gov
+		 */
+		editorAction4 = new Action() {
+			public void run() {
+				try {
+					if (multiPageEditor != null) {
+						multiPageEditor.saveCurrentVisualizationAsDOTFile();
+					}
+				} catch (Exception e) {
+					AlloyPlugin.getDefault().log(e);
+				}
+			}
+		};
+		editorAction4.setText("Save Alloy4 visualization DOT file");
+		editorAction4.setToolTipText("Save the current Alloy4 instance visualization as a DOT file");
+		editorAction4.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
 	}
 
@@ -376,6 +396,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		menu.add(editorAction1);
 		menu.add(editorAction2);
 		menu.add(editorAction3);
+		menu.add(editorAction4);
 		if (AlloyPreferencePage.getShowDebugMessagesPreference())
 			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.contributeToMenu(manager="+manager+").end");
 	}
@@ -387,6 +408,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		manager.add(editorAction1);
 		manager.add(editorAction2);
 		manager.add(editorAction3);
+		manager.add(editorAction4);
 		if (AlloyPreferencePage.getShowDebugMessagesPreference())
 			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.contributeToToolBar(manager="+manager+").end");	
 	}

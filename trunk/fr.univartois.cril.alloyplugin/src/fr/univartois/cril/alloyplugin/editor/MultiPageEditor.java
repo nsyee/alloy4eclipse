@@ -1,6 +1,10 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +16,10 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.awt.SWT_AWT;
 import org.eclipse.swt.layout.FillLayout;
@@ -32,6 +37,13 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 
+import edu.mit.csail.sdg.alloy4.ErrorFatal;
+import edu.mit.csail.sdg.alloy4.ErrorSyntax;
+import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
+import edu.mit.csail.sdg.alloy4viz.StaticGraphMaker;
+import edu.mit.csail.sdg.alloy4viz.StaticInstanceReader;
+import edu.mit.csail.sdg.alloy4viz.StaticThemeReaderWriter;
+import edu.mit.csail.sdg.alloy4viz.VizState;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor;
 import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
@@ -67,6 +79,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 	
 	private Map<String,MyVizGUI> vizMap = new HashMap<String, MyVizGUI>();
 	private Map<Integer,MyVizGUI> vizTable = new HashMap<Integer, MyVizGUI>();
+	private Map<Integer,URL> thmTable = new HashMap<Integer, URL>();
 	
 	public MyVizGUI getVizGUI(final String pageName) {
 		return vizMap.get(pageName);
@@ -121,6 +134,14 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 			AlloyPlugin.getDefault().logInfo("MultiPageEditor.pageChange(newPageIndex="+newPageIndex+").end");
 	}
 	
+	public MyVizGUI applyAlloyVisualizationToCurrentPage(final URL alloyVisualizationTheme) {
+		int index = getCurrentVizGUIIndex();
+		MyVizGUI viz = getCurrentVizGUI();
+		viz.run(MyVizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
+		thmTable.put(index, alloyVisualizationTheme);
+		return viz;
+	}
+		
 	public MyVizGUI addAlloyVisualizationPage(final String pageName, final URL alloyVisualizationTheme) {
 		if (AlloyPreferencePage.getShowDebugMessagesPreference())
 			AlloyPlugin.getDefault().logInfo("MultiPageEditor.addAlloyVisualizationPage(page="+pageName+",url="+alloyVisualizationTheme+")");
@@ -139,7 +160,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		MyVizGUI viz = new MyVizGUI();
 		viz.run(MyVizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource)input.getAdapter(IResource.class)));
 		if (alloyVisualizationTheme != null) {
-			viz.run(203 /* VizGUI.evs_loadTheme */, alloyVisualizationTheme.getFile());
+			viz.run(MyVizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
 		}
 		
 		final JPanel panel=viz.getGraphPanel();
@@ -156,6 +177,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		
 		vizMap.put(pageName, viz);
 		vizTable.put(index, viz);
+		thmTable.put(index, alloyVisualizationTheme);
 		return viz;
 	}
 	
@@ -232,6 +254,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		setPageText(index, page);
 		vizMap.put(page, viz);
 		vizTable.put(index, viz);
+		thmTable.put(index, null);
 		if (AlloyPreferencePage.getShowDebugMessagesPreference())
 			AlloyPlugin.getDefault().logInfo("MultiPageEditor.createPage2().end");
 	}
@@ -273,6 +296,29 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		setPageText(0, editor.getTitle());
 		setInput(editor.getEditorInput());
 	}
+	
+	public IPath saveCurrentVisualizationAsDOTFile() throws IOException, ErrorFatal, ErrorSyntax {
+		MyVizGUI viz = getCurrentVizGUI();
+		if (null == viz) return null;
+		AlloyInstance instance = StaticInstanceReader.parseInstance(new File(viz.getXMLfilename()));
+		VizState theme = new VizState(instance);
+		StaticThemeReaderWriter.readAlloy(viz.getThemefilename(), theme);
+		String dot = StaticGraphMaker.produceGraph(instance, theme, null).write();
+		IPath dotFile = new Path(viz.getXMLfilename()).removeFileExtension().addFileExtension("dot");
+		File f = dotFile.toFile();
+		if (f.exists()) {
+			f.delete();
+		}
+		f = null;
+		FileWriter fw = new FileWriter(dotFile.toString());
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(dot);
+		bw.flush();
+		bw.close();
+		AlloyPlugin.getDefault().logInfo("DOT file saved as: " + dotFile);
+		return dotFile;
+	}
+	
 	/* (non-Javadoc)
 	 * Method declared on IEditorPart
 	 */
