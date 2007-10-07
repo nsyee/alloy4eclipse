@@ -302,7 +302,11 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		if (null == viz) return null;
 		AlloyInstance instance = StaticInstanceReader.parseInstance(new File(viz.getXMLfilename()));
 		VizState theme = new VizState(instance);
-		StaticThemeReaderWriter.readAlloy(viz.getThemefilename(), theme);
+		String themeFilename = viz.getThemefilename();
+		File themeFile = new File(themeFilename);
+		if (themeFile.canRead()) {
+			StaticThemeReaderWriter.readAlloy(themeFilename, theme);
+		}
 		String dot = StaticGraphMaker.produceGraph(instance, theme, null).write();
 		IPath dotFile = new Path(viz.getXMLfilename()).removeFileExtension().addFileExtension("dot");
 		File f = dotFile.toFile();
