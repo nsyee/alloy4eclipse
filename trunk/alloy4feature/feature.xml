@@ -493,10 +493,6 @@ DAMAGES.
       <update label="Alloy 4 official update site" url="http://alloy4eclipse.googlecode.com/svn/trunk/updatesite/"/>
    </url>
 
-   <includes
-         id="fr.univartois.cril.alloy4feature.source"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
