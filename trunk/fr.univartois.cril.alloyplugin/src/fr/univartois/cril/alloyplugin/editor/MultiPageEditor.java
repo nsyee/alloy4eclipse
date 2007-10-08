@@ -11,11 +11,14 @@ import java.util.Map;
 
 import javax.swing.JPanel;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
@@ -297,7 +300,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		setInput(editor.getEditorInput());
 	}
 	
-	public IPath saveCurrentVisualizationAsDOTFile() throws IOException, ErrorFatal, ErrorSyntax {
+	public IPath saveCurrentVisualizationAsDOTFile() throws IOException, ErrorFatal, ErrorSyntax, CoreException {
 		MyVizGUI viz = getCurrentVizGUI();
 		if (null == viz) return null;
 		AlloyInstance instance = StaticInstanceReader.parseInstance(new File(viz.getXMLfilename()));
@@ -319,7 +322,17 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		bw.write(dot);
 		bw.flush();
 		bw.close();
-		AlloyPlugin.getDefault().logInfo("DOT file saved as: " + dotFile);
+		
+		IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();
+		IResource dotResource = wksroot.getContainerForLocation(dotFile);
+		if (null != dotResource && dotResource.getProject().isAccessible()) {
+			IContainer dotFolder = dotResource.getParent();
+			dotFolder.refreshLocal(IResource.DEPTH_ONE, null);
+			AlloyPlugin.getDefault().logInfo("DOT workspace file saved as: " + dotResource.getFullPath());
+		} else {
+			AlloyPlugin.getDefault().logInfo("DOT external file saved as: " + dotFile);
+		}
+		
 		return dotFile;
 	}
 	
