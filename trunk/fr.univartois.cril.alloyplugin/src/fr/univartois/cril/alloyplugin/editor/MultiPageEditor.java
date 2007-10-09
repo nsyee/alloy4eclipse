@@ -172,8 +172,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements
          * @per Creating a Root Pane Container
          * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
          */
-        javax.swing.JApplet applet = new javax.swing.JApplet();
-        frame.add(applet);
 
         MyVizGUI viz = new MyVizGUI();
         viz
@@ -186,7 +184,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 
         final JPanel panel = viz.getGraphPanel();
         if (panel != null)
-            applet.add(panel);
+            frame.add(panel);
 
         final FillLayout layout = new FillLayout();
         swtAwtComponent.setLayout(layout);
