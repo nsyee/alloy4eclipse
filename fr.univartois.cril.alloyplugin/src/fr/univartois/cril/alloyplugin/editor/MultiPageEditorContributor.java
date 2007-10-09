@@ -40,7 +40,7 @@ import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
  */
 public class MultiPageEditorContributor extends MultiPageEditorActionBarContributor {
 	private IEditorPart activeEditorPart;
-	private Action editorAction1, editorAction2, editorAction3, editorAction4;
+	private Action editorAction1, editorAction2, editorAction3, editorAction4, editorAction5;
 	private MultiPageEditor multiPageEditor;
 
 	public void setMultiPageEditor(MultiPageEditor multiPageEditor) {
@@ -359,6 +359,22 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		editorAction4.setToolTipText("Save the current Alloy4 instance visualization as a DOT file");
 		editorAction4.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
+		
+		editorAction5 = new Action() {
+            public void run() {
+                try {
+                    if (multiPageEditor != null) {
+                        multiPageEditor.saveCurrentVisualizationAsPSFile();
+                    }
+                } catch (Exception e) {
+                    AlloyPlugin.getDefault().log(e);
+                }
+            }
+        };
+        editorAction5.setText("Save Alloy4 visualization PS file");
+        editorAction5.setToolTipText("Save the current Alloy4 instance visualization as a PS file");
+        editorAction5.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+                getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
 	}
 
 	public static String A4E_MENU_ID = MultiPageEditorContributor.class.getPackage().getName() + ".a4e.menu"; //$NON-NLS-1$
@@ -397,6 +413,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		menu.add(editorAction2);
 		menu.add(editorAction3);
 		menu.add(editorAction4);
+		menu.add(editorAction5);
 		if (AlloyPreferencePage.getShowDebugMessagesPreference())
 			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.contributeToMenu(manager="+manager+").end");
 	}
@@ -409,6 +426,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 		manager.add(editorAction2);
 		manager.add(editorAction3);
 		manager.add(editorAction4);
+		manager.add(editorAction5);
 		if (AlloyPreferencePage.getShowDebugMessagesPreference())
 			AlloyPlugin.getDefault().logInfo("MultiPageEditorContributor.contributeToToolBar(manager="+manager+").end");	
 	}
