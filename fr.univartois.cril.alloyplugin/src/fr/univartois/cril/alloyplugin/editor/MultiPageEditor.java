@@ -1,5 +1,6 @@
 package fr.univartois.cril.alloyplugin.editor;
 
+import java.awt.BorderLayout;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IMarker;
@@ -176,6 +179,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
          * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
          */
         javax.swing.JApplet applet = new javax.swing.JApplet();
+        applet.setLayout(new BorderLayout());
         frame.add(applet);
         
         MyVizGUI viz = new MyVizGUI();
@@ -189,7 +193,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 
         final JPanel panel = viz.getGraphPanel();
         if (panel != null)
-            applet.add(panel);
+            applet.add(panel,BorderLayout.CENTER);
 
 
         int index = addPage(swtAwtComponent);
@@ -269,6 +273,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
          * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
          */
         javax.swing.JApplet applet = new javax.swing.JApplet();
+        applet.setLayout(new BorderLayout());
         frame.add(applet);
 
         MyVizGUI viz = new MyVizGUI();
@@ -279,7 +284,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 
         JPanel panel = viz.getGraphPanel();
         if (panel != null)
-            applet.add(panel);
+            applet.add(panel,BorderLayout.CENTER);
  
         int index = addPage(swtAwtComponent);
         String page = "graph";
