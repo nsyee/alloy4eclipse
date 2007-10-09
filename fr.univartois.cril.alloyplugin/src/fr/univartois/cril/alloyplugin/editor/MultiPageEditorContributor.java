@@ -371,7 +371,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
                 }
             }
         };
-        editorAction5.setText("Save Alloy4 visualization PS file");
+        editorAction5.setText("Save Alloy4 visualization PDF file");
         editorAction5.setToolTipText("Save the current Alloy4 instance visualization as a PS file");
         editorAction5.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
                 getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
