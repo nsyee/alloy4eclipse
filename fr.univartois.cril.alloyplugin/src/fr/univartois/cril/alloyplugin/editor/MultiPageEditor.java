@@ -166,13 +166,18 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 
         Composite swtAwtComponent = new Composite(getContainer(), SWT.EMBEDDED
                 | SWT.NO_BACKGROUND);
+        final FillLayout layout = new FillLayout();
+        swtAwtComponent.setLayout(layout);
+        
         java.awt.Frame frame = SWT_AWT.new_Frame(swtAwtComponent);
 
         /**
          * @per Creating a Root Pane Container
          * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
          */
-
+        javax.swing.JApplet applet = new javax.swing.JApplet();
+        frame.add(applet);
+        
         MyVizGUI viz = new MyVizGUI();
         viz
                 .run(MyVizGUI.evs_loadInstanceForcefully, Util
@@ -184,10 +189,8 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 
         final JPanel panel = viz.getGraphPanel();
         if (panel != null)
-            frame.add(panel);
+            applet.add(panel);
 
-        final FillLayout layout = new FillLayout();
-        swtAwtComponent.setLayout(layout);
 
         int index = addPage(swtAwtComponent);
         if (pageName != null) {
@@ -256,6 +259,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 
         Composite swtAwtComponent = new Composite(getContainer(), SWT.EMBEDDED
                 | SWT.NO_BACKGROUND);
+        FillLayout layout = new FillLayout();
+        swtAwtComponent.setLayout(layout);
+
         java.awt.Frame frame = SWT_AWT.new_Frame(swtAwtComponent);
 
         /**
@@ -274,10 +280,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         JPanel panel = viz.getGraphPanel();
         if (panel != null)
             applet.add(panel);
-
-        FillLayout layout = new FillLayout();
-        swtAwtComponent.setLayout(layout);
-
+ 
         int index = addPage(swtAwtComponent);
         String page = "graph";
         setPageText(index, page);
