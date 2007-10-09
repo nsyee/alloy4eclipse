@@ -179,7 +179,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements
          * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
          */
         javax.swing.JApplet applet = new javax.swing.JApplet();
-        applet.setLayout(new BorderLayout());
         frame.add(applet);
         
         MyVizGUI viz = new MyVizGUI();
@@ -193,7 +192,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 
         final JPanel panel = viz.getGraphPanel();
         if (panel != null)
-            applet.add(panel,BorderLayout.CENTER);
+            applet.getContentPane().add(panel,BorderLayout.CENTER);
 
 
         int index = addPage(swtAwtComponent);
@@ -273,7 +272,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements
          * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
          */
         javax.swing.JApplet applet = new javax.swing.JApplet();
-        applet.setLayout(new BorderLayout());
         frame.add(applet);
 
         MyVizGUI viz = new MyVizGUI();
@@ -284,7 +282,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 
         JPanel panel = viz.getGraphPanel();
         if (panel != null)
-            applet.add(panel,BorderLayout.CENTER);
+            applet.getContentPane().add(panel,BorderLayout.CENTER);
  
         int index = addPage(swtAwtComponent);
         String page = "graph";
