@@ -179,7 +179,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
          * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
          */
         javax.swing.JApplet applet = new javax.swing.JApplet();
-        frame.add(applet);
+        frame.add(applet,BorderLayout.CENTER);
         
         MyVizGUI viz = new MyVizGUI();
         viz
@@ -272,7 +272,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
          * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
          */
         javax.swing.JApplet applet = new javax.swing.JApplet();
-        frame.add(applet);
+        frame.add(applet,BorderLayout.CENTER);
 
         MyVizGUI viz = new MyVizGUI();
         viz
