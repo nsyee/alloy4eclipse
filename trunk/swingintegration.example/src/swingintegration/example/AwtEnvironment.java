@@ -1,13 +1,11 @@
 /*******************************************************************************
- * Copyright (c) 2007 SAS Institute.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
+ * Copyright (c) 2007 SAS Institute. All rights reserved. This program and the
+ * accompanying materials are made available under the terms of the Eclipse
+ * Public License v1.0 which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     SAS Institute - initial API and implementation
- *******************************************************************************/
+ * 
+ * Contributors: SAS Institute - initial API and implementation
+ ******************************************************************************/
 package swingintegration.example;
 
 import java.awt.EventQueue;
@@ -78,15 +76,14 @@ public final class AwtEnvironment {
      * to one used on a previous call, {@link UnsupportedOperationException} is
      * thrown.
      * 
-     * @param display
-     *            the non-null SWT display
+     * @param display the non-null SWT display
      * @return the AWT environment
      * @exception IllegalArgumentException
      *                <ul>
      *                <li>ERROR_NULL_ARGUMENT - if the display is null</li>
      *                </ul>
-     * @exception UnsupportedOperationException -
-     *                on attempt to use multiple displays.
+     * @exception UnsupportedOperationException - on attempt to use multiple
+     *                displays.
      */
     public static AwtEnvironment getInstance(Display display) {
         // For now assume a single display. If necessary, this implementation
@@ -118,9 +115,9 @@ public final class AwtEnvironment {
          * is used, but since its value is read once and cached by AWT, it needs
          * to be set before any AWT/Swing APIs are called.
          */
-        // TODO: this is effective only on Windows.
-        System.setProperty("sun.awt.noerasebackground", "true"); //$NON-NLS-1$//$NON-NLS-2$
-
+        if (Platform.isWin32()) {
+            System.setProperty("sun.awt.noerasebackground", "true"); //$NON-NLS-1$//$NON-NLS-2$
+        }
         /*
          * RCP apps always want the standard platform look and feel It's
          * important to wait for the L&F to be set so that any subsequent calls
@@ -166,8 +163,7 @@ public final class AwtEnvironment {
      * <p>
      * This method must be called from the SWT event thread.
      * 
-     * @param runnable
-     *            the code to schedule on the AWT event thread
+     * @param runnable the code to schedule on the AWT event thread
      * @exception IllegalArgumentException
      *                <ul>
      *                <li>ERROR_NULL_ARGUMENT - if the runnable is null</li>
@@ -231,8 +227,7 @@ public final class AwtEnvironment {
      *                <li>ERROR_THREAD_INVALID_ACCESS - if not called from the
      *                SWT event thread
      *                </ul>
-     * @exception IllegalStateException
-     *                if the current display has no shells
+     * @exception IllegalStateException if the current display has no shells
      */
     public Frame createDialogParentFrame() {
         if (display != Display.getCurrent()) {
@@ -265,8 +260,7 @@ public final class AwtEnvironment {
      *                <li>ERROR_THREAD_INVALID_ACCESS - if not called from the
      *                SWT event thread
      *                </ul>
-     * @exception IllegalStateException
-     *                if the current display has no shells
+     * @exception IllegalStateException if the current display has no shells
      */
     public Frame createDialogParentFrame(Shell parent) {
         if (parent == null) {
