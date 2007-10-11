@@ -17,7 +17,8 @@ Require-Bundle: org.eclipse.ui,
  fr.univartois.cril.alloyplugin.launch,
  org.eclipse.debug.core,
  org.eclipse.debug.ui,
- org.eclipse.ui.console
+ org.eclipse.ui.console,
+ swingintegration.example
 Eclipse-LazyStart: true
 Bundle-Vendor: CRIL - Université d'Artois
 Bundle-ClassPath: .
