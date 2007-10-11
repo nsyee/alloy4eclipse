@@ -24,39 +24,42 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
-
-
 /**
- * An environment to enable the proper display of AWT/Swing windows within a SWT or RCP 
- * application. This class extends the base {@link org.eclipse.swt.awt.SWT_AWT Eclipse SWT/AWT integration}
- * support by
+ * An environment to enable the proper display of AWT/Swing windows within a SWT
+ * or RCP application. This class extends the base
+ * {@link org.eclipse.swt.awt.SWT_AWT Eclipse SWT/AWT integration} support by
  * <ul>
- * <li>Using the platform-specific system Look and Feel. 
+ * <li>Using the platform-specific system Look and Feel.
  * <li>Ensuring AWT modal dialogs are modal across the SWT application.
- * <li>Working around various AWT/Swing bugs  
+ * <li>Working around various AWT/Swing bugs
  * </ul>
  * <p>
- * This class is most helpful to applications which create new AWT/Swing windows (e.g. dialogs) rather
- * than those which embed AWT/Swing components in SWT windows. For support specific to embedding
- * AWT/Swing components see {@link EmbeddedSwingComposite}.
+ * This class is most helpful to applications which create new AWT/Swing windows
+ * (e.g. dialogs) rather than those which embed AWT/Swing components in SWT
+ * windows. For support specific to embedding AWT/Swing components see
+ * {@link EmbeddedSwingComposite}.
  * <p>
  * There is at most one instance of this class per SWT
  * {@link org.eclipse.swt.widgets.Display Display}. In almost all applications
- * this means that there is exactly one instance for the entire application. In fact, the
- * current implementation always limits the number of instances to exactly one.
+ * this means that there is exactly one instance for the entire application. In
+ * fact, the current implementation always limits the number of instances to
+ * exactly one.
  * <p>
  * An instance of this class can be obtained with the static
  * {@link #getInstance(Display)} method.
-*/
+ */
 public final class AwtEnvironment {
-    // TODO: add pop-up dismissal and font synchronization support to this level?
-    
+    // TODO: add pop-up dismissal and font synchronization support to this
+    // level?
+
     private static final String GTK_LOOK_AND_FEEL_NAME = "com.sun.java.swing.plaf.gtk.GTKLookAndFeel"; //$NON-NLS-1$
 
     private static AwtEnvironment instance = null;
+
     private static boolean isLookAndFeelInitialized = false;
 
     private final Display display;
+
     private final AwtDialogListener dialogListener;
 
     /**
@@ -68,7 +71,7 @@ public final class AwtEnvironment {
      * dialogs.
      * <p>
      * The first call to this method must occur before any AWT/Swing APIs are
-     * called. 
+     * called.
      * <p>
      * The current implementation limits the number of instances of
      * AwtEnvironment to one. If this method is called with a display different
@@ -94,7 +97,8 @@ public final class AwtEnvironment {
             SWT.error(SWT.ERROR_NULL_ARGUMENT);
         }
         if ((instance != null) && !display.equals(instance.display)) {
-            throw new UnsupportedOperationException("Multiple displays not supported");
+            throw new UnsupportedOperationException(
+                    "Multiple displays not supported");
         }
         synchronized (AwtEnvironment.class) {
             if (instance == null) {
@@ -113,7 +117,7 @@ public final class AwtEnvironment {
          * components. Ideally it would not be set until EmbeddedSwingComposite
          * is used, but since its value is read once and cached by AWT, it needs
          * to be set before any AWT/Swing APIs are called.
-         */       
+         */
         // TODO: this is effective only on Windows.
         System.setProperty("sun.awt.noerasebackground", "true"); //$NON-NLS-1$//$NON-NLS-2$
 
@@ -123,10 +127,9 @@ public final class AwtEnvironment {
          * to createFrame() will be return a frame with the proper L&F (note
          * that createFrame() happens on the SWT thread).
          * 
-         * The call to invokeAndWait is safe because
-         * the first call AwtEnvironment.getInstance should happen
-         * before any (potential deadlocking) activity occurs on the 
-         * AWT thread.
+         * The call to invokeAndWait is safe because the first call
+         * AwtEnvironment.getInstance should happen before any (potential
+         * deadlocking) activity occurs on the AWT thread.
          */
         try {
             EventQueue.invokeAndWait(new Runnable() {
@@ -212,15 +215,15 @@ public final class AwtEnvironment {
     }
 
     /**
-     * Creates an AWT frame suitable as a parent for AWT/Swing dialogs. 
+     * Creates an AWT frame suitable as a parent for AWT/Swing dialogs.
      * <p>
-     * This method must be called from the SWT event thread. There must be an active
-     * shell associated with the environment's display.  
+     * This method must be called from the SWT event thread. There must be an
+     * active shell associated with the environment's display.
      * <p>
-     * The created frame is a non-visible child of the active shell and will be disposed when that shell
-     * is disposed.
+     * The created frame is a non-visible child of the active shell and will be
+     * disposed when that shell is disposed.
      * <p>
-     * See {@link #createDialogParentFrame(Shell)} for more details. 
+     * See {@link #createDialogParentFrame(Shell)} for more details.
      * 
      * @return a {@link java.awt.Frame} to be used for parenting dialogs
      * @exception SWTException
@@ -241,20 +244,20 @@ public final class AwtEnvironment {
         }
         return createDialogParentFrame(parent);
     }
-    
+
     /**
-     * Creates an AWT frame suitable as a parent for AWT/Swing dialogs. 
+     * Creates an AWT frame suitable as a parent for AWT/Swing dialogs.
      * <p>
-     * This method must be called from the SWT event thread. There must be an active
-     * shell associated with the environment's display.
+     * This method must be called from the SWT event thread. There must be an
+     * active shell associated with the environment's display.
      * <p>
-     * The created frame is a non-visible child of the given shell and will be disposed when that shell
-     * is disposed.
+     * The created frame is a non-visible child of the given shell and will be
+     * disposed when that shell is disposed.
      * <p>
      * This method is useful for creating a frame to parent any AWT/Swing
      * dialogs created for use inside a SWT application. A modal AWT/Swing
      * dialogs will flicker less if its parent is set to the returned frame
-     * rather than to null or to an independently created {@link java.awt.Frame}.  
+     * rather than to null or to an independently created {@link java.awt.Frame}.
      * 
      * @return a {@link java.awt.Frame} to be used for parenting dialogs
      * @exception SWTException
@@ -303,7 +306,8 @@ public final class AwtEnvironment {
             isLookAndFeelInitialized = true;
             try {
                 String systemLaf = UIManager.getSystemLookAndFeelClassName();
-                String xplatLaf = UIManager.getCrossPlatformLookAndFeelClassName();
+                String xplatLaf = UIManager
+                        .getCrossPlatformLookAndFeelClassName();
 
                 // Java makes metal the system look and feel if running under a
                 // non-gnome Linux desktop. Fix that here, if the RCP itself is
@@ -312,7 +316,9 @@ public final class AwtEnvironment {
                 if (xplatLaf.equals(systemLaf) && Platform.isGtk()) {
                     systemLaf = GTK_LOOK_AND_FEEL_NAME;
                 }
-                UIManager.setLookAndFeel(systemLaf);
+                if (!Platform.isGtk()) { // Bug with GTK theme under Java 6.
+                    UIManager.setLookAndFeel(systemLaf);
+                }
             } catch (ClassNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -328,7 +334,7 @@ public final class AwtEnvironment {
             }
         }
     }
-    
+
     // This method is called by unit tests
     static void reset() {
         instance = null;
