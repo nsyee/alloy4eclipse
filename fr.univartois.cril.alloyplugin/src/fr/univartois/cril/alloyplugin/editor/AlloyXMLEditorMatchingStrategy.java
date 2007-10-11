@@ -17,6 +17,8 @@ public class AlloyXMLEditorMatchingStrategy implements IEditorMatchingStrategy {
 	
 	public boolean matches(IEditorReference editorRef, IEditorInput input) {
 		try {
+			if (!(input instanceof IFileEditorInput)) return false;
+			
 			final IFileEditorInput fileEditorInput = (IFileEditorInput) input;
 			if (null == fileEditorInput) return false;
 			
