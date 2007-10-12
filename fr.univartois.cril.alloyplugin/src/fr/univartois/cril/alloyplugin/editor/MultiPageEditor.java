@@ -240,26 +240,6 @@ IResourceChangeListener {
 	}
 
 
-	// http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
-	static {
-
-		try {
-
-			System.setProperty("sun.awt.noerasebackground", "true");
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-		} catch (ClassNotFoundException e) {
-			AlloyPlugin.getDefault().log(e);
-		} catch (InstantiationException e) {
-			AlloyPlugin.getDefault().log(e);
-		} catch (IllegalAccessException e) {
-			AlloyPlugin.getDefault().log(e);
-		} catch (UnsupportedLookAndFeelException e) {
-			AlloyPlugin.getDefault().log(e);
-		}
-
-	}
-
 	/**
 	 * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
 	 */
