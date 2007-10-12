@@ -8,9 +8,9 @@
  ******************************************************************************/
 package swingintegration.example;
 
-import java.awt.BorderLayout;
 import java.awt.Frame;
 
+import javax.swing.JApplet;
 import javax.swing.JComponent;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -80,7 +80,9 @@ public class Platform {
                 | SWT.NO_BACKGROUND);
         composite.setLayout(new FillLayout());
         Frame frame = SWT_AWT.new_Frame(composite);
-        frame.add(swingComponent, BorderLayout.CENTER);
+        JApplet applet = new JApplet();
+        applet.add(swingComponent);
+        frame.add(applet);
         return composite;
     }
 
