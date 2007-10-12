@@ -62,10 +62,14 @@ public class Platform {
     public static boolean isGtk() {
         return "gtk".equals(platformString); //$NON-NLS-1$
     }
+    
+    private static boolean isSunJava6() {
+        return System.getProperty("java.version").startsWith("1.6")&& System.getProperty("java.vendor").startsWith("Sun ");
+    }
 
     public static Composite createComposite(final Composite container,
             final Display display, final JComponent swingComponent) {
-        if (isWin32()) {
+        if (!isSunJava6()||!isGtk()) {
             System.out.println("Creating an embedded composite");
             return createEmbeddedComposite(container, display, swingComponent);
         }
