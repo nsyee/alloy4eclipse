@@ -8,7 +8,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.JComponent;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -23,8 +22,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.SWTException;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -39,7 +36,6 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 
-import swingintegration.example.EmbeddedSwingComposite;
 import edu.mit.csail.sdg.alloy4.ErrorFatal;
 import edu.mit.csail.sdg.alloy4.ErrorSyntax;
 import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
@@ -281,25 +277,8 @@ IResourceChangeListener {
 			viz.run(MyVizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
 		}
 
-		final EmbeddedSwingComposite a4Component = new EmbeddedSwingComposite(getContainer(), SWT.NONE) {
-
-			@Override
-			protected JComponent createSwingComponent() {
-				return viz.getGraphPanel();
-			}
-		};
-
-		try {
-			Display display = editor.getEditorSite().getShell().getDisplay();
-			display.syncExec(new Runnable() {
-				public void run() {
-					a4Component.populate();
-				}
-			});
-		} catch (SWTException e) {
-			AlloyPlugin.getDefault().log(e);
-		}
-
+		final Composite a4Component = swingintegration.example.Platform.createComposite(getContainer(),editor.getEditorSite().getShell().getDisplay(),viz.getGraphPanel());
+		
 		int index = addPage(a4Component);
 		setPageText(index, pageName);
 		vizMap.put(pageName, viz);
@@ -308,6 +287,8 @@ IResourceChangeListener {
 
 		return index;
 	}
+
+
 
 	/**
 	 * Creates the pages of the multi-page editor.
