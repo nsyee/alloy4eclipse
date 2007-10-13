@@ -3,9 +3,9 @@
 
 = New features =
 
-* Code formatting capabilities 
-* Unsat core management
+  * Code formatting capabilities 
+  * Unsat core management
 
 = Improvement of existing features =
 
-* Visualization panel closer to the original A4E
+  * Visualization panel closer to the original A4E
