@@ -22,8 +22,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		store.setDefault(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER, false);
 		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES, false);
 		store.setDefault(PreferenceConstants.P_SOLVER_CHOICE, PreferenceConstants.V_SOLVER_SAT4J);
-		store.setDefault(PreferenceConstants.P_STRING,
-				"Default value");
+		store.setDefault(PreferenceConstants.P_STRING, "Default value");
+		store.setDefault(PreferenceConstants.V_DOT_CONVERSION, "ps");
 	}
 
 }

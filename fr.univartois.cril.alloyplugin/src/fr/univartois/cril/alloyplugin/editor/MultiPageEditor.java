@@ -8,9 +8,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -365,7 +362,42 @@ IResourceChangeListener {
 		return dotFile;
 	}
 
-	public IPath saveCurrentVisualizationAsPSFile() throws IOException,
+	public IPath dotConvert(IPath dotFile, String conversion) throws IOException, CoreException {
+		IPath outFile = dotFile.removeFileExtension().addFileExtension(conversion);
+		String command = System.getProperty("alloy.dotbin0")
+			+ " -T" + conversion + " "
+			+ "\"" + dotFile.toString() + "\" -o \"" + outFile.toString() + "\"";
+
+		Process proc = Runtime.getRuntime().exec(command);
+		
+		try {
+			int result = proc.waitFor();
+			if (0 != result) {
+				AlloyPlugin.getDefault().logInfo(
+						"DOT to " + conversion + " conversion command failed: " + command);
+				return null;
+			}
+		} catch (InterruptedException e) {
+			AlloyPlugin.getDefault().log(e);
+			return null;
+		}
+		
+		IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();
+		IResource outResource = wksroot.getContainerForLocation(outFile);
+		if (null != outResource && outResource.getProject().isAccessible()) {
+			IContainer dotFolder = outResource.getParent();
+			dotFolder.refreshLocal(IResource.DEPTH_ONE, null);
+			AlloyPlugin.getDefault().logInfo(
+					conversion + " workspace file saved as: " + outResource.getFullPath());
+		} else {
+			AlloyPlugin.getDefault().logInfo(
+					conversion + " external file saved as: " + outFile);
+		}
+
+		return outFile;
+	}
+	
+	public IPath saveCurrentVisualizationAsImageFile() throws IOException,
 	ErrorFatal, ErrorSyntax, CoreException {
 		MyVizGUI viz = getCurrentVizGUI();
 		if (null == viz)
@@ -374,7 +406,6 @@ IResourceChangeListener {
 
 
 		IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();
-
 		IResource dotResource = wksroot.getContainerForLocation(dotFile);
 		if (null != dotResource && dotResource.getProject().isAccessible()) {
 			IContainer dotFolder = dotResource.getParent();
@@ -388,31 +419,13 @@ IResourceChangeListener {
 					"DOT external file saved as: " + dotFile);
 		}
 
-		IPath psFile = dotFile.removeFileExtension().addFileExtension("ps");
-		String pscommand = System.getProperty("alloy.dotbin0") + " -Tps \""
-		+ dotFile.toString() + "\" -o \"" + psFile.toString() + "\"";
-
-		Process proc = Runtime.getRuntime().exec(pscommand);
-		try {
-			int result = proc.waitFor();
-			if (0 != result) {
-				AlloyPlugin.getDefault().logInfo(
-						"DOT to PS conversion command failed: " + pscommand);
-			}
-		} catch (InterruptedException e) {
-			AlloyPlugin.getDefault().log(e);
+		
+		String conversion = AlloyPreferencePage.getShowDOTConversionMessagesPreference();
+		IPath imageFile = dotConvert(dotFile, conversion);
+		if (null != imageFile) {
+			AlloyPlugin.getDefault().logInfo("DOT 2 " + conversion + " succeeded.");
 		}
-
-		IResource psResource = wksroot.getContainerForLocation(psFile);
-		if (null != psResource && psResource.getProject().isAccessible()) {
-			IContainer dotFolder = psResource.getParent();
-			dotFolder.refreshLocal(IResource.DEPTH_ONE, null);
-			AlloyPlugin.getDefault().logInfo(
-					"PS workspace file saved as: " + psResource.getFullPath());
-		} else {
-			AlloyPlugin.getDefault().logInfo(
-					"PS external file saved as: " + psFile);
-		}
+		
 		return dotFile;
 	}
 
