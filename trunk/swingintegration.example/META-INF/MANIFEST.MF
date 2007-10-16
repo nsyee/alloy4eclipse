@@ -6,3 +6,4 @@ Bundle-Version: 0.0.4
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.swt
 Export-Package: swingintegration.example
+Bundle-ClassPath: .
