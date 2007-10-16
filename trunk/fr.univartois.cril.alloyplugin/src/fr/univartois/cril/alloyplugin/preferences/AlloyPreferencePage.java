@@ -63,6 +63,20 @@ implements IWorkbenchPreferencePage {
 						"Show &Debug Messages",
 						getFieldEditorParent()));
 
+		addField(new RadioGroupFieldEditor(
+				PreferenceConstants.V_DOT_CONVERSION,
+				"Choose dot conversion:",
+				1,
+				new String[][] {
+						{"ps", "ps" }, 
+						{"png", "png" }, 
+						{"dia", "dia" },
+						{"jpeg", "jpeg"},
+						{"gif", "gif"}
+				},
+				getFieldEditorParent()));
+
+		
 		/*addField(
 				new StringFieldEditor(PreferenceConstants.P_STRING, "A &text preference:", getFieldEditorParent()));*/
 
@@ -80,5 +94,9 @@ implements IWorkbenchPreferencePage {
 
 	public static boolean getShowDebugMessagesPreference() {
 		return AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES);
+	}
+	
+	public static String getShowDOTConversionMessagesPreference() {
+		return AlloyPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.V_DOT_CONVERSION);
 	}
 }

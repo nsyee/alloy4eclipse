@@ -364,15 +364,15 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
             public void run() {
                 try {
                     if (multiPageEditor != null) {
-                        multiPageEditor.saveCurrentVisualizationAsPSFile();
+                        multiPageEditor.saveCurrentVisualizationAsImageFile();
                     }
                 } catch (Exception e) {
                     AlloyPlugin.getDefault().log(e);
                 }
             }
         };
-        editorAction5.setText("Save Alloy4 visualization PDF file");
-        editorAction5.setToolTipText("Save the current Alloy4 instance visualization as a PS file");
+        editorAction5.setText("Save Alloy4 visualization converted image file");
+        editorAction5.setToolTipText("Save the current Alloy4 instance visualization as a dot-converted image file");
         editorAction5.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
                 getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
 	}

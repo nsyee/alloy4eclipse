@@ -10,6 +10,7 @@ public class PreferenceConstants {
 	public static final String P_BOOLEAN_SHOW_DEBUG_MESSAGES = "booleanShowDebugMessages";
 	public static final String P_SOLVER_CHOICE = "choicePreference";
 	public static final String P_STRING = "stringPreference";
+	public static final String V_DOT_CONVERSION = "ps";
 	public static final String V_SOLVER_SAT4J = "sat4j";
 	public static final String V_SOLVER_MINISAT_PIPE = "minisat_pipe";
 	public static final String V_SOLVER_ZChaffJNI = "ZChaffJNI";
