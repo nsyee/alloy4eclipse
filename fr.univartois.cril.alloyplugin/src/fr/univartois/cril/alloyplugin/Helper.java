@@ -6,7 +6,7 @@ import java.util.Random;
 import edu.mit.csail.sdg.alloy4.OurDialog;
 import edu.mit.csail.sdg.alloy4.Util;
 
-final class Helper {
+public final class Helper {
     /** Constructor is private, since this utility class never needs to be instantiated. */
     private Helper() { }
 
