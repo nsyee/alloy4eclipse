@@ -45,6 +45,7 @@ import fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor;
 import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
+import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
 /**
  * An example showing how to create a multi-page editor. This example has 3
@@ -364,7 +365,7 @@ IResourceChangeListener {
 
 	public IPath dotConvert(IPath dotFile, String conversion) throws IOException, CoreException {
 		IPath outFile = dotFile.removeFileExtension().addFileExtension(conversion);
-		String command = System.getProperty("alloy.dotbin0")
+		String command = AlloyPreferencePage.getDotBinaryPath()
 			+ " -T" + conversion + " "
 			+ "\"" + dotFile.toString() + "\" -o \"" + outFile.toString() + "\"";
 

@@ -4,6 +4,7 @@ import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.Helper;
 
 /**
  * Class used to initialize default preference values.
@@ -24,6 +25,9 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		store.setDefault(PreferenceConstants.P_SOLVER_CHOICE, PreferenceConstants.V_SOLVER_SAT4J);
 		store.setDefault(PreferenceConstants.P_STRING, "Default value");
 		store.setDefault(PreferenceConstants.V_DOT_CONVERSION, "ps");
+		String defaultDir = Helper.alloyHome()+AlloyPlugin.FILE_SEPARATOR+"binary";
+		store.setDefault(PreferenceConstants.P_DOT_PATH, defaultDir+"/dotbin");
+		store.setDefault(PreferenceConstants.P_SOLVERS_PATH, defaultDir);
 	}
 
 }
