@@ -57,7 +57,7 @@ ILaunchConfigurationDelegate {
 					ExecutableCommand cmd = (ExecutableCommand) file.getCommand(commandId);
 					if(cmd!=null)
 					{
-						AlloyLaunching.ExecCommand(cmd);						
+						AlloyLaunching.execCommand(cmd);						
 					}
 					else
 					{
