@@ -21,6 +21,7 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
 import fr.univartois.cril.alloyplugin.Helper;
+import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
 
 public class AlloyPlugin extends AbstractUIPlugin {
@@ -230,7 +231,8 @@ public class AlloyPlugin extends AbstractUIPlugin {
 				arch+"/zlib1.dll", arch+"/z.dll", arch+"/freetype6.dll", arch+"/png.dll");
 
 		// Record the locations
-		System.setProperty("alloy.dotbin0", platformBinary+FILE_SEPARATOR+"dotbin");
+		System.setProperty("alloy.dotbin0", AlloyPlugin.getDefault().getPreferenceStore()
+		        .getString(PreferenceConstants.P_DOT_PATH));
 	}
 
 
