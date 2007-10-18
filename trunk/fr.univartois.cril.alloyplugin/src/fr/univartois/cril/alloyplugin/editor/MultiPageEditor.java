@@ -1,9 +1,11 @@
 package fr.univartois.cril.alloyplugin.editor;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +47,6 @@ import fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor;
 import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
-import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
 /**
  * An example showing how to create a multi-page editor. This example has 3
@@ -365,15 +366,21 @@ IResourceChangeListener {
 
 	public IPath dotConvert(IPath dotFile, String conversion) throws IOException, CoreException {
 		IPath outFile = dotFile.removeFileExtension().addFileExtension(conversion);
-		String command = AlloyPreferencePage.getDotBinaryPath()
-			+ " -T" + conversion + " "
-			+ "\"" + dotFile.toString() + "\" -o \"" + outFile.toString() + "\"";
+		String [] command = new String[] { AlloyPreferencePage.getDotBinaryPath(),
+			"-T" + conversion,
+			"-o",
+			outFile.toString(),
+			dotFile.toString()};
 
 		Process proc = Runtime.getRuntime().exec(command);
-		
+		BufferedReader procOutput = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
 		try {
 			int result = proc.waitFor();
-			if (0 != result) {
+			String line;
+			while ((line=procOutput.readLine())!=null) {
+			    AlloyPlugin.getDefault().logInfo(line);
+			}
+			if (0 != proc.exitValue()) {
 				AlloyPlugin.getDefault().logInfo(
 						"DOT to " + conversion + " conversion command failed: " + command);
 				return null;
