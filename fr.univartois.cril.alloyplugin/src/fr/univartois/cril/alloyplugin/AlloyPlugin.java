@@ -231,8 +231,8 @@ public class AlloyPlugin extends AbstractUIPlugin {
 				arch+"/zlib1.dll", arch+"/z.dll", arch+"/freetype6.dll", arch+"/png.dll");
 
 		// Record the locations
-		System.setProperty("alloy.dotbin0", AlloyPlugin.getDefault().getPreferenceStore()
-		        .getString(PreferenceConstants.P_DOT_PATH));
+		// System.setProperty("alloy.dotbin0", AlloyPlugin.getDefault().getPreferenceStore()
+        //        .getString(PreferenceConstants.P_DOT_PATH));
 	}
 
 
