@@ -46,8 +46,8 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
                 1,
                 new String[][] {
                         { "&SAT4J", PreferenceConstants.V_SOLVER_SAT4J },
-                        { "&MiniSat pipe",
-                                PreferenceConstants.V_SOLVER_MINISAT_PIPE },
+                        { "&Berkmin",
+                                PreferenceConstants.V_SOLVER_BERKMIN },
                         { "MiniSatProver &JNI",
                                 PreferenceConstants.V_SOLVER_MiniSatProverJNI },
                         {

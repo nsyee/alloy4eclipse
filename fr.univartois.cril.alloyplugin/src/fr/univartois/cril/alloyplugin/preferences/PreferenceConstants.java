@@ -15,6 +15,7 @@ public class PreferenceConstants {
 	public static final String V_DOT_CONVERSION = "ps";
 	public static final String V_SOLVER_SAT4J = "sat4j";
 	public static final String V_SOLVER_MINISAT_PIPE = "minisat_pipe";
+	public static final String V_SOLVER_BERKMIN = "berkmin";
 	public static final String V_SOLVER_ZChaffJNI = "ZChaffJNI";
 	public static final String V_SOLVER_MiniSatProverJNI = "MiniSatProverJNI";
 	public static final String V_SOLVER_MiniSatProverUnsatCore = "MiniSatProverUnsatCore";
