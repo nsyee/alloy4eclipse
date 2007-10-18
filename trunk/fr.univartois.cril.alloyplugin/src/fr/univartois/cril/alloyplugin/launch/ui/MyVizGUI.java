@@ -14,6 +14,8 @@ import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
 import edu.mit.csail.sdg.alloy4viz.StaticInstanceReader;
 import edu.mit.csail.sdg.alloy4viz.VizGraphPanel;
 import edu.mit.csail.sdg.alloy4viz.VizState;
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
 /**
  * GUI main window for the visualizer.
@@ -47,6 +49,8 @@ public final class MyVizGUI {
 	public String getThemefilename() { return thmFileName; }
 
 	public MyVizGUI() {
+	    System.setProperty("alloy.dotbin0", AlloyPlugin.getDefault().getPreferenceStore()
+                .getString(PreferenceConstants.P_DOT_PATH));
 
 	}
 	private JPanel updateDisplay() {
