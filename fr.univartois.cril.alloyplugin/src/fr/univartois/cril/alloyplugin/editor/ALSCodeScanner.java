@@ -3,7 +3,6 @@ package fr.univartois.cril.alloyplugin.editor;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.IWhitespaceDetector;

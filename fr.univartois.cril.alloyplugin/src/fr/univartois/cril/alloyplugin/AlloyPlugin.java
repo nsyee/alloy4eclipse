@@ -14,14 +14,13 @@ import org.eclipse.jface.text.rules.ITokenScanner;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
 import edu.mit.csail.sdg.alloy4.Util;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
-import fr.univartois.cril.alloyplugin.Helper;
-import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
 
 public class AlloyPlugin extends AbstractUIPlugin {

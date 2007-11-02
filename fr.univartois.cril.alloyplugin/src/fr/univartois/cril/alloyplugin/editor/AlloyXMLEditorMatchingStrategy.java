@@ -1,15 +1,11 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.content.IContentDescription;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorMatchingStrategy;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
-
-import fr.univartois.cril.alloyplugin.ProjectNature;
 
 public class AlloyXMLEditorMatchingStrategy implements IEditorMatchingStrategy {
 
