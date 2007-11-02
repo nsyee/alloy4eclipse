@@ -66,9 +66,11 @@ public class Platform {
     private static boolean isSunJava6() {
         return System.getProperty("java.version").startsWith("1.6")&& System.getProperty("java.vendor").startsWith("Sun ");
     }
-
-    public static Composite createComposite(final Composite container,
-            final Display display, final JComponent swingComponent) {
+    
+    public static Composite createComposite(
+    		final Composite container,
+            final Display display, 
+            final SwingComponentConstructor swingComponent) {
         if (!isSunJava6()||!isGtk()) {
             System.out.println("Creating an embedded composite");
             return createEmbeddedComposite(container, display, swingComponent);
@@ -78,26 +80,30 @@ public class Platform {
 
     }
 
-    public static Composite createBasicComposite(final Composite container,
-            Display display, JComponent swingComponent) {
-        Composite composite = new Composite(container, SWT.EMBEDDED
-                | SWT.NO_BACKGROUND);
+    public static Composite createBasicComposite(
+    		final Composite container,
+    		final Display display,
+    		final SwingComponentConstructor swingComponent) {
+        Composite composite = new Composite(container, SWT.EMBEDDED | SWT.NO_BACKGROUND);
         composite.setLayout(new FillLayout());
         Frame frame = SWT_AWT.new_Frame(composite);
         JApplet applet = new JApplet();
-        applet.add(swingComponent);
+        applet.add(swingComponent.createSwingComponent());
         frame.add(applet);
         return composite;
     }
 
-    public static Composite createEmbeddedComposite(final Composite container,
-            final Display display, final JComponent swingComponent) {
-        final EmbeddedSwingComposite a4Component = new EmbeddedSwingComposite(
-                container, SWT.NONE) {
+    public static Composite createEmbeddedComposite(
+    		final Composite container,
+            final Display display, 
+            final SwingComponentConstructor swingComponent) {
+        final EmbeddedSwingComposite a4Component = new EmbeddedSwingComposite(container, SWT.NONE) {
 
             @Override
             protected JComponent createSwingComponent() {
-                return swingComponent;
+            	JComponent c = swingComponent.createSwingComponent();
+            	synchronized(this){notifyAll();}
+            	return c;
             }
         };
 
@@ -105,6 +111,11 @@ public class Platform {
             display.syncExec(new Runnable() {
                 public void run() {
                     a4Component.populate();
+                    try {
+                    	synchronized(a4Component){a4Component.wait();}
+                    } catch (InterruptedException e) {
+                    	throw new SWTException(e.getMessage());
+                    }
                 }
             });
         } catch (SWTException e) {

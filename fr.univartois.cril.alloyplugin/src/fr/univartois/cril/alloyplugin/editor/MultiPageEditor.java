@@ -259,11 +259,16 @@ public class MultiPageEditor extends MultiPageEditorPart implements
     }
     
     void createPage3() {
-        JComponent themepanel = new JLabel("Viz Configuration Panel should sit here if I could get access to a vizstate or even better a VizCustomizationPanel");
         VizGUI viz = vizTable.get(1);
-        int index = addPage(swingintegration.example.Platform
-                .createComposite(getContainer(), editor.getEditorSite()
-                        .getShell().getDisplay(),themepanel)); 
+        int index = addPage(swingintegration.example.Platform.createComposite(
+        		getContainer(),
+        		editor.getEditorSite().getShell().getDisplay(),
+        		new swingintegration.example.SwingComponentConstructor(){
+        			public JComponent createSwingComponent() {
+        				 JComponent themepanel = new JLabel("Viz Configuration Panel should sit here if I could get access to a vizstate or even better a VizCustomizationPanel");
+        			      return themepanel;
+        			}
+        		})); 
         setPageText(index,"Vizualization theme ("+viz.getThemeFilename()+")");
     }
 
@@ -318,43 +323,57 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         IEditorInput input;
         input = editor.getEditorInput();
 
-        /*
-         * The VizGUI constructor has several formal parameters. For clarity
-         * purposes, we use the formal parameter names to distinguish the role
-         * of each actual parameter since the values are indistinguishable
-         */
-        boolean standalone = false;
-        String xmlFileName = "";
-        JMenu windowmenu = null;
-        MultiRunnable enumerator = null;
-        Computer evaluator = null;
-        boolean makeWindow = false;
+       
 
-        final VizGUI viz = new VizGUI(standalone, xmlFileName, windowmenu,
-                enumerator, evaluator, makeWindow);
+        final VizGUI[] viz = new VizGUI[1];
+        		
+        
         final Composite a4Component = swingintegration.example.Platform
-                .createComposite(getContainer(), editor.getEditorSite()
-                        .getShell().getDisplay(), viz.getPanel());
+                .createComposite(
+                		getContainer(),
+                		editor.getEditorSite().getShell().getDisplay(),
+                		new swingintegration.example.SwingComponentConstructor(){
+                			public JComponent createSwingComponent() {
+                				 /*
+                		         * The VizGUI constructor has several formal parameters. For clarity
+                		         * purposes, we use the formal parameter names to distinguish the role
+                		         * of each actual parameter since the values are indistinguishable
+                		         */
+                		        boolean standalone = false;
+                		        String xmlFileName = "";
+                		        JMenu windowmenu = null;
+                		        MultiRunnable enumerator = null;
+                		        Computer evaluator = null;
+                		        boolean makeWindow = false;
+                		        
+                		        viz[0] = new VizGUI(
+                		        		standalone, xmlFileName, windowmenu,
+                		                enumerator, evaluator, makeWindow);
+                		        
+                		        return viz[0].getPanel();
+                			}
+                		});
 
         int index = addPage(a4Component);
+        setActivePage(index);
         setPageText(index, pageName);
-        vizMap.put(pageName, viz);
-        vizTable.put(index, viz);
+        vizMap.put(pageName, viz[0]);
+        vizTable.put(index, viz[0]);
         thmTable.put(index, alloyVisualizationTheme);
 
-        viz
+        viz[0]
                 .run(VizGUI.evs_loadInstanceForcefully, Util
                         .getFileLocation((IResource) input
                                 .getAdapter(IResource.class)));
         if (alloyVisualizationTheme != null) {
-            viz.run(VizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
+            viz[0].run(VizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
         }
 
         /**
          * A simple A4E menu action that we add to the A4 VizViewer popup menu.
          */
         final JMenuItem a4eInfo = new JMenuItem("A4E info...");
-        final VizViewer viewer = viz.getViewer();
+        final VizViewer viewer = viz[0].getViewer();
         viewer.pop.add(a4eInfo);
         ActionListener act = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
