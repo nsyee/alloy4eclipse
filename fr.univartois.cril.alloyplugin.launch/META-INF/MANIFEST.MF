@@ -6,8 +6,15 @@ Bundle-Version: 0.1.11
 Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator
 Bundle-Localization: plugin
 Eclipse-LazyStart: true
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ alloy4.jar
 Bundle-Vendor: CRIL - Université d'Artois
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- edu.mit.csail.sdg.alloy4
+ org.eclipse.core.runtime
+Export-Package: edu.mit.csail.sdg.alloy4,
+ edu.mit.csail.sdg.alloy4compiler.ast,
+ edu.mit.csail.sdg.alloy4compiler.parser,
+ edu.mit.csail.sdg.alloy4compiler.translator,
+ edu.mit.csail.sdg.alloy4graph,
+ edu.mit.csail.sdg.alloy4viz,
+ edu.mit.csail.sdg.alloy4whole
