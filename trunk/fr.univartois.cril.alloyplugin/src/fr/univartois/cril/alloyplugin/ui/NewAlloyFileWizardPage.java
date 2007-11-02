@@ -4,6 +4,7 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.IDialogPage;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
@@ -161,7 +162,7 @@ public class NewAlloyFileWizardPage extends WizardPage {
 			updateStatus("File name must be valid");
 			return;
 		}
-//		rajouté çà
+//		rajoutï¿½ ï¿½ï¿½
 		IResource file = ResourcesPlugin.getWorkspace().getRoot()
 		.findMember(new Path(getContainerName()).append(fileName));
 		
@@ -178,7 +179,7 @@ public class NewAlloyFileWizardPage extends WizardPage {
 				return;
 			}
 		}
-		//et pis  çà aussi
+		//et pis  ï¿½ï¿½ aussi
 		if (file != null) {
 			updateStatus("File already exists");
 			return;
