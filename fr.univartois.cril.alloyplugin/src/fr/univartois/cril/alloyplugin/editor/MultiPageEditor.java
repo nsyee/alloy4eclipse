@@ -317,11 +317,7 @@ IResourceChangeListener {
 		boolean makeWindow 		= false;
 			
 		final VizGUI viz = new VizGUI(standalone, xmlFileName, windowmenu, enumerator, evaluator, makeWindow);
-		viz
-		.run(VizGUI.evs_loadInstanceForcefully, Util
-				.getFileLocation((IResource) input
-						.getAdapter(IResource.class)));
-
+		viz.run(VizGUI.evs_loadInstanceForcefully, Util.getFileLocation((IResource) input.getAdapter(IResource.class)));
 		if (alloyVisualizationTheme != null) {
 			viz.run(VizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
 		}
@@ -334,13 +330,15 @@ IResourceChangeListener {
 		viewer.pop.add(a4eInfo);
 		ActionListener act = new ActionListener() {
 	           public void actionPerformed(ActionEvent e) {
-	        	   
-					AlloyPlugin.getDefault().logInfo(
-							"selection: " + viewer.getSelected());
-				
-				}
-			};
-			
+	        	   /* hop from AWT over to SWT ... */
+	        	   final Object highlighted = viewer.do_getHighlightedAnnotation();
+	        	   Display.getDefault().asyncExec(new Runnable() {
+	   					public void run() {
+	   						AlloyPlugin.getDefault().logInfo("selection: " + highlighted);
+	   					}
+				});
+			}
+		};
 		a4eInfo.addActionListener(act);	
 
 		final Composite a4Component = swingintegration.example.Platform.createComposite(getContainer(),editor.getEditorSite().getShell().getDisplay(),viz.getPanel());
