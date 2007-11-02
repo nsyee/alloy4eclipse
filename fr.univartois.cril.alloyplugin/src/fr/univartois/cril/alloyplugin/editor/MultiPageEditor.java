@@ -19,7 +19,6 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-import javax.xml.xpath.XPathFactoryConfigurationException;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IMarker;
