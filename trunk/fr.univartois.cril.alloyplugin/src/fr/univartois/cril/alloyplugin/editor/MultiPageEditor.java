@@ -331,7 +331,7 @@ IResourceChangeListener {
 		ActionListener act = new ActionListener() {
 	           public void actionPerformed(ActionEvent e) {
 	        	   /* hop from AWT over to SWT ... */
-	        	   final Object highlighted = viewer.do_getSelectedAnnotation();
+	        	   final Object highlighted = viewer.do_getHighlightedAnnotation();
 	        	   Display.getDefault().asyncExec(new Runnable() {
 	   					public void run() {
 	   						AlloyPlugin.getDefault().logInfo("selection: " + highlighted);
