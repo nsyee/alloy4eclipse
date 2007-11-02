@@ -1,11 +1,7 @@
 package fr.univartois.cril.alloyplugin.editor;
 
-import static java.awt.event.InputEvent.BUTTON1_MASK;
-import static java.awt.event.InputEvent.BUTTON3_MASK;
-import static java.awt.event.InputEvent.CTRL_MASK;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -48,7 +44,6 @@ import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.ErrorFatal;
 import edu.mit.csail.sdg.alloy4.ErrorSyntax;
 import edu.mit.csail.sdg.alloy4.MultiRunner.MultiRunnable;
-import edu.mit.csail.sdg.alloy4graph.VizNode;
 import edu.mit.csail.sdg.alloy4graph.VizViewer;
 import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
 import edu.mit.csail.sdg.alloy4viz.StaticGraphMaker;
@@ -288,63 +283,16 @@ IResourceChangeListener {
 		final JMenuItem a4eInfo = new JMenuItem("A4E info...");
 		final VizViewer viewer = viz.getViewer();
 		viewer.pop.add(a4eInfo);
-		a4eInfo.addMouseListener(new MouseAdapter() {
-			/** The currently hovered VizNode or VizEdge, or null if there is none. */
-			Object highlight = null;
-
-			/** The currently selected VizNode or VizEdge, or null if there is none. */
-			Object selected = null;
-
-		    /** Stores the mouse positions needed to calculate drag-and-drop. */
-			@SuppressWarnings("unused")
-			int oldMouseX=0, oldMouseY=0, oldX=0, oldY=0;
-
-			@Override public void mouseReleased(MouseEvent ev) {
-				Object obj=viewer.do_find(ev.getX(), ev.getY());
-				if (selected!=null || highlight!=obj) { 
+		ActionListener act = new ActionListener() {
+	           public void actionPerformed(ActionEvent e) {
+	        	   
 					AlloyPlugin.getDefault().logInfo(
-							"selection: " + selected);
-					selected=null; 
-					highlight=obj;
+							"selection: " + viewer.getSelected());
+				
 				}
-			}
+			};
 			
-			@Override public void mousePressed(MouseEvent ev) {
-				int mod = ev.getModifiers();
-				if ((mod & BUTTON3_MASK)!=0) {
-					Object x=viewer.do_find(ev.getX(), ev.getY());
-					if (selected!=x || highlight!=null) { 
-						selected=x; 
-						highlight=null; 
-						viewer.do_repaint(); 
-					}
-					viewer.pop.show(viewer, ev.getX(), ev.getY());
-				} else if ((mod & BUTTON1_MASK)!=0 && (mod & CTRL_MASK)!=0) {
-					// This lets Ctrl+LeftClick bring up the popup menu, just like RightClick,
-					// since many Mac mouses do not have a right button.
-					Object x=viewer.do_find(ev.getX(), ev.getY());
-					if (selected!=x || highlight!=null) { 
-						selected=x; 
-						highlight=null; 
-						viewer.do_repaint(); 
-					}
-					viewer.pop.show(viewer, ev.getX(), ev.getY());
-				} else if ((mod & BUTTON1_MASK)!=0) {
-					Object x=viewer.do_find(oldMouseX=ev.getX(), oldMouseY=ev.getY());
-					if (x instanceof VizNode) {
-						oldX=((VizNode)x).x(); 
-						oldY=((VizNode)x).y(); }
-					if (selected!=x || highlight!=null) {
-						selected=x; 
-						highlight=null; 
-						viewer.do_repaint();
-					}
-				}
-			}
-			@Override public void mouseExited(MouseEvent ev) {
-				 if (highlight!=null) { highlight=null; viewer.do_repaint(); }
-			}
-		});
+		a4eInfo.addActionListener(act);	
 
 		final Composite a4Component = swingintegration.example.Platform.createComposite(getContainer(),editor.getEditorSite().getShell().getDisplay(),viz.getPanel());
 		
