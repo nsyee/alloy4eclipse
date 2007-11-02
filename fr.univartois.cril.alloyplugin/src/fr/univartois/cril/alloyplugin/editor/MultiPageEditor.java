@@ -1,5 +1,11 @@
 package fr.univartois.cril.alloyplugin.editor;
 
+import static java.awt.event.InputEvent.BUTTON1_MASK;
+import static java.awt.event.InputEvent.BUTTON3_MASK;
+import static java.awt.event.InputEvent.CTRL_MASK;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,6 +15,9 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IMarker;
@@ -35,16 +44,20 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 
+import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.ErrorFatal;
 import edu.mit.csail.sdg.alloy4.ErrorSyntax;
+import edu.mit.csail.sdg.alloy4.MultiRunner.MultiRunnable;
+import edu.mit.csail.sdg.alloy4graph.VizNode;
+import edu.mit.csail.sdg.alloy4graph.VizViewer;
 import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
 import edu.mit.csail.sdg.alloy4viz.StaticGraphMaker;
 import edu.mit.csail.sdg.alloy4viz.StaticInstanceReader;
 import edu.mit.csail.sdg.alloy4viz.StaticThemeReaderWriter;
+import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import edu.mit.csail.sdg.alloy4viz.VizState;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor;
-import fr.univartois.cril.alloyplugin.launch.ui.MyVizGUI;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
@@ -66,18 +79,18 @@ IResourceChangeListener {
 	/** The text editor used in page 0. */
 	private XMLEditor editor;
 
-	private Map<String, MyVizGUI> vizMap = new HashMap<String, MyVizGUI>();
+	private Map<String, VizGUI> vizMap = new HashMap<String, VizGUI>();
 
-	private Map<Integer, MyVizGUI> vizTable = new HashMap<Integer, MyVizGUI>();
+	private Map<Integer, VizGUI> vizTable = new HashMap<Integer, VizGUI>();
 	private Map<Integer, URL> thmTable = new HashMap<Integer, URL>();
 
-	public MyVizGUI getVizGUI(final String pageName) {
+	public VizGUI getVizGUI(final String pageName) {
 		return vizMap.get(pageName);
 	}
 
 	public String getCurrentVizGUIName() {
-		final MyVizGUI viz = getCurrentVizGUI();
-		for (Map.Entry<String, MyVizGUI> entry : vizMap.entrySet()) {
+		final VizGUI viz = getCurrentVizGUI();
+		for (Map.Entry<String, VizGUI> entry : vizMap.entrySet()) {
 			if (viz.equals(entry.getValue())) {
 				return entry.getKey();
 			}
@@ -89,7 +102,7 @@ IResourceChangeListener {
 		return getActivePage();
 	}
 
-	public MyVizGUI getCurrentVizGUI() {
+	public VizGUI getCurrentVizGUI() {
 		return vizTable.get(getActivePage());
 	}
 
@@ -133,16 +146,16 @@ IResourceChangeListener {
 					+ ").end");
 	}
 
-	public MyVizGUI applyAlloyVisualizationToCurrentPage(
+	public VizGUI applyAlloyVisualizationToCurrentPage(
 			final URL alloyVisualizationTheme) {
 		int index = getCurrentVizGUIIndex();
-		MyVizGUI viz = getCurrentVizGUI();
-		viz.run(MyVizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
+		VizGUI viz = getCurrentVizGUI();
+		viz.run(VizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
 		thmTable.put(index, alloyVisualizationTheme);
 		return viz;
 	}
 
-	public MyVizGUI addAlloyVisualizationPage(
+	public VizGUI addAlloyVisualizationPage(
 			final String pageName,
 			final URL alloyVisualizationTheme) {
 		if (AlloyPreferencePage.getShowDebugMessagesPreference())
@@ -246,17 +259,94 @@ IResourceChangeListener {
 		IEditorInput input;
 		input = editor.getEditorInput();
 
-		final MyVizGUI viz = new MyVizGUI();
+		/*
+		 * The VizGUI constructor has several formal parameters.
+		 * For clarity purposes, we use the formal parameter names 
+		 * to distinguish the role of each actual parameter
+		 * since the values are indistinguishable
+		 */
+		boolean standalone 			= false;
+		String xmlFileName 				= "";
+		JMenu windowmenu			= null;
+		MultiRunnable enumerator 	= null;
+		Computer evaluator 			= null;
+		boolean makeWindow 		= false;
+			
+		final VizGUI viz = new VizGUI(standalone, xmlFileName, windowmenu, enumerator, evaluator, makeWindow);
 		viz
-		.run(MyVizGUI.evs_loadInstanceForcefully, Util
+		.run(VizGUI.evs_loadInstanceForcefully, Util
 				.getFileLocation((IResource) input
 						.getAdapter(IResource.class)));
 
 		if (alloyVisualizationTheme != null) {
-			viz.run(MyVizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
+			viz.run(VizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
 		}
 
-		final Composite a4Component = swingintegration.example.Platform.createComposite(getContainer(),editor.getEditorSite().getShell().getDisplay(),viz.getGraphPanel());
+		/**
+		 * A simple A4E menu action that we add to the A4 VizViewer popup menu.
+		 */
+		final JMenuItem a4eInfo = new JMenuItem("A4E info...");
+		final VizViewer viewer = viz.getViewer();
+		viewer.pop.add(a4eInfo);
+		a4eInfo.addMouseListener(new MouseAdapter() {
+			/** The currently hovered VizNode or VizEdge, or null if there is none. */
+			Object highlight = null;
+
+			/** The currently selected VizNode or VizEdge, or null if there is none. */
+			Object selected = null;
+
+		    /** Stores the mouse positions needed to calculate drag-and-drop. */
+			@SuppressWarnings("unused")
+			int oldMouseX=0, oldMouseY=0, oldX=0, oldY=0;
+
+			@Override public void mouseReleased(MouseEvent ev) {
+				Object obj=viewer.do_find(ev.getX(), ev.getY());
+				if (selected!=null || highlight!=obj) { 
+					AlloyPlugin.getDefault().logInfo(
+							"selection: " + selected);
+					selected=null; 
+					highlight=obj;
+				}
+			}
+			
+			@Override public void mousePressed(MouseEvent ev) {
+				int mod = ev.getModifiers();
+				if ((mod & BUTTON3_MASK)!=0) {
+					Object x=viewer.do_find(ev.getX(), ev.getY());
+					if (selected!=x || highlight!=null) { 
+						selected=x; 
+						highlight=null; 
+						viewer.do_repaint(); 
+					}
+					viewer.pop.show(viewer, ev.getX(), ev.getY());
+				} else if ((mod & BUTTON1_MASK)!=0 && (mod & CTRL_MASK)!=0) {
+					// This lets Ctrl+LeftClick bring up the popup menu, just like RightClick,
+					// since many Mac mouses do not have a right button.
+					Object x=viewer.do_find(ev.getX(), ev.getY());
+					if (selected!=x || highlight!=null) { 
+						selected=x; 
+						highlight=null; 
+						viewer.do_repaint(); 
+					}
+					viewer.pop.show(viewer, ev.getX(), ev.getY());
+				} else if ((mod & BUTTON1_MASK)!=0) {
+					Object x=viewer.do_find(oldMouseX=ev.getX(), oldMouseY=ev.getY());
+					if (x instanceof VizNode) {
+						oldX=((VizNode)x).x(); 
+						oldY=((VizNode)x).y(); }
+					if (selected!=x || highlight!=null) {
+						selected=x; 
+						highlight=null; 
+						viewer.do_repaint();
+					}
+				}
+			}
+			@Override public void mouseExited(MouseEvent ev) {
+				 if (highlight!=null) { highlight=null; viewer.do_repaint(); }
+			}
+		});
+
+		final Composite a4Component = swingintegration.example.Platform.createComposite(getContainer(),editor.getEditorSite().getShell().getDisplay(),viz.getPanel());
 		
 		int index = addPage(a4Component);
 		setPageText(index, pageName);
@@ -314,7 +404,7 @@ IResourceChangeListener {
 
 	public IPath saveCurrentVisualizationAsDOTFile() throws IOException,
 	ErrorFatal, ErrorSyntax, CoreException {
-		MyVizGUI viz = getCurrentVizGUI();
+		VizGUI viz = getCurrentVizGUI();
 		if (null == viz)
 			return null;
 
@@ -337,12 +427,12 @@ IResourceChangeListener {
 		return dotFile;
 	}
 
-	private IPath produceDotFile(MyVizGUI viz) throws ErrorFatal, ErrorSyntax,
+	private IPath produceDotFile(VizGUI viz) throws ErrorFatal, ErrorSyntax,
 	IOException {
 		AlloyInstance instance = StaticInstanceReader.parseInstance(new File(
 				viz.getXMLfilename()));
 		VizState theme = new VizState(instance);
-		String themeFilename = viz.getThemefilename();
+		String themeFilename = viz.getThemeFilename();
 		File themeFile = new File(themeFilename);
 		if (themeFile.canRead()) {
 			StaticThemeReaderWriter.readAlloy(themeFilename, theme);
@@ -375,7 +465,7 @@ IResourceChangeListener {
 		Process proc = Runtime.getRuntime().exec(command);
 		BufferedReader procOutput = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
 		try {
-			int result = proc.waitFor();
+			proc.waitFor();
 			String line;
 			while ((line=procOutput.readLine())!=null) {
 			    AlloyPlugin.getDefault().logInfo(line);
@@ -407,7 +497,7 @@ IResourceChangeListener {
 	
 	public IPath saveCurrentVisualizationAsImageFile() throws IOException,
 	ErrorFatal, ErrorSyntax, CoreException {
-		MyVizGUI viz = getCurrentVizGUI();
+		VizGUI viz = getCurrentVizGUI();
 		if (null == viz)
 			return null;
 		IPath dotFile = produceDotFile(viz);
