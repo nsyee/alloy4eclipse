@@ -8,12 +8,18 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+import javax.xml.xpath.XPathFactoryConfigurationException;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IMarker;
@@ -39,6 +45,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
+import org.xml.sax.InputSource;
 
 import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.ErrorFatal;
@@ -239,7 +246,7 @@ IResourceChangeListener {
 			AlloyPlugin.getDefault().logInfo(
 					"MultiPageEditor.createPage2().begin");
 
-		addPage("graph", null);
+		addPage("graph", lookForDefaultThemeFile());
 
 		if (AlloyPreferencePage.getShowDebugMessagesPreference())
 			AlloyPlugin.getDefault().logInfo(
@@ -247,6 +254,49 @@ IResourceChangeListener {
 	}
 
 
+	/**
+	 * Look for a default theme file.
+	 * For the moment, the theme file must be the same as the als file launching the command.
+	 *  
+	 * @author leberre@cril.univ-artois.fr
+	 * 
+	 */
+	private URL lookForDefaultThemeFile() {
+	    IEditorInput input;
+        input = editor.getEditorInput();
+        String filename = Util
+        .getFileLocation((IResource) input
+                .getAdapter(IResource.class));
+        try {
+            XPathFactory fabrique = XPathFactory.newInstance();
+            XPath environnement = fabrique.newXPath();
+            URL url = new URL("file:"+filename);
+            InputSource source = new InputSource(url.openStream());
+
+            XPathExpression expression ;
+            expression = environnement.compile("/alloy/instance/@filename");
+            String resultat = expression.evaluate(source);
+            AlloyPlugin.getDefault().logInfo("Solution coming from "+resultat);
+            IPath path = new Path(resultat);
+            IPath themePath = path.removeFileExtension().addFileExtension("thm");
+            File themeFile = themePath.toFile();
+            if (themeFile.exists()) {
+                AlloyPlugin.getDefault().logInfo("Found default theme "+themeFile);
+                return themeFile.toURI().toURL();
+            }
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (XPathExpressionException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+	    return null;
+	}
+	
 	/**
 	 * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
 	 */
