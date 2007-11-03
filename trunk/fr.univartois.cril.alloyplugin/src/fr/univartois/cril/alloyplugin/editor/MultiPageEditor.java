@@ -152,7 +152,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
             final URL alloyVisualizationTheme) {
         int index = getCurrentVizGUIIndex();
         VizGUI viz = getCurrentVizGUI();
-        viz.run(VizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
+        viz.run(VizGUI.EV_LOAD_THEME, alloyVisualizationTheme.getFile());
         thmTable.put(index, alloyVisualizationTheme);
         return viz;
     }
@@ -362,11 +362,11 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         thmTable.put(index, alloyVisualizationTheme);
 
         viz[0]
-                .run(VizGUI.evs_loadInstanceForcefully, Util
+                .run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, Util
                         .getFileLocation((IResource) input
                                 .getAdapter(IResource.class)));
         if (alloyVisualizationTheme != null) {
-            viz[0].run(VizGUI.evs_loadTheme, alloyVisualizationTheme.getFile());
+            viz[0].run(VizGUI.EVS_LOAD_THEME, alloyVisualizationTheme.getFile());
         }
 
         /**
@@ -378,7 +378,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         ActionListener act = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 /* hop from AWT over to SWT ... */
-                final Object highlighted = viewer.do_getHighlightedAnnotation();
+                final Object highlighted = viewer.alloyGetHighlightedAnnotation();
                 Display.getDefault().asyncExec(new Runnable() {
                     public void run() {
                         AlloyPlugin.getDefault().logInfo(

@@ -263,7 +263,7 @@ public class AlloyLaunching {
         //
         // You can then visualize the XML file by calling this:
         VizGUI viz = new VizGUI(false, "", null);
-        viz.run(VizGUI.evs_loadInstanceForcefully, "output.xml");
+        viz.run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, "output.xml");
     }
 
 }
