@@ -444,15 +444,11 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 
         IPath dotFile = produceDotFile(viz);
 
-        IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();
-        IResource dotResource = wksroot.getContainerForLocation(dotFile);
-        if (null != dotResource && dotResource.getProject().isAccessible()) {
-            IContainer dotFolder = dotResource.getParent();
-            dotFolder.refreshLocal(IResource.DEPTH_ONE, null);
+        if (refreshProjectManager(dotFile)) {
             AlloyPlugin.getDefault()
                     .logInfo(
                             "DOT workspace file saved as: "
-                                    + dotResource.getFullPath());
+                                    + dotFile);
         } else {
             AlloyPlugin.getDefault().logInfo(
                     "DOT external file saved as: " + dotFile);
@@ -461,6 +457,18 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         return dotFile;
     }
 
+    private boolean refreshProjectManager(IPath path) throws CoreException {
+        IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();
+        IResource dotResource = wksroot.getContainerForLocation(path);
+        if (null != dotResource && dotResource.getProject().isAccessible()) {
+            IContainer dotFolder = dotResource.getParent();
+            dotFolder.refreshLocal(IResource.DEPTH_ONE, null);
+            return true;
+        }
+        return false;
+        
+    }
+    
     private IPath produceDotFile(VizGUI viz) throws ErrorFatal, ErrorSyntax,
             IOException {
         AlloyInstance instance = StaticInstanceReader.parseInstance(new File(
@@ -741,6 +749,18 @@ public class MultiPageEditor extends MultiPageEditorPart implements
             AlloyPlugin.getDefault().logInfo(
                     "MultiPageEditor.setControl(pageIndex=" + pageIndex
                             + ",control=" + control + ").end");
+
+    }
+
+    public void doSaveAsTheme(IPath path) throws CoreException {
+        if (AlloyPreferencePage.getShowDebugMessagesPreference())
+            AlloyPlugin.getDefault().logInfo(
+                    "MultiPageEditor.doSaveThemeAs=" + path);
+        VizGUI viz = getCurrentVizGUI();
+        if (null == viz)
+            return;
+        viz.run(VizGUI.EVS_SAVE_THEME_AS_TS, path.toString());
+        refreshProjectManager(path);
 
     }
 
