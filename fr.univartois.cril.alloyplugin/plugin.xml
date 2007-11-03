@@ -115,8 +115,7 @@
             file-extensions="thm"
             id="fr.univartois.cril.alloyplugin.thmfile"
             name="Alloy Theme file"
-            priority="normal" 
-            icon="icons/theme.gif"/>
+            priority="normal" />
    </extension>
     <extension
          id="builder"

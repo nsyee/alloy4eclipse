@@ -75,7 +75,11 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	
 	public static final String THEME_ICON_ID = "icons/theme.gif";
 	public static final String THEME_IMPORT_ICON_ID = "icons/theme-import.gif";
+	public static final String THEME_IMPORT_ADD_ICON_ID = "icons/theme-import-plus.gif";
 	public static final String THEME_EXPORT_ICON_ID = "icons/theme-export.gif";
+	public static final String THEME_EXPORT_DOT_ICON_ID = "icons/dot.gif";
+	
+	public static final String LAUNCH_A4_ICON_ID = "icons/a4.gif";
 	
 	/** The system-specific file separator (forward-slash on UNIX, back-slash on Windows, etc.) */
 	public static final String FILE_SEPARATOR = System.getProperty("file.separator");
@@ -170,6 +174,9 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		addImage(THEME_ICON_ID, reg);
 		addImage(THEME_IMPORT_ICON_ID, reg);
 		addImage(THEME_EXPORT_ICON_ID, reg);
+		addImage(THEME_IMPORT_ADD_ICON_ID, reg);
+		addImage(THEME_EXPORT_DOT_ICON_ID, reg);
+		addImage(LAUNCH_A4_ICON_ID, reg);
 	}
 
 

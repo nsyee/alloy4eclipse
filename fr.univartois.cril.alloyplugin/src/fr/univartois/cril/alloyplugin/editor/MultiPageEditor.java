@@ -257,20 +257,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements
             AlloyPlugin.getDefault().logInfo(
                     "MultiPageEditor.createPage2().end");
     }
-    
-    void createPage3() {
-        VizGUI viz = vizTable.get(1);
-        int index = addPage(swingintegration.example.Platform.createComposite(
-        		getContainer(),
-        		editor.getEditorSite().getShell().getDisplay(),
-        		new swingintegration.example.SwingComponentConstructor(){
-        			public JComponent createSwingComponent() {
-        				 JComponent themepanel = new JLabel("Viz Configuration Panel should sit here if I could get access to a vizstate or even better a VizCustomizationPanel");
-        			      return themepanel;
-        			}
-        		})); 
-        setPageText(index,"Vizualization theme ("+viz.getThemeFilename()+")");
-    }
 
     /**
      * Look for a default theme file. For the moment, the theme file must be the
@@ -401,7 +387,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements
                     "MultiPageEditor.createPages().begin");
         createPage1();
         createPage2();
-        createPage3();
         if (AlloyPreferencePage.getShowDebugMessagesPreference())
             AlloyPlugin.getDefault().logInfo(
                     "MultiPageEditor.createPages().end");
