@@ -317,7 +317,7 @@ public class MultiPageEditorContributor extends MultiPageEditorActionBarContribu
 						final IPath dir = new Path(fdialog.getFilterPath());
 						final IPath path = dir.addTrailingSeparator().append(fdialog.getFileName());
 						VizGUI viz = new VizGUI(false,"",null);
-						viz.run(VizGUI.evs_loadInstanceForcefully, resource.getLocation().toOSString());
+						viz.run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, resource.getLocation().toOSString());
 						try {
 							final URL themeUrl = FileLocator.toFileURL(path.toFile().toURI().toURL());
 							viz.run(203 /* VizGUI.evs_loadTheme */, themeUrl.getFile());
