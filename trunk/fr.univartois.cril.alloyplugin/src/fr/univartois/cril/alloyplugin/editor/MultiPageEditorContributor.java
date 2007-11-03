@@ -327,7 +327,8 @@ public class MultiPageEditorContributor extends
         };
         editorAction1.setText("Apply Visualization Theme");
         editorAction1.setToolTipText("Alloy4Eclipse Visualization Theme");
-        editorAction1.setImageDescriptor(AlloyPlugin.getDefault().getImageDescriptor(AlloyPlugin.THEME_IMPORT_ICON_ID));
+        editorAction1.setImageDescriptor(AlloyPlugin.getDefault()
+                .getImageDescriptor(AlloyPlugin.THEME_IMPORT_ICON_ID));
 
         editorAction2 = new Action() {
             public void run() {
@@ -344,14 +345,17 @@ public class MultiPageEditorContributor extends
                         fdialog.setText("Select a visualization theme");
                         fdialog.open();
                         final IPath dir = new Path(fdialog.getFilterPath());
-                        final IPath path = dir.addTrailingSeparator().append(
-                                fdialog.getFileName());
-                        InputDialog ndialog = new InputDialog(shell,
-                                "New Alloy4 visualization page name:",
-                                "Enter a string", null, null);
-                        ndialog.open();
-                        String pageName = ndialog.getValue();
-                        doAddVisualizationAction(pageName, path);
+                        final String filename = fdialog.getFileName();
+                        if (!"".equals(filename)) {
+                            final IPath path = dir.addTrailingSeparator()
+                                    .append(filename);
+                            InputDialog ndialog = new InputDialog(shell,
+                                    "New Alloy4 visualization page name:",
+                                    "Enter a string", null, null);
+                            ndialog.open();
+                            String pageName = ndialog.getValue();
+                            doAddVisualizationAction(pageName, path);
+                        }
                     }
                 } catch (Exception e) {
                     AlloyPlugin.getDefault().log(e);
@@ -360,9 +364,8 @@ public class MultiPageEditorContributor extends
         };
         editorAction2.setText("Add Another Visualization Page");
         editorAction2.setToolTipText("New Alloy4Eclipse Visualization Page");
-        editorAction2.setImageDescriptor(PlatformUI.getWorkbench()
-                .getSharedImages().getImageDescriptor(
-                        IDE.SharedImages.IMG_OBJS_TASK_TSK));
+        editorAction2.setImageDescriptor(AlloyPlugin.getDefault()
+                .getImageDescriptor(AlloyPlugin.THEME_IMPORT_ADD_ICON_ID));
 
         editorAction3 = new Action() {
             public void run() {
@@ -379,19 +382,23 @@ public class MultiPageEditorContributor extends
                         fdialog.setText("Select a visualization theme");
                         fdialog.open();
                         final IPath dir = new Path(fdialog.getFilterPath());
-                        final IPath path = dir.addTrailingSeparator().append(
-                                fdialog.getFileName());
-                        VizGUI viz = new VizGUI(false, "", null);
-                        viz.run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, resource
-                                .getLocation().toOSString());
-                        try {
-                            final URL themeUrl = FileLocator.toFileURL(path
-                                    .toFile().toURI().toURL());
-                            viz.run(VizGUI.EVS_LOAD_THEME, themeUrl.getFile());
-                        } catch (MalformedURLException e) {
-                            AlloyPlugin.getDefault().log(e);
-                        } catch (IOException e) {
-                            AlloyPlugin.getDefault().log(e);
+                        final String filename = fdialog.getFileName();
+                        if (!"".equals(filename)) {
+                            final IPath path = dir.addTrailingSeparator()
+                                    .append(filename);
+                            VizGUI viz = new VizGUI(false, "", null);
+                            viz.run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY,
+                                    resource.getLocation().toOSString());
+                            try {
+                                final URL themeUrl = FileLocator.toFileURL(path
+                                        .toFile().toURI().toURL());
+                                viz.run(VizGUI.EVS_LOAD_THEME, themeUrl
+                                        .getFile());
+                            } catch (MalformedURLException e) {
+                                AlloyPlugin.getDefault().log(e);
+                            } catch (IOException e) {
+                                AlloyPlugin.getDefault().log(e);
+                            }
                         }
                     }
                 } catch (Exception e) {
@@ -403,9 +410,8 @@ public class MultiPageEditorContributor extends
         editorAction3.setText("Open with Alloy4 Visualizer");
         editorAction3
                 .setToolTipText("Open an Alloy4 visualizer on this instance");
-        editorAction3.setImageDescriptor(PlatformUI.getWorkbench()
-                .getSharedImages().getImageDescriptor(
-                        IDE.SharedImages.IMG_OBJS_TASK_TSK));
+        editorAction3.setImageDescriptor(AlloyPlugin.getDefault()
+                .getImageDescriptor(AlloyPlugin.LAUNCH_A4_ICON_ID));
 
         /**
          * Adapted from a suggestion by Felix Chang.
@@ -427,9 +433,8 @@ public class MultiPageEditorContributor extends
         editorAction4.setText("Save Alloy4 visualization DOT file");
         editorAction4
                 .setToolTipText("Save the current Alloy4 instance visualization as a DOT file");
-        editorAction4.setImageDescriptor(PlatformUI.getWorkbench()
-                .getSharedImages().getImageDescriptor(
-                        IDE.SharedImages.IMG_OBJS_TASK_TSK));
+        editorAction4.setImageDescriptor(AlloyPlugin.getDefault()
+                .getImageDescriptor(AlloyPlugin.THEME_EXPORT_DOT_ICON_ID));
 
         editorAction5 = new Action() {
             public void run() {
@@ -464,18 +469,21 @@ public class MultiPageEditorContributor extends
                                 .setText("Where do you want to save your theme file?");
                         dialog.open();
                         final IPath dir = new Path(dialog.getFilterPath());
-                        IPath path = dir.addTrailingSeparator().append(
-                                dialog.getFileName());
-                        final String extension = path.getFileExtension();
-                        if (extension == null) {
-                            path = path.addFileExtension("thm");
-                        } else {
-                            if (!"thm".equals(extension)) {
-                                path = path.removeFileExtension()
-                                        .addFileExtension("thm");
+                        final String filename = dialog.getFileName();
+                        if (filename != null && !"".equals(filename)) {
+                            IPath path = dir.addTrailingSeparator().append(
+                                    filename);
+                            final String extension = path.getFileExtension();
+                            if (extension == null) {
+                                path = path.addFileExtension("thm");
+                            } else {
+                                if (!"thm".equals(extension)) {
+                                    path = path.removeFileExtension()
+                                            .addFileExtension("thm");
+                                }
                             }
+                            multiPageEditor.doSaveAsTheme(path);
                         }
-                        multiPageEditor.doSaveAsTheme(path);
                     }
                 } catch (Exception e) {
                     AlloyPlugin.getDefault().log(e);
@@ -486,7 +494,8 @@ public class MultiPageEditorContributor extends
         saveAsTheme.setText("Save theme in a new file");
         saveAsTheme
                 .setToolTipText("Save the current theme settings in a new file");
-        saveAsTheme.setImageDescriptor(AlloyPlugin.getDefault().getImageDescriptor(AlloyPlugin.THEME_EXPORT_ICON_ID));
+        saveAsTheme.setImageDescriptor(AlloyPlugin.getDefault()
+                .getImageDescriptor(AlloyPlugin.THEME_EXPORT_ICON_ID));
     }
 
     public static String A4E_MENU_ID = MultiPageEditorContributor.class
