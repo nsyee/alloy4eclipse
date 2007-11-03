@@ -111,6 +111,12 @@
             id="fr.univartois.cril.alloyplugin.alsfile"
             name="ALS file"
             priority="normal"/>
+      <content-type
+            file-extensions="thm"
+            id="fr.univartois.cril.alloyplugin.thmfile"
+            name="Alloy Theme file"
+            priority="normal" 
+            icon="icons/theme.gif"/>
    </extension>
     <extension
          id="builder"

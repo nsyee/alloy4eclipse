@@ -16,6 +16,7 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
@@ -326,9 +327,7 @@ public class MultiPageEditorContributor extends
         };
         editorAction1.setText("Apply Visualization Theme");
         editorAction1.setToolTipText("Alloy4Eclipse Visualization Theme");
-        editorAction1.setImageDescriptor(PlatformUI.getWorkbench()
-                .getSharedImages().getImageDescriptor(
-                        IDE.SharedImages.IMG_OBJS_TASK_TSK));
+        editorAction1.setImageDescriptor(AlloyPlugin.getDefault().getImageDescriptor(AlloyPlugin.THEME_IMPORT_ICON_ID));
 
         editorAction2 = new Action() {
             public void run() {
@@ -487,9 +486,7 @@ public class MultiPageEditorContributor extends
         saveAsTheme.setText("Save theme in a new file");
         saveAsTheme
                 .setToolTipText("Save the current theme settings in a new file");
-        saveAsTheme.setImageDescriptor(PlatformUI.getWorkbench()
-                .getSharedImages().getImageDescriptor(
-                        IDE.SharedImages.IMG_OBJS_TASK_TSK));
+        saveAsTheme.setImageDescriptor(AlloyPlugin.getDefault().getImageDescriptor(AlloyPlugin.THEME_EXPORT_ICON_ID));
     }
 
     public static String A4E_MENU_ID = MultiPageEditorContributor.class
