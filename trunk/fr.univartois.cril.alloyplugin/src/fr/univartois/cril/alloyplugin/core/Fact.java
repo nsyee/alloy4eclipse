@@ -22,7 +22,10 @@ public class Fact implements IALSFact {
 	public Image getIcon() {
 		return icon;
 	}
-	public int getLine() {
+	public int getBeginLine() {
 		return fact.b.pos.y;
 	}
+    public int getEndLine() {
+        return fact.b.closingBracket.y2;
+    }
 }

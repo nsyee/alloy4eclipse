@@ -21,7 +21,10 @@ public class Signature implements IALSSignature {
 	public Image getIcon() {
 		return icon;
 	}
-	public int getLine() {
+	public int getBeginLine() {
 		return sig.pos.y;
 	}
+    public int getEndLine() {
+        return sig.pos.y2+sig.closingBracket.y2;
+    }
 }

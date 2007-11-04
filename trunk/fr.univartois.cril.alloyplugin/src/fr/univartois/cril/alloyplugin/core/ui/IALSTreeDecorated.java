@@ -6,5 +6,7 @@ public interface IALSTreeDecorated {
 
 	Image getIcon(); 
 	
-	int getLine();
+	int getBeginLine();
+	
+	int getEndLine();
 }
