@@ -433,7 +433,7 @@ public class VizView extends ViewPart implements ICommandListener {
     }
 
     public void doSaveAsTheme(IPath path) throws CoreException {
-        viz[0].run(VizGUI.EV_SAVE_THEME_AS_TS, path.toString());
+        viz[0].run(VizGUI.EVS_SAVE_THEME, path.toString());
         refreshProjectManager(path);
 
     }
