@@ -38,9 +38,12 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.ViewPart;
@@ -73,6 +76,7 @@ public class VizView extends ViewPart implements ICommandListener {
     private IAction  editorAction2;
 
     private String   filename;
+    private IMemento memento;
 
     @Override
     public void createPartControl(Composite arg0) {
@@ -103,8 +107,9 @@ public class VizView extends ViewPart implements ICommandListener {
                                 return viz[0].getPanel();
                             }
                         });
+        restoreState();
         if (filename != null) {
-            fillWithVizPanel(filename,filename,lookForDefaultThemeFile());
+            fillWithVizPanel(filename, filename, lookForDefaultThemeFile());
         }
         createActions();
         contributeToMenu(getA4EMenu());
@@ -119,23 +124,24 @@ public class VizView extends ViewPart implements ICommandListener {
 
     public void onXmlSolutionFileCreation(String filename) {
         this.filename = filename;
-        fillWithVizPanel(filename,filename,lookForDefaultThemeFile());
+        fillWithVizPanel(filename, filename, lookForDefaultThemeFile());
 
     }
 
     public void onXmlSolutionFileCreation(String filename,
             URL alloyVisualizationTheme) {
         this.filename = filename;
-        fillWithVizPanel(filename, filename,alloyVisualizationTheme);
+        fillWithVizPanel(filename, filename, alloyVisualizationTheme);
     }
 
     public void onXmlSolutionFileCreation(String filename, String name,
             URL alloyVisualizationTheme) {
         this.filename = filename;
-        fillWithVizPanel(filename, name,alloyVisualizationTheme);
+        fillWithVizPanel(filename, name, alloyVisualizationTheme);
     }
 
-    private void fillWithVizPanel(String filename, String name, URL alloyVisualizationTheme) {
+    private void fillWithVizPanel(String filename, String name,
+            URL alloyVisualizationTheme) {
         setPartName(name);
         viz[0].run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, filename);
 
@@ -178,7 +184,8 @@ public class VizView extends ViewPart implements ICommandListener {
                     final IPath dir = new Path(dialog.getFilterPath());
                     final IPath path = dir.addTrailingSeparator().append(
                             dialog.getFileName());
-                    fillWithVizPanel(filename, filename,path.toFile().toURI().toURL());
+                    fillWithVizPanel(filename, filename, path.toFile().toURI()
+                            .toURL());
 
                 } catch (Exception e) {
                     AlloyPlugin.getDefault().log(e);
@@ -340,9 +347,6 @@ public class VizView extends ViewPart implements ICommandListener {
                                              + ".a4e.menu"; //$NON-NLS-1$
 
     public IToolBarManager getToolBarManager() {
-        if (AlloyPreferencePage.getShowDebugMessagesPreference())
-            AlloyPlugin.getDefault().logInfo(
-                    "MultiPageEditorContributor.getToolBarManager()");
         IActionBars actionBar = getViewSite().getActionBars();
         if (null == actionBar)
             return null;
@@ -424,7 +428,7 @@ public class VizView extends ViewPart implements ICommandListener {
                     IWorkbenchPage.VIEW_ACTIVATE);
             commandListener = (ICommandListener) vizView;
 
-            commandListener.onXmlSolutionFileCreation(filename,name,
+            commandListener.onXmlSolutionFileCreation(filename, name,
                     alloyVisualizationTheme);
 
         } catch (CoreException e) {
@@ -564,5 +568,26 @@ public class VizView extends ViewPart implements ICommandListener {
         }
 
         return dotFile;
+    }
+
+    @Override
+    public void init(IViewSite site, IMemento memento) throws PartInitException { // TODO
+                                                                                    // Auto-generated
+                                                                                    // method
+                                                                                    // stub
+        super.init(site, memento);
+        this.memento = memento;
+    }
+
+    @Override
+    public void saveState(IMemento memento) {
+        super.saveState(memento);
+        memento.putString("filename",filename);
+    }
+
+    private void restoreState() {
+        if (memento != null) {
+            filename = memento.getString("filename");
+        }
     }
 }
