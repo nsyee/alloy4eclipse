@@ -24,7 +24,10 @@ public class Function implements IALSFunction {
 		return icon;
 	}
 
-	public int getLine() {
+	public int getBeginLine() {
 		return func.pos.y;
 	}
+    public int getEndLine() {
+        return func.pos.y2+func.getBody().closingBracket.y2;
+    }
 }

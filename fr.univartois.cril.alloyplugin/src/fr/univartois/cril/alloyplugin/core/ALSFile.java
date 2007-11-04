@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.core.resources.IResource;
+
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
@@ -12,6 +14,7 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
 import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
 import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
+import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
 /**
  * This class represents an als file.  
  * This plugin implements IALSFile.
@@ -109,6 +112,14 @@ public class ALSFile implements IALSFile {
 		return commandsMap.get(commandLabel);
 	}
 	
-	
+	public List<IALSTreeDecorated> getAllAlloyObjects() {
+	    List<IALSTreeDecorated> list = new ArrayList<IALSTreeDecorated>();
+	    list.addAll(sig);
+	    list.addAll(fact);
+	    list.addAll(pred);
+	    list.addAll(func);
+	    list.addAll(cmds);
+	    return list;
+	}
 	
 }

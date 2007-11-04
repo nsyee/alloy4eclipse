@@ -127,7 +127,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 				
 				if (selection instanceof IALSTreeDecorated) {
 					launchCommandAction.run();
-					log.info("Selection mis à null");
+					log.info("Selection mis ï¿½ null");
 					//viewer.setSelection(null, true);
 				}
 
@@ -190,7 +190,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 				IDocument document = provider.getDocument(editor
 						.getEditorInput());
 				try {
-					int start = document.getLineOffset(elem.getLine() - 1);
+					int start = document.getLineOffset(elem.getBeginLine() - 1);
 					editor.selectAndReveal(start, 0);
 				} catch (BadLocationException x) {
 					// ignore
