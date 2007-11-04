@@ -254,5 +254,11 @@
             natureId="fr.univartois.cril.alloyplugin.AlloyProjectNature"/>
    </extension>
    
-   
+<extension point="org.eclipse.ui.views">
+        <view id="fr.univartois.cril.alloyplugin.views.vizview"
+             name="Graphical View"
+          class="fr.univartois.cril.alloyplugin.views.VizView"
+          icon="icons/graph.gif"
+          allowMultiple="true"/>
+</extension>   
 </plugin>

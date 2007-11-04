@@ -744,7 +744,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         VizGUI viz = getCurrentVizGUI();
         if (null == viz)
             return;
-        viz.run(VizGUI.EVS_SAVE_THEME_AS_TS, path.toString());
+        viz.run(VizGUI.EV_SAVE_THEME_AS_TS, path.toString());
         refreshProjectManager(path);
 
     }
