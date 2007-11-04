@@ -134,7 +134,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
             try {
                 int offset = document.getLineOffset(ao.getBeginLine()-1);
                 int endOffset = document.getLineOffset(ao.getEndLine());
-                assert offset <endOffset : ""+offset+"<"+endOffset;
+                assert offset <endOffset : ao.toString()+":"+offset+"<"+endOffset;
                 // System.out.println(ao.toString()+":"+offset+"<"+endOffset);
                 positions.add(new Position(offset, endOffset - offset));
             } catch (BadLocationException e) {
