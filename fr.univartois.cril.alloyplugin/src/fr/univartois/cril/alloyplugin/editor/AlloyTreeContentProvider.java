@@ -115,10 +115,13 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
     }
 
     public boolean hasChildren(Object element) {
-        // log.info("has children? "+element);
-        return element.equals(COMMANDS) || element.equals(SIGNATURES)
-                || element.equals(FUNCTIONS) || element.equals(PREDICATES)
-                || element.equals(FACTS) || element.equals(ASSERT);
+        if (COMMANDS.equals(element)) return !af.getCommand().isEmpty();
+        if (SIGNATURES.equals(element)) return !af.getSignatures().isEmpty();
+        if (FUNCTIONS.equals(element)) return !af.getFunctions().isEmpty();
+        if (PREDICATES.equals(element)) return !af.getPredicates().isEmpty();
+        if (FACTS.equals(element)) return !af.getFacts().isEmpty();
+        if (ASSERT.equals(element)) return !af.getAssertions().isEmpty();
+        return false;
     }
 
     public Object[] getElements(Object inputElement) {
