@@ -2,8 +2,9 @@
 <feature
       id="fr.univartois.cril.alloy4feature"
       label="Alloy 4 Feature"
-      version="0.2.2"
-      provider-name="Université d&apos;Artois">
+      version="0.2.3"
+      provider-name="Université d&apos;Artois"
+      image="AlloyLogo.gif">
 
    <description url="http://code.google.com/p/alloy4eclipse/">
       The aim of this project is to allow the specification and analysis
