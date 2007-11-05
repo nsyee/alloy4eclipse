@@ -2,10 +2,9 @@
 <feature
       id="fr.univartois.cril.alloy4feature"
       label="Alloy 4 Feature"
-      version="0.2.3"
+      version="0.2.4"
       provider-name="Université d&apos;Artois"
-      plugin="fr.univartois.cril.alloyplugin"
-      >
+      plugin="fr.univartois.cril.alloyplugin">
 
    <description url="http://code.google.com/p/alloy4eclipse/">
       The aim of this project is to allow the specification and analysis
