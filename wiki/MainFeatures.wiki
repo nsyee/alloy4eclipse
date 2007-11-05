@@ -1,6 +1,6 @@
 #summary Main features of the plugin
 #labels Featured
-= Current features (version 0.1.6) =
+= Current features (version 0.2.5) =
 
   * Syntax coloring for als files
   * Compilation of Alloy4 files from Eclipse (*"compile on save" behavior*)
@@ -16,10 +16,10 @@ http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-002-a.png
   * Eclipse build mechanism for syntax checking
   * Outline view
 http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-0.1.1.png
-  * Visualization using Graphviz+Swing
+  * A4 Visualization embedded in multiple views
+  * theming management
+http://alloy4eclipse.googlecode.com/svn/wiki/alloy4eclipse-0.1.1.png
   * Improved commands contextual menus
-  * Fix for spec files included in Alloy4.jar 
-  * Embedded Graphical view
 
 
 = Available on SVN =
