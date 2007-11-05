@@ -21,6 +21,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
     public static final String    FUNCTIONS  = "Functions";
     public static final String    SIGNATURES = "Signatures";
     public static final String    FACTS      = "Facts";
+    public static final String    ASSERT     = "Assertions";
     public static final String    PREDICATES = "Predicates";
     public static final String    COMMANDS   = "Commands";
     private ALSEditor             editor;
@@ -42,7 +43,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
     }
 
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-        System.out.println("input changed: new Input" + newInput);
+        //System.out.println("input changed: new Input" + newInput);
         this.viewer = viewer;
 
         if (oldInput != null) {
@@ -94,6 +95,10 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
                                                     // {"tata"};
         if (parentElement.equals(FACTS))
             return af.getFacts().toArray();
+        
+        if (parentElement.equals(ASSERT))
+            return af.getAssertions().toArray();
+        
         if (parentElement.equals(FUNCTIONS))
             return af.getFunctions().toArray(); // EMPTY_TAB;//Object[]
                                                 // {"toto"};
@@ -113,13 +118,13 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
         // log.info("has children? "+element);
         return element.equals(COMMANDS) || element.equals(SIGNATURES)
                 || element.equals(FUNCTIONS) || element.equals(PREDICATES)
-                || element.equals(FACTS);
+                || element.equals(FACTS) || element.equals(ASSERT);
     }
 
     public Object[] getElements(Object inputElement) {
         // log.info("get elements for "+inputElement);
         System.out.println("get elements for :" + inputElement);
-        return new String[] { SIGNATURES, FACTS, FUNCTIONS, PREDICATES,
+        return new String[] { SIGNATURES, FACTS, ASSERT, FUNCTIONS, PREDICATES,
                 COMMANDS };
     }
 

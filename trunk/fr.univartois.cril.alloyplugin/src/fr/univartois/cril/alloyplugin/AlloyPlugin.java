@@ -65,6 +65,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 
 	public static final String SIGNATURE_ICON_ID="icons/sig.gif";
 	public static final String FACT_ICON_ID="icons/fact.gif";
+	public static final String ASSERT_ICON_ID="icons/assert.gif";
 	public static final String FUNCTION_ICON_ID="icons/function.gif";
 	public static final String PREDICATE_ICON_ID="icons/predicate.gif";
 	public static final String RUN_ICON_ID="icons/run.gif";

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IResource;
 
+import fr.univartois.cril.alloyplugin.core.ui.IALSAssert;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
@@ -31,6 +32,8 @@ public class ALSFile implements IALSFile {
     private List <IALSFact> fact=new ArrayList<IALSFact>();
 	private List <IALSFunction> func=new ArrayList<IALSFunction>();
 	private List <IALSSignature> sig=new ArrayList<IALSSignature>();
+	private List <IALSAssert> assertions = new ArrayList<IALSAssert>();
+	
 	public ALSFile(IResource resource) {
 		this.resource=resource;
 	}
@@ -116,10 +119,19 @@ public class ALSFile implements IALSFile {
 	    List<IALSTreeDecorated> list = new ArrayList<IALSTreeDecorated>();
 	    list.addAll(sig);
 	    list.addAll(fact);
+	    list.addAll(assertions);
 	    list.addAll(pred);
 	    list.addAll(func);
 	    list.addAll(cmds);
 	    return list;
 	}
+	
+    public List<IALSAssert> getAssertions() {
+         return assertions;
+    }
+    public void setAssertions(List<IALSAssert> assertions) {
+        this.assertions = assertions;
+        
+    }
 	
 }
