@@ -19,6 +19,9 @@ public class AlloyTreeLabelProvider implements ILabelProvider {
         if (AlloyTreeContentProvider.FACTS.equals(element)) {
             return AlloyPlugin.getDefault().getImage(AlloyPlugin.FACT_ICON_ID);
         }
+        if (AlloyTreeContentProvider.ASSERT.equals(element)) {
+            return AlloyPlugin.getDefault().getImage(AlloyPlugin.ASSERT_ICON_ID);
+        }
         if (AlloyTreeContentProvider.FUNCTIONS.equals(element)) {
             return AlloyPlugin.getDefault().getImage(AlloyPlugin.FUNCTION_ICON_ID);
         }

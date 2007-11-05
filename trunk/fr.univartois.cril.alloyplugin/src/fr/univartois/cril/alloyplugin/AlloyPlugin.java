@@ -165,6 +165,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 		addImage(GREEN_RUN_ID, reg);
 		addImage(SIGNATURE_ICON_ID, reg);
 		addImage(FACT_ICON_ID, reg);
+		addImage(ASSERT_ICON_ID, reg);
 		addImage(FUNCTION_ICON_ID, reg);
 		addImage(PREDICATE_ICON_ID, reg);
 		addImage(RUN_ICON_ID, reg);
