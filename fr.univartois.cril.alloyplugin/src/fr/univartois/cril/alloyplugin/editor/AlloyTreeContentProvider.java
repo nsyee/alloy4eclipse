@@ -135,10 +135,12 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
         IDocument document = editor.getDocumentProvider().getDocument(
                 editor.getEditorInput());
         List<IALSTreeDecorated> alloyobjects = af.getAllAlloyObjects();
+        int nol = document.getNumberOfLines();
         for (IALSTreeDecorated ao : alloyobjects) {
             try {
                 int offset = document.getLineOffset(ao.getBeginLine()-1);
-                int endOffset = document.getLineOffset(ao.getEndLine());
+                int eol = ao.getEndLine();
+                int endOffset = (eol == nol) ? document.getLength() : document.getLineOffset(eol);
                 assert offset <endOffset : ao.toString()+":"+offset+"<"+endOffset;
                 // System.out.println(ao.toString()+":"+offset+"<"+endOffset);
                 positions.add(new Position(offset, endOffset - offset));
