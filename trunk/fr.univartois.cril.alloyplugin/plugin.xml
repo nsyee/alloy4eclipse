@@ -255,10 +255,15 @@
    </extension>
    
 <extension point="org.eclipse.ui.views">
-        <view id="fr.univartois.cril.alloyplugin.views.vizview"
-             name="Graphical View"
-          class="fr.univartois.cril.alloyplugin.views.VizView"
-          icon="icons/graph.gif"
-          allowMultiple="true"/>
+   <category
+         id="fr.univartois.cril.alloyplugin.views"
+         name="Alloy4Eclipse"/>
+        <view
+              allowMultiple="true"
+              category="fr.univartois.cril.alloyplugin.views"
+              class="fr.univartois.cril.alloyplugin.views.VizView"
+              icon="icons/graph.gif"
+              id="fr.univartois.cril.alloyplugin.views.vizview"
+              name="Graphical View"/>
 </extension>   
 </plugin>
