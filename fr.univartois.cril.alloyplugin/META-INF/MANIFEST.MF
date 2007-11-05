@@ -23,6 +23,7 @@ Eclipse-LazyStart: true
 Bundle-Vendor: CRIL - Université d'Artois
 Bundle-ClassPath: .
 Export-Package: fr.univartois.cril.alloyplugin,
+ fr.univartois.cril.alloyplugin.XMLEditor,
  fr.univartois.cril.alloyplugin.console,
  fr.univartois.cril.alloyplugin.core,
  fr.univartois.cril.alloyplugin.core.ui,
@@ -31,5 +32,5 @@ Export-Package: fr.univartois.cril.alloyplugin,
  fr.univartois.cril.alloyplugin.launch.util,
  fr.univartois.cril.alloyplugin.preferences,
  fr.univartois.cril.alloyplugin.ui,
- fr.univartois.cril.alloyplugin.XMLEditor
+ fr.univartois.cril.alloyplugin.views
 
