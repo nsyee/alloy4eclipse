@@ -133,6 +133,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
 				if (AlloyTreeContentProvider.SIGNATURES.equals(selection)
 						||AlloyTreeContentProvider.FACTS.equals(selection)
+						||AlloyTreeContentProvider.ASSERT.equals(selection)
 						||AlloyTreeContentProvider.FUNCTIONS.equals(selection)
 						||AlloyTreeContentProvider.PREDICATES.equals(selection)
 						||AlloyTreeContentProvider.COMMANDS.equals(selection)){

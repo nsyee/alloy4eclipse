@@ -25,6 +25,8 @@ public interface IALSFile {
     public List<IALSFunction> getFunctions();
 
     public List<IALSSignature> getSignatures();
+    
+    public List<IALSAssert> getAssertions();
 
     public void addListener(IALSFileListener listener);
 

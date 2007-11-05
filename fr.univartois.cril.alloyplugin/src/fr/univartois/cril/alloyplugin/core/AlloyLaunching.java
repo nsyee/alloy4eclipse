@@ -11,6 +11,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import edu.mit.csail.sdg.alloy4.ConstList;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4.Pos;
@@ -19,13 +20,14 @@ import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
-import edu.mit.csail.sdg.alloy4compiler.parser.Module;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
+import edu.mit.csail.sdg.alloy4compiler.parser.Module;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
+import fr.univartois.cril.alloyplugin.core.ui.IALSAssert;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
@@ -219,6 +221,14 @@ public class AlloyLaunching {
         for (Sig sig : sigList) {
             sigs.add(new Signature(sig));
         }
+        file.setSignatures(sigs);
+        
+        ConstList<Pair<String, Expr>> assertList = world.getAllAssertions();
+        List<IALSAssert> assertions = new ArrayList<IALSAssert>(assertList.size());
+        for (Pair<String, Expr> a : assertList) {
+            assertions.add(new Assert(a));
+        }
+        file.setAssertions(assertions);
         file.setSignatures(sigs);
         file.fireChange();
         System.out.println("ALSFile changed:" + file);
