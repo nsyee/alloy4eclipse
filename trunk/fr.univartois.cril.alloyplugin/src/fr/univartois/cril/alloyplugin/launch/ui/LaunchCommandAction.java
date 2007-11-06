@@ -12,11 +12,11 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.ui.actions.SelectionProviderAction;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.editor.AlloyTreeContentProvider;
 
 /**
- * This listens a selectionProvider and can execute selected ExecutableCommand from it.
+ * This listens a selectionProvider and can execute selected IALSCommand from it.
  *   
  * This action use eclipse launching mechanism.
  */
@@ -84,7 +84,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
 					}
 				}
 				else
-					if (o instanceof ExecutableCommand){
+					if (o instanceof IALSCommand){
 						setText(TEXT_DEFAULT);
 						
 						this.setEnabled(true);
@@ -101,22 +101,22 @@ public class LaunchCommandAction extends SelectionProviderAction {
 
 
 	/**
-	 * Create and run a quick launch configuration with all ExecutableCommand from selection.
+	 * Create and run a quick launch configuration with all IALSCommand from selection.
 	 * */
 
 	public void run() {
-		List<ExecutableCommand> commandsList = null;
+		List<IALSCommand> commandsList = null;
 		if (commandRootSelected){
-			commandsList=new ArrayList<ExecutableCommand>();
+			commandsList=new ArrayList<IALSCommand>();
 			AlloyTreeContentProvider contentProvider = (AlloyTreeContentProvider) viewer.getContentProvider();
 			Object[] commands = contentProvider.getChildren(AlloyTreeContentProvider.COMMANDS);
 			for (int i = 0; i < commands.length; i++) {
-				commandsList.add((ExecutableCommand) commands[i]);
+				commandsList.add((IALSCommand) commands[i]);
 			}
 
 		}
 		else
-			commandsList= getExecutableCommandFromSelection(selection);
+			commandsList= getIALSCommandFromSelection(selection);
 
 		if (!commandsList.isEmpty())
 		{			
@@ -135,13 +135,13 @@ public class LaunchCommandAction extends SelectionProviderAction {
 	/**
 	 * Return executable a list of command from selection. can be empty.
 	 * */
-	public List<ExecutableCommand> getExecutableCommandFromSelection( IStructuredSelection selection) {
-		ArrayList<ExecutableCommand> list =new ArrayList<ExecutableCommand>();
+	public List<IALSCommand> getIALSCommandFromSelection( IStructuredSelection selection) {
+		ArrayList<IALSCommand> list =new ArrayList<IALSCommand>();
 		if (!selection.isEmpty()) {
 			for ( Iterator iterator = selection.iterator();iterator.hasNext();) {
 				Object obj=iterator.next();
-				if (obj instanceof ExecutableCommand) {
-					list.add((ExecutableCommand) obj);											
+				if (obj instanceof IALSCommand) {
+					list.add((IALSCommand) obj);											
 				}
 			}
 		}

@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -44,7 +45,7 @@ public class AlloyLaunching {
     /**
      * Execute an ExecutableCommand previously created after a parsing.
      */
-    public static final void execCommand(ExecutableCommand command) {
+    public static final void execCommand(IALSCommand command) {
         assert (command != null);
         Reporter rep = new Reporter(command.getResource());
         execCommand(command, rep);
@@ -195,6 +196,7 @@ public class AlloyLaunching {
             exec_cmds.add(new ExecutableCommand(file, command.a, command.b,
                     world));
         }
+        exec_cmds.add(new MetamodelCommand(file, world));
         file.setCommand(exec_cmds);
         SafeList<Pair<String, Expr>> factsList = world.getAllFacts();
         List<IALSFact> facts = new ArrayList<IALSFact>(factsList.size());
@@ -238,21 +240,16 @@ public class AlloyLaunching {
      * Execute a command. The command is modified. Some informations can be show
      * to console.
      */
-    private static final void execCommand(ExecutableCommand command,
+    private static final void execCommand(IALSCommand command,
             Reporter rep) {
         AlloyMessageConsole alloyConsole = Console.findAlloyConsole(command
                 .getFilename());
         alloyConsole.activate();
         try {
 
-            alloyConsole.printInfo("============ Command " + command
-                    + ": ============");
-            A4Solution ans;
-
-            ans = command.execute(rep);
-            // Print the outcome in console
-            alloyConsole.printInfo("============ Answer ============");
-            alloyConsole.print(ans.toString());
+            alloyConsole.printInfo("============ Command " + command + ": ============");
+            command.execute(rep);
+            showAnswer(command);
 
         } catch (Err e) {
             displayErrorInProblemView(command.getResource(), e);
@@ -260,6 +257,26 @@ public class AlloyLaunching {
 
     }
 
+    public static void showAnswer(IALSCommand command) {
+    	Pair<A4Solution,Boolean> ans = command.getAns();
+  
+		AlloyMessageConsole alloyConsole=Console.findAlloyConsole(command.getFilename());
+		alloyConsole.activate();
+		
+		if (ans!=null)
+			alloyConsole.printInfo("============ Answer ============");
+		else
+			alloyConsole.printInfo("No answer yet");
+		
+		if (ans.a!=null)
+			alloyConsole.print(ans.a.toString());
+	
+		if (!AlloyLaunching.hasSuccessfulAnswer(ans)) {
+			alloyConsole.printInfo("Cannot display graph : Answer not satisfiable");
+		} else {
+			command.displayAnsSafe();
+		}
+    }
     /**
      * Old method for saving the answer in a temporary file and visualize it.
      * 
@@ -276,4 +293,23 @@ public class AlloyLaunching {
         viz.run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, "output.xml");
     }
 
+    public static boolean hasSuccessfulAnswer(Pair<A4Solution,Boolean> ans) {
+    	if (null==ans) return false;
+    	if (null==ans.a) return ans.b;
+    	return ans.a.satisfiable();
+    }
+    
+    public static String getResourcePartName(IResource res) {
+    	if (null == res) return "";
+    	IPath rpath = res.getFullPath();
+    	String[] segments = rpath.segments();
+    	StringBuffer partNameBuffer = new StringBuffer();
+    	partNameBuffer.append(rpath.lastSegment());
+    	for (int i=segments.length-2; i>0; --i) {
+    		partNameBuffer.append('<');
+    		partNameBuffer.append(segments[i]);
+    	}
+    	partNameBuffer.append('|');
+    	return partNameBuffer.toString();
+    }
 }

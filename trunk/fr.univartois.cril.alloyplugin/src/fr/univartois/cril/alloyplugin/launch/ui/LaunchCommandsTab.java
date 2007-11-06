@@ -25,7 +25,6 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
@@ -198,8 +197,8 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		Object[] selectedCommands = commandsViewer.getCheckedElements();
 		System.out.println("perform aplly:");
 		for (Object object : selectedCommands) {
-			list.add(((ExecutableCommand)object).getName());
-			System.out.println("add:"+((ExecutableCommand)object).getName());
+			list.add(((IALSCommand)object).getName());
+			System.out.println("add:"+((IALSCommand)object).getName());
 		}
 		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,list);
 
@@ -219,7 +218,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		IStructuredSelection sel=getSelectionfromContext();
 		if (sel!=null)
-		{List <ExecutableCommand>cmds=getExecutableCommandFromSelection(sel);
+		{List <IALSCommand>cmds=getIALSCommandFromSelection(sel);
 		if (!cmds.isEmpty()){			
 			setdefaultsAttributes(cmds, configuration);
 			String name = DebugPlugin.getDefault().getLaunchManager().generateUniqueLaunchConfigurationNameFrom(cmds.get(0).getResource().getName());
@@ -263,7 +262,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 	 * All informations are taken from a list of als commands. 
 	 * Clients can use this method to configure their own launch configuration.
 	 */
-	public void setdefaultsAttributes(List<ExecutableCommand> cmds, ILaunchConfigurationWorkingCopy configuration) {
+	public void setdefaultsAttributes(List<IALSCommand> cmds, ILaunchConfigurationWorkingCopy configuration) {
 		IResource[] resources=null;		
 
 		resources=new IResource[1];
@@ -295,15 +294,15 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		return null;
 	}
 
-	public List<ExecutableCommand> getExecutableCommandFromSelection( IStructuredSelection selection) {
-		ArrayList<ExecutableCommand> list = null;
+	public List<IALSCommand> getIALSCommandFromSelection( IStructuredSelection selection) {
+		ArrayList<IALSCommand> list = null;
 		if (!selection.isEmpty()) {
 			for ( Iterator iterator = selection.iterator();iterator.hasNext();) {
 				Object obj=iterator.next();
-				if (obj instanceof ExecutableCommand) {
+				if (obj instanceof IALSCommand) {
 					System.out.println("executable command selected");				
-					if (list==null) list=new ArrayList<ExecutableCommand>();
-					list.add((ExecutableCommand) obj);											
+					if (list==null) list=new ArrayList<IALSCommand>();
+					list.add((IALSCommand) obj);											
 				}
 			}
 		}
@@ -321,8 +320,8 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 				if (obj instanceof IALSFile) {
 					return (IALSFile)obj;
 				}
-				if (obj instanceof ExecutableCommand) {
-					IResource res = ((ExecutableCommand)obj).getResource();
+				if (obj instanceof IALSCommand) {
+					IResource res = ((IALSCommand)obj).getResource();
 					IALSFile file=AlloyPlugin.getDefault().getALSFile(res);
 					if(file!=null) return file;						
 				}

@@ -13,7 +13,7 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
-import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
@@ -54,7 +54,7 @@ ILaunchConfigurationDelegate {
 					String commandId=(String) object;
 					if (monitor.isCanceled()) break;
 					monitor.subTask(commandId);
-					ExecutableCommand cmd = (ExecutableCommand) file.getCommand(commandId);
+					IALSCommand cmd = (IALSCommand) file.getCommand(commandId);
 					if(cmd!=null)
 					{
 						AlloyLaunching.execCommand(cmd);						

@@ -14,7 +14,7 @@ import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.ErrorWarning;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
-import fr.univartois.cril.alloyplugin.console.Console;
+import fr.univartois.cril.alloyplugin.console.Console;import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 /**
@@ -29,7 +29,7 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 	private int warningCount=0;
 	private String filename;
 	private IResource resource;
-	private ExecutableCommand execCommand;
+	private IALSCommand execCommand;
     
     private Map<String,String> contents = new HashMap<String,String>();
     
@@ -183,7 +183,7 @@ public final class Reporter extends A4Reporter implements Map <String,String>{
 	/**
 	 * Set the ExecutableCommand to the reporter.
 	 * */
-	public void setExecCommand(ExecutableCommand cmd) {
+	public void setExecCommand(IALSCommand cmd) {
 		this.execCommand=cmd;
 	}
     

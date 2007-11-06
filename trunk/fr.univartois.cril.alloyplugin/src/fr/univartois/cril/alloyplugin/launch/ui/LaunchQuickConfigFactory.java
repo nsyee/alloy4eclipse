@@ -9,7 +9,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
-import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
+import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 
@@ -34,12 +34,12 @@ public class LaunchQuickConfigFactory  {
 
 	/**
 	 * Delete previous quick launch configuration associated with same file
-	 * then create and return a new one with all ExecutableCommand from commandsList or null if list is empty.
+	 * then create and return a new one with all IALSCommand from commandsList or null if list is empty.
 	 * @return 
 	 * */
 
-	public ILaunchConfiguration create(List<ExecutableCommand> commandsList) {
-		//List<ExecutableCommand> commandsList = getExecutableCommandFromSelection(selection);
+	public ILaunchConfiguration create(List<IALSCommand> commandsList) {
+		//List<IALSCommand> commandsList = getIALSCommandFromSelection(selection);
 		if (!commandsList.isEmpty())
 		{
 			deleteQuickLaunchConfiguration(commandsList.get(0).getResource());	
@@ -50,7 +50,7 @@ public class LaunchQuickConfigFactory  {
 	}
 
 
-	private ILaunchConfiguration createQuickConfiguration(List<ExecutableCommand> commandsList) {
+	private ILaunchConfiguration createQuickConfiguration(List<IALSCommand> commandsList) {
 		ILaunchConfiguration config = null;
 		ILaunchConfigurationWorkingCopy wc = null;
 		try {

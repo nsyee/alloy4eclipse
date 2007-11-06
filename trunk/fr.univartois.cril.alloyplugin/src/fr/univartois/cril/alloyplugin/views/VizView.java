@@ -76,11 +76,13 @@ public class VizView extends ViewPart implements ICommandListener {
     private IAction  editorAction2;
 
     private String   filename;
+    private String	 titlename;
     private IMemento memento;
 
     @Override
     public void createPartControl(Composite arg0) {
-        final Composite a4Component = swingintegration.example.Platform
+        @SuppressWarnings("unused")
+		final Composite a4Component = swingintegration.example.Platform
                 .createComposite(
                         arg0,
                         this.getSite().getShell().getDisplay(),
@@ -109,7 +111,7 @@ public class VizView extends ViewPart implements ICommandListener {
                         });
         restoreState();
         if (filename != null) {
-            fillWithVizPanel(filename, filename, lookForDefaultThemeFile());
+            fillWithVizPanel(filename, titlename, lookForDefaultThemeFile(filename));
         }
         createActions();
         contributeToMenu(getA4EMenu());
@@ -122,25 +124,35 @@ public class VizView extends ViewPart implements ICommandListener {
 
     }
 
-    public void onXmlSolutionFileCreation(String filename) {
-        this.filename = filename;
-        fillWithVizPanel(filename, filename, lookForDefaultThemeFile());
-
+    public void onXmlSolutionFileCreation(
+    		String filename) {
+        onXmlSolutionFileCreation(filename, filename);
     }
 
-    public void onXmlSolutionFileCreation(String filename,
+    public void onXmlSolutionFileCreation(
+    		String filename, 
+    		String titlename) {
+        onXmlSolutionFileCreation(filename, titlename, lookForDefaultThemeFile(filename));
+    }
+    
+    public void onXmlSolutionFileCreation(
+    		String filename,
+    		URL alloyVisualizationTheme) {
+    	onXmlSolutionFileCreation(filename, filename, alloyVisualizationTheme);
+    }
+
+    public void onXmlSolutionFileCreation(
+    		String filename, 
+    		String titlename,
             URL alloyVisualizationTheme) {
         this.filename = filename;
-        fillWithVizPanel(filename, filename, alloyVisualizationTheme);
+        this.titlename = titlename;
+        fillWithVizPanel(filename, titlename, alloyVisualizationTheme);
     }
 
-    public void onXmlSolutionFileCreation(String filename, String name,
-            URL alloyVisualizationTheme) {
-        this.filename = filename;
-        fillWithVizPanel(filename, name, alloyVisualizationTheme);
-    }
-
-    private void fillWithVizPanel(String filename, String name,
+    private void fillWithVizPanel(
+    		String filename, 
+    		String name,
             URL alloyVisualizationTheme) {
         setPartName(name);
         viz[0].run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, filename);
@@ -184,9 +196,10 @@ public class VizView extends ViewPart implements ICommandListener {
                     final IPath dir = new Path(dialog.getFilterPath());
                     final IPath path = dir.addTrailingSeparator().append(
                             dialog.getFileName());
-                    fillWithVizPanel(filename, filename, path.toFile().toURI()
-                            .toURL());
-
+                    fillWithVizPanel(
+                    		filename, 
+                    		titlename, 
+                    		path.toFile().toURI().toURL());
                 } catch (Exception e) {
                     AlloyPlugin.getDefault().log(e);
                 }
@@ -382,11 +395,11 @@ public class VizView extends ViewPart implements ICommandListener {
      * 
      * @author leberre@cril.univ-artois.fr
      */
-    private URL lookForDefaultThemeFile() {
+    private static URL lookForDefaultThemeFile(String aFilename) {
         try {
             XPathFactory fabrique = XPathFactory.newInstance();
             XPath environnement = fabrique.newXPath();
-            URL url = new URL("file:" + filename);
+            URL url = new URL("file:" + aFilename);
             InputSource source = new InputSource(url.openStream());
 
             XPathExpression expression;
