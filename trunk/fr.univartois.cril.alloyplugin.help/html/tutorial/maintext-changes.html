@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Alloy Tutorial Main Text</title>
+    <link   rel=stylesheet   href="style-maintext.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>How v3.0 differs from v2.0</h2>
+
+    <a href="currentmodel-default.html"
+    onClick="window.self.location='maintext-default.html'"
+    target="currentmodel">back</a><br>
+
+    <a href="maintext-changes.html" target="sidenote">open as sidenote</a>
+
+<hr WIDTH="100%">
+
+<h3>major changes</h3>
+
+<li><b> GUI and visualizer </b><br> An improved interface and greater
+    visualizer customizability make it easier to understand
+    counterexamples the analyzer discovers.  Details of the interface
+    are given in the <a href="currentmodel-walkthrough.html"
+    onClick="window.self.location='maintext-walkthrough.html'"
+    target="currentmodel"> <i>Alloy</i> walkthrough</a>.
+</li><br>
+
+<li><b> subtypes </b><br> The introduction of subtypes (disjoint
+    subsets) improves clarity and efficiency, and allows more detailed
+    specification of scopes for improved scalability.  Details of how
+    to create subtypes are given below in the descriptions of
+    'extends' and 'abstract'.
+
+<b><pre>
+  sig student extends slave {} </b><i>//subtype</i><b>
+  sig happy in emotion {} </b><i>//subset</i><b>
+</pre></b>
+
+</li><br>
+
+<li><b> atomization </b><br> Atomization is an improvement to
+    efficiency which is invisible to the user (although some of the
+    new features are only possible because of it).
+</li><br>
+
+<li><b> parametric polymorphism </b><br> When you import a parametric
+    module (such as ordering.als), you now pass it a signature name
+    (or a comma-ed list of signature names).  This replaces the old
+    implicity polymorphism.
+
+<b><pre>
+  module tutorial/example
+  open ordering[State]
+
+  sig State {}
+  ...
+</pre></b>
+
+</li><br>
+
+<li><b> overloaded field names </b><bre> Signatures now have their own
+    namespaces; you can declare fields in two subsignatures of a
+    common signature that have the same name, and they will be
+    (automatically) disambiguated by context.
+</p></li><br>
+
+<li><b> Int </b><br>
+<b><tt>Int</tt></b> is now a signature, although this does not affect the user.
+</li><br>
+
+</ul>
+
+<h3>keyword changes</h3>
+
+<li><b> <tt>extends</tt> --> <tt>in</tt>, <tt>extends</tt> </b><br>
+    If you want one signature to be a subset of another, like the old
+    <b><tt>extends</tt></b> keyword, you now write
+    <b><tt>in</tt></b>. If you write <b><tt>extends</tt></b>, you
+    create sub<i>types</i> instead of sub<i>sets</i> -- subtypes are
+    just subsets which are disjoint from each other.  As a
+    consequence, <b><tt>disj</tt></b> is no longer needed for
+    signatures.
+
+<b><pre>
+  sig Person, Puppet {}
+
+  </b><i>//subsets:</i><b>
+  sig Happy, Ugly in Person{}
+
+  </b><i>//subtypes are disjoint subsets:</i><b>
+  sig Student, Faculty, Staff extends Person {}
+</pre></b>
+
+    One of the benefits of subtypes is that you now have more control
+    over the scope you wish to analyze.  If unspecified, the scope of
+    a subtype defaults to that of its supertype (just like
+    subsets). However, you can also specify it manually to improce
+    scalability of your model.
+<br><br>
+    For example, one can now write
+<b><pre>
+  check fibbles for 6 Person, 2 Staff
+</pre></b>
+    and restrict Alloy to not bother examining cases where more than 2
+    of the <b><tt>Person</tt></b>s are <b><tt>Staff</tt></b>.
+
+
+</li><br>
+
+<li><b> <tt>disj</tt> gone </b><br>
+    <b><tt>disj</tt></b> no longer applies to signature
+    declarations. If you want disjoint subsets like the old
+    <b><tt>disj</tt></b> achieved, instead create sub<i>types</i> with
+    the <b><tt>extends</tt></b> keyword.
+<br><br>
+    However, note that <b><tt>disj</tt></b> can still be used when
+    specifying quantified variables, as in
+<b><pre>
+  all disj a,b: Foo | ...
+</pre></b>
+</li><br>
+
+<li><b> <tt>abstract</tt> added </b><br>
+    <b><tt>abstract</tt></b> signatures have no
+    elements/instantiations except for those that are also
+    elements/instantiations of its subtypes.  Subtypes that extend an
+    abstract signature partition it.
+<br><br>
+    Exception: if an abstract signature has no subtypes (no
+    signatures extend it), then the abstract keyword is ignored and it
+    may have elements/instantiations as usual.
+</li><br>
+
+<li><b> <tt>part</tt> gone </b><br>
+    <b><tt>part</tt></b> can no longer be written before a declaration
+    of several signatures to indicate a partition.  Instead, make the
+    partitioning signatures subtypes (rather than subsets) using the
+    <b><tt>extends</tt></b> keyword, and make the their supertype
+    <b><tt>abstract</tt></b>.  Thus, the old
+<b><pre>
+  sig numeral {}
+  disj sig roman, arabic extends numeral {}
+</pre></b>
+    would now be written
+<b><pre>
+  abstract sig numeral {}
+  sig roman, arabic extends numeral {}
+</pre></b>
+</li><br>
+
+<li><b> <tt>static</tt> --> <tt>one</tt> </b><br>
+    <b><tt>static</tt></b> is now written <b><tt>one</tt></b>, which
+    is consistent with the way <b><tt>one</tt></b> is used as a
+    quantifier. In both cases, it means 'exactly one'. That is, when
+    you write <b><tt>one</tt></b> before a signature declaration, you
+    force there to be exactly one copy of that signature. For example:
+<b><pre>
+  one Root extends Directory {}
+</pre></b>
+</li><br>
+
+<li><b> <tt>fun</tt> --> <tt>fun</tt>, <tt>pred</tt> </b><br>
+    the old <b><tt>fun</tt></b> keyword has been split into
+    <b><tt>fun</tt></b>, which declares a function that evalues to a
+    value, and <b><tt>pred</tt></b>, which declares a predicate that
+    evaluates to either true or false.  That is, a function is an
+    expression while a predicate is a formula. For example:
+<b><pre>
+  sig Widget {}
+
+  </b><i>//returns the union of the given sets</i><b>
+  fun InCommon (n1, n2: set Widget) : Widget {
+    n1 + n2
+  }
+
+  </b><i>//check that a union has been performed</i><b>
+  pred InCommon (n1, n2, n3: set Widget) {
+    n1 + n2 = n3
+  }
+</pre></b>
+</li><br>
+
+<li><b> <tt>$</tt> gone, <tt><:</tt> and <tt>:></tt> added </b><br>
+    overloading has been improved; <b><tt><:</b></tt> and
+    <b><tt>:></tt></b> have replaced <b><tt>$</tt></b>.
+<br><br>
+    in general, <b><tt><:</tt></b> anmd <b><tt>:></tt></b> are domain
+    restriction operators, and operate the same as in the modeling
+    language <i>Z</i>.
+</li><br>
+
+<li><b> <t>with</tt> gone, <tt>@</tt> added </b><br> The keyword
+    <b><tt>with</tt></b> no longer used. Add the prefix
+    <b><tt>@</tt></b> to preempt implicit field dereferencing in an
+    appended fact.
+</li><br>
+
+<li><b> <tt>::</tt> changed </b><br>
+    <b><tt>::</tt></b> no longer denotes relational join
+    (<b><tt>.</tt></b>). Instead, <b><tt>::</tt></b> replaces
+    <b><tt>..</tt></b> to denote a receiver for a function call.  That
+    is, <b><tt>x..f(y)</tt></b> is now written
+    <b><tt>x::f(y)</tt></b>, and makes sure that <b><tt>x</tt></b> has
+    the same value as the expression denoted by <b><tt>f(y)</tt></b>.
+</li><br>
+
+<li><b> <tt>exactly</tt> added </b><br>
+     When specifying scopes in a <b><tt>run</tt></b> or
+    <b><tt>check</tt></b> statement, you can say
+    <b><tt>exactly</tt></b>. For example,
+<b><pre>
+  check Fibbles for 6 Apple, exactly 4 Orange
+</pre></b> will examine cases where there are up to 6
+    <b><tt>Apples</tt></b> and precisely 4 <b><tt>Oranges</tt></b>.
+</li><br>
+
+<li><b> <tt>option</tt>, <tt>sole</tt> --> <tt>lone</tt> </b><br>
+
+    <b><tt>lone</tt></b> replaces <b<tt>sole</tt></b> as the
+    quantifier and predicate denoting 'zero or one'.
+
+<b><pre>
+  fact maybe {
+    lone solution
+    lone s: solution | ...
+  }
+</pre></b>
+
+<p> Furthermore, <b><tt>lone</tt></b> replaces <b><tt>option</tt></b>
+    in field declarations. </p>
+
+<b><pre>
+  sig item {}
+  sig list {
+    head: item
+    next: lone list
+  }
+</pre></b>
+
+</li><br>
+
+<li><b> multiplicity: <tt>+</tt>, <tt>!</tt>, <tt>?</tt> -->
+<tt>some</tt>, <tt>one</tt>, <tt>lone</tt> </b><br>
+    The terms <b><tt>some</tt></b>, <b><tt>one</tt></b>, and
+    <b><tt>lone</tt></b> replace the symbols <b><tt>+</tt></b>,
+    <b><tt>!</tt></b>, and <b><tt>?</tt></b> respectively as
+    multiplicity markeings on relations.
+</li><br>
+
+<li><b> <tt>some</tt> allowed in field declarations </b><br>
+    <b><tt>some</tt></b> can be in field declarations, e.g. just like
+    <b><tt>set</tt></b>. For example,
+<b><pre>
+  sig Player {}
+  sig Game {players: some Player}
+</pre></b>
+</li><br>
+
+<li><b> <tt>univ</tt>, <tt>none</tt>, <tt>iden</tt> changed</b><br>
+    <b><tt>univ</tt></b> is now the common supertype of all
+    atoms. there is no more <b><tt>univ[e]</tt></b> function that
+    returns the type of the expression <b><tt>e</tt></b>.
+<br><br>
+    <b><tt>none</b></tt> is now the empty set of
+    <b><tt>univ</tt></b>. there is no more <b><tt>none[e]</tt></b>
+    function that returns the empty set of the type of expression
+    <b><tt>e</tt></b>
+<br><br>
+   <b><tt>iden</tt></b> is now the identity function from
+   <b><tt>univ->univ</tt></b>. there is no more
+   <b><tt>iden[e]</tt></b> function that returns the identity relation
+   over the type of <b><tt>e</tt></b>
+</li><br>
+
+<li><b> <tt>exh</tt> gone </b><br>
+    instead of writing
+<b><pre>
+  exh a1,a2:A
+</pre></b>
+you now write
+<b><pre>
+  A in a1+a2
+</pre></b>
+
+<p> The keyword <b><tt>part</tt></b> is also gone, but
+    <b><tt>disj</tt></b> can still be used in this manner. </p>
+
+</li><br>
+
+</ul>
+
+<p> For a more detailed description of how these changed were
+    implemented, and the benefits they provide to analysis, see the
+    description on the Alloy website of <a
+    href="http://alloy.mit.edu/beta/newinA3.html" target="new">what's
+    new in Alloy 3</a>. </p>
+
+<hr WIDTH="100%">
+
+    <a href="currentmodel-default.html"
+    onClick="window.self.location='maintext-default.html'"
+    target="currentmodel">return to tutorial intructions</a>
+
+<hr WIDTH="100%">
+<p> <a href="alloy-tutorial.html" target="_top">restart </a> the
+tutorial from the beginning.
+
+</body
+</html>
