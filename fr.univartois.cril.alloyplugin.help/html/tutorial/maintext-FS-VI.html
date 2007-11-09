@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Alloy Tutorial Main Text</title>
+    <link   rel=stylesheet   href="style-maintext.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>File System Lesson VI</h2>
+
+    <p> <a href="currentmodel-FS-V.html"
+    onClick="window.self.location='maintext-FS-V.html'"
+    target="currentmodel">back</a> next
+
+<hr WIDTH="100%">
+
+<p> The scope 2 counterexample for each of the commands is the
+    same. The structure of the counterexample includes two
+    <b><tt>FSObjects</tt></b>, <b><tt>FSObject1</tt></b> and
+    <b><tt>FSObject2</tt></b>, both of which are directories,
+    <b><tt>FSObject2</tt></b> being the one which is deleted. In
+    file system <b><tt>fs</tt></b>, the pre-state,
+    <b><tt>FSObject1</tt></b> is the root and
+    <b><tt>FSObject1->FSObject2</tt></b> is the only row of the
+    contents relation. In file system <b><tt>fs'</tt></b> (the
+    post-state), the <b><tt>contains</tt></b> relation is empty and
+    <b><tt>FSObject2</tt></b> is the root. So the delete functions can
+    change the root, making the assertion fail.
+
+<hr WIDTH="50%">
+
+<p> Why can this happen? First, let's note that both delete functions
+    cause the rows of the contents relation in the post-state to be a
+    subset of the rows in the pre-state. And we know the
+    <b><tt>FileSystem</tt></b> appended facts "<b><tt>objects =
+    root.*contents</tt></b>" and "<b><tt>contents in
+    objects->objects</tt></b>" constrains the root of the file system
+    to be the root of the contents relation. So if the post-state has
+    a non-empty <b><tt>contents</tt></b> relation, it will have the
+    same root as the pre-state. However if delete function causes the
+    post-state to have an empty contents relation, then the root is
+    free to change arbitrarily, to any directory available.  Bet you
+    didn't see that coming.  Good thing we wrote a model!
+
+<p> We can amend our delete functions to stipulate that if the
+    <b><tt>contents</tt></b> relation of the post-state is empty, then
+    it's root must be the same as the root of the pre-state.
+
+<p> We could have just constrained the roots to always be equal.  That
+    would work just as well, but in general it is a good idea to write
+    the weakest constraints you can that get the job done.  This
+    leaves the model flexible and may reveal more bugs in your system.
+    The amended delete functions look as follows:
+
+<b><pre>
+  fun delete (fs, fs': FileSystem, f: FSObject) {
+    f in fs.(objects - root)
+    no f.(fs.contents)
+    fs'.contents = fs.contents - f.(fs.parent)->f
+    no fs'.contents => fs'.root = fs.root // new constraint
+  }
+</b></pre>
+<p>and
+<b><pre>
+  fun deleteRecurse (fs, fs': FileSystem, f: FSObject) {
+    f in fs.(objects - root)
+    let subtree = f.*(fs.contents) |
+      fs'.contents = fs.contents - subtree.(fs.parent)->subtree
+    no fs'.contents => fs'.root = fs.root // new constraint
+  }
+</b></pre>
+
+<p> When we check the assertions up to a scope of 5, Alloy finds no
+    counterexamples.  We can be fairly certain that our functions work
+    as intended.
+
+<hr WIDTH="50%">
+
+<p> As one final sanity check, let's verify that
+    <b><tt>delete</tt></b> and <b><tt>deleteRecurse</tt></b> are
+    equivalent when the deleted object is a file or empty
+    directory:
+
+<b><pre>
+  assert equivalentDeletes {
+    all fs: FileSystem, f: FSObject |
+      no f.(fs.contents) =>
+        all fs': FileSystem |
+          delete(fs, fs', f) <=> deleteRecurse(fs, fs', f)
+  }
+</b></pre>
+<p> and then check it:
+<b><pre>
+  check equivalentDeletes for 5
+</b></pre>
+
+<p> Alloy finds no counterexamples, thus further reassuring us that
+    the delete functions were written correctly and that the system we
+    are modeling does not have errors.  The final version of the model
+    is in the upper righthand frame.
+
+<p> As an exercise, try finding some more shortcomings of the model
+    and enhance it.  As a starting place, try executing the following:
+
+<b><pre>
+  run example for 2 FileSystem, 6 FSObject
+</pre></b>
+
+<hr WIDTH="100%">
+<p> To backup to an earlier lesson, load the <a
+    href="currentmodel-FS-IV.html"
+    onClick="window.self.location='maintext-FS-IV.html'"
+    target="currentmodel"><< previous lesson</a> - file system IV.
+
+<p> This is the last lesson in Chapter I.  If you wish to continue the
+    tutorial, you may <a href="currentmodel-RC-I.html"
+    onClick="window.self.location='maintext-RC-I.html'"
+    target="currentmodel">begin Chapter 2 >></a>, in which we examine
+    a model of the the famous <a href="sidenote-RC-puzzle.html"
+    target="sidenote"> Farmer River Crossing Puzzle</a> and introduce
+    the <b><tt>Ord</b></tt> module for describing ordered state.
+
+<p> If you return to the <a href="currentmodel-default.html"
+    onClick="window.self.location='maintext-default.html'"
+    target="currentmodel">tutorial instructions</a>, you can select
+    any Chapter.
+
+<hr WIDTH="100%">
+
+<p> <a href="alloy-tutorial.html" target="_top">restart </a> the
+   tutorial from the beginning.
+
+</body>
+</html>
+
