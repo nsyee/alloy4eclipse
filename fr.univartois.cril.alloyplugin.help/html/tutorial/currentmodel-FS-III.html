@@ -34,7 +34,9 @@ sig FileSystem {
   parent = ~contents
 }
 
-pred example() {}
+pred example() {
+	<i>// all f: FSObject | some fs: FileSystem | f in fs.objects</i>
+}
 
 run example for exactly 1 FileSystem, exactly 4 FSObject
 </pre></b>
