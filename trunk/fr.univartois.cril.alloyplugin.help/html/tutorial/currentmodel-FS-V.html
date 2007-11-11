@@ -33,26 +33,26 @@ sig FileSystem {
 }
 
 </b><i>// Move FSObject f to Directory d</i><b>
-pred mv (fs, fs': FileSystem, f: FSObject, d: Dir) {
+pred mv [fs, fs': FileSystem, f: FSObject, d: Dir] {
   (f + d) in fs.objects
   fs'.contents = fs.contents - f.(fs.parent)->f + d->f
 }
 
 </b><i>// Delete the file f</i><b>
-pred rm (fs, fs': FileSystem, f: File) {
+pred rm [fs, fs': FileSystem, f: File] {
   f in fs.objects
   fs'.contents = fs.contents - f.(fs.parent)->f
 }
 
 </b><i>// Delete the directory d</i><b>
-pred rmdir(fs, fs': FileSystem, d: Dir) {
+pred rmdir[fs, fs': FileSystem, d: Dir] {
   d in fs.(objects - root)
   no d.(fs.contents) </b><i>//d is empty</i><b>
   fs'.contents = fs.contents - d.(fs.parent)->d
 }
 
 </b><i>// Recursively delete the file system object f</i><b>
-pred rm_r(fs, fs': FileSystem, f: FSObject) {
+pred rm_r[fs, fs': FileSystem, f: FSObject] {
   f in fs.(objects - root)
   let subtree = f.*(fs.contents) |
     fs'.contents = fs.contents - subtree.(fs.parent)->subtree
@@ -67,35 +67,35 @@ run rm_r for 2 FileSystem, 4 FSObject
 </b><i>// Moving doesn't add or delete any file system objects</i><b>
 assert moveAddsRemovesNone {
   all fs, fs': FileSystem, f: FSObject, d:Dir |
-    mv(fs, fs', f, d) => fs.objects = fs'.objects
+    mv[fs, fs', f, d] => fs.objects = fs'.objects
 }
 
 </b><i>// rm removes exactly the specified file</i><b>
 assert rmRemovesOneFile {
   all fs, fs': FileSystem, f: File |
-    rm(fs, fs', f) => fs.objects - f = fs'.objects
+    rm[fs, fs', f] => fs.objects - f = fs'.objects
 }
 
 </b><i>// rmdir removes exactly the specified directory</i><b>
 assert rmdirRemovesOneDir {
   all fs, fs': FileSystem, d: Dir |
-    rmdir(fs, fs', d) => fs.objects - d = fs'.objects
+    rmdir[fs, fs', d] => fs.objects - d = fs'.objects
 }
 
 </b><i>// rm_r removes exactly the specified subtree</i><b>
 assert rm_rRemovesSubtree {
   all fs, fs': FileSystem, f: FSObject |
-    rm_r(fs, fs', f) => fs.objects - f.*(fs.contents) = fs'.objects
+    rm_r[fs, fs', f] => fs.objects - f.*(fs.contents) = fs'.objects
 }
 
 </b><i>// rm and rm_r same effect on files</i><b>
 assert rmAndrm_rSameForFiles {
   all fs, fs1, fs2: FileSystem, f: File |
-    rm(fs, fs1, f) && rm_r(fs, fs2, f) => fs1.contents = fs2.contents
+    rm[fs, fs1, f] && rm_r[fs, fs2, f] => fs1.contents = fs2.contents
 }
 
 check moveAddsRemovesNone for 5 </b><i>//passes</i><b>
-check rmRemovesOneFile for 5 </b><i>//passes</i><b>
+check rmRemovesOneFile for 5 </b><i>//DLB:counterexample!</i><b>
 check rmdirRemovesOneDir for 5 </b><i>//counterexample!</i><b>
 check rm_rRemovesSubtree for 5 </b><i>//counterexample!</i><b>
 check rmAndrm_rSameForFiles for 5 </b><i>//passes</i><b>
