@@ -127,12 +127,11 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		{			
 			commandsViewer.setInput(currentALSFile);
 			if(currentALSFile!=null){
-				List commandLabelList;
+				List<String> commandLabelList;
 				try {
-					commandLabelList = launchConfig.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, new ArrayList());
+					commandLabelList = launchConfig.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, new ArrayList<String>());
 
-					for (Object object : commandLabelList) {
-						String commandLabel=(String)object;
+					for (String commandLabel : commandLabelList) {
 						IALSCommand cmd = currentALSFile.getCommand(commandLabel);
 						if(cmd!=null)commandsViewer.setChecked(cmd, true);
 					}

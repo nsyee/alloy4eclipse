@@ -24,6 +24,7 @@ import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.parser.Module;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
+import edu.mit.csail.sdg.alloy4viz.AlloyProjection;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
@@ -190,7 +191,7 @@ public class AlloyLaunching {
         // convert all commands in ExecutableCommand[]
         List<Pair<Command, Expr>> list = world.getAllCommandsWithFormulas();
         List<IALSCommand> exec_cmds = new ArrayList<IALSCommand>();// new
-                                                                    // ExecutableCommand[list.size()];
+        // ExecutableCommand[list.size()];
 
         for (Pair<Command, Expr> command : list) {
             exec_cmds.add(new ExecutableCommand(file, command.a, command.b,
@@ -224,9 +225,10 @@ public class AlloyLaunching {
             sigs.add(new Signature(sig));
         }
         file.setSignatures(sigs);
-        
+
         ConstList<Pair<String, Expr>> assertList = world.getAllAssertions();
-        List<IALSAssert> assertions = new ArrayList<IALSAssert>(assertList.size());
+        List<IALSAssert> assertions = new ArrayList<IALSAssert>(assertList
+                .size());
         for (Pair<String, Expr> a : assertList) {
             assertions.add(new Assert(a));
         }
@@ -240,16 +242,18 @@ public class AlloyLaunching {
      * Execute a command. The command is modified. Some informations can be show
      * to console.
      */
-    private static final void execCommand(IALSCommand command,
-            Reporter rep) {
+    private static final void execCommand(IALSCommand command, Reporter rep) {
         AlloyMessageConsole alloyConsole = Console.findAlloyConsole(command
                 .getFilename());
         alloyConsole.activate();
         try {
 
-            alloyConsole.printInfo("============ Command " + command + ": ============");
+            alloyConsole.printInfo("============ Command " + command
+                    + ": ============");
             command.execute(rep);
-            showAnswer(command);
+            if (AlloyPlugin.getDefault().getPluginPreferences().getBoolean(
+                    PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
+                showAnswer(command);
 
         } catch (Err e) {
             displayErrorInProblemView(command.getResource(), e);
@@ -277,6 +281,7 @@ public class AlloyLaunching {
 			command.displayAnsSafe();
 		}
     }
+
     /**
      * Old method for saving the answer in a temporary file and visualize it.
      * 
@@ -293,23 +298,26 @@ public class AlloyLaunching {
         viz.run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, "output.xml");
     }
 
-    public static boolean hasSuccessfulAnswer(Pair<A4Solution,Boolean> ans) {
-    	if (null==ans) return false;
-    	if (null==ans.a) return ans.b;
-    	return ans.a.satisfiable();
+    public static boolean hasSuccessfulAnswer(Pair<A4Solution, Boolean> ans) {
+        if (null == ans)
+            return false;
+        if (null == ans.a)
+            return ans.b;
+        return ans.a.satisfiable();
     }
-    
+
     public static String getResourcePartName(IResource res) {
-    	if (null == res) return "";
-    	IPath rpath = res.getFullPath();
-    	String[] segments = rpath.segments();
-    	StringBuffer partNameBuffer = new StringBuffer();
-    	partNameBuffer.append(rpath.lastSegment());
-    	for (int i=segments.length-2; i>0; --i) {
-    		partNameBuffer.append('<');
-    		partNameBuffer.append(segments[i]);
-    	}
-    	partNameBuffer.append('|');
-    	return partNameBuffer.toString();
+        if (null == res)
+            return "";
+        IPath rpath = res.getFullPath();
+        String[] segments = rpath.segments();
+        StringBuffer partNameBuffer = new StringBuffer();
+        partNameBuffer.append(rpath.lastSegment());
+        for (int i = segments.length - 2; i > 0; --i) {
+            partNameBuffer.append('<');
+            partNameBuffer.append(segments[i]);
+        }
+        partNameBuffer.append('|');
+        return partNameBuffer.toString();
     }
 }
