@@ -7,6 +7,7 @@ import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.Position;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
@@ -164,6 +165,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
         if (display != null)
             display.asyncExec(new Runnable() {
                 public void run() {
+                    ((TreeViewer)viewer).expandAll();
                     viewer.refresh();
                     editor.updateFoldingStructure(positions);
                 }
