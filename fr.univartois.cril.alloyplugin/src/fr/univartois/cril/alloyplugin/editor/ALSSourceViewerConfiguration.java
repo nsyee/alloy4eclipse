@@ -15,7 +15,6 @@ import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
 
 
 ;/**
@@ -65,12 +64,12 @@ public class ALSSourceViewerConfiguration extends SourceViewerConfiguration {
 	 * @see org.eclipse.jface.text.source.SourceViewerConfiguration#getPresentationReconciler(org.eclipse.jface.text.source.ISourceViewer)
 	 */
 	public IPresentationReconciler getPresentationReconciler(ISourceViewer sourceViewer) {
-		ALSTextAttributeProvider provider= AlloyPlugin.getDefault().getTextAttributeProvider();
+		ALSTextAttributeProvider provider= ALSTextAttributeProvider.instance();
 		PresentationReconciler reconciler= new PresentationReconciler();
 		reconciler.setDocumentPartitioning(getConfiguredDocumentPartitioning(sourceViewer));
 		
 		// damager/repairer for code
-		DefaultDamagerRepairer ddr = new DefaultDamagerRepairer(AlloyPlugin.getDefault().getALSCodeScanner());
+		DefaultDamagerRepairer ddr = new DefaultDamagerRepairer(ALSCodeScanner.instance());
 		reconciler.setDamager(ddr, IDocument.DEFAULT_CONTENT_TYPE);
 		reconciler.setRepairer(ddr, IDocument.DEFAULT_CONTENT_TYPE);
 

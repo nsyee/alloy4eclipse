@@ -24,7 +24,7 @@ public class ALSPartitionScanner extends RuleBasedPartitionScanner {
 	/**
 	 * Constructor. Set the rules. 
 	 */
-	public ALSPartitionScanner() {
+	private ALSPartitionScanner() {
 		super();
 		
 		// Token renvoyé dans le cas d'un commentaire
@@ -41,4 +41,13 @@ public class ALSPartitionScanner extends RuleBasedPartitionScanner {
 		// Prend en compte les règles
 		setPredicateRules(rules);
 	}
+	
+	   private static ALSPartitionScanner instance;
+	    
+	    public static synchronized ALSPartitionScanner instance() {
+	        if (instance==null) {
+	            instance = new ALSPartitionScanner();
+	        }
+	        return instance;
+	    }
 }
