@@ -9,8 +9,8 @@ import org.eclipse.ui.actions.SelectionProviderAction;
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
-import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
 
 
 

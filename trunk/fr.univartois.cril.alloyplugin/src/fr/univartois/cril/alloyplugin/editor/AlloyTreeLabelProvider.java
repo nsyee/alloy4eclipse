@@ -5,7 +5,7 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 
-import fr.univartois.cril.alloyplugin.core.ui.Iconable;
+import fr.univartois.cril.alloyplugin.api.Iconable;
 
 public class AlloyTreeLabelProvider implements ILabelProvider {
 

@@ -25,9 +25,9 @@ Bundle-Vendor: CRIL - Université d'Artois
 Bundle-ClassPath: .
 Export-Package: fr.univartois.cril.alloyplugin,
  fr.univartois.cril.alloyplugin.XMLEditor,
+ fr.univartois.cril.alloyplugin.api,
  fr.univartois.cril.alloyplugin.console,
  fr.univartois.cril.alloyplugin.core,
- fr.univartois.cril.alloyplugin.core.ui,
  fr.univartois.cril.alloyplugin.editor,
  fr.univartois.cril.alloyplugin.launch.ui,
  fr.univartois.cril.alloyplugin.launch.util,

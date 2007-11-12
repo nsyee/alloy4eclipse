@@ -10,8 +10,8 @@ import java.util.List;
 
 import org.eclipse.swt.graphics.Image;
 
-import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
-import fr.univartois.cril.alloyplugin.core.ui.Iconable;
+import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
+import fr.univartois.cril.alloyplugin.api.Iconable;
 
 class RootContent implements Iconable {
     private final String label;

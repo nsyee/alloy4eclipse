@@ -4,7 +4,7 @@ import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
+import fr.univartois.cril.alloyplugin.api.IALSFunction;
 
 public class Function implements IALSFunction {
 	

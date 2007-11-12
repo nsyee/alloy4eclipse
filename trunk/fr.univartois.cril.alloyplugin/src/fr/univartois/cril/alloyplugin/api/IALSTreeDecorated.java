@@ -1,6 +1,5 @@
-package fr.univartois.cril.alloyplugin.core.ui;
+package fr.univartois.cril.alloyplugin.api;
 
-import org.eclipse.swt.graphics.Image;
 
 public interface IALSTreeDecorated extends Iconable {
 

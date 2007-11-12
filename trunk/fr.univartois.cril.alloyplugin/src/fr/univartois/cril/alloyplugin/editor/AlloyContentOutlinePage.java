@@ -23,7 +23,8 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
-import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
+
+import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.launch.ui.DisplayCommandAnswerAction;
 import fr.univartois.cril.alloyplugin.launch.ui.LaunchCommandAction;
 

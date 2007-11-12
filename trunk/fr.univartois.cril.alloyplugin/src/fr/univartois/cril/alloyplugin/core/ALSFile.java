@@ -7,15 +7,15 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IResource;
 
-import fr.univartois.cril.alloyplugin.core.ui.IALSAssert;
-import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFunction;
-import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
-import fr.univartois.cril.alloyplugin.core.ui.IALSSignature;
-import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
+import fr.univartois.cril.alloyplugin.api.IALSAssert;
+import fr.univartois.cril.alloyplugin.api.IALSCommand;
+import fr.univartois.cril.alloyplugin.api.IALSFact;
+import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.api.IALSFileListener;
+import fr.univartois.cril.alloyplugin.api.IALSFunction;
+import fr.univartois.cril.alloyplugin.api.IALSPredicate;
+import fr.univartois.cril.alloyplugin.api.IALSSignature;
+import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 /**
  * This class represents an als file.  
  * This plugin implements IALSFile.
@@ -24,15 +24,15 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
 
 public class ALSFile implements IALSFile {
 
-	Map<String, IALSCommand> commandsMap=new HashMap<String,IALSCommand>();
+	public Map<String, IALSCommand> commandsMap=new HashMap<String,IALSCommand>();
 	private List <IALSFileListener>listeners;
 	private IResource resource;
-	private  List<IALSCommand> cmds=new ArrayList<IALSCommand>();
-	private List <IALSPredicate> pred=new ArrayList<IALSPredicate>();
-    private List <IALSFact> fact=new ArrayList<IALSFact>();
-	private List <IALSFunction> func=new ArrayList<IALSFunction>();
-	private List <IALSSignature> sig=new ArrayList<IALSSignature>();
-	private List <IALSAssert> assertions = new ArrayList<IALSAssert>();
+	public  List<IALSCommand> cmds=new ArrayList<IALSCommand>();
+	public List <IALSPredicate> pred=new ArrayList<IALSPredicate>();
+    public List <IALSFact> fact=new ArrayList<IALSFact>();
+	public List <IALSFunction> func=new ArrayList<IALSFunction>();
+	public List <IALSSignature> sig=new ArrayList<IALSSignature>();
+	public List <IALSAssert> assertions = new ArrayList<IALSAssert>();
 	
 	public ALSFile(IResource resource) {
 		this.resource=resource;
@@ -48,7 +48,7 @@ public class ALSFile implements IALSFile {
 	public void removeListener(IALSFileListener listener) {		
 		if(listeners!=null)listeners.remove(listener);
 	}
-	private List<IALSFileListener> getListeners() {
+	public List<IALSFileListener> getListeners() {
 		if (listeners==null) listeners=new ArrayList<IALSFileListener>();
 		return listeners;
 

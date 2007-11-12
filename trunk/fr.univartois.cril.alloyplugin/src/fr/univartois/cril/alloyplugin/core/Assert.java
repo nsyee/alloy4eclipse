@@ -11,7 +11,7 @@ import org.eclipse.swt.graphics.Image;
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSAssert;
+import fr.univartois.cril.alloyplugin.api.IALSAssert;
 
 public class Assert implements IALSAssert {
 

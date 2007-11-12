@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.core.ui;
+package fr.univartois.cril.alloyplugin.api;
 
 import java.util.List;
 
@@ -35,4 +35,18 @@ public interface IALSFile {
     public IALSCommand getCommand(String commandId);
 
     public List<IALSTreeDecorated> getAllAlloyObjects();
+
+	public void fireChange();
+
+	public void setFunctions(List<IALSFunction> func);
+
+	public void setFacts(List<IALSFact> fact);
+
+	public void setSignatures(List<IALSSignature> sig);
+
+	public void setCommand(List <IALSCommand> cmds);
+
+	public void setPredicates(List<IALSPredicate> pred);
+
+	public void setAssertions(List<IALSAssert> assertions);
 }

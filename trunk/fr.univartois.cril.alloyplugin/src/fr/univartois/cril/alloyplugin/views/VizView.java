@@ -61,7 +61,7 @@ import edu.mit.csail.sdg.alloy4viz.StaticThemeReaderWriter;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import edu.mit.csail.sdg.alloy4viz.VizState;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.ICommandListener;
+import fr.univartois.cril.alloyplugin.api.ICommandListener;
 import fr.univartois.cril.alloyplugin.editor.MultiPageEditorContributor;
 import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
