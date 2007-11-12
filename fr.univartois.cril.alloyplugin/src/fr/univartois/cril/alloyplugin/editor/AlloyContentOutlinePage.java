@@ -131,12 +131,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 					//viewer.setSelection(null, true);
 				}
 
-				if (AlloyTreeContentProvider.SIGNATURES.equals(selection)
-						||AlloyTreeContentProvider.FACTS.equals(selection)
-						||AlloyTreeContentProvider.ASSERT.equals(selection)
-						||AlloyTreeContentProvider.FUNCTIONS.equals(selection)
-						||AlloyTreeContentProvider.PREDICATES.equals(selection)
-						||AlloyTreeContentProvider.COMMANDS.equals(selection)){
+				if (selection instanceof RootContent){
 					if (viewer.getExpandedState(selection))
 						viewer.collapseToLevel(selection, -1);
 					else

@@ -12,6 +12,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
 import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
@@ -19,12 +20,13 @@ import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
 public class AlloyTreeContentProvider implements ITreeContentProvider,
         IALSFileListener {
 
-    public static final String    FUNCTIONS  = "Functions";
-    public static final String    SIGNATURES = "Signatures";
-    public static final String    FACTS      = "Facts";
-    public static final String    ASSERT     = "Assertions";
-    public static final String    PREDICATES = "Predicates";
-    public static final String    COMMANDS   = "Commands";
+    public  final RootContent    FUNCTIONS  = new RootContent("Functions",AlloyPlugin.getDefault().getImage(AlloyPlugin.FUNCTION_ICON_ID));
+    public  final RootContent    SIGNATURES = new RootContent("Signatures",AlloyPlugin.getDefault().getImage(AlloyPlugin.SIGNATURE_ICON_ID));
+    public  final RootContent    FACTS      = new RootContent("Facts",AlloyPlugin.getDefault().getImage(AlloyPlugin.FACT_ICON_ID));
+    public  final RootContent    ASSERT     = new RootContent("Assertions",AlloyPlugin.getDefault().getImage(AlloyPlugin.ASSERT_ICON_ID));
+    public  final RootContent    PREDICATES = new RootContent("Predicates",AlloyPlugin.getDefault().getImage(AlloyPlugin.PREDICATE_ICON_ID));
+    public  final RootContent    COMMANDS   = new RootContent("Commands",AlloyPlugin.getDefault().getImage(AlloyPlugin.COMMAND_ID));
+    
     private ALSEditor             editor;
     private IALSFile              af;
     private Viewer                viewer;
@@ -72,8 +74,15 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
     private void addListeningALSFile() {
         af = editor.getALSFile();
 
-        if (af != null)
+        if (af != null) {
             af.addListener(this);
+            SIGNATURES.setChildren(af.getSignatures());
+            FACTS.setChildren(af.getFacts());
+            FUNCTIONS.setChildren(af.getFunctions());
+            ASSERT.setChildren(af.getAssertions());
+            PREDICATES.setChildren(af.getPredicates());
+            COMMANDS.setChildren(af.getCommand());
+        }
     }
 
     /**
@@ -91,22 +100,9 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
         if (af == null)
             return EMPTY_TAB;
 
-        if (parentElement.equals(SIGNATURES))
-            return af.getSignatures().toArray(); // EMPTY_TAB;//new Object[]
-                                                    // {"tata"};
-        if (parentElement.equals(FACTS))
-            return af.getFacts().toArray();
-        
-        if (parentElement.equals(ASSERT))
-            return af.getAssertions().toArray();
-        
-        if (parentElement.equals(FUNCTIONS))
-            return af.getFunctions().toArray(); // EMPTY_TAB;//Object[]
-                                                // {"toto"};
-        if (parentElement.equals(PREDICATES))
-            return af.getPredicates().toArray();// new Object[] {"titi"};
-        if (parentElement.equals(COMMANDS))
-            return af.getCommand().toArray();
+        if (parentElement instanceof RootContent) {
+            return ((RootContent)parentElement).children();
+        }
         return EMPTY_TAB;
     }
 
@@ -116,19 +112,16 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
     }
 
     public boolean hasChildren(Object element) {
-        if (COMMANDS.equals(element)) return !af.getCommand().isEmpty();
-        if (SIGNATURES.equals(element)) return !af.getSignatures().isEmpty();
-        if (FUNCTIONS.equals(element)) return !af.getFunctions().isEmpty();
-        if (PREDICATES.equals(element)) return !af.getPredicates().isEmpty();
-        if (FACTS.equals(element)) return !af.getFacts().isEmpty();
-        if (ASSERT.equals(element)) return !af.getAssertions().isEmpty();
-        return false;
+        if (element instanceof RootContent) {
+            return ((RootContent)element).hasChildren();
+        }
+       return false;
     }
 
     public Object[] getElements(Object inputElement) {
         // log.info("get elements for "+inputElement);
         System.out.println("get elements for :" + inputElement);
-        return new String[] { SIGNATURES, FACTS, ASSERT, FUNCTIONS, PREDICATES,
+        return new RootContent[] { SIGNATURES, FACTS, ASSERT, FUNCTIONS, PREDICATES,
                 COMMANDS };
     }
 

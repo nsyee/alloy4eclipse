@@ -4,33 +4,15 @@ import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
+
+import fr.univartois.cril.alloyplugin.core.ui.Iconable;
 
 public class AlloyTreeLabelProvider implements ILabelProvider {
 
 	public Image getImage(Object element) {
-		if (element instanceof IALSTreeDecorated) {
-			return ((IALSTreeDecorated)element).getIcon();
+		if (element instanceof Iconable) {
+			return ((Iconable)element).getIcon();
 		}
-        if (AlloyTreeContentProvider.SIGNATURES.equals(element)) {
-            return AlloyPlugin.getDefault().getImage(AlloyPlugin.SIGNATURE_ICON_ID);
-        }
-        if (AlloyTreeContentProvider.FACTS.equals(element)) {
-            return AlloyPlugin.getDefault().getImage(AlloyPlugin.FACT_ICON_ID);
-        }
-        if (AlloyTreeContentProvider.ASSERT.equals(element)) {
-            return AlloyPlugin.getDefault().getImage(AlloyPlugin.ASSERT_ICON_ID);
-        }
-        if (AlloyTreeContentProvider.FUNCTIONS.equals(element)) {
-            return AlloyPlugin.getDefault().getImage(AlloyPlugin.FUNCTION_ICON_ID);
-        }
-        if (AlloyTreeContentProvider.PREDICATES.equals(element)) {
-            return AlloyPlugin.getDefault().getImage(AlloyPlugin.PREDICATE_ICON_ID);
-        }
-        if (AlloyTreeContentProvider.COMMANDS.equals(element)) {
-            return AlloyPlugin.getDefault().getImage(AlloyPlugin.COMMAND_ID);
-        }
 		return null;
 	}
 

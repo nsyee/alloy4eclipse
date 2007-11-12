@@ -2,10 +2,8 @@ package fr.univartois.cril.alloyplugin.core.ui;
 
 import org.eclipse.swt.graphics.Image;
 
-public interface IALSTreeDecorated {
+public interface IALSTreeDecorated extends Iconable {
 
-	Image getIcon(); 
-	
 	int getBeginLine();
 	
 	int getEndLine();
