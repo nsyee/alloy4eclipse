@@ -96,18 +96,13 @@ public class ALSSourceViewerConfiguration extends SourceViewerConfiguration {
     
     @Override
     public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
-    	System.out.println("COUCOU00");
     	ContentAssistant assistant= new ContentAssistant();
     	assistant.setContentAssistProcessor(new ALSCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
-    	//assistant.setContentAssistProcessor(new JavaDocCompletionProcessor(), JavaPartitionScanner.JAVA_DOC);
     	assistant.enableAutoInsert(true);		
-		System.out.println("COUCOU000");		
 		assistant.enableAutoActivation(true);
 		assistant.setAutoActivationDelay(500);
 		assistant.setProposalPopupOrientation(IContentAssistant.PROPOSAL_OVERLAY);
-		assistant.setContextInformationPopupOrientation(IContentAssistant.CONTEXT_INFO_ABOVE);
-		//assistant.setContextInformationPopupBackground(JavaEditorEnvironment.getJavaColorProvider().getColor(new RGB(150, 150, 0)));
-   	
+		assistant.setContextInformationPopupOrientation(IContentAssistant.CONTEXT_INFO_ABOVE);   	
     	return assistant;
     }    
 }
