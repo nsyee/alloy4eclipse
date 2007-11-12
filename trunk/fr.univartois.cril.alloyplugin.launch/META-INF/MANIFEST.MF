@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Alloy Launch Plug-in
 Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true
-Bundle-Version: 0.2.0
+Bundle-Version: 0.2.1
 Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator
 Bundle-Localization: plugin
 Eclipse-LazyStart: true
@@ -35,7 +35,6 @@ Export-Package: edu.mit.csail.sdg.alloy4,
  org.sat4j.minisat.constraints,
  org.sat4j.minisat.constraints.card,
  org.sat4j.minisat.constraints.cnf,
- org.sat4j.minisat.constraints.pb,
  org.sat4j.minisat.core,
  org.sat4j.minisat.learning,
  org.sat4j.minisat.orders,
@@ -43,6 +42,5 @@ Export-Package: edu.mit.csail.sdg.alloy4,
  org.sat4j.minisat.uip,
  org.sat4j.opt,
  org.sat4j.reader,
- org.sat4j.reader.csp,
  org.sat4j.specs,
  org.sat4j.tools
