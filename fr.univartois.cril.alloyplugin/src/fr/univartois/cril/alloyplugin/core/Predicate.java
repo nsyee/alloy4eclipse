@@ -4,7 +4,7 @@ import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSPredicate;
+import fr.univartois.cril.alloyplugin.api.IALSPredicate;
 
 public class Predicate implements IALSPredicate {
 	

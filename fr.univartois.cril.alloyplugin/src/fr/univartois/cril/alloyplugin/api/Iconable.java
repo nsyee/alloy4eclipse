@@ -4,7 +4,7 @@
  * To change the template for this generated file go to
  * Window>Preferences>Java>Code Generation>Code and Comments
  */
-package fr.univartois.cril.alloyplugin.core.ui;
+package fr.univartois.cril.alloyplugin.api;
 
 import org.eclipse.swt.graphics.Image;
 

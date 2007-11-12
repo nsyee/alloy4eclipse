@@ -10,7 +10,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.ui.actions.SelectionProviderAction;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
+import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.editor.AlloyTreeContentProvider;
 
 /**

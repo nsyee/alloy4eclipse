@@ -25,8 +25,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.api.IALSCommand;
+import fr.univartois.cril.alloyplugin.api.IALSFile;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements ICheckStateListener {

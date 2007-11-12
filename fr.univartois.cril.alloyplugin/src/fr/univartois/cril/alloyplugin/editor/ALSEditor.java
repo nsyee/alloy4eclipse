@@ -34,7 +34,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.osgi.framework.Bundle;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
+import fr.univartois.cril.alloyplugin.api.IALSFile;
 
 /**
  * Class for Alloy editor.

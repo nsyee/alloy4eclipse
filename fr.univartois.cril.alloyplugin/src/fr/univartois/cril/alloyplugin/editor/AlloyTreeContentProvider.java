@@ -13,9 +13,9 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
-import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
+import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.api.IALSFileListener;
+import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 
 public class AlloyTreeContentProvider implements ITreeContentProvider,
         IALSFileListener {

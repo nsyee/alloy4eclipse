@@ -1,11 +1,10 @@
-package fr.univartois.cril.alloyplugin.core.ui;
+package fr.univartois.cril.alloyplugin.api;
 
 import org.eclipse.core.resources.IResource;
 
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
-import fr.univartois.cril.alloyplugin.core.Reporter;
 
 /**
  * Interface for an Alloy command.
@@ -22,7 +21,7 @@ public interface IALSCommand extends IALSTreeDecorated {
 	public String getName();
 	public String getFilename();
 	public IResource getResource();
-	public Pair<A4Solution, Boolean> execute(Reporter rep) throws Err;
+	public Pair<A4Solution, Boolean> execute(IReporter rep) throws Err;
 	public Pair<A4Solution, Boolean> getAns();
 	public void setSat(boolean sat);
 	public void setStringResult(String resultMessage);

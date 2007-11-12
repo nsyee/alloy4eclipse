@@ -16,9 +16,10 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import edu.mit.csail.sdg.alloy4.Util;
+import fr.univartois.cril.alloyplugin.api.ALSFileFactory;
+import fr.univartois.cril.alloyplugin.api.IALSFactory;
+import fr.univartois.cril.alloyplugin.api.IALSFile;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
-import fr.univartois.cril.alloyplugin.core.ui.ALSFileFactory;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
 import fr.univartois.cril.alloyplugin.ui.ALSTextAttributeProvider;
@@ -38,7 +39,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 
 
 	private AlloyLaunching parser = null;
-	private ALSFileFactory ALSFileFactory = null;
+	private IALSFactory ALSFileFactory = null;
 
 	private IPartitionTokenScanner fPartitionScanner;
 	private ALSTextAttributeProvider fTextAttributeProvider;
@@ -269,13 +270,13 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	 * */
 
 	public IALSFile getALSFile(IResource resource) {
-		return getALSFileFactory().getALSFile(resource);
+		return getALSFileFactory().getIALSFile(resource);
 	}
 
 	/**
 	 * Return ALSFileFactory used by plugin. 
 	 * */
-	protected ALSFileFactory getALSFileFactory() {
+	protected IALSFactory getALSFileFactory() {
 		if (ALSFileFactory==null) ALSFileFactory=new ALSFileFactory();
 		return ALSFileFactory;
 	}

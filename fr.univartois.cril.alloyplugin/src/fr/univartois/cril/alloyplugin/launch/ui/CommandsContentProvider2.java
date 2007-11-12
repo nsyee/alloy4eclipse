@@ -7,9 +7,10 @@ import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
-import fr.univartois.cril.alloyplugin.core.ui.IALSCommand;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFile;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFileListener;
+
+import fr.univartois.cril.alloyplugin.api.IALSCommand;
+import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.api.IALSFileListener;
 
 /**
  * Content provider for commands view.

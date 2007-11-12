@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.core.ui;
+package fr.univartois.cril.alloyplugin.api;
 
 import java.net.URL;
 

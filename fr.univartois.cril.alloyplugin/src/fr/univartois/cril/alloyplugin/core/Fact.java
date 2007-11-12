@@ -5,7 +5,7 @@ import org.eclipse.swt.graphics.Image;
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-import fr.univartois.cril.alloyplugin.core.ui.IALSFact;
+import fr.univartois.cril.alloyplugin.api.IALSFact;
 
 public class Fact implements IALSFact {
 

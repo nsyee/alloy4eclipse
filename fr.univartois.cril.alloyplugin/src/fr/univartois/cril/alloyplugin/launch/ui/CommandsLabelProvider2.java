@@ -3,7 +3,8 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
-import fr.univartois.cril.alloyplugin.core.ui.IALSTreeDecorated;
+
+import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 
 /**
  * This class is used for display Alloy commands.
