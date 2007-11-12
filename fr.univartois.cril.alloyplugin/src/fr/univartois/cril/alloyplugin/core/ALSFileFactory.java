@@ -1,10 +1,12 @@
-package fr.univartois.cril.alloyplugin.api;
+package fr.univartois.cril.alloyplugin.core;
 
 
 import java.util.Hashtable;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.IALSFactory;
+import fr.univartois.cril.alloyplugin.api.IALSFile;
 
 
 /**

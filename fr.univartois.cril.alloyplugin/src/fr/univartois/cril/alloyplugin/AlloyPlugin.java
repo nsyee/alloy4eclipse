@@ -16,9 +16,9 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import edu.mit.csail.sdg.alloy4.Util;
-import fr.univartois.cril.alloyplugin.api.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.api.IALSFactory;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.editor.ALSCodeScanner;
 import fr.univartois.cril.alloyplugin.editor.ALSPartitionScanner;
