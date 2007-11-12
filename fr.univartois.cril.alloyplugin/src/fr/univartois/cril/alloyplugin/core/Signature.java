@@ -22,9 +22,9 @@ public class Signature implements IALSSignature {
 		return icon;
 	}
 	public int getBeginLine() {
-		return sig.pos.y;
+		return sig.span().y;
 	}
     public int getEndLine() {
-        return sig.pos.y2+sig.closingBracket.y2;
+        return sig.span().y2;
     }
 }

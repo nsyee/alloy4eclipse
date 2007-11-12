@@ -20,13 +20,43 @@ import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 public class AlloyTreeContentProvider implements ITreeContentProvider,
         IALSFileListener {
 
-    public  final RootContent    FUNCTIONS  = new RootContent("Functions",AlloyPlugin.getDefault().getImage(AlloyPlugin.FUNCTION_ICON_ID));
-    public  final RootContent    SIGNATURES = new RootContent("Signatures",AlloyPlugin.getDefault().getImage(AlloyPlugin.SIGNATURE_ICON_ID));
-    public  final RootContent    FACTS      = new RootContent("Facts",AlloyPlugin.getDefault().getImage(AlloyPlugin.FACT_ICON_ID));
-    public  final RootContent    ASSERT     = new RootContent("Assertions",AlloyPlugin.getDefault().getImage(AlloyPlugin.ASSERT_ICON_ID));
-    public  final RootContent    PREDICATES = new RootContent("Predicates",AlloyPlugin.getDefault().getImage(AlloyPlugin.PREDICATE_ICON_ID));
-    public  final RootContent    COMMANDS   = new RootContent("Commands",AlloyPlugin.getDefault().getImage(AlloyPlugin.COMMAND_ID));
-    
+    public final RootContent      FUNCTIONS  = new RootContent(
+                                                     "Functions",
+                                                     AlloyPlugin
+                                                             .getDefault()
+                                                             .getImage(
+                                                                     AlloyPlugin.FUNCTION_ICON_ID));
+    public final RootContent      SIGNATURES = new RootContent(
+                                                     "Signatures",
+                                                     AlloyPlugin
+                                                             .getDefault()
+                                                             .getImage(
+                                                                     AlloyPlugin.SIGNATURE_ICON_ID));
+    public final RootContent      FACTS      = new RootContent(
+                                                     "Facts",
+                                                     AlloyPlugin
+                                                             .getDefault()
+                                                             .getImage(
+                                                                     AlloyPlugin.FACT_ICON_ID));
+    public final RootContent      ASSERT     = new RootContent(
+                                                     "Assertions",
+                                                     AlloyPlugin
+                                                             .getDefault()
+                                                             .getImage(
+                                                                     AlloyPlugin.ASSERT_ICON_ID));
+    public final RootContent      PREDICATES = new RootContent(
+                                                     "Predicates",
+                                                     AlloyPlugin
+                                                             .getDefault()
+                                                             .getImage(
+                                                                     AlloyPlugin.PREDICATE_ICON_ID));
+    public final RootContent      COMMANDS   = new RootContent(
+                                                     "Commands",
+                                                     AlloyPlugin
+                                                             .getDefault()
+                                                             .getImage(
+                                                                     AlloyPlugin.COMMAND_ID));
+
     private ALSEditor             editor;
     private IALSFile              af;
     private Viewer                viewer;
@@ -46,7 +76,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
     }
 
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-        //System.out.println("input changed: new Input" + newInput);
+        // System.out.println("input changed: new Input" + newInput);
         this.viewer = viewer;
 
         if (oldInput != null) {
@@ -101,7 +131,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
             return EMPTY_TAB;
 
         if (parentElement instanceof RootContent) {
-            return ((RootContent)parentElement).children();
+            return ((RootContent) parentElement).children();
         }
         return EMPTY_TAB;
     }
@@ -113,16 +143,16 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
 
     public boolean hasChildren(Object element) {
         if (element instanceof RootContent) {
-            return ((RootContent)element).hasChildren();
+            return ((RootContent) element).hasChildren();
         }
-       return false;
+        return false;
     }
 
     public Object[] getElements(Object inputElement) {
         // log.info("get elements for "+inputElement);
         System.out.println("get elements for :" + inputElement);
-        return new RootContent[] { SIGNATURES, FACTS, ASSERT, FUNCTIONS, PREDICATES,
-                COMMANDS };
+        return new RootContent[] { SIGNATURES, FACTS, ASSERT, FUNCTIONS,
+                PREDICATES, COMMANDS };
     }
 
     private ArrayList<Position> positions = new ArrayList<Position>();
@@ -135,12 +165,18 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
         int nol = document.getNumberOfLines();
         for (IALSTreeDecorated ao : alloyobjects) {
             try {
-                int offset = document.getLineOffset(ao.getBeginLine()-1);
+                int bol = ao.getBeginLine();
                 int eol = ao.getEndLine();
-                int endOffset = (eol == nol) ? document.getLength() : document.getLineOffset(eol);
-                assert offset <endOffset : ao.toString()+":"+offset+"<"+endOffset;
-                // System.out.println(ao.toString()+":"+offset+"<"+endOffset);
-                positions.add(new Position(offset, endOffset - offset));
+                // System.out.println(ao.toString()+":"+bol+"<"+eol);
+                if (bol>0 && eol - bol > 1) {
+                    int offset = document.getLineOffset(bol-1);
+                    int endOffset = (eol == nol) ? document.getLength()
+                            : document.getLineOffset(eol);
+                    assert offset < endOffset : ao.toString() + ":" + offset
+                            + "<" + endOffset;
+                    // System.out.println(ao.toString()+":"+offset+"<"+endOffset);
+                    positions.add(new Position(offset, endOffset - offset));
+                }
             } catch (BadLocationException e) {
                 e.printStackTrace();
             }
@@ -158,7 +194,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
         if (display != null)
             display.asyncExec(new Runnable() {
                 public void run() {
-                    ((TreeViewer)viewer).expandAll();
+                    ((TreeViewer) viewer).expandAll();
                     viewer.refresh();
                     editor.updateFoldingStructure(positions);
                 }
