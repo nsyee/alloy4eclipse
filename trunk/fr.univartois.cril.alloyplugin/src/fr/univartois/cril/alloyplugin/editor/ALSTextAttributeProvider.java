@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.ui;
+package fr.univartois.cril.alloyplugin.editor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +29,7 @@ public class ALSTextAttributeProvider {
 	
 	private Map<String, TextAttribute> fAttributes = new HashMap<String, TextAttribute>();
 
-	public ALSTextAttributeProvider() {
+	private ALSTextAttributeProvider() {
 		//  motclés
 		fAttributes.put(KEYWORD_ATTRIBUTE,
 				new TextAttribute(new Color(Display.getCurrent(), 
@@ -82,5 +82,14 @@ public class ALSTextAttributeProvider {
 			attr = fAttributes.get(DEFAULT_ATTRIBUTE);
 		}
 		return attr;
+	}
+	
+	private static ALSTextAttributeProvider instance;
+	
+	public static synchronized ALSTextAttributeProvider instance() {
+	    if (instance==null) {
+	        instance = new ALSTextAttributeProvider();
+	    }
+	    return instance;
 	}
 }

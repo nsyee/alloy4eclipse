@@ -27,7 +27,7 @@ public class ALSDocumentSetupParticipant implements
 			if (document instanceof IDocumentExtension3) {	// Notion de partitionnements multiples
 				IDocumentExtension3 extension3= (IDocumentExtension3) document;
 				// Crée le partitioner
-				IDocumentPartitioner partitioner= new FastPartitioner(AlloyPlugin.getDefault().getALSPartitionScanner(), ALSPartitionScanner.ALS_PARTITION_TYPES);
+				IDocumentPartitioner partitioner= new FastPartitioner(ALSPartitionScanner.instance(), ALSPartitionScanner.ALS_PARTITION_TYPES);
 				// Attache le partitioner au document.
 				extension3.setDocumentPartitioner(AlloyPlugin.ALS_PARTITIONING, partitioner);
 				// Attache le document au partitioner.
