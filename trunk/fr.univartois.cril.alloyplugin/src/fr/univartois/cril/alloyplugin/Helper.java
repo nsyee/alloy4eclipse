@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin;
 import java.io.File;
 import java.util.Date;
 import java.util.Random;
+
 import edu.mit.csail.sdg.alloy4.OurDialog;
 import edu.mit.csail.sdg.alloy4.Util;
 
@@ -68,8 +69,7 @@ public final class Helper {
         
         if (ans<0)
         	return -1;
-        else
-        	return ans;
+        return ans;
     }
 
     

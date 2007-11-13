@@ -14,6 +14,7 @@ import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
+import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
@@ -31,7 +32,7 @@ ILaunchConfigurationDelegate {
 
 			if(res!=null&&res.length>0)
 			{
-				file=AlloyPlugin.getDefault().getALSFile(res[0]);				
+				file=ALSFileFactory.instance().getALSFile(res[0]);				
 			}			 
 
 		} catch (CoreException e) {

@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 
 
@@ -81,7 +82,7 @@ public class ProjectBuilder extends
 	 */
 	private void parseALSFileFull(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(".als")) {			
-			IALSFile file= AlloyPlugin.getDefault().getALSFileFactory().getIALSFile(resource);
+			IALSFile file= ALSFileFactory.instance().getIALSFile(resource);
 			if(file!=null)getParser().launchParser(file);			
 		}
 	}
@@ -93,7 +94,7 @@ public class ProjectBuilder extends
 	 * when a .als file is removed.
 	 */
 	private void removeALSFile(IResource resource) {
-		AlloyPlugin.getDefault().getALSFileFactory().remove(resource);
+	    ALSFileFactory.instance().remove(resource);
 		
 	}	
 

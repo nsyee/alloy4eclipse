@@ -24,6 +24,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 public class LaunchShortcut implements ILaunchShortcut {
@@ -66,7 +67,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 			ILaunchConfigurationType configType = getConfigurationType();
 
 			LaunchCommandsTab tab = new LaunchCommandsTab();
-			IALSFile file=AlloyPlugin.getDefault().getALSFile(resource);
+			IALSFile file=ALSFileFactory.instance().getALSFile(resource);
 			if(file!=null){
 				wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom(file.getResource().getName()));				
 				tab.setdefaultsAttributes(file, wc);

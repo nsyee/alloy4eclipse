@@ -4,7 +4,6 @@ package fr.univartois.cril.alloyplugin;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -16,8 +15,6 @@ import org.osgi.framework.BundleContext;
 
 import edu.mit.csail.sdg.alloy4.Util;
 import fr.univartois.cril.alloyplugin.api.IALSFactory;
-import fr.univartois.cril.alloyplugin.api.IALSFile;
-import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 
 public class AlloyPlugin extends AbstractUIPlugin {
@@ -35,9 +32,6 @@ public class AlloyPlugin extends AbstractUIPlugin {
 
 
 	private AlloyLaunching parser = null;
-	private IALSFactory ALSFileFactory = null;
-
-	private IPartitionTokenScanner fPartitionScanner;
 
 	//
 	public static final String COMMAND_VIEW_ID = "fr.univartois.cril.alloyplugin.launch.views.AlloyCommandView";
@@ -235,23 +229,6 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	public  AlloyLaunching getParser() {
 		if (parser==null) parser=new AlloyLaunching();
 		return parser;
-	}
-
-
-	/**
-	 * Return the ALSFile associated with the resource.
-	 * */
-
-	public IALSFile getALSFile(IResource resource) {
-		return getALSFileFactory().getIALSFile(resource);
-	}
-
-	/**
-	 * Return ALSFileFactory used by plugin. 
-	 * */
-	protected IALSFactory getALSFileFactory() {
-		if (ALSFileFactory==null) ALSFileFactory=new ALSFileFactory();
-		return ALSFileFactory;
 	}
 	
 	public IStatus createStatus(int severity, int code, String message, Throwable throwable) {
