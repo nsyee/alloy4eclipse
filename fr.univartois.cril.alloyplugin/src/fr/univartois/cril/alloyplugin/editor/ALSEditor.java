@@ -35,6 +35,7 @@ import org.osgi.framework.Bundle;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
 
 /**
  * Class for Alloy editor.
@@ -149,7 +150,7 @@ public class ALSEditor extends TextEditor {
      * Return an IALSFile from the editor.
      */
     protected IALSFile getALSFile() {
-        return AlloyPlugin.getDefault().getALSFile(
+        return ALSFileFactory.instance().getALSFile(
                 getResource(getEditorInput()));
     }
 

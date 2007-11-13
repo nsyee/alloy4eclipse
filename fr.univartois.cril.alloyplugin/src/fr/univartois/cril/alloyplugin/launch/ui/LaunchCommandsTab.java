@@ -27,6 +27,7 @@ import org.eclipse.ui.PlatformUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements ICheckStateListener {
@@ -114,7 +115,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		}
 		else
 		{
-			currentALSFile=AlloyPlugin.getDefault().getALSFile(resource);						
+			currentALSFile=ALSFileFactory.instance().getALSFile(resource);						
 		}
 
 	}
@@ -321,12 +322,12 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 				}
 				if (obj instanceof IALSCommand) {
 					IResource res = ((IALSCommand)obj).getResource();
-					IALSFile file=AlloyPlugin.getDefault().getALSFile(res);
+					IALSFile file=ALSFileFactory.instance().getALSFile(res);
 					if(file!=null) return file;						
 				}
 				if (obj instanceof IResource) {
 					System.out.println("resource selected");
-					IALSFile file= AlloyPlugin.getDefault().getALSFile((IResource) obj);					
+					IALSFile file= ALSFileFactory.instance().getALSFile((IResource) obj);					
 					if (file != null) {
 						return file;
 					}
@@ -342,7 +343,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 				IEditorInput input = part.getEditorInput();
 				IResource res=(IResource) input.getAdapter(IResource.class);
 				System.out.println("get als file from active editor|resource");
-				IALSFile file=AlloyPlugin.getDefault().getALSFile(res);
+				IALSFile file=ALSFileFactory.instance().getALSFile(res);
 				if(file!=null) return file;
 			}
 		}
