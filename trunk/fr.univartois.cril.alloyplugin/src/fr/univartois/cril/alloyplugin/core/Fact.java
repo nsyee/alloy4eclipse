@@ -23,9 +23,9 @@ public class Fact implements IALSFact {
 		return icon;
 	}
 	public int getBeginLine() {
-		return fact.b.pos.y - 1;
+		return fact.b.pos.y;
 	}
     public int getEndLine() {
-        return fact.b.pos.y+fact.b.closingBracket.y2+1;
+        return fact.b.pos.y+fact.b.closingBracket.y2;
     }
 }

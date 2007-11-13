@@ -29,10 +29,10 @@ public class Assert implements IALSAssert {
         return icon;
     }
     public int getBeginLine() {
-        return assertion.b.pos.y - 1;
+        return assertion.b.pos.y;
     }
     public int getEndLine() {
-        return assertion.b.pos.y+assertion.b.closingBracket.y2+1;
+        return assertion.b.pos.y+assertion.b.closingBracket.y2;
     }
 
 }
