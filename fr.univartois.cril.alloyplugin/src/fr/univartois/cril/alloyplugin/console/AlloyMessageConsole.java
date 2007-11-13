@@ -4,7 +4,8 @@ package fr.univartois.cril.alloyplugin.console;
 import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
-
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.ui.console.FileLink;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.swt.SWT;
@@ -16,7 +17,7 @@ import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 
 import edu.mit.csail.sdg.alloy4.Err;
-import fr.univartois.cril.alloyplugin.launch.util.Util;
+
 /**
  * A MessageConsole with useful methods for infos and Err printing.
  */
@@ -103,7 +104,7 @@ public class AlloyMessageConsole extends MessageConsole {
 	 */
 	protected void addFileLink (String filename, int offset, int lenght, int line){		
 		if (filename!=null){
-			IFile iff = Util.getFileForLocation(filename);
+			IFile iff = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(filename));
 			
 			if (iff!=null){
 				FileLink fl=new FileLink(iff,null, -1, -1,line);

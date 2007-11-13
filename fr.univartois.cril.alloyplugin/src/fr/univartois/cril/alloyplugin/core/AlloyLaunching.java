@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -34,9 +35,9 @@ import fr.univartois.cril.alloyplugin.api.IALSFunction;
 import fr.univartois.cril.alloyplugin.api.IALSPredicate;
 import fr.univartois.cril.alloyplugin.api.IALSSignature;
 import fr.univartois.cril.alloyplugin.api.IReporter;
+import fr.univartois.cril.alloyplugin.api.Util;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
-import fr.univartois.cril.alloyplugin.launch.util.Util;
 import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
 /**
@@ -44,6 +45,10 @@ import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
  */
 public class AlloyLaunching {
 
+    private AlloyLaunching() {
+        
+    }
+    
     /**
      * Execute an ExecutableCommand previously created after a parsing.
      */
@@ -320,4 +325,40 @@ public class AlloyLaunching {
         partNameBuffer.append('|');
         return partNameBuffer.toString();
     }
+    
+    private static AlloyLaunching instance;
+
+    public static synchronized AlloyLaunching instance() {
+        if (instance == null) {
+            instance = new AlloyLaunching();
+        }
+        return instance;
+    }
+    
+    /**  
+     * Check the resource if it's a file and ends by ".als" . 
+     */
+    public void parseALSFile(IResource resource) {
+        if (resource instanceof IFile && resource.getName().endsWith(".als")) {     
+            
+                parseOneFile(resource);                     
+        }
+    }
+    /**  
+     * Evaluate et modifie the .
+     */
+    public void parseALSFileFull(IResource resource) {
+        if (resource instanceof IFile && resource.getName().endsWith(".als")) {         
+            IALSFile file= ALSFileFactory.instance().getIALSFile(resource);
+            if(file!=null)launchParser(file);           
+        }
+    }
+
+    /**
+     * when a .als file is removed.
+     */
+    public void removeALSFile(IResource resource) {
+        ALSFileFactory.instance().remove(resource);
+        
+    }   
 }

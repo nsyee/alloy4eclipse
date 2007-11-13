@@ -3,12 +3,12 @@ package fr.univartois.cril.alloyplugin.core;
 import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.api.IALSPredicate;
 
 public class Predicate implements IALSPredicate {
 	
-	public static final Image icon = AlloyPlugin.getDefault().getImage(AlloyPlugin.PREDICATE_ICON_ID);
+	public static final Image icon = ALSImageRegistry.getImage(ALSImageRegistry.PREDICATE_ICON_ID);
 
 	private Func func;
 

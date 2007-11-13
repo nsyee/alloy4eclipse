@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.xml.xpath.XPath;
@@ -61,7 +60,7 @@ import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import edu.mit.csail.sdg.alloy4viz.VizState;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor;
-import fr.univartois.cril.alloyplugin.launch.util.Util;
+import fr.univartois.cril.alloyplugin.api.Util;
 import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
 /**

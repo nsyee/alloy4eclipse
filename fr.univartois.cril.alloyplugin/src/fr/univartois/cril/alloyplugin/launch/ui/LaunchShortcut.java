@@ -2,6 +2,7 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -22,10 +23,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.api.Util;
 import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
-import fr.univartois.cril.alloyplugin.launch.util.Util;
 
 public class LaunchShortcut implements ILaunchShortcut {
 	/**launch from selection*/

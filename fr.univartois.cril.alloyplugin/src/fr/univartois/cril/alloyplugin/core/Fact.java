@@ -4,12 +4,12 @@ import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.api.IALSFact;
 
 public class Fact implements IALSFact {
 
-	public static final Image icon =AlloyPlugin.getDefault().getImage(AlloyPlugin.FACT_ICON_ID);
+	public static final Image icon =ALSImageRegistry.getImage(ALSImageRegistry.FACT_ICON_ID);
 
 	private Pair<String,Expr> fact;
 

@@ -2,7 +2,6 @@ package fr.univartois.cril.alloyplugin;
 
 import java.util.Map;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
@@ -12,8 +11,6 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import fr.univartois.cril.alloyplugin.api.IALSFile;
-import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 
 
@@ -62,41 +59,11 @@ public class ProjectBuilder extends
 	 * */
 	class ResourceVisitor implements IResourceVisitor {
 		public boolean visit(IResource resource) {
-			parseALSFile(resource);
+			AlloyLaunching.instance().parseALSFile(resource);
 			//return true to continue visiting children.
 			return true;
 		}
 	}
-	
-	/**	 
-	 * Check the resource if it's a file and ends by ".als" . 
-	 */
-	private void parseALSFile(IResource resource) {
-		if (resource instanceof IFile && resource.getName().endsWith(".als")) {		
-			
-				getParser().parseOneFile(resource);						
-		}
-	}
-	/**	 
-	 * Evaluate et modifie the .
-	 */
-	private void parseALSFileFull(IResource resource) {
-		if (resource instanceof IFile && resource.getName().endsWith(".als")) {			
-			IALSFile file= ALSFileFactory.instance().getIALSFile(resource);
-			if(file!=null)getParser().launchParser(file);			
-		}
-	}
-	private AlloyLaunching getParser() {
-		return AlloyPlugin.getDefault().getParser();
-		
-	}
-	/**
-	 * when a .als file is removed.
-	 */
-	private void removeALSFile(IResource resource) {
-	    ALSFileFactory.instance().remove(resource);
-		
-	}	
 
 	protected void incrementalBuild(IResourceDelta delta,
 			IProgressMonitor monitor) throws CoreException {
@@ -118,15 +85,15 @@ public class ProjectBuilder extends
 			switch (delta.getKind()) {
 			case IResourceDelta.ADDED:
 				// handle added resource
-				parseALSFileFull(resource);
+			    AlloyLaunching.instance().parseALSFileFull(resource);
 				break;
 			case IResourceDelta.REMOVED:
 				// handle removed resource
-				removeALSFile(resource);
+			    AlloyLaunching.instance().removeALSFile(resource);
 				break;
 			case IResourceDelta.CHANGED:
 				// handle changed resource
-				parseALSFileFull(resource);
+			    AlloyLaunching.instance().parseALSFileFull(resource);
 				break;
 			}
 			//return true to continue visiting children.

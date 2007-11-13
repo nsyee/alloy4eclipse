@@ -13,18 +13,18 @@ import org.eclipse.swt.graphics.Image;
 import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.api.Iconable;
 
-class RootContent implements Iconable {
+class RootContent<T extends IALSTreeDecorated> implements Iconable {
     private final String label;
     private final Image icon;
     
-    private List<? extends IALSTreeDecorated> children;
+    private List<T> children;
     
     RootContent(String label, Image icon) {
         this.label = label;
         this.icon = icon;
     }
 
-    public void setChildren(List<? extends IALSTreeDecorated> children) {
+    public void setChildren(List<T> children) {
         this.children = children;
     }
     
@@ -34,11 +34,12 @@ class RootContent implements Iconable {
         return !children.isEmpty();
     }
     
-    public Object [] children () {
+    public T [] children () {
         if (children==null) {
-            return new Object[0];
+            return (T[])new IALSTreeDecorated[0];
         }            
-        return children.toArray();
+        T [] tab = (T[])new IALSTreeDecorated[children.size()];
+        return children.toArray(tab);
     }
     
     /* (non-Javadoc)
