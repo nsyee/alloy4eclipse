@@ -2,6 +2,7 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 import java.util.List;
+
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.DebugPlugin;
@@ -11,7 +12,7 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
 
 import fr.univartois.cril.alloyplugin.api.IALSCommand;
-import fr.univartois.cril.alloyplugin.launch.util.Util;
+import fr.univartois.cril.alloyplugin.api.Util;
 
 
 

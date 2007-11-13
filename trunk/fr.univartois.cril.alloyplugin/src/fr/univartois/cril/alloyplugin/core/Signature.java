@@ -3,12 +3,12 @@ package fr.univartois.cril.alloyplugin.core;
 import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.api.IALSSignature;
 
 public class Signature implements IALSSignature {
 
-	public static final Image icon = AlloyPlugin.getDefault().getImage(AlloyPlugin.SIGNATURE_ICON_ID);
+	public static final Image icon = ALSImageRegistry.getImage(ALSImageRegistry.SIGNATURE_ICON_ID);
 
 	private Sig sig;
 	public Signature(Sig sig) {

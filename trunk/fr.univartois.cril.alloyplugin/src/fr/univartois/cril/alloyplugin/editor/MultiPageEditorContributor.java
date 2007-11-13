@@ -16,7 +16,6 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
@@ -33,6 +32,7 @@ import org.eclipse.ui.texteditor.ITextEditorActionConstants;
 
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
 /**
@@ -327,8 +327,8 @@ public class MultiPageEditorContributor extends
         };
         editorAction1.setText("Apply Visualization Theme");
         editorAction1.setToolTipText("Alloy4Eclipse Visualization Theme");
-        editorAction1.setImageDescriptor(AlloyPlugin.getDefault()
-                .getImageDescriptor(AlloyPlugin.THEME_IMPORT_ICON_ID));
+        editorAction1.setImageDescriptor(ALSImageRegistry
+                .getImageDescriptor(ALSImageRegistry.THEME_IMPORT_ICON_ID));
 
         editorAction2 = new Action() {
             public void run() {
@@ -364,8 +364,8 @@ public class MultiPageEditorContributor extends
         };
         editorAction2.setText("Add Another Visualization Page");
         editorAction2.setToolTipText("New Alloy4Eclipse Visualization Page");
-        editorAction2.setImageDescriptor(AlloyPlugin.getDefault()
-                .getImageDescriptor(AlloyPlugin.THEME_IMPORT_ADD_ICON_ID));
+        editorAction2.setImageDescriptor(ALSImageRegistry
+                .getImageDescriptor(ALSImageRegistry.THEME_IMPORT_ADD_ICON_ID));
 
         editorAction3 = new Action() {
             public void run() {
@@ -410,8 +410,8 @@ public class MultiPageEditorContributor extends
         editorAction3.setText("Open with Alloy4 Visualizer");
         editorAction3
                 .setToolTipText("Open an Alloy4 visualizer on this instance");
-        editorAction3.setImageDescriptor(AlloyPlugin.getDefault()
-                .getImageDescriptor(AlloyPlugin.LAUNCH_A4_ICON_ID));
+        editorAction3.setImageDescriptor(ALSImageRegistry
+                .getImageDescriptor(ALSImageRegistry.LAUNCH_A4_ICON_ID));
 
         /**
          * Adapted from a suggestion by Felix Chang.
@@ -433,8 +433,8 @@ public class MultiPageEditorContributor extends
         editorAction4.setText("Save Alloy4 visualization DOT file");
         editorAction4
                 .setToolTipText("Save the current Alloy4 instance visualization as a DOT file");
-        editorAction4.setImageDescriptor(AlloyPlugin.getDefault()
-                .getImageDescriptor(AlloyPlugin.THEME_EXPORT_DOT_ICON_ID));
+        editorAction4.setImageDescriptor(ALSImageRegistry
+                .getImageDescriptor(ALSImageRegistry.THEME_EXPORT_DOT_ICON_ID));
 
         editorAction5 = new Action() {
             public void run() {
@@ -494,8 +494,8 @@ public class MultiPageEditorContributor extends
         saveAsTheme.setText("Save theme in a new file");
         saveAsTheme
                 .setToolTipText("Save the current theme settings in a new file");
-        saveAsTheme.setImageDescriptor(AlloyPlugin.getDefault()
-                .getImageDescriptor(AlloyPlugin.THEME_EXPORT_ICON_ID));
+        saveAsTheme.setImageDescriptor(ALSImageRegistry
+                .getImageDescriptor(ALSImageRegistry.THEME_EXPORT_ICON_ID));
     }
 
     public static String A4E_MENU_ID = MultiPageEditorContributor.class

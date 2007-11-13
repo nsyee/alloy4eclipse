@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 
 
 import java.util.List;
+
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;

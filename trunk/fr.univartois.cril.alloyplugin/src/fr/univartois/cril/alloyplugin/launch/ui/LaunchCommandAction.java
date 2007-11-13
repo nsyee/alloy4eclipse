@@ -3,15 +3,17 @@ package fr.univartois.cril.alloyplugin.launch.ui;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.ui.actions.SelectionProviderAction;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
+
+import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.api.IALSCommand;
-import fr.univartois.cril.alloyplugin.editor.AlloyTreeContentProvider;
+import fr.univartois.cril.alloyplugin.api.IAlloyTreeContentProvider;
 
 /**
  * This listens a selectionProvider and can execute selected IALSCommand from
@@ -26,12 +28,11 @@ public class LaunchCommandAction extends SelectionProviderAction {
 
     private static final String TEXT_ALL_COMMAND = "Launch all";
 
-    private static ImageDescriptor enableImage = AlloyPlugin.getDefault()
-            .getImageRegistry().getDescriptor(AlloyPlugin.EXECUTE_ICON_ID);
+    private static ImageDescriptor enableImage = ALSImageRegistry
+            .getImageRegistry().getDescriptor(ALSImageRegistry.EXECUTE_ICON_ID);
 
-    private static ImageDescriptor disableImage = AlloyPlugin.getDefault()
-            .getImageRegistry().getDescriptor(
-                    AlloyPlugin.DISABLE_EXECUTE_ICON_ID);
+    private static ImageDescriptor disableImage = ALSImageRegistry.getImageDescriptor(
+                    ALSImageRegistry.DISABLE_EXECUTE_ICON_ID);
 
     /**
      * the selection which is associated.
@@ -68,9 +69,9 @@ public class LaunchCommandAction extends SelectionProviderAction {
         else {
             for (Iterator iter = selection.iterator(); iter.hasNext();) {
                 Object o = iter.next();
-                AlloyTreeContentProvider contentProvider = (AlloyTreeContentProvider) viewer
+                IAlloyTreeContentProvider contentProvider = (IAlloyTreeContentProvider) viewer
                         .getContentProvider();
-                if (o == contentProvider.COMMANDS) {
+                if (o == contentProvider.getCommandsRootContent()) {
 
                     // commands=contentProvider.getChildren(o);
                     if (contentProvider.getChildren(o).length >= 1) {
@@ -103,12 +104,11 @@ public class LaunchCommandAction extends SelectionProviderAction {
         List<IALSCommand> commandsList = null;
         if (commandRootSelected) {
             commandsList = new ArrayList<IALSCommand>();
-            AlloyTreeContentProvider contentProvider = (AlloyTreeContentProvider) viewer
+            IAlloyTreeContentProvider contentProvider = (IAlloyTreeContentProvider) viewer
                     .getContentProvider();
-            Object[] commands = contentProvider
-                    .getChildren(contentProvider.COMMANDS);
+            IALSCommand[] commands = contentProvider.getAllCommands();
             for (int i = 0; i < commands.length; i++) {
-                commandsList.add((IALSCommand) commands[i]);
+                commandsList.add(commands[i]);
             }
 
         } else

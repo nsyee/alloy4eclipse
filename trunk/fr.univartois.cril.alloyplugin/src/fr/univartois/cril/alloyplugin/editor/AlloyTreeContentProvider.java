@@ -6,56 +6,56 @@ import java.util.List;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.Position;
-import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
+import fr.univartois.cril.alloyplugin.api.IALSAssert;
+import fr.univartois.cril.alloyplugin.api.IALSCommand;
+import fr.univartois.cril.alloyplugin.api.IALSFact;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
 import fr.univartois.cril.alloyplugin.api.IALSFileListener;
+import fr.univartois.cril.alloyplugin.api.IALSFunction;
+import fr.univartois.cril.alloyplugin.api.IALSPredicate;
+import fr.univartois.cril.alloyplugin.api.IALSSignature;
 import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
+import fr.univartois.cril.alloyplugin.api.IAlloyTreeContentProvider;
 
-public class AlloyTreeContentProvider implements ITreeContentProvider,
+public class AlloyTreeContentProvider implements IAlloyTreeContentProvider,
         IALSFileListener {
 
-    public final RootContent      FUNCTIONS  = new RootContent(
+    public final RootContent<IALSFunction>      FUNCTIONS  = new RootContent<IALSFunction>(
                                                      "Functions",
-                                                     AlloyPlugin
-                                                             .getDefault()
+                                                     ALSImageRegistry
                                                              .getImage(
-                                                                     AlloyPlugin.FUNCTION_ICON_ID));
-    public final RootContent      SIGNATURES = new RootContent(
+                                                                     ALSImageRegistry.FUNCTION_ICON_ID));
+    public final RootContent<IALSSignature>      SIGNATURES = new RootContent<IALSSignature>(
                                                      "Signatures",
-                                                     AlloyPlugin
-                                                             .getDefault()
+                                                     ALSImageRegistry
                                                              .getImage(
-                                                                     AlloyPlugin.SIGNATURE_ICON_ID));
-    public final RootContent      FACTS      = new RootContent(
+                                                                     ALSImageRegistry.SIGNATURE_ICON_ID));
+    public final RootContent<IALSFact>      FACTS      = new RootContent<IALSFact>(
                                                      "Facts",
-                                                     AlloyPlugin
-                                                             .getDefault()
+                                                     ALSImageRegistry
                                                              .getImage(
-                                                                     AlloyPlugin.FACT_ICON_ID));
-    public final RootContent      ASSERT     = new RootContent(
+                                                                     ALSImageRegistry.FACT_ICON_ID));
+    public final RootContent<IALSAssert>      ASSERT     = new RootContent<IALSAssert>(
                                                      "Assertions",
-                                                     AlloyPlugin
-                                                             .getDefault()
+                                                     ALSImageRegistry
                                                              .getImage(
-                                                                     AlloyPlugin.ASSERT_ICON_ID));
-    public final RootContent      PREDICATES = new RootContent(
+                                                                     ALSImageRegistry.ASSERT_ICON_ID));
+    public final RootContent<IALSPredicate>      PREDICATES = new RootContent<IALSPredicate>(
                                                      "Predicates",
-                                                     AlloyPlugin
-                                                             .getDefault()
+                                                     ALSImageRegistry
                                                              .getImage(
-                                                                     AlloyPlugin.PREDICATE_ICON_ID));
-    public final RootContent      COMMANDS   = new RootContent(
+                                                                     ALSImageRegistry.PREDICATE_ICON_ID));
+    public final RootContent<IALSCommand>      COMMANDS   = new RootContent<IALSCommand>(
                                                      "Commands",
-                                                     AlloyPlugin
-                                                             .getDefault()
+                                                     ALSImageRegistry
                                                              .getImage(
-                                                                     AlloyPlugin.COMMAND_ID));
+                                                                     ALSImageRegistry.COMMAND_ID));
 
     private ALSEditor             editor;
     private IALSFile              af;
@@ -204,6 +204,14 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
                     editor.updateFoldingStructure(positions);
                 }
             });
+    }
+
+    public IALSCommand[] getAllCommands() {
+         return COMMANDS.children();
+    }
+
+    public Object getCommandsRootContent() {
+        return COMMANDS;
     }
 
 }

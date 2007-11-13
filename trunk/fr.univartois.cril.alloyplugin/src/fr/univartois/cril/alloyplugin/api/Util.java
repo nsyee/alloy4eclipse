@@ -1,4 +1,4 @@
-package fr.univartois.cril.alloyplugin.launch.util;
+package fr.univartois.cril.alloyplugin.api;
 
 import java.net.MalformedURLException;
 import java.net.URL;

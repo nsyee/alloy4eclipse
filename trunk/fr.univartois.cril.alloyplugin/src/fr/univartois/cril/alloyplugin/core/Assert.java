@@ -10,12 +10,12 @@ import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.api.IALSAssert;
 
 public class Assert implements IALSAssert {
 
-    public static final Image icon =AlloyPlugin.getDefault().getImage(AlloyPlugin.ASSERT_ICON_ID);
+    public static final Image icon =ALSImageRegistry.getImage(ALSImageRegistry.ASSERT_ICON_ID);
 
     private Pair<String,Expr> assertion;
 

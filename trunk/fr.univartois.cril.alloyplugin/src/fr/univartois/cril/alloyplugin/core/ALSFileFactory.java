@@ -1,12 +1,12 @@
 package fr.univartois.cril.alloyplugin.core;
 
 import java.util.Hashtable;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
+
 import fr.univartois.cril.alloyplugin.api.IALSFactory;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
-import fr.univartois.cril.alloyplugin.editor.ALSTextAttributeProvider;
 
 /**
  * This class provide a method to get an IALSFile from a resource. It's ensure
@@ -17,6 +17,10 @@ import fr.univartois.cril.alloyplugin.editor.ALSTextAttributeProvider;
 public class ALSFileFactory implements IALSFactory {
     private Hashtable<IResource, IALSFile> map = new Hashtable<IResource, IALSFile>();
 
+    private ALSFileFactory() {
+        
+    }
+    
     /*
      * (non-Javadoc)
      * 
@@ -30,7 +34,7 @@ public class ALSFileFactory implements IALSFactory {
 
                 file = new ALSFile(resource);
                 map.put(resource, file);
-                AlloyPlugin.getDefault().getParser().launchParser(file);
+                AlloyLaunching.instance().launchParser(file);
                 /*
                  * try { resource.touch(null); } catch (CoreException e) { //
                  * TODO Auto-generated catch block e.printStackTrace(); }

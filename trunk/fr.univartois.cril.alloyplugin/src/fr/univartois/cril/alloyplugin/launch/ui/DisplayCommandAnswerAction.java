@@ -8,7 +8,7 @@ import org.eclipse.ui.actions.SelectionProviderAction;
 
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
 
@@ -19,7 +19,7 @@ import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
  * This action don't use eclipse launching mechanism so it will be replaced/deleted soon. (i hope)
  */
 public class DisplayCommandAnswerAction extends SelectionProviderAction {
-	public static final ImageDescriptor iconrun = AlloyPlugin.getDefault().getImageRegistry().getDescriptor(AlloyPlugin.GRAPH_ICON_ID);
+	public static final ImageDescriptor iconrun = ALSImageRegistry.getImageDescriptor(ALSImageRegistry.GRAPH_ICON_ID);
 	private static final String ACTION_ID = "fr.univartois.cril.alloyplugin.launch.displayalloycommandanswer";
 	public static final String MODEL = "Show Model";
 	public static final String ANSWER = "Show Answer";
@@ -100,4 +100,11 @@ public class DisplayCommandAnswerAction extends SelectionProviderAction {
 		return cmds;	
 	}
 
+    public static boolean hasSuccessfulAnswer(Pair<A4Solution, Boolean> ans) {
+        if (null == ans)
+            return false;
+        if (null == ans.a)
+            return ans.b;
+        return ans.a.satisfiable();
+    }
 }

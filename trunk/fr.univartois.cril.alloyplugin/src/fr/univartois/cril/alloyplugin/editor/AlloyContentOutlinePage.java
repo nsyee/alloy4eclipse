@@ -4,6 +4,7 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 import java.util.logging.Logger;
+
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -36,7 +37,7 @@ import fr.univartois.cril.alloyplugin.launch.ui.LaunchCommandAction;
  */
 public class AlloyContentOutlinePage extends ContentOutlinePage {
 
-	private static final Logger log = Logger.getLogger("alloy");
+	// private static final Logger log = Logger.getLogger("alloy");
 
 	private final ALSEditor editor;
 
@@ -51,11 +52,11 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
 	public void createControl(Composite parent) {
 		super.createControl(parent);
-		log.info("Creating Outline Page");
+		// log.info("Creating Outline Page");
 		viewer = getTreeViewer();
-		log.info("Adding label provider");
+		// log.info("Adding label provider");
 		viewer.setLabelProvider(new AlloyTreeLabelProvider());
-		log.info("Adding content provider");
+		// log.info("Adding content provider");
 		viewer.setContentProvider(new AlloyTreeContentProvider());
 		// IEditorInput input = editor.getEditorInput();
 		this.addSelectionChangedListener(new MySelectionListener());
@@ -73,7 +74,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 		contributeToActionBars();
 
 
-		log.info("Creation look OK");
+		// log.info("Creation look OK");
 	}
 
 	/**
@@ -128,7 +129,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 				
 				if (selection instanceof IALSTreeDecorated) {
 					launchCommandAction.run();
-					log.info("Selection mis � null");
+					// log.info("Selection mis � null");
 					//viewer.setSelection(null, true);
 				}
 

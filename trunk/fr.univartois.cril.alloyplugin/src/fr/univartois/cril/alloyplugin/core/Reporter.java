@@ -1,5 +1,5 @@
 package fr.univartois.cril.alloyplugin.core;
-import org.eclipse.core.resources.IFile;import org.eclipse.core.resources.IResource;import org.eclipse.core.runtime.CoreException;import edu.mit.csail.sdg.alloy4.ErrorWarning;import edu.mit.csail.sdg.alloy4compiler.ast.Command;import fr.univartois.cril.alloyplugin.AlloyPlugin;import fr.univartois.cril.alloyplugin.api.IALSCommand;import fr.univartois.cril.alloyplugin.api.IReporter;import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;import fr.univartois.cril.alloyplugin.console.Console;import fr.univartois.cril.alloyplugin.launch.util.Util;
+import org.eclipse.core.resources.IFile;import org.eclipse.core.resources.IResource;import org.eclipse.core.runtime.CoreException;import edu.mit.csail.sdg.alloy4.ErrorWarning;import edu.mit.csail.sdg.alloy4compiler.ast.Command;import fr.univartois.cril.alloyplugin.AlloyPlugin;import fr.univartois.cril.alloyplugin.api.IALSCommand;import fr.univartois.cril.alloyplugin.api.IReporter;import fr.univartois.cril.alloyplugin.api.Util;import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;import fr.univartois.cril.alloyplugin.console.Console;
 /**
  * Allow to display within the Eclipse framework events reported by Alloy4 compiler.
  * It implements the Map interface in order to get notified of included AlloySpecification file
