@@ -106,13 +106,17 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
 
         if (af != null) {
             af.addListener(this);
-            SIGNATURES.setChildren(af.getSignatures());
-            FACTS.setChildren(af.getFacts());
-            FUNCTIONS.setChildren(af.getFunctions());
-            ASSERT.setChildren(af.getAssertions());
-            PREDICATES.setChildren(af.getPredicates());
-            COMMANDS.setChildren(af.getCommand());
+            updateTreeContentFromA4AST();
         }
+    }
+
+    private void updateTreeContentFromA4AST() {
+        SIGNATURES.setChildren(af.getSignatures());
+        FACTS.setChildren(af.getFacts());
+        FUNCTIONS.setChildren(af.getFunctions());
+        ASSERT.setChildren(af.getAssertions());
+        PREDICATES.setChildren(af.getPredicates());
+        COMMANDS.setChildren(af.getCommand());
     }
 
     /**
@@ -194,6 +198,7 @@ public class AlloyTreeContentProvider implements ITreeContentProvider,
         if (display != null)
             display.asyncExec(new Runnable() {
                 public void run() {
+                    updateTreeContentFromA4AST();
                     ((TreeViewer) viewer).expandAll();
                     viewer.refresh();
                     editor.updateFoldingStructure(positions);

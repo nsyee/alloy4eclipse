@@ -234,7 +234,6 @@ public class AlloyLaunching {
             assertions.add(new Assert(a));
         }
         file.setAssertions(assertions);
-        file.setSignatures(sigs);
         file.fireChange();
         System.out.println("ALSFile changed:" + file);
     }
