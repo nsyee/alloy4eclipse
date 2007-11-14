@@ -34,7 +34,7 @@ class RootContent<T extends IALSTreeDecorated> implements Iconable {
         return !children.isEmpty();
     }
     
-    public T [] children () {
+    public IALSTreeDecorated [] children () {
         if (children==null) {
             return (T[])new IALSTreeDecorated[0];
         }            
@@ -42,11 +42,19 @@ class RootContent<T extends IALSTreeDecorated> implements Iconable {
         return children.toArray(tab);
     }
     
+    public <V> V [] children(V [] t) {
+        return children.toArray(t);
+    }
+    
     /* (non-Javadoc)
      * @see fr.univartois.cril.alloyplugin.editor.Iconable#getIcon()
      */
     public Image getIcon() {
         return icon;
+    }
+    
+    public int size() {
+        return children.size();
     }
     
     @Override 

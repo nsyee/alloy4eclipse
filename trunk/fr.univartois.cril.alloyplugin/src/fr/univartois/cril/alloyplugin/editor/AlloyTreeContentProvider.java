@@ -154,7 +154,7 @@ public class AlloyTreeContentProvider implements IAlloyTreeContentProvider,
 
     public Object[] getElements(Object inputElement) {
         // log.info("get elements for "+inputElement);
-        System.out.println("get elements for :" + inputElement);
+        // System.out.println("get elements for :" + inputElement);
         return new RootContent[] { SIGNATURES, FACTS, ASSERT, FUNCTIONS,
                 PREDICATES, COMMANDS };
     }
@@ -207,7 +207,8 @@ public class AlloyTreeContentProvider implements IAlloyTreeContentProvider,
     }
 
     public IALSCommand[] getAllCommands() {
-         return COMMANDS.children();
+         IALSCommand [] commands = new IALSCommand[COMMANDS.size()];
+         return COMMANDS.children(commands);
     }
 
     public Object getCommandsRootContent() {
