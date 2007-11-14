@@ -105,15 +105,17 @@ public class LaunchCommandAction extends SelectionProviderAction {
         if (commandRootSelected) {
             commandsList = new ArrayList<IALSCommand>();
             IAlloyTreeContentProvider contentProvider = (IAlloyTreeContentProvider) viewer
-                    .getContentProvider();
-            IALSCommand[] commands = contentProvider.getAllCommands();
-            for (int i = 0; i < commands.length; i++) {
-                commandsList.add(commands[i]);
+                    .getContentProvider();            
+            try {
+                for (IALSCommand command : contentProvider.getAllCommands()) {
+                    commandsList.add(command);
+                }
+            } catch (RuntimeException e) {
+                e.printStackTrace();
             }
-
-        } else
+        } else {
             commandsList = getIALSCommandFromSelection(selection);
-
+        }
         if (!commandsList.isEmpty()) {
             launch(LaunchQuickConfigFactory.getInstance().create(commandsList));
         }
