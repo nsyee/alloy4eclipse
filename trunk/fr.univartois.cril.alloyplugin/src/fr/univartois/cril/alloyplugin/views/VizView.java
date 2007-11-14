@@ -52,7 +52,6 @@ import org.xml.sax.InputSource;
 import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.ErrorFatal;
 import edu.mit.csail.sdg.alloy4.ErrorSyntax;
-import edu.mit.csail.sdg.alloy4.MultiRunner.MultiRunnable;
 import edu.mit.csail.sdg.alloy4graph.VizViewer;
 import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
 import edu.mit.csail.sdg.alloy4viz.StaticGraphMaker;
@@ -99,7 +98,7 @@ public class VizView extends ViewPart implements ICommandListener {
                                 boolean standalone = false;
                                 String xmlFileName = "";
                                 JMenu windowmenu = null;
-                                MultiRunnable enumerator = null;
+                                Computer enumerator = null;
                                 Computer evaluator = null;
                                 boolean makeWindow = false;
 
@@ -156,12 +155,10 @@ public class VizView extends ViewPart implements ICommandListener {
     		String name,
             URL alloyVisualizationTheme) {
         setPartName(name);
-        viz[0].run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, filename);
+        viz[0].loadXML(filename, true);
 
         if (alloyVisualizationTheme != null) {
-            viz[0]
-                    .run(VizGUI.EVS_LOAD_THEME, alloyVisualizationTheme
-                            .getFile());
+            viz[0].loadThemeFile(alloyVisualizationTheme.getFile());
         }
         /**
          * A simple A4E menu action that we add to the A4 VizViewer popup menu.
@@ -256,12 +253,12 @@ public class VizView extends ViewPart implements ICommandListener {
                     final IPath path = dir.addTrailingSeparator().append(
                             themeFilename);
                     VizGUI viz = new VizGUI(false, "", null);
-                    viz.run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, filename);
+                    viz.loadXML(filename, true);
                     if (!"".equals(themeFilename)) {
                         try {
                             final URL themeUrl = FileLocator.toFileURL(path
                                     .toFile().toURI().toURL());
-                            viz.run(VizGUI.EVS_LOAD_THEME, themeUrl.getFile());
+                            viz.loadThemeFile(themeUrl.getFile());
                         } catch (MalformedURLException e) {
                             AlloyPlugin.getDefault().log(e);
                         } catch (IOException e) {
@@ -451,7 +448,7 @@ public class VizView extends ViewPart implements ICommandListener {
     }
 
     public void doSaveAsTheme(IPath path) throws CoreException {
-        viz[0].run(VizGUI.EVS_SAVE_THEME, path.toString());
+        viz[0].saveThemeFile(path.toString());
         refreshProjectManager(path);
 
     }

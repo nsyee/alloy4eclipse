@@ -387,13 +387,12 @@ public class MultiPageEditorContributor extends
                             final IPath path = dir.addTrailingSeparator()
                                     .append(filename);
                             VizGUI viz = new VizGUI(false, "", null);
-                            viz.run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY,
-                                    resource.getLocation().toOSString());
+                            viz.loadXML(
+                                    resource.getLocation().toOSString(), true);
                             try {
                                 final URL themeUrl = FileLocator.toFileURL(path
                                         .toFile().toURI().toURL());
-                                viz.run(VizGUI.EVS_LOAD_THEME, themeUrl
-                                        .getFile());
+                                viz.loadThemeFile(themeUrl.getFile());
                             } catch (MalformedURLException e) {
                                 AlloyPlugin.getDefault().log(e);
                             } catch (IOException e) {

@@ -50,7 +50,6 @@ import org.xml.sax.InputSource;
 import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.ErrorFatal;
 import edu.mit.csail.sdg.alloy4.ErrorSyntax;
-import edu.mit.csail.sdg.alloy4.MultiRunner.MultiRunnable;
 import edu.mit.csail.sdg.alloy4graph.VizViewer;
 import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
 import edu.mit.csail.sdg.alloy4viz.StaticGraphMaker;
@@ -151,7 +150,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
             final URL alloyVisualizationTheme) {
         int index = getCurrentVizGUIIndex();
         VizGUI viz = getCurrentVizGUI();
-        viz.run(VizGUI.EV_LOAD_THEME, alloyVisualizationTheme.getFile());
+        viz.loadThemeFile(alloyVisualizationTheme.getFile());
         thmTable.put(index, alloyVisualizationTheme);
         return viz;
     }
@@ -327,7 +326,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
                 		        boolean standalone = false;
                 		        String xmlFileName = "";
                 		        JMenu windowmenu = null;
-                		        MultiRunnable enumerator = null;
+                		        Computer enumerator = null;
                 		        Computer evaluator = null;
                 		        boolean makeWindow = false;
                 		        
@@ -346,12 +345,11 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         vizTable.put(index, viz[0]);
         thmTable.put(index, alloyVisualizationTheme);
 
-        viz[0]
-                .run(VizGUI.EVS_LOAD_INSTANCE_FORCEFULLY, Util
+        viz[0].loadXML(Util
                         .getFileLocation((IResource) input
-                                .getAdapter(IResource.class)));
+                                .getAdapter(IResource.class)), true);
         if (alloyVisualizationTheme != null) {
-            viz[0].run(VizGUI.EVS_LOAD_THEME, alloyVisualizationTheme.getFile());
+            viz[0].loadThemeFile(alloyVisualizationTheme.getFile());
         }
 
         /**
@@ -743,7 +741,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         VizGUI viz = getCurrentVizGUI();
         if (null == viz)
             return;
-        viz.run(VizGUI.EVS_SAVE_THEME, path.toString());
+        viz.saveThemeFile(path.toString());
         refreshProjectManager(path);
 
     }
