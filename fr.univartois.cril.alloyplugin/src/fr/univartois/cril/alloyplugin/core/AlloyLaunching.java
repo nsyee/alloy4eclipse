@@ -252,10 +252,12 @@ public class AlloyLaunching {
                 .getFilename());
         alloyConsole.activate();
         try {
-
+            long beginTime = System.currentTimeMillis();
             alloyConsole.printInfo("============ Command " + command
                     + ": ============");
             command.execute(rep);
+            long endTime = System.currentTimeMillis();
+            alloyConsole.printInfo("============ Time: "+(endTime-beginTime)+" (ms) ===========");
             if (AlloyPlugin.getDefault().getPluginPreferences().getBoolean(
                     PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
                 showAnswer(command);
