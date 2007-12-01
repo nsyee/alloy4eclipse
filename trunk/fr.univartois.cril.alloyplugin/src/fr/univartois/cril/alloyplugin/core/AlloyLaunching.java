@@ -257,7 +257,7 @@ public class AlloyLaunching {
                     + ": ============");
             command.execute(rep);
             long endTime = System.currentTimeMillis();
-            alloyConsole.printInfo("============ Time: "+(endTime-beginTime)+" (ms) ===========");
+            alloyConsole.printInfo("============ Total time: "+(endTime-beginTime)+" (ms) ===========");
             if (AlloyPlugin.getDefault().getPluginPreferences().getBoolean(
                     PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
                 showAnswer(command);

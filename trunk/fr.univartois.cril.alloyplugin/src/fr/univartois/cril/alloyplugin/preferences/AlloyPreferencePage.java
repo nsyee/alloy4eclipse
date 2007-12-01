@@ -43,7 +43,10 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
                 PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER,
                 "Automatically &Show graphical view of models or counter examples after command execution",
                 getFieldEditorParent()));
-
+        addField(new BooleanFieldEditor(
+                PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND,
+                "Clear console output before launching a command",
+                getFieldEditorParent()));
         addField(new RadioGroupFieldEditor(
                 PreferenceConstants.P_SOLVER_CHOICE,
                 "Choose solver for commands:",
@@ -99,5 +102,8 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
     }
     public static String getDotBinaryPath() {
         return AlloyPlugin.getDefault().getPluginPreferences().getString(PreferenceConstants.P_DOT_PATH);
+    }
+    public static boolean getClearConsoleForEachCommand() {
+        return AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND);
     }
 }
