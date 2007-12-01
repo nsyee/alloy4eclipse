@@ -17,6 +17,7 @@ import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
 import fr.univartois.cril.alloyplugin.core.AlloyLaunching;
+import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
 
 public class LaunchConfigurationDelegate implements
@@ -45,7 +46,11 @@ ILaunchConfigurationDelegate {
 		
 		monitor.setTaskName("Running Alloy command");
 		AlloyMessageConsole console = Console.findAlloyConsole(Util.getFileLocation(file.getResource()));
-		console.clear();
+		
+		if (AlloyPreferencePage.getClearConsoleForEachCommand()) {
+		    console.clear();
+		}
+		
 		System.out.println("list:"+commandIdList);
 		if(commandIdList!=null)		
 			try {		

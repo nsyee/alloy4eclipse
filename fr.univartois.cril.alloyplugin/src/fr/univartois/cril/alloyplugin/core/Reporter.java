@@ -12,7 +12,7 @@ public final class Reporter extends IReporter{
 	private int warningCount=0;
 	private String filename;
 	private IResource resource;
-	private IALSCommand execCommand;
+	private IALSCommand execCommand;	private long startTranslation;	
 	/**
 	 * Create a reporter which is associated with one resource. 
 	 */
@@ -36,10 +36,10 @@ public final class Reporter extends IReporter{
 				+(skolemDepth==0?"":" SkolemDepth="+skolemDepth)
 				+" Symmetry="+(symmetry>0 ? (""+symmetry) : "OFF")
 				+"\nGenerating CNF...\n"
-		);
+		);		startTranslation = System.currentTimeMillis();
 	}
 	@Override public void solve
-	(int primaryVars, int totalVars, int clauses) {
+	(int primaryVars, int totalVars, int clauses) {	    print("CNF translation time:"+(System.currentTimeMillis()-startTranslation)+" ms");
 		print("Var="+totalVars
 				+" PrimaryVars="+primaryVars
 				+" Clauses="+clauses
@@ -61,7 +61,7 @@ public final class Reporter extends IReporter{
 		}
 		if (cmd.expects==0) sb.append(", contrary to expectation");
 		else if (cmd.expects==1) sb.append(", as expected.");
-		//sb.append(""+solvingTime+"ms.");
+		sb.append(" "+solvingTime+" ms.");
 		print(sb.toString());
 		updateExecCommand(true,sb.toString());
 	}
@@ -77,7 +77,7 @@ public final class Reporter extends IReporter{
 		}
 		if (cmd.expects==1) sb.append(", contrary to expectation");
 		else if (cmd.expects==0) sb.append(", as expected.");
-		//sb.append(""+solvingTime+"ms.\n");
+		sb.append(" "+solvingTime+" ms.");
 		print(sb.toString());
 		updateExecCommand(false,sb.toString());		
 	}

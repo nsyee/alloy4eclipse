@@ -8,6 +8,7 @@ public class PreferenceConstants {
 	public static final String P_OUTPUT_PATH = "pathPreference";
 	public static final String P_BOOLEAN_WRITE_SHOW_ANSWER = "booleanShowAnswerPreference";
 	public static final String P_BOOLEAN_SHOW_DEBUG_MESSAGES = "booleanShowDebugMessages";
+	public static final String P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND = "booleanClearConsoleForEachCommand";
 	public static final String P_SOLVER_CHOICE = "choicePreference";
 	public static final String P_STRING = "stringPreference";
 	public static final String P_DOT_PATH = "dotPath";

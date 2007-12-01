@@ -21,7 +21,7 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
 
 	public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer,
 			int offset) {
-	    
+
 	    List<CompletionProposal> props = new ArrayList<CompletionProposal>();
         try {
             String prefix = getPrefix(viewer,offset);
@@ -40,7 +40,6 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
 	
 	public IContextInformation[] computeContextInformation(ITextViewer viewer,
 			int offset) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
@@ -50,17 +49,14 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
 	
 
 	public char[] getContextInformationAutoActivationCharacters() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public IContextInformationValidator getContextInformationValidator() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
