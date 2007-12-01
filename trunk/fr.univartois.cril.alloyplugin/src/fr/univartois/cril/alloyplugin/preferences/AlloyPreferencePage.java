@@ -53,8 +53,7 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
                 1,
                 new String[][] {
                         { "&SAT4J", PreferenceConstants.V_SOLVER_SAT4J },
-                        { "&Berkmin",
-                                PreferenceConstants.V_SOLVER_BERKMIN },
+                        { "&Berkmin", PreferenceConstants.V_SOLVER_BERKMIN },
                         { "MiniSatProver &JNI",
                                 PreferenceConstants.V_SOLVER_MiniSatProverJNI },
                         {
@@ -68,26 +67,22 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
                 "Show &Debug Messages", getFieldEditorParent()));
 
         addField(new RadioGroupFieldEditor(
-                PreferenceConstants.V_DOT_CONVERSION,
-                "Choose dot conversion:",
-                1,
-                new String[][] { { "ps", "ps" }, {"pdf", "pdf"}, { "png", "png" },
-                        { "dia", "dia" }, { "jpeg", "jpeg" }, { "gif", "gif" } },
-                getFieldEditorParent()));
+                PreferenceConstants.V_DOT_CONVERSION, "Choose dot conversion:",
+                1, new String[][] { { "ps", "ps" }, { "pdf", "pdf" },
+                        { "png", "png" }, { "dia", "dia" }, { "jpeg", "jpeg" },
+                        { "gif", "gif" } }, getFieldEditorParent()));
 
         addField(new StringFieldEditor(PreferenceConstants.P_DOT_PATH,
                 "Path to dot binary:", getFieldEditorParent()));
 
         addField(new StringFieldEditor(PreferenceConstants.P_SOLVERS_PATH,
                 "Path to SAT solvers binaries:", getFieldEditorParent()));
+        addField(new StringFieldEditor(
+                PreferenceConstants.P_A4_SAMPLE_MODELS_PATH,
+                "Path to Alloy 4 sample models:", getFieldEditorParent()));
 
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.eclipse.ui.IWorkbenchPreferencePage#init(org.eclipse.ui.IWorkbench)
-     */
     public void init(IWorkbench workbench) {
     }
 
@@ -100,10 +95,19 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
         return AlloyPlugin.getDefault().getPreferenceStore().getString(
                 PreferenceConstants.V_DOT_CONVERSION);
     }
+
     public static String getDotBinaryPath() {
-        return AlloyPlugin.getDefault().getPluginPreferences().getString(PreferenceConstants.P_DOT_PATH);
+        return AlloyPlugin.getDefault().getPluginPreferences().getString(
+                PreferenceConstants.P_DOT_PATH);
     }
+
     public static boolean getClearConsoleForEachCommand() {
-        return AlloyPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND);
+        return AlloyPlugin.getDefault().getPreferenceStore().getBoolean(
+                PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND);
+    }
+
+    public static String getA4SampleModelsPath() {
+        return AlloyPlugin.getDefault().getPluginPreferences().getString(
+                PreferenceConstants.P_A4_SAMPLE_MODELS_PATH);
     }
 }

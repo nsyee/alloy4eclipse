@@ -62,7 +62,7 @@ import edu.mit.csail.sdg.alloy4viz.VizState;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.api.ICommandListener;
-import fr.univartois.cril.alloyplugin.editor.MultiPageEditorContributor;
+import fr.univartois.cril.alloyplugin.editor.ALSEditor;
 import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
 public class VizView extends ViewPart implements ICommandListener {
@@ -76,13 +76,13 @@ public class VizView extends ViewPart implements ICommandListener {
     private IAction  editorAction2;
 
     private String   filename;
-    private String	 titlename;
+    private String   titlename;
     private IMemento memento;
 
     @Override
     public void createPartControl(Composite arg0) {
         @SuppressWarnings("unused")
-		final Composite a4Component = swingintegration.example.Platform
+        final Composite a4Component = swingintegration.example.Platform
                 .createComposite(
                         arg0,
                         this.getSite().getShell().getDisplay(),
@@ -111,7 +111,8 @@ public class VizView extends ViewPart implements ICommandListener {
                         });
         restoreState();
         if (filename != null) {
-            fillWithVizPanel(filename, titlename, lookForDefaultThemeFile(filename));
+            fillWithVizPanel(filename, titlename,
+                    lookForDefaultThemeFile(filename));
         }
         createActions();
         contributeToMenu(getA4EMenu());
@@ -124,35 +125,28 @@ public class VizView extends ViewPart implements ICommandListener {
 
     }
 
-    public void onXmlSolutionFileCreation(
-    		String filename) {
+    public void onXmlSolutionFileCreation(String filename) {
         onXmlSolutionFileCreation(filename, filename);
     }
 
-    public void onXmlSolutionFileCreation(
-    		String filename, 
-    		String titlename) {
-        onXmlSolutionFileCreation(filename, titlename, lookForDefaultThemeFile(filename));
-    }
-    
-    public void onXmlSolutionFileCreation(
-    		String filename,
-    		URL alloyVisualizationTheme) {
-    	onXmlSolutionFileCreation(filename, filename, alloyVisualizationTheme);
+    public void onXmlSolutionFileCreation(String filename, String titlename) {
+        onXmlSolutionFileCreation(filename, titlename,
+                lookForDefaultThemeFile(filename));
     }
 
-    public void onXmlSolutionFileCreation(
-    		String filename, 
-    		String titlename,
+    public void onXmlSolutionFileCreation(String filename,
+            URL alloyVisualizationTheme) {
+        onXmlSolutionFileCreation(filename, filename, alloyVisualizationTheme);
+    }
+
+    public void onXmlSolutionFileCreation(String filename, String titlename,
             URL alloyVisualizationTheme) {
         this.filename = filename;
         this.titlename = titlename;
         fillWithVizPanel(filename, titlename, alloyVisualizationTheme);
     }
 
-    private void fillWithVizPanel(
-    		String filename, 
-    		String name,
+    private void fillWithVizPanel(String filename, String name,
             URL alloyVisualizationTheme) {
         setPartName(name);
         viz[0].loadXML(filename, true);
@@ -190,14 +184,12 @@ public class VizView extends ViewPart implements ICommandListener {
                             .getViewSite().getShell());
                     dialog.setFilterExtensions(new String[] { "*.thm" });
                     dialog.setText("Select a visualization theme");
-                    dialog.open();
-                    final IPath dir = new Path(dialog.getFilterPath());
-                    final IPath path = dir.addTrailingSeparator().append(
-                            dialog.getFileName());
-                    fillWithVizPanel(
-                    		filename, 
-                    		titlename, 
-                    		path.toFile().toURI().toURL());
+                    String result = dialog.open();
+                    if (result != null) {
+                        final IPath path = new Path(result);
+                        fillWithVizPanel(filename, titlename, path.toFile()
+                                .toURI().toURL());
+                    }
                 } catch (Exception e) {
                     AlloyPlugin.getDefault().log(e);
                 }
@@ -215,21 +207,17 @@ public class VizView extends ViewPart implements ICommandListener {
                     FileDialog fdialog = new FileDialog(shell);
                     fdialog.setFilterExtensions(new String[] { "*.thm" });
                     fdialog.setText("Select a visualization theme");
-                    fdialog.open();
-                    final IPath dir = new Path(fdialog.getFilterPath());
-                    final String filename = fdialog.getFileName();
+                    String result = fdialog.open();
+                    if (result != null) {
+                        final IPath path = new Path(result);
+                        InputDialog ndialog = new InputDialog(shell,
+                                "New Alloy4 visualization page name:",
+                                "Enter a string", null, null);
+                        ndialog.open();
+                        URL url = path.toFile().toURI().toURL();
 
-                    final IPath path = dir.addTrailingSeparator().append(
-                            filename);
-                    InputDialog ndialog = new InputDialog(shell,
-                            "New Alloy4 visualization page name:",
-                            "Enter a string", null, null);
-                    ndialog.open();
-                    URL url = null;
-                    if (!"".equals(filename)) {
-                        url = path.toFile().toURI().toURL();
+                        addAlloyVisualizationView(url, ndialog.getValue());
                     }
-                    addAlloyVisualizationView(url, ndialog.getValue());
                 } catch (Exception e) {
                     AlloyPlugin.getDefault().log(e);
                 }
@@ -247,14 +235,11 @@ public class VizView extends ViewPart implements ICommandListener {
                     FileDialog fdialog = new FileDialog(shell);
                     fdialog.setFilterExtensions(new String[] { "*.thm" });
                     fdialog.setText("Select a visualization theme");
-                    fdialog.open();
-                    final IPath dir = new Path(fdialog.getFilterPath());
-                    final String themeFilename = fdialog.getFileName();
-                    final IPath path = dir.addTrailingSeparator().append(
-                            themeFilename);
-                    VizGUI viz = new VizGUI(false, "", null);
-                    viz.loadXML(filename, true);
-                    if (!"".equals(themeFilename)) {
+                    String result = fdialog.open();
+                    if (result != null) {
+                        final IPath path = new Path(result);
+                        VizGUI viz = new VizGUI(false, "", null);
+                        viz.loadXML(filename, true);
                         try {
                             final URL themeUrl = FileLocator.toFileURL(path
                                     .toFile().toURI().toURL());
@@ -323,12 +308,9 @@ public class VizView extends ViewPart implements ICommandListener {
                     dialog.setFilterExtensions(new String[] { "*.thm" });
                     dialog
                             .setText("Where do you want to save your theme file?");
-                    dialog.open();
-                    final IPath dir = new Path(dialog.getFilterPath());
-                    final String filename = dialog.getFileName();
-                    if (filename != null && !"".equals(filename)) {
-                        IPath path = dir.addTrailingSeparator()
-                                .append(filename);
+                    String result = dialog.open();
+                    if (result != null) {
+                        IPath path = new Path(result);
                         final String extension = path.getFileExtension();
                         if (extension == null) {
                             path = path.addFileExtension("thm");
@@ -353,8 +335,7 @@ public class VizView extends ViewPart implements ICommandListener {
                 .getImageDescriptor(ALSImageRegistry.THEME_EXPORT_ICON_ID));
     }
 
-    public static String A4E_MENU_ID = MultiPageEditorContributor.class
-                                             .getPackage().getName()
+    public static String A4E_MENU_ID = ALSEditor.class.getPackage().getName()
                                              + ".a4e.menu"; //$NON-NLS-1$
 
     public IToolBarManager getToolBarManager() {
@@ -583,9 +564,9 @@ public class VizView extends ViewPart implements ICommandListener {
 
     @Override
     public void init(IViewSite site, IMemento memento) throws PartInitException { // TODO
-                                                                                    // Auto-generated
-                                                                                    // method
-                                                                                    // stub
+        // Auto-generated
+        // method
+        // stub
         super.init(site, memento);
         this.memento = memento;
     }
@@ -593,7 +574,7 @@ public class VizView extends ViewPart implements ICommandListener {
     @Override
     public void saveState(IMemento memento) {
         super.saveState(memento);
-        memento.putString("filename",filename);
+        memento.putString("filename", filename);
     }
 
     private void restoreState() {

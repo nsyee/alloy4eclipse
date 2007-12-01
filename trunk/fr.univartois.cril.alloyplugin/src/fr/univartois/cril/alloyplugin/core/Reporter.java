@@ -130,7 +130,7 @@ public final class Reporter extends IReporter{
         IFile res = Util.getFileForLocation(key);
         if(res!=null&&res.exists())
             try {
-                res.deleteMarkers(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,0);
+                res.deleteMarkers(Util.ALLOYPROBLEM, false,0);
             } catch (CoreException e) {
             	AlloyPlugin.getDefault().log(e);
             }                   

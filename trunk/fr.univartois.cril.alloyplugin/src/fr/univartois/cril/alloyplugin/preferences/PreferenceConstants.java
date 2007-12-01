@@ -13,6 +13,7 @@ public class PreferenceConstants {
 	public static final String P_STRING = "stringPreference";
 	public static final String P_DOT_PATH = "dotPath";
 	public static final String P_SOLVERS_PATH = "solversPath";
+	public static final String P_A4_SAMPLE_MODELS_PATH = "a4SampleModelsPath";
 	public static final String V_DOT_CONVERSION = "ps";
 	public static final String V_SOLVER_SAT4J = "sat4j";
 	public static final String V_SOLVER_MINISAT_PIPE = "minisat_pipe";

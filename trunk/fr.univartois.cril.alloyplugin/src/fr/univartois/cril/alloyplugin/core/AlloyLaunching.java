@@ -69,7 +69,7 @@ public class AlloyLaunching {
         IResource res = file.getResource();
         try {
             res.deleteMarkers(
-                    fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,
+                    Util.ALLOYPROBLEM, false,
                     0);
         } catch (CoreException e) {
             e.printStackTrace();
@@ -91,7 +91,7 @@ public class AlloyLaunching {
             return null;
         try {
             resource.deleteMarkers(
-                    fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM, false,
+                    Util.ALLOYPROBLEM, false,
                     0);
         } catch (CoreException e) {
             e.printStackTrace();
@@ -120,7 +120,7 @@ public class AlloyLaunching {
             res = getResourceFromErr(res, e);
             try {
                 IMarker marker = res
-                        .createMarker(fr.univartois.cril.alloyplugin.ui.Util.ALLOYPROBLEM);
+                        .createMarker(Util.ALLOYPROBLEM);
                 marker.setAttribute(IMarker.SEVERITY, severity);
                 marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
                 marker.setAttribute(IMarker.MESSAGE, e.msg);

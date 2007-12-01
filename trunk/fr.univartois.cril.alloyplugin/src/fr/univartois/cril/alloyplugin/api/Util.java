@@ -14,6 +14,8 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
 public class Util {
 
+    public static final String ALLOYPROBLEM = "fr.univartois.cril.alloyplugin.AlloyProblem";
+    
 	/**
 	 * Try to get the absolute path of the resource. 
 	 * Returns the file location or null;
