@@ -162,6 +162,7 @@ public class AlloyTreeContentProvider implements IAlloyTreeContentProvider,
     private ArrayList<Position> positions = new ArrayList<Position>();
 
     private void feedAnnotations() {
+        if (af==null) return;
         positions.clear();
         IDocument document = editor.getDocumentProvider().getDocument(
                 editor.getEditorInput());

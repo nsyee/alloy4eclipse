@@ -22,12 +22,14 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 				.getPreferenceStore();
 		store.setDefault(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER, false);
 		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES, false);
+		store.setDefault(PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND, true);
 		store.setDefault(PreferenceConstants.P_SOLVER_CHOICE, PreferenceConstants.V_SOLVER_SAT4J);
 		store.setDefault(PreferenceConstants.P_STRING, "Default value");
 		store.setDefault(PreferenceConstants.V_DOT_CONVERSION, "ps");
 		String defaultDir = Helper.alloyHome()+AlloyPlugin.FILE_SEPARATOR+"binary";
 		store.setDefault(PreferenceConstants.P_DOT_PATH, defaultDir+"/dotbin");
 		store.setDefault(PreferenceConstants.P_SOLVERS_PATH, defaultDir);
+		store.setDefault(PreferenceConstants.P_A4_SAMPLE_MODELS_PATH, Helper.alloyHome()+"/models");
 	}
 
 }

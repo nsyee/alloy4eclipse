@@ -144,6 +144,22 @@
       </objectContribution>
    </extension>
    <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            nameFilter="*"
+            id="fr.univartois.cril.alloyplugin.contribution3">
+         <action
+               label="Open sample models ..."
+               class="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
+               menubarPath="additions"
+               enablesFor="+"
+               id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
             class="fr.univartois.cril.alloyplugin.launch.ui.LaunchShortcut"
@@ -182,6 +198,16 @@
       <category
             id="fr.univartois.cril.alloyplugin.launch.category"
             name="Alloy"/>
+      <activeKeyConfiguration value="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <category name="A4E Accelerator Keys" id="fr.univartois.cril.alloyplugin.category1"/>
+         <command category="fr.univartois.cril.alloyplugin.category1"
+             name="Open Sample Models"
+             id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"/>
+         <keyBinding
+             command="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
+             string="Ctrl+Alt+O"
+             scope="org.eclipse.ui.globalScope"
+             configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
    </extension>
    <extension
          point="org.eclipse.ui.commandImages">
@@ -193,18 +219,6 @@
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension targetID="fr.univartois.cril.alloyplugin.alloyperspective">
          <actionSet id="org.eclipse.debug.ui.launchActionSet"/>
-            <!-- 
-         <viewShortcut id="fr.univartois.cril.alloyplugin.launch.views.GraphView"/>
-         <view
-               closeable="true"
-               id="fr.univartois.cril.alloyplugin.launch.views.GraphView"
-               moveable="true"
-               relationship="stack"
-               relative="org.eclipse.ui.console.ConsoleView"
-               showTitle="true"
-               standalone="true"
-               visible="true"/>
-                        -->
       </perspectiveExtension>
    </extension>
    <extension point="org.eclipse.debug.core.launchConfigurationTypes">
@@ -265,5 +279,5 @@
               icon="icons/graph.gif"
               id="fr.univartois.cril.alloyplugin.views.vizview"
               name="Graphical View"/>
-</extension>   
+</extension>
 </plugin>
