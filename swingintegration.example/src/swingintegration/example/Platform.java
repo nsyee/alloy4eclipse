@@ -68,7 +68,7 @@ public class Platform {
     }
     
     private static boolean isLeopard() {
-        String os = System.getProperty("os.name");
+        String os = System.getProperty("os.name").toLowerCase();
         String version = System.getProperty("os.version");
         return os.startsWith("mac")&&version.startsWith("1.5");
     }
