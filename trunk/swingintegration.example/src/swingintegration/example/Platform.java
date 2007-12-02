@@ -28,7 +28,7 @@ public class Platform {
 
     static {
         try {
-            if (isGtk()) {
+            if (isGtk()||isLeopard()) {
                 UIManager.setLookAndFeel(new MetalLookAndFeel());
                 System.out.println("Using Java L&F");
             } else {
@@ -65,6 +65,12 @@ public class Platform {
     
     private static boolean isSunJava6() {
         return System.getProperty("java.version").startsWith("1.6")&& System.getProperty("java.vendor").startsWith("Sun ");
+    }
+    
+    private static boolean isLeopard() {
+        String os = System.getProperty("os.name");
+        String version = System.getProperty("os.version");
+        return os.startsWith("mac")&&version.startsWith("1.5");
     }
     
     public static Composite createComposite(
