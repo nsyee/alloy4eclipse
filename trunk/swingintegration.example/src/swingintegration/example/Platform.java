@@ -77,7 +77,7 @@ public class Platform {
     		final Composite container,
             final Display display, 
             final SwingComponentConstructor swingComponent) {
-        if (!isSunJava6()||!isGtk()) {
+        if ((!isSunJava6()||!isGtk())&&!isLeopard()) {
             System.out.println("Creating an embedded composite");
             return createEmbeddedComposite(container, display, swingComponent);
         }
