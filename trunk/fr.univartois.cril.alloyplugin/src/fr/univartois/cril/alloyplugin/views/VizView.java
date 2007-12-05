@@ -575,11 +575,13 @@ public class VizView extends ViewPart implements ICommandListener {
     public void saveState(IMemento memento) {
         super.saveState(memento);
         memento.putString("filename", filename);
+        memento.putString("titlename", titlename);
     }
 
     private void restoreState() {
         if (memento != null) {
             filename = memento.getString("filename");
+            titlename = memento.getString("titlename");
         }
     }
 }
