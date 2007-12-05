@@ -12,7 +12,7 @@
   * It is possible to select multiple commands to run in the outline view.
   * Using Run as ... Alloy Specification on a .als file will run all the commands in that file.
   * Run as/Launch commands are stored in the run menu. 
-  * *The latest command(s) can be re-executed using the Eclipse "Run last launched" shortcut.*
+  * *The latest command(s) can be re-executed using the Eclipse "Run last launched" shortcut.(CTRL-F11)*
 
 = Compiling and tracking errors =
 
