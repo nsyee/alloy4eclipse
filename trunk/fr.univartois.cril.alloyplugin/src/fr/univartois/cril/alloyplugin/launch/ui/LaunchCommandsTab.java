@@ -247,7 +247,6 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		resources[0]=file.getResource();			
 		configuration.setMappedResources(resources);			
 		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,Util.getFileLocation(file.getResource()));
-		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,new ArrayList<String>());
 		List<String> list=new ArrayList<String>();			
 		for (IALSCommand cmd : file.getCommand()) {
 			list.add(cmd.getName());				
@@ -269,7 +268,6 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		resources[0]=cmds.get(0).getResource();			
 		configuration.setMappedResources(resources);			
 		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,Util.getFileLocation(cmds.get(0).getResource()));
-		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,new ArrayList<String>());
 		List<String> list=new ArrayList<String>();			
 		for (IALSCommand cmd : cmds) {
 			list.add(cmd.getName());				
