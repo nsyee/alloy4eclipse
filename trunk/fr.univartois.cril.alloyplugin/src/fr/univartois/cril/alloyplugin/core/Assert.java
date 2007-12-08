@@ -32,7 +32,7 @@ public class Assert implements IALSAssert {
         return assertion.b.pos.y;
     }
     public int getEndLine() {
-        return assertion.b.pos.y+assertion.b.closingBracket.y2;
+        return assertion.b.pos.y2;
     }
 
 }

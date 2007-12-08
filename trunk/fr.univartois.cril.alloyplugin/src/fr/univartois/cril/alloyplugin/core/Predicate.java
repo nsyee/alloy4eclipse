@@ -28,6 +28,6 @@ public class Predicate implements IALSPredicate {
 		return func.pos.y;
 	}
     public int getEndLine() {
-        return func.pos.y2+func.getBody().closingBracket.y2;
+        return func.pos.y2;
     }
 }

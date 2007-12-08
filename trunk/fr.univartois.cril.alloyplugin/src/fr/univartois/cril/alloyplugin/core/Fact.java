@@ -26,6 +26,6 @@ public class Fact implements IALSFact {
 		return fact.b.pos.y;
 	}
     public int getEndLine() {
-        return fact.b.pos.y+fact.b.closingBracket.y2;
+        return fact.b.pos.y2;
     }
 }
