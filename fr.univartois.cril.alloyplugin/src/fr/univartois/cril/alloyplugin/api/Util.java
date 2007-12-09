@@ -8,9 +8,15 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.FileEditorInput;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
-
 
 public class Util {
 
@@ -47,5 +53,22 @@ public class Util {
 		} catch (MalformedURLException e) {
 		}
 		return url;
+	}
+	
+	/**
+	 * ID of the ALS Editor
+	 */
+	public static String ALS_EDITOR_ID = "fr.univartois.cril.alloyplugin.editor.ALSEditor";//$NON-NLS-1$
+	
+	public static IEditorPart openALSEditor(final IWorkbenchPage page, final IFile file) throws PartInitException {
+		final IEditorInput editorInput = new FileEditorInput(file);
+		final IEditorPart editor = page.openEditor(editorInput,ALS_EDITOR_ID);
+		return editor;
+	}
+	
+	public static IEditorPart openALSEditor(final IFile file) throws PartInitException {
+		final IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		final IWorkbenchPage page = window.getActivePage();       
+		return openALSEditor(page, file);
 	}
 }
