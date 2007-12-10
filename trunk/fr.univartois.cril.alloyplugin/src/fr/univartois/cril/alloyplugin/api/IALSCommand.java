@@ -1,6 +1,7 @@
 package fr.univartois.cril.alloyplugin.api;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.ui.IViewPart;
 
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pair;
@@ -26,7 +27,7 @@ public interface IALSCommand extends IALSTreeDecorated {
 	public void setSat(boolean sat);
 	public void setStringResult(String resultMessage);
 	public String getStringResult();
-	
+	public IViewPart getViewPart();
     /**
      * Display Answer in an SWT thread.
      */

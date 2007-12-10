@@ -11,10 +11,12 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 
 import edu.mit.csail.sdg.alloy4.ConstList;
 import edu.mit.csail.sdg.alloy4.Err;
+import edu.mit.csail.sdg.alloy4.ErrorFatal;
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4.Pos;
 import edu.mit.csail.sdg.alloy4.SafeList;
@@ -266,6 +268,12 @@ public class AlloyLaunching {
             displayErrorInProblemView(command.getResource(), e);
         }
 
+    }
+    
+    public static IALSCommand showAnswser(IWorkbenchPage page, IFile outputFile) throws ErrorFatal {
+    	IALSCommand showCommand = new ShowInstanceCommand(page, outputFile);
+    	showAnswer(showCommand);
+    	return showCommand;
     }
 
     public static void showAnswer(IALSCommand command) {
