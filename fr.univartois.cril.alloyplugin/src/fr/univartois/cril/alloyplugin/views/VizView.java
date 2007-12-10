@@ -80,6 +80,14 @@ public class VizView extends ViewPart implements ICommandListener {
     private IMemento memento;
 
     @Override
+	public Object getAdapter(Class adapter) {
+    	if (adapter == VizView.class) return this;
+    	if (adapter == VizGUI.class) return viz[0];
+    	if (adapter == VizViewer.class) { return viz[0] == null ? null : viz[0].getViewer(); }
+    	return super.getAdapter(adapter);
+    }
+    
+    @Override
     public void createPartControl(Composite arg0) {
         @SuppressWarnings("unused")
         final Composite a4Component = swingintegration.example.Platform
@@ -396,19 +404,16 @@ public class VizView extends ViewPart implements ICommandListener {
                 return themeFile.toURI().toURL();
             }
         } catch (MalformedURLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        	AlloyPlugin.getDefault().log(e);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        	AlloyPlugin.getDefault().log(e);
         } catch (XPathExpressionException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        	AlloyPlugin.getDefault().log(e);
         }
         return null;
     }
 
-    public void addAlloyVisualizationView(final URL alloyVisualizationTheme,
+    public IViewPart addAlloyVisualizationView(final URL alloyVisualizationTheme,
             String name) {
         IWorkbenchWindow window = PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow();
@@ -422,9 +427,11 @@ public class VizView extends ViewPart implements ICommandListener {
 
             commandListener.onXmlSolutionFileCreation(filename, name,
                     alloyVisualizationTheme);
-
+            return vizView;
+            
         } catch (CoreException e) {
-            e.printStackTrace();
+        	AlloyPlugin.getDefault().log(e);
+            return null;
         }
     }
 
