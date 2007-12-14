@@ -3,9 +3,12 @@ package fr.univartois.cril.alloyplugin.api;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.ui.IEditorInput;
@@ -21,6 +24,17 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
 public class Util {
 
     public static final String ALLOYPROBLEM = "fr.univartois.cril.alloyplugin.AlloyProblem";
+    
+    public static boolean refreshProjectManager(IPath path) throws CoreException {
+        IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();
+        IResource dotResource = wksroot.getContainerForLocation(path);
+        if (null != dotResource && dotResource.getProject().isAccessible()) {
+            IContainer dotFolder = dotResource.getParent();
+            dotFolder.refreshLocal(IResource.DEPTH_ONE, null);
+            return true;
+        }
+        return false;
+    }
     
 	/**
 	 * Try to get the absolute path of the resource. 

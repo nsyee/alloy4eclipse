@@ -269,12 +269,6 @@ public class AlloyLaunching {
         }
 
     }
-    
-    public static IALSCommand showAnswser(IWorkbenchPage page, IFile outputFile) throws ErrorFatal {
-    	IALSCommand showCommand = new ShowInstanceCommand(page, outputFile);
-    	showAnswer(showCommand);
-    	return showCommand;
-    }
 
     public static void showAnswer(IALSCommand command) {
     	Pair<A4Solution,Boolean> ans = command.getAns();
