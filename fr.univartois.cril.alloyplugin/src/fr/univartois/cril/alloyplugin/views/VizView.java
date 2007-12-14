@@ -85,6 +85,7 @@ public class VizView extends ViewPart implements ICommandListener {
     	if (adapter == VizView.class) return this;
     	if (adapter == VizGUI.class) return viz[0];
     	if (adapter == VizViewer.class) { return viz[0] == null ? null : viz[0].getViewer(); }
+    	if (adapter == VizState.class) { return viz[0] == null ? null : viz[0].getVizState(); }
     	return super.getAdapter(adapter);
     }
     
