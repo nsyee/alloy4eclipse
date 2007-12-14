@@ -81,14 +81,20 @@ public class VizView extends ViewPart implements ICommandListener {
     private IMemento memento;
 
     @Override
-	public Object getAdapter(Class adapter) {
-    	if (adapter == VizView.class) return this;
-    	if (adapter == VizGUI.class) return viz[0];
-    	if (adapter == VizViewer.class) { return viz[0] == null ? null : viz[0].getViewer(); }
-    	if (adapter == VizState.class) { return viz[0] == null ? null : viz[0].getVizState(); }
-    	return super.getAdapter(adapter);
+    public Object getAdapter(Class adapter) {
+        if (adapter == VizView.class)
+            return this;
+        if (adapter == VizGUI.class)
+            return viz[0];
+        if (adapter == VizViewer.class) {
+            return viz[0] == null ? null : viz[0].getViewer();
+        }
+        if (adapter == VizState.class) {
+            return viz[0] == null ? null : viz[0].getVizState();
+        }
+        return super.getAdapter(adapter);
     }
-    
+
     @Override
     public void createPartControl(Composite arg0) {
         @SuppressWarnings("unused")
@@ -225,9 +231,8 @@ public class VizView extends ViewPart implements ICommandListener {
                                 "Enter a string", null, null);
                         ndialog.open();
 
-                        showAlloyVisualizationView(
-                        		VizView.this.getSite().getPage(),
-                        		path, ndialog.getValue());
+                        showAlloyVisualizationView(VizView.this.getSite()
+                                .getPage(), path, ndialog.getValue());
                     }
                 } catch (Exception e) {
                     AlloyPlugin.getDefault().log(e);
@@ -247,10 +252,11 @@ public class VizView extends ViewPart implements ICommandListener {
                     fdialog.setFilterExtensions(new String[] { "*.thm" });
                     fdialog.setText("Select a visualization theme");
                     String result = fdialog.open();
+
+                    VizGUI viz = new VizGUI(false, "", null);
+                    viz.loadXML(filename, true);
                     if (result != null) {
                         final IPath path = new Path(result);
-                        VizGUI viz = new VizGUI(false, "", null);
-                        viz.loadXML(filename, true);
                         try {
                             final URL themeUrl = FileLocator.toFileURL(path
                                     .toFile().toURI().toURL());
@@ -261,7 +267,6 @@ public class VizView extends ViewPart implements ICommandListener {
                             AlloyPlugin.getDefault().log(e);
                         }
                     }
-
                 } catch (Exception e) {
                     AlloyPlugin.getDefault().log(e);
                 }
@@ -407,131 +412,124 @@ public class VizView extends ViewPart implements ICommandListener {
                 return themeFile.toURI().toURL();
             }
         } catch (MalformedURLException e) {
-        	AlloyPlugin.getDefault().log(e);
+            AlloyPlugin.getDefault().log(e);
         } catch (IOException e) {
-        	AlloyPlugin.getDefault().log(e);
+            AlloyPlugin.getDefault().log(e);
         } catch (XPathExpressionException e) {
-        	AlloyPlugin.getDefault().log(e);
+            AlloyPlugin.getDefault().log(e);
         }
         return null;
     }
 
     public static String VIZ_VIEW_ID = "fr.univartois.cril.alloyplugin.views.vizview";
-    
-    public static IViewPart createView(
-    		final IWorkbenchPage page,
-    		final IPath filepath,
-    		final String secondaryId) {
-    	
-    	try {
-    		Util.refreshProjectManager(filepath);
-         } catch (CoreException e) {
-        	 AlloyPlugin.getDefault().log(e);
-         }
-         
-         try { 
-             IViewPart vizView = page.showView(
-            		 VIZ_VIEW_ID, secondaryId, IWorkbenchPage.VIEW_ACTIVATE);  
-             return vizView;
-             
-         } catch (CoreException e) {
-         	AlloyPlugin.getDefault().log(e);
-         }
-    	return null;
+
+    public static IViewPart createView(final IWorkbenchPage page,
+            final IPath filepath, final String secondaryId) {
+
+        try {
+            Util.refreshProjectManager(filepath);
+        } catch (CoreException e) {
+            AlloyPlugin.getDefault().log(e);
+        }
+
+        try {
+            IViewPart vizView = page.showView(VIZ_VIEW_ID, secondaryId,
+                    IWorkbenchPage.VIEW_ACTIVATE);
+            return vizView;
+
+        } catch (CoreException e) {
+            AlloyPlugin.getDefault().log(e);
+        }
+        return null;
     }
-    
-    public static IViewPart createView(
-    		final IWorkbenchPage page,
-    		final IPath filepath) {
-    	 String secondaryId = filepath.toString().replace(' ', '_').replace(':', '_');
-         return createView(page, filepath, secondaryId);
+
+    public static IViewPart createView(final IWorkbenchPage page,
+            final IPath filepath) {
+        String secondaryId = filepath.toString().replace(' ', '_').replace(':',
+                '_');
+        return createView(page, filepath, secondaryId);
     }
-    
-    public static IViewPart createView(
-    		final IWorkbenchPage page,
-    		final IFile outputFile,
-    		final String secondaryId) {
-    	return createView(page, outputFile.getFullPath(), secondaryId);
+
+    public static IViewPart createView(final IWorkbenchPage page,
+            final IFile outputFile, final String secondaryId) {
+        return createView(page, outputFile.getFullPath(), secondaryId);
     }
-    
-    public static IViewPart createView(
-    		final IWorkbenchPage page,
-    		final IFile outputFile) {
-    	String secondaryId = outputFile.toString().replace(' ', '_').replace(':', '_');
-    	return createView(page, outputFile, secondaryId);
+
+    public static IViewPart createView(final IWorkbenchPage page,
+            final IFile outputFile) {
+        String secondaryId = outputFile.toString().replace(' ', '_').replace(
+                ':', '_');
+        return createView(page, outputFile, secondaryId);
     }
-    
+
     public static IViewPart showAlloyVisualizationView(
-    		final IWorkbenchPage page,
-    		final IPath filepath,
-    		final String titleName,
-    		final String secondaryId) {
-    	IViewPart vizView = createView(page, filepath, secondaryId);
+            final IWorkbenchPage page, final IPath filepath,
+            final String titleName, final String secondaryId) {
+        IViewPart vizView = createView(page, filepath, secondaryId);
         ICommandListener commandListener = (ICommandListener) vizView;
-        commandListener.onXmlSolutionFileCreation(filepath.toOSString(), titleName);
+        commandListener.onXmlSolutionFileCreation(filepath.toOSString(),
+                titleName);
         return vizView;
     }
-    
+
     public static IViewPart showAlloyVisualizationView(
-    		final IWorkbenchPage page,
-    		final IPath filepath,
-    		final String titleName) {
-    	String secondaryId = filepath.toString().replace(' ', '_').replace(':', '_');
-    	return showAlloyVisualizationView(page, filepath, titleName, secondaryId);
+            final IWorkbenchPage page, final IPath filepath,
+            final String titleName) {
+        String secondaryId = filepath.toString().replace(' ', '_').replace(':',
+                '_');
+        return showAlloyVisualizationView(page, filepath, titleName,
+                secondaryId);
     }
-    
+
     public static IViewPart showAlloyVisualizationView(
-    		final IWorkbenchPage page,
-    		final IFile outputFile,
-    		final String titleName,
-    		final String secondaryId) {
-    	return showAlloyVisualizationView(page, outputFile.getLocation(), titleName, secondaryId);
+            final IWorkbenchPage page, final IFile outputFile,
+            final String titleName, final String secondaryId) {
+        return showAlloyVisualizationView(page, outputFile.getLocation(),
+                titleName, secondaryId);
     }
-    
+
     public static IViewPart showAlloyVisualizationView(
-    		final IWorkbenchPage page,
-    		final IFile outputFile,
-    		final String titleName) {
-    	String secondaryId = outputFile.toString().replace(' ', '_').replace(':', '_');
-    	return showAlloyVisualizationView(page, outputFile, titleName, secondaryId);
+            final IWorkbenchPage page, final IFile outputFile,
+            final String titleName) {
+        String secondaryId = outputFile.toString().replace(' ', '_').replace(
+                ':', '_');
+        return showAlloyVisualizationView(page, outputFile, titleName,
+                secondaryId);
     }
-    
+
     public static IViewPart showAlloyVisualizationView(
-    		final IWorkbenchPage page,
-    		final IPath filepath,
-    		final String titleName,
-    		final String secondaryId,
-    		final URL alloyVisualizationTheme) {
-    	IViewPart vizView = createView(page, filepath, secondaryId);
+            final IWorkbenchPage page, final IPath filepath,
+            final String titleName, final String secondaryId,
+            final URL alloyVisualizationTheme) {
+        IViewPart vizView = createView(page, filepath, secondaryId);
         ICommandListener commandListener = (ICommandListener) vizView;
-        commandListener.onXmlSolutionFileCreation(filepath.toOSString(), titleName, alloyVisualizationTheme);  
+        commandListener.onXmlSolutionFileCreation(filepath.toOSString(),
+                titleName, alloyVisualizationTheme);
         return vizView;
     }
-    
+
     public static IViewPart showAlloyVisualizationView(
-    		final IWorkbenchPage page,
-    		final IPath filepath,
-    		final String titleName,
-    		final URL alloyVisualizationTheme) {
-    	String secondaryId = filepath.toString().replace(' ', '_').replace(':', '_');
-    	return showAlloyVisualizationView(page, filepath, titleName, secondaryId, alloyVisualizationTheme);
+            final IWorkbenchPage page, final IPath filepath,
+            final String titleName, final URL alloyVisualizationTheme) {
+        String secondaryId = filepath.toString().replace(' ', '_').replace(':',
+                '_');
+        return showAlloyVisualizationView(page, filepath, titleName,
+                secondaryId, alloyVisualizationTheme);
     }
-    
+
     public static IViewPart showAlloyVisualizationView(
-    		final IWorkbenchPage page,
-    		final IFile outputFile,
-    		final String titleName,
-    		final String secondaryId,
-    		final URL alloyVisualizationTheme) {
-    	return showAlloyVisualizationView(page, outputFile.getLocation(), titleName, secondaryId, alloyVisualizationTheme);
+            final IWorkbenchPage page, final IFile outputFile,
+            final String titleName, final String secondaryId,
+            final URL alloyVisualizationTheme) {
+        return showAlloyVisualizationView(page, outputFile.getLocation(),
+                titleName, secondaryId, alloyVisualizationTheme);
     }
-    
+
     public static IViewPart showAlloyVisualizationView(
-    		final IWorkbenchPage page,
-    		final IFile outputFile,
-    		final String titleName,
-    		final URL alloyVisualizationTheme) {
-    	return showAlloyVisualizationView(page, outputFile.getLocation(), titleName, alloyVisualizationTheme);
+            final IWorkbenchPage page, final IFile outputFile,
+            final String titleName, final URL alloyVisualizationTheme) {
+        return showAlloyVisualizationView(page, outputFile.getLocation(),
+                titleName, alloyVisualizationTheme);
     }
 
     public void doSaveAsTheme(IPath path) throws CoreException {
