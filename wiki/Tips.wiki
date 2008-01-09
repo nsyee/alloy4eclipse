@@ -4,7 +4,7 @@
 = Editor =
 
   * Just hover an error or warning marker to see the message instead of going to the problems view.
-  * Ctrl-Space allow the completion of all Alloy 4 keywords and most identifiers used in the spec file.
+  * *CTRL-SPACE allow the completion of all Alloy 4 keywords and most identifiers used in the spec file*.
 
 = Commands =
 
