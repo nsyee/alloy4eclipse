@@ -15,6 +15,7 @@ import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.IALSFile;
 
 
 ;/**
@@ -34,6 +35,13 @@ public class ALSSourceViewerConfiguration extends SourceViewerConfiguration {
 			setDefaultReturnToken(new Token(attribute));
 		}
 	}
+	
+	private ALSEditor editor;
+	
+	public ALSSourceViewerConfiguration(ALSEditor editor) {
+        this.editor = editor;
+    }
+	
 	/**
 	 * Return partition type id.
 	 * @param sourceViewer
@@ -96,7 +104,7 @@ public class ALSSourceViewerConfiguration extends SourceViewerConfiguration {
     @Override
     public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
     	ContentAssistant assistant= new ContentAssistant();
-    	assistant.setContentAssistProcessor(new ALSCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
+    	assistant.setContentAssistProcessor(new ALSCompletionProcessor(editor), IDocument.DEFAULT_CONTENT_TYPE);
     	assistant.enableAutoInsert(true);		
 		assistant.enableAutoActivation(true);
 		assistant.setAutoActivationDelay(500);
