@@ -6,6 +6,6 @@
  */
 package fr.univartois.cril.alloyplugin.api;
 
-public interface IALSPredicate extends IALSTreeDecorated {
+public interface IALSPredicate extends IALSTreeDecorated, Identifiable {
 
 }

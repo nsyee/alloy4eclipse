@@ -34,5 +34,8 @@ public class Assert implements IALSAssert {
     public int getEndLine() {
         return assertion.b.pos.y2;
     }
+    public String getId() {
+       return assertion.a;
+    }
 
 }
