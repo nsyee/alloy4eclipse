@@ -1,6 +1,6 @@
 #summary Main features of the plugin
 #labels Featured
-= Current features (version 0.2.16) =
+= Current features (version 0.2.17) =
 
   * Syntax coloring for als files
   * Compilation of Alloy4 files from Eclipse (*"compile on save" behavior*)
