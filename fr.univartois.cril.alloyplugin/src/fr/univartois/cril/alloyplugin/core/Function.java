@@ -30,4 +30,8 @@ public class Function implements IALSFunction {
     public int getEndLine() {
         return func.pos.y2;
     }
+
+    public String getId() {
+        return func.label.substring(5);
+    }
 }

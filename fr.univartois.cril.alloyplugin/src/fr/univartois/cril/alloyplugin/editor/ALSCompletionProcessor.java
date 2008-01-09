@@ -16,6 +16,7 @@ import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
 import fr.univartois.cril.alloyplugin.api.IALSFile;
 import fr.univartois.cril.alloyplugin.api.IALSSignature;
+import fr.univartois.cril.alloyplugin.api.Identifiable;
 
 
 /**
@@ -38,8 +39,13 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
             List<String> keywords = new ArrayList<String>();
             keywords.addAll(Arrays.asList(AlloySyntaxConstants.keywords));
             if (alsFile!=null) {
-                for (IALSSignature sig : alsFile.getSignatures()) {
-                    keywords.add(sig.getId());
+                List<Identifiable> dynamic = new ArrayList<Identifiable>();
+                dynamic.addAll(alsFile.getSignatures());
+                dynamic.addAll(alsFile.getFunctions());
+                dynamic.addAll(alsFile.getPredicates());
+                dynamic.addAll(alsFile.getAssertions());
+                for (Identifiable  dyn : dynamic) {
+                    keywords.add(dyn.getId());
                 }
             }
             
