@@ -36,3 +36,5 @@ You can check that your project has the correct builders by taking a look at the
 
 Since release 0.1.5, it is possible to apply a visualization theme to Alloy graphs.
 The theme can be loaded thanks to the editor menu available on the main menu bar when the visualization editor is active.
+
+Since release 0.2.X, a theme file having the same name as a spec file will be used by default when displaying the models or counter examples of such spec file.
