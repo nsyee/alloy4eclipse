@@ -27,4 +27,7 @@ public class Signature implements IALSSignature {
     public int getEndLine() {
         return sig.pos.y2;
     }
+    public String getId() {
+        return sig.label.substring(5);
+    }
 }

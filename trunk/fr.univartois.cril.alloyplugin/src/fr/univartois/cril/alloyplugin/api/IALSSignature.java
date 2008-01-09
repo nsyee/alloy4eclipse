@@ -7,4 +7,5 @@ package fr.univartois.cril.alloyplugin.api;
  * */
 public interface IALSSignature extends IALSTreeDecorated {
 
+    String getId();
 }

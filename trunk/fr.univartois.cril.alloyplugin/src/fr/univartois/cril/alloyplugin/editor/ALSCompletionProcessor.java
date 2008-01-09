@@ -2,6 +2,7 @@
 package fr.univartois.cril.alloyplugin.editor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.jface.text.BadLocationException;
@@ -13,19 +14,36 @@ import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
+import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.api.IALSSignature;
+
 
 /**
  * Class for completion. This is loaded by ALSSourceViewerConfiguration. 
  */
 public class ALSCompletionProcessor implements IContentAssistProcessor {
 
+    private ALSEditor editor;
+    
+    public ALSCompletionProcessor(ALSEditor editor) {
+        this.editor = editor;
+    }
+    
 	public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer,
 			int offset) {
-
+	    IALSFile alsFile = editor.getALSFile();
 	    List<CompletionProposal> props = new ArrayList<CompletionProposal>();
         try {
             String prefix = getPrefix(viewer,offset);
-            for(String keyword : AlloySyntaxConstants.keywords)
+            List<String> keywords = new ArrayList<String>();
+            keywords.addAll(Arrays.asList(AlloySyntaxConstants.keywords));
+            if (alsFile!=null) {
+                for (IALSSignature sig : alsFile.getSignatures()) {
+                    keywords.add(sig.getId());
+                }
+            }
+            
+            for(String keyword : keywords)
             {
             	if (keyword.startsWith(prefix))
             	    props.add(new CompletionProposal(keyword,offset-prefix.length(),prefix.length(),keyword.length()));	
@@ -44,7 +62,7 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
 	}
 	
 	public char[] getCompletionProposalAutoActivationCharacters() {
-		return new char[] {  '(' };
+		return null; // new char[] {  '(' };
 	}
 	
 
@@ -78,5 +96,7 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
         
         return doc.get(offset + 1, length);
     }
+    
+    
 
 }

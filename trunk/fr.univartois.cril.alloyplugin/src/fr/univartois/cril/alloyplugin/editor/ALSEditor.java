@@ -82,7 +82,8 @@ public class ALSEditor extends TextEditor {
     protected void initializeEditor() {
         super.initializeEditor();
         // Attache la configuration
-        setSourceViewerConfiguration(new ALSSourceViewerConfiguration());
+        setSourceViewerConfiguration(new ALSSourceViewerConfiguration(
+                this));
     }
 
     /**
@@ -142,6 +143,8 @@ public class ALSEditor extends TextEditor {
      * object can be found.
      */
     public IResource getResource(IEditorInput input) {
+        if (input == null)
+            return null;
         IResource ir = (IResource) input.getAdapter(IResource.class);
         return ir;
     }
@@ -150,8 +153,7 @@ public class ALSEditor extends TextEditor {
      * Return an IALSFile from the editor.
      */
     protected IALSFile getALSFile() {
-        return ALSFileFactory.instance().getALSFile(
-                getResource(getEditorInput()));
+        return ALSFileFactory.instance().getALSFile(getResource(getEditorInput()));
     }
 
     @Override
