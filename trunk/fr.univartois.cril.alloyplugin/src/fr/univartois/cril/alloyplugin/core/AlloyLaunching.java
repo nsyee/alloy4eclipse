@@ -39,6 +39,7 @@ import fr.univartois.cril.alloyplugin.api.Util;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
+import fr.univartois.cril.alloyplugin.views.VizView;
 
 /**
  * Static methods to launch Alloy parser or execute a command.
@@ -198,7 +199,6 @@ public class AlloyLaunching {
         List<Pair<Command, Expr>> list = world.getAllCommandsWithFormulas();
         List<IALSCommand> exec_cmds = new ArrayList<IALSCommand>();// new
         // ExecutableCommand[list.size()];
-
         for (Pair<Command, Expr> command : list) {
             exec_cmds.add(new ExecutableCommand(file, command.a, command.b,
                     world));
