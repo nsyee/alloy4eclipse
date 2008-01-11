@@ -55,6 +55,8 @@ public class ALSImageRegistry {
         addImage(THEME_IMPORT_ADD_ICON_ID, reg);
         addImage(THEME_EXPORT_DOT_ICON_ID, reg);
         addImage(LAUNCH_A4_ICON_ID, reg);
+        /* Adding to the image of the button next*/
+        addImage(NEXT_A4SOLUTION_ICON_ID, reg);
     }
 
     private static ImageRegistry createImageRegistry() {
@@ -139,5 +141,8 @@ public class ALSImageRegistry {
     public static final String THEME_EXPORT_DOT_ICON_ID = "icons/dot.gif";
 
     public static final String LAUNCH_A4_ICON_ID = "icons/a4.gif";
+    
+    public static final String NEXT_A4SOLUTION_ICON_ID = "icons/next.gif";
+    
 
 }

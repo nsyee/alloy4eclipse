@@ -50,8 +50,10 @@ import org.eclipse.ui.part.ViewPart;
 import org.xml.sax.InputSource;
 
 import edu.mit.csail.sdg.alloy4.Computer;
+import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.ErrorFatal;
 import edu.mit.csail.sdg.alloy4.ErrorSyntax;
+import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4graph.VizViewer;
 import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
 import edu.mit.csail.sdg.alloy4viz.StaticGraphMaker;
@@ -63,6 +65,7 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.api.ICommandListener;
 import fr.univartois.cril.alloyplugin.api.Util;
+import fr.univartois.cril.alloyplugin.core.INextable;
 import fr.univartois.cril.alloyplugin.editor.ALSEditor;
 import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
@@ -71,6 +74,10 @@ public class VizView extends ViewPart implements ICommandListener {
     private VizGUI[] viz = new VizGUI[1];
     private Action   editorAction1;
     private IAction  saveAsTheme;
+    
+    /* 	Action linked to the button next */
+    private IAction  editorAction6;
+    
     private IAction  editorAction5;
     private IAction  editorAction4;
     private IAction  editorAction3;
@@ -79,6 +86,9 @@ public class VizView extends ViewPart implements ICommandListener {
     private String   filename;
     private String   titlename;
     private IMemento memento;
+    
+    /* ExecutableCommand which will allow access to the object A4Solution who is in ExecutableCommand */
+    public INextable execCmd;
 
     @Override
     public Object getAdapter(Class adapter) {
@@ -231,7 +241,7 @@ public class VizView extends ViewPart implements ICommandListener {
                                 "Enter a string", null, null);
                         ndialog.open();
 
-                        showAlloyVisualizationView(VizView.this.getSite()
+                        showAlloyVisualizationView(execCmd,VizView.this.getSite()
                                 .getPage(), path, ndialog.getValue());
                     }
                 } catch (Exception e) {
@@ -315,6 +325,20 @@ public class VizView extends ViewPart implements ICommandListener {
         editorAction5.setImageDescriptor(PlatformUI.getWorkbench()
                 .getSharedImages().getImageDescriptor(
                         IDE.SharedImages.IMG_OBJS_TASK_TSK));
+        
+        
+        /* Button next */     
+        editorAction6 = new Action() {
+            public void run() {
+            	  execCmd.showNextA4Solution();
+            }
+        };
+        
+        editorAction6.setText("Show the next solution");
+        editorAction6
+                .setToolTipText("Show the next solution");
+        editorAction6.setImageDescriptor(ALSImageRegistry
+                .getImageDescriptor(ALSImageRegistry.NEXT_A4SOLUTION_ICON_ID));
 
         saveAsTheme = new Action() {
             public void run() {
@@ -372,6 +396,7 @@ public class VizView extends ViewPart implements ICommandListener {
         manager.add(editorAction3);
         manager.add(editorAction4);
         manager.add(editorAction5);
+        manager.add(editorAction6);
         manager.add(saveAsTheme);
     }
 
@@ -381,6 +406,7 @@ public class VizView extends ViewPart implements ICommandListener {
         manager.add(editorAction3);
         manager.add(editorAction4);
         manager.add(editorAction5);
+        manager.add(editorAction6);
         manager.add(saveAsTheme);
     }
 
@@ -423,7 +449,7 @@ public class VizView extends ViewPart implements ICommandListener {
 
     public static String VIZ_VIEW_ID = "fr.univartois.cril.alloyplugin.views.vizview";
 
-    public static IViewPart createView(final IWorkbenchPage page,
+    public static IViewPart createView(final INextable execCmd, final IWorkbenchPage page,
             final IPath filepath, final String secondaryId) {
 
         try {
@@ -435,6 +461,7 @@ public class VizView extends ViewPart implements ICommandListener {
         try {
             IViewPart vizView = page.showView(VIZ_VIEW_ID, secondaryId,
                     IWorkbenchPage.VIEW_ACTIVATE);
+            ((VizView)vizView).setCommand(execCmd); 
             return vizView;
 
         } catch (CoreException e) {
@@ -443,29 +470,33 @@ public class VizView extends ViewPart implements ICommandListener {
         return null;
     }
 
-    public static IViewPart createView(final IWorkbenchPage page,
+    private void setCommand(INextable execCmd2) {
+		this.execCmd = execCmd2;		
+	}
+
+	public static IViewPart createView(final INextable execCmd, final IWorkbenchPage page,
             final IPath filepath) {
         String secondaryId = filepath.toString().replace(' ', '_').replace(':',
                 '_');
-        return createView(page, filepath, secondaryId);
+        return createView(execCmd,page, filepath, secondaryId);
     }
 
-    public static IViewPart createView(final IWorkbenchPage page,
+    public static IViewPart createView(final INextable execCmd, final IWorkbenchPage page,
             final IFile outputFile, final String secondaryId) {
-        return createView(page, outputFile.getFullPath(), secondaryId);
+        return createView(execCmd,page, outputFile.getFullPath(), secondaryId);
     }
 
-    public static IViewPart createView(final IWorkbenchPage page,
+    public static IViewPart createView(final INextable execCmd, final IWorkbenchPage page,
             final IFile outputFile) {
         String secondaryId = outputFile.toString().replace(' ', '_').replace(
                 ':', '_');
-        return createView(page, outputFile, secondaryId);
+        return createView(execCmd,page, outputFile, secondaryId);
     }
 
     public static IViewPart showAlloyVisualizationView(
-            final IWorkbenchPage page, final IPath filepath,
+    		final INextable execCmd, final IWorkbenchPage page, final IPath filepath,
             final String titleName, final String secondaryId) {
-        IViewPart vizView = createView(page, filepath, secondaryId);
+        IViewPart vizView = createView(execCmd,page, filepath, secondaryId);
         ICommandListener commandListener = (ICommandListener) vizView;
         commandListener.onXmlSolutionFileCreation(filepath.toOSString(),
                 titleName);
@@ -473,35 +504,35 @@ public class VizView extends ViewPart implements ICommandListener {
     }
 
     public static IViewPart showAlloyVisualizationView(
-            final IWorkbenchPage page, final IPath filepath,
+            final INextable execCmd, final IWorkbenchPage page, final IPath filepath,
             final String titleName) {
         String secondaryId = filepath.toString().replace(' ', '_').replace(':',
                 '_');
-        return showAlloyVisualizationView(page, filepath, titleName,
+        return showAlloyVisualizationView(execCmd,page, filepath, titleName,
                 secondaryId);
     }
 
     public static IViewPart showAlloyVisualizationView(
-            final IWorkbenchPage page, final IFile outputFile,
+    		final INextable execCmd, final IWorkbenchPage page, final IFile outputFile,
             final String titleName, final String secondaryId) {
-        return showAlloyVisualizationView(page, outputFile.getLocation(),
+        return showAlloyVisualizationView(execCmd,page, outputFile.getLocation(),
                 titleName, secondaryId);
     }
 
     public static IViewPart showAlloyVisualizationView(
-            final IWorkbenchPage page, final IFile outputFile,
+    		final INextable execCmd, final IWorkbenchPage page, final IFile outputFile,
             final String titleName) {
         String secondaryId = outputFile.toString().replace(' ', '_').replace(
                 ':', '_');
-        return showAlloyVisualizationView(page, outputFile, titleName,
+        return showAlloyVisualizationView(execCmd,page, outputFile, titleName,
                 secondaryId);
     }
 
     public static IViewPart showAlloyVisualizationView(
-            final IWorkbenchPage page, final IPath filepath,
+    		final INextable execCmd, final IWorkbenchPage page, final IPath filepath,
             final String titleName, final String secondaryId,
             final URL alloyVisualizationTheme) {
-        IViewPart vizView = createView(page, filepath, secondaryId);
+        IViewPart vizView = createView(execCmd,page, filepath, secondaryId);
         ICommandListener commandListener = (ICommandListener) vizView;
         commandListener.onXmlSolutionFileCreation(filepath.toOSString(),
                 titleName, alloyVisualizationTheme);
@@ -509,26 +540,26 @@ public class VizView extends ViewPart implements ICommandListener {
     }
 
     public static IViewPart showAlloyVisualizationView(
-            final IWorkbenchPage page, final IPath filepath,
+    		final INextable execCmd, final IWorkbenchPage page, final IPath filepath,
             final String titleName, final URL alloyVisualizationTheme) {
         String secondaryId = filepath.toString().replace(' ', '_').replace(':',
                 '_');
-        return showAlloyVisualizationView(page, filepath, titleName,
+        return showAlloyVisualizationView(execCmd,page, filepath, titleName,
                 secondaryId, alloyVisualizationTheme);
     }
 
     public static IViewPart showAlloyVisualizationView(
-            final IWorkbenchPage page, final IFile outputFile,
+    		final INextable execCmd, final IWorkbenchPage page, final IFile outputFile,
             final String titleName, final String secondaryId,
             final URL alloyVisualizationTheme) {
-        return showAlloyVisualizationView(page, outputFile.getLocation(),
+        return showAlloyVisualizationView(execCmd,page, outputFile.getLocation(),
                 titleName, secondaryId, alloyVisualizationTheme);
     }
 
     public static IViewPart showAlloyVisualizationView(
-            final IWorkbenchPage page, final IFile outputFile,
+    		final INextable execCmd, final IWorkbenchPage page, final IFile outputFile,
             final String titleName, final URL alloyVisualizationTheme) {
-        return showAlloyVisualizationView(page, outputFile.getLocation(),
+        return showAlloyVisualizationView(execCmd,page, outputFile.getLocation(),
                 titleName, alloyVisualizationTheme);
     }
 
@@ -688,4 +719,5 @@ public class VizView extends ViewPart implements ICommandListener {
             titlename = memento.getString("titlename");
         }
     }
+      
 }
