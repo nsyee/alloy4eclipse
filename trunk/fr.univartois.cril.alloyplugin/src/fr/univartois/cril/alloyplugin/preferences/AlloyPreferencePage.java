@@ -1,6 +1,7 @@
 package fr.univartois.cril.alloyplugin.preferences;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
+import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.RadioGroupFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
@@ -72,15 +73,31 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
                         { "png", "png" }, { "dia", "dia" }, { "jpeg", "jpeg" },
                         { "gif", "gif" } }, getFieldEditorParent()));
 
-        addField(new StringFieldEditor(PreferenceConstants.P_DOT_PATH,
+        
+        //addField(new StringFieldEditor(PreferenceConstants.P_DOT_PATH,
+          //      "Path to dot binary:", getFieldEditorParent()));
+      
+        //@author druelle
+        //A field editor for a directory path type preference.
+        //A standard directory dialog appears when the user presses the browse button.
+        addField(new DirectoryFieldEditor(PreferenceConstants.P_DOT_PATH,
                 "Path to dot binary:", getFieldEditorParent()));
 
-        addField(new StringFieldEditor(PreferenceConstants.P_SOLVERS_PATH,
+       // addField(new StringFieldEditor(PreferenceConstants.P_SOLVERS_PATH,
+         //       "Path to SAT solvers binaries:", getFieldEditorParent()));
+        
+        //@author druelle
+        addField(new DirectoryFieldEditor(PreferenceConstants.P_SOLVERS_PATH,
                 "Path to SAT solvers binaries:", getFieldEditorParent()));
-        addField(new StringFieldEditor(
+        
+        //addField(new StringFieldEditor(
+          //      PreferenceConstants.P_A4_SAMPLE_MODELS_PATH,
+            //    "Path to Alloy 4 sample models:", getFieldEditorParent()));
+        
+        //@author druelle
+        addField(new DirectoryFieldEditor(
                 PreferenceConstants.P_A4_SAMPLE_MODELS_PATH,
                 "Path to Alloy 4 sample models:", getFieldEditorParent()));
-
     }
 
     public void init(IWorkbench workbench) {
