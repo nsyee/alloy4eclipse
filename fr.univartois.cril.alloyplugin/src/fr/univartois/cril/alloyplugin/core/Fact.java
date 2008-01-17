@@ -28,4 +28,7 @@ public class Fact implements IALSFact {
     public int getEndLine() {
         return fact.b.pos.y2;
     }
+    public boolean isPrivate() {
+        return false;
+    }
 }

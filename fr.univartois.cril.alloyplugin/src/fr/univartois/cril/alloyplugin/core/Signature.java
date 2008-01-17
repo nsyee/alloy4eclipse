@@ -30,4 +30,7 @@ public class Signature implements IALSSignature {
     public String getId() {
         return sig.label.substring(5);
     }
+    public boolean isPrivate() {
+        return sig.isPrivate!=null;
+    }
 }
