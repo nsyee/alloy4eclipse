@@ -38,3 +38,7 @@ Since release 0.1.5, it is possible to apply a visualization theme to Alloy grap
 The theme can be loaded thanks to the editor menu available on the main menu bar when the visualization editor is active.
 
 Since release 0.2.X, a theme file having the same name as a spec file will be used by default when displaying the models or counter examples of such spec file.
+
+= A4E preferences =
+
+If you cannot validate A4E preferences, *make sure that the directories in the directory fields are pointing out to real directories*. You can easily check this by going to such field. If the directory does not exist, an error message should appear on top on A4E preferences page.
