@@ -6,4 +6,6 @@ public interface IALSTreeDecorated extends Iconable {
 	int getBeginLine();
 	
 	int getEndLine();
+	
+	boolean isPrivate();
 }

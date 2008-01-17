@@ -37,5 +37,8 @@ public class Assert implements IALSAssert {
     public String getId() {
        return assertion.a;
     }
+    public boolean isPrivate() {
+        return false;
+    }
 
 }

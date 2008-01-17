@@ -34,4 +34,8 @@ public class Function implements IALSFunction {
     public String getId() {
         return func.label.substring(5);
     }
+
+    public boolean isPrivate() {
+        return func.isPrivate!=null;
+    }
 }
