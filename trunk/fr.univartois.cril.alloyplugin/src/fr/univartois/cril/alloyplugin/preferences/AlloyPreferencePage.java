@@ -77,7 +77,7 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
         //addField(new StringFieldEditor(PreferenceConstants.P_DOT_PATH,
           //      "Path to dot binary:", getFieldEditorParent()));
       
-        //@author druelle
+        //@author druelle romuald
         //A field editor for a directory path type preference.
         //A standard directory dialog appears when the user presses the browse button.
         addField(new DirectoryFieldEditor(PreferenceConstants.P_DOT_PATH,
@@ -86,7 +86,7 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
        // addField(new StringFieldEditor(PreferenceConstants.P_SOLVERS_PATH,
          //       "Path to SAT solvers binaries:", getFieldEditorParent()));
         
-        //@author druelle
+        //@author druelle romuald
         addField(new DirectoryFieldEditor(PreferenceConstants.P_SOLVERS_PATH,
                 "Path to SAT solvers binaries:", getFieldEditorParent()));
         
@@ -94,7 +94,7 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
           //      PreferenceConstants.P_A4_SAMPLE_MODELS_PATH,
             //    "Path to Alloy 4 sample models:", getFieldEditorParent()));
         
-        //@author druelle
+        //@author druelle romuald
         addField(new DirectoryFieldEditor(
                 PreferenceConstants.P_A4_SAMPLE_MODELS_PATH,
                 "Path to Alloy 4 sample models:", getFieldEditorParent()));

@@ -2,7 +2,7 @@ package fr.univartois.cril.alloyplugin.core;
 
 /**
  * 
- * @author druelle
+ * @author druelle romuald
  *
  */
 
