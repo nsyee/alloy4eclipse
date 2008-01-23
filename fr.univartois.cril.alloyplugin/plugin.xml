@@ -280,4 +280,15 @@
               id="fr.univartois.cril.alloyplugin.views.vizview"
               name="Graphical View"/>
 </extension>
+
+<extension point="org.eclipse.ui.popupMenus">
+
+  <viewerContribution targetID="#TextEditorContext" 
+                      id="fr.univartois.cril.alloyplugin.renameAls">
+       <action label="Rename" 
+               class="fr.univartois.cril.alloyplugin.ui.RenameAls" 
+               menubarPath="additions" 
+               id="fr.univartois.cril.alloyplugin.RenameAls"/>
+  </viewerContribution>
+</extension>
 </plugin>

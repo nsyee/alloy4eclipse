@@ -5,25 +5,20 @@ import org.eclipse.core.resources.IFile;
 /**
  * 
  * @author desruelles lionel
- *
+ * 
  */
-
-
 public class RenameAlsInfo {
 	// the offset of the word to be renamed in the file
 	private int offset;
-	// the new name 
+
 	private String newName;
-	// the old name (as selected by the user)
+
 	private String oldName;
-	// the file that contains the word to be renamed
+
 	private IFile sourceFile;
-	// whether the refactoring should also change the name of the word
-	// in corresponding Alloy files in the same bundle (i.e. which start
-	// with the same name)
+
 	private boolean updateBundle;
-	// whether the refactoring should also update Alloy files in other
-	// projects than the current one
+
 	private boolean allProjects;
 
 	public int getOffset() {

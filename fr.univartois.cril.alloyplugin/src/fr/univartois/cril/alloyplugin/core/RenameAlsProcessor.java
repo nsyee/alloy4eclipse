@@ -4,6 +4,12 @@ import org.eclipse.core.runtime.*;
 import org.eclipse.ltk.core.refactoring.*;
 import org.eclipse.ltk.core.refactoring.participants.*;
 
+
+/**
+ * 
+ * @author lionel desruelles
+ *
+ */
 public class RenameAlsProcessor extends RefactoringProcessor {
 
 	private final RenameAlsInfo info;
@@ -15,11 +21,6 @@ public class RenameAlsProcessor extends RefactoringProcessor {
 	}
 
 	public Object[] getElements() {
-		// usually, this would be some element object in the object model on
-		// which
-		// we work (e.g. a Java element if we were in the Java Model); in this
-		// case
-		// we have only the name
 		return new Object[] { info.getOldName() };
 	}
 
@@ -53,9 +54,6 @@ public class RenameAlsProcessor extends RefactoringProcessor {
 	public RefactoringParticipant[] loadParticipants(
 			final RefactoringStatus status,
 			final SharableParticipants sharedParticipants) {
-		// This would be the place to load the participants via the
-		// ParticipantManager and decide which of them are allowed to
-		// participate.
 		return new RefactoringParticipant[0];
 	}
 
