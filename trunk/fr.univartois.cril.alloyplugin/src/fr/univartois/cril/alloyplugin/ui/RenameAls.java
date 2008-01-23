@@ -88,7 +88,6 @@ public class RenameAls implements IEditorActionDelegate {
 			String titleForFailedChecks = ""; //$NON-NLS-1$
 			op.run(getShell(), titleForFailedChecks);
 		} catch (final InterruptedException irex) {
-			// operation was cancelled
 		}
 	}
 

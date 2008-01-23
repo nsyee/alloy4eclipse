@@ -79,7 +79,7 @@ public class RenameAlsInputPage extends UserInputWizardPage {
 	}
 
 	private void createCbUpdateBundle(final Composite composite) {
-		String texts = "Update all als files in the same bundle";
+		String texts = "Update all Alloy files in the same bundle";
 		cbUpdateBundle = createCheckbox(composite, texts);
 		cbUpdateBundle.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent event) {
@@ -99,9 +99,6 @@ public class RenameAlsInputPage extends UserInputWizardPage {
 				boolean selected = cbAllProjects.getSelection();
 				dialogSettings.put(DS_ALL_PROJECTS, selected);
 				info.setAllProjects(selected);
-				// for demonstration purposes, we enforce the preview for
-				// refactorings
-				// that span the entire workspace
 				getRefactoringWizard().setForcePreviewReview(selected);
 			}
 		});
@@ -124,8 +121,8 @@ public class RenameAlsInputPage extends UserInputWizardPage {
 		dialogSettings = ds.getSection(DS_KEY);
 		if (dialogSettings == null) {
 			dialogSettings = ds.addNewSection(DS_KEY);
-			// init default values
-			dialogSettings.put(DS_UPDATE_BUNDLE, true);
+			//modif
+			dialogSettings.put(DS_UPDATE_BUNDLE, false);
 			dialogSettings.put(DS_ALL_PROJECTS, false);
 		}
 	}

@@ -15,7 +15,7 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
 /**
  * 
- * @author desruelles lionel
+ * @author lionel desruelles
  * 
  */
 
@@ -23,7 +23,7 @@ public class RenameAlsDelegate {
 	private static final String EXT_ALS = "als"; //$NON-NLS-1$
 
 	private final RenameAlsInfo info;
-	// word file with the key to rename -> offset of the key
+
 	private final Map<IFile, Collection<Integer>> alsFiles;
 
 	RenameAlsDelegate(final RenameAlsInfo info) {
@@ -48,9 +48,6 @@ public class RenameAlsDelegate {
 			final CheckConditionsContext ctxt) {
 		RefactoringStatus result = new RefactoringStatus();
 		pm.beginTask("Checking", 100);
-		// do something long-running here: traverse the entire project (or even
-		// workspace) to look for all *.als files with the same bundle
-		// base name
 		IContainer rootContainer;
 		if (info.isAllProjects()) {
 			rootContainer = ResourcesPlugin.getWorkspace().getRoot();
@@ -76,13 +73,11 @@ public class RenameAlsDelegate {
 			final CompositeChange rootChange) {
 		try {
 			pm.beginTask("Collecting changes", 100);
-			// the word which was directly selected by the user
-			rootChange.add(createRenameChange());
 			pm.worked(10);
-			// all files in the same bundle
 			if (info.isUpdateBundle()) {
 				rootChange.addAll(createChangesForBundle());
-			}
+			} else
+				rootChange.add(createRenameChange());
 			pm.worked(90);
 		} finally {
 			pm.done();
@@ -90,11 +85,9 @@ public class RenameAlsDelegate {
 	}
 
 	private Change createRenameChange() {
-		// create a change object for the file that contains the word the
-		// user has selected to rename
+
 		IFile file = info.getSourceFile();
 		TextFileChange result = new TextFileChange(file.getName(), file);
-		// a file change contains a tree of edits, first add the root of them
 		MultiTextEdit fileChangeRootEdit = new MultiTextEdit();
 		result.setEdit(fileChangeRootEdit);
 
@@ -117,9 +110,6 @@ public class RenameAlsDelegate {
 			MultiTextEdit fileChangeRootEdit = new MultiTextEdit();
 			tfc.setEdit(fileChangeRootEdit);
 
-			// edit object for the text replacement in the file, this is the
-			// only
-			// child
 			Collection<Integer> col = getKeyOffsets(file);
 			for (Integer offSet : col) {
 				ReplaceEdit edit = new ReplaceEdit(offSet, info.getOldName()
@@ -135,8 +125,6 @@ public class RenameAlsDelegate {
 		return candidate == null || candidate.trim().length() == 0;
 	}
 
-	// whether the file is a .als file with the same base name as the
-	// one we refactor and contains the key that interests us
 	private boolean isToRefactor(final IFile file) {
 		return EXT_ALS.equals(file.getFileExtension())
 				&& file.getName().startsWith(getBundleBaseName());
@@ -144,13 +132,8 @@ public class RenameAlsDelegate {
 
 	private String getBundleBaseName() {
 		String result = info.getSourceFile().getName();
-		int underscoreIndex = result.indexOf('_');
-		if (underscoreIndex != -1) {
-			result = result.substring(0, underscoreIndex);
-		} else {
-			int index = result.indexOf(EXT_ALS) - 1;
-			result = result.substring(0, index);
-		}
+		int index = result.indexOf(EXT_ALS) - 1;
+		result = result.substring(0, index);
 		return result;
 	}
 
@@ -184,9 +167,6 @@ public class RenameAlsDelegate {
 		return alsFiles.get(file);
 	}
 
-	// finds the offset of the property key to rename
-	// usually, this would be the job of a proper parser;
-	// using a primitive brute-force approach here
 	private Collection<Integer> determineKeyOffset(final IFile file,
 			final RefactoringStatus status) {
 		String content = readFileContent(file, status);
@@ -199,15 +179,10 @@ public class RenameAlsDelegate {
 				col.add(candidateIndex);
 				notFound = false;
 			}
-			from = candidateIndex + info.getOldName().length() + 1;
+			from = candidateIndex + info.getOldName().length(); //+ 1;
 			candidateIndex = content.indexOf(info.getOldName(), from);
 		}
 		if (notFound) {
-			// still nothing found, we add a warning to the status
-			// (we have checked the file contains the property, so that we can't
-			// determine it's offset is probably because of the rough way
-			// employed
-			// here to find it)
 			String msg = "Could not find the name in file"
 					+ file.getLocation().toOSString();
 			status.addWarning(msg);
@@ -239,12 +214,10 @@ public class RenameAlsDelegate {
 		return result;
 	}
 
-	// we check only that there is a separator before the next line break (this
-	// is not sufficient, the whole thing may be in a comment etc. ...)
 	private boolean isKeyOccurrence(final String content,
 			final int candidateIndex) {
 		int index = candidateIndex + info.getOldName().length();
-		return !Character.isJavaIdentifierPart(content.charAt(index));
+		return (!Character.isJavaIdentifierPart(content.charAt(candidateIndex-1))) && (!Character.isJavaIdentifierPart(content.charAt(index)));
 	}
 
 }

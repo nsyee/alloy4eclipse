@@ -3,6 +3,11 @@ package fr.univartois.cril.alloyplugin.core;
 import org.eclipse.ltk.core.refactoring.participants.ProcessorBasedRefactoring;
 import org.eclipse.ltk.core.refactoring.participants.RefactoringProcessor;
 
+/**
+ * 
+ * @author lionel desruelles
+ *
+ */
 public class RenameAlsRefactoring extends ProcessorBasedRefactoring {
 	private final RefactoringProcessor processor;
 
