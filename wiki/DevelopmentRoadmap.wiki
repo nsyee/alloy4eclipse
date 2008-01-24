@@ -1,0 +1,15 @@
+#labels Featured,Phase-Requirements
+#Development Roadmap
+
+= Features in each target =
+
+  * M2: should have most A4 features in (Unsat core, evaluator, etc).
+  * M3: work on the integration with Eclipse. A4 as OSGi bundle, SAT4J as OSGi bundle, etc. platform specific binaries as OSGi bundles. 
+  * M4: fixed all the usability problems. Improved user experience.
+
+= Releases plan =
+
+|| Milestone || Planned date || Real release date ||
+|| M2 || February 8, 2008 || ||
+|| M3 || March 7, 2008 || ||
+|| M4 || April 4, 2008 || ||
