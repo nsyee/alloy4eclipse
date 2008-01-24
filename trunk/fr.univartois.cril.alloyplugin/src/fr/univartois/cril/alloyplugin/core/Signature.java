@@ -16,7 +16,7 @@ public class Signature implements IALSSignature {
 
 	}
 	public String toString(){
-		return sig.toString();
+		return sig.toString().substring(5);
 	}
 	public Image getIcon() {
 		return icon;

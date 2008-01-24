@@ -17,7 +17,7 @@ public class Function implements IALSFunction {
 	}
 
 	public String toString(){
-		return func.toString();
+		return func.toString().substring(9);
 	}
 
 	public Image getIcon() {

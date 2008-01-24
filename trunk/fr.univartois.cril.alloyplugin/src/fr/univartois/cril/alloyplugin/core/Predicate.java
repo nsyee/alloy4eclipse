@@ -17,7 +17,7 @@ public class Predicate implements IALSPredicate {
 	}
 
 	public String toString(){
-		return func.toString();
+		return func.toString().substring(10);
 	}
 
 	public Image getIcon() {

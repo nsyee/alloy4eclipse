@@ -126,15 +126,7 @@ public class RenameAlsDelegate {
 	}
 
 	private boolean isToRefactor(final IFile file) {
-		return EXT_ALS.equals(file.getFileExtension())
-				&& file.getName().startsWith(getBundleBaseName());
-	}
-
-	private String getBundleBaseName() {
-		String result = info.getSourceFile().getName();
-		int index = result.indexOf(EXT_ALS) - 1;
-		result = result.substring(0, index);
-		return result;
+		return EXT_ALS.equals(file.getFileExtension());
 	}
 
 	private void search(final IContainer rootContainer,
