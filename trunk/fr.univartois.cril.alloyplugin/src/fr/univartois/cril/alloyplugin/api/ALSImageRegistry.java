@@ -40,10 +40,13 @@ public class ALSImageRegistry {
         addImage(BLUE_RUN_ID, reg);
         addImage(GREEN_RUN_ID, reg);
         addImage(SIGNATURE_ICON_ID, reg);
+        addImage(SIGNATURE_PRIVATE_ICON_ID, reg);
         addImage(FACT_ICON_ID, reg);
         addImage(ASSERT_ICON_ID, reg);
         addImage(FUNCTION_ICON_ID, reg);
+        addImage(FUNCTION_PRIVATE_ICON_ID, reg);
         addImage(PREDICATE_ICON_ID, reg);
+        addImage(PREDICATE_PRIVATE_ICON_ID, reg);
         addImage(RUN_ICON_ID, reg);
         addImage(CHECK_ICON_ID, reg);
         addImage(GRAPH_ICON_ID, reg);
@@ -111,14 +114,20 @@ public class ALSImageRegistry {
     public static final String GREEN_RUN_ID = "icons/RunCommandGreen.gif";
 
     public static final String SIGNATURE_ICON_ID = "icons/sig.gif";
+    
+    public static final String SIGNATURE_PRIVATE_ICON_ID = "icons/sig_private.gif";
 
     public static final String FACT_ICON_ID = "icons/fact.gif";
 
     public static final String ASSERT_ICON_ID = "icons/assert.gif";
 
     public static final String FUNCTION_ICON_ID = "icons/function.gif";
+    
+    public static final String FUNCTION_PRIVATE_ICON_ID = "icons/function_private.gif";
 
     public static final String PREDICATE_ICON_ID = "icons/predicate.gif";
+    
+    public static final String PREDICATE_PRIVATE_ICON_ID = "icons/predicate_private.gif";
 
     public static final String RUN_ICON_ID = "icons/run.gif";
 

@@ -285,7 +285,7 @@
 
   <viewerContribution targetID="#TextEditorContext" 
                       id="fr.univartois.cril.alloyplugin.renameAls">
-       <action label="Rename" 
+       <action label="Rename..." 
                class="fr.univartois.cril.alloyplugin.ui.RenameAls" 
                menubarPath="additions" 
                id="fr.univartois.cril.alloyplugin.RenameAls"/>

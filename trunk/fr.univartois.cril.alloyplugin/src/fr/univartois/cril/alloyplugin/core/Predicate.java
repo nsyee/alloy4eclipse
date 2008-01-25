@@ -9,6 +9,7 @@ import fr.univartois.cril.alloyplugin.api.IALSPredicate;
 public class Predicate implements IALSPredicate {
 	
 	public static final Image icon = ALSImageRegistry.getImage(ALSImageRegistry.PREDICATE_ICON_ID);
+	public static final Image icon2 = ALSImageRegistry.getImage(ALSImageRegistry.PREDICATE_PRIVATE_ICON_ID);
 
 	private Func func;
 
@@ -21,7 +22,9 @@ public class Predicate implements IALSPredicate {
 	}
 
 	public Image getIcon() {
-		return icon;
+		if (!isPrivate())
+		    return icon;
+		return icon2;
 	}
 
 	public int getBeginLine() {
