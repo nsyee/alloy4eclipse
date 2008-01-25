@@ -9,6 +9,7 @@ import fr.univartois.cril.alloyplugin.api.IALSFunction;
 public class Function implements IALSFunction {
 	
 	public static final Image icon =ALSImageRegistry.getImage(ALSImageRegistry.FUNCTION_ICON_ID);
+	public static final Image icon2 =ALSImageRegistry.getImage(ALSImageRegistry.FUNCTION_PRIVATE_ICON_ID);
 
 	private Func func;
 
@@ -21,7 +22,9 @@ public class Function implements IALSFunction {
 	}
 
 	public Image getIcon() {
-		return icon;
+		if (!isPrivate())
+		    return icon;
+		return icon2;
 	}
 
 	public int getBeginLine() {

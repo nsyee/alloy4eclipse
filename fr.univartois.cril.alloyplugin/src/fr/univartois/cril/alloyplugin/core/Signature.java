@@ -9,6 +9,7 @@ import fr.univartois.cril.alloyplugin.api.IALSSignature;
 public class Signature implements IALSSignature {
 
 	public static final Image icon = ALSImageRegistry.getImage(ALSImageRegistry.SIGNATURE_ICON_ID);
+	public static final Image icon2 = ALSImageRegistry.getImage(ALSImageRegistry.SIGNATURE_PRIVATE_ICON_ID);
 
 	private Sig sig;
 	public Signature(Sig sig) {
@@ -19,7 +20,9 @@ public class Signature implements IALSSignature {
 		return sig.toString().substring(5);
 	}
 	public Image getIcon() {
-		return icon;
+		if (!isPrivate())
+		    return icon;
+		return icon2;
 	}
 	public int getBeginLine() {
 		return sig.pos.y;
