@@ -281,7 +281,8 @@ public class AlloyLaunching {
 		
 		if (ans.a!=null)
 			alloyConsole.print(ans.a.toString());
-	
+		
+		
 		if (!AlloyLaunching.hasSuccessfulAnswer(ans)) {
 			alloyConsole.printInfo("Cannot display graph : Answer not satisfiable");
 		} else {
