@@ -60,6 +60,7 @@ public class ALSImageRegistry {
         addImage(LAUNCH_A4_ICON_ID, reg);
         /* Adding to the image of the button next*/
         addImage(NEXT_A4SOLUTION_ICON_ID, reg);
+        addImage(EVALUATOR_ICON_ID, reg);
     }
 
     private static ImageRegistry createImageRegistry() {
@@ -151,7 +152,7 @@ public class ALSImageRegistry {
 
     public static final String LAUNCH_A4_ICON_ID = "icons/a4.gif";
     
-    public static final String NEXT_A4SOLUTION_ICON_ID = "icons/next.gif";
+    public static final String NEXT_A4SOLUTION_ICON_ID = "icons/next2.gif";
     
-
+    public static final String EVALUATOR_ICON_ID = "icons/eval.gif";
 }
