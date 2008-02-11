@@ -1,19 +1,12 @@
 package fr.univartois.cril.alloyplugin.console;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-
-import kodkod.engine.Evaluator;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.IJobStatus;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -53,7 +46,9 @@ public class AlloyEvaluatorConsole extends IOConsole {
 		print("allows you to type\nin Alloy expressions and see their values.\nFor example, ");
 		printInfo("univ ");
 		print("shows the list of all atoms.\n");
-
+		print("Type ");
+		printInfo("quit");
+		print("to exit the evaluator.\n");
 	}
 
 	/*
