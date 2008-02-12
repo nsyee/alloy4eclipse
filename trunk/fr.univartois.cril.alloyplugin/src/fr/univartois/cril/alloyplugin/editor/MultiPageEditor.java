@@ -304,8 +304,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
      * @see http://www.eclipse.org/articles/article.php?file=Article-Swing-SWT-Integration/index.html
      */
     int addPage(final String pageName, final URL alloyVisualizationTheme) {
-        IEditorInput input;
-        input = editor.getEditorInput();
+        final IEditorInput input = editor.getEditorInput();
 
        
 
@@ -324,7 +323,10 @@ public class MultiPageEditor extends MultiPageEditorPart implements
                 		         * of each actual parameter since the values are indistinguishable
                 		         */
                 		        boolean standalone = false;
-                		        String xmlFileName = "";
+                		        String xmlFileName = 
+                		        	Util
+                                    .getFileLocation((IResource) input
+                                            .getAdapter(IResource.class));
                 		        JMenu windowmenu = null;
                 		        Computer enumerator = null;
                 		        Computer evaluator = null;
@@ -333,6 +335,10 @@ public class MultiPageEditor extends MultiPageEditorPart implements
                 		        viz[0] = new VizGUI(
                 		        		standalone, xmlFileName, windowmenu,
                 		                enumerator, evaluator, makeWindow);
+                		        viz[0].doShowViz();
+                		        if (alloyVisualizationTheme != null) {
+                		            viz[0].loadThemeFile(alloyVisualizationTheme.getFile());
+                		        }
                 		        
                 		        return viz[0].getPanel();
                 			}
@@ -344,13 +350,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         vizMap.put(pageName, viz[0]);
         vizTable.put(index, viz[0]);
         thmTable.put(index, alloyVisualizationTheme);
-
-        viz[0].loadXML(Util
-                        .getFileLocation((IResource) input
-                                .getAdapter(IResource.class)), true);
-        if (alloyVisualizationTheme != null) {
-            viz[0].loadThemeFile(alloyVisualizationTheme.getFile());
-        }
 
         /**
          * A simple A4E menu action that we add to the A4 VizViewer popup menu.
