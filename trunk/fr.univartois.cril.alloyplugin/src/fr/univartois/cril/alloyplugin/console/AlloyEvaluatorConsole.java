@@ -138,7 +138,7 @@ public class AlloyEvaluatorConsole extends IOConsole {
 								showPrompt();
 							}
 						}
-						// stream.close();
+						Console.removeConsole(AlloyEvaluatorConsole.this);
 					} catch (IOException e) {
 						return Status.CANCEL_STATUS;
 					}

@@ -45,6 +45,12 @@ public class Console {
 		conMan.addConsoles(new IConsole[] { myConsole });
 		return myConsole;
 	}
+	
+	public static void removeConsole(IConsole console) {
+	       ConsolePlugin plugin = ConsolePlugin.getDefault();
+	       IConsoleManager conMan = plugin.getConsoleManager();
+	       conMan.removeConsoles(new IConsole[] {console});
+	}
 
 	public static AlloyMessageConsole findAlloyConsole(String filename) {
 		return findConsole(getAlloyConsoleId(filename), filename);
