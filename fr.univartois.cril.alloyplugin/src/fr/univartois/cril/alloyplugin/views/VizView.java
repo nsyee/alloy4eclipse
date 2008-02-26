@@ -620,7 +620,7 @@ public class VizView extends ViewPart implements ICommandListener {
 	}
 
 	public IPath saveCurrentVisualizationAsImageFile() throws IOException,
-			ErrorFatal, ErrorSyntax, CoreException {
+			CoreException, Err {
 		IPath dotFile = produceDotFile(viz[0]);
 
 		IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();
@@ -648,8 +648,7 @@ public class VizView extends ViewPart implements ICommandListener {
 		return dotFile;
 	}
 
-	private IPath produceDotFile(VizGUI viz) throws ErrorFatal, ErrorSyntax,
-			IOException {
+	private IPath produceDotFile(VizGUI viz) throws IOException, Err {
 		AlloyInstance instance = StaticInstanceReader.parseInstance(new File(
 				viz.getXMLfilename()));
 		VizState theme = new VizState(instance);
@@ -720,7 +719,7 @@ public class VizView extends ViewPart implements ICommandListener {
 	}
 
 	public IPath saveCurrentVisualizationAsDOTFile() throws IOException,
-			ErrorFatal, ErrorSyntax, CoreException {
+			CoreException, Err {
 
 		IPath dotFile = produceDotFile(viz[0]);
 
