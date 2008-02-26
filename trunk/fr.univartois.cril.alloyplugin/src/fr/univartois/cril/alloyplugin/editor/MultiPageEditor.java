@@ -48,6 +48,7 @@ import org.eclipse.ui.part.MultiPageEditorPart;
 import org.xml.sax.InputSource;
 
 import edu.mit.csail.sdg.alloy4.Computer;
+import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.ErrorFatal;
 import edu.mit.csail.sdg.alloy4.ErrorSyntax;
 import edu.mit.csail.sdg.alloy4graph.VizViewer;
@@ -418,7 +419,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
     }
 
     public IPath saveCurrentVisualizationAsDOTFile() throws IOException,
-            ErrorFatal, ErrorSyntax, CoreException {
+            CoreException, Err {
         VizGUI viz = getCurrentVizGUI();
         if (null == viz)
             return null;
@@ -450,8 +451,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
         
     }
     
-    private IPath produceDotFile(VizGUI viz) throws ErrorFatal, ErrorSyntax,
-            IOException {
+    private IPath produceDotFile(VizGUI viz) throws IOException, Err {
         AlloyInstance instance = StaticInstanceReader.parseInstance(new File(
                 viz.getXMLfilename()));
         VizState theme = new VizState(instance);
@@ -522,7 +522,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
     }
 
     public IPath saveCurrentVisualizationAsImageFile() throws IOException,
-            ErrorFatal, ErrorSyntax, CoreException {
+            CoreException, Err {
         VizGUI viz = getCurrentVizGUI();
         if (null == viz)
             return null;
