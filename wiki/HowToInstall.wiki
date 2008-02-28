@@ -41,6 +41,8 @@ It also ships with two solvers to be used through JNI: minisat and zChaff.
 Using those platform specific binaries require some actions from the user.
 
 == Under Linux ==
+  * [http://web.mit.edu/emina/www/kodkod/linux.zip Download linux binaries] from Kodkod web site
+
 === Berkmin ===
 Just create a directory in which you will put the executable, and set that path in A4E preferences.
 
@@ -59,8 +61,15 @@ setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/path/to/the/lib/files
 
 == Under Macos ==
 
+  * [http://web.mit.edu/emina/www/kodkod/mac-ppc.zip Download macos PPC binaries] from Kodkod web site
+
+  * [http://web.mit.edu/emina/www/kodkod/mac-intel.zip Download macos Intel binaries] from Kodkod web site
+
 If you can use a console under Mac Os X, then just proceed as under Linux (by default, the shell is bash).
 
 == Under Windows ==
+
+
+  * [http://web.mit.edu/emina/www/kodkod/windows.zip Download Windows binaries] from Kodkod web site
 
 To be completed.
