@@ -3,8 +3,10 @@ package fr.univartois.cril.alloyplugin.api;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.ui.IViewPart;
 
+import edu.mit.csail.sdg.alloy4.ConstSet;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pair;
+import edu.mit.csail.sdg.alloy4.Pos;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 
 /**
@@ -32,4 +34,6 @@ public interface IALSCommand extends IALSTreeDecorated {
      * Display Answer in an SWT thread.
      */
 	public void displayAnsSafe();
+	public boolean shouldShowUnsatCore();
+	public ConstSet<Pos> getCore();
 }

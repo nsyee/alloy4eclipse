@@ -3,7 +3,7 @@
  */
 package fr.univartois.cril.alloyplugin.editor;
 
-import java.util.logging.Logger;
+import java.util.Iterator;
 
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -25,11 +25,13 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 
+import edu.mit.csail.sdg.alloy4.Pos;
+import fr.univartois.cril.alloyplugin.AlloyPlugin;
+import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.launch.ui.DisplayCommandAnswerAction;
 import fr.univartois.cril.alloyplugin.launch.ui.LaunchCommandAction;
-
-
+import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
 /**
  * 
@@ -41,8 +43,8 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
 	private final ALSEditor editor;
 
-	private LaunchCommandAction launchCommandAction;	
-	private DisplayCommandAnswerAction displayCommandAnswerAction;	
+	private LaunchCommandAction launchCommandAction;
+	private DisplayCommandAnswerAction displayCommandAnswerAction;
 
 	private TreeViewer viewer;
 
@@ -64,15 +66,12 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 		viewer.expandAll();
 		viewer.refresh();
 
-//		pour le menu
-
-
+		// pour le menu
 
 		makeActions();
 		hookContextMenu();
 		hookDoubleClickAction();
 		contributeToActionBars();
-
 
 		// log.info("Creation look OK");
 	}
@@ -90,103 +89,118 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
 	}
 
-	private void hookContextMenu() {		
+	private void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
 		menuMgr.addMenuListener(new IMenuListener() {
 
-			public void menuAboutToShow(IMenuManager manager) {				
+			public void menuAboutToShow(IMenuManager manager) {
 				AlloyContentOutlinePage.this.fillContextMenu(manager);
 			}
-
 
 		});
 		Menu menu = menuMgr.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
-		getSite().registerContextMenu(null, menuMgr,viewer);
+		getSite().registerContextMenu(null, menuMgr, viewer);
 	}
-
 
 	private void contributeToActionBars() {
 		IActionBars bars = getSite().getActionBars();
 		fillLocalPullDown(bars.getMenuManager());
-		fillLocalToolBar(bars.getToolBarManager());		
+		fillLocalToolBar(bars.getToolBarManager());
 	}
 
 	private void fillLocalPullDown(IMenuManager manager) {
-		manager.add(launchCommandAction);		
-		//manager.add(new Separator());
-		manager.add(displayCommandAnswerAction);		
+		manager.add(launchCommandAction);
+		// manager.add(new Separator());
+		manager.add(displayCommandAnswerAction);
 		manager.add(new Separator());
 
 	}
 
-	private void hookDoubleClickAction() {		
-		viewer.addDoubleClickListener(new IDoubleClickListener(){
+	private void hookDoubleClickAction() {
+		viewer.addDoubleClickListener(new IDoubleClickListener() {
 
 			public void doubleClick(DoubleClickEvent event) {
-				Object selection = ((TreeSelection) event.getSelection()).getFirstElement();
-				
+				Object selection = ((TreeSelection) event.getSelection())
+						.getFirstElement();
+
 				if (selection instanceof IALSTreeDecorated) {
 					launchCommandAction.run();
 					// log.info("Selection mis � null");
-					//viewer.setSelection(null, true);
+					// viewer.setSelection(null, true);
 				}
 
-				if (selection instanceof RootContent){
+				if (selection instanceof RootContent) {
 					if (viewer.getExpandedState(selection))
 						viewer.collapseToLevel(selection, -1);
 					else
 						viewer.expandToLevel(selection, 1);
-					
-				} 
+
+				}
 			}
 		});
-		
+
 	}
 
-		
-	
-
-	private void fillContextMenu(IMenuManager manager) {		
+	private void fillContextMenu(IMenuManager manager) {
 		manager.add(launchCommandAction);
 		// Other plug-ins can contribute there actions here
-		//manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+		// manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		manager.add(displayCommandAnswerAction);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
-
 	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(launchCommandAction);		
-		manager.add(displayCommandAnswerAction);	
+		manager.add(launchCommandAction);
+		manager.add(displayCommandAnswerAction);
 	}
-
 
 	private void makeActions() {
 		launchCommandAction = new LaunchCommandAction(viewer);
 		displayCommandAnswerAction = new DisplayCommandAnswerAction(viewer);
-		
+
 	}
 
 	public void setFocus() {
 		this.getControl().setFocus();
 	}
 
-
-
 	class MySelectionListener implements ISelectionChangedListener {
 
 		public void selectionChanged(SelectionChangedEvent event) {
 
 			Object selection = ((TreeSelection) event.getSelection())
-			.getFirstElement();
+					.getFirstElement();
+			IALSTreeDecorated elem = (IALSTreeDecorated) selection;
+			IDocumentProvider provider = editor.getDocumentProvider();
+			IDocument document = provider.getDocument(editor.getEditorInput());
+
+			if (selection instanceof IALSCommand) {
+				IALSCommand command = (IALSCommand) selection;
+				boolean canShowCore = PreferenceConstants.V_SOLVER_MiniSatProverUnsatCore.equals(AlloyPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_SOLVER_CHOICE));
+				if (canShowCore && command.shouldShowUnsatCore()) {
+					// show the core
+					Iterator<Pos> it = command.getCore().iterator();
+					int start;
+					Pos pos;
+					while (it.hasNext()) {
+						pos = it.next();
+						try {
+							start = document.getLineOffset(pos.y - 1);
+							System.out.println("core>"+pos.y+"/"+pos.x);
+							editor.selectAndReveal(start, 0);
+						} catch (BadLocationException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					return;
+				}
+				
+			}
 			if (selection instanceof IALSTreeDecorated) {
-				IALSTreeDecorated elem = (IALSTreeDecorated) selection;
-				IDocumentProvider provider = editor.getDocumentProvider();
-				IDocument document = provider.getDocument(editor
-						.getEditorInput());
 				try {
 					int start = document.getLineOffset(elem.getBeginLine() - 1);
 					editor.selectAndReveal(start, 0);
@@ -197,5 +211,4 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 		}
 	}
 
-	
 }
