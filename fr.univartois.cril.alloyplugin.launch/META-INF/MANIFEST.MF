@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Alloy Launch Plug-in
 Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true
-Bundle-Version: 0.2.8
+Bundle-Version: 0.2.9
 Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator
 Bundle-Localization: plugin
 Eclipse-LazyStart: true
