@@ -49,8 +49,6 @@ import org.xml.sax.InputSource;
 
 import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.Err;
-import edu.mit.csail.sdg.alloy4.ErrorFatal;
-import edu.mit.csail.sdg.alloy4.ErrorSyntax;
 import edu.mit.csail.sdg.alloy4graph.VizViewer;
 import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
 import edu.mit.csail.sdg.alloy4viz.StaticGraphMaker;
