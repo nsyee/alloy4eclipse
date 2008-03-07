@@ -4,8 +4,9 @@ import org.eclipse.swt.graphics.Image;
 
 import edu.mit.csail.sdg.alloy4.Pos;
 import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
+import fr.univartois.cril.alloyplugin.api.Iconable;
 
-public class UnsatCorePos implements IALSTreeDecorated {
+public class UnsatCorePos implements IALSTreeDecorated, Iconable {
 
 	private final Pos pos;
 
@@ -13,12 +14,10 @@ public class UnsatCorePos implements IALSTreeDecorated {
 		this.pos = pos;
 	}
 
-	@Override
 	public int getBeginLine() {
 		return pos.y;
 	}
 
-	@Override
 	public int getEndLine() {
 		return pos.y2;
 	}
@@ -31,16 +30,15 @@ public class UnsatCorePos implements IALSTreeDecorated {
 		return pos.x2;
 	}
 
-	@Override
 	public boolean isPrivate() {
 		return false;
 	}
 
-	@Override
 	public Image getIcon() {
 		return null;
 	}
 
+	@Override
 	public String toString() {
 		return "Unsat core member: line  " + pos.y + " Columns  " + pos.x + "|"
 				+ pos.x2;
