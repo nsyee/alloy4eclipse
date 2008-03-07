@@ -19,7 +19,7 @@ public interface INextable {
 	
     Module getWorld();
 
-	A4Solution accedeAns();
+	A4Solution accessAns();
     
 
 }

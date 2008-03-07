@@ -12,8 +12,9 @@ import org.eclipse.swt.graphics.Image;
 
 import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.api.Iconable;
+import fr.univartois.cril.alloyplugin.api.NodeWithChildren;
 
-class RootContent<T extends IALSTreeDecorated> implements Iconable {
+class RootContent<T extends IALSTreeDecorated> implements Iconable, NodeWithChildren {
     private final String label;
     private final Image icon;
     

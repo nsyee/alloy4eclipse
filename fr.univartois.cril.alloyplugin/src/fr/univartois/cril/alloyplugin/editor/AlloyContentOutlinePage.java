@@ -29,6 +29,7 @@ import edu.mit.csail.sdg.alloy4.Pos;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
+import fr.univartois.cril.alloyplugin.core.UnsatCorePos;
 import fr.univartois.cril.alloyplugin.launch.ui.DisplayCommandAnswerAction;
 import fr.univartois.cril.alloyplugin.launch.ui.LaunchCommandAction;
 import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
@@ -177,36 +178,76 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 			IDocumentProvider provider = editor.getDocumentProvider();
 			IDocument document = provider.getDocument(editor.getEditorInput());
 
+			int start = 0, end = 0;
+			
 			if (selection instanceof IALSCommand) {
 				IALSCommand command = (IALSCommand) selection;
-				boolean canShowCore = PreferenceConstants.V_SOLVER_MiniSatProverUnsatCore.equals(AlloyPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_SOLVER_CHOICE));
+				boolean canShowCore = PreferenceConstants.V_SOLVER_MiniSatProverUnsatCore
+						.equals(AlloyPlugin.getDefault().getPreferenceStore()
+								.getString(PreferenceConstants.P_SOLVER_CHOICE));
+				
+				// If the chosen solver is MinisatProver Unsat Core and the
+				// result is UNSAT
 				if (canShowCore && command.shouldShowUnsatCore()) {
 					// show the core
 					Iterator<Pos> it = command.getCore().iterator();
-					int start;
+				    int temp = 0, x = 0, x2 = 0;
 					Pos pos;
-					while (it.hasNext()) {
+					if (it.hasNext()) {
 						pos = it.next();
 						try {
-							start = document.getLineOffset(pos.y - 1);
-							System.out.println("core>"+pos.y+"/"+pos.x);
-							editor.selectAndReveal(start, 0);
+							start = document.getLineOffset(pos.y);
+							x = pos.x;
+							x2=pos.x2;
+							end = start;
 						} catch (BadLocationException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					}
-					return;
+					while (it.hasNext()) {
+						pos = it.next();
+						try {
+							temp = document.getLineOffset(pos.y);
+							if (temp <= start){
+								start = temp;
+								if (pos.x < x){
+									x = pos.x;
+								}
+								if (pos.x2 > x2){
+								    x2=pos.x2;
+								}
+							}
+							else if (temp > end)
+								end = temp;
+						} catch (BadLocationException e) {
+							e.printStackTrace();
+						}
+					}
+					editor.selectAndReveal(start - (x2 - x - 2), end - start + (x2 - x - 3));
+					
 				}
-				
+				return;
 			}
+			
+			if (selection instanceof UnsatCorePos) {
+				UnsatCorePos ucp = (UnsatCorePos)selection;
+				try {
+					start = document.getLineOffset(elem.getBeginLine() - 1);
+					editor.selectAndReveal(start+ucp.getX() - 1 , ucp.getX2() - ucp.getX() + 1);
+				} catch (BadLocationException x) {
+					// ignore
+				}
+				return;
+			}	
+			
 			if (selection instanceof IALSTreeDecorated) {
 				try {
-					int start = document.getLineOffset(elem.getBeginLine() - 1);
+					start = document.getLineOffset(elem.getBeginLine() - 1);
 					editor.selectAndReveal(start, 0);
 				} catch (BadLocationException x) {
 					// ignore
 				}
+				return;
 			}
 		}
 	}

@@ -365,7 +365,7 @@ public class VizView extends ViewPart implements ICommandListener {
 				evaluator.activate();
 				evaluator.clear();
 				evaluator.showHeader();
-				ans=execCmd.accedeAns();
+				ans=execCmd.accessAns();
 				evaluator.readConsole(execCmd.getWorld(),ans);
 			}
 		};
