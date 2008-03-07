@@ -15,7 +15,6 @@ import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
 import fr.univartois.cril.alloyplugin.api.IALSFile;
-import fr.univartois.cril.alloyplugin.api.IALSSignature;
 import fr.univartois.cril.alloyplugin.api.Identifiable;
 
 

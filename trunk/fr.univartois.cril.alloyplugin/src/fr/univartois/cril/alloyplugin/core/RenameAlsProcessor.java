@@ -1,8 +1,14 @@
 package fr.univartois.cril.alloyplugin.core;
 
-import org.eclipse.core.runtime.*;
-import org.eclipse.ltk.core.refactoring.*;
-import org.eclipse.ltk.core.refactoring.participants.*;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.ltk.core.refactoring.Change;
+import org.eclipse.ltk.core.refactoring.CompositeChange;
+import org.eclipse.ltk.core.refactoring.RefactoringStatus;
+import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
+import org.eclipse.ltk.core.refactoring.participants.RefactoringParticipant;
+import org.eclipse.ltk.core.refactoring.participants.RefactoringProcessor;
+import org.eclipse.ltk.core.refactoring.participants.SharableParticipants;
 
 
 /**

@@ -16,7 +16,6 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.IDE;
 
 import fr.univartois.cril.alloyplugin.AlloyPlugin;

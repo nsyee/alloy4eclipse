@@ -23,7 +23,6 @@ import fr.univartois.cril.alloyplugin.api.IALSSignature;
 import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.api.IAlloyTreeContentProvider;
 import fr.univartois.cril.alloyplugin.api.NodeWithChildren;
-import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
 
 public class AlloyTreeContentProvider implements IAlloyTreeContentProvider,
 		IALSFileListener {

@@ -6,14 +6,11 @@
  */
 package fr.univartois.cril.alloyplugin.api;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
-
-import fr.univartois.cril.alloyplugin.AlloyPlugin;
 
 public class ALSImageRegistry {
 
