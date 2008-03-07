@@ -3,9 +3,9 @@ package fr.univartois.cril.alloyplugin.api;
 
 public interface IALSTreeDecorated extends Iconable {
 
-	int getBeginLine();
+	public int getBeginLine();
 	
-	int getEndLine();
+	public int getEndLine();
 	
-	boolean isPrivate();
+	public boolean isPrivate();
 }
