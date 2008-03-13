@@ -4,8 +4,8 @@
 = Features in each target =
 
   * M2: should have most A4 features in (Unsat core, evaluator, etc).
-  * M3: work on the integration with Eclipse. A4 as OSGi bundle, SAT4J as OSGi bundle, etc. platform specific binaries as OSGi bundles. 
-  * M4: fixed all the usability problems. Improved user experience.
+  * M3: improve user experience based on M2 feedback. work on the integration with Eclipse. A4 as OSGi bundle?, SAT4J as OSGi bundle?, etc. platform specific binaries as OSGi bundles? 
+  * M4: fixed all the usability problems. Improved user experience. Consistent interface. Code cleaned up.
 
 = Releases plan =
 
