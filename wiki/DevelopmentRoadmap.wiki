@@ -10,6 +10,6 @@
 = Releases plan =
 
 || Milestone || Planned date || Real release date ||
-|| M2 || February 8, 2008 || ||
-|| M3 || March 7, 2008 || ||
-|| M4 || April 4, 2008 || ||
+|| M2 || February 8, 2008 || March 13, 2008||
+|| M3 || ~~March 7, 2008~~ April 4, 2008 || ||
+|| M4 || ~~April 4, 2008~~ May 2, 2008|| ||
