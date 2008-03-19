@@ -5,44 +5,52 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 
+import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
+import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.api.Iconable;
+import fr.univartois.cril.alloyplugin.core.OverlayImageIcon;
 
 public class AlloyTreeLabelProvider implements ILabelProvider {
 
+	// @author romuald druelle 
 	public Image getImage(Object element) {
 		if (element instanceof Iconable) {
-			return ((Iconable)element).getIcon();
+			if (element instanceof IALSTreeDecorated) {
+				if (((IALSTreeDecorated) element).isPrivate()) {
+					OverlayImageIcon overlayIcon = new OverlayImageIcon(
+							((IALSTreeDecorated) element).getIcon(),
+							ALSImageRegistry
+									.getImage(ALSImageRegistry.PRIVATE_ICON_ID));
+					return overlayIcon.getImage();
+				}
+			}
+			return ((Iconable) element).getIcon();
 		}
 		return null;
 	}
 
 	public String getText(Object element) {
-	
+
 		return element.toString();
 	}
 
 	public void addListener(ILabelProviderListener listener) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void dispose() {
-		// TODO Auto-generated method stub
 
 	}
 
 	public boolean isLabelProperty(Object element, String property) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public void removeListener(ILabelProviderListener listener) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public static IBaseLabelProvider getDefault() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
