@@ -7,6 +7,7 @@ import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 
 import edu.mit.csail.sdg.alloy4.Err;
+import edu.mit.csail.sdg.alloy4.Version;
 
 public class Console {
 
@@ -94,7 +95,7 @@ public class Console {
 	 * 
 	 */
 	private static String getAlloyInfoConsoleId(String filename) {
-		return "[Alloy Info Console]";
+		return "[Alloy "+Version.version()+" build number "+Version.buildNumber()+" on "+Version.buildDate()+" Info Console]";
 	}
 
 }
