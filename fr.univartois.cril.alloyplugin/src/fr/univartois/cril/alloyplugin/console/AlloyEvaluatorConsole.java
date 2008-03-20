@@ -17,6 +17,7 @@ import org.eclipse.ui.console.IOConsoleInputStream;
 import org.eclipse.ui.console.IOConsoleOutputStream;
 
 import edu.mit.csail.sdg.alloy4.Err;
+import edu.mit.csail.sdg.alloy4.Version;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.parser.Module;
@@ -41,13 +42,16 @@ public class AlloyEvaluatorConsole extends IOConsole {
 	}
 
 	public void showHeader() {
+		printInfo("[Alloy " + Version.version() + " build number "
+				+ Version.buildNumber() + " on " + Version.buildDate()
+				+ " Info Console]\n\n");
 		print("The ");
 		printInfo("Alloy Evaluator ");
 		print("allows you to type\nin Alloy expressions and see their values.\nFor example, ");
 		printInfo("univ ");
 		print("shows the list of all atoms.\n");
 		print("Type ");
-		printInfo("quit");
+		printInfo("quit ");
 		print("to exit the evaluator.\n");
 	}
 
@@ -64,10 +68,10 @@ public class AlloyEvaluatorConsole extends IOConsole {
 	 * printMessage(message); } }); }
 	 */
 
-	public void showPrompt(){
+	public void showPrompt() {
 		print("\n> ");
 	}
-	
+
 	public void print(final String message) {
 		print(message, new Color(null, 0, 0, 0), SWT.DEFAULT);
 	}
