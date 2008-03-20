@@ -44,7 +44,7 @@ public class AlloyEvaluatorConsole extends IOConsole {
 	public void showHeader() {
 		printInfo("[Alloy " + Version.version() + " build number "
 				+ Version.buildNumber() + " on " + Version.buildDate()
-				+ " Info Console]\n\n");
+				+ " Evaluator Console]\n\n");
 		print("The ");
 		printInfo("Alloy Evaluator ");
 		print("allows you to type\nin Alloy expressions and see their values.\nFor example, ");
