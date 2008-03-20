@@ -59,7 +59,7 @@
          class="fr.univartois.cril.alloyplugin.ui.PerspectiveFactory"
          icon="icons/AlloyProject.gif"
          id="fr.univartois.cril.alloyplugin.alloyperspective"
-         name="Alloy perspective"/>
+         name="Alloy"/>
 </extension>
 <extension
       point="org.eclipse.ui.perspectiveExtensions">
