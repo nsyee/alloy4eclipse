@@ -36,4 +36,5 @@ public interface IALSCommand extends IALSTreeDecorated {
 	public void displayAnsSafe();
 	public boolean shouldShowUnsatCore();
 	public ConstSet<Pos> getCore();
+	public void closeYourView();
 }

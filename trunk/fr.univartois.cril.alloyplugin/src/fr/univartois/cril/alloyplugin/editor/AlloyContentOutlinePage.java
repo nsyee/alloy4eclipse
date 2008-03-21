@@ -30,6 +30,7 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
 import fr.univartois.cril.alloyplugin.core.UnsatCorePos;
+import fr.univartois.cril.alloyplugin.launch.ui.CloseAllView;
 import fr.univartois.cril.alloyplugin.launch.ui.DisplayCommandAnswerAction;
 import fr.univartois.cril.alloyplugin.launch.ui.LaunchCommandAction;
 import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
@@ -46,6 +47,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
     private LaunchCommandAction        launchCommandAction;
     private DisplayCommandAnswerAction displayCommandAnswerAction;
+    private CloseAllView closeAllView;
 
     private TreeViewer                 viewer;
 
@@ -115,6 +117,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
         manager.add(launchCommandAction);
         // manager.add(new Separator());
         manager.add(displayCommandAnswerAction);
+        manager.add(closeAllView);
         manager.add(new Separator());
 
     }
@@ -149,19 +152,23 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
         // Other plug-ins can contribute there actions here
         // manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
         manager.add(displayCommandAnswerAction);
+        manager.add(closeAllView);
         // Other plug-ins can contribute there actions here
         manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+        
     }
 
     private void fillLocalToolBar(IToolBarManager manager) {
         manager.add(launchCommandAction);
         manager.add(displayCommandAnswerAction);
-    }
+        manager.add(closeAllView);
+        }
 
     private void makeActions() {
         launchCommandAction = new LaunchCommandAction(viewer);
         displayCommandAnswerAction = new DisplayCommandAnswerAction(viewer);
-
+        closeAllView = new CloseAllView(viewer,this.editor.getALSFile());
+        
     }
 
     public void setFocus() {

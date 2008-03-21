@@ -44,6 +44,7 @@ public class ALSImageRegistry {
 		addImage(RUN_ICON_ID, reg);
 		addImage(CHECK_ICON_ID, reg);
 		addImage(GRAPH_ICON_ID, reg);
+		addImage(CLOSE_GRAPH_ICON_ID, reg);
 		addImage(EXECUTE_ICON_ID, reg);
 		addImage(DISABLE_EXECUTE_ICON_ID, reg);
 		addImage(THEME_ICON_ID, reg);
@@ -124,6 +125,8 @@ public class ALSImageRegistry {
 	public static final String CHECK_ICON_ID = "icons/check.gif";
 
 	public static final String GRAPH_ICON_ID = "icons/graph.gif";
+	
+	public static final String CLOSE_GRAPH_ICON_ID = "icons/close_graph.gif";
 
 	public static final String EXECUTE_ICON_ID = "icons/execute.gif";
 
