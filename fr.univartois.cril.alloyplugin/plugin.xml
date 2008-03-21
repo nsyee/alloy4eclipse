@@ -185,6 +185,11 @@
 
    <extension
          point="org.eclipse.ui.commands">
+         <command
+            categoryId="fr.univartois.cril.alloyplugin.launch.category"
+            description="Close All VizView"
+            id="fr.univartois.cril.alloyplugin.launch.closeallview"
+            name="Close All VizView"/>
       <command
             categoryId="fr.univartois.cril.alloyplugin.launch.category"
             description="launch Alloy command"
