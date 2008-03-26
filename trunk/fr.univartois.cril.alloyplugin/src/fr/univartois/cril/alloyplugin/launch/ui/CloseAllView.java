@@ -31,7 +31,7 @@ public class CloseAllView extends SelectionProviderAction {
 
 	private static final String TEXT_CLOSE_ALL_VIEWS = "Close All Views";
 
-	private static final String TEXT_CLOSE_ONE_VIEW = "Close View";
+	private static final String TEXT_CLOSE_ONE_VIEW = "Close Associated View";
 
 	private IALSFile file;
 
@@ -44,12 +44,12 @@ public class CloseAllView extends SelectionProviderAction {
 	private IALSCommand ialsc;
 
 	public CloseAllView(TreeViewer provider, IALSFile file) {
-		super(provider, TEXT_CLOSE_ONE_VIEW);
+		super(provider, TEXT_CLOSE_ALL_VIEWS);
 		viewer = provider;
 		this.file = file;
 		this.setEnabled(true);
 		setImageDescriptor(iconclose);
-		setToolTipText("Close view");
+		setToolTipText(TEXT_CLOSE_ALL_VIEWS);
 		setActionDefinitionId(ACTION_ID);
 	}
 
@@ -73,11 +73,12 @@ public class CloseAllView extends SelectionProviderAction {
 						this.setEnabled(true);
 						commandRootSelected = true;
 						setText(TEXT_CLOSE_ALL_VIEWS);
-
+						setToolTipText(TEXT_CLOSE_ALL_VIEWS);
 						return;
 					}
 				} else if (o instanceof IALSCommand) {
 					setText(TEXT_CLOSE_ONE_VIEW);
+					setToolTipText(TEXT_CLOSE_ONE_VIEW);
 					ialsc = (IALSCommand) o;
 					this.setEnabled(true);
 					return;
@@ -86,7 +87,8 @@ public class CloseAllView extends SelectionProviderAction {
 			}
 
 		}
-		setText(TEXT_CLOSE_ONE_VIEW);
+		setText(TEXT_CLOSE_ALL_VIEWS);
+		setToolTipText(TEXT_CLOSE_ALL_VIEWS);
 		commandRootSelected = true;
 	}
 
