@@ -497,7 +497,7 @@ public class MultiPageEditorContributor extends
                 .getImageDescriptor(ALSImageRegistry.THEME_EXPORT_ICON_ID));
     }
 
-    public static String A4E_MENU_ID = MultiPageEditorContributor.class
+    public static final String A4E_MENU_ID = MultiPageEditorContributor.class
                                              .getPackage().getName()
                                              + ".a4e.menu"; //$NON-NLS-1$
 

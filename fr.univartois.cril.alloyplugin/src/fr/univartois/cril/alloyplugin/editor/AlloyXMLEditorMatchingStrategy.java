@@ -16,7 +16,7 @@ public class AlloyXMLEditorMatchingStrategy implements IEditorMatchingStrategy {
 			if (!(input instanceof IFileEditorInput)) return false;
 			
 			final IFileEditorInput fileEditorInput = (IFileEditorInput) input;
-			if (null == fileEditorInput) return false;
+			assert fileEditorInput != null;
 			
 			final IFile fileInput = fileEditorInput.getFile();
 			if (null == fileInput) return false;

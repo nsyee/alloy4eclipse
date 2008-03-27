@@ -16,7 +16,7 @@ public class ALSPartitionScanner extends RuleBasedPartitionScanner {
 	public final static String ALS_COMMENT = "__pos_als_comment";
     public final static String ALS_COMMENT_ANDREW = "__pos_als_comment_andrew";
 	/** Tableau des types de partitions possibles */
-	public final static String[] ALS_PARTITION_TYPES =
+	final static String[] ALS_PARTITION_TYPES =
 		new String[] {
 			ALS_COMMENT,ALS_COMMENT_ANDREW
 		};

@@ -57,7 +57,7 @@ public class ProjectBuilder extends
 	/**
 	 * Resource Visitor for full build.
 	 * */
-	class ResourceVisitor implements IResourceVisitor {
+	static class ResourceVisitor implements IResourceVisitor {
 		public boolean visit(IResource resource) {
 			AlloyLaunching.instance().parseALSFile(resource);
 			//return true to continue visiting children.
@@ -74,7 +74,7 @@ public class ProjectBuilder extends
 	/**
 	 * This object will be used for visiting resource delta in the workspace.
 	 * */
-	class SampleDeltaVisitor implements IResourceDeltaVisitor {
+	static class SampleDeltaVisitor implements IResourceDeltaVisitor {
 		/*
 		 * (non-Javadoc)
 		 * 

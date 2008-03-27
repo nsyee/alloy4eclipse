@@ -114,8 +114,7 @@ public class VizView extends ViewPart implements ICommandListener {
 
 	@Override
 	public void createPartControl(Composite arg0) {
-		@SuppressWarnings("unused")
-		final Composite a4Component = swingintegration.example.Platform
+		swingintegration.example.Platform
 				.createComposite(
 						arg0,
 						this.getSite().getShell().getDisplay(),
@@ -477,7 +476,7 @@ public class VizView extends ViewPart implements ICommandListener {
 		return null;
 	}
 
-	public static String VIZ_VIEW_ID = "fr.univartois.cril.alloyplugin.views.vizview";
+	public static final String VIZ_VIEW_ID = "fr.univartois.cril.alloyplugin.views.vizview";
 
 	public static IViewPart createView(final INextable execCmd,
 			final IWorkbenchPage page, final IPath filepath,
@@ -688,12 +687,14 @@ public class VizView extends ViewPart implements ICommandListener {
 			if (0 != proc.exitValue()) {
 				AlloyPlugin.getDefault().logInfo(
 						"DOT to " + conversion + " conversion command failed: "
-								+ command);
+								+ String.valueOf(command));
 				return null;
 			}
 		} catch (InterruptedException e) {
 			AlloyPlugin.getDefault().log(e);
 			return null;
+		} finally {
+		    procOutput.close();
 		}
 
 		IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();

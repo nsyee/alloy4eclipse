@@ -3,21 +3,24 @@ package fr.univartois.cril.alloyplugin.editor;
 /**
  * Alloy syntax constants.
  */
-public class AlloySyntaxConstants {
+class AlloySyntaxConstants {
 
-    public static final String[] keywords    = { "abstract", "and", "assert",
+    // those fields are package protected since they are references to arrays.
+    // they are thus vulnerable to malicious code.
+    
+    static final String[] keywords    = { "abstract", "and", "assert",
             "but", "disj", "else", "exactly", "extends", "fact", "fun", "iden",
             "if", "iff", "implies", "in", "Int", "int", "let", "not", "or",
             "part", "pred", "set", "seq", "sig", "sum", "then", "this", "univ",
             "private"                       };
 
-    public static final String[] quantifiers = { "all", "lone", "no", "none",
+    static final String[] quantifiers = { "all", "lone", "no", "none",
             "one", "some"                   };
 
     /** commands */
-    public static final String[] commands    = { "run", "check", "for",
+    static final String[] commands    = { "run", "check", "for",
             "expect"                        };
 
     /** directives */
-    public static final String[] directives  = { "module", "open", "as" };
+    static final String[] directives  = { "module", "open", "as" };
 }
