@@ -119,6 +119,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
     /**
      * Refresh the control for this tab.
      */
+    @SuppressWarnings("unchecked")
     private void initializeTabControls() {
         if (commandsViewer != null) {
             commandsViewer.setInput(currentALSFile);
@@ -308,6 +309,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
         return null;
     }
 
+    @SuppressWarnings("unchecked")
     public List<IALSCommand> getIALSCommandFromSelection(
             IStructuredSelection selection) {
         ArrayList<IALSCommand> list = null;

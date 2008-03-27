@@ -8,8 +8,6 @@ import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
 
 public class AlloyXMLEditorMatchingStrategy implements IEditorMatchingStrategy {
-
-	private static String XML_ID = "org.eclipse.core.runtime.xml";
 	
 	public boolean matches(IEditorReference editorRef, IEditorInput input) {
 		try {

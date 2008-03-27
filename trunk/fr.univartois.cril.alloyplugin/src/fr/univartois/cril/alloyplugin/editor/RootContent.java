@@ -35,6 +35,7 @@ class RootContent<T extends IALSTreeDecorated> implements Iconable, NodeWithChil
         return !children.isEmpty();
     }
     
+    @SuppressWarnings("unchecked")
     public IALSTreeDecorated [] children () {
         if (children==null) {
             return (T[])new IALSTreeDecorated[0];

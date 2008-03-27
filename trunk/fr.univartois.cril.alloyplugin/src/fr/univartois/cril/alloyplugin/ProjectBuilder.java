@@ -27,7 +27,8 @@ public class ProjectBuilder extends
 	public static final String PROJECT_BUILDER_ID = "fr.univartois.cril.alloyplugin.builder";
 
 
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 	throws CoreException {
 		

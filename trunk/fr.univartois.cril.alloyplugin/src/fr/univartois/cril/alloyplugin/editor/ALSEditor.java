@@ -95,7 +95,8 @@ public class ALSEditor extends TextEditor {
 	 * Used for content outline
 	 */
 
-	public Object getAdapter(Class required) {
+	@SuppressWarnings("unchecked")
+    public Object getAdapter(Class required) {
 		if (IContentOutlinePage.class.equals(required)) {
 
 			if (fOutlinePage == null) {

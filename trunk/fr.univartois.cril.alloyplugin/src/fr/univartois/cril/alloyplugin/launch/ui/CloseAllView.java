@@ -1,13 +1,9 @@
 package fr.univartois.cril.alloyplugin.launch.ui;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.debug.core.ILaunchConfiguration;
-import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.ui.actions.SelectionProviderAction;
@@ -55,7 +51,8 @@ public class CloseAllView extends SelectionProviderAction {
 		return this.file;
 	}
 
-	public void selectionChanged(IStructuredSelection selection) {
+	@SuppressWarnings("unchecked")
+    public void selectionChanged(IStructuredSelection selection) {
 		commandRootSelected = false;
 		if (selection.isEmpty())
 			commandRootSelected = true;
