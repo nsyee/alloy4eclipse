@@ -46,9 +46,9 @@ import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 public class AlloyLaunching {
 
     private AlloyLaunching() {
-        
+
     }
-    
+
     /**
      * Execute an ExecutableCommand previously created after a parsing.
      */
@@ -68,9 +68,7 @@ public class AlloyLaunching {
             return;
         IResource res = file.getResource();
         try {
-            res.deleteMarkers(
-                    Util.ALLOYPROBLEM, false,
-                    0);
+            res.deleteMarkers(Util.ALLOYPROBLEM, false, 0);
         } catch (CoreException e) {
             e.printStackTrace();
         }
@@ -90,9 +88,7 @@ public class AlloyLaunching {
         if (!resource.exists())
             return null;
         try {
-            resource.deleteMarkers(
-                    Util.ALLOYPROBLEM, false,
-                    0);
+            resource.deleteMarkers(Util.ALLOYPROBLEM, false, 0);
         } catch (CoreException e) {
             e.printStackTrace();
         }
@@ -119,8 +115,7 @@ public class AlloyLaunching {
 
             res = getResourceFromErr(res, e);
             try {
-                IMarker marker = res
-                        .createMarker(Util.ALLOYPROBLEM);
+                IMarker marker = res.createMarker(Util.ALLOYPROBLEM);
                 marker.setAttribute(IMarker.SEVERITY, severity);
                 marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
                 marker.setAttribute(IMarker.MESSAGE, e.msg);
@@ -256,7 +251,8 @@ public class AlloyLaunching {
                     + ": ============");
             command.execute(rep);
             long endTime = System.currentTimeMillis();
-            alloyConsole.printInfo("============ Total time: "+(endTime-beginTime)+" (ms) ===========");
+            alloyConsole.printInfo("============ Total time: "
+                    + (endTime - beginTime) + " (ms) ===========");
             if (AlloyPlugin.getDefault().getPluginPreferences().getBoolean(
                     PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
                 showAnswer(command);
@@ -268,25 +264,26 @@ public class AlloyLaunching {
     }
 
     public static void showAnswer(IALSCommand command) {
-    	Pair<A4Solution,Boolean> ans = command.getAns();
-  
-		AlloyMessageConsole alloyConsole=Console.findAlloyConsole(command.getFilename());
-		alloyConsole.activate();
-		
-		if (ans!=null)
-			alloyConsole.printInfo("============ Answer ============");
-		else
-			alloyConsole.printInfo("No answer yet");
-		
-		if (ans.a!=null)
-			alloyConsole.print(ans.a.toString());
-		
-		
-		if (!AlloyLaunching.hasSuccessfulAnswer(ans)) {
-			alloyConsole.printInfo("Cannot display graph : Answer not satisfiable");
-		} else {
-			command.displayAnsSafe();
-		}
+        Pair<A4Solution, Boolean> ans = command.getAns();
+
+        AlloyMessageConsole alloyConsole = Console.findAlloyConsole(command
+                .getFilename());
+        alloyConsole.activate();
+
+        if (ans != null) {
+            alloyConsole.printInfo("============ Answer ============");
+            if (ans.a != null)
+                alloyConsole.print(ans.a.toString());
+
+            if (!AlloyLaunching.hasSuccessfulAnswer(ans)) {
+                alloyConsole
+                        .printInfo("Cannot display graph : Answer not satisfiable");
+            } else {
+                command.displayAnsSafe();
+            }
+        } else
+            alloyConsole.printInfo("No answer yet");
+
     }
 
     /**
@@ -327,7 +324,7 @@ public class AlloyLaunching {
         partNameBuffer.append('|');
         return partNameBuffer.toString();
     }
-    
+
     private static AlloyLaunching instance;
 
     public static synchronized AlloyLaunching instance() {
@@ -336,23 +333,25 @@ public class AlloyLaunching {
         }
         return instance;
     }
-    
-    /**  
-     * Check the resource if it's a file and ends by ".als" . 
+
+    /**
+     * Check the resource if it's a file and ends by ".als" .
      */
     public void parseALSFile(IResource resource) {
-        if (resource instanceof IFile && resource.getName().endsWith(".als")) {     
-            
-                parseOneFile(resource);                     
+        if (resource instanceof IFile && resource.getName().endsWith(".als")) {
+
+            parseOneFile(resource);
         }
     }
-    /**  
+
+    /**
      * Evaluate et modifie the .
      */
     public void parseALSFileFull(IResource resource) {
-        if (resource instanceof IFile && resource.getName().endsWith(".als")) {         
-            IALSFile file= ALSFileFactory.instance().getIALSFile(resource);
-            if(file!=null)launchParser(file);           
+        if (resource instanceof IFile && resource.getName().endsWith(".als")) {
+            IALSFile file = ALSFileFactory.instance().getIALSFile(resource);
+            if (file != null)
+                launchParser(file);
         }
     }
 
@@ -361,6 +360,6 @@ public class AlloyLaunching {
      */
     public void removeALSFile(IResource resource) {
         ALSFileFactory.instance().remove(resource);
-        
-    }   
+
+    }
 }

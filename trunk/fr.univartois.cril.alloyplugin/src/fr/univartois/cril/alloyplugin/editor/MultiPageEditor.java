@@ -495,12 +495,14 @@ public class MultiPageEditor extends MultiPageEditorPart implements
             if (0 != proc.exitValue()) {
                 AlloyPlugin.getDefault().logInfo(
                         "DOT to " + conversion + " conversion command failed: "
-                                + command);
+                                + String.valueOf(command));
                 return null;
             }
         } catch (InterruptedException e) {
             AlloyPlugin.getDefault().log(e);
             return null;
+        } finally {
+            procOutput.close();
         }
 
         IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();

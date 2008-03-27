@@ -72,7 +72,7 @@ public class Util {
 	/**
 	 * ID of the ALS Editor
 	 */
-	public static String ALS_EDITOR_ID = "fr.univartois.cril.alloyplugin.editor.ALSEditor";//$NON-NLS-1$
+	public static final String ALS_EDITOR_ID = "fr.univartois.cril.alloyplugin.editor.ALSEditor";//$NON-NLS-1$
 	
 	public static IEditorPart openALSEditor(final IWorkbenchPage page, final IFile file) throws PartInitException {
 		final IEditorInput editorInput = new FileEditorInput(file);

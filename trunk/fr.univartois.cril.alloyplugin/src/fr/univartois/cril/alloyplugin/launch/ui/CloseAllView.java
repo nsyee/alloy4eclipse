@@ -37,8 +37,6 @@ public class CloseAllView extends SelectionProviderAction {
 
 	private TreeViewer viewer;
 
-	private IStructuredSelection selection;
-
 	private boolean commandRootSelected;
 
 	private IALSCommand ialsc;
@@ -59,7 +57,6 @@ public class CloseAllView extends SelectionProviderAction {
 
 	public void selectionChanged(IStructuredSelection selection) {
 		commandRootSelected = false;
-		this.selection = selection;
 		if (selection.isEmpty())
 			commandRootSelected = true;
 		else {
