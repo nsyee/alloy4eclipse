@@ -200,9 +200,12 @@ public class ALSEditor extends TextEditor {
 	class MyCloseListener implements DisposeListener {
 
 		public void widgetDisposed(DisposeEvent event) {
-			List<IALSCommand> commandes = getALSFile().getCommand();
-			for (IALSCommand c : commandes) {
-				c.closeYourView();
+			IALSFile file = getALSFile();
+			if (file != null) {
+				List<IALSCommand> commandes = file.getCommand();
+				for (IALSCommand c : commandes) {
+					c.closeYourView();
+				}
 			}
 		}
 
