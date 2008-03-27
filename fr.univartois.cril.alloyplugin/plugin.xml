@@ -179,7 +179,6 @@
                </with>
             </enablement>
          </contextualLaunch>
-         <perspective id="fr.univartois.cril.alloyplugin.alloyperspective"/>
       </shortcut>
    </extension>
 
@@ -203,16 +202,6 @@
       <category
             id="fr.univartois.cril.alloyplugin.launch.category"
             name="Alloy"/>
-      <activeKeyConfiguration value="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <category name="A4E Accelerator Keys" id="fr.univartois.cril.alloyplugin.category1"/>
-         <command category="fr.univartois.cril.alloyplugin.category1"
-             name="Open Sample Models"
-             id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"/>
-         <keyBinding
-             command="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
-             string="Ctrl+Alt+O"
-             scope="org.eclipse.ui.globalScope"
-             configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
    </extension>
    <extension
          point="org.eclipse.ui.commandImages">
