@@ -49,7 +49,6 @@ public final class Reporter extends IReporter{
 	@Override public void resultCNF(final String filename) {
 		printInfo("CNF file written to "+filename+"\n");
 	}
-	@SuppressWarnings("deprecation")
 	@Override public void resultSAT
 	(Object command, long solvingTime, Object solution) {
 		Command cmd = (Command)command;
@@ -65,7 +64,6 @@ public final class Reporter extends IReporter{
 		print(sb.toString());
 		updateExecCommand(true,sb.toString());
 	}
-	@SuppressWarnings("deprecation")
 	@Override public void resultUNSAT
 	(Object command, long solvingTime, Object solution) {    	
 		Command cmd = (Command)command;
