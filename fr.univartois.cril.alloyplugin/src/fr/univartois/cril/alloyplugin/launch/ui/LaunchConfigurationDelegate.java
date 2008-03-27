@@ -24,7 +24,8 @@ public class LaunchConfigurationDelegate implements
 ILaunchConfigurationDelegate {
 
 
-	public void launch(ILaunchConfiguration configuration, String mode,
+	@SuppressWarnings("unchecked")
+    public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 
 		IALSFile file=null;

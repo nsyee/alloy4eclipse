@@ -97,7 +97,8 @@ public class VizView extends ViewPart implements ICommandListener {
 	
 	private A4Solution ans;
 	
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	public Object getAdapter(Class adapter) {
 		if (adapter == VizView.class)
 			return this;
