@@ -21,5 +21,5 @@ public class PreferenceConstants {
 	public static final String V_SOLVER_ZChaffJNI = "ZChaffJNI";
 	public static final String V_SOLVER_MiniSatProverJNI = "MiniSatProverJNI";
 	public static final String V_SOLVER_MiniSatProverUnsatCore = "MiniSatProverUnsatCore";
-	
+	public static final String CLOSE_VIEW_UNSAT = "CloseVizViewWhenUnsat";
 }

@@ -30,6 +30,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		store.setDefault(PreferenceConstants.P_DOT_PATH, defaultDir+"/dotbin");
 		store.setDefault(PreferenceConstants.P_SOLVERS_PATH, defaultDir);
 		store.setDefault(PreferenceConstants.P_A4_SAMPLE_MODELS_PATH, Helper.alloyHome()+"/models");
+		store.setDefault(PreferenceConstants.CLOSE_VIEW_UNSAT, false);
 	}
 
 }
