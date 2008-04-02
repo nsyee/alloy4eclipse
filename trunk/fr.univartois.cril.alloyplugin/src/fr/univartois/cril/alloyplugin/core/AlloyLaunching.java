@@ -45,321 +45,327 @@ import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
  */
 public class AlloyLaunching {
 
-    private AlloyLaunching() {
+	private AlloyLaunching() {
 
-    }
+	}
 
-    /**
-     * Execute an ExecutableCommand previously created after a parsing.
-     */
-    public static final void execCommand(IALSCommand command) {
-        assert (command != null);
-        IReporter rep = new Reporter(command.getResource());
-        execCommand(command, rep);
-    }
+	/**
+	 * Execute an ExecutableCommand previously created after a parsing.
+	 */
+	public static final void execCommand(IALSCommand command) {
+		assert (command != null);
+		IReporter rep = new Reporter(command.getResource());
+		execCommand(command, rep);
+	}
 
-    /**
-     * Parse a als file.
-     * 
-     * @return an array (can be empty if there is no command in the file.)
-     */
-    public void launchParser(IALSFile file) {
-        if (file == null || !file.getResource().exists())
-            return;
-        IResource res = file.getResource();
-        try {
-            res.deleteMarkers(Util.ALLOYPROBLEM, false, 0);
-        } catch (CoreException e) {
-            e.printStackTrace();
-        }
-        Reporter rep = new Reporter(res);
+	/**
+	 * Parse a als file.
+	 * 
+	 * @return an array (can be empty if there is no command in the file.)
+	 */
+	public void launchParser(IALSFile file) {
+		if (file == null || !file.getResource().exists())
+			return;
+		IResource res = file.getResource();
+		try {
+			res.deleteMarkers(Util.ALLOYPROBLEM, false, 0);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		Reporter rep = new Reporter(res);
 
-        try {
-            AlloyLaunching.parse(file, rep);
-        } catch (Err e) {
-            displayErrorInProblemView(res, e);
-        }
-    }
+		try {
+			AlloyLaunching.parse(file, rep);
+		} catch (Err e) {
+			displayErrorInProblemView(res, e);
+		}
+	}
 
-    /**
-     * Parse one file.(not its subfiles) Don't update associated ALSFile.
-     */
-    public List<Command> parseOneFile(IResource resource) {
-        if (!resource.exists())
-            return null;
-        try {
-            resource.deleteMarkers(Util.ALLOYPROBLEM, false, 0);
-        } catch (CoreException e) {
-            e.printStackTrace();
-        }
-        List<Command> list = null;
-        try {
-            list = CompUtil.parseOneModule_fromFile(resource.getLocation()
-                    .toString());
-        } catch (Err e) {
-            displayErrorInProblemView(resource, e);
-        }
-        return list;
+	/**
+	 * Parse one file.(not its subfiles) Don't update associated ALSFile.
+	 */
+	public List<Command> parseOneFile(IResource resource) {
+		if (!resource.exists())
+			return null;
+		try {
+			resource.deleteMarkers(Util.ALLOYPROBLEM, false, 0);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		List<Command> list = null;
+		try {
+			list = CompUtil.parseOneModule_fromFile(resource.getLocation()
+					.toString());
+		} catch (Err e) {
+			displayErrorInProblemView(resource, e);
+		}
+		return list;
 
-    }
+	}
 
-    /**
-     * Displays an Err exception in problem view, except if it starts with
-     * "Solver fatal exception".
-     */
-    public static void displayErrInProblemView(IResource res, Err e,
-            int severity) {
-        if (e.msg.startsWith("Solver fatal exception")) {
-            displaySolverFatalError();
-        } else {
+	/**
+	 * Displays an Err exception in problem view, except if it starts with
+	 * "Solver fatal exception".
+	 */
+	public static void displayErrInProblemView(IResource res, Err e,
+			int severity) {
+		if (e.msg.startsWith("Solver fatal exception")) {
+			displaySolverFatalError();
+		} else {
 
-            res = getResourceFromErr(res, e);
-            try {
-                IMarker marker = res.createMarker(Util.ALLOYPROBLEM);
-                marker.setAttribute(IMarker.SEVERITY, severity);
-                marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
-                marker.setAttribute(IMarker.MESSAGE, e.msg);
-            } catch (CoreException e1) {
-                e1.printStackTrace();
-            }
-        }
-    }
+			res = getResourceFromErr(res, e);
+			try {
+				IMarker marker = res.createMarker(Util.ALLOYPROBLEM);
+				marker.setAttribute(IMarker.SEVERITY, severity);
+				marker.setAttribute(IMarker.LINE_NUMBER, e.pos.y);
+				marker.setAttribute(IMarker.MESSAGE, e.msg);
+			} catch (CoreException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
 
-    /**
-     * Display a solver fatal error in a SWT thread.
-     */
-    private static void displaySolverFatalError() {
-        Display display = PlatformUI.getWorkbench().getDisplay();
-        if (display != null)
-            display.asyncExec(new Runnable() {
-                public void run() {
-                    String solverName = AlloyPlugin.getDefault()
-                            .getPreferenceStore().getString(
-                                    PreferenceConstants.P_SOLVER_CHOICE);
-                    Shell shell = new Shell();
-                    MessageDialog.openInformation(shell, "Alloy Plug-in",
-                            "\nSolver fatal exception: " + solverName
-                                    + " maybe not found.");
-                }
-            });
-    }
+	/**
+	 * Display a solver fatal error in a SWT thread.
+	 */
+	private static void displaySolverFatalError() {
+		Display display = PlatformUI.getWorkbench().getDisplay();
+		if (display != null)
+			display.asyncExec(new Runnable() {
+				public void run() {
+					String solverName = AlloyPlugin.getDefault()
+							.getPreferenceStore().getString(
+									PreferenceConstants.P_SOLVER_CHOICE);
+					Shell shell = new Shell();
+					MessageDialog.openInformation(shell, "Alloy Plug-in",
+							"\nSolver fatal exception: " + solverName
+									+ " maybe not found.");
+				}
+			});
+	}
 
-    public static void displayErrorInProblemView(IResource res, Err e) {
-        displayErrInProblemView(res, e, IMarker.SEVERITY_ERROR);
-    }
+	public static void displayErrorInProblemView(IResource res, Err e) {
+		displayErrInProblemView(res, e, IMarker.SEVERITY_ERROR);
+	}
 
-    public static void displayWarningInProblemView(IResource res, Err e) {
-        displayErrInProblemView(res, e, IMarker.SEVERITY_WARNING);
-    }
+	public static void displayWarningInProblemView(IResource res, Err e) {
+		displayErrInProblemView(res, e, IMarker.SEVERITY_WARNING);
+	}
 
-    /**
-     * Get the ressource where the Err is located.
-     */
-    private static IResource getResourceFromErr(IResource res, Err e) {
-        if (e.pos != Pos.UNKNOWN) {
-            if (!e.pos.filename.equals(Util.getFileLocation(res))) {
-                return Util.getFileForLocation(e.pos.filename);
-            }
-        }
-        return res;
-    }
+	/**
+	 * Get the ressource where the Err is located.
+	 */
+	private static IResource getResourceFromErr(IResource res, Err e) {
+		if (e.pos != Pos.UNKNOWN) {
+			if (!e.pos.filename.equals(Util.getFileLocation(res))) {
+				return Util.getFileForLocation(e.pos.filename);
+			}
+		}
+		return res;
+	}
 
-    /**
-     * Parse a .als file. The ALSfile fields are modidied.
-     * 
-     * @throws Err
-     */
-    private static void parse(IALSFile file, IReporter rep) throws Err {
-        IResource res = file.getResource();
-        String filename = res.getLocation().toString();
-        AlloyMessageConsole alloyParserConsole = Console
-                .findAlloyInfoConsole(filename);
-        alloyParserConsole.clear();
-        alloyParserConsole.printInfo("=========== Parsing \"" + filename
-                + "\" =============");
-        Module world;
-        world = CompUtil.parseEverything_fromFile(rep, null, filename);
-        alloyParserConsole.printInfo("=========== End Parsing \"" + filename
-                + "\" =============");
-        updateALSFile(world, file);
-    }
+	/**
+	 * Parse a .als file. The ALSfile fields are modidied.
+	 * 
+	 * @throws Err
+	 */
+	private static void parse(IALSFile file, IReporter rep) throws Err {
+		IResource res = file.getResource();
+		String filename = res.getLocation().toString();
+		AlloyMessageConsole alloyParserConsole = Console
+				.findAlloyInfoConsole(filename);
+		alloyParserConsole.clear();
+		alloyParserConsole.printInfo("=========== Parsing \"" + filename
+				+ "\" =============");
+		Module world;
+		world = CompUtil.parseEverything_fromFile(rep, null, filename);
+		alloyParserConsole.printInfo("=========== End Parsing \"" + filename
+				+ "\" =============");
+		updateALSFile(world, file);
+	}
 
-    /**
-     * Set the fields of an alsFile. (commands, signatures..) fire changed() on
-     * the als file for listeners.
-     */
-    private static void updateALSFile(Module world, IALSFile file) throws Err {
-        // convert all commands in ExecutableCommand[]
-        List<Pair<Command, Expr>> list = world.getAllCommandsWithFormulas();
-        List<IALSCommand> exec_cmds = new ArrayList<IALSCommand>();// new
-        // ExecutableCommand[list.size()];
-        for (Pair<Command, Expr> command : list) {
-            exec_cmds.add(new ExecutableCommand(file, command.a, command.b,
-                    world));
-        }
-        exec_cmds.add(new MetamodelCommand(file, world));
-        file.setCommand(exec_cmds);
-        SafeList<Pair<String, Expr>> factsList = world.getAllFacts();
-        List<IALSFact> facts = new ArrayList<IALSFact>(factsList.size());
-        for (Pair<String, Expr> fact : factsList) {
-            facts.add(new Fact(fact));
-        }
-        file.setFacts(facts);
+	/**
+	 * Set the fields of an alsFile. (commands, signatures..) fire changed() on
+	 * the als file for listeners.
+	 */
+	private static void updateALSFile(Module world, IALSFile file) throws Err {
+		// convert all commands in ExecutableCommand[]
+		List<Pair<Command, Expr>> list = world.getAllCommandsWithFormulas();
+		List<IALSCommand> exec_cmds = new ArrayList<IALSCommand>();// new
+		// ExecutableCommand[list.size()];
+		for (Pair<Command, Expr> command : list) {
+			exec_cmds.add(new ExecutableCommand(file, command.a, command.b,
+					world));
+		}
+		exec_cmds.add(new MetamodelCommand(file, world));
+		file.setCommand(exec_cmds);
+		SafeList<Pair<String, Expr>> factsList = world.getAllFacts();
+		List<IALSFact> facts = new ArrayList<IALSFact>(factsList.size());
+		for (Pair<String, Expr> fact : factsList) {
+			facts.add(new Fact(fact));
+		}
+		file.setFacts(facts);
 
-        SafeList<Func> funcList = world.getAllFunc();
-        List<IALSFunction> funcs = new ArrayList<IALSFunction>(funcList.size());
-        List<IALSPredicate> preds = new ArrayList<IALSPredicate>(funcList
-                .size());
-        for (Func fun : funcList) {
-            if (fun.isPred) {
-                preds.add(new Predicate(fun));
-            } else {
-                funcs.add(new Function(fun));
-            }
-        }
-        file.setFunctions(funcs);
-        file.setPredicates(preds);
-        SafeList<Sig> sigList = world.getAllSigs();
-        List<IALSSignature> sigs = new ArrayList<IALSSignature>(sigList.size());
-        for (Sig sig : sigList) {
-            sigs.add(new Signature(sig));
-        }
-        file.setSignatures(sigs);
+		SafeList<Func> funcList = world.getAllFunc();
+		List<IALSFunction> funcs = new ArrayList<IALSFunction>(funcList.size());
+		List<IALSPredicate> preds = new ArrayList<IALSPredicate>(funcList
+				.size());
+		for (Func fun : funcList) {
+			if (fun.isPred) {
+				preds.add(new Predicate(fun));
+			} else {
+				funcs.add(new Function(fun));
+			}
+		}
+		file.setFunctions(funcs);
+		file.setPredicates(preds);
+		SafeList<Sig> sigList = world.getAllSigs();
+		List<IALSSignature> sigs = new ArrayList<IALSSignature>(sigList.size());
+		for (Sig sig : sigList) {
+			sigs.add(new Signature(sig));
+		}
+		file.setSignatures(sigs);
 
-        ConstList<Pair<String, Expr>> assertList = world.getAllAssertions();
-        List<IALSAssert> assertions = new ArrayList<IALSAssert>(assertList
-                .size());
-        for (Pair<String, Expr> a : assertList) {
-            assertions.add(new Assert(a));
-        }
-        file.setAssertions(assertions);
-        file.fireChange();
-        System.out.println("ALSFile changed:" + file);
-    }
+		ConstList<Pair<String, Expr>> assertList = world.getAllAssertions();
+		List<IALSAssert> assertions = new ArrayList<IALSAssert>(assertList
+				.size());
+		for (Pair<String, Expr> a : assertList) {
+			assertions.add(new Assert(a));
+		}
+		file.setAssertions(assertions);
+		file.fireChange();
+		System.out.println("ALSFile changed:" + file);
+	}
 
-    /**
-     * Execute a command. The command is modified. Some informations can be show
-     * to console.
-     */
-    private static final void execCommand(IALSCommand command, IReporter rep) {
-        AlloyMessageConsole alloyConsole = Console.findAlloyConsole(command
-                .getFilename());
-        alloyConsole.activate();
-        try {
-            long beginTime = System.currentTimeMillis();
-            alloyConsole.printInfo("============ Command " + command
-                    + ": ============");
-            command.execute(rep);
-            long endTime = System.currentTimeMillis();
-            alloyConsole.printInfo("============ Total time: "
-                    + (endTime - beginTime) + " (ms) ===========");
-            if (AlloyPlugin.getDefault().getPluginPreferences().getBoolean(
-                    PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
-                showAnswer(command);
+	/**
+	 * Execute a command. The command is modified. Some informations can be show
+	 * to console.
+	 */
+	private static final void execCommand(IALSCommand command, IReporter rep) {
+		AlloyMessageConsole alloyConsole = Console.findAlloyConsole(command
+				.getFilename());
+		alloyConsole.activate();
+		try {
+			long beginTime = System.currentTimeMillis();
+			alloyConsole.printInfo("============ Command " + command
+					+ ": ============");
+			command.execute(rep);
+			long endTime = System.currentTimeMillis();
+			alloyConsole.printInfo("============ Total time: "
+					+ (endTime - beginTime) + " (ms) ===========");
+			if (AlloyPlugin.getDefault().getPluginPreferences().getBoolean(
+					PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
+				showAnswer(command);
 
-        } catch (Err e) {
-            displayErrorInProblemView(command.getResource(), e);
-        }
+		} catch (Err e) {
+			displayErrorInProblemView(command.getResource(), e);
+		}
 
-    }
+	}
 
-    public static void showAnswer(IALSCommand command) {
-        Pair<A4Solution, Boolean> ans = command.getAns();
+	public static void showAnswer(IALSCommand command) {
+		Pair<A4Solution, Boolean> ans = command.getAns();
 
-        AlloyMessageConsole alloyConsole = Console.findAlloyConsole(command
-                .getFilename());
-        alloyConsole.activate();
+		AlloyMessageConsole alloyConsole = Console.findAlloyConsole(command
+				.getFilename());
+		alloyConsole.activate();
 
-        if (ans != null) {
-            alloyConsole.printInfo("============ Answer ============");
-            if (ans.a != null)
-                alloyConsole.print(ans.a.toString());
+		if (ans != null) {
+			alloyConsole.printInfo("============ Answer ============");
+			if (ans.a != null)
+				alloyConsole.print(ans.a.toString());
 
-            if (!AlloyLaunching.hasSuccessfulAnswer(ans)) {
-                alloyConsole
-                        .printInfo("Cannot display graph : Answer not satisfiable");
-            } else {
-                command.displayAnsSafe();
-            }
-        } else
-            alloyConsole.printInfo("No answer yet");
+			if (!AlloyLaunching.hasSuccessfulAnswer(ans)) {
 
-    }
+				// @author lionel desruelles
+				if (AlloyPlugin.getDefault().getPluginPreferences().getBoolean(
+						PreferenceConstants.CLOSE_VIEW_UNSAT))
+					command.closeOldVizView();
 
-    /**
-     * Old method for saving the answer in a temporary file and visualize it.
-     * 
-     * @param ans
-     * @throws Err
-     */
-    @Deprecated
-    public static void displayAns(A4Solution ans) throws Err {
-        // GraphView.Visualize(ans);
-        ans.writeXML("output.xml");
-        //
-        // You can then visualize the XML file by calling this:
-        VizGUI viz = new VizGUI(false, "", null);
-        viz.loadXML("output.xml", true);
-    }
+				alloyConsole
+						.printInfo("Cannot display graph : Answer not satisfiable");
+			} else {
+				command.displayAnsSafe();
+			}
+		} else
+			alloyConsole.printInfo("No answer yet");
 
-    public static boolean hasSuccessfulAnswer(Pair<A4Solution, Boolean> ans) {
-        if (null == ans)
-            return false;
-        if (null == ans.a)
-            return ans.b;
-        return ans.a.satisfiable();
-    }
+	}
 
-    public static String getResourcePartName(IResource res) {
-        if (null == res)
-            return "";
-        IPath rpath = res.getFullPath();
-        String[] segments = rpath.segments();
-        StringBuffer partNameBuffer = new StringBuffer();
-        partNameBuffer.append(rpath.lastSegment());
-        for (int i = segments.length - 2; i > 0; --i) {
-            partNameBuffer.append('<');
-            partNameBuffer.append(segments[i]);
-        }
-        partNameBuffer.append('|');
-        return partNameBuffer.toString();
-    }
+	/**
+	 * Old method for saving the answer in a temporary file and visualize it.
+	 * 
+	 * @param ans
+	 * @throws Err
+	 */
+	@Deprecated
+	public static void displayAns(A4Solution ans) throws Err {
+		// GraphView.Visualize(ans);
+		ans.writeXML("output.xml");
+		//
+		// You can then visualize the XML file by calling this:
+		VizGUI viz = new VizGUI(false, "", null);
+		viz.loadXML("output.xml", true);
+	}
 
-    private static AlloyLaunching instance;
+	public static boolean hasSuccessfulAnswer(Pair<A4Solution, Boolean> ans) {
+		if (null == ans)
+			return false;
+		if (null == ans.a)
+			return ans.b;
+		return ans.a.satisfiable();
+	}
 
-    public static synchronized AlloyLaunching instance() {
-        if (instance == null) {
-            instance = new AlloyLaunching();
-        }
-        return instance;
-    }
+	public static String getResourcePartName(IResource res) {
+		if (null == res)
+			return "";
+		IPath rpath = res.getFullPath();
+		String[] segments = rpath.segments();
+		StringBuffer partNameBuffer = new StringBuffer();
+		partNameBuffer.append(rpath.lastSegment());
+		for (int i = segments.length - 2; i > 0; --i) {
+			partNameBuffer.append('<');
+			partNameBuffer.append(segments[i]);
+		}
+		partNameBuffer.append('|');
+		return partNameBuffer.toString();
+	}
 
-    /**
-     * Check the resource if it's a file and ends by ".als" .
-     */
-    public void parseALSFile(IResource resource) {
-        if (resource instanceof IFile && resource.getName().endsWith(".als")) {
+	private static AlloyLaunching instance;
 
-            parseOneFile(resource);
-        }
-    }
+	public static synchronized AlloyLaunching instance() {
+		if (instance == null) {
+			instance = new AlloyLaunching();
+		}
+		return instance;
+	}
 
-    /**
-     * Evaluate et modifie the .
-     */
-    public void parseALSFileFull(IResource resource) {
-        if (resource instanceof IFile && resource.getName().endsWith(".als")) {
-            IALSFile file = ALSFileFactory.instance().getIALSFile(resource);
-            if (file != null)
-                launchParser(file);
-        }
-    }
+	/**
+	 * Check the resource if it's a file and ends by ".als" .
+	 */
+	public void parseALSFile(IResource resource) {
+		if (resource instanceof IFile && resource.getName().endsWith(".als")) {
 
-    /**
-     * when a .als file is removed.
-     */
-    public void removeALSFile(IResource resource) {
-        ALSFileFactory.instance().remove(resource);
+			parseOneFile(resource);
+		}
+	}
 
-    }
+	/**
+	 * Evaluate et modifie the .
+	 */
+	public void parseALSFileFull(IResource resource) {
+		if (resource instanceof IFile && resource.getName().endsWith(".als")) {
+			IALSFile file = ALSFileFactory.instance().getIALSFile(resource);
+			if (file != null)
+				launchParser(file);
+		}
+	}
+
+	/**
+	 * when a .als file is removed.
+	 */
+	public void removeALSFile(IResource resource) {
+		ALSFileFactory.instance().remove(resource);
+
+	}
 }

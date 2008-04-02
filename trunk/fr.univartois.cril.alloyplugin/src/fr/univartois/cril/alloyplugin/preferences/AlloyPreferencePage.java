@@ -47,6 +47,13 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
                 PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND,
                 "Clear console output before launching a command",
                 getFieldEditorParent()));
+        
+        //@author lionel desruelles
+        addField(new BooleanFieldEditor(
+        		PreferenceConstants.CLOSE_VIEW_UNSAT,
+        		"Remove old VizWiew when an assertion has no longer a counter example",
+        		getFieldEditorParent()));
+        
         addField(new RadioGroupFieldEditor(
                 PreferenceConstants.P_SOLVER_CHOICE,
                 "Choose solver for commands:",
