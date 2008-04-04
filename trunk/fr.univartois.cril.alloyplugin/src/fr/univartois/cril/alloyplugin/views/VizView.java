@@ -49,6 +49,8 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.ViewPart;
 import org.xml.sax.InputSource;
 
+import sun.misc.FpUtils;
+
 import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
@@ -71,19 +73,18 @@ import fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage;
 
 public class VizView extends ViewPart implements ICommandListener {
 
+	public static final String PDF_GRAPH = "pdf";
+	public static final String PNG_GRAPH = "png";
+
 	private VizGUI[] viz = new VizGUI[1];
 	private Action editorAction1;
-	private IAction saveAsTheme;
-
-	/* Action linked to the button next */
-	private IAction editorAction6;
-
-	private IAction editorAction7;
-
-	private IAction editorAction5;
-	private IAction editorAction4;
-	private IAction editorAction3;
 	private IAction editorAction2;
+	private IAction editorAction3;
+	private IAction editorAction4;
+	/* Action linked to the button next */
+	private IAction editorAction5;
+	private IAction editorAction6;
+	private IAction saveAsTheme;
 
 	private String filename;
 	private String titlename;
@@ -94,11 +95,11 @@ public class VizView extends ViewPart implements ICommandListener {
 	 * in ExecutableCommand
 	 */
 	public INextable execCmd;
-	
+
 	private A4Solution ans;
-	
+
 	@SuppressWarnings("unchecked")
-    @Override
+	@Override
 	public Object getAdapter(Class adapter) {
 		if (adapter == VizView.class)
 			return this;
@@ -115,33 +116,29 @@ public class VizView extends ViewPart implements ICommandListener {
 
 	@Override
 	public void createPartControl(Composite arg0) {
-		swingintegration.example.Platform
-				.createComposite(
-						arg0,
-						this.getSite().getShell().getDisplay(),
-						new swingintegration.example.SwingComponentConstructor() {
-							public JComponent createSwingComponent() {
-								/*
-								 * The VizGUI constructor has several formal
-								 * parameters. For clarity purposes, we use the
-								 * formal parameter names to distinguish the
-								 * role of each actual parameter since the
-								 * values are indistinguishable
-								 */
-								boolean standalone = false;
-								String xmlFileName = "";
-								JMenu windowmenu = null;
-								Computer enumerator = null;
-								Computer evaluator = null;
-								boolean makeWindow = false;
+		swingintegration.example.Platform.createComposite(arg0, this.getSite()
+				.getShell().getDisplay(),
+				new swingintegration.example.SwingComponentConstructor() {
+					public JComponent createSwingComponent() {
+						/*
+						 * The VizGUI constructor has several formal parameters.
+						 * For clarity purposes, we use the formal parameter
+						 * names to distinguish the role of each actual
+						 * parameter since the values are indistinguishable
+						 */
+						boolean standalone = false;
+						String xmlFileName = "";
+						JMenu windowmenu = null;
+						Computer enumerator = null;
+						Computer evaluator = null;
+						boolean makeWindow = false;
 
-								viz[0] = new VizGUI(standalone, xmlFileName,
-										windowmenu, enumerator, evaluator,
-										makeWindow);
+						viz[0] = new VizGUI(standalone, xmlFileName,
+								windowmenu, enumerator, evaluator, makeWindow);
 
-								return viz[0].getPanel();
-							}
-						});
+						return viz[0].getPanel();
+					}
+				});
 		restoreState();
 		if (filename != null) {
 			fillWithVizPanel(filename, titlename,
@@ -296,28 +293,7 @@ public class VizView extends ViewPart implements ICommandListener {
 		editorAction3.setImageDescriptor(ALSImageRegistry
 				.getImageDescriptor(ALSImageRegistry.LAUNCH_A4_ICON_ID));
 
-		/**
-		 * Adapted from a suggestion by Felix Chang.
-		 * 
-		 * @link http://groups.yahoo.com/group/alloy-discuss/message/1122
-		 * @author Nicolas.Rouquette@jpl.nasa.gov
-		 */
 		editorAction4 = new Action() {
-			public void run() {
-				try {
-					saveCurrentVisualizationAsDOTFile();
-				} catch (Exception e) {
-					AlloyPlugin.getDefault().log(e);
-				}
-			}
-		};
-		editorAction4.setText("Save Alloy4 visualization DOT file");
-		editorAction4
-				.setToolTipText("Save the current Alloy4 instance visualization as a DOT file");
-		editorAction4.setImageDescriptor(ALSImageRegistry
-				.getImageDescriptor(ALSImageRegistry.THEME_EXPORT_DOT_ICON_ID));
-
-		editorAction5 = new Action() {
 			public void run() {
 				try {
 					saveCurrentVisualizationAsImageFile();
@@ -326,10 +302,10 @@ public class VizView extends ViewPart implements ICommandListener {
 				}
 			}
 		};
-		editorAction5.setText("Save Alloy4 visualization converted image file");
-		editorAction5
-				.setToolTipText("Save the current Alloy4 instance visualization as a dot-converted image file");
-		editorAction5.setImageDescriptor(PlatformUI.getWorkbench()
+		editorAction4.setText("Save Alloy4 visualization converted image file");
+		editorAction4
+				.setToolTipText("Save the current Alloy4 instance visualization as a pdf or png converted image file");
+		editorAction4.setImageDescriptor(PlatformUI.getWorkbench()
 				.getSharedImages().getImageDescriptor(
 						IDE.SharedImages.IMG_OBJS_TASK_TSK));
 
@@ -337,35 +313,35 @@ public class VizView extends ViewPart implements ICommandListener {
 		/*
 		 * @author romuald druelle
 		 */
-		editorAction6 = new Action() {
+		editorAction5 = new Action() {
 			public void run() {
 				execCmd.showNextA4Solution();
 			}
 		};
 
-		editorAction6.setText("Show the next solution");
-		editorAction6.setToolTipText("Show the next solution");
-		editorAction6.setImageDescriptor(ALSImageRegistry
+		editorAction5.setText("Show the next solution");
+		editorAction5.setToolTipText("Show the next solution");
+		editorAction5.setImageDescriptor(ALSImageRegistry
 				.getImageDescriptor(ALSImageRegistry.NEXT_A4SOLUTION_ICON_ID));
 
 		/* Button evaluator */
 		/*
-		 * @author lionel desruelles
-		 * @author romuald druelle
+		 * @author lionel desruelles @author romuald druelle
 		 */
-		editorAction7 = new Action() {
+		editorAction6 = new Action() {
 			public void run() {
-				AlloyEvaluatorConsole evaluator = Console.findAlloyEvaluatorConsole(filename);
+				AlloyEvaluatorConsole evaluator = Console
+						.findAlloyEvaluatorConsole(filename);
 				evaluator.activate();
 				evaluator.clear();
 				evaluator.showHeader();
-				ans=execCmd.accessAns();
-				evaluator.readConsole(execCmd.getWorld(),ans);
+				ans = execCmd.accessAns();
+				evaluator.readConsole(execCmd.getWorld(), ans);
 			}
 		};
-		editorAction7.setText("Open the Alloy evaluator");
-		editorAction7.setToolTipText("Open the Alloy evaluator");
-		editorAction7.setImageDescriptor(ALSImageRegistry
+		editorAction6.setText("Open the Alloy evaluator");
+		editorAction6.setToolTipText("Open the Alloy evaluator");
+		editorAction6.setImageDescriptor(ALSImageRegistry
 				.getImageDescriptor(ALSImageRegistry.EVALUATOR_ICON_ID));
 
 		saveAsTheme = new Action() {
@@ -425,7 +401,6 @@ public class VizView extends ViewPart implements ICommandListener {
 		manager.add(editorAction4);
 		manager.add(editorAction5);
 		manager.add(editorAction6);
-		manager.add(editorAction7);
 		manager.add(saveAsTheme);
 	}
 
@@ -436,7 +411,6 @@ public class VizView extends ViewPart implements ICommandListener {
 		manager.add(editorAction4);
 		manager.add(editorAction5);
 		manager.add(editorAction6);
-		manager.add(editorAction7);
 		manager.add(saveAsTheme);
 	}
 
@@ -615,119 +589,43 @@ public class VizView extends ViewPart implements ICommandListener {
 
 	public IPath saveCurrentVisualizationAsImageFile() throws IOException,
 			CoreException, Err {
-		IPath dotFile = produceDotFile(viz[0]);
-
-		IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();
-		IResource dotResource = wksroot.getContainerForLocation(dotFile);
-		if (null != dotResource && dotResource.getProject().isAccessible()) {
-			IContainer dotFolder = dotResource.getParent();
-			dotFolder.refreshLocal(IResource.DEPTH_ONE, null);
-			AlloyPlugin.getDefault()
-					.logInfo(
-							"DOT workspace file saved as: "
-									+ dotResource.getFullPath());
-		} else {
-			AlloyPlugin.getDefault().logInfo(
-					"DOT external file saved as: " + dotFile);
-		}
-
 		String conversion = AlloyPreferencePage
-				.getShowDOTConversionMessagesPreference();
-		IPath imageFile = dotConvert(dotFile, conversion);
-		if (null != imageFile) {
-			AlloyPlugin.getDefault().logInfo(
-					"DOT 2 " + conversion + " succeeded.");
-		}
-
-		return dotFile;
+				.getShowGraphConversionMessagesPreference();
+		return dotConvert(new Path(viz[0].getXMLfilename()), conversion);
 	}
 
-	private IPath produceDotFile(VizGUI viz) throws IOException, Err {
-		AlloyInstance instance = StaticInstanceReader.parseInstance(new File(
-				viz.getXMLfilename()));
-		VizState theme = new VizState(instance);
-		String themeFilename = viz.getThemeFilename();
-		File themeFile = new File(themeFilename);
-		if (themeFile.canRead()) {
-			StaticThemeReaderWriter.readAlloy(themeFilename, theme);
-		}
-		String dot = StaticGraphMaker.produceGraph(instance, theme, null)
-				.write();
-		IPath dotFile = new Path(viz.getXMLfilename()).removeFileExtension()
-				.addFileExtension("dot");
-		File f = dotFile.toFile();
-		if (f.exists()) {
-			f.delete();
-		}
-		f = null;
-		FileWriter fw = new FileWriter(dotFile.toString());
-		BufferedWriter bw = new BufferedWriter(fw);
-		bw.write(dot);
-		bw.flush();
-		bw.close();
-		return dotFile;
-	}
-
-	public IPath dotConvert(IPath dotFile, String conversion)
+	public IPath dotConvert(IPath xmlFile, String conversion)
 			throws IOException, CoreException {
-		IPath outFile = dotFile.removeFileExtension().addFileExtension(
+		String[] nonSupported = { "ps", "dia", "jpeg", "gif" };
+		for (String format : nonSupported) {
+			if (format.equals(conversion)) {
+				throw new IllegalArgumentException(
+						"Format non longer supported: " + format);
+			}
+		}
+		IPath graphFile = xmlFile.removeFileExtension().addFileExtension(
 				conversion);
-		String[] command = new String[] {
-				AlloyPreferencePage.getDotBinaryPath(), "-T" + conversion,
-				"-o", outFile.toString(), dotFile.toString() };
+		if (PDF_GRAPH.equals(conversion)) {
+			viz[0].getViewer().alloySaveAsPDF(graphFile.toString(),
+					AlloyPreferencePage.getResolutionGraph());
+		} else if (PNG_GRAPH.equals(conversion)) {
+			double myScale = AlloyPreferencePage.getWidthGraph()
+					/ viz[0].getViewer().getWidth();
+			viz[0].getViewer().alloySaveAsPNG(graphFile.toString(), myScale,
+					AlloyPreferencePage.getResolutionGraph(),
+					AlloyPreferencePage.getResolutionGraph());
 
-		Process proc = Runtime.getRuntime().exec(command);
-		BufferedReader procOutput = new BufferedReader(new InputStreamReader(
-				proc.getErrorStream()));
-		try {
-			proc.waitFor();
-			String line;
-			while ((line = procOutput.readLine()) != null) {
-				AlloyPlugin.getDefault().logInfo(line);
-			}
-			if (0 != proc.exitValue()) {
-				AlloyPlugin.getDefault().logInfo(
-						"DOT to " + conversion + " conversion command failed: "
-								+ String.valueOf(command));
-				return null;
-			}
-		} catch (InterruptedException e) {
-			AlloyPlugin.getDefault().log(e);
-			return null;
-		} finally {
-		    procOutput.close();
+		} else {
+			throw new IllegalArgumentException("Format unknown " + conversion);
 		}
 
 		IWorkspaceRoot wksroot = ResourcesPlugin.getWorkspace().getRoot();
-		IResource outResource = wksroot.getContainerForLocation(outFile);
-		if (null != outResource && outResource.getProject().isAccessible()) {
-			IContainer dotFolder = outResource.getParent();
+		IResource graphResource = wksroot.getContainerForLocation(graphFile);
+		if (null != graphResource && graphResource.getProject().isAccessible()) {
+			IContainer dotFolder = graphResource.getParent();
 			dotFolder.refreshLocal(IResource.DEPTH_ONE, null);
-			AlloyPlugin.getDefault().logInfo(
-					conversion + " workspace file saved as: "
-							+ outResource.getFullPath());
-		} else {
-			AlloyPlugin.getDefault().logInfo(
-					conversion + " external file saved as: " + outFile);
 		}
-
-		return outFile;
-	}
-
-	public IPath saveCurrentVisualizationAsDOTFile() throws IOException,
-			CoreException, Err {
-
-		IPath dotFile = produceDotFile(viz[0]);
-
-		if (refreshProjectManager(dotFile)) {
-			AlloyPlugin.getDefault().logInfo(
-					"DOT workspace file saved as: " + dotFile);
-		} else {
-			AlloyPlugin.getDefault().logInfo(
-					"DOT external file saved as: " + dotFile);
-		}
-
-		return dotFile;
+		return graphFile;
 	}
 
 	@Override
