@@ -64,9 +64,11 @@ public class AlloyLaunching {
 	 * @return an array (can be empty if there is no command in the file.)
 	 */
 	public void launchParser(IALSFile file) {
-		if (file == null || !file.getResource().exists())
+		if (file == null) 
 			return;
 		IResource res = file.getResource();
+		if (res == null|| !res.exists())
+			return;
 		try {
 			res.deleteMarkers(Util.ALLOYPROBLEM, false, 0);
 		} catch (CoreException e) {
@@ -170,8 +172,7 @@ public class AlloyLaunching {
 	 * @throws Err
 	 */
 	private static void parse(IALSFile file, IReporter rep) throws Err {
-		IResource res = file.getResource();
-		String filename = res.getLocation().toString();
+		String filename = file.getFilename();
 		AlloyMessageConsole alloyParserConsole = Console
 				.findAlloyInfoConsole(filename);
 		alloyParserConsole.clear();

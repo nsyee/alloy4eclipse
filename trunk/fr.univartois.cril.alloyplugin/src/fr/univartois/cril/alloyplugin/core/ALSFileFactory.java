@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
 
 import fr.univartois.cril.alloyplugin.api.IALSFactory;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
@@ -19,6 +20,10 @@ public class ALSFileFactory implements IALSFactory {
 
     private ALSFileFactory() {
         
+    }
+    
+    public IALSFile getIALSFile(IPath resourceLocation) {
+    	return new ExternalALSFile(resourceLocation);
     }
     
     /*
@@ -63,6 +68,10 @@ public class ALSFileFactory implements IALSFactory {
             instance = new ALSFileFactory();
         }
         return instance;
+    }
+    
+    public IALSFile getALSFile(IPath resourceLocation) {
+    	return instance().getIALSFile(resourceLocation);
     }
     
     /**
