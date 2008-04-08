@@ -44,11 +44,16 @@ public class Util {
 
 	public static String getFileLocation(IResource resource){		
 		assert(resource!=null);
-		IPath loc = resource.getLocation();
-		if(loc!=null)
-			return loc.toOSString();
+		return getFileLocation(resource.getLocation());
+		
+	}
+	
+	public static String getFileLocation(IPath resourceLoc){		
+		if(resourceLoc!=null)
+			return resourceLoc.toOSString();
 		return null;
 	}
+	
 	/**
 	 * Get a file from a absolute location. (I think) 
 	 */

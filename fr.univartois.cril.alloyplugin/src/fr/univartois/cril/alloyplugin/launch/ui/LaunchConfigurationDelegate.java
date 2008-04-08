@@ -12,7 +12,6 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
-import fr.univartois.cril.alloyplugin.api.Util;
 import fr.univartois.cril.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.alloyplugin.console.Console;
 import fr.univartois.cril.alloyplugin.core.ALSFileFactory;
@@ -46,7 +45,7 @@ ILaunchConfigurationDelegate {
 		List commandIdList=configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, (List)null);
 		
 		monitor.setTaskName("Running Alloy command");
-		AlloyMessageConsole console = Console.findAlloyConsole(Util.getFileLocation(file.getResource()));
+		AlloyMessageConsole console = Console.findAlloyConsole(file.getFilename());
 		
 		if (AlloyPreferencePage.getClearConsoleForEachCommand()) {
 		    console.clear();

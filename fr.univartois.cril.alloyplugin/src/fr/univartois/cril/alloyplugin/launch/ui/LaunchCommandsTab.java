@@ -146,7 +146,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
         if (label != null) {
             if (currentALSFile != null)
                 label.setText("&From: "
-                        + currentALSFile.getResource().getName());
+                        + currentALSFile.getName());
             else
                 label.setText("&From: ");
         }
@@ -239,7 +239,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
         if (file != null) {
             String name = DebugPlugin.getDefault().getLaunchManager()
                     .generateUniqueLaunchConfigurationNameFrom(
-                            file.getResource().getName());
+                            file.getName());
             configuration.rename(name);
             setdefaultsAttributes(file, configuration);
         }
@@ -252,13 +252,15 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
      */
     public void setdefaultsAttributes(IALSFile file,
             ILaunchConfigurationWorkingCopy configuration) {
-        IResource[] resources = null;
-        resources = new IResource[1];
+        IResource[] resources = new IResource[1];
         resources[0] = file.getResource();
-        configuration.setMappedResources(resources);
+        if (resources[0] != null)
+        	configuration.setMappedResources(resources);
+        else 
+        	configuration.setMappedResources(null);
         configuration.setAttribute(
-                LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, Util
-                        .getFileLocation(file.getResource()));
+                LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, 
+                file.getFilename());
         List<String> list = new ArrayList<String>();
         for (IALSCommand cmd : file.getCommand()) {
             list.add(cmd.getName());
@@ -277,11 +279,12 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
      */
     public void setdefaultsAttributes(List<IALSCommand> cmds,
             ILaunchConfigurationWorkingCopy configuration) {
-        IResource[] resources = null;
-
-        resources = new IResource[1];
+        IResource[] resources = new IResource[1];
         resources[0] = cmds.get(0).getResource();
-        configuration.setMappedResources(resources);
+        if (resources[0] == null)
+        	configuration.setMappedResources(null);
+        else
+        	configuration.setMappedResources(resources);
         configuration.setAttribute(
                 LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, Util
                         .getFileLocation(cmds.get(0).getResource()));

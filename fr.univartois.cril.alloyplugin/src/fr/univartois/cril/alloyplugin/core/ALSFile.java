@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
 
 import fr.univartois.cril.alloyplugin.api.IALSAssert;
 import fr.univartois.cril.alloyplugin.api.IALSCommand;
@@ -16,6 +17,7 @@ import fr.univartois.cril.alloyplugin.api.IALSFunction;
 import fr.univartois.cril.alloyplugin.api.IALSPredicate;
 import fr.univartois.cril.alloyplugin.api.IALSSignature;
 import fr.univartois.cril.alloyplugin.api.IALSTreeDecorated;
+import fr.univartois.cril.alloyplugin.api.Util;
 /**
  * This class represents an als file.  
  * This plugin implements IALSFile.
@@ -27,6 +29,8 @@ public class ALSFile implements IALSFile {
 	public Map<String, IALSCommand> commandsMap=new HashMap<String,IALSCommand>();
 	private List <IALSFileListener>listeners;
 	private IResource resource;
+	private IPath resourceLocation;
+	private String resourceName;
 	public  List<IALSCommand> cmds=new ArrayList<IALSCommand>();
 	public List <IALSPredicate> pred=new ArrayList<IALSPredicate>();
     public List <IALSFact> fact=new ArrayList<IALSFact>();
@@ -35,12 +39,34 @@ public class ALSFile implements IALSFile {
 	public List <IALSAssert> assertions = new ArrayList<IALSAssert>();
 	
 	public ALSFile(IResource resource) {
+		org.eclipse.core.runtime.Assert.isNotNull(resource);
 		this.resource=resource;
+		this.resourceLocation = resource.getLocation();
+		this.resourceName = resource.getName();
 	}
+	
+	public boolean isResourceFile() {
+		return true;
+	}
+	
 	public void dispose(){}
+	
+	public IPath getResourceLocation() {
+		return resourceLocation;
+	}
+	
 	public IResource getResource() {
 		return resource;
 	}
+	
+	public String getFilename() {
+		return Util.getFileLocation(resourceLocation);
+	}
+	
+	public String getName() {
+		return resourceName;
+	}
+	
 	public void addListener(IALSFileListener listener) {
 		if (listener!=null)
 			getListeners().add(listener);

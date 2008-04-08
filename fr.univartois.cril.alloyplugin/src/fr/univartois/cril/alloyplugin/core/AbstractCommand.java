@@ -19,7 +19,6 @@ import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
-import fr.univartois.cril.alloyplugin.api.Util;
 import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
 public abstract class AbstractCommand implements IALSCommand, INextable {
@@ -98,7 +97,7 @@ public abstract class AbstractCommand implements IALSCommand, INextable {
 	 * Get the location of the file where this command is located.
 	 */
 	public String getFilename() {
-		return Util.getFileLocation(file.getResource());
+		return file.getFilename();
 	}
 
 	public IViewPart getViewPart() {

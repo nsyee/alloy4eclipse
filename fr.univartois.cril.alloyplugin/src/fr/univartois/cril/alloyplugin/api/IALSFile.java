@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin.api;
 import java.util.List;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
 
 /**
  * Interface for an Alloy file. Others plugins which wants to use Alloy files
@@ -14,8 +15,16 @@ import org.eclipse.core.resources.IResource;
 
 public interface IALSFile {
 
+	public boolean isResourceFile();
+	
     public IResource getResource();
 
+    public IPath getResourceLocation();
+    
+    public String getFilename();
+    
+    public String getName();
+    
     public List<IALSCommand> getCommand();
 
     public List<IALSPredicate> getPredicates();
