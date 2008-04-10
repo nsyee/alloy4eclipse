@@ -155,7 +155,7 @@
                class="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
                menubarPath="additions"
                enablesFor="+"
-               id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction">
+               definitionId="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction">
          </action>
       </objectContribution>
    </extension>
@@ -181,10 +181,19 @@
          </contextualLaunch>
       </shortcut>
    </extension>
-
-   <extension
-         point="org.eclipse.ui.commands">
-         <command
+   <extension point="org.eclipse.ui.actionSets">
+     <actionSet>
+     
+     </actionSet>
+   </extension>
+   <extension point="org.eclipse.ui.commands">
+     <activeKeyConfiguration value="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+     <category name="A4E Accelerator Keys"
+            id="fr.univartois.cril.alloyplugin.projectAction"/>
+     <category
+            id="fr.univartois.cril.alloyplugin.launch.category"
+            name="Alloy"/>        
+     <command
             categoryId="fr.univartois.cril.alloyplugin.launch.category"
             description="Close All VizView"
             id="fr.univartois.cril.alloyplugin.launch.closeallview"
@@ -199,9 +208,26 @@
             description="Display Alloy answer"
             id="fr.univartois.cril.alloyplugin.launch.displayalloycommandanswer"
             name="Show Alloy answer"/>
-      <category
-            id="fr.univartois.cril.alloyplugin.launch.category"
-            name="Alloy"/>
+      <command
+            categoryId="fr.univartois.cril.alloyplugin.projectAction"
+            description="Open Alloy 4 Sample Models"
+            id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
+            name="Open Sample Models"/>      
+      <command
+            categoryId="fr.univartois.cril.alloyplugin.projectAction"
+            description="Rename an Alloy 4 identifier"
+            id="fr.univartois.cril.alloyplugin.RenameAls"
+            name="Rename A4 Identifier"/>
+      <keyBinding
+            command="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
+            string="Ctrl+Alt+o"
+            scope="org.eclipse.ui.globalScope"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <keyBinding
+            command="fr.univartois.cril.alloyplugin.RenameAls"
+            string="Ctrl+Alt+r"
+            scope="org.eclipse.ui.globalScope"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>          
    </extension>
    <extension
          point="org.eclipse.ui.commandImages">
@@ -282,7 +308,7 @@
        <action label="Rename..." 
                class="fr.univartois.cril.alloyplugin.ui.RenameAls" 
                menubarPath="additions" 
-               id="fr.univartois.cril.alloyplugin.RenameAls"/>
+               definitionId="fr.univartois.cril.alloyplugin.RenameAls"/>
   </viewerContribution>
 </extension>
 </plugin>
