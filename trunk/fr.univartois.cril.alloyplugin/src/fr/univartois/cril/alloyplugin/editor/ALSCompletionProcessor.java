@@ -23,7 +23,7 @@ import fr.univartois.cril.alloyplugin.api.Identifiable;
  */
 public class ALSCompletionProcessor implements IContentAssistProcessor {
 
-    private ALSEditor editor;
+    private final ALSEditor editor;
     
     public ALSCompletionProcessor(ALSEditor editor) {
         this.editor = editor;
@@ -67,7 +67,7 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
 	}
 	
 	public char[] getCompletionProposalAutoActivationCharacters() {
-		return null; // new char[] {  '(' };
+		return null;
 	}
 	
 
