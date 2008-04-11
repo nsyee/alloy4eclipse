@@ -155,7 +155,8 @@
                class="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
                menubarPath="additions"
                enablesFor="+"
-               definitionId="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction">
+               definitionId="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
+               id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction">
          </action>
       </objectContribution>
    </extension>
@@ -180,11 +181,6 @@
             </enablement>
          </contextualLaunch>
       </shortcut>
-   </extension>
-   <extension point="org.eclipse.ui.actionSets">
-     <actionSet>
-     
-     </actionSet>
    </extension>
    <extension point="org.eclipse.ui.commands">
      <activeKeyConfiguration value="org.eclipse.ui.defaultAcceleratorConfiguration"/>
@@ -222,12 +218,12 @@
             command="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
             string="Ctrl+Alt+o"
             scope="org.eclipse.ui.globalScope"
-            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+            keyConfigurationId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
       <keyBinding
             command="fr.univartois.cril.alloyplugin.RenameAls"
             string="Ctrl+Alt+r"
             scope="org.eclipse.ui.globalScope"
-            configuration="org.eclipse.ui.defaultAcceleratorConfiguration"/>          
+            keyConfigurationId="org.eclipse.ui.defaultAcceleratorConfiguration"/>          
    </extension>
    <extension
          point="org.eclipse.ui.commandImages">
@@ -308,7 +304,8 @@
        <action label="Rename..." 
                class="fr.univartois.cril.alloyplugin.ui.RenameAls" 
                menubarPath="additions" 
-               definitionId="fr.univartois.cril.alloyplugin.RenameAls"/>
+               definitionId="fr.univartois.cril.alloyplugin.RenameAls"
+               id="fr.univartois.cril.alloyplugin.RenameAls"/>
   </viewerContribution>
 </extension>
 </plugin>
