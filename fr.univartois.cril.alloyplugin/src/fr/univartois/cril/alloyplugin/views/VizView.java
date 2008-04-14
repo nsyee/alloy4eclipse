@@ -2,12 +2,8 @@ package fr.univartois.cril.alloyplugin.views;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -49,16 +45,10 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.ViewPart;
 import org.xml.sax.InputSource;
 
-import sun.misc.FpUtils;
-
 import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4graph.VizViewer;
-import edu.mit.csail.sdg.alloy4viz.AlloyInstance;
-import edu.mit.csail.sdg.alloy4viz.StaticGraphMaker;
-import edu.mit.csail.sdg.alloy4viz.StaticInstanceReader;
-import edu.mit.csail.sdg.alloy4viz.StaticThemeReaderWriter;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import edu.mit.csail.sdg.alloy4viz.VizState;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;

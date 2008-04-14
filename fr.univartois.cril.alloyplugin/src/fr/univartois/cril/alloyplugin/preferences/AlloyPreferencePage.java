@@ -30,8 +30,7 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 
 	private IntegerFieldEditor widthGraph;
 	private IntegerFieldEditor resolutionGraph;
-	private RadioGroupFieldEditor graphConversion;
-
+	
 	public AlloyPreferencePage() {
 		super(GRID);
 		setPreferenceStore(AlloyPlugin.getDefault().getPreferenceStore());
@@ -83,13 +82,11 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 				PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES,
 				"Show &Debug Messages", getFieldEditorParent()));
 
-		addField(graphConversion = new RadioGroupFieldEditor(
+		addField(new RadioGroupFieldEditor(
 				PreferenceConstants.V_GRAPH_CONVERSION,
 				"Choose graph conversion:", 1, new String[][] { { "pdf", "pdf" }, { "png", "png" } },
 				getFieldEditorParent()));
-		
-		//graphConversion.setPropertyChangeListener(this);
-		
+				
 		widthGraph = new IntegerFieldEditor(PreferenceConstants.WIDTH__GRAPH,
 				"Choose the specific width:", getFieldEditorParent());
 		resolutionGraph = new IntegerFieldEditor(
@@ -154,23 +151,4 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 		return AlloyPlugin.getDefault().getPreferenceStore().getDouble(
 				PreferenceConstants.WIDTH__GRAPH);
 	}
-
-
-	/*public void propertyChange(PropertyChangeEvent arg0) {
-		System.out.println("got " + arg0);
-		if (PDF_GRAPH.equals(arg0.getNewValue())) {
-			resolutionGraph.setEnabled(true, getFieldEditorParent());
-			heightGraph.setEnabled(false, getFieldEditorParent());
-			widthGraph.setEnabled(false, getFieldEditorParent());
-		} else if (PNG_GRAPH.equals(arg0.getNewValue())) {
-			resolutionGraph.setEnabled(true, getFieldEditorParent());
-			widthGraph.setEnabled(true, getFieldEditorParent());
-			heightGraph.setEnabled(true, getFieldEditorParent());
-		} else {
-			widthGraph.setEnabled(false, getFieldEditorParent());
-			heightGraph.setEnabled(false, getFieldEditorParent());
-			resolutionGraph.setEnabled(false, getFieldEditorParent());
-		}
-
-	}*/
 }
