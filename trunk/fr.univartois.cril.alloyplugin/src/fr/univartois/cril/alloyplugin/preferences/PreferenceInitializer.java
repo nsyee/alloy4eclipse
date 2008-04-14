@@ -33,10 +33,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		store.setDefault(PreferenceConstants.V_GRAPH_CONVERSION, "ps");
 		String defaultDir = Helper.alloyHome() + AlloyPlugin.FILE_SEPARATOR
 				+ "binary";
-		/*
-		 * store .setDefault(PreferenceConstants.P_DOT_PATH, defaultDir +
-		 * "/dotbin");
-		 */
 		store.setDefault(PreferenceConstants.P_SOLVERS_PATH, defaultDir);
 		store.setDefault(PreferenceConstants.P_A4_SAMPLE_MODELS_PATH, Helper
 				.alloyHome()
