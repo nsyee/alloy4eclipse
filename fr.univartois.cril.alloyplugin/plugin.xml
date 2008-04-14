@@ -298,9 +298,8 @@
 </extension>
 
 <extension point="org.eclipse.ui.popupMenus">
-
   <viewerContribution targetID="#TextEditorContext" 
-                      id="fr.univartois.cril.alloyplugin.renameAls">
+                      id="fr.univartois.cril.alloyplugin.RenameAls">
        <action label="Rename..." 
                class="fr.univartois.cril.alloyplugin.ui.RenameAls" 
                menubarPath="additions" 
