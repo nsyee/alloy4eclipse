@@ -38,9 +38,10 @@
   <wizard
         category="fr.univartois.cril.alloyplugin"
         class="fr.univartois.cril.alloyplugin.ui.NewAlloyFileWizard"
+        finalPerspective="fr.univartois.cril.alloyplugin.alloyperspective"
         icon="icons/AlloySpec.gif"
         id="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard"
-    name="Alloy 4 Model"
+        name="Alloy 4 Model"
         project="false"/>
   <wizard
         category="fr.univartois.cril.alloyplugin"
@@ -183,9 +184,6 @@
       </shortcut>
    </extension>
    <extension point="org.eclipse.ui.commands">
-     <activeKeyConfiguration value="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-     <category name="A4E Accelerator Keys"
-            id="fr.univartois.cril.alloyplugin.projectAction"/>
      <category
             id="fr.univartois.cril.alloyplugin.launch.category"
             name="Alloy"/>        
@@ -205,25 +203,15 @@
             id="fr.univartois.cril.alloyplugin.launch.displayalloycommandanswer"
             name="Show Alloy answer"/>
       <command
-            categoryId="fr.univartois.cril.alloyplugin.projectAction"
+            categoryId="fr.univartois.cril.alloyplugin.launch.category"
             description="Open Alloy 4 Sample Models"
             id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
             name="Open Sample Models"/>      
       <command
-            categoryId="fr.univartois.cril.alloyplugin.projectAction"
+            categoryId="fr.univartois.cril.alloyplugin.launch.category"
             description="Rename an Alloy 4 identifier"
             id="fr.univartois.cril.alloyplugin.RenameAls"
             name="Rename A4 Identifier"/>
-      <keyBinding
-            command="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
-            string="Ctrl+Alt+o"
-            scope="org.eclipse.ui.globalScope"
-            keyConfigurationId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <keyBinding
-            command="fr.univartois.cril.alloyplugin.RenameAls"
-            string="Ctrl+Alt+r"
-            scope="org.eclipse.ui.globalScope"
-            keyConfigurationId="org.eclipse.ui.defaultAcceleratorConfiguration"/>          
    </extension>
    <extension
          point="org.eclipse.ui.commandImages">
@@ -244,9 +232,6 @@
           modes="run"
           name="Alloy command"
           public="true">
-       <fileExtension
-             default="true"
-             extension="als"/>        
     </launchConfigurationType>
 </extension>
    <extension
@@ -306,5 +291,20 @@
                definitionId="fr.univartois.cril.alloyplugin.RenameAls"
                id="fr.univartois.cril.alloyplugin.RenameAls"/>
   </viewerContribution>
+</extension>
+<extension
+      point="org.eclipse.ui.bindings">
+   <key
+         commandId="fr.univartois.cril.alloyplugin.RenameAls"
+         contextId="org.eclipse.ui.textEditorScope"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+Alt+R">
+   </key>
+   <key
+         commandId="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
+         contextId="org.eclipse.ui.contexts.window"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+Alt+O">
+   </key>
 </extension>
 </plugin>
