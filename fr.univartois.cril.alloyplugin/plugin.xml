@@ -88,7 +88,6 @@
          <action
                label="Show Project Nature"
                class="fr.univartois.cril.alloyplugin.ui.ShowNatureAction"
-               menubarPath="additions"
                enablesFor="+"
                id="fr.univartois.cril.alloyplugin.ShowNatureAction">
          </action>
@@ -139,8 +138,7 @@
                class="fr.univartois.cril.alloyplugin.ui.ToggleNatureAction"
                enablesFor="+"
                id="fr.univartois.cril.alloyplugin.addremovebutton"
-               label="Add/Remove Alloy project Nature"
-               menubarPath="additions">
+               label="Add/Remove Alloy project Nature">
          </action>
       </objectContribution>
    </extension>
@@ -154,7 +152,6 @@
          <action
                label="Open sample models ..."
                class="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
-               menubarPath="additions"
                enablesFor="+"
                definitionId="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
                id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction">
@@ -285,11 +282,12 @@
 <extension point="org.eclipse.ui.popupMenus">
   <viewerContribution targetID="#TextEditorContext" 
                       id="fr.univartois.cril.alloyplugin.RenameAls">
-       <action label="Rename..." 
-               class="fr.univartois.cril.alloyplugin.ui.RenameAls" 
-               menubarPath="additions" 
-               definitionId="fr.univartois.cril.alloyplugin.RenameAls"
-               id="fr.univartois.cril.alloyplugin.RenameAls"/>
+       <action
+             class="fr.univartois.cril.alloyplugin.ui.RenameAls"
+             definitionId="fr.univartois.cril.alloyplugin.RenameAls"
+             id="fr.univartois.cril.alloyplugin.RenameAls"
+             label="Rename..."
+             menubarPath="additions"/>
   </viewerContribution>
 </extension>
 <extension
