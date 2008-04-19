@@ -85,7 +85,7 @@ public class RenameAlsInputPage extends UserInputWizardPage {
 	}
 
 	private void createCbUpdateBundle(final Composite composite) {
-		String texts = "Update all Alloy files in the same bundle";
+		String texts = "Update all Alloy files in the same project";
 		cbUpdateBundle = createCheckbox(composite, texts);
 		cbUpdateBundle.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent event) {
