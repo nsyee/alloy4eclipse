@@ -64,13 +64,17 @@ public class RenameAlsDelegate {
 			final CheckConditionsContext ctxt) {
 		RefactoringStatus result = new RefactoringStatus();
 		pm.beginTask("Checking", 100);
-		IContainer rootContainer;
+		IContainer rootContainer = null;
 		if (info.isAllProjects()) {
 			rootContainer = ResourcesPlugin.getWorkspace().getRoot();
-		} else {
+		} else if (info.isUpdateBundle()) {
 			rootContainer = info.getSourceFile().getProject();
 		}
-		search(rootContainer, result);
+		if (rootContainer != null) {
+			search(rootContainer, result);
+		} else {
+			handleFile(info.getSourceFile(), result);
+		}
 		pm.worked(50);
 
 		if (ctxt != null) {
@@ -187,11 +191,11 @@ public class RenameAlsDelegate {
 				col.add(candidateIndex);
 				notFound = false;
 			}
-			from = candidateIndex + info.getOldName().length(); //+ 1;
+			from = candidateIndex + info.getOldName().length(); // + 1;
 			candidateIndex = content.indexOf(info.getOldName(), from);
 		}
 		if (notFound) {
-			String msg = "Could not find the name in file"
+			String msg = "Could not find "+info.getOldName()+" in file"
 					+ file.getLocation().toOSString();
 			status.addWarning(msg);
 		}
@@ -225,7 +229,9 @@ public class RenameAlsDelegate {
 	private boolean isKeyOccurrence(final String content,
 			final int candidateIndex) {
 		int index = candidateIndex + info.getOldName().length();
-		return (!Character.isJavaIdentifierPart(content.charAt(candidateIndex-1))) && (!Character.isJavaIdentifierPart(content.charAt(index)));
+		return (!Character.isJavaIdentifierPart(content
+				.charAt(candidateIndex - 1)))
+				&& (!Character.isJavaIdentifierPart(content.charAt(index)));
 	}
 
 }
