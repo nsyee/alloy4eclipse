@@ -34,4 +34,5 @@ Export-Package: fr.univartois.cril.alloyplugin,
  fr.univartois.cril.alloyplugin.preferences,
  fr.univartois.cril.alloyplugin.ui,
  fr.univartois.cril.alloyplugin.views
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 
