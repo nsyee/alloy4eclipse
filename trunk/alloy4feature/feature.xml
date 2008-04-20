@@ -2,7 +2,7 @@
 <feature
       id="fr.univartois.cril.alloy4feature"
       label="Alloy 4 Feature"
-      version="0.2.27"
+      version="0.2.28"
       provider-name="Université d&apos;Artois"
       plugin="fr.univartois.cril.alloyplugin">
 
