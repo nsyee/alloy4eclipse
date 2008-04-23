@@ -120,12 +120,23 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
 	private String getFirstWordOfLine(ITextViewer viewer, int offset)
 			throws BadLocationException {
 		IDocument doc = viewer.getDocument();
-		int start = doc.getLineOffset(doc.getLineOfOffset(offset));
-		if ((doc == null) || (start >= doc.getLength()))
+		int docLength = doc.getLength();
+		int lineOffset = doc.getLineOfOffset(offset);
+		int start = doc.getLineOffset(lineOffset);
+		if ((doc == null) || (start >= docLength))
+			return null;
+
+		// There may be some spaces before the run of check commands
+		while (start < docLength
+				&& !Character.isJavaIdentifierPart(doc.getChar(start)))
+			start++;
+
+		// If the line is no longer the same as starting or if it's the end of
+		// the document then we return null.
+		if ((lineOffset < doc.getLineOfOffset(start)))
 			return null;
 
 		int length = start;
-
 		while (Character.isJavaIdentifierPart(doc.getChar(length)))
 			length++;
 		return doc.get(start, length - start);
