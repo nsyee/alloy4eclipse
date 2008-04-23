@@ -1,4 +1,3 @@
-
 package fr.univartois.cril.alloyplugin.editor;
 
 import java.util.ArrayList;
@@ -17,59 +16,65 @@ import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
 import fr.univartois.cril.alloyplugin.api.Identifiable;
 
-
 /**
- * Class for completion. This is loaded by ALSSourceViewerConfiguration. 
+ * Class for completion. This is loaded by ALSSourceViewerConfiguration.
  */
 public class ALSCompletionProcessor implements IContentAssistProcessor {
 
-    private final ALSEditor editor;
-    
-    public ALSCompletionProcessor(ALSEditor editor) {
-        this.editor = editor;
-    }
-    
+	private final ALSEditor editor;
+
+	public ALSCompletionProcessor(ALSEditor editor) {
+		this.editor = editor;
+	}
+
 	public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer,
 			int offset) {
-	    IALSFile alsFile = editor.getALSFile();
-	    List<CompletionProposal> props = new ArrayList<CompletionProposal>();
-        try {
-            String prefix = getPrefix(viewer,offset);
-            List<String> keywords = new ArrayList<String>();
-            keywords.addAll(Arrays.asList(AlloySyntaxConstants.keywords));
-            if (alsFile!=null) {
-                List<Identifiable> dynamic = new ArrayList<Identifiable>();
-                dynamic.addAll(alsFile.getSignatures());
-                dynamic.addAll(alsFile.getFunctions());
-                dynamic.addAll(alsFile.getPredicates());
-                dynamic.addAll(alsFile.getAssertions());
-                for (Identifiable  dyn : dynamic) {
-                    keywords.add(dyn.getId());
-                }
-            }
-            
-            for(String keyword : keywords)
-            {
-            	if (keyword.startsWith(prefix))
-            	    props.add(new CompletionProposal(keyword,offset-prefix.length(),prefix.length(),keyword.length()));	
-            }
-        } catch (BadLocationException e) {
-            e.printStackTrace();
-        }
-		CompletionProposal [] tab = new CompletionProposal[props.size()];
+		IALSFile alsFile = editor.getALSFile();
+		List<CompletionProposal> props = new ArrayList<CompletionProposal>();
+		try {
+			String prefix = getPrefix(viewer, offset);
+			String firstWordOfLine = getFirstWordOfLine(viewer, offset);
+			List<String> keywords = new ArrayList<String>();
+			if (alsFile != null) {
+				List<Identifiable> dynamic = new ArrayList<Identifiable>();
+				if ("check".equals(firstWordOfLine))
+					dynamic.addAll(alsFile.getAssertions());
+				else if ("run".equals(firstWordOfLine))
+					dynamic.addAll(alsFile.getPredicates());
+				else {
+					keywords.addAll(Arrays
+							.asList(AlloySyntaxConstants.keywords));
+					dynamic.addAll(alsFile.getSignatures());
+					dynamic.addAll(alsFile.getFunctions());
+					dynamic.addAll(alsFile.getPredicates());
+					dynamic.addAll(alsFile.getAssertions());
+				}
+				for (Identifiable dyn : dynamic) {
+					keywords.add(dyn.getId());
+				}
+			}
+
+			for (String keyword : keywords) {
+				if (keyword.startsWith(prefix))
+					props.add(new CompletionProposal(keyword, offset
+							- prefix.length(), prefix.length(), keyword
+							.length()));
+			}
+		} catch (BadLocationException e) {
+			e.printStackTrace();
+		}
+		CompletionProposal[] tab = new CompletionProposal[props.size()];
 		return props.toArray(tab);
 	}
 
-	
 	public IContextInformation[] computeContextInformation(ITextViewer viewer,
 			int offset) {
 		return null;
 	}
-	
+
 	public char[] getCompletionProposalAutoActivationCharacters() {
 		return null;
 	}
-	
 
 	public char[] getContextInformationAutoActivationCharacters() {
 		return null;
@@ -82,26 +87,48 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
 	public String getErrorMessage() {
 		return null;
 	}
-	
-	 /**
-     * @see http://dev.eclipse.org/newslists/news.eclipse.modeling.gmf/msg01324.html
-     * @param viewer
-     * @param offset
-     * @return the text input by the user
-     * @throws BadLocationException
-     */
-    private String getPrefix(ITextViewer viewer, int offset) throws BadLocationException {
-        IDocument doc= viewer.getDocument();
-        if (doc == null || offset > doc.getLength())
-            return null;
-        
-        int length= 0;
-        while (--offset >= 0 && Character.isJavaIdentifierPart(doc.getChar(offset)))
-            length++;
-        
-        return doc.get(offset + 1, length);
-    }
-    
-    
+
+	/**
+	 * @see http://dev.eclipse.org/newslists/news.eclipse.modeling.gmf/msg01324.html
+	 * @param viewer
+	 * @param offset
+	 * @return the text input by the user
+	 * @throws BadLocationException
+	 */
+	private String getPrefix(ITextViewer viewer, int offset)
+			throws BadLocationException {
+		IDocument doc = viewer.getDocument();
+		if (doc == null || offset > doc.getLength())
+			return null;
+
+		int length = 0;
+		while (--offset >= 0
+				&& Character.isJavaIdentifierPart(doc.getChar(offset)))
+			length++;
+
+		return doc.get(offset + 1, length);
+	}
+
+	/**
+	 * 
+	 * @param viewer
+	 * @param offset
+	 * @return the first Word of the line at which the character of the
+	 *         specified position is located.
+	 * @throws BadLocationException
+	 */
+	private String getFirstWordOfLine(ITextViewer viewer, int offset)
+			throws BadLocationException {
+		IDocument doc = viewer.getDocument();
+		int start = doc.getLineOffset(doc.getLineOfOffset(offset));
+		if ((doc == null) || (start >= doc.getLength()))
+			return null;
+
+		int length = start;
+
+		while (Character.isJavaIdentifierPart(doc.getChar(length)))
+			length++;
+		return doc.get(start, length - start);
+	}
 
 }
