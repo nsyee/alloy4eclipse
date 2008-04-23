@@ -321,6 +321,7 @@
 		wizardId="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard">
 		<enablement>
 			<or>
+				<adapt type="org.eclipse.core.resources.IFile"/>
 				<adapt type="org.eclipse.core.resources.IFolder"/>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</or>
