@@ -14,6 +14,7 @@ import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
 import fr.univartois.cril.alloyplugin.api.IALSFile;
+import fr.univartois.cril.alloyplugin.api.IALSSignature;
 import fr.univartois.cril.alloyplugin.api.Identifiable;
 
 /**
@@ -42,9 +43,13 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
 				else if ("run".equals(firstWordOfLine))
 					dynamic.addAll(alsFile.getPredicates());
 				else {
+					List<IALSSignature> signatures = alsFile.getSignatures();
 					keywords.addAll(Arrays
 							.asList(AlloySyntaxConstants.keywords));
-					dynamic.addAll(alsFile.getSignatures());
+					dynamic.addAll(signatures);
+					for (IALSSignature sig : signatures) {
+						keywords.addAll(Arrays.asList(sig.getFieldsName()));
+					}
 					dynamic.addAll(alsFile.getFunctions());
 					dynamic.addAll(alsFile.getPredicates());
 					dynamic.addAll(alsFile.getAssertions());
@@ -110,7 +115,7 @@ public class ALSCompletionProcessor implements IContentAssistProcessor {
 	}
 
 	/**
-	 * 
+	 * @author romuald druelle
 	 * @param viewer
 	 * @param offset
 	 * @return the first Word of the line at which the character of the
