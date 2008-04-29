@@ -40,7 +40,7 @@ public class OpenLibraryModelAction implements IObjectActionDelegate {
         if (result != null) {
             final IPath path = new Path(result);
             IProject project = getProject();
-            System.out.println(project);
+            // System.out.println(project);
             IFile file = project.getFile(path.lastSegment());
             try {
                 file.createLink(path, IResource.NONE, null);

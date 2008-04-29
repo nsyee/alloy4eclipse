@@ -51,7 +51,7 @@ ILaunchConfigurationDelegate {
 		    console.clear();
 		}
 		
-		System.out.println("list:"+commandIdList);
+		// System.out.println("list:"+commandIdList);
 		if(commandIdList!=null)		
 			try {		
 				monitor.beginTask("Starting", commandIdList.size());

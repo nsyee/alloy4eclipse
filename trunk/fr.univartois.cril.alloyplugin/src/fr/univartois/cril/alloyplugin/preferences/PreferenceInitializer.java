@@ -17,7 +17,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	 * @see org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer#initializeDefaultPreferences()
 	 */
 	public void initializeDefaultPreferences() {
-		System.out.println("init pref");
+		// System.out.println("init pref");
 		IPreferenceStore store = AlloyPlugin.getDefault().getPreferenceStore();
 		store
 				.setDefault(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER,

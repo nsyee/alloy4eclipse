@@ -31,7 +31,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 	/**launch from selection*/
 	public void launch(ISelection selection, String mode) {
 		StructuredSelection sel;
-		System.out.println("launch from selection");
+		// System.out.println("launch from selection");
 		if (selection instanceof StructuredSelection)
 		{   
 			sel=(StructuredSelection)selection;
@@ -42,7 +42,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 	/**launch from editor*/
 	public void launch(IEditorPart editor, String mode) {		
 		//IWorkbenchPage page
-		System.out.println("launch from editor");
+		// System.out.println("launch from editor");
 		launch(getResource(editor));
 	}
 
