@@ -64,10 +64,10 @@ public class AlloyLaunching {
 	 * @return an array (can be empty if there is no command in the file.)
 	 */
 	public void launchParser(IALSFile file) {
-		if (file == null) 
+		if (file == null)
 			return;
 		IResource res = file.getResource();
-		if (res == null|| !res.exists())
+		if (res == null || !res.exists())
 			return;
 		try {
 			res.deleteMarkers(Util.ALLOYPROBLEM, false, 0);
@@ -182,7 +182,8 @@ public class AlloyLaunching {
 		world = CompUtil.parseEverything_fromFile(rep, null, filename);
 		alloyParserConsole.printInfo("=========== End Parsing \"" + filename
 				+ "\" =============");
-		updateALSFile(world, file);
+		if (world != null)
+			updateALSFile(world, file);
 	}
 
 	/**
@@ -235,7 +236,7 @@ public class AlloyLaunching {
 		}
 		file.setAssertions(assertions);
 		file.fireChange();
-		System.out.println("ALSFile changed:" + file);
+		// System.out.println("ALSFile changed:" + file);
 	}
 
 	/**

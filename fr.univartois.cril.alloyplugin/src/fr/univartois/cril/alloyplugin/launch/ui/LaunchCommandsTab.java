@@ -48,7 +48,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
     public LaunchCommandsTab() {
         super();
 
-        System.out.println("construct:" + System.currentTimeMillis());
+        // System.out.println("construct:" + System.currentTimeMillis());
     }
 
     public boolean canSave() {
@@ -104,7 +104,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
      * update tab fields.
      */
     private void initializeTabFields(IResource resource) {
-        System.out.println("resource:" + resource);
+        // System.out.println("resource:" + resource);
         valid = false;
         currentResource = resource;
         if (resource == null) {
@@ -199,10 +199,10 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
     public void performApply(ILaunchConfigurationWorkingCopy configuration) {
         List<String> list = new ArrayList<String>();
         Object[] selectedCommands = commandsViewer.getCheckedElements();
-        System.out.println("perform aplly:");
+        // System.out.println("perform aplly:");
         for (Object object : selectedCommands) {
             list.add(((IALSCommand) object).getName());
-            System.out.println("add:" + ((IALSCommand) object).getName());
+            // System.out.println("add:" + ((IALSCommand) object).getName());
         }
         configuration.setAttribute(
                 LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,
@@ -303,9 +303,9 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
         IWorkbenchPage page = PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow().getActivePage();
         if (page != null) {
-            System.out.println("get selection from context|page:" + page);
+            // System.out.println("get selection from context|page:" + page);
             ISelection selection = page.getSelection();
-            System.out.println("get selection from context|sel" + selection);
+            // System.out.println("get selection from context|sel" + selection);
             if (selection instanceof IStructuredSelection)
                 return (IStructuredSelection) selection;
         }
@@ -320,7 +320,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
             for (Iterator iterator = selection.iterator(); iterator.hasNext();) {
                 Object obj = iterator.next();
                 if (obj instanceof IALSCommand) {
-                    System.out.println("executable command selected");
+                    // System.out.println("executable command selected");
                     if (list == null)
                         list = new ArrayList<IALSCommand>();
                     list.add((IALSCommand) obj);
@@ -333,7 +333,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
     private IALSFile getALSFileFromContext() {
 
         ISelection selection = getSelectionfromContext();
-        System.out.println("get als file from context|sel=" + selection);
+        // System.out.println("get als file from context|sel=" + selection);
         if (selection != null && selection instanceof IStructuredSelection) {
             IStructuredSelection ss = (IStructuredSelection) selection;
             if (!ss.isEmpty()) {
@@ -348,7 +348,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
                         return file;
                 }
                 if (obj instanceof IResource) {
-                    System.out.println("resource selected");
+                    // System.out.println("resource selected");
                     IALSFile file = ALSFileFactory.instance().getALSFile(
                             (IResource) obj);
                     if (file != null) {
@@ -357,7 +357,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
                 }
             }
         }
-        System.out.println("get als file from active editor");
+        // System.out.println("get als file from active editor");
         IWorkbenchPage page = PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow().getActivePage();
         if (page != null) {
@@ -365,7 +365,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
             if (part != null) {
                 IEditorInput input = part.getEditorInput();
                 IResource res = (IResource) input.getAdapter(IResource.class);
-                System.out.println("get als file from active editor|resource");
+                // System.out.println("get als file from active editor|resource");
                 IALSFile file = ALSFileFactory.instance().getALSFile(res);
                 if (file != null)
                     return file;

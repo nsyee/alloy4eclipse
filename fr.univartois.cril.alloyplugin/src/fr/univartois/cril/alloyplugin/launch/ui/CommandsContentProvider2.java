@@ -53,7 +53,7 @@ public class CommandsContentProvider2 implements IStructuredContentProvider, IAL
 	public Object[] getElements(Object inputElement) {		
 		//
 		IALSFile currentALSFile=(IALSFile) inputElement;
-		System.out.println("content:"+currentALSFile);
+		// System.out.println("content:"+currentALSFile);
 		if (currentALSFile==null) {			
 			return EMPTY_COMMANDS;
 		}
@@ -61,14 +61,14 @@ public class CommandsContentProvider2 implements IStructuredContentProvider, IAL
 		List<IALSCommand> exec_cmds_list =currentALSFile.getCommand();
 		
 		Object[] exec_cmds=exec_cmds_list.toArray();
-		System.out.println("taille:"+exec_cmds.length);
+		// System.out.println("taille:"+exec_cmds.length);
 
 		return exec_cmds;
 	}
 
 
 	public void changed(IALSFile file) {
-		System.out.println("refresh");
+		// System.out.println("refresh");
 		Display display = PlatformUI.getWorkbench().getDisplay();		
 		if (display!=null)
 			display.asyncExec(

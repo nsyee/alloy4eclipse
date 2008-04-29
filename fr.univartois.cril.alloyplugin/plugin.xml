@@ -308,7 +308,7 @@
 
 <extension 
 	point="org.eclipse.ui.navigator.navigatorContent">
-	<commonWizard type="new"
+	<commonWizard type="new" 
 		wizardId="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject">
 		<enablement>
 			<or>
@@ -316,6 +316,7 @@
 				<adapt type="org.eclipse.core.resources.IWorkspaceRoot"/>
 			</or>
 		</enablement>
+		
 	</commonWizard>
 	<commonWizard type="new"
 		wizardId="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard">
