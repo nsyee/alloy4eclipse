@@ -60,7 +60,7 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 		// @author lionel desruelles
 		addField(new BooleanFieldEditor(
 				PreferenceConstants.CLOSE_VIEW_UNSAT,
-				"Remove old VizWiew when an assertion has no longer a counter example",
+				"Close previous solution/counter-example when the answer becomes UNSAT",
 				getFieldEditorParent()));
 
 		addField(new RadioGroupFieldEditor(
