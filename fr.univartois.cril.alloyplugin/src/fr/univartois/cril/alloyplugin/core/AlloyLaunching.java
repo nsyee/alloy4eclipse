@@ -192,12 +192,10 @@ public class AlloyLaunching {
 	 */
 	private static void updateALSFile(Module world, IALSFile file) throws Err {
 		// convert all commands in ExecutableCommand[]
-		List<Pair<Command, Expr>> list = world.getAllCommandsWithFormulas();
 		List<IALSCommand> exec_cmds = new ArrayList<IALSCommand>();// new
 		// ExecutableCommand[list.size()];
-		for (Pair<Command, Expr> command : list) {
-			exec_cmds.add(new ExecutableCommand(file, command.a, command.b,
-					world));
+		for (Command command : world.getAllCommands()) {
+			exec_cmds.add(new ExecutableCommand(file, command, world));
 		}
 		exec_cmds.add(new MetamodelCommand(file, world));
 		file.setCommand(exec_cmds);
