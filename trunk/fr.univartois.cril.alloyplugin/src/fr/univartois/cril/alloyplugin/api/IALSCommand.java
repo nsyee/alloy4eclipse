@@ -1,9 +1,10 @@
 package fr.univartois.cril.alloyplugin.api;
 
+import java.util.Set;
+
 import org.eclipse.core.resources.IResource;
 import org.eclipse.ui.IViewPart;
 
-import edu.mit.csail.sdg.alloy4.ConstSet;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4.Pos;
@@ -49,7 +50,7 @@ public interface IALSCommand extends IALSTreeDecorated {
 
 	public boolean shouldShowUnsatCore();
 
-	public ConstSet<Pos> getCore();
+	public Set<Pos> getCore();
 
 	public void closeYourView();
 
