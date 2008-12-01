@@ -19,6 +19,7 @@ import org.eclipse.ui.console.IOConsoleOutputStream;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Version;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
+import edu.mit.csail.sdg.alloy4compiler.ast.ExprVar;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.parser.Module;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
@@ -118,38 +119,41 @@ public class AlloyEvaluatorConsole extends IOConsole {
 		final BufferedReader stream;
 		inputStream = getInputStream();
 		stream = new BufferedReader(new InputStreamReader(inputStream));
-
-		if (readKeyBoardJob == null) {
-			readKeyBoardJob = new Job("Alloy 4 Evaluator") {
-				public IStatus run(IProgressMonitor pm) {
-					try {
-
-						String currentInputLine;
-						showPrompt();
-						while (!pm.isCanceled()
-								&& ((currentInputLine = stream.readLine()) != null)
-								&& !("quit"
-										.compareToIgnoreCase(currentInputLine) == 0)) {
-							try {
-								Expr ex = CompUtil
-										.parseOneExpression_fromString(world,
-												currentInputLine);
-								Object o = ans.eval(ex);
-								printEval(o.toString());
-								showPrompt();
-							} catch (Err e) {
-								printErr(e.toString());
-								showPrompt();
-							}
-						}
-						Console.removeConsole(AlloyEvaluatorConsole.this);
-					} catch (IOException e) {
-						return Status.CANCEL_STATUS;
-					}
-					return Status.OK_STATUS;
-				}
-			};
+		// preparing world to evaluate correctly the expressions
+		for (ExprVar a : ans.getAllAtoms())
+			world.addGlobal(a.label, a);
+		for (ExprVar a : ans.getAllSkolems())
+			world.addGlobal(a.label, a);
+		if (readKeyBoardJob != null) {
+			readKeyBoardJob.cancel();
 		}
+		readKeyBoardJob = new Job("Alloy 4 Evaluator") {
+			public IStatus run(IProgressMonitor pm) {
+				try {
+
+					String currentInputLine;
+					showPrompt();
+					while (!pm.isCanceled()
+							&& ((currentInputLine = stream.readLine()) != null)
+							&& !("quit".compareToIgnoreCase(currentInputLine) == 0)) {
+						try {
+							Expr ex = CompUtil.parseOneExpression_fromString(
+									world, currentInputLine);
+							Object o = ans.eval(ex);
+							printEval(o.toString());
+							showPrompt();
+						} catch (Err e) {
+							printErr(e.toString());
+							showPrompt();
+						}
+					}
+					Console.removeConsole(AlloyEvaluatorConsole.this);
+				} catch (IOException e) {
+					return Status.CANCEL_STATUS;
+				}
+				return Status.OK_STATUS;
+			}
+		};
 		readKeyBoardJob.schedule();
 
 	}

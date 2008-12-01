@@ -1,5 +1,7 @@
 package fr.univartois.cril.alloyplugin.preferences;
 
+import java.io.File;
+
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 
@@ -14,14 +16,15 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer#initializeDefaultPreferences()
+	 * @seeorg.eclipse.core.runtime.preferences.AbstractPreferenceInitializer#
+	 * initializeDefaultPreferences()
 	 */
 	public void initializeDefaultPreferences() {
 		// System.out.println("init pref");
 		IPreferenceStore store = AlloyPlugin.getDefault().getPreferenceStore();
 		store
 				.setDefault(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER,
-						false);
+						true);
 		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES,
 				false);
 		store.setDefault(
@@ -33,10 +36,15 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		store.setDefault(PreferenceConstants.V_GRAPH_CONVERSION, "ps");
 		String defaultDir = Helper.alloyHome() + AlloyPlugin.FILE_SEPARATOR
 				+ "binary";
-		store.setDefault(PreferenceConstants.P_SOLVERS_PATH, defaultDir);
-		store.setDefault(PreferenceConstants.P_A4_SAMPLE_MODELS_PATH, Helper
-				.alloyHome()
-				+ "/models");
+		File dir = new File(defaultDir);
+		if (dir.exists()) {
+			store.setDefault(PreferenceConstants.P_SOLVERS_PATH, defaultDir);
+		}
+		dir = new File(defaultDir + "/models");
+		if (dir.exists()) {
+			store.setDefault(PreferenceConstants.P_A4_SAMPLE_MODELS_PATH,
+					Helper.alloyHome() + "/models");
+		}
 		store.setDefault(PreferenceConstants.CLOSE_VIEW_UNSAT, false);
 		store.setDefault(PreferenceConstants.WIDTH__GRAPH, 800);
 		store.setDefault(PreferenceConstants.RESOLUTION__GRAPH, 300);
