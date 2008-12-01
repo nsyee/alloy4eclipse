@@ -320,13 +320,13 @@ public class VizView extends ViewPart implements ICommandListener {
 		 */
 		editorAction6 = new Action() {
 			public void run() {
-				AlloyEvaluatorConsole evaluator = Console
-						.findAlloyEvaluatorConsole(filename);
-				evaluator.activate();
-				evaluator.clear();
-				evaluator.showHeader();
-				ans = execCmd.accessAns();
-				evaluator.readConsole(execCmd.getWorld(), ans);
+					AlloyEvaluatorConsole evaluator = Console
+							.findAlloyEvaluatorConsole(filename);
+					evaluator.activate();
+					evaluator.clear();
+					evaluator.showHeader();
+					ans = execCmd.accessAns();
+					evaluator.readConsole(execCmd.getWorld(), ans);
 			}
 		};
 		editorAction6.setText("Open the Alloy evaluator");
