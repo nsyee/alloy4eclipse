@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Alloy Plug-in
 Bundle-SymbolicName: fr.univartois.cril.alloyplugin;singleton:=true
-Bundle-Version: 0.2.32
+Bundle-Version: 0.2.32.2
 Bundle-Activator: fr.univartois.cril.alloyplugin.AlloyPlugin
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
@@ -14,13 +14,13 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.ui.ide,
  org.eclipse.ui.views,
- fr.univartois.cril.alloyplugin.launch,
  org.eclipse.debug.core,
  org.eclipse.debug.ui,
  org.eclipse.ui.console,
  swingintegration.example,
  org.eclipse.ltk.core.refactoring,
- org.eclipse.ltk.ui.refactoring
+ org.eclipse.ltk.ui.refactoring,
+ fr.univartois.cril.alloyplugin.launch;bundle-version="4.1.9"
 Eclipse-LazyStart: true
 Bundle-Vendor: CRIL - Université d'Artois
 Bundle-ClassPath: .

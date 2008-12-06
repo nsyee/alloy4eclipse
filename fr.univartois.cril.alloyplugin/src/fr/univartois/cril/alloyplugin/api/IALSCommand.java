@@ -3,6 +3,7 @@ package fr.univartois.cril.alloyplugin.api;
 import java.util.Set;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ui.IViewPart;
 
 import edu.mit.csail.sdg.alloy4.Err;
@@ -31,7 +32,7 @@ public interface IALSCommand extends IALSTreeDecorated {
 
 	public IResource getResource();
 
-	public Pair<A4Solution, Boolean> execute(IReporter rep) throws Err;
+	public Pair<A4Solution, Boolean> execute(IReporter rep, IProgressMonitor monitor) throws Err;
 
 	public Pair<A4Solution, Boolean> getAns();
 
