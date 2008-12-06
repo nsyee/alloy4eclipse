@@ -23,5 +23,6 @@ public class PreferenceConstants {
 	public static final String CLOSE_VIEW_UNSAT = "CloseVizViewWhenUnsat";
 	public static final String WIDTH__GRAPH = "width";
 	public static final String RESOLUTION__GRAPH = "resolution";
-
+    public static final String MAX_HEAP_SIZE = "Xmx";
+    public static final String MAX_STACK_SIZE = "Xss";
 }
