@@ -30,7 +30,7 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 
 	private IntegerFieldEditor widthGraph;
 	private IntegerFieldEditor resolutionGraph;
-	
+		
 	public AlloyPreferencePage() {
 		super(GRID);
 		setPreferenceStore(AlloyPlugin.getDefault().getPreferenceStore());
@@ -105,12 +105,17 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 
 		// @author druelle romuald
 		addField(new DirectoryFieldEditor(PreferenceConstants.P_SOLVERS_PATH,
-				"Path to SAT solvers binaries:", getFieldEditorParent()));
+				"Path to SAT solvers binaries and libraries:", getFieldEditorParent()));
 
 		// @author druelle romuald
 		addField(new DirectoryFieldEditor(
 				PreferenceConstants.P_A4_SAMPLE_MODELS_PATH,
 				"Path to Alloy 4 sample models:", getFieldEditorParent()));
+		
+		addField(new IntegerFieldEditor(PreferenceConstants.MAX_HEAP_SIZE,
+				"Choose the maximum heap size for the external JVM (MB):", getFieldEditorParent()));
+		addField(new IntegerFieldEditor(PreferenceConstants.MAX_STACK_SIZE,
+				"Choose the maximum stack size for the external JVM (KB):", getFieldEditorParent()));
 	}
 
 	public void init(IWorkbench workbench) {

@@ -48,7 +48,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		store.setDefault(PreferenceConstants.CLOSE_VIEW_UNSAT, false);
 		store.setDefault(PreferenceConstants.WIDTH__GRAPH, 800);
 		store.setDefault(PreferenceConstants.RESOLUTION__GRAPH, 300);
-
+		store.setDefault(PreferenceConstants.MAX_HEAP_SIZE, 1024);
+		store.setDefault(PreferenceConstants.MAX_STACK_SIZE, 65536);
 	}
 
 }
