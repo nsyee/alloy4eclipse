@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Alloy Launch Plug-in
 Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true
-Bundle-Version: 4.1.9
+Bundle-Version: 4.1.9.2
 Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator
 Bundle-Localization: plugin
 Eclipse-LazyStart: true
@@ -18,6 +18,7 @@ Export-Package: edu.mit.csail.sdg.alloy4,
  edu.mit.csail.sdg.alloy4graph,
  edu.mit.csail.sdg.alloy4viz,
  edu.mit.csail.sdg.alloy4whole,
+ fr.univartois.cril.alloyplugin.launch,
  kodkod.ast,
  kodkod.ast.visitor,
  kodkod.engine,
