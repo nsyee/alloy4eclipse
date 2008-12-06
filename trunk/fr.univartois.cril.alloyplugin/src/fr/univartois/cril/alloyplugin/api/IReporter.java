@@ -60,4 +60,9 @@ public abstract class IReporter extends A4Reporter implements Map <String,String
 
 	abstract public void setExecCommand(IALSCommand command);
 
+	abstract public void resultSAT
+	(int expects, boolean check,long solvingTime);
+	
+	abstract public void resultUNSAT
+	(int expects, boolean check,long solvingTime);
 }

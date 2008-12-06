@@ -63,7 +63,7 @@ ILaunchConfigurationDelegate {
 					IALSCommand cmd = (IALSCommand) file.getCommand(commandId);
 					if(cmd!=null)
 					{
-						AlloyLaunching.execCommand(cmd);						
+						AlloyLaunching.execCommand(cmd,monitor);						
 					}
 					else
 					{

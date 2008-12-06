@@ -8,6 +8,7 @@ import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -51,11 +52,12 @@ public class AlloyLaunching {
 
 	/**
 	 * Execute an ExecutableCommand previously created after a parsing.
+	 * @param monitor 
 	 */
-	public static final void execCommand(IALSCommand command) {
+	public static final void execCommand(IALSCommand command, IProgressMonitor monitor) {
 		assert (command != null);
 		IReporter rep = new Reporter(command.getResource());
-		execCommand(command, rep);
+		execCommand(command, rep,monitor);
 	}
 
 	/**
@@ -194,8 +196,9 @@ public class AlloyLaunching {
 		// convert all commands in ExecutableCommand[]
 		List<IALSCommand> exec_cmds = new ArrayList<IALSCommand>();// new
 		// ExecutableCommand[list.size()];
-		for (Command command : world.getAllCommands()) {
-			exec_cmds.add(new ExecutableCommand(file, command, world));
+		int index = 0;
+		for (Command command : world.getAllCommands()) {			
+			exec_cmds.add(new ExecutableCommand(file, command,index++, world));
 		}
 		exec_cmds.add(new MetamodelCommand(file, world));
 		file.setCommand(exec_cmds);
@@ -240,8 +243,9 @@ public class AlloyLaunching {
 	/**
 	 * Execute a command. The command is modified. Some informations can be show
 	 * to console.
+	 * @param monitor 
 	 */
-	private static final void execCommand(IALSCommand command, IReporter rep) {
+	private static final void execCommand(IALSCommand command, IReporter rep, IProgressMonitor monitor) {
 		AlloyMessageConsole alloyConsole = Console.findAlloyConsole(command
 				.getFilename());
 		alloyConsole.activate();
@@ -249,7 +253,7 @@ public class AlloyLaunching {
 			long beginTime = System.currentTimeMillis();
 			alloyConsole.printInfo("============ Command " + command
 					+ ": ============");
-			command.execute(rep);
+			command.execute(rep,monitor);
 			long endTime = System.currentTimeMillis();
 			alloyConsole.printInfo("============ Total time: "
 					+ (endTime - beginTime) + " (ms) ===========");

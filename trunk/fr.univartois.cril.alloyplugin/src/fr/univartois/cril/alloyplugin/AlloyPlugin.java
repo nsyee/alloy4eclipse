@@ -28,6 +28,8 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	public static final String FILE_SEPARATOR = System
 			.getProperty("file.separator");
 
+	private BundleContext context;
+	
 	public AlloyPlugin() {
 		super();
 		plugin = this;
@@ -38,6 +40,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+		this.context = context;
 	}
 
 	public void stop(BundleContext context) throws Exception {
@@ -50,6 +53,10 @@ public class AlloyPlugin extends AbstractUIPlugin {
 
 	}
 
+	public BundleContext getBundleContext() {
+		return context;
+	}
+	
 	/*
 	 * public void run(IType type) { System.out.println("run run run"); }
 	 */
