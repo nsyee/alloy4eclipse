@@ -12,7 +12,7 @@ class AlloySyntaxConstants {
             "but", "disj", "else", "exactly", "extends", "fact", "fun", "iden",
             "if", "iff", "implies", "in", "Int", "int", "let", "not", "or",
             "part", "pred", "set", "seq", "sig", "sum", "then", "this", "univ",
-            "private"                       };
+            "private", "enum", "String"};
 
     static final String[] quantifiers = { "all", "lone", "no", "none",
             "one", "some"                   };
