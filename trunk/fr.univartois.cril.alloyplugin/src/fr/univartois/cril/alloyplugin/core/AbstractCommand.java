@@ -1,7 +1,5 @@
 package fr.univartois.cril.alloyplugin.core;
 
-import java.io.Serializable;
-
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -23,12 +21,7 @@ import fr.univartois.cril.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.alloyplugin.api.IALSFile;
 import fr.univartois.cril.alloyplugin.preferences.PreferenceConstants;
 
-public abstract class AbstractCommand implements IALSCommand, INextable, Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public abstract class AbstractCommand implements IALSCommand, INextable {
 	
 	public static final Image iconrun = ALSImageRegistry
 			.getImage(ALSImageRegistry.RUN_ICON_ID);
