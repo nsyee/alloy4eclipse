@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Alloy Plug-in
+Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.univartois.cril.alloyplugin;singleton:=true
 Bundle-Version: 0.2.34
 Bundle-Activator: fr.univartois.cril.alloyplugin.AlloyPlugin

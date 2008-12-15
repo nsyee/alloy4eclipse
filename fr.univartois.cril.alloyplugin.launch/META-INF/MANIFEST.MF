@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Alloy Launch Plug-in
+Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true
 Bundle-Version: 4.1.9.3
 Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator
@@ -8,7 +8,7 @@ Bundle-Localization: plugin
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  alloy4.jar
-Bundle-Vendor: CRIL - Université d'Artois
+Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Export-Package: edu.mit.csail.sdg.alloy4,
