@@ -49,6 +49,10 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 		 */
 
 		addField(new BooleanFieldEditor(
+				PreferenceConstants.P_BOOLEAN_EXECUTE_TASKS_LOCALLY,
+				"Execute Alloy tasks &Locally instead of as a separate Java sub-process",
+				getFieldEditorParent()));
+		addField(new BooleanFieldEditor(
 				PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER,
 				"Automatically &Show graphical view of models or counter examples after command execution",
 				getFieldEditorParent()));
