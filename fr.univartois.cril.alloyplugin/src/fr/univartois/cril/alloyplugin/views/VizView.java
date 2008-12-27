@@ -48,7 +48,7 @@ import org.xml.sax.InputSource;
 import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
-import edu.mit.csail.sdg.alloy4graph.VizViewer;
+import edu.mit.csail.sdg.alloy4graph.GraphViewer;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import edu.mit.csail.sdg.alloy4viz.VizState;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
@@ -95,7 +95,7 @@ public class VizView extends ViewPart implements ICommandListener {
 			return this;
 		if (adapter == VizGUI.class)
 			return viz[0];
-		if (adapter == VizViewer.class) {
+		if (adapter == GraphViewer.class) {
 			return viz[0] == null ? null : viz[0].getViewer();
 		}
 		if (adapter == VizState.class) {
@@ -178,7 +178,7 @@ public class VizView extends ViewPart implements ICommandListener {
 		 * A simple A4E menu action that we add to the A4 VizViewer popup menu.
 		 */
 		final JMenuItem a4eInfo = new JMenuItem("A4E info...");
-		final VizViewer viewer = viz[0].getViewer();
+		final GraphViewer viewer = viz[0].getViewer();
 		viewer.pop.add(a4eInfo);
 		ActionListener act = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
