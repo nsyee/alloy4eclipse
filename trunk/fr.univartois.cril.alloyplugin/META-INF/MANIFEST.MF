@@ -21,7 +21,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ltk.core.refactoring,
  org.eclipse.ltk.ui.refactoring,
  fr.univartois.cril.alloyplugin.launch;bundle-version="4.1.9"
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
 Bundle-Vendor: CRIL - Université d'Artois
 Bundle-ClassPath: .
 Export-Package: fr.univartois.cril.alloyplugin,
