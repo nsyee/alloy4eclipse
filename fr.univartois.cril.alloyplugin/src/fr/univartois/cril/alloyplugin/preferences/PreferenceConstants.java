@@ -25,4 +25,5 @@ public class PreferenceConstants {
 	public static final String RESOLUTION__GRAPH = "resolution";
     public static final String MAX_HEAP_SIZE = "Xmx";
     public static final String MAX_STACK_SIZE = "Xss";
+    public static final String P_BOOLEAN_EXECUTE_TASKS_LOCALLY = "booleanExecuteTasksLocally";
 }

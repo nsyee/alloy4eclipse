@@ -22,6 +22,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		// System.out.println("init pref");
 		IPreferenceStore store = AlloyPlugin.getDefault().getPreferenceStore();
+		store.setDefault(PreferenceConstants.P_BOOLEAN_EXECUTE_TASKS_LOCALLY,
+				true);
 		store
 				.setDefault(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER,
 						true);
