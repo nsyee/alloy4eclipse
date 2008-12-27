@@ -5,7 +5,7 @@ Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true
 Bundle-Version: 4.1.9.4
 Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator
 Bundle-Localization: plugin
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  alloy4.jar
 Bundle-Vendor: %providerName
@@ -14,6 +14,7 @@ Require-Bundle: org.eclipse.ui,
 Export-Package: edu.mit.csail.sdg.alloy4,
  edu.mit.csail.sdg.alloy4compiler.ast,
  edu.mit.csail.sdg.alloy4compiler.parser,
+ edu.mit.csail.sdg.alloy4compiler.sim,
  edu.mit.csail.sdg.alloy4compiler.translator,
  edu.mit.csail.sdg.alloy4graph,
  edu.mit.csail.sdg.alloy4viz,
