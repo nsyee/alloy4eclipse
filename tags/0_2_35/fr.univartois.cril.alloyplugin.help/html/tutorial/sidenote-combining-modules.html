@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Combining Modules</title>
+    <link   rel=stylesheet   href="style-sidenote.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>Combining modules with the <b><tt>open</b></tt> command</h2>
+
+<p> You can import a model named <b><tt>ord</tt></b> into your model
+    by writing
+
+<pre>
+  open std/ord
+</pre>
+
+<p> Immediately below the <b><tt>module</tt></b> statement at the top
+    of your model.  In this case, <b><tt>std/ord</tt></b> is the path
+    where <b><tt>ord</tt></b> is stored, relative to the
+    "<tt>models</tt>" directory in the Alloy distribution.
+    <b><tt>std</tt></b> is a folder containing standard packages
+    provided with Alloy.
+
+<p> This is equivalent to prepending the contents of the
+    <b><tt>ord</tt></b> model to your model.  Consequently, you will
+    have to be careful about name conflicts.  In general, you will
+    want to write your entire model in one module (one file).
+    <b><tt>open</b></tt> is primarily for importing utilities, such at
+    the <b><tt>ord</tt></b> module (which provides a way to do ordered
+    state).
+
+<hr WIDTH="100%">
+<p> <a href="sidenote-all.html" target="sidenote"> list all sidenotes</a>
+<p> <a href="sidenote-default.html">clear this sidenote</a>
+
+  </body>
+</html>
