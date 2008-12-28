@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<site>
-   <description url="http://alloy4eclipse.googlecode.com/svn/trunk/updatesite/">
-      Alloy4 Eclipse official update site.
-   </description>
-   <feature url="features/fr.univartois.cril.alloy4feature_0.2.35.jar" id="fr.univartois.cril.alloy4feature" version="0.2.35"/>
-</site>

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true
-Bundle-Version: 4.2.0.0
+Bundle-Version: 4.1.9.4
 Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator
 Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
@@ -20,9 +20,7 @@ Export-Package: edu.mit.csail.sdg.alloy4,
  edu.mit.csail.sdg.alloy4viz,
  edu.mit.csail.sdg.alloy4whole,
  fr.univartois.cril.alloyplugin.launch,
- java_cup_11a.runtime,
  kodkod.ast,
- kodkod.ast.operator,
  kodkod.ast.visitor,
  kodkod.engine,
  kodkod.engine.bool,
@@ -34,20 +32,6 @@ Export-Package: edu.mit.csail.sdg.alloy4,
  kodkod.util.collections,
  kodkod.util.ints,
  kodkod.util.nodes,
- models.book.appendixA,
- models.book.appendixE,
- models.book.chapter2,
- models.book.chapter4,
- models.book.chapter5,
- models.book.chapter6,
- models.book.chapter6.memory,
- models.examples.algorithms,
- models.examples.case_studies,
- models.examples.puzzles,
- models.examples.systems,
- models.examples.toys,
- models.examples.tutorial,
- models.util,
  org.sat4j,
  org.sat4j.core,
  org.sat4j.minisat,

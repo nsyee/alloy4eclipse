@@ -45,7 +45,7 @@ import org.xml.sax.InputSource;
 
 import edu.mit.csail.sdg.alloy4.Computer;
 import edu.mit.csail.sdg.alloy4.Err;
-import edu.mit.csail.sdg.alloy4graph.GraphViewer;
+import edu.mit.csail.sdg.alloy4graph.VizViewer;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
 import fr.univartois.cril.alloyplugin.XMLEditor.XMLEditor;
@@ -348,7 +348,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 		 * A simple A4E menu action that we add to the A4 VizViewer popup menu.
 		 */
 		final JMenuItem a4eInfo = new JMenuItem("A4E info...");
-		final GraphViewer viewer = viz[0].getViewer();
+		final VizViewer viewer = viz[0].getViewer();
 		viewer.pop.add(a4eInfo);
 		ActionListener act = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
