@@ -3,13 +3,13 @@
 <repository name='file:/homelocal/daniel/A4E/updatesite/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1230415248781'/>
+    <property name='p2.timestamp' value='1233779326132'/>
   </properties>
   <references size='2'>
     <repository url='http://alloy4eclipse.googlecode.com/svn/trunk/updatesite/' type='1' options='0'/>
     <repository url='http://alloy4eclipse.googlecode.com/svn/trunk/updatesite/' type='0' options='0'/>
   </references>
-  <units size='212'>
+  <units size='213'>
     <unit id='fr.univartois.cril.alloy4feature.feature.jar' version='0.1.2'>
       <update id='fr.univartois.cril.alloy4feature.feature.jar' range='[0.0.0,0.1.2)' severity='0'/>
       <properties size='4'>
@@ -8890,7 +8890,7 @@
       <touchpointData size='1'>
         <instructions size='2'>
           <instruction key='manifest'>
-            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ClassPath: .,alloy4.jar&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 4.1.9.4&#xA;Bundle-Localization: plugin&#xA;Export-Package: edu.mit.csail.sdg.alloy4,edu.mit.csail.sdg.alloy4compiler.ast,edu.mit.csail.sdg.alloy4compiler.parser,edu.mit.csail.sdg.alloy4compiler.sim,edu.mit.csail.sdg.alloy4compiler.translator,edu.mit.csail.sdg.alloy4graph,edu.mit.csail.sdg.alloy4viz,edu.mit.csail.sdg.alloy4whole,fr.univartois.cril.alloyplugin.launch,kodkod.ast,kodkod.ast.visitor,kodkod.engine,kodkod.engine.bool,kodkod.engine.config,kodkod.engine.fol2sat,kodkod.engine.satlab,kodkod.engine.ucore,kodkod.instance,kodkod.util.collections,kodkod.util.ints,kodkod.util.nodes,org.sat4j,org.sat4j.core,org.sat4j.minisat,org.sat4j.minisat.constraints,org.sat4j.minisat.constraints.card,org.sat4j.minisat.constraints.cnf,org.sat4j.minisat.core,org.sat4j.minisat.learning,org.sat4j.minisat.orders,org.sat4j.minisat.restarts,org.sat4j.minisat.uip,org.sat4j.opt,org.sat4j.reader,org.sat4j.specs,org.sat4j.tools&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime&#xA;
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ClassPath: .,alloy4.jar&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 4.1.9.4&#xA;Bundle-Localization: plugin&#xA;Export-Package: edu.mit.csail.sdg.alloy4,edu.mit.csail.sdg.alloy4compiler.ast,edu.mit.csail.sdg.alloy4compiler.parser,edu.mit.csail.sdg.alloy4compiler.sim,edu.mit.csail.sdg.alloy4compiler.translator,edu.mit.csail.sdg.alloy4graph,edu.mit.csail.sdg.alloy4viz,edu.mit.csail.sdg.alloy4whole,fr.univartois.cril.alloyplugin.launch,kodkod.ast,kodkod.ast.visitor,kodkod.engine,kodkod.engine.bool,kodkod.engine.config,kodkod.engine.fol2sat,kodkod.engine.satlab,kodkod.engine.ucore,kodkod.instance,kodkod.util.collections,kodkod.util.ints,kodkod.util.nodes,org.sat4j,org.sat4j.core,org.sat4j.minisat,org.sat4j.minisat.constraints,org.sat4j.minisat.constraints.card,org.sat4j.minisat.constraints.cnf,org.sat4j.minisat.core,org.sat4j.minisat.learning,org.sat4j.minisat.orders,org.sat4j.minisat.restarts,org.sat4j.minisat.uip,org.sat4j.opt,org.sat4j.reader,org.sat4j.specs,org.sat4j.tools&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime
           </instruction>
           <instruction key='zipped'>
             true
@@ -9028,7 +9028,92 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: fr.univartois.cril.alloyplugin.AlloyPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: CRIL - Université d&apos;Artois&#xA;Bundle-ClassPath: .&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: fr.univartois.cril.alloyplugin;singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.2.35&#xA;Bundle-Localization: plugin&#xA;Export-Package: fr.univartois.cril.alloyplugin,fr.univartois.cril.alloyplugin.XMLEditor,fr.univartois.cril.alloyplugin.api,fr.univartois.cril.alloyplugin.console,fr.univartois.cril.alloyplugin.core,fr.univartois.cril.alloyplugin.editor,fr.univartois.cril.alloyplugin.launch.ui,fr.univartois.cril.alloyplugin.preferences,fr.univartois.cril.alloyplugin.ui,fr.univartois.cril.alloyplugin.views&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.ui.editors,org.eclipse.jface.text,org.eclipse.ui.workbench,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.ide,org.eclipse.ui.views,org.eclipse.debug.core,org.eclipse.debug.ui,org.eclipse.ui.console,swingintegration.example,org.eclipse.ltk.core.refactoring,org.eclipse.ltk.ui.refactoring,fr.univartois.cril.alloyplugin.launch;bundle-version=&quot;4.1.9&quot;&#xA;
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: fr.univartois.cril.alloyplugin.AlloyPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: CRIL - Université d&apos;Artois&#xA;Bundle-ClassPath: .&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: fr.univartois.cril.alloyplugin;singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.2.35&#xA;Bundle-Localization: plugin&#xA;Export-Package: fr.univartois.cril.alloyplugin,fr.univartois.cril.alloyplugin.XMLEditor,fr.univartois.cril.alloyplugin.api,fr.univartois.cril.alloyplugin.console,fr.univartois.cril.alloyplugin.core,fr.univartois.cril.alloyplugin.editor,fr.univartois.cril.alloyplugin.launch.ui,fr.univartois.cril.alloyplugin.preferences,fr.univartois.cril.alloyplugin.ui,fr.univartois.cril.alloyplugin.views&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.ui.editors,org.eclipse.jface.text,org.eclipse.ui.workbench,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.ide,org.eclipse.ui.views,org.eclipse.debug.core,org.eclipse.debug.ui,org.eclipse.ui.console,swingintegration.example,org.eclipse.ltk.core.refactoring,org.eclipse.ltk.ui.refactoring,fr.univartois.cril.alloyplugin.launch;bundle-version=&quot;4.1.9&quot;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='fr.univartois.cril.alloyplugin.launch' version='4.2.0.0'>
+      <update id='fr.univartois.cril.alloyplugin.launch' range='[0.0.0,4.2.0.0)' severity='0'/>
+      <properties size='4'>
+        <property name='df_LT.providerName' value='CRIL - Université d&apos;Artois'/>
+        <property name='df_LT.pluginName' value='Alloy Launch Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+      </properties>
+      <provides size='56'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='fr.univartois.cril.alloyplugin.launch' version='4.2.0.0'/>
+        <provided namespace='osgi.bundle' name='fr.univartois.cril.alloyplugin.launch' version='4.2.0.0'/>
+        <provided namespace='java.package' name='edu.mit.csail.sdg.alloy4' version='0.0.0'/>
+        <provided namespace='java.package' name='edu.mit.csail.sdg.alloy4compiler.ast' version='0.0.0'/>
+        <provided namespace='java.package' name='edu.mit.csail.sdg.alloy4compiler.parser' version='0.0.0'/>
+        <provided namespace='java.package' name='edu.mit.csail.sdg.alloy4compiler.sim' version='0.0.0'/>
+        <provided namespace='java.package' name='edu.mit.csail.sdg.alloy4compiler.translator' version='0.0.0'/>
+        <provided namespace='java.package' name='edu.mit.csail.sdg.alloy4graph' version='0.0.0'/>
+        <provided namespace='java.package' name='edu.mit.csail.sdg.alloy4viz' version='0.0.0'/>
+        <provided namespace='java.package' name='edu.mit.csail.sdg.alloy4whole' version='0.0.0'/>
+        <provided namespace='java.package' name='fr.univartois.cril.alloyplugin.launch' version='0.0.0'/>
+        <provided namespace='java.package' name='java_cup_11a.runtime' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.ast' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.ast.operator' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.ast.visitor' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.engine' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.engine.bool' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.engine.config' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.engine.fol2sat' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.engine.satlab' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.engine.ucore' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.instance' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.util.collections' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.util.ints' version='0.0.0'/>
+        <provided namespace='java.package' name='kodkod.util.nodes' version='0.0.0'/>
+        <provided namespace='java.package' name='models.book.appendixA' version='0.0.0'/>
+        <provided namespace='java.package' name='models.book.appendixE' version='0.0.0'/>
+        <provided namespace='java.package' name='models.book.chapter2' version='0.0.0'/>
+        <provided namespace='java.package' name='models.book.chapter4' version='0.0.0'/>
+        <provided namespace='java.package' name='models.book.chapter5' version='0.0.0'/>
+        <provided namespace='java.package' name='models.book.chapter6' version='0.0.0'/>
+        <provided namespace='java.package' name='models.book.chapter6.memory' version='0.0.0'/>
+        <provided namespace='java.package' name='models.examples.algorithms' version='0.0.0'/>
+        <provided namespace='java.package' name='models.examples.case_studies' version='0.0.0'/>
+        <provided namespace='java.package' name='models.examples.puzzles' version='0.0.0'/>
+        <provided namespace='java.package' name='models.examples.systems' version='0.0.0'/>
+        <provided namespace='java.package' name='models.examples.toys' version='0.0.0'/>
+        <provided namespace='java.package' name='models.examples.tutorial' version='0.0.0'/>
+        <provided namespace='java.package' name='models.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.minisat' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.minisat.constraints' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.minisat.constraints.card' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.minisat.constraints.cnf' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.minisat.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.minisat.learning' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.minisat.orders' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.minisat.restarts' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.minisat.uip' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.opt' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.reader' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.specs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.sat4j.tools' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='4.2.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ClassPath: .,alloy4.jar&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 4.2.0.0&#xA;Bundle-Localization: plugin&#xA;Export-Package: edu.mit.csail.sdg.alloy4,edu.mit.csail.sdg.alloy4compiler.ast,edu.mit.csail.sdg.alloy4compiler.parser,edu.mit.csail.sdg.alloy4compiler.sim,edu.mit.csail.sdg.alloy4compiler.translator,edu.mit.csail.sdg.alloy4graph,edu.mit.csail.sdg.alloy4viz,edu.mit.csail.sdg.alloy4whole,fr.univartois.cril.alloyplugin.launch,java_cup_11a.runtime,kodkod.ast,kodkod.ast.operator,kodkod.ast.visitor,kodkod.engine,kodkod.engine.bool,kodkod.engine.config,kodkod.engine.fol2sat,kodkod.engine.satlab,kodkod.engine.ucore,kodkod.instance,kodkod.util.collections,kodkod.util.ints,kodkod.util.nodes,models.book.appendixA,models.book.appendixE,models.book.chapter2,models.book.chapter4,models.book.chapter5,models.book.chapter6,models.book.chapter6.memory,models.examples.algorithms,models.examples.case_studies,models.examples.puzzles,models.examples.systems,models.examples.toys,models.examples.tutorial,models.util,org.sat4j,org.sat4j.core,org.sat4j.minisat,org.sat4j.minisat.constraints,org.sat4j.minisat.constraints.card,org.sat4j.minisat.constraints.cnf,org.sat4j.minisat.core,org.sat4j.minisat.learning,org.sat4j.minisat.orders,org.sat4j.minisat.restarts,org.sat4j.minisat.uip,org.sat4j.opt,org.sat4j.reader,org.sat4j.specs,org.sat4j.tools&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
           </instruction>
         </instructions>
       </touchpointData>
