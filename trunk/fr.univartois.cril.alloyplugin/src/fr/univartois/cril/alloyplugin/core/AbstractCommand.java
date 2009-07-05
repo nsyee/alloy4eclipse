@@ -11,7 +11,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-import edu.mit.csail.sdg.alloy4compiler.parser.Module;
+import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Options.SatSolver;
@@ -30,7 +30,7 @@ public abstract class AbstractCommand implements IALSCommand, INextable {
 	/**
 	 * The Command's world .
 	 */
-	protected final Module world;
+	protected final CompModule world;
 	/**
 	 * The ALS file which has provided the command.
 	 */
@@ -48,7 +48,7 @@ public abstract class AbstractCommand implements IALSCommand, INextable {
 	protected A4Solution ans;
 	protected IViewPart[] viewPart = new IViewPart[1];
 
-	public AbstractCommand(IALSFile file, Module world) {
+	public AbstractCommand(IALSFile file, CompModule world) {
 		this.file = file;
 		this.world = world;
 		this.result = IALSCommand.UNKNOW;
@@ -107,7 +107,7 @@ public abstract class AbstractCommand implements IALSCommand, INextable {
 	/**
 	 * return the world.
 	 */
-	public Module getWorld() {
+	public CompModule getWorld() {
 		return world;
 	}
 

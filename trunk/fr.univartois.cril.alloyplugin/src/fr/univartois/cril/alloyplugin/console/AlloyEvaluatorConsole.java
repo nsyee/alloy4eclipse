@@ -21,7 +21,7 @@ import edu.mit.csail.sdg.alloy4.Version;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
 import edu.mit.csail.sdg.alloy4compiler.ast.ExprVar;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
-import edu.mit.csail.sdg.alloy4compiler.parser.Module;
+import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 
 /**
@@ -115,7 +115,7 @@ public class AlloyEvaluatorConsole extends IOConsole {
 		}
 	}
 
-	public void readConsole(final Module world, final A4Solution ans) {
+	public void readConsole(final CompModule world, final A4Solution ans) {
 		final BufferedReader stream;
 		inputStream = getInputStream();
 		stream = new BufferedReader(new InputStreamReader(inputStream));

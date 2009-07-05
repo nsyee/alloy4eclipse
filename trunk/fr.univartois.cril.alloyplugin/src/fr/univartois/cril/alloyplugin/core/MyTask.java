@@ -5,7 +5,7 @@ import edu.mit.csail.sdg.alloy4.WorkerEngine.WorkerCallback;
 import edu.mit.csail.sdg.alloy4.WorkerEngine.WorkerTask;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
-import edu.mit.csail.sdg.alloy4compiler.parser.Module;
+import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
@@ -36,7 +36,7 @@ public class MyTask implements WorkerTask {
               @Override public void resultUNSAT(Object command, long solvingtime, Object solution) { Command cmd = (Command)command; out.callback("Unsatisfiable:"+(cmd.expects)+":"+cmd.check+":"+solvingtime);}
            };
     	 out.callback("World"); 
-         Module world = CompUtil.parseEverything_fromFile(rep, null, inFile);
+    	 CompModule world = CompUtil.parseEverything_fromFile(rep, null, inFile);
          out.callback("Commands"); 
          Command c = world.getAllCommands().get(command);
          out.callback(inFile);

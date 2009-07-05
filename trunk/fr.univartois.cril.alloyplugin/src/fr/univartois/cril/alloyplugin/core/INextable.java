@@ -1,6 +1,6 @@
 package fr.univartois.cril.alloyplugin.core;
 
-import edu.mit.csail.sdg.alloy4compiler.parser.Module;
+import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 
 /**
@@ -17,7 +17,7 @@ public interface INextable {
 
 	void showNextA4Solution();
 	
-    Module getWorld();
+	CompModule getWorld();
 
 	A4Solution accessAns();
     
