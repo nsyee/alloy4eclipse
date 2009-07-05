@@ -44,7 +44,7 @@ public class RenameAls implements IEditorActionDelegate {
 		this.targetEditor = targetEditor;
 		onWordFile = false;
 		IFile file = getFile();
-		if (file != null && file.getFileExtension().equals(EXT_ALS)) {
+		if (file != null && EXT_ALS.equals(file.getFileExtension())) {
 			onWordFile = true;
 		}
 	}

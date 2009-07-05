@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="alloy4" default="build.jars" basedir=".">
 
-	<property name="basews" value="${ws}"/>
-	<property name="baseos" value="${os}"/>
-	<property name="basearch" value="${arch}"/>
-	<property name="basenl" value="${nl}"/>
+	<!--
+		1) Fetch jarbundler-2.1 here: http://informagen.com/JarBundler/
+		2) In Eclipse preferences, under Ant | Runtime, add a "Global Entry" for jarbundler-2.1.0.jar.
+		3) Run the targets in this ant script with the same JRE as the workspace
+	-->
+	<taskdef name="jarbundler" classname="net.sourceforge.jarbundler.JarBundler" />
+
+	<property name="basews" value="${osgi.ws}"/>
+	<property name="baseos" value="${osgi.os}"/>
+	<property name="basearch" value="${osgi.arch}"/>
+	<property name="basenl" value="${osgi.nl}"/>
 	<property name="bundleId" value="alloy4"/>
 
 	<!-- Compiler settings. -->
@@ -30,6 +37,16 @@
 	<property name="bundleBootClasspath" value="${bootclasspath}"/>
 
 	<target name="init" depends="properties">
+		<fail message="alloy4.dir=${alloy4.dir} is not the Alloy4 source directory">
+			<condition>
+				<not>
+					<and>
+						<available file="${alloy4.dir}/extra/Alloy4/Alloy4.app/Contents/Resources/AlloyFile.icns" />
+						<available file="${alloy4.dir}/extra/Alloy4/Alloy4.app/Contents/Resources/AlloyLogo.icns" />
+					</and>
+				</not>
+			</condition>
+		</fail>
 		<property name="build.result.folder" value="${basedir}"/>
 		<property name="temp.folder" value="${basedir}/temp.folder"/>
 		<property name="plugin.destination" value="${basedir}"/>
@@ -42,13 +59,14 @@
 
 	<target name="newVersion">
 		<propertyfile file="alloy4.build.properties">
-		  <entry key="alloy4.build.number" type="int" default="880" operation="+" pattern="000"/>
-		  <entry key="alloy4.build.date" type="date" value="now" pattern="yyyy/MM/dd HH:mm"/>
-		  <entry key="alloy4.build.version" type="string" value="4.2.0 (svn)"/>
+			<entry key="alloy4.build.number" type="int" default="880" operation="+" pattern="000"/>
+			<entry key="alloy4.build.date" type="date" value="now" pattern="yyyy/MM/dd HH:mm"/>
+			<entry key="alloy4.build.version" type="string" default="4.1.10.svn"/>
 		</propertyfile>
 	</target>
-	
-	<target name="alloy4.jar" depends="init, newVersion" unless="alloy4.jar" description="Create jar: alloy4 alloy4.jar.">
+
+	<target name="alloy4.jar" depends="init" unless="alloy4.jar" description="Create jar: alloy4 alloy4.jar.">
+		<antcall target="newVersion"/>
 		<delete dir="${temp.folder}/alloy4.jar.bin"/>
 		<mkdir dir="${temp.folder}/alloy4.jar.bin"/>
 		<property file="alloy4.build.properties"/>
@@ -56,29 +74,29 @@
 		<echo message="buildNumber()=${alloy4.build.number}"/>
 		<echo message="  buildDate()=${alloy4.build.date}"/>
 		<echo message="    version()=${alloy4.build.version}"/>
-				
+
 		<!-- Copy necessary resources -->
 		<copy todir="${temp.folder}/alloy4.jar.bin" failonerror="true" overwrite="false">
-			<fileset dir="src/">
+			<fileset dir="${alloy4.dir}/src/">
 				<include name="**/*.java"/>
 				<exclude name="**/package.htm*"/>
 				<exclude name="**/*.jar"/>
 			</fileset>
-			<fileset dir=".">
+			<fileset dir="${alloy4.dir}">
 				<include name="models/**/*.als"/>
 			</fileset>
 		</copy>
-		
+
 		<replace file="${temp.folder}/alloy4.jar.bin/edu/mit/csail/sdg/alloy4/Version.java">
 			<replacefilter token="Integer.MAX_VALUE" value="${alloy4.build.number}"/>
-			<replacefilter token="4.1.?" value="${alloy4.build.version}"/>
+			<replacefilter token="4.1.10.svn" value="${alloy4.build.version}"/>
 			<replacefilter token="unknown" value="${alloy4.build.date}"/>
 		</replace>
 
 		<path id="alloy4.jar.classpath">
-			<pathelement path="src/apple-osx-ui.jar"/>
-			<pathelement path="src/extra.jar"/>
-			<pathelement path="src/kodkod+sat4j.jar"/>
+			<pathelement path="${alloy4.dir}/src/apple-osx-ui.jar"/>
+			<pathelement path="${alloy4.dir}/src/extra.jar"/>
+			<pathelement path="${alloy4.dir}/src/kodkod+sat4j.jar"/>
 		</path>
 		<!-- compile the source code -->
 		<javac destdir="${temp.folder}/alloy4.jar.bin" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bundleBootClasspath}" source="${bundleJavacSource}" target="${bundleJavacTarget}"		>
@@ -88,25 +106,59 @@
 			<compilerarg line="-log '${temp.folder}/alloy4.jar.bin${logExtension}'" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
 		</javac>
 		<mkdir dir="${build.result.folder}"/>
-		<unjar src="src/apple-osx-ui.jar" dest="${temp.folder}/alloy4.jar.bin">
+		<unjar src="${alloy4.dir}/src/apple-osx-ui.jar" dest="${temp.folder}/alloy4.jar.bin">
 			<patternset>
 				<exclude name="META-INF/MANIFEST.MF"/>
 			</patternset>
 		</unjar>
-		<unjar src="src/extra.jar" dest="${temp.folder}/alloy4.jar.bin">
+		<unjar src="${alloy4.dir}/src/extra.jar" dest="${temp.folder}/alloy4.jar.bin">
 			<patternset>
 				<exclude name="META-INF/MANIFEST.MF"/>
 			</patternset>
 		</unjar>
-		<unjar src="src/kodkod+sat4j.jar" dest="${temp.folder}/alloy4.jar.bin">
+		<unjar src="${alloy4.dir}/src/kodkod+sat4j.jar" dest="${temp.folder}/alloy4.jar.bin">
 			<patternset>
 				<exclude name="META-INF/MANIFEST.MF"/>
 			</patternset>
 		</unjar>
 		<jar destfile="${build.result.folder}/alloy4.jar" 
-			basedir="${temp.folder}/alloy4.jar.bin"
-			manifest="MANIFEST.MF"/>
+			basedir="${temp.folder}/alloy4.jar.bin">
+			<manifest>
+				<attribute name="Main-Class" value="edu.mit.csail.sdg.alloy4whole.SimpleGUI"/>
+			</manifest>
+		</jar>
 		<delete dir="${temp.folder}/alloy4.jar.bin"/>
+	</target>
+
+	<target name="bundle" depends="build.jars">
+		<property file="alloy4.build.properties" />
+
+		<echo message="buildNumber()=${alloy4.build.number}" />
+		<echo message="  buildDate()=${alloy4.build.date}" />
+		<echo message="    version()=${alloy4.build.version}" />
+
+		<!-- Delete the old Alloy4.app -->
+		<delete dir="Alloy4.app" failonerror="false" />
+
+		<!-- Create a new Alloy4.app based on sources in ${alloy4} and the jar in ./alloy4.jar -->
+		<jarbundler dir="."
+			name="Alloy4"
+			mainclass="edu.mit.csail.sdg.alloy4whole.SimpleGUI"
+			build="${alloy4.build.date}"
+			bundleid="edu.mit.alloy"
+			icon="${alloy4.dir}/extra/Alloy4/Alloy4.app/Contents/Resources/AlloyLogo.icns"
+			infostring="MIT Alloy4, build ${alloy4.build.version} on ${alloy4.build.date}"
+			version="${alloy4.build.version}"
+			jvmversion="1.6+"
+			shortname="Alloy4"
+			signature="A4"
+			vmoptions="-Xmx512m -Xdock:name=Alloy4"
+			verbose="true"
+			showplist="true"
+			>
+			<documenttype name="Alloy4 model" extensions="als" iconFile="${alloy4.dir}/extra/Alloy4/Alloy4.app/Contents/Resources/AlloyFile.icns" role="Editor"/>
+			<jarfileset dir="." includes="alloy4.jar"/>
+		</jarbundler>
 	</target>
 
 	<target name="build.jars" depends="init" description="Compile classes and build nested jars for the plug-in: alloy4.">

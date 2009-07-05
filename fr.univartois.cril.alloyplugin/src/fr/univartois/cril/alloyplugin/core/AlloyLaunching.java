@@ -24,7 +24,7 @@ import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
-import edu.mit.csail.sdg.alloy4compiler.parser.Module;
+import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import fr.univartois.cril.alloyplugin.AlloyPlugin;
@@ -180,7 +180,7 @@ public class AlloyLaunching {
 		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \"" + filename
 				+ "\" =============");
-		Module world;
+		CompModule world;
 		world = CompUtil.parseEverything_fromFile(rep, null, filename);
 		alloyParserConsole.printInfo("=========== End Parsing \"" + filename
 				+ "\" =============");
@@ -192,7 +192,7 @@ public class AlloyLaunching {
 	 * Set the fields of an alsFile. (commands, signatures..) fire changed() on
 	 * the als file for listeners.
 	 */
-	private static void updateALSFile(Module world, IALSFile file) throws Err {
+	private static void updateALSFile(CompModule world, IALSFile file) throws Err {
 		// convert all commands in ExecutableCommand[]
 		List<IALSCommand> exec_cmds = new ArrayList<IALSCommand>();// new
 		// ExecutableCommand[list.size()];

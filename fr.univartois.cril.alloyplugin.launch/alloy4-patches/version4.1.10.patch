@@ -1,0 +1,18 @@
+### Eclipse Workspace Patch 1.0
+#P mit.alloy4
+Index: src/edu/mit/csail/sdg/alloy4compiler/ast/ExprConstant.java
+===================================================================
+--- src/edu/mit/csail/sdg/alloy4compiler/ast/ExprConstant.java	(revision 11680)
++++ src/edu/mit/csail/sdg/alloy4compiler/ast/ExprConstant.java	(working copy)
+@@ -112,6 +112,11 @@
+         if (n==1) return ONE;
+         return new ExprConstant(null, Op.NUMBER, n, "");
+     }
++    
++    /** Constructs the string "string" */
++    public static Expr makeSTRING(String string) {
++      return new ExprConstant(null, Op.STRING, 0, string);
++    }
+ 
+     /** This class contains all possible constant types. */
+     public enum Op {
