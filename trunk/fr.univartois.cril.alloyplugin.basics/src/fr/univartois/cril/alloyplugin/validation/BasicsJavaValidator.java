@@ -1,0 +1,13 @@
+package fr.univartois.cril.alloyplugin.validation;
+ 
+
+public class BasicsJavaValidator extends AbstractBasicsJavaValidator {
+
+//	@Check
+//	public void checkTypeNameStartsWithCapital(Type type) {
+//		if (!Character.isUpperCase(type.getName().charAt(0))) {
+//			warning("Name should start with a capital", MyDslPackage.TYPE__NAME);
+//		}
+//	}
+
+}
