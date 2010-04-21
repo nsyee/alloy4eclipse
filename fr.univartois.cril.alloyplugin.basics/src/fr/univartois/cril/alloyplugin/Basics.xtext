@@ -1,0 +1,174 @@
+grammar fr.univartois.cril.alloyplugin.Basics with org.eclipse.xtext.common.Terminals
+hidden(WS, ML_COMMENT, SL_COMMENT)
+generate basics "http://www.univartois.fr/cril/alloyplugin/Basics"
+
+Specification	:
+	module=Module? open+=Open* paragraph+=Paragraph* ;
+	
+Module	:
+	"module" name=Name ("[" "exactly"? name2=Name ("," "exactly"? INT)* "]")?;
+	
+Open	:
+	"private"? "open" name=[Name] ("[" ref=Ref ("," ref2=Ref)* "]")? ("as" name2=Name)?;
+	
+Paragraph	:
+	FactDecl	|
+	AssertDecl	|
+	FunDecl		|
+	CmdDecl		|
+	EnumDecl	|
+	SigDecl		;
+	
+FactDecl	:
+	"fact" name=Name? "{" block=Block;
+	
+AssertDecl	:
+	"assert" name=Name? "{" block=Block;
+	
+FunDecl	:
+	"private"? "fun" (Ref ".")? name=Name "(" (decl=Decl ",")* ")" ":" expr=Expression "{" block=Block	|
+	"private"? "fun" (Ref ".")? name=Name "[" (decl=Decl ",")* "]" ":" expr=Expression "{" block=Block	|
+	"private"? "fun" (Ref ".")? name=Name						   ":" expr=Expression "{" block=Block	|
+	"private"? "pred" (Ref ".")? name=Name "(" (decl=Decl ",")* ")" 				   "{" block=Block	|
+	"private"? "pred" (Ref ".")? name=Name "[" (decl=Decl ",")* "]" 					"{" block=Block	|
+	"private"? "pred" (Ref ".")? name=Name						    					"{" block=Block;
+
+	
+CmdDecl	:
+	(name=Name ":")? ("run"|"check") (name=Name| "{" block=Block ) scope=Scope;
+	
+Scope	:
+	"for" INT 														("expect" ("0"|"1")? )?	|
+	"for" INT "but" typescope=Typescope ("," typescope=Typescope)* 	("expect" ("0"|"1")? )?	|
+	"for" INT 		typescope=Typescope ("," typescope=Typescope)* 	("expect" ("0"|"1")? )?	|
+																	("expect" ("0"|"1")? )?	;
+												
+Typescope	:
+	"exactly"? INT (name=Name|"int"	|"seq")	;
+	
+	
+EnumDecl	:
+	"enum" name=Name "{" name=Name ("," name=Name)* "}";
+	
+SigDecl	:
+	sigQual+=SigQual* "sig" name=Name ("," name=Name)* (sigExt=SigExt)? "{" (decl=Decl ("," decl=Decl)* )? "}" ("{" block=Block)?;
+	
+SigQual	:
+	abstract="abstract"	|
+	lone="lone"		|
+	one="one"		|
+	some="some"		|
+	private="private"	;
+	
+SigExt	:
+	"extends" ref=Ref				|
+	"in" ref=Ref ("+" ref=Ref)*	;
+	
+Expression :
+	term=TerminalExpr 	( 
+						  (binOp=BinOp|"+"|"&"|".") right=TerminalExpr 							|
+						  arrowOp=ArrowOp right=TerminalExpr						|
+						  ("!"|"not")? compareOp?=CompareOp right=TerminalExpr		|
+						  ("=>"|"implies") then?=Expression "else" else=TerminalExpr	
+						)*;
+	
+TerminalExpr returns Expression:
+	"let" LetDecls blockOrBarBis=BlockOrBarBis					|
+	quant=Quant decls=Decl blockOrBarBis=BlockOrBarBis			|
+	unOp=UnOp exprTerm=TerminalExpr								|
+    INT													|
+	"none"														|
+	"iden"														|
+	"univ"														|
+	"Int"														|
+	"seq/Int"													|
+	"(" exprT=Expression ")"									|
+	"[" exprT=Expression* "]"									|
+	op?="@"? name=[Name]										|
+	"{" (Block | (decl=Decl ",")+ blockOrBar=BlockOrBar "}")	;
+
+Decls	:
+	decl=Decl ("," decl=Decl)*;
+	
+Decl	:
+	("private")? ("disj")? nameDecl=Name ("," nameDecl=Name)* ":" ("disj")? exprDecl=Expression	;
+	
+LetDecls:
+	letDecl=LetDecl ("," letDecl=LetDecl)*;
+	
+LetDecl	:
+	nameLet=Name "=" exprLet=Expression	;
+	
+enum Quant	:
+	all="all"	|
+	//no="no"	|
+	//some="some"	|
+	//lone="lone"	|
+	//one="one"	|
+	sum="sum"	;
+
+terminal ArrowOp	:
+	("some" | "one" | "lone" | "set" )? "->" ("some" | "one" | "lone" | "set" )?	;
+	
+terminal BinOp	:
+	"||"		|
+	"or"		|
+	"&&"		|
+	"and"		|
+	//"&"			|
+	"<=>"		|
+	"iff"		|
+	"=>"		|
+	"implies"	|
+	//"+"			|
+	//"-"			|
+	"++"		|
+	"<:"		|
+	":>"		|
+	//"."			|	
+	"<<"		|
+	">>"		|	
+	">>>"		;
+
+terminal CompareOp	:
+	"="		|
+	"in"	|
+	"<"		|
+	">"		|
+	"=<"	|
+	">="	;
+	
+UnOp	:
+	moin="-"	|//MODFIER
+	not="!"	|
+	not="not"	|
+	no="no"	|
+	some="some"	|
+	lone="lone"	|
+	one="one"	|
+	set="set"	|
+	seq="seq"	|
+	diaise="#"		|
+	tilde="~"		|
+	etoile="*"		|
+	apostr="^"		;
+	
+Block	:
+	exprBlock=Expression* "}";
+	
+BlockOrBar	:
+	"{" blockBlock=Block			|
+	"|" exprBlock=Expression		;
+	
+BlockOrBarBis	:
+	"{" blockBlock=Block			|
+	"|" exprBlock=TerminalExpr		;
+	
+Name	:
+	name=("this" | ID) ("/" ID)*	;
+	
+Ref	:
+	ref=[Name]	|
+	"univ"		|
+	"Int"		|
+	"seq/Int"	;
