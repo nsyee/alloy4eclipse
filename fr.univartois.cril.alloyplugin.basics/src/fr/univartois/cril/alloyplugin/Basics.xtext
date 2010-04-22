@@ -26,12 +26,12 @@ AssertDecl	:
 	"assert" name=Name? "{" block=Block;
 	
 FunDecl	:
-	"private"? "fun" (Ref ".")? name=Name "(" (decl=Decl ",")* ")" ":" expr=Expression "{" block=Block	|
-	"private"? "fun" (Ref ".")? name=Name "[" (decl=Decl ",")* "]" ":" expr=Expression "{" block=Block	|
-	"private"? "fun" (Ref ".")? name=Name						   ":" expr=Expression "{" block=Block	|
-	"private"? "pred" (Ref ".")? name=Name "(" (decl=Decl ",")* ")" 				   "{" block=Block	|
-	"private"? "pred" (Ref ".")? name=Name "[" (decl=Decl ",")* "]" 					"{" block=Block	|
-	"private"? "pred" (Ref ".")? name=Name						    					"{" block=Block;
+	"private"? "fun" (Ref ".")? name=Name "(" (decl=Decl ",")* ")" (":" expr=Expression)? "{" block=Block	|
+	"private"? "fun" (Ref ".")? name=Name "[" (decl=Decl ",")* "]" (":" expr=Expression)? "{" block=Block	|
+	"private"? "fun" (Ref ".")? name=Name						   (":" expr=Expression)? "{" block=Block	|
+	"private"? "pred" (Ref ".")? name=Name "(" (decl=Decl ",")* ")" 						  "{" block=Block	|
+	"private"? "pred" (Ref ".")? name=Name "[" (decl=Decl ",")* "]" 						  "{" block=Block	|
+	"private"? "pred" (Ref ".")? name=Name						  						  "{" block=Block	;
 
 	
 CmdDecl	:
@@ -66,17 +66,17 @@ SigExt	:
 	
 Expression :
 	term=TerminalExpr 	( 
-						  (binOp=BinOp|"+"|"&"|".") right=TerminalExpr 							|
-						  arrowOp=ArrowOp right=TerminalExpr						|
-						  ("!"|"not")? compareOp?=CompareOp right=TerminalExpr		|
-						  ("=>"|"implies") then?=Expression "else" else=TerminalExpr	
-						)*;
+						  binOp?=BinOp right=Expression 							|
+						  arrowOp?=ArrowOp right=Expression						|
+						  ("!"|"not")? compareOp?=CompareOp right=Expression		|
+						  ("=>"|"implies") then?=Expression "else" else=Expression	
+						)?;
 	
 TerminalExpr returns Expression:
 	"let" LetDecls blockOrBarBis=BlockOrBarBis					|
 	quant=Quant decls=Decl blockOrBarBis=BlockOrBarBis			|
 	unOp=UnOp exprTerm=TerminalExpr								|
-    INT													|
+	"-"? INT													|
 	"none"														|
 	"iden"														|
 	"univ"														|
@@ -115,17 +115,17 @@ terminal BinOp	:
 	"or"		|
 	"&&"		|
 	"and"		|
-	//"&"			|
+	"&"			|
 	"<=>"		|
 	"iff"		|
 	"=>"		|
 	"implies"	|
-	//"+"			|
-	//"-"			|
+	"+"			|
+	"-"			|
 	"++"		|
 	"<:"		|
 	":>"		|
-	//"."			|	
+	"."			|	
 	"<<"		|
 	">>"		|	
 	">>>"		;
@@ -139,7 +139,6 @@ terminal CompareOp	:
 	">="	;
 	
 UnOp	:
-	moin="-"	|//MODFIER
 	not="!"	|
 	not="not"	|
 	no="no"	|
