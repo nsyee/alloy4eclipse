@@ -25,7 +25,7 @@ public class BasicsParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrPa
 	protected IParseResult parse(String ruleName, ANTLRInputStream in) {
 		fr.univartois.cril.alloyplugin.parser.antlr.internal.InternalBasicsLexer lexer = new fr.univartois.cril.alloyplugin.parser.antlr.internal.InternalBasicsLexer(in);
 		XtextTokenStream stream = new XtextTokenStream(lexer, antlrTokenDefProvider);
-		stream.setInitialHiddenTokens("RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT");
+		stream.setInitialHiddenTokens("RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_COMMENT");
 		fr.univartois.cril.alloyplugin.parser.antlr.internal.InternalBasicsParser parser = new fr.univartois.cril.alloyplugin.parser.antlr.internal.InternalBasicsParser(
 				stream, getElementFactory(), grammarAccess);
 		parser.setTokenTypeMap(antlrTokenDefProvider.getTokenDefMap());
@@ -40,7 +40,7 @@ public class BasicsParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrPa
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "Specification";
 	}
 	
 	public BasicsGrammarAccess getGrammarAccess() {

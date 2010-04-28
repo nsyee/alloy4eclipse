@@ -12,13 +12,13 @@ Specification	:
 	module ::= "module" name  [ "["  ["exactly"] name  ("," ["exactly"] num)*    "]" ]
 */	
 Module	:
-	module="module" name=NameModule ("[" "exactly"? suite=NameModule ("," "exactly"? INT)* "]")?;
+	"module" moduleName=Name ("[" "exactly"? suite=Name ("," "exactly"? INT)* "]")?;
 	
 /*
 	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
 */	
 Open	:
-	"private"? open="open" name=NameOpen ("[" ref=Ref ("," ref2+=Ref)* "]")? ("as" name2=NameOpen)?;
+	"private"? "open" name=Name ("[" ref=Ref ("," ref2+=Ref)* "]")? ("as" name2=Name)?;
 	
 /*
 	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
@@ -37,13 +37,13 @@ Paragraph	:
 	factDecl ::= "fact" [name] block
 */
 FactDecl	:
-	fact="fact" name=NameExpression? b=BlockBis;
+	"fact" factName=Name? b=BlockBis;
 
 /*
 	assertDecl ::= "assert" [name] block
 */
 AssertDecl	:
-	assert="assert" name=NameExpression? b=BlockBis;
+	"assert" assertName=Name? b=BlockBis;
 	
 /*
 	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
@@ -51,7 +51,7 @@ AssertDecl	:
 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 */	
 FunDecl	:
-	"private"? fun="fun" (ref=Ref ".")? name=NameExpression	( "[" (decl=Decl ("," decl2+=Decl)*)? "]" | "(" (decl=Decl ("," decl2+=Decl)*)? ")" ) ":" expr=Expression b=BlockBis	;
+	"private"? "fun" (ref=Ref ".")? funName=Name	( "[" (decl=Decl ("," decl2+=Decl)*)? "]" | "(" (decl=Decl ("," decl2+=Decl)*)? ")" ) ":" expr=Expression b=BlockBis	;
 
 /*
 	funDecl ::= ["private"] "pred" [ref "."] name "(" decl,* ")" block
@@ -59,19 +59,19 @@ FunDecl	:
 	funDecl ::= ["private"] "pred" [ref "."] name                block
 */	
 PredDecl	:
-	"private"? pred="pred" (ref=Ref ".")? name=NameExpression	( "[" (decl=Decl ("," decl2+=Decl)*)? "]" | "(" (decl=Decl ("," decl2+=Decl)*)? ")" )?  b=BlockBis	;
+	"private"? pred="pred" (ref=Ref ".")? predName=Name	( "[" (decl=Decl ("," decl2+=Decl)*)? "]" | "(" (decl=Decl ("," decl2+=Decl)*)? ")" )?  b=BlockBis	;
 
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
 RunDecl	:
-	(name=NameExpression ":")? run="run" (name2=[NameExpression]| b=BlockBis ) scope=Scope;
+	(runName=Name ":")? run="run" (name2=[Name]| b=BlockBis ) scope=Scope;
 
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 */	
 CheckDecl	:
-	(name=NameExpression ":")? check="check" (name2=[NameExpression]| b=BlockBis ) scope=Scope;
+	(checkName=Name ":")? check="check" (name2=[Name]| b=BlockBis ) scope=Scope;
 	
 /*
 	scope ::= "for" number                   ["expect" [0|1]]
@@ -87,19 +87,19 @@ Scope	:
 	typescope ::= ["exactly"] number [name|"int"|"seq"]
 */
 Typescope	:
-	"exactly"? INT (n=[NameExpression]|("int"|"seq"))	;
+	"exactly"? INT (n=[Name]|("int"|"seq"))	;
 		
 /*
 	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
 */
 EnumDecl	:
-	enumeration="enum" name=NameExpression "{" name2=NameExpression ("," name3+=NameExpression)* "}";
+	"enum" enumName=Name "{" name2=Name ("," name3+=Name)* "}";
 
 /*
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */	
 SigDecl	:
-	SigQual* signature="sig" name=NameExpression ("," name2+=NameExpression)* (sigExt=SigExt)? "{" (decl=Decl ("," decl2+=Decl)* )? "}" ;/*(b=BlockBis)?*/
+	SigQual* "sig" sigName=Name ("," name2+=Name)* (sigExt=SigExt)? "{" (decl=Decl ("," decl2+=Decl)* )? "}" (b=BlockBis)?;
 	
 /*
 	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
@@ -146,14 +146,14 @@ Expression :
 	(term=TerminalExpr) 	(
 						"[" exprT=Expression* "]"											|//8./												
 						op=("+"|"&"|"."|"-"|"||"|"or"|"&&"|"and"|"<=>"|"iff"/*|"=>"|"implies"*/|"++"|"<:"|":>"|"<<"	|">>"|">>>") right=Expression 	|//4./
-						("!"|"not")? op=("="|"in"|"<"|">"|"=<"|">=") right=Expression		|//6./													
+						("!"|"not")? op=("="|"in"|"<"|">"|"<="|"=>") right=Expression		|//6./													
 						arrowOp=ArrowOp right=Expression									//5./																						//|	
 						//("=>"|"implies") (then=Expression ("else" right=Expression)? )    //7./   
 						)?;
 						
 TerminalExpr returns Expression:
 	"let" LetDecl ("," letDecl=LetDecl)* blockOrBarBis=BlockOrBarBis		|//1./
-	("all"|"sum") decl=Decl ("," declSuite+=Decl)*	b=BlockOrBarBis					|//2./
+	("all"|"sum") decl=Decl b=BlockOrBarBis					|//2./
 	("!"|"not"|"set"|"seq"|"#"|"~"|"*"|"^") TerminalExpr	|//3./
    	("no"|"some"|"lone"|"one") ( /*Decl ("," declSuite+=Decl)* block=BlockOrBarBis |*/ t=TerminalExpr)|//2./ AND 3./ ERROR with Decl here 
     INT																			|//9./
@@ -164,26 +164,26 @@ TerminalExpr returns Expression:
 	"Int"																		|//14./
 	"seq/Int"																	|//15./
 	"(" exprT=Expression ")"													|//16./
-	"@"? nameRef=[NameExpression]														|//17./
+	"@"? nameRef=[Name]														|//17./
 	"{" (Block | (decl=Decl ",")+ blockOrBar=BlockOrBar "}")					;//18 AND 19./
 	
 /*
 	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
 */	
 Decl	:
-	("private")? ("disj")? name=NameExpression ("," suite+=NameExpression)*    ":" ("disj")? exprDecl=Expression	;
+	("private")? ("disj")? name=Name ("," suite+=Name)*    ":" ("disj")? exprDecl=Expression	;
 
 /*
 	REMOVE
 */
 Decl2	:
-	("private")? ("disj")? NameExpression ":" ("disj")? exprDecl=Expression	;
+	("private")? ("disj")? Name ":" ("disj")? exprDecl=Expression	;
 	
 /*
 	letDecl ::= name "=" expr
 */	
 LetDecl	:
-	NameExpression "=" exprLet=Expression	;
+	Name "=" exprLet=Expression	;
 
 /*
 	arrowOp ::= ["some"|"one"|"lone"|"set"]? "->" ["some"|"one"|"lone"|"set"]? //redondance in the end of the expression
@@ -229,21 +229,12 @@ Name :
 
 NameBis:
 	("this"|ID) ("/" suite=ID)+;
-	
-NameModule	:
-	name=Name;
-		
-NameExpression	:
-	Name;
-	
-NameOpen	:
-	name=Name;
 
 /*
 	ref ::= name | "univ" | "Int" | "seq/Int"
 */	
 Ref	:
-	name=[NameExpression]	|
+	name=[Name]	|
 	"univ"		|
 	"Int"		|
 	"seq/Int"	;
