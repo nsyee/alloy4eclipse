@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package fr.univartois.cril.alloyplugin.basics.util;
 
@@ -79,34 +78,139 @@ public class BasicsAdapterFactory extends AdapterFactoryImpl
     new BasicsSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseSpecification(Specification object)
       {
-        return createModelAdapter();
+        return createSpecificationAdapter();
       }
       @Override
-      public Adapter caseImport(Import object)
+      public Adapter caseModule(Module object)
       {
-        return createImportAdapter();
+        return createModuleAdapter();
       }
       @Override
-      public Adapter caseType(Type object)
+      public Adapter caseOpen(Open object)
       {
-        return createTypeAdapter();
+        return createOpenAdapter();
       }
       @Override
-      public Adapter caseSimpleType(SimpleType object)
+      public Adapter caseParagraph(Paragraph object)
       {
-        return createSimpleTypeAdapter();
+        return createParagraphAdapter();
       }
       @Override
-      public Adapter caseEntity(Entity object)
+      public Adapter caseFactDecl(FactDecl object)
       {
-        return createEntityAdapter();
+        return createFactDeclAdapter();
       }
       @Override
-      public Adapter caseProperty(Property object)
+      public Adapter caseAssertDecl(AssertDecl object)
       {
-        return createPropertyAdapter();
+        return createAssertDeclAdapter();
+      }
+      @Override
+      public Adapter caseFunDecl(FunDecl object)
+      {
+        return createFunDeclAdapter();
+      }
+      @Override
+      public Adapter casePredDecl(PredDecl object)
+      {
+        return createPredDeclAdapter();
+      }
+      @Override
+      public Adapter caseRunDecl(RunDecl object)
+      {
+        return createRunDeclAdapter();
+      }
+      @Override
+      public Adapter caseCheckDecl(CheckDecl object)
+      {
+        return createCheckDeclAdapter();
+      }
+      @Override
+      public Adapter caseScope(Scope object)
+      {
+        return createScopeAdapter();
+      }
+      @Override
+      public Adapter caseTypescope(Typescope object)
+      {
+        return createTypescopeAdapter();
+      }
+      @Override
+      public Adapter caseEnumDecl(EnumDecl object)
+      {
+        return createEnumDeclAdapter();
+      }
+      @Override
+      public Adapter caseSigDecl(SigDecl object)
+      {
+        return createSigDeclAdapter();
+      }
+      @Override
+      public Adapter caseSigExt(SigExt object)
+      {
+        return createSigExtAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseDecl(Decl object)
+      {
+        return createDeclAdapter();
+      }
+      @Override
+      public Adapter caseDecl2(Decl2 object)
+      {
+        return createDecl2Adapter();
+      }
+      @Override
+      public Adapter caseLetDecl(LetDecl object)
+      {
+        return createLetDeclAdapter();
+      }
+      @Override
+      public Adapter caseArrowOp(ArrowOp object)
+      {
+        return createArrowOpAdapter();
+      }
+      @Override
+      public Adapter caseBlock(Block object)
+      {
+        return createBlockAdapter();
+      }
+      @Override
+      public Adapter caseBlockBis(BlockBis object)
+      {
+        return createBlockBisAdapter();
+      }
+      @Override
+      public Adapter caseBlockOrBar(BlockOrBar object)
+      {
+        return createBlockOrBarAdapter();
+      }
+      @Override
+      public Adapter caseBlockOrBarBis(BlockOrBarBis object)
+      {
+        return createBlockOrBarBisAdapter();
+      }
+      @Override
+      public Adapter caseName(Name object)
+      {
+        return createNameAdapter();
+      }
+      @Override
+      public Adapter caseNameBis(NameBis object)
+      {
+        return createNameBisAdapter();
+      }
+      @Override
+      public Adapter caseRef(Ref object)
+      {
+        return createRefAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -131,91 +235,406 @@ public class BasicsAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Specification <em>Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.Model
+   * @see fr.univartois.cril.alloyplugin.basics.Specification
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createSpecificationAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Import <em>Import</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Module <em>Module</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.Import
+   * @see fr.univartois.cril.alloyplugin.basics.Module
    * @generated
    */
-  public Adapter createImportAdapter()
+  public Adapter createModuleAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Type <em>Type</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Open <em>Open</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.Type
+   * @see fr.univartois.cril.alloyplugin.basics.Open
    * @generated
    */
-  public Adapter createTypeAdapter()
+  public Adapter createOpenAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.SimpleType <em>Simple Type</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Paragraph <em>Paragraph</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.SimpleType
+   * @see fr.univartois.cril.alloyplugin.basics.Paragraph
    * @generated
    */
-  public Adapter createSimpleTypeAdapter()
+  public Adapter createParagraphAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Entity <em>Entity</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.FactDecl <em>Fact Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.Entity
+   * @see fr.univartois.cril.alloyplugin.basics.FactDecl
    * @generated
    */
-  public Adapter createEntityAdapter()
+  public Adapter createFactDeclAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Property <em>Property</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.AssertDecl <em>Assert Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.Property
+   * @see fr.univartois.cril.alloyplugin.basics.AssertDecl
    * @generated
    */
-  public Adapter createPropertyAdapter()
+  public Adapter createAssertDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.FunDecl <em>Fun Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.FunDecl
+   * @generated
+   */
+  public Adapter createFunDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.PredDecl <em>Pred Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.PredDecl
+   * @generated
+   */
+  public Adapter createPredDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.RunDecl <em>Run Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.RunDecl
+   * @generated
+   */
+  public Adapter createRunDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.CheckDecl <em>Check Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.CheckDecl
+   * @generated
+   */
+  public Adapter createCheckDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Scope <em>Scope</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.Scope
+   * @generated
+   */
+  public Adapter createScopeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Typescope <em>Typescope</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.Typescope
+   * @generated
+   */
+  public Adapter createTypescopeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.EnumDecl <em>Enum Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.EnumDecl
+   * @generated
+   */
+  public Adapter createEnumDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.SigDecl <em>Sig Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.SigDecl
+   * @generated
+   */
+  public Adapter createSigDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.SigExt <em>Sig Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.SigExt
+   * @generated
+   */
+  public Adapter createSigExtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Decl <em>Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.Decl
+   * @generated
+   */
+  public Adapter createDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Decl2 <em>Decl2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.Decl2
+   * @generated
+   */
+  public Adapter createDecl2Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.LetDecl <em>Let Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.LetDecl
+   * @generated
+   */
+  public Adapter createLetDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.ArrowOp <em>Arrow Op</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.ArrowOp
+   * @generated
+   */
+  public Adapter createArrowOpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.Block
+   * @generated
+   */
+  public Adapter createBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.BlockBis <em>Block Bis</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.BlockBis
+   * @generated
+   */
+  public Adapter createBlockBisAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.BlockOrBar <em>Block Or Bar</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.BlockOrBar
+   * @generated
+   */
+  public Adapter createBlockOrBarAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.BlockOrBarBis <em>Block Or Bar Bis</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.BlockOrBarBis
+   * @generated
+   */
+  public Adapter createBlockOrBarBisAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Name <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.Name
+   * @generated
+   */
+  public Adapter createNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.NameBis <em>Name Bis</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.NameBis
+   * @generated
+   */
+  public Adapter createNameBisAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Ref <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.alloyplugin.basics.Ref
+   * @generated
+   */
+  public Adapter createRefAdapter()
   {
     return null;
   }

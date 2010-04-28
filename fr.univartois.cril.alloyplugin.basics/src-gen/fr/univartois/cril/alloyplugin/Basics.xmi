@@ -1,100 +1,811 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext">
-  <xtext:Grammar name="fr.univartois.cril.alloyplugin.Basics" usedGrammars="/1">
+  <xtext:Grammar name="fr.univartois.cril.alloyplugin.Basics" usedGrammars="/1" definesHiddenTokens="true" hiddenTokens="/1/@rules.5 /1/@rules.3 /1/@rules.4 /0/@rules.30">
     <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="basics">
       <ePackage href="http://www.univartois.fr/cril/alloyplugin/Basics#/"/>
     </metamodelDeclarations>
-    <rules xsi:type="xtext:ParserRule" name="Model">
+    <rules xsi:type="xtext:ParserRule" name="Specification">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Model"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Specification"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="imports" operator="+=">
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="module" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="elements" operator="+=">
+        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="open" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </tokens>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="Import">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Import"/>
-      </type>
-      <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Keyword" value="import"/>
-        <tokens xsi:type="xtext:Assignment" feature="importURI" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="paragraph" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
         </tokens>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="Type">
+    <rules xsi:type="xtext:ParserRule" name="Module">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Type"/>
-      </type>
-      <alternatives xsi:type="xtext:Alternatives">
-        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
-        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="SimpleType">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//SimpleType"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Module"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Keyword" value="type"/>
-        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        </tokens>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="Entity">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Entity"/>
-      </type>
-      <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Keyword" value="entity"/>
-        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        <tokens xsi:type="xtext:Keyword" value="module"/>
+        <tokens xsi:type="xtext:Assignment" feature="moduleName" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
-          <tokens xsi:type="xtext:Keyword" value="extends"/>
-          <tokens xsi:type="xtext:Assignment" feature="extends" operator="=">
+          <tokens xsi:type="xtext:Keyword" value="["/>
+          <tokens xsi:type="xtext:Keyword" cardinality="?" value="exactly"/>
+          <tokens xsi:type="xtext:Assignment" feature="suite" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          </tokens>
+          <tokens xsi:type="xtext:Group" cardinality="*">
+            <tokens xsi:type="xtext:Keyword" value=","/>
+            <tokens xsi:type="xtext:Keyword" cardinality="?" value="exactly"/>
+            <tokens xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value="]"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Open">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Open"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="private"/>
+        <tokens xsi:type="xtext:Keyword" value="open"/>
+        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="["/>
+          <tokens xsi:type="xtext:Assignment" feature="ref" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+          </tokens>
+          <tokens xsi:type="xtext:Group" cardinality="*">
+            <tokens xsi:type="xtext:Keyword" value=","/>
+            <tokens xsi:type="xtext:Assignment" feature="ref2" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+            </tokens>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value="]"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="as"/>
+          <tokens xsi:type="xtext:Assignment" feature="name2" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Paragraph">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Paragraph"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="FactDecl">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//FactDecl"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="fact"/>
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="factName" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="b" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AssertDecl">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//AssertDecl"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="assert"/>
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="assertName" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="b" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="FunDecl">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//FunDecl"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="private"/>
+        <tokens xsi:type="xtext:Keyword" value="fun"/>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Assignment" feature="ref" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value="."/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="funName" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="["/>
+            <tokens xsi:type="xtext:Group" cardinality="?">
+              <tokens xsi:type="xtext:Assignment" feature="decl" operator="=">
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+              </tokens>
+              <tokens xsi:type="xtext:Group" cardinality="*">
+                <tokens xsi:type="xtext:Keyword" value=","/>
+                <tokens xsi:type="xtext:Assignment" feature="decl2" operator="+=">
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+                </tokens>
+              </tokens>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value="]"/>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="("/>
+            <tokens xsi:type="xtext:Group" cardinality="?">
+              <tokens xsi:type="xtext:Assignment" feature="decl" operator="=">
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+              </tokens>
+              <tokens xsi:type="xtext:Group" cardinality="*">
+                <tokens xsi:type="xtext:Keyword" value=","/>
+                <tokens xsi:type="xtext:Assignment" feature="decl2" operator="+=">
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+                </tokens>
+              </tokens>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value=")"/>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=":"/>
+        <tokens xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="b" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="PredDecl">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//PredDecl"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="private"/>
+        <tokens xsi:type="xtext:Assignment" feature="pred" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="pred"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Assignment" feature="ref" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value="."/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="predName" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives" cardinality="?">
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="["/>
+            <tokens xsi:type="xtext:Group" cardinality="?">
+              <tokens xsi:type="xtext:Assignment" feature="decl" operator="=">
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+              </tokens>
+              <tokens xsi:type="xtext:Group" cardinality="*">
+                <tokens xsi:type="xtext:Keyword" value=","/>
+                <tokens xsi:type="xtext:Assignment" feature="decl2" operator="+=">
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+                </tokens>
+              </tokens>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value="]"/>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="("/>
+            <tokens xsi:type="xtext:Group" cardinality="?">
+              <tokens xsi:type="xtext:Assignment" feature="decl" operator="=">
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+              </tokens>
+              <tokens xsi:type="xtext:Group" cardinality="*">
+                <tokens xsi:type="xtext:Keyword" value=","/>
+                <tokens xsi:type="xtext:Assignment" feature="decl2" operator="+=">
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+                </tokens>
+              </tokens>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value=")"/>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="b" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="RunDecl">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//RunDecl"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Assignment" feature="runName" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=":"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="run" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="run"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="name2" operator="=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Entity"/>
+                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Name"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
             </terminal>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="b" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="scope" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="CheckDecl">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//CheckDecl"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Assignment" feature="checkName" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=":"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="check" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="check"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="name2" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Name"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            </terminal>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="b" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="scope" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Scope">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Scope"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="for"/>
+          <tokens xsi:type="xtext:Alternatives" cardinality="?">
+            <groups xsi:type="xtext:Group">
+              <tokens xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+              <tokens xsi:type="xtext:Group" cardinality="?">
+                <tokens xsi:type="xtext:Keyword" value="but"/>
+                <tokens xsi:type="xtext:Assignment" feature="typescope" operator="=">
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+                </tokens>
+                <tokens xsi:type="xtext:Group" cardinality="*">
+                  <tokens xsi:type="xtext:Keyword" value=","/>
+                  <tokens xsi:type="xtext:Assignment" feature="typescope" operator="=">
+                    <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+                  </tokens>
+                </tokens>
+              </tokens>
+            </groups>
+            <groups xsi:type="xtext:Group">
+              <tokens xsi:type="xtext:Assignment" feature="typescope" operator="=">
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+              </tokens>
+              <tokens xsi:type="xtext:Group" cardinality="*">
+                <tokens xsi:type="xtext:Keyword" value=","/>
+                <tokens xsi:type="xtext:Assignment" feature="typescope" operator="=">
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+                </tokens>
+              </tokens>
+            </groups>
           </tokens>
         </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="expect"/>
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="0"/>
+            <groups xsi:type="xtext:Keyword" value="1"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Typescope">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Typescope"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="exactly"/>
+        <tokens xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="n" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Name"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            </terminal>
+          </groups>
+          <groups xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="int"/>
+            <groups xsi:type="xtext:Keyword" value="seq"/>
+          </groups>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="EnumDecl">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//EnumDecl"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="enum"/>
+        <tokens xsi:type="xtext:Assignment" feature="enumName" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </tokens>
         <tokens xsi:type="xtext:Keyword" value="{"/>
-        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="properties" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        <tokens xsi:type="xtext:Assignment" feature="name2" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="name3" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          </tokens>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="Property">
+    <rules xsi:type="xtext:ParserRule" name="SigDecl">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Property"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//SigDecl"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Keyword" value="property"/>
+        <tokens xsi:type="xtext:RuleCall" cardinality="*" rule="/0/@rules.14"/>
+        <tokens xsi:type="xtext:Keyword" value="sig"/>
+        <tokens xsi:type="xtext:Assignment" feature="sigName" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="name2" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="sigExt" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="{"/>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Assignment" feature="decl" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+          </tokens>
+          <tokens xsi:type="xtext:Group" cardinality="*">
+            <tokens xsi:type="xtext:Keyword" value=","/>
+            <tokens xsi:type="xtext:Assignment" feature="decl2" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+            </tokens>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="}"/>
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="b" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SigQual">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Keyword" value="abstract"/>
+        <groups xsi:type="xtext:Keyword" value="lone"/>
+        <groups xsi:type="xtext:Keyword" value="one"/>
+        <groups xsi:type="xtext:Keyword" value="some"/>
+        <groups xsi:type="xtext:Keyword" value="private"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SigExt">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//SigExt"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="extends"/>
+          <tokens xsi:type="xtext:Assignment" feature="ref" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="in"/>
+          <tokens xsi:type="xtext:Assignment" feature="ref" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+          </tokens>
+          <tokens xsi:type="xtext:Group" cardinality="*">
+            <tokens xsi:type="xtext:Keyword" value="+"/>
+            <tokens xsi:type="xtext:Assignment" feature="ref2" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+            </tokens>
+          </tokens>
+        </groups>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Expression">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Expression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="term" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives" cardinality="?">
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="["/>
+            <tokens xsi:type="xtext:Assignment" cardinality="*" feature="exprT" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value="]"/>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Assignment" feature="op" operator="=">
+              <terminal xsi:type="xtext:Alternatives">
+                <groups xsi:type="xtext:Keyword" value="+"/>
+                <groups xsi:type="xtext:Keyword" value="&amp;"/>
+                <groups xsi:type="xtext:Keyword" value="."/>
+                <groups xsi:type="xtext:Keyword" value="-"/>
+                <groups xsi:type="xtext:Keyword" value="||"/>
+                <groups xsi:type="xtext:Keyword" value="or"/>
+                <groups xsi:type="xtext:Keyword" value="&amp;&amp;"/>
+                <groups xsi:type="xtext:Keyword" value="and"/>
+                <groups xsi:type="xtext:Keyword" value="&lt;=>"/>
+                <groups xsi:type="xtext:Keyword" value="iff"/>
+                <groups xsi:type="xtext:Keyword" value="++"/>
+                <groups xsi:type="xtext:Keyword" value="&lt;:"/>
+                <groups xsi:type="xtext:Keyword" value=":>"/>
+                <groups xsi:type="xtext:Keyword" value="&lt;&lt;"/>
+                <groups xsi:type="xtext:Keyword" value=">>"/>
+                <groups xsi:type="xtext:Keyword" value=">>>"/>
+              </terminal>
+            </tokens>
+            <tokens xsi:type="xtext:Assignment" feature="right" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+            </tokens>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Alternatives" cardinality="?">
+              <groups xsi:type="xtext:Keyword" value="!"/>
+              <groups xsi:type="xtext:Keyword" value="not"/>
+            </tokens>
+            <tokens xsi:type="xtext:Assignment" feature="op" operator="=">
+              <terminal xsi:type="xtext:Alternatives">
+                <groups xsi:type="xtext:Keyword" value="="/>
+                <groups xsi:type="xtext:Keyword" value="in"/>
+                <groups xsi:type="xtext:Keyword" value="&lt;"/>
+                <groups xsi:type="xtext:Keyword" value=">"/>
+                <groups xsi:type="xtext:Keyword" value="&lt;="/>
+                <groups xsi:type="xtext:Keyword" value="=>"/>
+              </terminal>
+            </tokens>
+            <tokens xsi:type="xtext:Assignment" feature="right" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+            </tokens>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Assignment" feature="arrowOp" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
+            </tokens>
+            <tokens xsi:type="xtext:Assignment" feature="right" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+            </tokens>
+          </groups>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TerminalExpr">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Expression"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="let"/>
+          <tokens xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+          <tokens xsi:type="xtext:Group" cardinality="*">
+            <tokens xsi:type="xtext:Keyword" value=","/>
+            <tokens xsi:type="xtext:Assignment" feature="letDecl" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+            </tokens>
+          </tokens>
+          <tokens xsi:type="xtext:Assignment" feature="blockOrBarBis" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="all"/>
+            <groups xsi:type="xtext:Keyword" value="sum"/>
+          </tokens>
+          <tokens xsi:type="xtext:Assignment" feature="decl" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+          </tokens>
+          <tokens xsi:type="xtext:Assignment" feature="b" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="!"/>
+            <groups xsi:type="xtext:Keyword" value="not"/>
+            <groups xsi:type="xtext:Keyword" value="set"/>
+            <groups xsi:type="xtext:Keyword" value="seq"/>
+            <groups xsi:type="xtext:Keyword" value="#"/>
+            <groups xsi:type="xtext:Keyword" value="~"/>
+            <groups xsi:type="xtext:Keyword" value="*"/>
+            <groups xsi:type="xtext:Keyword" value="^"/>
+          </tokens>
+          <tokens xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="no"/>
+            <groups xsi:type="xtext:Keyword" value="some"/>
+            <groups xsi:type="xtext:Keyword" value="lone"/>
+            <groups xsi:type="xtext:Keyword" value="one"/>
+          </tokens>
+          <tokens xsi:type="xtext:Assignment" feature="t" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.29"/>
+        <groups xsi:type="xtext:Keyword" value="none"/>
+        <groups xsi:type="xtext:Keyword" value="iden"/>
+        <groups xsi:type="xtext:Keyword" value="univ"/>
+        <groups xsi:type="xtext:Keyword" value="Int"/>
+        <groups xsi:type="xtext:Keyword" value="seq/Int"/>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="("/>
+          <tokens xsi:type="xtext:Assignment" feature="exprT" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=")"/>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" cardinality="?" value="@"/>
+          <tokens xsi:type="xtext:Assignment" feature="nameRef" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Name"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            </terminal>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="{"/>
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
+            <groups xsi:type="xtext:Group">
+              <tokens xsi:type="xtext:Group" cardinality="+">
+                <tokens xsi:type="xtext:Assignment" feature="decl" operator="=">
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+                </tokens>
+                <tokens xsi:type="xtext:Keyword" value=","/>
+              </tokens>
+              <tokens xsi:type="xtext:Assignment" feature="blockOrBar" operator="=">
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+              </tokens>
+              <tokens xsi:type="xtext:Keyword" value="}"/>
+            </groups>
+          </tokens>
+        </groups>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Decl">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Decl"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="private"/>
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="disj"/>
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="suite" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          </tokens>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=":"/>
-        <tokens xsi:type="xtext:Assignment" feature="type" operator="=">
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="disj"/>
+        <tokens xsi:type="xtext:Assignment" feature="exprDecl" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Decl2">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Decl2"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="private"/>
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="disj"/>
+        <tokens xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        <tokens xsi:type="xtext:Keyword" value=":"/>
+        <tokens xsi:type="xtext:Keyword" cardinality="?" value="disj"/>
+        <tokens xsi:type="xtext:Assignment" feature="exprDecl" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="LetDecl">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//LetDecl"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        <tokens xsi:type="xtext:Keyword" value="="/>
+        <tokens xsi:type="xtext:Assignment" feature="exprLet" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ArrowOp">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//ArrowOp"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Alternatives" cardinality="?">
+          <groups xsi:type="xtext:Keyword" value="some"/>
+          <groups xsi:type="xtext:Keyword" value="one"/>
+          <groups xsi:type="xtext:Keyword" value="lone"/>
+          <groups xsi:type="xtext:Keyword" value="set"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="s" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="->"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Block">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Block"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="expr" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="BlockBis">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//BlockBis"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="{"/>
+        <tokens xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="BlockOrBar">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//BlockOrBar"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="|"/>
+          <tokens xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </groups>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="BlockOrBarBis">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//BlockOrBarBis"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="|"/>
+          <tokens xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
+        </groups>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Name">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Name"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Assignment" feature="this" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="this"/>
+        </groups>
+        <groups xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </groups>
+        <groups xsi:type="xtext:Assignment" feature="nameComplete" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
+        </groups>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="NameBis">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//NameBis"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value="this"/>
+          <groups xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="+">
+          <tokens xsi:type="xtext:Keyword" value="/"/>
+          <tokens xsi:type="xtext:Assignment" feature="suite" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Ref">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Ref"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
-              <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Type"/>
+              <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Name"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
-        </tokens>
-        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="many" operator="?=">
-          <terminal xsi:type="xtext:Keyword" value="[]"/>
+        </groups>
+        <groups xsi:type="xtext:Keyword" value="univ"/>
+        <groups xsi:type="xtext:Keyword" value="Int"/>
+        <groups xsi:type="xtext:Keyword" value="seq/Int"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="Integer">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="-"/>
+        <tokens xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="COMMENT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="--"/>
+        <tokens xsi:type="xtext:UntilToken">
+          <terminal xsi:type="xtext:Keyword" value="&#xA;"/>
         </tokens>
       </alternatives>
     </rules>

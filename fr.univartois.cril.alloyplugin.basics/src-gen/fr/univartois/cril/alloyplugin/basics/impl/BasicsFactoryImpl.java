@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package fr.univartois.cril.alloyplugin.basics.impl;
 
@@ -68,12 +67,33 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
   {
     switch (eClass.getClassifierID())
     {
-      case BasicsPackage.MODEL: return createModel();
-      case BasicsPackage.IMPORT: return createImport();
-      case BasicsPackage.TYPE: return createType();
-      case BasicsPackage.SIMPLE_TYPE: return createSimpleType();
-      case BasicsPackage.ENTITY: return createEntity();
-      case BasicsPackage.PROPERTY: return createProperty();
+      case BasicsPackage.SPECIFICATION: return createSpecification();
+      case BasicsPackage.MODULE: return createModule();
+      case BasicsPackage.OPEN: return createOpen();
+      case BasicsPackage.PARAGRAPH: return createParagraph();
+      case BasicsPackage.FACT_DECL: return createFactDecl();
+      case BasicsPackage.ASSERT_DECL: return createAssertDecl();
+      case BasicsPackage.FUN_DECL: return createFunDecl();
+      case BasicsPackage.PRED_DECL: return createPredDecl();
+      case BasicsPackage.RUN_DECL: return createRunDecl();
+      case BasicsPackage.CHECK_DECL: return createCheckDecl();
+      case BasicsPackage.SCOPE: return createScope();
+      case BasicsPackage.TYPESCOPE: return createTypescope();
+      case BasicsPackage.ENUM_DECL: return createEnumDecl();
+      case BasicsPackage.SIG_DECL: return createSigDecl();
+      case BasicsPackage.SIG_EXT: return createSigExt();
+      case BasicsPackage.EXPRESSION: return createExpression();
+      case BasicsPackage.DECL: return createDecl();
+      case BasicsPackage.DECL2: return createDecl2();
+      case BasicsPackage.LET_DECL: return createLetDecl();
+      case BasicsPackage.ARROW_OP: return createArrowOp();
+      case BasicsPackage.BLOCK: return createBlock();
+      case BasicsPackage.BLOCK_BIS: return createBlockBis();
+      case BasicsPackage.BLOCK_OR_BAR: return createBlockOrBar();
+      case BasicsPackage.BLOCK_OR_BAR_BIS: return createBlockOrBarBis();
+      case BasicsPackage.NAME: return createName();
+      case BasicsPackage.NAME_BIS: return createNameBis();
+      case BasicsPackage.REF: return createRef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -84,10 +104,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Model createModel()
+  public Specification createSpecification()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    SpecificationImpl specification = new SpecificationImpl();
+    return specification;
   }
 
   /**
@@ -95,10 +115,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Import createImport()
+  public Module createModule()
   {
-    ImportImpl import_ = new ImportImpl();
-    return import_;
+    ModuleImpl module = new ModuleImpl();
+    return module;
   }
 
   /**
@@ -106,10 +126,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type createType()
+  public Open createOpen()
   {
-    TypeImpl type = new TypeImpl();
-    return type;
+    OpenImpl open = new OpenImpl();
+    return open;
   }
 
   /**
@@ -117,10 +137,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SimpleType createSimpleType()
+  public Paragraph createParagraph()
   {
-    SimpleTypeImpl simpleType = new SimpleTypeImpl();
-    return simpleType;
+    ParagraphImpl paragraph = new ParagraphImpl();
+    return paragraph;
   }
 
   /**
@@ -128,10 +148,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Entity createEntity()
+  public FactDecl createFactDecl()
   {
-    EntityImpl entity = new EntityImpl();
-    return entity;
+    FactDeclImpl factDecl = new FactDeclImpl();
+    return factDecl;
   }
 
   /**
@@ -139,10 +159,241 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Property createProperty()
+  public AssertDecl createAssertDecl()
   {
-    PropertyImpl property = new PropertyImpl();
-    return property;
+    AssertDeclImpl assertDecl = new AssertDeclImpl();
+    return assertDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunDecl createFunDecl()
+  {
+    FunDeclImpl funDecl = new FunDeclImpl();
+    return funDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PredDecl createPredDecl()
+  {
+    PredDeclImpl predDecl = new PredDeclImpl();
+    return predDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RunDecl createRunDecl()
+  {
+    RunDeclImpl runDecl = new RunDeclImpl();
+    return runDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CheckDecl createCheckDecl()
+  {
+    CheckDeclImpl checkDecl = new CheckDeclImpl();
+    return checkDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Scope createScope()
+  {
+    ScopeImpl scope = new ScopeImpl();
+    return scope;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Typescope createTypescope()
+  {
+    TypescopeImpl typescope = new TypescopeImpl();
+    return typescope;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EnumDecl createEnumDecl()
+  {
+    EnumDeclImpl enumDecl = new EnumDeclImpl();
+    return enumDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SigDecl createSigDecl()
+  {
+    SigDeclImpl sigDecl = new SigDeclImpl();
+    return sigDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SigExt createSigExt()
+  {
+    SigExtImpl sigExt = new SigExtImpl();
+    return sigExt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Decl createDecl()
+  {
+    DeclImpl decl = new DeclImpl();
+    return decl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Decl2 createDecl2()
+  {
+    Decl2Impl decl2 = new Decl2Impl();
+    return decl2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LetDecl createLetDecl()
+  {
+    LetDeclImpl letDecl = new LetDeclImpl();
+    return letDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrowOp createArrowOp()
+  {
+    ArrowOpImpl arrowOp = new ArrowOpImpl();
+    return arrowOp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Block createBlock()
+  {
+    BlockImpl block = new BlockImpl();
+    return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BlockBis createBlockBis()
+  {
+    BlockBisImpl blockBis = new BlockBisImpl();
+    return blockBis;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BlockOrBar createBlockOrBar()
+  {
+    BlockOrBarImpl blockOrBar = new BlockOrBarImpl();
+    return blockOrBar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BlockOrBarBis createBlockOrBarBis()
+  {
+    BlockOrBarBisImpl blockOrBarBis = new BlockOrBarBisImpl();
+    return blockOrBarBis;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Name createName()
+  {
+    NameImpl name = new NameImpl();
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NameBis createNameBis()
+  {
+    NameBisImpl nameBis = new NameBisImpl();
+    return nameBis;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Ref createRef()
+  {
+    RefImpl ref = new RefImpl();
+    return ref;
   }
 
   /**

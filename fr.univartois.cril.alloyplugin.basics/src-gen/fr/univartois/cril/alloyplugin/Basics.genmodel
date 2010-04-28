@@ -9,25 +9,126 @@
     editorPluginID="fr.univartois.cril.alloyplugin.basics.editor">
   <genPackages prefix="Basics" basePackage="fr.univartois.cril.alloyplugin" disposableProviderFactory="true"
       ecorePackage="Basics.ecore#/">
-    <genClasses ecoreClass="Basics.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Model/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Model/elements"/>
+    <genClasses ecoreClass="Basics.ecore#//Specification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Specification/module"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Specification/open"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Specification/paragraph"/>
     </genClasses>
-    <genClasses ecoreClass="Basics.ecore#//Import">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//Import/importURI"/>
+    <genClasses ecoreClass="Basics.ecore#//Module">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Module/moduleName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Module/suite"/>
     </genClasses>
-    <genClasses ecoreClass="Basics.ecore#//Type">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//Type/name"/>
+    <genClasses ecoreClass="Basics.ecore#//Open">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Open/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Open/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Open/ref2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Open/name2"/>
     </genClasses>
-    <genClasses ecoreClass="Basics.ecore#//SimpleType"/>
-    <genClasses ecoreClass="Basics.ecore#//Entity">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Basics.ecore#//Entity/extends"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Entity/properties"/>
+    <genClasses ecoreClass="Basics.ecore#//Paragraph"/>
+    <genClasses ecoreClass="Basics.ecore#//FactDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//FactDecl/factName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//FactDecl/b"/>
     </genClasses>
-    <genClasses ecoreClass="Basics.ecore#//Property">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//Property/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Basics.ecore#//Property/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//Property/many"/>
+    <genClasses ecoreClass="Basics.ecore#//AssertDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//AssertDecl/assertName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//AssertDecl/b"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//FunDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//FunDecl/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//FunDecl/funName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//FunDecl/decl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//FunDecl/decl2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//FunDecl/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//FunDecl/b"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//PredDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//PredDecl/pred"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//PredDecl/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//PredDecl/predName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//PredDecl/decl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//PredDecl/decl2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//PredDecl/b"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//RunDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//RunDecl/runName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//RunDecl/run"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Basics.ecore#//RunDecl/name2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//RunDecl/b"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//RunDecl/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//CheckDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//CheckDecl/checkName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//CheckDecl/check"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Basics.ecore#//CheckDecl/name2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//CheckDecl/b"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//CheckDecl/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//Scope">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Scope/typescope"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//Typescope">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Basics.ecore#//Typescope/n"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//EnumDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//EnumDecl/enumName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//EnumDecl/name2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//EnumDecl/name3"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//SigDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//SigDecl/sigName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//SigDecl/name2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//SigDecl/sigExt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//SigDecl/decl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//SigDecl/decl2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//SigDecl/b"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//SigExt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//SigExt/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//SigExt/ref2"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Expression/term"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Expression/exprT"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//Expression/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Expression/right"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Expression/arrowOp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Expression/decl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Expression/b"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Expression/t"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Basics.ecore#//Expression/nameRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Expression/blockOrBar"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Decl/suite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Decl/exprDecl"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//Decl2"/>
+    <genClasses ecoreClass="Basics.ecore#//LetDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//LetDecl/letDecl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//LetDecl/blockOrBarBis"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//ArrowOp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//ArrowOp/s"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Block/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//BlockBis"/>
+    <genClasses ecoreClass="Basics.ecore#//BlockOrBar"/>
+    <genClasses ecoreClass="Basics.ecore#//BlockOrBarBis"/>
+    <genClasses ecoreClass="Basics.ecore#//Name">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Name/exprDecl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Name/exprLet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//Name/this"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//Name/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Basics.ecore#//Name/nameComplete"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//NameBis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Basics.ecore#//NameBis/suite"/>
+    </genClasses>
+    <genClasses ecoreClass="Basics.ecore#//Ref">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Basics.ecore#//Ref/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
