@@ -3215,7 +3215,7 @@ RULE_INTEGER : '-' RULE_INT;
 
 RULE_COMMENT : '--' ( options {greedy=false;} : . )*'\n';
 
-RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')* '\''*;
 
 RULE_INT : ('0'..'9')+;
 
