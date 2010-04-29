@@ -98,34 +98,34 @@ public class BasicsAdapterFactory extends AdapterFactoryImpl
         return createParagraphAdapter();
       }
       @Override
-      public Adapter caseFactDecl(FactDecl object)
+      public Adapter caseFact(Fact object)
       {
-        return createFactDeclAdapter();
+        return createFactAdapter();
       }
       @Override
-      public Adapter caseAssertDecl(AssertDecl object)
+      public Adapter caseAssertion(Assertion object)
       {
-        return createAssertDeclAdapter();
+        return createAssertionAdapter();
       }
       @Override
-      public Adapter caseFunDecl(FunDecl object)
+      public Adapter caseFunction(Function object)
       {
-        return createFunDeclAdapter();
+        return createFunctionAdapter();
       }
       @Override
-      public Adapter casePredDecl(PredDecl object)
+      public Adapter casePredicate(Predicate object)
       {
-        return createPredDeclAdapter();
+        return createPredicateAdapter();
       }
       @Override
-      public Adapter caseRunDecl(RunDecl object)
+      public Adapter caseRunCommand(RunCommand object)
       {
-        return createRunDeclAdapter();
+        return createRunCommandAdapter();
       }
       @Override
-      public Adapter caseCheckDecl(CheckDecl object)
+      public Adapter caseCheckCommand(CheckCommand object)
       {
-        return createCheckDeclAdapter();
+        return createCheckCommandAdapter();
       }
       @Override
       public Adapter caseScope(Scope object)
@@ -143,9 +143,9 @@ public class BasicsAdapterFactory extends AdapterFactoryImpl
         return createEnumDeclAdapter();
       }
       @Override
-      public Adapter caseSigDecl(SigDecl object)
+      public Adapter caseSignature(Signature object)
       {
-        return createSigDeclAdapter();
+        return createSignatureAdapter();
       }
       @Override
       public Adapter caseSigExt(SigExt object)
@@ -295,91 +295,91 @@ public class BasicsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.FactDecl <em>Fact Decl</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Fact <em>Fact</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.FactDecl
+   * @see fr.univartois.cril.alloyplugin.basics.Fact
    * @generated
    */
-  public Adapter createFactDeclAdapter()
+  public Adapter createFactAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.AssertDecl <em>Assert Decl</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Assertion <em>Assertion</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.AssertDecl
+   * @see fr.univartois.cril.alloyplugin.basics.Assertion
    * @generated
    */
-  public Adapter createAssertDeclAdapter()
+  public Adapter createAssertionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.FunDecl <em>Fun Decl</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Function <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.FunDecl
+   * @see fr.univartois.cril.alloyplugin.basics.Function
    * @generated
    */
-  public Adapter createFunDeclAdapter()
+  public Adapter createFunctionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.PredDecl <em>Pred Decl</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Predicate <em>Predicate</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.PredDecl
+   * @see fr.univartois.cril.alloyplugin.basics.Predicate
    * @generated
    */
-  public Adapter createPredDeclAdapter()
+  public Adapter createPredicateAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.RunDecl <em>Run Decl</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.RunCommand <em>Run Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.RunDecl
+   * @see fr.univartois.cril.alloyplugin.basics.RunCommand
    * @generated
    */
-  public Adapter createRunDeclAdapter()
+  public Adapter createRunCommandAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.CheckDecl <em>Check Decl</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand <em>Check Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.CheckDecl
+   * @see fr.univartois.cril.alloyplugin.basics.CheckCommand
    * @generated
    */
-  public Adapter createCheckDeclAdapter()
+  public Adapter createCheckCommandAdapter()
   {
     return null;
   }
@@ -430,16 +430,16 @@ public class BasicsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.SigDecl <em>Sig Decl</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.alloyplugin.basics.Signature <em>Signature</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.alloyplugin.basics.SigDecl
+   * @see fr.univartois.cril.alloyplugin.basics.Signature
    * @generated
    */
-  public Adapter createSigDeclAdapter()
+  public Adapter createSignatureAdapter()
   {
     return null;
   }

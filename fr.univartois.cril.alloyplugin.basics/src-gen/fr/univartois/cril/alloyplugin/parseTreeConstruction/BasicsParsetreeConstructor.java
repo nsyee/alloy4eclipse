@@ -1220,13 +1220,13 @@ protected class Paragraph_SigDeclParserRuleCall_7 extends RuleCallToken {
 
 /************ begin Rule FactDecl ****************
  *
- * FactDecl:
+ * FactDecl returns Fact:
  *   "fact" factName=Name? b=BlockBis; 
  * 
  * / *
  * 	factDecl ::= "fact" [name] block
  * * /
- * 	 
+ *       
  * 	    
  * 
  * / *
@@ -1369,13 +1369,13 @@ protected class FactDecl_BAssignment_2 extends AssignmentToken  {
 
 /************ begin Rule AssertDecl ****************
  *
- * AssertDecl:
+ * AssertDecl returns Assertion:
  *   "assert" assertName=Name? b=BlockBis; 
  * 
  * / *
  * 	assertDecl ::= "assert" [name] block
  * * /
- * 	 
+ * 	     
  * 	    
  * 	
  * / *
@@ -1520,7 +1520,7 @@ protected class AssertDecl_BAssignment_2 extends AssignmentToken  {
 
 /************ begin Rule FunDecl ****************
  *
- * FunDecl:
+ * FunDecl returns Function:
  *   "private"? "fun" (ref=Ref ".")? funName=Name ("[" (decl=Decl ("," decl2+=Decl)*)? "]"|"("
  *   (decl=Decl ("," decl2+=Decl)*)? ")") ":" expr=Expression b=BlockBis; 
  * 	
@@ -1529,7 +1529,7 @@ protected class AssertDecl_BAssignment_2 extends AssignmentToken  {
  * 	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
  * 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
  * * /	
- * 	 
+ * 	     
  * 	        	                               	 
  * 
  * / *
@@ -2262,7 +2262,7 @@ protected class FunDecl_BAssignment_7 extends AssignmentToken  {
 
 /************ begin Rule PredDecl ****************
  *
- * PredDecl:
+ * PredDecl returns Predicate:
  *   "private"? pred="pred" (ref=Ref ".")? predName=Name ("[" (decl=Decl ("," decl2+=Decl)*)?
  *   "]"|"(" (decl=Decl ("," decl2+=Decl)*)? ")")? b=BlockBis; 
  * 
@@ -2271,7 +2271,7 @@ protected class FunDecl_BAssignment_7 extends AssignmentToken  {
  * 	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
  * 	funDecl ::= ["private"] "pred" [ref "."] name                block
  * * /	
- * 	 
+ *     	 
  * 	        	                            	 
  * 
  * / *
@@ -2952,13 +2952,13 @@ protected class PredDecl_BAssignment_5 extends AssignmentToken  {
 
 /************ begin Rule RunDecl ****************
  *
- * RunDecl:
+ * RunDecl returns RunCommand:
  *   (runName=Name ":")? run="run" (name2=[Name]|b=BlockBis) scope=Scope; 
  * 
  * / *
  * 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
  * * /
- * 	 
+ * 	     
  * 	            
  * 
  * / *
@@ -3250,13 +3250,13 @@ protected class RunDecl_ScopeAssignment_3 extends AssignmentToken  {
 
 /************ begin Rule CheckDecl ****************
  *
- * CheckDecl:
+ * CheckDecl returns CheckCommand:
  *   (checkName=Name ":")? check="check" (name2=[Name]|b=BlockBis) scope=Scope; 
  * 
  * / *
  * 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
  * * /	
- * 	 
+ * 	     
  * 	            
  * 	
  * / *
@@ -4460,14 +4460,14 @@ protected class EnumDecl_RightCurlyBracketKeyword_5 extends KeywordToken  {
 
 /************ begin Rule SigDecl ****************
  *
- * SigDecl:
+ * SigDecl returns Signature:
  *   SigQual* "sig" sigName=Name ("," name2+=Name)* sigExt=SigExt? "{" (decl=Decl ("," decl2+=
  *   Decl)*)? "}" b=BlockBis?; 
  * 
  * / *
  * 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
  * * /	
- * 	 
+ * 	     
  * 	                        
  * 	
  * / *

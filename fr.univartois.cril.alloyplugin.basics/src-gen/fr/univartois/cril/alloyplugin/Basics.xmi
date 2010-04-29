@@ -92,7 +92,7 @@
     </rules>
     <rules xsi:type="xtext:ParserRule" name="FactDecl">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//FactDecl"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Fact"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Keyword" value="fact"/>
@@ -106,7 +106,7 @@
     </rules>
     <rules xsi:type="xtext:ParserRule" name="AssertDecl">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//AssertDecl"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Assertion"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Keyword" value="assert"/>
@@ -120,7 +120,7 @@
     </rules>
     <rules xsi:type="xtext:ParserRule" name="FunDecl">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//FunDecl"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Function"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Keyword" cardinality="?" value="private"/>
@@ -177,7 +177,7 @@
     </rules>
     <rules xsi:type="xtext:ParserRule" name="PredDecl">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//PredDecl"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Predicate"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Keyword" cardinality="?" value="private"/>
@@ -232,7 +232,7 @@
     </rules>
     <rules xsi:type="xtext:ParserRule" name="RunDecl">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//RunDecl"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//RunCommand"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Group" cardinality="?">
@@ -264,7 +264,7 @@
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CheckDecl">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//CheckDecl"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//CheckCommand"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Group" cardinality="?">
@@ -386,7 +386,7 @@
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SigDecl">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//SigDecl"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/alloyplugin/Basics#//Signature"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:RuleCall" cardinality="*" rule="/0/@rules.14"/>

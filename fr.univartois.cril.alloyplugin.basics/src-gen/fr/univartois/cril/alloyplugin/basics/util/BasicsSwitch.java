@@ -123,51 +123,51 @@ public class BasicsSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BasicsPackage.FACT_DECL:
+      case BasicsPackage.FACT:
       {
-        FactDecl factDecl = (FactDecl)theEObject;
-        T result = caseFactDecl(factDecl);
-        if (result == null) result = caseParagraph(factDecl);
+        Fact fact = (Fact)theEObject;
+        T result = caseFact(fact);
+        if (result == null) result = caseParagraph(fact);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BasicsPackage.ASSERT_DECL:
+      case BasicsPackage.ASSERTION:
       {
-        AssertDecl assertDecl = (AssertDecl)theEObject;
-        T result = caseAssertDecl(assertDecl);
-        if (result == null) result = caseParagraph(assertDecl);
+        Assertion assertion = (Assertion)theEObject;
+        T result = caseAssertion(assertion);
+        if (result == null) result = caseParagraph(assertion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BasicsPackage.FUN_DECL:
+      case BasicsPackage.FUNCTION:
       {
-        FunDecl funDecl = (FunDecl)theEObject;
-        T result = caseFunDecl(funDecl);
-        if (result == null) result = caseParagraph(funDecl);
+        Function function = (Function)theEObject;
+        T result = caseFunction(function);
+        if (result == null) result = caseParagraph(function);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BasicsPackage.PRED_DECL:
+      case BasicsPackage.PREDICATE:
       {
-        PredDecl predDecl = (PredDecl)theEObject;
-        T result = casePredDecl(predDecl);
-        if (result == null) result = caseParagraph(predDecl);
+        Predicate predicate = (Predicate)theEObject;
+        T result = casePredicate(predicate);
+        if (result == null) result = caseParagraph(predicate);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BasicsPackage.RUN_DECL:
+      case BasicsPackage.RUN_COMMAND:
       {
-        RunDecl runDecl = (RunDecl)theEObject;
-        T result = caseRunDecl(runDecl);
-        if (result == null) result = caseParagraph(runDecl);
+        RunCommand runCommand = (RunCommand)theEObject;
+        T result = caseRunCommand(runCommand);
+        if (result == null) result = caseParagraph(runCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BasicsPackage.CHECK_DECL:
+      case BasicsPackage.CHECK_COMMAND:
       {
-        CheckDecl checkDecl = (CheckDecl)theEObject;
-        T result = caseCheckDecl(checkDecl);
-        if (result == null) result = caseParagraph(checkDecl);
+        CheckCommand checkCommand = (CheckCommand)theEObject;
+        T result = caseCheckCommand(checkCommand);
+        if (result == null) result = caseParagraph(checkCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -193,11 +193,11 @@ public class BasicsSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BasicsPackage.SIG_DECL:
+      case BasicsPackage.SIGNATURE:
       {
-        SigDecl sigDecl = (SigDecl)theEObject;
-        T result = caseSigDecl(sigDecl);
-        if (result == null) result = caseParagraph(sigDecl);
+        Signature signature = (Signature)theEObject;
+        T result = caseSignature(signature);
+        if (result == null) result = caseParagraph(signature);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -377,97 +377,97 @@ public class BasicsSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Fact Decl</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Fact</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Fact Decl</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Fact</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFactDecl(FactDecl object)
+  public T caseFact(Fact object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Assert Decl</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Assertion</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assert Decl</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Assertion</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAssertDecl(AssertDecl object)
+  public T caseAssertion(Assertion object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Fun Decl</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Fun Decl</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Function</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFunDecl(FunDecl object)
+  public T caseFunction(Function object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Pred Decl</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Predicate</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Pred Decl</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Predicate</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePredDecl(PredDecl object)
+  public T casePredicate(Predicate object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Run Decl</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Run Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Run Decl</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Run Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRunDecl(RunDecl object)
+  public T caseRunCommand(RunCommand object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Check Decl</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Check Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Check Decl</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Check Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCheckDecl(CheckDecl object)
+  public T caseCheckCommand(CheckCommand object)
   {
     return null;
   }
@@ -521,17 +521,17 @@ public class BasicsSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Sig Decl</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Signature</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sig Decl</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Signature</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSigDecl(SigDecl object)
+  public T caseSignature(Signature object)
   {
     return null;
   }

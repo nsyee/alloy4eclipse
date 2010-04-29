@@ -9,26 +9,26 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Pred Decl</b></em>'.
+ * A representation of the model object '<em><b>Predicate</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getPred <em>Pred</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getRef <em>Ref</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getPredName <em>Pred Name</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getDecl <em>Decl</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getDecl2 <em>Decl2</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getB <em>B</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Predicate#getPred <em>Pred</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Predicate#getRef <em>Ref</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Predicate#getPredName <em>Pred Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Predicate#getDecl <em>Decl</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Predicate#getDecl2 <em>Decl2</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Predicate#getB <em>B</em>}</li>
  * </ul>
  * </p>
  *
- * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredDecl()
+ * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredicate()
  * @model
  * @generated
  */
-public interface PredDecl extends Paragraph
+public interface Predicate extends Paragraph
 {
   /**
    * Returns the value of the '<em><b>Pred</b></em>' attribute.
@@ -40,14 +40,14 @@ public interface PredDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Pred</em>' attribute.
    * @see #setPred(String)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredDecl_Pred()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredicate_Pred()
    * @model
    * @generated
    */
   String getPred();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getPred <em>Pred</em>}' attribute.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getPred <em>Pred</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Pred</em>' attribute.
@@ -66,14 +66,14 @@ public interface PredDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ref</em>' containment reference.
    * @see #setRef(Ref)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredDecl_Ref()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredicate_Ref()
    * @model containment="true"
    * @generated
    */
   Ref getRef();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getRef <em>Ref</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getRef <em>Ref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Ref</em>' containment reference.
@@ -92,14 +92,14 @@ public interface PredDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Pred Name</em>' containment reference.
    * @see #setPredName(Name)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredDecl_PredName()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredicate_PredName()
    * @model containment="true"
    * @generated
    */
   Name getPredName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getPredName <em>Pred Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getPredName <em>Pred Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Pred Name</em>' containment reference.
@@ -118,14 +118,14 @@ public interface PredDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Decl</em>' containment reference.
    * @see #setDecl(Decl)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredDecl_Decl()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredicate_Decl()
    * @model containment="true"
    * @generated
    */
   Decl getDecl();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getDecl <em>Decl</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getDecl <em>Decl</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Decl</em>' containment reference.
@@ -144,7 +144,7 @@ public interface PredDecl extends Paragraph
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Decl2</em>' containment reference list.
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredDecl_Decl2()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredicate_Decl2()
    * @model containment="true"
    * @generated
    */
@@ -160,14 +160,14 @@ public interface PredDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>B</em>' containment reference.
    * @see #setB(BlockBis)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredDecl_B()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getPredicate_B()
    * @model containment="true"
    * @generated
    */
   BlockBis getB();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getB <em>B</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getB <em>B</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>B</em>' containment reference.
@@ -176,4 +176,4 @@ public interface PredDecl extends Paragraph
    */
   void setB(BlockBis value);
 
-} // PredDecl
+} // Predicate

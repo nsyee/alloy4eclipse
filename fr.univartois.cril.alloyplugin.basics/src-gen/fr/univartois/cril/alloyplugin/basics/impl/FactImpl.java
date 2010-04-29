@@ -5,9 +5,9 @@
  */
 package fr.univartois.cril.alloyplugin.basics.impl;
 
-import fr.univartois.cril.alloyplugin.basics.AssertDecl;
 import fr.univartois.cril.alloyplugin.basics.BasicsPackage;
 import fr.univartois.cril.alloyplugin.basics.BlockBis;
+import fr.univartois.cril.alloyplugin.basics.Fact;
 import fr.univartois.cril.alloyplugin.basics.Name;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,29 +20,29 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Assert Decl</b></em>'.
+ * An implementation of the model object '<em><b>Fact</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.AssertDeclImpl#getAssertName <em>Assert Name</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.AssertDeclImpl#getB <em>B</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FactImpl#getFactName <em>Fact Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FactImpl#getB <em>B</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
+public class FactImpl extends ParagraphImpl implements Fact
 {
   /**
-   * The cached value of the '{@link #getAssertName() <em>Assert Name</em>}' containment reference.
+   * The cached value of the '{@link #getFactName() <em>Fact Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAssertName()
+   * @see #getFactName()
    * @generated
    * @ordered
    */
-  protected Name assertName;
+  protected Name factName;
 
   /**
    * The cached value of the '{@link #getB() <em>B</em>}' containment reference.
@@ -59,7 +59,7 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AssertDeclImpl()
+  protected FactImpl()
   {
     super();
   }
@@ -72,7 +72,7 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
   @Override
   protected EClass eStaticClass()
   {
-    return BasicsPackage.Literals.ASSERT_DECL;
+    return BasicsPackage.Literals.FACT;
   }
 
   /**
@@ -80,9 +80,9 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Name getAssertName()
+  public Name getFactName()
   {
-    return assertName;
+    return factName;
   }
 
   /**
@@ -90,13 +90,13 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAssertName(Name newAssertName, NotificationChain msgs)
+  public NotificationChain basicSetFactName(Name newFactName, NotificationChain msgs)
   {
-    Name oldAssertName = assertName;
-    assertName = newAssertName;
+    Name oldFactName = factName;
+    factName = newFactName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.ASSERT_DECL__ASSERT_NAME, oldAssertName, newAssertName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FACT__FACT_NAME, oldFactName, newFactName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -107,20 +107,20 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAssertName(Name newAssertName)
+  public void setFactName(Name newFactName)
   {
-    if (newAssertName != assertName)
+    if (newFactName != factName)
     {
       NotificationChain msgs = null;
-      if (assertName != null)
-        msgs = ((InternalEObject)assertName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.ASSERT_DECL__ASSERT_NAME, null, msgs);
-      if (newAssertName != null)
-        msgs = ((InternalEObject)newAssertName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.ASSERT_DECL__ASSERT_NAME, null, msgs);
-      msgs = basicSetAssertName(newAssertName, msgs);
+      if (factName != null)
+        msgs = ((InternalEObject)factName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FACT__FACT_NAME, null, msgs);
+      if (newFactName != null)
+        msgs = ((InternalEObject)newFactName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FACT__FACT_NAME, null, msgs);
+      msgs = basicSetFactName(newFactName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.ASSERT_DECL__ASSERT_NAME, newAssertName, newAssertName));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FACT__FACT_NAME, newFactName, newFactName));
   }
 
   /**
@@ -144,7 +144,7 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
     b = newB;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.ASSERT_DECL__B, oldB, newB);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FACT__B, oldB, newB);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -161,14 +161,14 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
     {
       NotificationChain msgs = null;
       if (b != null)
-        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.ASSERT_DECL__B, null, msgs);
+        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FACT__B, null, msgs);
       if (newB != null)
-        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.ASSERT_DECL__B, null, msgs);
+        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FACT__B, null, msgs);
       msgs = basicSetB(newB, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.ASSERT_DECL__B, newB, newB));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FACT__B, newB, newB));
   }
 
   /**
@@ -181,9 +181,9 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.ASSERT_DECL__ASSERT_NAME:
-        return basicSetAssertName(null, msgs);
-      case BasicsPackage.ASSERT_DECL__B:
+      case BasicsPackage.FACT__FACT_NAME:
+        return basicSetFactName(null, msgs);
+      case BasicsPackage.FACT__B:
         return basicSetB(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -199,9 +199,9 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.ASSERT_DECL__ASSERT_NAME:
-        return getAssertName();
-      case BasicsPackage.ASSERT_DECL__B:
+      case BasicsPackage.FACT__FACT_NAME:
+        return getFactName();
+      case BasicsPackage.FACT__B:
         return getB();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -217,10 +217,10 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.ASSERT_DECL__ASSERT_NAME:
-        setAssertName((Name)newValue);
+      case BasicsPackage.FACT__FACT_NAME:
+        setFactName((Name)newValue);
         return;
-      case BasicsPackage.ASSERT_DECL__B:
+      case BasicsPackage.FACT__B:
         setB((BlockBis)newValue);
         return;
     }
@@ -237,10 +237,10 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.ASSERT_DECL__ASSERT_NAME:
-        setAssertName((Name)null);
+      case BasicsPackage.FACT__FACT_NAME:
+        setFactName((Name)null);
         return;
-      case BasicsPackage.ASSERT_DECL__B:
+      case BasicsPackage.FACT__B:
         setB((BlockBis)null);
         return;
     }
@@ -257,12 +257,12 @@ public class AssertDeclImpl extends ParagraphImpl implements AssertDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.ASSERT_DECL__ASSERT_NAME:
-        return assertName != null;
-      case BasicsPackage.ASSERT_DECL__B:
+      case BasicsPackage.FACT__FACT_NAME:
+        return factName != null;
+      case BasicsPackage.FACT__B:
         return b != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //AssertDeclImpl
+} //FactImpl

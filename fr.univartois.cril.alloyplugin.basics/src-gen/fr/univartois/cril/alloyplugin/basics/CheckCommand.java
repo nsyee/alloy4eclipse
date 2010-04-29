@@ -8,77 +8,77 @@ package fr.univartois.cril.alloyplugin.basics;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Run Decl</b></em>'.
+ * A representation of the model object '<em><b>Check Command</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getRunName <em>Run Name</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getRun <em>Run</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getName2 <em>Name2</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getB <em>B</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getScope <em>Scope</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getCheckName <em>Check Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getCheck <em>Check</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getName2 <em>Name2</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getB <em>B</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getScope <em>Scope</em>}</li>
  * </ul>
  * </p>
  *
- * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getRunDecl()
+ * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getCheckCommand()
  * @model
  * @generated
  */
-public interface RunDecl extends Paragraph
+public interface CheckCommand extends Paragraph
 {
   /**
-   * Returns the value of the '<em><b>Run Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Check Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Run Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Check Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Run Name</em>' containment reference.
-   * @see #setRunName(Name)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getRunDecl_RunName()
+   * @return the value of the '<em>Check Name</em>' containment reference.
+   * @see #setCheckName(Name)
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getCheckCommand_CheckName()
    * @model containment="true"
    * @generated
    */
-  Name getRunName();
+  Name getCheckName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getRunName <em>Run Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getCheckName <em>Check Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Run Name</em>' containment reference.
-   * @see #getRunName()
+   * @param value the new value of the '<em>Check Name</em>' containment reference.
+   * @see #getCheckName()
    * @generated
    */
-  void setRunName(Name value);
+  void setCheckName(Name value);
 
   /**
-   * Returns the value of the '<em><b>Run</b></em>' attribute.
+   * Returns the value of the '<em><b>Check</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Run</em>' attribute isn't clear,
+   * If the meaning of the '<em>Check</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Run</em>' attribute.
-   * @see #setRun(String)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getRunDecl_Run()
+   * @return the value of the '<em>Check</em>' attribute.
+   * @see #setCheck(String)
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getCheckCommand_Check()
    * @model
    * @generated
    */
-  String getRun();
+  String getCheck();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getRun <em>Run</em>}' attribute.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getCheck <em>Check</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Run</em>' attribute.
-   * @see #getRun()
+   * @param value the new value of the '<em>Check</em>' attribute.
+   * @see #getCheck()
    * @generated
    */
-  void setRun(String value);
+  void setCheck(String value);
 
   /**
    * Returns the value of the '<em><b>Name2</b></em>' reference.
@@ -90,14 +90,14 @@ public interface RunDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name2</em>' reference.
    * @see #setName2(Name)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getRunDecl_Name2()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getCheckCommand_Name2()
    * @model
    * @generated
    */
   Name getName2();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getName2 <em>Name2</em>}' reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getName2 <em>Name2</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name2</em>' reference.
@@ -116,14 +116,14 @@ public interface RunDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>B</em>' containment reference.
    * @see #setB(BlockBis)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getRunDecl_B()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getCheckCommand_B()
    * @model containment="true"
    * @generated
    */
   BlockBis getB();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getB <em>B</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getB <em>B</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>B</em>' containment reference.
@@ -142,14 +142,14 @@ public interface RunDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Scope</em>' containment reference.
    * @see #setScope(Scope)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getRunDecl_Scope()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getCheckCommand_Scope()
    * @model containment="true"
    * @generated
    */
   Scope getScope();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getScope <em>Scope</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getScope <em>Scope</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Scope</em>' containment reference.
@@ -158,4 +158,4 @@ public interface RunDecl extends Paragraph
    */
   void setScope(Scope value);
 
-} // RunDecl
+} // CheckCommand
