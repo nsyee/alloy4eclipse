@@ -143,47 +143,41 @@ SigExt	:
 */	
 Expression :
 	
-	(term=TerminalExpr) 	(
-						"[" exprT=Expression* "]"											|//8./												
-						op=("+"|"&"|"."|"-"|"||"|"or"|"&&"|"and"|"<=>"|"iff"/*|"=>"|"implies"*/|"++"|"<:"|":>"|"<<"	|">>"|">>>") right=Expression 	|//4./
-						("!"|"not")? op=("="|"in"|"<"|">"|"<="|"=>") right=Expression		|//6./													
-						arrowOp=ArrowOp right=Expression									//5./																						//|	
-						//("=>"|"implies") (then=Expression ("else" right=Expression)? )    //7./   
+	(term=TerminalExpr) (
+						"[" ( exprT=Expression (","expr+=Expression)* )? "]"											|//8./												
+						op=("+"|"&"|"."|"-"|"||"|"or"|"&&"|"and"|"<=>"|"iff"|"++"|"<:"|":>"|"<<"	|">>"|">>>") right=Expression 	|//4./
+						("!"|"not")? op=("="|"in"|"<"|">"|"<="|">=") right=Expression		|//6./													
+						arrowOp=ArrowOp right=Expression									|//5./	
+						("=>"|"implies") then=Expression ("else" right=Expression)?     	//7./ 
 						)?;
-						
+												
 TerminalExpr returns Expression:
-	"let" LetDecl ("," letDecl=LetDecl)* blockOrBarBis=BlockOrBarBis		|//1./
-	("all"|"sum") decl=Decl b=BlockOrBarBis					|//2./
-	("!"|"not"|"set"|"seq"|"#"|"~"|"*"|"^") TerminalExpr	|//3./
-   	("no"|"some"|"lone"|"one") ( /*Decl ("," declSuite+=Decl)* block=BlockOrBarBis |*/ t=TerminalExpr)|//2./ AND 3./ ERROR with Decl here 
-    INT																			|//9./
-   	Integer																		|//10./
-	"none"																		|//11./
-	"iden"																		|//12./
-	"univ"																		|//13./
-	"Int"																		|//14./
-	"seq/Int"																	|//15./
-	"(" exprT=Expression ")"													|//16./
-	"@"? nameRef=[Name]														|//17./
-	"{" (Block | (decl=Decl ",")+ blockOrBar=BlockOrBar "}")					;//18 AND 19./
+	"let" letDecl=LetDecl ("," letDecl=LetDecl)* blockOrBarBis=BlockOrBar								|//1./
+	("all"|"sum") decl=Decl b=BlockOrBar														|//2./
+	("!"|"not"|"set"|"seq"|"#"|"~"|"*"|"^") Expression											|//3./
+   	("no"|"some"|"lone"|"one") ( decl=Decl ("," declSuite+=Decl)* block=BlockOrBar | t=Expression)	|//2./ AND 3./
+    INT																							|//9./
+   	Integer																						|//10./
+	"none"																						|//11./
+	"iden"																						|//12./
+	"univ"																						|//13./
+	"Int"																						|//14./
+	"seq/Int"																					|//15./
+	"(" exprT=Expression ")"																	|//16./
+	"@"? nameRef=[Name]																			|//17./
+	"{" (Block | (decl=Decl ",")+ blockOrBar=BlockOrBar "}")									;//18 AND 19./
 	
 /*
 	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
 */	
 Decl	:
-	("private")? ("disj")? name=Name ("," suite+=Name)*    ":" ("disj")? exprDecl=Expression	;
-
-/*
-	REMOVE
-*/
-Decl2	:
-	("private")? ("disj")? Name ":" ("disj")? exprDecl=Expression	;
+	("private")? ("disj")? nameExpression+=Name ("," nameExpression+=Name)*    ":" ("disj")? exprDecl=Expression	;
 	
 /*
 	letDecl ::= name "=" expr
 */	
 LetDecl	:
-	Name "=" exprLet=Expression	;
+	nameExpression=Name "=" exprLet=Expression	;
 
 /*
 	arrowOp ::= ["some"|"one"|"lone"|"set"]? "->" ["some"|"one"|"lone"|"set"]? //redondance in the end of the expression
@@ -209,15 +203,7 @@ BlockBis	:
 */	
 BlockOrBar	:
 	BlockBis					|
-	"|" Expression	;
-
-/*
-	blockOrBar ::= block
-	blockOrBar ::= "|" expr //TerminalExpr in the end of the expression
-*/	
-BlockOrBarBis	:
-	BlockBis					|
-	"|" TerminalExpr	;
+	"|" Expression				;
 
 /*
 	name ::= ["this" | ID] ["/" ID]*
@@ -247,14 +233,3 @@ terminal COMMENT	:
 	
 terminal ID : 
   ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*("'")*; 
-	
-/*
-Instruction	:
-	M	| U;
-	
-M	:
-	Expression ("=>" then=M "else" else=M)?;
-	
-U	:
-	Expression "=>" then=Instruction	|
-	Expression ("=>" then=M "else" else=U;*/
