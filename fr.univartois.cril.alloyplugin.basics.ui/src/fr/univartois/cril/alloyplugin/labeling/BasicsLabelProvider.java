@@ -14,6 +14,7 @@ import fr.univartois.cril.alloyplugin.basics.Module;
 import fr.univartois.cril.alloyplugin.basics.Predicate;
 import fr.univartois.cril.alloyplugin.basics.RunCommand;
 import fr.univartois.cril.alloyplugin.basics.Signature;
+import fr.univartois.cril.alloyplugin.basics.Specification;
 
 /**
  * see
@@ -31,6 +32,14 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	/*
 	 * String text(Module module) { return module.getName().getName(); }
 	 */
+	String text(Specification spec){
+		return spec.getModule().getModuleName().getName();
+	}
+	
+	String image(Specification spec) {
+		return "module.gif";
+	}
+	
 	String text(Module module){
 		return module.getModuleName().getName();
 	}
