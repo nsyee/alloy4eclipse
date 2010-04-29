@@ -244,6 +244,10 @@ terminal Integer	:
 	
 terminal COMMENT	:
 	'--'->'\n';	
+	
+terminal ID : 
+  ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*("'")*; 
+	
 /*
 Instruction	:
 	M	| U;

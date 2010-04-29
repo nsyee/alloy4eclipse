@@ -92,7 +92,7 @@ RULE_INTEGER : '-' RULE_INT;
 RULE_COMMENT : '--' ( options {greedy=false;} : . )*'\n';
 
 // $ANTLR src "../fr.univartois.cril.alloyplugin.basics/src-gen/fr/univartois/cril/alloyplugin/parser/antlr/internal/InternalBasics.g" 3218
-RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')* '\''*;
 
 // $ANTLR src "../fr.univartois.cril.alloyplugin.basics/src-gen/fr/univartois/cril/alloyplugin/parser/antlr/internal/InternalBasics.g" 3220
 RULE_INT : ('0'..'9')+;

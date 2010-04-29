@@ -2633,6 +2633,7 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 	private RefElements pRef;
 	private TerminalRule tInteger;
 	private TerminalRule tCOMMENT;
+	private TerminalRule tID;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -3323,10 +3324,17 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 	} 
 
 	//terminal COMMENT:
-	//  "--"->"\n"; 
+	//  "--"->"\n";
+	public TerminalRule getCOMMENTRule() {
+		return (tCOMMENT != null) ? tCOMMENT : (tCOMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "COMMENT"));
+	} 
+
+	//terminal ID:
+	//  ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")* "\'"*; 	
 	//	
-	//  	 
-	//		
+	//     
+	//     
+	//	
 	/// *
 	//Instruction	:
 	//	M	| U;
@@ -3337,14 +3345,8 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 	//U	:
 	//	Expression "=>" then=Instruction	|
 	//	Expression ("=>" then=M "else" else=U;* /
-	public TerminalRule getCOMMENTRule() {
-		return (tCOMMENT != null) ? tCOMMENT : (tCOMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "COMMENT"));
-	} 
-
-	//terminal ID:
-	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
 	public TerminalRule getIDRule() {
-		return gaTerminals.getIDRule();
+		return (tID != null) ? tID : (tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID"));
 	} 
 
 	//terminal INT returns ecore::EInt:
