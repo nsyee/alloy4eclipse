@@ -314,13 +314,13 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		private final Assignment cBAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBBlockBisParserRuleCall_2_0 = (RuleCall)cBAssignment_2.eContents().get(0);
 		
-		//FactDecl:
+		//FactDecl returns Fact:
 		//  "fact" factName=Name? b=BlockBis; 
 		//
 		/// *
 		//	factDecl ::= "fact" [name] block
 		// * /
-		//	 
+		//      
 		//	    
 		//
 		/// *
@@ -356,13 +356,13 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		private final Assignment cBAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBBlockBisParserRuleCall_2_0 = (RuleCall)cBAssignment_2.eContents().get(0);
 		
-		//AssertDecl:
+		//AssertDecl returns Assertion:
 		//  "assert" assertName=Name? b=BlockBis; 
 		//
 		/// *
 		//	assertDecl ::= "assert" [name] block
 		// * /
-		//	 
+		//	     
 		//	    
 		//	
 		/// *
@@ -429,7 +429,7 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		private final Assignment cBAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cBBlockBisParserRuleCall_7_0 = (RuleCall)cBAssignment_7.eContents().get(0);
 		
-		//FunDecl:
+		//FunDecl returns Function:
 		//  "private"? "fun" (ref=Ref ".")? funName=Name ("[" (decl=Decl ("," decl2+=Decl)*)? "]"|"("
 		//  (decl=Decl ("," decl2+=Decl)*)? ")") ":" expr=Expression b=BlockBis; 
 		//	
@@ -438,7 +438,7 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 		//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 		// * /	
-		//	 
+		//	     
 		//	        	                               	 
 		//
 		/// *
@@ -591,7 +591,7 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		private final Assignment cBAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cBBlockBisParserRuleCall_5_0 = (RuleCall)cBAssignment_5.eContents().get(0);
 		
-		//PredDecl:
+		//PredDecl returns Predicate:
 		//  "private"? pred="pred" (ref=Ref ".")? predName=Name ("[" (decl=Decl ("," decl2+=Decl)*)?
 		//  "]"|"(" (decl=Decl ("," decl2+=Decl)*)? ")")? b=BlockBis; 
 		//
@@ -600,7 +600,7 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		//	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 		//	funDecl ::= ["private"] "pred" [ref "."] name                block
 		// * /	
-		//	 
+		//    	 
 		//	        	                            	 
 		//
 		/// *
@@ -727,13 +727,13 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		private final Assignment cScopeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cScopeScopeParserRuleCall_3_0 = (RuleCall)cScopeAssignment_3.eContents().get(0);
 		
-		//RunDecl:
+		//RunDecl returns RunCommand:
 		//  (runName=Name ":")? run="run" (name2=[Name]|b=BlockBis) scope=Scope; 
 		//
 		/// *
 		//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 		// * /
-		//	 
+		//	     
 		//	            
 		//
 		/// *
@@ -805,13 +805,13 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		private final Assignment cScopeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cScopeScopeParserRuleCall_3_0 = (RuleCall)cScopeAssignment_3.eContents().get(0);
 		
-		//CheckDecl:
+		//CheckDecl returns CheckCommand:
 		//  (checkName=Name ":")? check="check" (name2=[Name]|b=BlockBis) scope=Scope; 
 		//
 		/// *
 		//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 		// * /	
-		//	 
+		//	     
 		//	            
 		//	
 		/// *
@@ -1148,14 +1148,14 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		private final Assignment cBAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cBBlockBisParserRuleCall_8_0 = (RuleCall)cBAssignment_8.eContents().get(0);
 		
-		//SigDecl:
+		//SigDecl returns Signature:
 		//  SigQual* "sig" sigName=Name ("," name2+=Name)* sigExt=SigExt? "{" (decl=Decl ("," decl2+=
 		//  Decl)*)? "}" b=BlockBis?; 
 		//
 		/// *
 		//	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 		// * /	
-		//	 
+		//	     
 		//	                        
 		//	
 		/// *
@@ -2742,13 +2742,13 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		return getParagraphAccess().getRule();
 	}
 
-	//FactDecl:
+	//FactDecl returns Fact:
 	//  "fact" factName=Name? b=BlockBis; 
 	//
 	/// *
 	//	factDecl ::= "fact" [name] block
 	// * /
-	//	 
+	//      
 	//	    
 	//
 	/// *
@@ -2762,13 +2762,13 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		return getFactDeclAccess().getRule();
 	}
 
-	//AssertDecl:
+	//AssertDecl returns Assertion:
 	//  "assert" assertName=Name? b=BlockBis; 
 	//
 	/// *
 	//	assertDecl ::= "assert" [name] block
 	// * /
-	//	 
+	//	     
 	//	    
 	//	
 	/// *
@@ -2784,7 +2784,7 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		return getAssertDeclAccess().getRule();
 	}
 
-	//FunDecl:
+	//FunDecl returns Function:
 	//  "private"? "fun" (ref=Ref ".")? funName=Name ("[" (decl=Decl ("," decl2+=Decl)*)? "]"|"("
 	//  (decl=Decl ("," decl2+=Decl)*)? ")") ":" expr=Expression b=BlockBis; 
 	//	
@@ -2793,7 +2793,7 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 	//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 	//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 	// * /	
-	//	 
+	//	     
 	//	        	                               	 
 	//
 	/// *
@@ -2809,7 +2809,7 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		return getFunDeclAccess().getRule();
 	}
 
-	//PredDecl:
+	//PredDecl returns Predicate:
 	//  "private"? pred="pred" (ref=Ref ".")? predName=Name ("[" (decl=Decl ("," decl2+=Decl)*)?
 	//  "]"|"(" (decl=Decl ("," decl2+=Decl)*)? ")")? b=BlockBis; 
 	//
@@ -2818,7 +2818,7 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 	//	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 	//	funDecl ::= ["private"] "pred" [ref "."] name                block
 	// * /	
-	//	 
+	//    	 
 	//	        	                            	 
 	//
 	/// *
@@ -2832,13 +2832,13 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		return getPredDeclAccess().getRule();
 	}
 
-	//RunDecl:
+	//RunDecl returns RunCommand:
 	//  (runName=Name ":")? run="run" (name2=[Name]|b=BlockBis) scope=Scope; 
 	//
 	/// *
 	//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 	// * /
-	//	 
+	//	     
 	//	            
 	//
 	/// *
@@ -2852,13 +2852,13 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		return getRunDeclAccess().getRule();
 	}
 
-	//CheckDecl:
+	//CheckDecl returns CheckCommand:
 	//  (checkName=Name ":")? check="check" (name2=[Name]|b=BlockBis) scope=Scope; 
 	//
 	/// *
 	//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 	// * /	
-	//	 
+	//	     
 	//	            
 	//	
 	/// *
@@ -2941,14 +2941,14 @@ public class BasicsGrammarAccess implements IGrammarAccess {
 		return getEnumDeclAccess().getRule();
 	}
 
-	//SigDecl:
+	//SigDecl returns Signature:
 	//  SigQual* "sig" sigName=Name ("," name2+=Name)* sigExt=SigExt? "{" (decl=Decl ("," decl2+=
 	//  Decl)*)? "}" b=BlockBis?; 
 	//
 	/// *
 	//	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 	// * /	
-	//	 
+	//	     
 	//	                        
 	//	
 	/// *

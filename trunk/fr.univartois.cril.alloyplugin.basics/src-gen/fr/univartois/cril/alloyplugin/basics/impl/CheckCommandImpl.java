@@ -7,8 +7,8 @@ package fr.univartois.cril.alloyplugin.basics.impl;
 
 import fr.univartois.cril.alloyplugin.basics.BasicsPackage;
 import fr.univartois.cril.alloyplugin.basics.BlockBis;
+import fr.univartois.cril.alloyplugin.basics.CheckCommand;
 import fr.univartois.cril.alloyplugin.basics.Name;
-import fr.univartois.cril.alloyplugin.basics.RunDecl;
 import fr.univartois.cril.alloyplugin.basics.Scope;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,52 +21,52 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Run Decl</b></em>'.
+ * An implementation of the model object '<em><b>Check Command</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.RunDeclImpl#getRunName <em>Run Name</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.RunDeclImpl#getRun <em>Run</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.RunDeclImpl#getName2 <em>Name2</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.RunDeclImpl#getB <em>B</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.RunDeclImpl#getScope <em>Scope</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.CheckCommandImpl#getCheckName <em>Check Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.CheckCommandImpl#getCheck <em>Check</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.CheckCommandImpl#getName2 <em>Name2</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.CheckCommandImpl#getB <em>B</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.CheckCommandImpl#getScope <em>Scope</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RunDeclImpl extends ParagraphImpl implements RunDecl
+public class CheckCommandImpl extends ParagraphImpl implements CheckCommand
 {
   /**
-   * The cached value of the '{@link #getRunName() <em>Run Name</em>}' containment reference.
+   * The cached value of the '{@link #getCheckName() <em>Check Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRunName()
+   * @see #getCheckName()
    * @generated
    * @ordered
    */
-  protected Name runName;
+  protected Name checkName;
 
   /**
-   * The default value of the '{@link #getRun() <em>Run</em>}' attribute.
+   * The default value of the '{@link #getCheck() <em>Check</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRun()
+   * @see #getCheck()
    * @generated
    * @ordered
    */
-  protected static final String RUN_EDEFAULT = null;
+  protected static final String CHECK_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getRun() <em>Run</em>}' attribute.
+   * The cached value of the '{@link #getCheck() <em>Check</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRun()
+   * @see #getCheck()
    * @generated
    * @ordered
    */
-  protected String run = RUN_EDEFAULT;
+  protected String check = CHECK_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getName2() <em>Name2</em>}' reference.
@@ -103,7 +103,7 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RunDeclImpl()
+  protected CheckCommandImpl()
   {
     super();
   }
@@ -116,7 +116,7 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
   @Override
   protected EClass eStaticClass()
   {
-    return BasicsPackage.Literals.RUN_DECL;
+    return BasicsPackage.Literals.CHECK_COMMAND;
   }
 
   /**
@@ -124,9 +124,9 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Name getRunName()
+  public Name getCheckName()
   {
-    return runName;
+    return checkName;
   }
 
   /**
@@ -134,13 +134,13 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRunName(Name newRunName, NotificationChain msgs)
+  public NotificationChain basicSetCheckName(Name newCheckName, NotificationChain msgs)
   {
-    Name oldRunName = runName;
-    runName = newRunName;
+    Name oldCheckName = checkName;
+    checkName = newCheckName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.RUN_DECL__RUN_NAME, oldRunName, newRunName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.CHECK_COMMAND__CHECK_NAME, oldCheckName, newCheckName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -151,20 +151,20 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRunName(Name newRunName)
+  public void setCheckName(Name newCheckName)
   {
-    if (newRunName != runName)
+    if (newCheckName != checkName)
     {
       NotificationChain msgs = null;
-      if (runName != null)
-        msgs = ((InternalEObject)runName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.RUN_DECL__RUN_NAME, null, msgs);
-      if (newRunName != null)
-        msgs = ((InternalEObject)newRunName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.RUN_DECL__RUN_NAME, null, msgs);
-      msgs = basicSetRunName(newRunName, msgs);
+      if (checkName != null)
+        msgs = ((InternalEObject)checkName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.CHECK_COMMAND__CHECK_NAME, null, msgs);
+      if (newCheckName != null)
+        msgs = ((InternalEObject)newCheckName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.CHECK_COMMAND__CHECK_NAME, null, msgs);
+      msgs = basicSetCheckName(newCheckName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.RUN_DECL__RUN_NAME, newRunName, newRunName));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.CHECK_COMMAND__CHECK_NAME, newCheckName, newCheckName));
   }
 
   /**
@@ -172,9 +172,9 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getRun()
+  public String getCheck()
   {
-    return run;
+    return check;
   }
 
   /**
@@ -182,12 +182,12 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRun(String newRun)
+  public void setCheck(String newCheck)
   {
-    String oldRun = run;
-    run = newRun;
+    String oldCheck = check;
+    check = newCheck;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.RUN_DECL__RUN, oldRun, run));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.CHECK_COMMAND__CHECK, oldCheck, check));
   }
 
   /**
@@ -204,7 +204,7 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
       if (name2 != oldName2)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasicsPackage.RUN_DECL__NAME2, oldName2, name2));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasicsPackage.CHECK_COMMAND__NAME2, oldName2, name2));
       }
     }
     return name2;
@@ -230,7 +230,7 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
     Name oldName2 = name2;
     name2 = newName2;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.RUN_DECL__NAME2, oldName2, name2));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.CHECK_COMMAND__NAME2, oldName2, name2));
   }
 
   /**
@@ -254,7 +254,7 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
     b = newB;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.RUN_DECL__B, oldB, newB);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.CHECK_COMMAND__B, oldB, newB);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -271,14 +271,14 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
     {
       NotificationChain msgs = null;
       if (b != null)
-        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.RUN_DECL__B, null, msgs);
+        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.CHECK_COMMAND__B, null, msgs);
       if (newB != null)
-        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.RUN_DECL__B, null, msgs);
+        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.CHECK_COMMAND__B, null, msgs);
       msgs = basicSetB(newB, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.RUN_DECL__B, newB, newB));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.CHECK_COMMAND__B, newB, newB));
   }
 
   /**
@@ -302,7 +302,7 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
     scope = newScope;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.RUN_DECL__SCOPE, oldScope, newScope);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.CHECK_COMMAND__SCOPE, oldScope, newScope);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -319,14 +319,14 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
     {
       NotificationChain msgs = null;
       if (scope != null)
-        msgs = ((InternalEObject)scope).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.RUN_DECL__SCOPE, null, msgs);
+        msgs = ((InternalEObject)scope).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.CHECK_COMMAND__SCOPE, null, msgs);
       if (newScope != null)
-        msgs = ((InternalEObject)newScope).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.RUN_DECL__SCOPE, null, msgs);
+        msgs = ((InternalEObject)newScope).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.CHECK_COMMAND__SCOPE, null, msgs);
       msgs = basicSetScope(newScope, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.RUN_DECL__SCOPE, newScope, newScope));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.CHECK_COMMAND__SCOPE, newScope, newScope));
   }
 
   /**
@@ -339,11 +339,11 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.RUN_DECL__RUN_NAME:
-        return basicSetRunName(null, msgs);
-      case BasicsPackage.RUN_DECL__B:
+      case BasicsPackage.CHECK_COMMAND__CHECK_NAME:
+        return basicSetCheckName(null, msgs);
+      case BasicsPackage.CHECK_COMMAND__B:
         return basicSetB(null, msgs);
-      case BasicsPackage.RUN_DECL__SCOPE:
+      case BasicsPackage.CHECK_COMMAND__SCOPE:
         return basicSetScope(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -359,16 +359,16 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.RUN_DECL__RUN_NAME:
-        return getRunName();
-      case BasicsPackage.RUN_DECL__RUN:
-        return getRun();
-      case BasicsPackage.RUN_DECL__NAME2:
+      case BasicsPackage.CHECK_COMMAND__CHECK_NAME:
+        return getCheckName();
+      case BasicsPackage.CHECK_COMMAND__CHECK:
+        return getCheck();
+      case BasicsPackage.CHECK_COMMAND__NAME2:
         if (resolve) return getName2();
         return basicGetName2();
-      case BasicsPackage.RUN_DECL__B:
+      case BasicsPackage.CHECK_COMMAND__B:
         return getB();
-      case BasicsPackage.RUN_DECL__SCOPE:
+      case BasicsPackage.CHECK_COMMAND__SCOPE:
         return getScope();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -384,19 +384,19 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.RUN_DECL__RUN_NAME:
-        setRunName((Name)newValue);
+      case BasicsPackage.CHECK_COMMAND__CHECK_NAME:
+        setCheckName((Name)newValue);
         return;
-      case BasicsPackage.RUN_DECL__RUN:
-        setRun((String)newValue);
+      case BasicsPackage.CHECK_COMMAND__CHECK:
+        setCheck((String)newValue);
         return;
-      case BasicsPackage.RUN_DECL__NAME2:
+      case BasicsPackage.CHECK_COMMAND__NAME2:
         setName2((Name)newValue);
         return;
-      case BasicsPackage.RUN_DECL__B:
+      case BasicsPackage.CHECK_COMMAND__B:
         setB((BlockBis)newValue);
         return;
-      case BasicsPackage.RUN_DECL__SCOPE:
+      case BasicsPackage.CHECK_COMMAND__SCOPE:
         setScope((Scope)newValue);
         return;
     }
@@ -413,19 +413,19 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.RUN_DECL__RUN_NAME:
-        setRunName((Name)null);
+      case BasicsPackage.CHECK_COMMAND__CHECK_NAME:
+        setCheckName((Name)null);
         return;
-      case BasicsPackage.RUN_DECL__RUN:
-        setRun(RUN_EDEFAULT);
+      case BasicsPackage.CHECK_COMMAND__CHECK:
+        setCheck(CHECK_EDEFAULT);
         return;
-      case BasicsPackage.RUN_DECL__NAME2:
+      case BasicsPackage.CHECK_COMMAND__NAME2:
         setName2((Name)null);
         return;
-      case BasicsPackage.RUN_DECL__B:
+      case BasicsPackage.CHECK_COMMAND__B:
         setB((BlockBis)null);
         return;
-      case BasicsPackage.RUN_DECL__SCOPE:
+      case BasicsPackage.CHECK_COMMAND__SCOPE:
         setScope((Scope)null);
         return;
     }
@@ -442,15 +442,15 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.RUN_DECL__RUN_NAME:
-        return runName != null;
-      case BasicsPackage.RUN_DECL__RUN:
-        return RUN_EDEFAULT == null ? run != null : !RUN_EDEFAULT.equals(run);
-      case BasicsPackage.RUN_DECL__NAME2:
+      case BasicsPackage.CHECK_COMMAND__CHECK_NAME:
+        return checkName != null;
+      case BasicsPackage.CHECK_COMMAND__CHECK:
+        return CHECK_EDEFAULT == null ? check != null : !CHECK_EDEFAULT.equals(check);
+      case BasicsPackage.CHECK_COMMAND__NAME2:
         return name2 != null;
-      case BasicsPackage.RUN_DECL__B:
+      case BasicsPackage.CHECK_COMMAND__B:
         return b != null;
-      case BasicsPackage.RUN_DECL__SCOPE:
+      case BasicsPackage.CHECK_COMMAND__SCOPE:
         return scope != null;
     }
     return super.eIsSet(featureID);
@@ -467,10 +467,10 @@ public class RunDeclImpl extends ParagraphImpl implements RunDecl
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (run: ");
-    result.append(run);
+    result.append(" (check: ");
+    result.append(check);
     result.append(')');
     return result.toString();
   }
 
-} //RunDeclImpl
+} //CheckCommandImpl

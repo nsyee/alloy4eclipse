@@ -8,22 +8,22 @@ package fr.univartois.cril.alloyplugin.basics;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Assert Decl</b></em>'.
+ * A representation of the model object '<em><b>Assertion</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.AssertDecl#getAssertName <em>Assert Name</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.AssertDecl#getB <em>B</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Assertion#getAssertName <em>Assert Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Assertion#getB <em>B</em>}</li>
  * </ul>
  * </p>
  *
- * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getAssertDecl()
+ * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getAssertion()
  * @model
  * @generated
  */
-public interface AssertDecl extends Paragraph
+public interface Assertion extends Paragraph
 {
   /**
    * Returns the value of the '<em><b>Assert Name</b></em>' containment reference.
@@ -35,14 +35,14 @@ public interface AssertDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Assert Name</em>' containment reference.
    * @see #setAssertName(Name)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getAssertDecl_AssertName()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getAssertion_AssertName()
    * @model containment="true"
    * @generated
    */
   Name getAssertName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.AssertDecl#getAssertName <em>Assert Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Assertion#getAssertName <em>Assert Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Assert Name</em>' containment reference.
@@ -61,14 +61,14 @@ public interface AssertDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>B</em>' containment reference.
    * @see #setB(BlockBis)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getAssertDecl_B()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getAssertion_B()
    * @model containment="true"
    * @generated
    */
   BlockBis getB();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.AssertDecl#getB <em>B</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Assertion#getB <em>B</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>B</em>' containment reference.
@@ -77,4 +77,4 @@ public interface AssertDecl extends Paragraph
    */
   void setB(BlockBis value);
 
-} // AssertDecl
+} // Assertion

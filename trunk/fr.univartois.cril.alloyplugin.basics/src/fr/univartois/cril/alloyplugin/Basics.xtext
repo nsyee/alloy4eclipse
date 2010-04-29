@@ -36,13 +36,13 @@ Paragraph	:
 /*
 	factDecl ::= "fact" [name] block
 */
-FactDecl	:
+FactDecl returns Fact :
 	"fact" factName=Name? b=BlockBis;
 
 /*
 	assertDecl ::= "assert" [name] block
 */
-AssertDecl	:
+AssertDecl	returns Assertion :
 	"assert" assertName=Name? b=BlockBis;
 	
 /*
@@ -50,7 +50,7 @@ AssertDecl	:
 	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 */	
-FunDecl	:
+FunDecl	returns Function :
 	"private"? "fun" (ref=Ref ".")? funName=Name	( "[" (decl=Decl ("," decl2+=Decl)*)? "]" | "(" (decl=Decl ("," decl2+=Decl)*)? ")" ) ":" expr=Expression b=BlockBis	;
 
 /*
@@ -58,19 +58,19 @@ FunDecl	:
 	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 	funDecl ::= ["private"] "pred" [ref "."] name                block
 */	
-PredDecl	:
+PredDecl returns Predicate	:
 	"private"? pred="pred" (ref=Ref ".")? predName=Name	( "[" (decl=Decl ("," decl2+=Decl)*)? "]" | "(" (decl=Decl ("," decl2+=Decl)*)? ")" )?  b=BlockBis	;
 
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
-RunDecl	:
+RunDecl	returns RunCommand :
 	(runName=Name ":")? run="run" (name2=[Name]| b=BlockBis ) scope=Scope;
 
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 */	
-CheckDecl	:
+CheckDecl	returns CheckCommand :
 	(checkName=Name ":")? check="check" (name2=[Name]| b=BlockBis ) scope=Scope;
 	
 /*
@@ -98,7 +98,7 @@ EnumDecl	:
 /*
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */	
-SigDecl	:
+SigDecl	returns Signature :
 	SigQual* "sig" sigName=Name ("," name2+=Name)* (sigExt=SigExt)? "{" (decl=Decl ("," decl2+=Decl)* )? "}" (b=BlockBis)?;
 	
 /*

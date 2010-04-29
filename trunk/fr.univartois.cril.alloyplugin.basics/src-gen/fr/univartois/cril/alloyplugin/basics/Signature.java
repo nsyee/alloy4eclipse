@@ -9,26 +9,26 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Sig Decl</b></em>'.
+ * A representation of the model object '<em><b>Signature</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getSigName <em>Sig Name</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getName2 <em>Name2</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getSigExt <em>Sig Ext</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getDecl <em>Decl</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getDecl2 <em>Decl2</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getB <em>B</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Signature#getSigName <em>Sig Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Signature#getName2 <em>Name2</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Signature#getSigExt <em>Sig Ext</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Signature#getDecl <em>Decl</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Signature#getDecl2 <em>Decl2</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.Signature#getB <em>B</em>}</li>
  * </ul>
  * </p>
  *
- * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSigDecl()
+ * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSignature()
  * @model
  * @generated
  */
-public interface SigDecl extends Paragraph
+public interface Signature extends Paragraph
 {
   /**
    * Returns the value of the '<em><b>Sig Name</b></em>' containment reference.
@@ -40,14 +40,14 @@ public interface SigDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sig Name</em>' containment reference.
    * @see #setSigName(Name)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSigDecl_SigName()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSignature_SigName()
    * @model containment="true"
    * @generated
    */
   Name getSigName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getSigName <em>Sig Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Signature#getSigName <em>Sig Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Sig Name</em>' containment reference.
@@ -66,7 +66,7 @@ public interface SigDecl extends Paragraph
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name2</em>' containment reference list.
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSigDecl_Name2()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSignature_Name2()
    * @model containment="true"
    * @generated
    */
@@ -82,14 +82,14 @@ public interface SigDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sig Ext</em>' containment reference.
    * @see #setSigExt(SigExt)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSigDecl_SigExt()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSignature_SigExt()
    * @model containment="true"
    * @generated
    */
   SigExt getSigExt();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getSigExt <em>Sig Ext</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Signature#getSigExt <em>Sig Ext</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Sig Ext</em>' containment reference.
@@ -108,14 +108,14 @@ public interface SigDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>Decl</em>' containment reference.
    * @see #setDecl(Decl)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSigDecl_Decl()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSignature_Decl()
    * @model containment="true"
    * @generated
    */
   Decl getDecl();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getDecl <em>Decl</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Signature#getDecl <em>Decl</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Decl</em>' containment reference.
@@ -134,7 +134,7 @@ public interface SigDecl extends Paragraph
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Decl2</em>' containment reference list.
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSigDecl_Decl2()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSignature_Decl2()
    * @model containment="true"
    * @generated
    */
@@ -150,14 +150,14 @@ public interface SigDecl extends Paragraph
    * <!-- end-user-doc -->
    * @return the value of the '<em>B</em>' containment reference.
    * @see #setB(BlockBis)
-   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSigDecl_B()
+   * @see fr.univartois.cril.alloyplugin.basics.BasicsPackage#getSignature_B()
    * @model containment="true"
    * @generated
    */
   BlockBis getB();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getB <em>B</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.alloyplugin.basics.Signature#getB <em>B</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>B</em>' containment reference.
@@ -166,4 +166,4 @@ public interface SigDecl extends Paragraph
    */
   void setB(BlockBis value);
 
-} // SigDecl
+} // Signature

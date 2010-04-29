@@ -9,7 +9,7 @@ import fr.univartois.cril.alloyplugin.basics.BasicsPackage;
 import fr.univartois.cril.alloyplugin.basics.BlockBis;
 import fr.univartois.cril.alloyplugin.basics.Decl;
 import fr.univartois.cril.alloyplugin.basics.Expression;
-import fr.univartois.cril.alloyplugin.basics.FunDecl;
+import fr.univartois.cril.alloyplugin.basics.Function;
 import fr.univartois.cril.alloyplugin.basics.Name;
 import fr.univartois.cril.alloyplugin.basics.Ref;
 
@@ -30,23 +30,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Fun Decl</b></em>'.
+ * An implementation of the model object '<em><b>Function</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl#getRef <em>Ref</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl#getFunName <em>Fun Name</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl#getDecl <em>Decl</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl#getDecl2 <em>Decl2</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl#getExpr <em>Expr</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl#getB <em>B</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl#getFunName <em>Fun Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl#getDecl <em>Decl</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl#getDecl2 <em>Decl2</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl#getB <em>B</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FunDeclImpl extends ParagraphImpl implements FunDecl
+public class FunctionImpl extends ParagraphImpl implements Function
 {
   /**
    * The cached value of the '{@link #getRef() <em>Ref</em>}' containment reference.
@@ -113,7 +113,7 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FunDeclImpl()
+  protected FunctionImpl()
   {
     super();
   }
@@ -126,7 +126,7 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
   @Override
   protected EClass eStaticClass()
   {
-    return BasicsPackage.Literals.FUN_DECL;
+    return BasicsPackage.Literals.FUNCTION;
   }
 
   /**
@@ -150,7 +150,7 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     ref = newRef;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__REF, oldRef, newRef);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__REF, oldRef, newRef);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -167,14 +167,14 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     {
       NotificationChain msgs = null;
       if (ref != null)
-        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__REF, null, msgs);
+        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__REF, null, msgs);
       if (newRef != null)
-        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__REF, null, msgs);
+        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__REF, null, msgs);
       msgs = basicSetRef(newRef, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__REF, newRef, newRef));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__REF, newRef, newRef));
   }
 
   /**
@@ -198,7 +198,7 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     funName = newFunName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__FUN_NAME, oldFunName, newFunName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__FUN_NAME, oldFunName, newFunName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -215,14 +215,14 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     {
       NotificationChain msgs = null;
       if (funName != null)
-        msgs = ((InternalEObject)funName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__FUN_NAME, null, msgs);
+        msgs = ((InternalEObject)funName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__FUN_NAME, null, msgs);
       if (newFunName != null)
-        msgs = ((InternalEObject)newFunName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__FUN_NAME, null, msgs);
+        msgs = ((InternalEObject)newFunName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__FUN_NAME, null, msgs);
       msgs = basicSetFunName(newFunName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__FUN_NAME, newFunName, newFunName));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__FUN_NAME, newFunName, newFunName));
   }
 
   /**
@@ -246,7 +246,7 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     decl = newDecl;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__DECL, oldDecl, newDecl);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__DECL, oldDecl, newDecl);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -263,14 +263,14 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     {
       NotificationChain msgs = null;
       if (decl != null)
-        msgs = ((InternalEObject)decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__DECL, null, msgs);
+        msgs = ((InternalEObject)decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__DECL, null, msgs);
       if (newDecl != null)
-        msgs = ((InternalEObject)newDecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__DECL, null, msgs);
+        msgs = ((InternalEObject)newDecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__DECL, null, msgs);
       msgs = basicSetDecl(newDecl, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__DECL, newDecl, newDecl));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__DECL, newDecl, newDecl));
   }
 
   /**
@@ -282,7 +282,7 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
   {
     if (decl2 == null)
     {
-      decl2 = new EObjectContainmentEList<Decl>(Decl.class, this, BasicsPackage.FUN_DECL__DECL2);
+      decl2 = new EObjectContainmentEList<Decl>(Decl.class, this, BasicsPackage.FUNCTION__DECL2);
     }
     return decl2;
   }
@@ -308,7 +308,7 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     expr = newExpr;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__EXPR, oldExpr, newExpr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__EXPR, oldExpr, newExpr);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -325,14 +325,14 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     {
       NotificationChain msgs = null;
       if (expr != null)
-        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__EXPR, null, msgs);
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__EXPR, null, msgs);
       if (newExpr != null)
-        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__EXPR, null, msgs);
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__EXPR, null, msgs);
       msgs = basicSetExpr(newExpr, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__EXPR, newExpr, newExpr));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__EXPR, newExpr, newExpr));
   }
 
   /**
@@ -356,7 +356,7 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     b = newB;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__B, oldB, newB);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__B, oldB, newB);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -373,14 +373,14 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
     {
       NotificationChain msgs = null;
       if (b != null)
-        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__B, null, msgs);
+        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__B, null, msgs);
       if (newB != null)
-        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUN_DECL__B, null, msgs);
+        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.FUNCTION__B, null, msgs);
       msgs = basicSetB(newB, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUN_DECL__B, newB, newB));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.FUNCTION__B, newB, newB));
   }
 
   /**
@@ -393,17 +393,17 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.FUN_DECL__REF:
+      case BasicsPackage.FUNCTION__REF:
         return basicSetRef(null, msgs);
-      case BasicsPackage.FUN_DECL__FUN_NAME:
+      case BasicsPackage.FUNCTION__FUN_NAME:
         return basicSetFunName(null, msgs);
-      case BasicsPackage.FUN_DECL__DECL:
+      case BasicsPackage.FUNCTION__DECL:
         return basicSetDecl(null, msgs);
-      case BasicsPackage.FUN_DECL__DECL2:
+      case BasicsPackage.FUNCTION__DECL2:
         return ((InternalEList<?>)getDecl2()).basicRemove(otherEnd, msgs);
-      case BasicsPackage.FUN_DECL__EXPR:
+      case BasicsPackage.FUNCTION__EXPR:
         return basicSetExpr(null, msgs);
-      case BasicsPackage.FUN_DECL__B:
+      case BasicsPackage.FUNCTION__B:
         return basicSetB(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -419,17 +419,17 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.FUN_DECL__REF:
+      case BasicsPackage.FUNCTION__REF:
         return getRef();
-      case BasicsPackage.FUN_DECL__FUN_NAME:
+      case BasicsPackage.FUNCTION__FUN_NAME:
         return getFunName();
-      case BasicsPackage.FUN_DECL__DECL:
+      case BasicsPackage.FUNCTION__DECL:
         return getDecl();
-      case BasicsPackage.FUN_DECL__DECL2:
+      case BasicsPackage.FUNCTION__DECL2:
         return getDecl2();
-      case BasicsPackage.FUN_DECL__EXPR:
+      case BasicsPackage.FUNCTION__EXPR:
         return getExpr();
-      case BasicsPackage.FUN_DECL__B:
+      case BasicsPackage.FUNCTION__B:
         return getB();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -446,23 +446,23 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.FUN_DECL__REF:
+      case BasicsPackage.FUNCTION__REF:
         setRef((Ref)newValue);
         return;
-      case BasicsPackage.FUN_DECL__FUN_NAME:
+      case BasicsPackage.FUNCTION__FUN_NAME:
         setFunName((Name)newValue);
         return;
-      case BasicsPackage.FUN_DECL__DECL:
+      case BasicsPackage.FUNCTION__DECL:
         setDecl((Decl)newValue);
         return;
-      case BasicsPackage.FUN_DECL__DECL2:
+      case BasicsPackage.FUNCTION__DECL2:
         getDecl2().clear();
         getDecl2().addAll((Collection<? extends Decl>)newValue);
         return;
-      case BasicsPackage.FUN_DECL__EXPR:
+      case BasicsPackage.FUNCTION__EXPR:
         setExpr((Expression)newValue);
         return;
-      case BasicsPackage.FUN_DECL__B:
+      case BasicsPackage.FUNCTION__B:
         setB((BlockBis)newValue);
         return;
     }
@@ -479,22 +479,22 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.FUN_DECL__REF:
+      case BasicsPackage.FUNCTION__REF:
         setRef((Ref)null);
         return;
-      case BasicsPackage.FUN_DECL__FUN_NAME:
+      case BasicsPackage.FUNCTION__FUN_NAME:
         setFunName((Name)null);
         return;
-      case BasicsPackage.FUN_DECL__DECL:
+      case BasicsPackage.FUNCTION__DECL:
         setDecl((Decl)null);
         return;
-      case BasicsPackage.FUN_DECL__DECL2:
+      case BasicsPackage.FUNCTION__DECL2:
         getDecl2().clear();
         return;
-      case BasicsPackage.FUN_DECL__EXPR:
+      case BasicsPackage.FUNCTION__EXPR:
         setExpr((Expression)null);
         return;
-      case BasicsPackage.FUN_DECL__B:
+      case BasicsPackage.FUNCTION__B:
         setB((BlockBis)null);
         return;
     }
@@ -511,20 +511,20 @@ public class FunDeclImpl extends ParagraphImpl implements FunDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.FUN_DECL__REF:
+      case BasicsPackage.FUNCTION__REF:
         return ref != null;
-      case BasicsPackage.FUN_DECL__FUN_NAME:
+      case BasicsPackage.FUNCTION__FUN_NAME:
         return funName != null;
-      case BasicsPackage.FUN_DECL__DECL:
+      case BasicsPackage.FUNCTION__DECL:
         return decl != null;
-      case BasicsPackage.FUN_DECL__DECL2:
+      case BasicsPackage.FUNCTION__DECL2:
         return decl2 != null && !decl2.isEmpty();
-      case BasicsPackage.FUN_DECL__EXPR:
+      case BasicsPackage.FUNCTION__EXPR:
         return expr != null;
-      case BasicsPackage.FUN_DECL__B:
+      case BasicsPackage.FUNCTION__B:
         return b != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //FunDeclImpl
+} //FunctionImpl

@@ -71,16 +71,16 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
       case BasicsPackage.MODULE: return createModule();
       case BasicsPackage.OPEN: return createOpen();
       case BasicsPackage.PARAGRAPH: return createParagraph();
-      case BasicsPackage.FACT_DECL: return createFactDecl();
-      case BasicsPackage.ASSERT_DECL: return createAssertDecl();
-      case BasicsPackage.FUN_DECL: return createFunDecl();
-      case BasicsPackage.PRED_DECL: return createPredDecl();
-      case BasicsPackage.RUN_DECL: return createRunDecl();
-      case BasicsPackage.CHECK_DECL: return createCheckDecl();
+      case BasicsPackage.FACT: return createFact();
+      case BasicsPackage.ASSERTION: return createAssertion();
+      case BasicsPackage.FUNCTION: return createFunction();
+      case BasicsPackage.PREDICATE: return createPredicate();
+      case BasicsPackage.RUN_COMMAND: return createRunCommand();
+      case BasicsPackage.CHECK_COMMAND: return createCheckCommand();
       case BasicsPackage.SCOPE: return createScope();
       case BasicsPackage.TYPESCOPE: return createTypescope();
       case BasicsPackage.ENUM_DECL: return createEnumDecl();
-      case BasicsPackage.SIG_DECL: return createSigDecl();
+      case BasicsPackage.SIGNATURE: return createSignature();
       case BasicsPackage.SIG_EXT: return createSigExt();
       case BasicsPackage.EXPRESSION: return createExpression();
       case BasicsPackage.DECL: return createDecl();
@@ -148,10 +148,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FactDecl createFactDecl()
+  public Fact createFact()
   {
-    FactDeclImpl factDecl = new FactDeclImpl();
-    return factDecl;
+    FactImpl fact = new FactImpl();
+    return fact;
   }
 
   /**
@@ -159,10 +159,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AssertDecl createAssertDecl()
+  public Assertion createAssertion()
   {
-    AssertDeclImpl assertDecl = new AssertDeclImpl();
-    return assertDecl;
+    AssertionImpl assertion = new AssertionImpl();
+    return assertion;
   }
 
   /**
@@ -170,10 +170,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FunDecl createFunDecl()
+  public Function createFunction()
   {
-    FunDeclImpl funDecl = new FunDeclImpl();
-    return funDecl;
+    FunctionImpl function = new FunctionImpl();
+    return function;
   }
 
   /**
@@ -181,10 +181,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PredDecl createPredDecl()
+  public Predicate createPredicate()
   {
-    PredDeclImpl predDecl = new PredDeclImpl();
-    return predDecl;
+    PredicateImpl predicate = new PredicateImpl();
+    return predicate;
   }
 
   /**
@@ -192,10 +192,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RunDecl createRunDecl()
+  public RunCommand createRunCommand()
   {
-    RunDeclImpl runDecl = new RunDeclImpl();
-    return runDecl;
+    RunCommandImpl runCommand = new RunCommandImpl();
+    return runCommand;
   }
 
   /**
@@ -203,10 +203,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public CheckDecl createCheckDecl()
+  public CheckCommand createCheckCommand()
   {
-    CheckDeclImpl checkDecl = new CheckDeclImpl();
-    return checkDecl;
+    CheckCommandImpl checkCommand = new CheckCommandImpl();
+    return checkCommand;
   }
 
   /**
@@ -247,10 +247,10 @@ public class BasicsFactoryImpl extends EFactoryImpl implements BasicsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SigDecl createSigDecl()
+  public Signature createSignature()
   {
-    SigDeclImpl sigDecl = new SigDeclImpl();
-    return sigDecl;
+    SignatureImpl signature = new SignatureImpl();
+    return signature;
   }
 
   /**

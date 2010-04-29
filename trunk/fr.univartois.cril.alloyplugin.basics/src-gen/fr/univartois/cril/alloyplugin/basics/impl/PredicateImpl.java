@@ -9,7 +9,7 @@ import fr.univartois.cril.alloyplugin.basics.BasicsPackage;
 import fr.univartois.cril.alloyplugin.basics.BlockBis;
 import fr.univartois.cril.alloyplugin.basics.Decl;
 import fr.univartois.cril.alloyplugin.basics.Name;
-import fr.univartois.cril.alloyplugin.basics.PredDecl;
+import fr.univartois.cril.alloyplugin.basics.Predicate;
 import fr.univartois.cril.alloyplugin.basics.Ref;
 
 import java.util.Collection;
@@ -29,23 +29,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Pred Decl</b></em>'.
+ * An implementation of the model object '<em><b>Predicate</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl#getPred <em>Pred</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl#getRef <em>Ref</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl#getPredName <em>Pred Name</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl#getDecl <em>Decl</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl#getDecl2 <em>Decl2</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl#getB <em>B</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl#getPred <em>Pred</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl#getPredName <em>Pred Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl#getDecl <em>Decl</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl#getDecl2 <em>Decl2</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl#getB <em>B</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PredDeclImpl extends ParagraphImpl implements PredDecl
+public class PredicateImpl extends ParagraphImpl implements Predicate
 {
   /**
    * The default value of the '{@link #getPred() <em>Pred</em>}' attribute.
@@ -122,7 +122,7 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PredDeclImpl()
+  protected PredicateImpl()
   {
     super();
   }
@@ -135,7 +135,7 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
   @Override
   protected EClass eStaticClass()
   {
-    return BasicsPackage.Literals.PRED_DECL;
+    return BasicsPackage.Literals.PREDICATE;
   }
 
   /**
@@ -158,7 +158,7 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     String oldPred = pred;
     pred = newPred;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PRED_DECL__PRED, oldPred, pred));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PREDICATE__PRED, oldPred, pred));
   }
 
   /**
@@ -182,7 +182,7 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     ref = newRef;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.PRED_DECL__REF, oldRef, newRef);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.PREDICATE__REF, oldRef, newRef);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -199,14 +199,14 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     {
       NotificationChain msgs = null;
       if (ref != null)
-        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PRED_DECL__REF, null, msgs);
+        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PREDICATE__REF, null, msgs);
       if (newRef != null)
-        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PRED_DECL__REF, null, msgs);
+        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PREDICATE__REF, null, msgs);
       msgs = basicSetRef(newRef, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PRED_DECL__REF, newRef, newRef));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PREDICATE__REF, newRef, newRef));
   }
 
   /**
@@ -230,7 +230,7 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     predName = newPredName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.PRED_DECL__PRED_NAME, oldPredName, newPredName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.PREDICATE__PRED_NAME, oldPredName, newPredName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -247,14 +247,14 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     {
       NotificationChain msgs = null;
       if (predName != null)
-        msgs = ((InternalEObject)predName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PRED_DECL__PRED_NAME, null, msgs);
+        msgs = ((InternalEObject)predName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PREDICATE__PRED_NAME, null, msgs);
       if (newPredName != null)
-        msgs = ((InternalEObject)newPredName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PRED_DECL__PRED_NAME, null, msgs);
+        msgs = ((InternalEObject)newPredName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PREDICATE__PRED_NAME, null, msgs);
       msgs = basicSetPredName(newPredName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PRED_DECL__PRED_NAME, newPredName, newPredName));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PREDICATE__PRED_NAME, newPredName, newPredName));
   }
 
   /**
@@ -278,7 +278,7 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     decl = newDecl;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.PRED_DECL__DECL, oldDecl, newDecl);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.PREDICATE__DECL, oldDecl, newDecl);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -295,14 +295,14 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     {
       NotificationChain msgs = null;
       if (decl != null)
-        msgs = ((InternalEObject)decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PRED_DECL__DECL, null, msgs);
+        msgs = ((InternalEObject)decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PREDICATE__DECL, null, msgs);
       if (newDecl != null)
-        msgs = ((InternalEObject)newDecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PRED_DECL__DECL, null, msgs);
+        msgs = ((InternalEObject)newDecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PREDICATE__DECL, null, msgs);
       msgs = basicSetDecl(newDecl, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PRED_DECL__DECL, newDecl, newDecl));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PREDICATE__DECL, newDecl, newDecl));
   }
 
   /**
@@ -314,7 +314,7 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
   {
     if (decl2 == null)
     {
-      decl2 = new EObjectContainmentEList<Decl>(Decl.class, this, BasicsPackage.PRED_DECL__DECL2);
+      decl2 = new EObjectContainmentEList<Decl>(Decl.class, this, BasicsPackage.PREDICATE__DECL2);
     }
     return decl2;
   }
@@ -340,7 +340,7 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     b = newB;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.PRED_DECL__B, oldB, newB);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.PREDICATE__B, oldB, newB);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -357,14 +357,14 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     {
       NotificationChain msgs = null;
       if (b != null)
-        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PRED_DECL__B, null, msgs);
+        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PREDICATE__B, null, msgs);
       if (newB != null)
-        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PRED_DECL__B, null, msgs);
+        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.PREDICATE__B, null, msgs);
       msgs = basicSetB(newB, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PRED_DECL__B, newB, newB));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.PREDICATE__B, newB, newB));
   }
 
   /**
@@ -377,15 +377,15 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.PRED_DECL__REF:
+      case BasicsPackage.PREDICATE__REF:
         return basicSetRef(null, msgs);
-      case BasicsPackage.PRED_DECL__PRED_NAME:
+      case BasicsPackage.PREDICATE__PRED_NAME:
         return basicSetPredName(null, msgs);
-      case BasicsPackage.PRED_DECL__DECL:
+      case BasicsPackage.PREDICATE__DECL:
         return basicSetDecl(null, msgs);
-      case BasicsPackage.PRED_DECL__DECL2:
+      case BasicsPackage.PREDICATE__DECL2:
         return ((InternalEList<?>)getDecl2()).basicRemove(otherEnd, msgs);
-      case BasicsPackage.PRED_DECL__B:
+      case BasicsPackage.PREDICATE__B:
         return basicSetB(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -401,17 +401,17 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.PRED_DECL__PRED:
+      case BasicsPackage.PREDICATE__PRED:
         return getPred();
-      case BasicsPackage.PRED_DECL__REF:
+      case BasicsPackage.PREDICATE__REF:
         return getRef();
-      case BasicsPackage.PRED_DECL__PRED_NAME:
+      case BasicsPackage.PREDICATE__PRED_NAME:
         return getPredName();
-      case BasicsPackage.PRED_DECL__DECL:
+      case BasicsPackage.PREDICATE__DECL:
         return getDecl();
-      case BasicsPackage.PRED_DECL__DECL2:
+      case BasicsPackage.PREDICATE__DECL2:
         return getDecl2();
-      case BasicsPackage.PRED_DECL__B:
+      case BasicsPackage.PREDICATE__B:
         return getB();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -428,23 +428,23 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.PRED_DECL__PRED:
+      case BasicsPackage.PREDICATE__PRED:
         setPred((String)newValue);
         return;
-      case BasicsPackage.PRED_DECL__REF:
+      case BasicsPackage.PREDICATE__REF:
         setRef((Ref)newValue);
         return;
-      case BasicsPackage.PRED_DECL__PRED_NAME:
+      case BasicsPackage.PREDICATE__PRED_NAME:
         setPredName((Name)newValue);
         return;
-      case BasicsPackage.PRED_DECL__DECL:
+      case BasicsPackage.PREDICATE__DECL:
         setDecl((Decl)newValue);
         return;
-      case BasicsPackage.PRED_DECL__DECL2:
+      case BasicsPackage.PREDICATE__DECL2:
         getDecl2().clear();
         getDecl2().addAll((Collection<? extends Decl>)newValue);
         return;
-      case BasicsPackage.PRED_DECL__B:
+      case BasicsPackage.PREDICATE__B:
         setB((BlockBis)newValue);
         return;
     }
@@ -461,22 +461,22 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.PRED_DECL__PRED:
+      case BasicsPackage.PREDICATE__PRED:
         setPred(PRED_EDEFAULT);
         return;
-      case BasicsPackage.PRED_DECL__REF:
+      case BasicsPackage.PREDICATE__REF:
         setRef((Ref)null);
         return;
-      case BasicsPackage.PRED_DECL__PRED_NAME:
+      case BasicsPackage.PREDICATE__PRED_NAME:
         setPredName((Name)null);
         return;
-      case BasicsPackage.PRED_DECL__DECL:
+      case BasicsPackage.PREDICATE__DECL:
         setDecl((Decl)null);
         return;
-      case BasicsPackage.PRED_DECL__DECL2:
+      case BasicsPackage.PREDICATE__DECL2:
         getDecl2().clear();
         return;
-      case BasicsPackage.PRED_DECL__B:
+      case BasicsPackage.PREDICATE__B:
         setB((BlockBis)null);
         return;
     }
@@ -493,17 +493,17 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.PRED_DECL__PRED:
+      case BasicsPackage.PREDICATE__PRED:
         return PRED_EDEFAULT == null ? pred != null : !PRED_EDEFAULT.equals(pred);
-      case BasicsPackage.PRED_DECL__REF:
+      case BasicsPackage.PREDICATE__REF:
         return ref != null;
-      case BasicsPackage.PRED_DECL__PRED_NAME:
+      case BasicsPackage.PREDICATE__PRED_NAME:
         return predName != null;
-      case BasicsPackage.PRED_DECL__DECL:
+      case BasicsPackage.PREDICATE__DECL:
         return decl != null;
-      case BasicsPackage.PRED_DECL__DECL2:
+      case BasicsPackage.PREDICATE__DECL2:
         return decl2 != null && !decl2.isEmpty();
-      case BasicsPackage.PRED_DECL__B:
+      case BasicsPackage.PREDICATE__B:
         return b != null;
     }
     return super.eIsSet(featureID);
@@ -526,4 +526,4 @@ public class PredDeclImpl extends ParagraphImpl implements PredDecl
     return result.toString();
   }
 
-} //PredDeclImpl
+} //PredicateImpl

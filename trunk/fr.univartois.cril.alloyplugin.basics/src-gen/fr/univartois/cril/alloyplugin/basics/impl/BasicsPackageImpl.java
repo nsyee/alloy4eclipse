@@ -6,32 +6,32 @@
 package fr.univartois.cril.alloyplugin.basics.impl;
 
 import fr.univartois.cril.alloyplugin.basics.ArrowOp;
-import fr.univartois.cril.alloyplugin.basics.AssertDecl;
+import fr.univartois.cril.alloyplugin.basics.Assertion;
 import fr.univartois.cril.alloyplugin.basics.BasicsFactory;
 import fr.univartois.cril.alloyplugin.basics.BasicsPackage;
 import fr.univartois.cril.alloyplugin.basics.Block;
 import fr.univartois.cril.alloyplugin.basics.BlockBis;
 import fr.univartois.cril.alloyplugin.basics.BlockOrBar;
 import fr.univartois.cril.alloyplugin.basics.BlockOrBarBis;
-import fr.univartois.cril.alloyplugin.basics.CheckDecl;
+import fr.univartois.cril.alloyplugin.basics.CheckCommand;
 import fr.univartois.cril.alloyplugin.basics.Decl;
 import fr.univartois.cril.alloyplugin.basics.Decl2;
 import fr.univartois.cril.alloyplugin.basics.EnumDecl;
 import fr.univartois.cril.alloyplugin.basics.Expression;
-import fr.univartois.cril.alloyplugin.basics.FactDecl;
-import fr.univartois.cril.alloyplugin.basics.FunDecl;
+import fr.univartois.cril.alloyplugin.basics.Fact;
+import fr.univartois.cril.alloyplugin.basics.Function;
 import fr.univartois.cril.alloyplugin.basics.LetDecl;
 import fr.univartois.cril.alloyplugin.basics.Module;
 import fr.univartois.cril.alloyplugin.basics.Name;
 import fr.univartois.cril.alloyplugin.basics.NameBis;
 import fr.univartois.cril.alloyplugin.basics.Open;
 import fr.univartois.cril.alloyplugin.basics.Paragraph;
-import fr.univartois.cril.alloyplugin.basics.PredDecl;
+import fr.univartois.cril.alloyplugin.basics.Predicate;
 import fr.univartois.cril.alloyplugin.basics.Ref;
-import fr.univartois.cril.alloyplugin.basics.RunDecl;
+import fr.univartois.cril.alloyplugin.basics.RunCommand;
 import fr.univartois.cril.alloyplugin.basics.Scope;
-import fr.univartois.cril.alloyplugin.basics.SigDecl;
 import fr.univartois.cril.alloyplugin.basics.SigExt;
+import fr.univartois.cril.alloyplugin.basics.Signature;
 import fr.univartois.cril.alloyplugin.basics.Specification;
 import fr.univartois.cril.alloyplugin.basics.Typescope;
 
@@ -83,42 +83,42 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass factDeclEClass = null;
+  private EClass factEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass assertDeclEClass = null;
+  private EClass assertionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass funDeclEClass = null;
+  private EClass functionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass predDeclEClass = null;
+  private EClass predicateEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass runDeclEClass = null;
+  private EClass runCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass checkDeclEClass = null;
+  private EClass checkCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -146,7 +146,7 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sigDeclEClass = null;
+  private EClass signatureEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -437,9 +437,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFactDecl()
+  public EClass getFact()
   {
-    return factDeclEClass;
+    return factEClass;
   }
 
   /**
@@ -447,9 +447,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFactDecl_FactName()
+  public EReference getFact_FactName()
   {
-    return (EReference)factDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)factEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -457,9 +457,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFactDecl_B()
+  public EReference getFact_B()
   {
-    return (EReference)factDeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)factEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -467,9 +467,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAssertDecl()
+  public EClass getAssertion()
   {
-    return assertDeclEClass;
+    return assertionEClass;
   }
 
   /**
@@ -477,9 +477,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssertDecl_AssertName()
+  public EReference getAssertion_AssertName()
   {
-    return (EReference)assertDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)assertionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -487,9 +487,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssertDecl_B()
+  public EReference getAssertion_B()
   {
-    return (EReference)assertDeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)assertionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -497,9 +497,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFunDecl()
+  public EClass getFunction()
   {
-    return funDeclEClass;
+    return functionEClass;
   }
 
   /**
@@ -507,9 +507,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunDecl_Ref()
+  public EReference getFunction_Ref()
   {
-    return (EReference)funDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)functionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -517,9 +517,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunDecl_FunName()
+  public EReference getFunction_FunName()
   {
-    return (EReference)funDeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)functionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -527,9 +527,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunDecl_Decl()
+  public EReference getFunction_Decl()
   {
-    return (EReference)funDeclEClass.getEStructuralFeatures().get(2);
+    return (EReference)functionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -537,9 +537,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunDecl_Decl2()
+  public EReference getFunction_Decl2()
   {
-    return (EReference)funDeclEClass.getEStructuralFeatures().get(3);
+    return (EReference)functionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -547,9 +547,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunDecl_Expr()
+  public EReference getFunction_Expr()
   {
-    return (EReference)funDeclEClass.getEStructuralFeatures().get(4);
+    return (EReference)functionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -557,9 +557,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunDecl_B()
+  public EReference getFunction_B()
   {
-    return (EReference)funDeclEClass.getEStructuralFeatures().get(5);
+    return (EReference)functionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -567,9 +567,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPredDecl()
+  public EClass getPredicate()
   {
-    return predDeclEClass;
+    return predicateEClass;
   }
 
   /**
@@ -577,9 +577,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPredDecl_Pred()
+  public EAttribute getPredicate_Pred()
   {
-    return (EAttribute)predDeclEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)predicateEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -587,9 +587,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPredDecl_Ref()
+  public EReference getPredicate_Ref()
   {
-    return (EReference)predDeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)predicateEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -597,9 +597,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPredDecl_PredName()
+  public EReference getPredicate_PredName()
   {
-    return (EReference)predDeclEClass.getEStructuralFeatures().get(2);
+    return (EReference)predicateEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -607,9 +607,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPredDecl_Decl()
+  public EReference getPredicate_Decl()
   {
-    return (EReference)predDeclEClass.getEStructuralFeatures().get(3);
+    return (EReference)predicateEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -617,9 +617,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPredDecl_Decl2()
+  public EReference getPredicate_Decl2()
   {
-    return (EReference)predDeclEClass.getEStructuralFeatures().get(4);
+    return (EReference)predicateEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -627,9 +627,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPredDecl_B()
+  public EReference getPredicate_B()
   {
-    return (EReference)predDeclEClass.getEStructuralFeatures().get(5);
+    return (EReference)predicateEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -637,9 +637,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRunDecl()
+  public EClass getRunCommand()
   {
-    return runDeclEClass;
+    return runCommandEClass;
   }
 
   /**
@@ -647,9 +647,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRunDecl_RunName()
+  public EReference getRunCommand_RunName()
   {
-    return (EReference)runDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)runCommandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -657,9 +657,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRunDecl_Run()
+  public EAttribute getRunCommand_Run()
   {
-    return (EAttribute)runDeclEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)runCommandEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -667,9 +667,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRunDecl_Name2()
+  public EReference getRunCommand_Name2()
   {
-    return (EReference)runDeclEClass.getEStructuralFeatures().get(2);
+    return (EReference)runCommandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -677,9 +677,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRunDecl_B()
+  public EReference getRunCommand_B()
   {
-    return (EReference)runDeclEClass.getEStructuralFeatures().get(3);
+    return (EReference)runCommandEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -687,9 +687,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRunDecl_Scope()
+  public EReference getRunCommand_Scope()
   {
-    return (EReference)runDeclEClass.getEStructuralFeatures().get(4);
+    return (EReference)runCommandEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -697,9 +697,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCheckDecl()
+  public EClass getCheckCommand()
   {
-    return checkDeclEClass;
+    return checkCommandEClass;
   }
 
   /**
@@ -707,9 +707,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCheckDecl_CheckName()
+  public EReference getCheckCommand_CheckName()
   {
-    return (EReference)checkDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)checkCommandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -717,9 +717,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCheckDecl_Check()
+  public EAttribute getCheckCommand_Check()
   {
-    return (EAttribute)checkDeclEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)checkCommandEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -727,9 +727,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCheckDecl_Name2()
+  public EReference getCheckCommand_Name2()
   {
-    return (EReference)checkDeclEClass.getEStructuralFeatures().get(2);
+    return (EReference)checkCommandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -737,9 +737,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCheckDecl_B()
+  public EReference getCheckCommand_B()
   {
-    return (EReference)checkDeclEClass.getEStructuralFeatures().get(3);
+    return (EReference)checkCommandEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -747,9 +747,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCheckDecl_Scope()
+  public EReference getCheckCommand_Scope()
   {
-    return (EReference)checkDeclEClass.getEStructuralFeatures().get(4);
+    return (EReference)checkCommandEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -837,9 +837,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSigDecl()
+  public EClass getSignature()
   {
-    return sigDeclEClass;
+    return signatureEClass;
   }
 
   /**
@@ -847,9 +847,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSigDecl_SigName()
+  public EReference getSignature_SigName()
   {
-    return (EReference)sigDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)signatureEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -857,9 +857,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSigDecl_Name2()
+  public EReference getSignature_Name2()
   {
-    return (EReference)sigDeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)signatureEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -867,9 +867,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSigDecl_SigExt()
+  public EReference getSignature_SigExt()
   {
-    return (EReference)sigDeclEClass.getEStructuralFeatures().get(2);
+    return (EReference)signatureEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -877,9 +877,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSigDecl_Decl()
+  public EReference getSignature_Decl()
   {
-    return (EReference)sigDeclEClass.getEStructuralFeatures().get(3);
+    return (EReference)signatureEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -887,9 +887,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSigDecl_Decl2()
+  public EReference getSignature_Decl2()
   {
-    return (EReference)sigDeclEClass.getEStructuralFeatures().get(4);
+    return (EReference)signatureEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -897,9 +897,9 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSigDecl_B()
+  public EReference getSignature_B()
   {
-    return (EReference)sigDeclEClass.getEStructuralFeatures().get(5);
+    return (EReference)signatureEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1339,43 +1339,43 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
 
     paragraphEClass = createEClass(PARAGRAPH);
 
-    factDeclEClass = createEClass(FACT_DECL);
-    createEReference(factDeclEClass, FACT_DECL__FACT_NAME);
-    createEReference(factDeclEClass, FACT_DECL__B);
+    factEClass = createEClass(FACT);
+    createEReference(factEClass, FACT__FACT_NAME);
+    createEReference(factEClass, FACT__B);
 
-    assertDeclEClass = createEClass(ASSERT_DECL);
-    createEReference(assertDeclEClass, ASSERT_DECL__ASSERT_NAME);
-    createEReference(assertDeclEClass, ASSERT_DECL__B);
+    assertionEClass = createEClass(ASSERTION);
+    createEReference(assertionEClass, ASSERTION__ASSERT_NAME);
+    createEReference(assertionEClass, ASSERTION__B);
 
-    funDeclEClass = createEClass(FUN_DECL);
-    createEReference(funDeclEClass, FUN_DECL__REF);
-    createEReference(funDeclEClass, FUN_DECL__FUN_NAME);
-    createEReference(funDeclEClass, FUN_DECL__DECL);
-    createEReference(funDeclEClass, FUN_DECL__DECL2);
-    createEReference(funDeclEClass, FUN_DECL__EXPR);
-    createEReference(funDeclEClass, FUN_DECL__B);
+    functionEClass = createEClass(FUNCTION);
+    createEReference(functionEClass, FUNCTION__REF);
+    createEReference(functionEClass, FUNCTION__FUN_NAME);
+    createEReference(functionEClass, FUNCTION__DECL);
+    createEReference(functionEClass, FUNCTION__DECL2);
+    createEReference(functionEClass, FUNCTION__EXPR);
+    createEReference(functionEClass, FUNCTION__B);
 
-    predDeclEClass = createEClass(PRED_DECL);
-    createEAttribute(predDeclEClass, PRED_DECL__PRED);
-    createEReference(predDeclEClass, PRED_DECL__REF);
-    createEReference(predDeclEClass, PRED_DECL__PRED_NAME);
-    createEReference(predDeclEClass, PRED_DECL__DECL);
-    createEReference(predDeclEClass, PRED_DECL__DECL2);
-    createEReference(predDeclEClass, PRED_DECL__B);
+    predicateEClass = createEClass(PREDICATE);
+    createEAttribute(predicateEClass, PREDICATE__PRED);
+    createEReference(predicateEClass, PREDICATE__REF);
+    createEReference(predicateEClass, PREDICATE__PRED_NAME);
+    createEReference(predicateEClass, PREDICATE__DECL);
+    createEReference(predicateEClass, PREDICATE__DECL2);
+    createEReference(predicateEClass, PREDICATE__B);
 
-    runDeclEClass = createEClass(RUN_DECL);
-    createEReference(runDeclEClass, RUN_DECL__RUN_NAME);
-    createEAttribute(runDeclEClass, RUN_DECL__RUN);
-    createEReference(runDeclEClass, RUN_DECL__NAME2);
-    createEReference(runDeclEClass, RUN_DECL__B);
-    createEReference(runDeclEClass, RUN_DECL__SCOPE);
+    runCommandEClass = createEClass(RUN_COMMAND);
+    createEReference(runCommandEClass, RUN_COMMAND__RUN_NAME);
+    createEAttribute(runCommandEClass, RUN_COMMAND__RUN);
+    createEReference(runCommandEClass, RUN_COMMAND__NAME2);
+    createEReference(runCommandEClass, RUN_COMMAND__B);
+    createEReference(runCommandEClass, RUN_COMMAND__SCOPE);
 
-    checkDeclEClass = createEClass(CHECK_DECL);
-    createEReference(checkDeclEClass, CHECK_DECL__CHECK_NAME);
-    createEAttribute(checkDeclEClass, CHECK_DECL__CHECK);
-    createEReference(checkDeclEClass, CHECK_DECL__NAME2);
-    createEReference(checkDeclEClass, CHECK_DECL__B);
-    createEReference(checkDeclEClass, CHECK_DECL__SCOPE);
+    checkCommandEClass = createEClass(CHECK_COMMAND);
+    createEReference(checkCommandEClass, CHECK_COMMAND__CHECK_NAME);
+    createEAttribute(checkCommandEClass, CHECK_COMMAND__CHECK);
+    createEReference(checkCommandEClass, CHECK_COMMAND__NAME2);
+    createEReference(checkCommandEClass, CHECK_COMMAND__B);
+    createEReference(checkCommandEClass, CHECK_COMMAND__SCOPE);
 
     scopeEClass = createEClass(SCOPE);
     createEReference(scopeEClass, SCOPE__TYPESCOPE);
@@ -1388,13 +1388,13 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
     createEReference(enumDeclEClass, ENUM_DECL__NAME2);
     createEReference(enumDeclEClass, ENUM_DECL__NAME3);
 
-    sigDeclEClass = createEClass(SIG_DECL);
-    createEReference(sigDeclEClass, SIG_DECL__SIG_NAME);
-    createEReference(sigDeclEClass, SIG_DECL__NAME2);
-    createEReference(sigDeclEClass, SIG_DECL__SIG_EXT);
-    createEReference(sigDeclEClass, SIG_DECL__DECL);
-    createEReference(sigDeclEClass, SIG_DECL__DECL2);
-    createEReference(sigDeclEClass, SIG_DECL__B);
+    signatureEClass = createEClass(SIGNATURE);
+    createEReference(signatureEClass, SIGNATURE__SIG_NAME);
+    createEReference(signatureEClass, SIGNATURE__NAME2);
+    createEReference(signatureEClass, SIGNATURE__SIG_EXT);
+    createEReference(signatureEClass, SIGNATURE__DECL);
+    createEReference(signatureEClass, SIGNATURE__DECL2);
+    createEReference(signatureEClass, SIGNATURE__B);
 
     sigExtEClass = createEClass(SIG_EXT);
     createEReference(sigExtEClass, SIG_EXT__REF);
@@ -1478,14 +1478,14 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    factDeclEClass.getESuperTypes().add(this.getParagraph());
-    assertDeclEClass.getESuperTypes().add(this.getParagraph());
-    funDeclEClass.getESuperTypes().add(this.getParagraph());
-    predDeclEClass.getESuperTypes().add(this.getParagraph());
-    runDeclEClass.getESuperTypes().add(this.getParagraph());
-    checkDeclEClass.getESuperTypes().add(this.getParagraph());
+    factEClass.getESuperTypes().add(this.getParagraph());
+    assertionEClass.getESuperTypes().add(this.getParagraph());
+    functionEClass.getESuperTypes().add(this.getParagraph());
+    predicateEClass.getESuperTypes().add(this.getParagraph());
+    runCommandEClass.getESuperTypes().add(this.getParagraph());
+    checkCommandEClass.getESuperTypes().add(this.getParagraph());
     enumDeclEClass.getESuperTypes().add(this.getParagraph());
-    sigDeclEClass.getESuperTypes().add(this.getParagraph());
+    signatureEClass.getESuperTypes().add(this.getParagraph());
     expressionEClass.getESuperTypes().add(this.getBlockOrBar());
     expressionEClass.getESuperTypes().add(this.getBlockOrBarBis());
     letDeclEClass.getESuperTypes().add(this.getExpression());
@@ -1514,43 +1514,43 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
 
     initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(factDeclEClass, FactDecl.class, "FactDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFactDecl_FactName(), this.getName_(), null, "factName", null, 0, 1, FactDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFactDecl_B(), this.getBlockBis(), null, "b", null, 0, 1, FactDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(factEClass, Fact.class, "Fact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFact_FactName(), this.getName_(), null, "factName", null, 0, 1, Fact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFact_B(), this.getBlockBis(), null, "b", null, 0, 1, Fact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(assertDeclEClass, AssertDecl.class, "AssertDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAssertDecl_AssertName(), this.getName_(), null, "assertName", null, 0, 1, AssertDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssertDecl_B(), this.getBlockBis(), null, "b", null, 0, 1, AssertDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(assertionEClass, Assertion.class, "Assertion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAssertion_AssertName(), this.getName_(), null, "assertName", null, 0, 1, Assertion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssertion_B(), this.getBlockBis(), null, "b", null, 0, 1, Assertion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(funDeclEClass, FunDecl.class, "FunDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFunDecl_Ref(), this.getRef(), null, "ref", null, 0, 1, FunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunDecl_FunName(), this.getName_(), null, "funName", null, 0, 1, FunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunDecl_Decl(), this.getDecl(), null, "decl", null, 0, 1, FunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunDecl_Decl2(), this.getDecl(), null, "decl2", null, 0, -1, FunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunDecl_Expr(), this.getExpression(), null, "expr", null, 0, 1, FunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunDecl_B(), this.getBlockBis(), null, "b", null, 0, 1, FunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunction_Ref(), this.getRef(), null, "ref", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_FunName(), this.getName_(), null, "funName", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Decl(), this.getDecl(), null, "decl", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Decl2(), this.getDecl(), null, "decl2", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Expr(), this.getExpression(), null, "expr", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_B(), this.getBlockBis(), null, "b", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(predDeclEClass, PredDecl.class, "PredDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPredDecl_Pred(), ecorePackage.getEString(), "pred", null, 0, 1, PredDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPredDecl_Ref(), this.getRef(), null, "ref", null, 0, 1, PredDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPredDecl_PredName(), this.getName_(), null, "predName", null, 0, 1, PredDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPredDecl_Decl(), this.getDecl(), null, "decl", null, 0, 1, PredDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPredDecl_Decl2(), this.getDecl(), null, "decl2", null, 0, -1, PredDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPredDecl_B(), this.getBlockBis(), null, "b", null, 0, 1, PredDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(predicateEClass, Predicate.class, "Predicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPredicate_Pred(), ecorePackage.getEString(), "pred", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPredicate_Ref(), this.getRef(), null, "ref", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPredicate_PredName(), this.getName_(), null, "predName", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPredicate_Decl(), this.getDecl(), null, "decl", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPredicate_Decl2(), this.getDecl(), null, "decl2", null, 0, -1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPredicate_B(), this.getBlockBis(), null, "b", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(runDeclEClass, RunDecl.class, "RunDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRunDecl_RunName(), this.getName_(), null, "runName", null, 0, 1, RunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRunDecl_Run(), ecorePackage.getEString(), "run", null, 0, 1, RunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRunDecl_Name2(), this.getName_(), null, "name2", null, 0, 1, RunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRunDecl_B(), this.getBlockBis(), null, "b", null, 0, 1, RunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRunDecl_Scope(), this.getScope(), null, "scope", null, 0, 1, RunDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(runCommandEClass, RunCommand.class, "RunCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRunCommand_RunName(), this.getName_(), null, "runName", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRunCommand_Run(), ecorePackage.getEString(), "run", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRunCommand_Name2(), this.getName_(), null, "name2", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRunCommand_B(), this.getBlockBis(), null, "b", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRunCommand_Scope(), this.getScope(), null, "scope", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(checkDeclEClass, CheckDecl.class, "CheckDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCheckDecl_CheckName(), this.getName_(), null, "checkName", null, 0, 1, CheckDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCheckDecl_Check(), ecorePackage.getEString(), "check", null, 0, 1, CheckDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCheckDecl_Name2(), this.getName_(), null, "name2", null, 0, 1, CheckDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCheckDecl_B(), this.getBlockBis(), null, "b", null, 0, 1, CheckDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCheckDecl_Scope(), this.getScope(), null, "scope", null, 0, 1, CheckDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(checkCommandEClass, CheckCommand.class, "CheckCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCheckCommand_CheckName(), this.getName_(), null, "checkName", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCheckCommand_Check(), ecorePackage.getEString(), "check", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCheckCommand_Name2(), this.getName_(), null, "name2", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCheckCommand_B(), this.getBlockBis(), null, "b", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCheckCommand_Scope(), this.getScope(), null, "scope", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getScope_Typescope(), this.getTypescope(), null, "typescope", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1563,13 +1563,13 @@ public class BasicsPackageImpl extends EPackageImpl implements BasicsPackage
     initEReference(getEnumDecl_Name2(), this.getName_(), null, "name2", null, 0, 1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEnumDecl_Name3(), this.getName_(), null, "name3", null, 0, -1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sigDeclEClass, SigDecl.class, "SigDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSigDecl_SigName(), this.getName_(), null, "sigName", null, 0, 1, SigDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSigDecl_Name2(), this.getName_(), null, "name2", null, 0, -1, SigDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSigDecl_SigExt(), this.getSigExt(), null, "sigExt", null, 0, 1, SigDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSigDecl_Decl(), this.getDecl(), null, "decl", null, 0, 1, SigDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSigDecl_Decl2(), this.getDecl(), null, "decl2", null, 0, -1, SigDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSigDecl_B(), this.getBlockBis(), null, "b", null, 0, 1, SigDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(signatureEClass, Signature.class, "Signature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSignature_SigName(), this.getName_(), null, "sigName", null, 0, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSignature_Name2(), this.getName_(), null, "name2", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSignature_SigExt(), this.getSigExt(), null, "sigExt", null, 0, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSignature_Decl(), this.getDecl(), null, "decl", null, 0, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSignature_Decl2(), this.getDecl(), null, "decl2", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSignature_B(), this.getBlockBis(), null, "b", null, 0, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sigExtEClass, SigExt.class, "SigExt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSigExt_Ref(), this.getRef(), null, "ref", null, 0, 1, SigExt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

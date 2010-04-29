@@ -217,14 +217,14 @@ public interface BasicsPackage extends EPackage
   int PARAGRAPH_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.FactDeclImpl <em>Fact Decl</em>}' class.
+   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.FactImpl <em>Fact</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.univartois.cril.alloyplugin.basics.impl.FactDeclImpl
-   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getFactDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.impl.FactImpl
+   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getFact()
    * @generated
    */
-  int FACT_DECL = 4;
+  int FACT = 4;
 
   /**
    * The feature id for the '<em><b>Fact Name</b></em>' containment reference.
@@ -233,7 +233,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FACT_DECL__FACT_NAME = PARAGRAPH_FEATURE_COUNT + 0;
+  int FACT__FACT_NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -242,26 +242,26 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FACT_DECL__B = PARAGRAPH_FEATURE_COUNT + 1;
+  int FACT__B = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Fact Decl</em>' class.
+   * The number of structural features of the '<em>Fact</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FACT_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 2;
+  int FACT_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.AssertDeclImpl <em>Assert Decl</em>}' class.
+   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.AssertionImpl <em>Assertion</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.univartois.cril.alloyplugin.basics.impl.AssertDeclImpl
-   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getAssertDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.impl.AssertionImpl
+   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getAssertion()
    * @generated
    */
-  int ASSERT_DECL = 5;
+  int ASSERTION = 5;
 
   /**
    * The feature id for the '<em><b>Assert Name</b></em>' containment reference.
@@ -270,7 +270,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSERT_DECL__ASSERT_NAME = PARAGRAPH_FEATURE_COUNT + 0;
+  int ASSERTION__ASSERT_NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -279,26 +279,26 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSERT_DECL__B = PARAGRAPH_FEATURE_COUNT + 1;
+  int ASSERTION__B = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Assert Decl</em>' class.
+   * The number of structural features of the '<em>Assertion</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSERT_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 2;
+  int ASSERTION_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl <em>Fun Decl</em>}' class.
+   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl <em>Function</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl
-   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getFunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl
+   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getFunction()
    * @generated
    */
-  int FUN_DECL = 6;
+  int FUNCTION = 6;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' containment reference.
@@ -307,7 +307,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUN_DECL__REF = PARAGRAPH_FEATURE_COUNT + 0;
+  int FUNCTION__REF = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Fun Name</b></em>' containment reference.
@@ -316,7 +316,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUN_DECL__FUN_NAME = PARAGRAPH_FEATURE_COUNT + 1;
+  int FUNCTION__FUN_NAME = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Decl</b></em>' containment reference.
@@ -325,7 +325,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUN_DECL__DECL = PARAGRAPH_FEATURE_COUNT + 2;
+  int FUNCTION__DECL = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Decl2</b></em>' containment reference list.
@@ -334,7 +334,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUN_DECL__DECL2 = PARAGRAPH_FEATURE_COUNT + 3;
+  int FUNCTION__DECL2 = PARAGRAPH_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -343,7 +343,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUN_DECL__EXPR = PARAGRAPH_FEATURE_COUNT + 4;
+  int FUNCTION__EXPR = PARAGRAPH_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -352,26 +352,26 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUN_DECL__B = PARAGRAPH_FEATURE_COUNT + 5;
+  int FUNCTION__B = PARAGRAPH_FEATURE_COUNT + 5;
 
   /**
-   * The number of structural features of the '<em>Fun Decl</em>' class.
+   * The number of structural features of the '<em>Function</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUN_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 6;
+  int FUNCTION_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 6;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl <em>Pred Decl</em>}' class.
+   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl <em>Predicate</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl
-   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getPredDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl
+   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getPredicate()
    * @generated
    */
-  int PRED_DECL = 7;
+  int PREDICATE = 7;
 
   /**
    * The feature id for the '<em><b>Pred</b></em>' attribute.
@@ -380,7 +380,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRED_DECL__PRED = PARAGRAPH_FEATURE_COUNT + 0;
+  int PREDICATE__PRED = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' containment reference.
@@ -389,7 +389,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRED_DECL__REF = PARAGRAPH_FEATURE_COUNT + 1;
+  int PREDICATE__REF = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Pred Name</b></em>' containment reference.
@@ -398,7 +398,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRED_DECL__PRED_NAME = PARAGRAPH_FEATURE_COUNT + 2;
+  int PREDICATE__PRED_NAME = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Decl</b></em>' containment reference.
@@ -407,7 +407,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRED_DECL__DECL = PARAGRAPH_FEATURE_COUNT + 3;
+  int PREDICATE__DECL = PARAGRAPH_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Decl2</b></em>' containment reference list.
@@ -416,7 +416,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRED_DECL__DECL2 = PARAGRAPH_FEATURE_COUNT + 4;
+  int PREDICATE__DECL2 = PARAGRAPH_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -425,26 +425,26 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRED_DECL__B = PARAGRAPH_FEATURE_COUNT + 5;
+  int PREDICATE__B = PARAGRAPH_FEATURE_COUNT + 5;
 
   /**
-   * The number of structural features of the '<em>Pred Decl</em>' class.
+   * The number of structural features of the '<em>Predicate</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRED_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 6;
+  int PREDICATE_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 6;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.RunDeclImpl <em>Run Decl</em>}' class.
+   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.RunCommandImpl <em>Run Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.univartois.cril.alloyplugin.basics.impl.RunDeclImpl
-   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getRunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.impl.RunCommandImpl
+   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getRunCommand()
    * @generated
    */
-  int RUN_DECL = 8;
+  int RUN_COMMAND = 8;
 
   /**
    * The feature id for the '<em><b>Run Name</b></em>' containment reference.
@@ -453,7 +453,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_DECL__RUN_NAME = PARAGRAPH_FEATURE_COUNT + 0;
+  int RUN_COMMAND__RUN_NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Run</b></em>' attribute.
@@ -462,7 +462,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_DECL__RUN = PARAGRAPH_FEATURE_COUNT + 1;
+  int RUN_COMMAND__RUN = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Name2</b></em>' reference.
@@ -471,7 +471,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_DECL__NAME2 = PARAGRAPH_FEATURE_COUNT + 2;
+  int RUN_COMMAND__NAME2 = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -480,7 +480,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_DECL__B = PARAGRAPH_FEATURE_COUNT + 3;
+  int RUN_COMMAND__B = PARAGRAPH_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Scope</b></em>' containment reference.
@@ -489,26 +489,26 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_DECL__SCOPE = PARAGRAPH_FEATURE_COUNT + 4;
+  int RUN_COMMAND__SCOPE = PARAGRAPH_FEATURE_COUNT + 4;
 
   /**
-   * The number of structural features of the '<em>Run Decl</em>' class.
+   * The number of structural features of the '<em>Run Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RUN_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 5;
+  int RUN_COMMAND_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 5;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.CheckDeclImpl <em>Check Decl</em>}' class.
+   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.CheckCommandImpl <em>Check Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.univartois.cril.alloyplugin.basics.impl.CheckDeclImpl
-   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getCheckDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.impl.CheckCommandImpl
+   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getCheckCommand()
    * @generated
    */
-  int CHECK_DECL = 9;
+  int CHECK_COMMAND = 9;
 
   /**
    * The feature id for the '<em><b>Check Name</b></em>' containment reference.
@@ -517,7 +517,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_DECL__CHECK_NAME = PARAGRAPH_FEATURE_COUNT + 0;
+  int CHECK_COMMAND__CHECK_NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Check</b></em>' attribute.
@@ -526,7 +526,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_DECL__CHECK = PARAGRAPH_FEATURE_COUNT + 1;
+  int CHECK_COMMAND__CHECK = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Name2</b></em>' reference.
@@ -535,7 +535,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_DECL__NAME2 = PARAGRAPH_FEATURE_COUNT + 2;
+  int CHECK_COMMAND__NAME2 = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -544,7 +544,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_DECL__B = PARAGRAPH_FEATURE_COUNT + 3;
+  int CHECK_COMMAND__B = PARAGRAPH_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Scope</b></em>' containment reference.
@@ -553,16 +553,16 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_DECL__SCOPE = PARAGRAPH_FEATURE_COUNT + 4;
+  int CHECK_COMMAND__SCOPE = PARAGRAPH_FEATURE_COUNT + 4;
 
   /**
-   * The number of structural features of the '<em>Check Decl</em>' class.
+   * The number of structural features of the '<em>Check Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHECK_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 5;
+  int CHECK_COMMAND_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.ScopeImpl <em>Scope</em>}' class.
@@ -667,14 +667,14 @@ public interface BasicsPackage extends EPackage
   int ENUM_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl <em>Sig Decl</em>}' class.
+   * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl <em>Signature</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl
-   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getSigDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl
+   * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getSignature()
    * @generated
    */
-  int SIG_DECL = 13;
+  int SIGNATURE = 13;
 
   /**
    * The feature id for the '<em><b>Sig Name</b></em>' containment reference.
@@ -683,7 +683,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIG_DECL__SIG_NAME = PARAGRAPH_FEATURE_COUNT + 0;
+  int SIGNATURE__SIG_NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name2</b></em>' containment reference list.
@@ -692,7 +692,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIG_DECL__NAME2 = PARAGRAPH_FEATURE_COUNT + 1;
+  int SIGNATURE__NAME2 = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Sig Ext</b></em>' containment reference.
@@ -701,7 +701,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIG_DECL__SIG_EXT = PARAGRAPH_FEATURE_COUNT + 2;
+  int SIGNATURE__SIG_EXT = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Decl</b></em>' containment reference.
@@ -710,7 +710,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIG_DECL__DECL = PARAGRAPH_FEATURE_COUNT + 3;
+  int SIGNATURE__DECL = PARAGRAPH_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Decl2</b></em>' containment reference list.
@@ -719,7 +719,7 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIG_DECL__DECL2 = PARAGRAPH_FEATURE_COUNT + 4;
+  int SIGNATURE__DECL2 = PARAGRAPH_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -728,16 +728,16 @@ public interface BasicsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIG_DECL__B = PARAGRAPH_FEATURE_COUNT + 5;
+  int SIGNATURE__B = PARAGRAPH_FEATURE_COUNT + 5;
 
   /**
-   * The number of structural features of the '<em>Sig Decl</em>' class.
+   * The number of structural features of the '<em>Signature</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIG_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 6;
+  int SIGNATURE_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.alloyplugin.basics.impl.SigExtImpl <em>Sig Ext</em>}' class.
@@ -1649,350 +1649,350 @@ public interface BasicsPackage extends EPackage
   EClass getParagraph();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.FactDecl <em>Fact Decl</em>}'.
+   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.Fact <em>Fact</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Fact Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FactDecl
+   * @return the meta object for class '<em>Fact</em>'.
+   * @see fr.univartois.cril.alloyplugin.basics.Fact
    * @generated
    */
-  EClass getFactDecl();
+  EClass getFact();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.FactDecl#getFactName <em>Fact Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Fact#getFactName <em>Fact Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Fact Name</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FactDecl#getFactName()
-   * @see #getFactDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Fact#getFactName()
+   * @see #getFact()
    * @generated
    */
-  EReference getFactDecl_FactName();
+  EReference getFact_FactName();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.FactDecl#getB <em>B</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Fact#getB <em>B</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>B</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FactDecl#getB()
-   * @see #getFactDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Fact#getB()
+   * @see #getFact()
    * @generated
    */
-  EReference getFactDecl_B();
+  EReference getFact_B();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.AssertDecl <em>Assert Decl</em>}'.
+   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.Assertion <em>Assertion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Assert Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.AssertDecl
+   * @return the meta object for class '<em>Assertion</em>'.
+   * @see fr.univartois.cril.alloyplugin.basics.Assertion
    * @generated
    */
-  EClass getAssertDecl();
+  EClass getAssertion();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.AssertDecl#getAssertName <em>Assert Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Assertion#getAssertName <em>Assert Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Assert Name</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.AssertDecl#getAssertName()
-   * @see #getAssertDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Assertion#getAssertName()
+   * @see #getAssertion()
    * @generated
    */
-  EReference getAssertDecl_AssertName();
+  EReference getAssertion_AssertName();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.AssertDecl#getB <em>B</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Assertion#getB <em>B</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>B</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.AssertDecl#getB()
-   * @see #getAssertDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Assertion#getB()
+   * @see #getAssertion()
    * @generated
    */
-  EReference getAssertDecl_B();
+  EReference getAssertion_B();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.FunDecl <em>Fun Decl</em>}'.
+   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.Function <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Fun Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FunDecl
+   * @return the meta object for class '<em>Function</em>'.
+   * @see fr.univartois.cril.alloyplugin.basics.Function
    * @generated
    */
-  EClass getFunDecl();
+  EClass getFunction();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.FunDecl#getRef <em>Ref</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Function#getRef <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Ref</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FunDecl#getRef()
-   * @see #getFunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Function#getRef()
+   * @see #getFunction()
    * @generated
    */
-  EReference getFunDecl_Ref();
+  EReference getFunction_Ref();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.FunDecl#getFunName <em>Fun Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Function#getFunName <em>Fun Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Fun Name</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FunDecl#getFunName()
-   * @see #getFunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Function#getFunName()
+   * @see #getFunction()
    * @generated
    */
-  EReference getFunDecl_FunName();
+  EReference getFunction_FunName();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.FunDecl#getDecl <em>Decl</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Function#getDecl <em>Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FunDecl#getDecl()
-   * @see #getFunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Function#getDecl()
+   * @see #getFunction()
    * @generated
    */
-  EReference getFunDecl_Decl();
+  EReference getFunction_Decl();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.alloyplugin.basics.FunDecl#getDecl2 <em>Decl2</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.alloyplugin.basics.Function#getDecl2 <em>Decl2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Decl2</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FunDecl#getDecl2()
-   * @see #getFunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Function#getDecl2()
+   * @see #getFunction()
    * @generated
    */
-  EReference getFunDecl_Decl2();
+  EReference getFunction_Decl2();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.FunDecl#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Function#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FunDecl#getExpr()
-   * @see #getFunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Function#getExpr()
+   * @see #getFunction()
    * @generated
    */
-  EReference getFunDecl_Expr();
+  EReference getFunction_Expr();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.FunDecl#getB <em>B</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Function#getB <em>B</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>B</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.FunDecl#getB()
-   * @see #getFunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Function#getB()
+   * @see #getFunction()
    * @generated
    */
-  EReference getFunDecl_B();
+  EReference getFunction_B();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.PredDecl <em>Pred Decl</em>}'.
+   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.Predicate <em>Predicate</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Pred Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.PredDecl
+   * @return the meta object for class '<em>Predicate</em>'.
+   * @see fr.univartois.cril.alloyplugin.basics.Predicate
    * @generated
    */
-  EClass getPredDecl();
+  EClass getPredicate();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getPred <em>Pred</em>}'.
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getPred <em>Pred</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Pred</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.PredDecl#getPred()
-   * @see #getPredDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Predicate#getPred()
+   * @see #getPredicate()
    * @generated
    */
-  EAttribute getPredDecl_Pred();
+  EAttribute getPredicate_Pred();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getRef <em>Ref</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getRef <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Ref</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.PredDecl#getRef()
-   * @see #getPredDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Predicate#getRef()
+   * @see #getPredicate()
    * @generated
    */
-  EReference getPredDecl_Ref();
+  EReference getPredicate_Ref();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getPredName <em>Pred Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getPredName <em>Pred Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Pred Name</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.PredDecl#getPredName()
-   * @see #getPredDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Predicate#getPredName()
+   * @see #getPredicate()
    * @generated
    */
-  EReference getPredDecl_PredName();
+  EReference getPredicate_PredName();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getDecl <em>Decl</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getDecl <em>Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.PredDecl#getDecl()
-   * @see #getPredDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Predicate#getDecl()
+   * @see #getPredicate()
    * @generated
    */
-  EReference getPredDecl_Decl();
+  EReference getPredicate_Decl();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getDecl2 <em>Decl2</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getDecl2 <em>Decl2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Decl2</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.PredDecl#getDecl2()
-   * @see #getPredDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Predicate#getDecl2()
+   * @see #getPredicate()
    * @generated
    */
-  EReference getPredDecl_Decl2();
+  EReference getPredicate_Decl2();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.PredDecl#getB <em>B</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Predicate#getB <em>B</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>B</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.PredDecl#getB()
-   * @see #getPredDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Predicate#getB()
+   * @see #getPredicate()
    * @generated
    */
-  EReference getPredDecl_B();
+  EReference getPredicate_B();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.RunDecl <em>Run Decl</em>}'.
+   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.RunCommand <em>Run Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Run Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.RunDecl
+   * @return the meta object for class '<em>Run Command</em>'.
+   * @see fr.univartois.cril.alloyplugin.basics.RunCommand
    * @generated
    */
-  EClass getRunDecl();
+  EClass getRunCommand();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getRunName <em>Run Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.RunCommand#getRunName <em>Run Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Run Name</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.RunDecl#getRunName()
-   * @see #getRunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.RunCommand#getRunName()
+   * @see #getRunCommand()
    * @generated
    */
-  EReference getRunDecl_RunName();
+  EReference getRunCommand_RunName();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getRun <em>Run</em>}'.
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.alloyplugin.basics.RunCommand#getRun <em>Run</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Run</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.RunDecl#getRun()
-   * @see #getRunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.RunCommand#getRun()
+   * @see #getRunCommand()
    * @generated
    */
-  EAttribute getRunDecl_Run();
+  EAttribute getRunCommand_Run();
 
   /**
-   * Returns the meta object for the reference '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getName2 <em>Name2</em>}'.
+   * Returns the meta object for the reference '{@link fr.univartois.cril.alloyplugin.basics.RunCommand#getName2 <em>Name2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Name2</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.RunDecl#getName2()
-   * @see #getRunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.RunCommand#getName2()
+   * @see #getRunCommand()
    * @generated
    */
-  EReference getRunDecl_Name2();
+  EReference getRunCommand_Name2();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getB <em>B</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.RunCommand#getB <em>B</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>B</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.RunDecl#getB()
-   * @see #getRunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.RunCommand#getB()
+   * @see #getRunCommand()
    * @generated
    */
-  EReference getRunDecl_B();
+  EReference getRunCommand_B();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.RunDecl#getScope <em>Scope</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.RunCommand#getScope <em>Scope</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Scope</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.RunDecl#getScope()
-   * @see #getRunDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.RunCommand#getScope()
+   * @see #getRunCommand()
    * @generated
    */
-  EReference getRunDecl_Scope();
+  EReference getRunCommand_Scope();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.CheckDecl <em>Check Decl</em>}'.
+   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand <em>Check Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Check Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.CheckDecl
+   * @return the meta object for class '<em>Check Command</em>'.
+   * @see fr.univartois.cril.alloyplugin.basics.CheckCommand
    * @generated
    */
-  EClass getCheckDecl();
+  EClass getCheckCommand();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.CheckDecl#getCheckName <em>Check Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getCheckName <em>Check Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Check Name</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.CheckDecl#getCheckName()
-   * @see #getCheckDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.CheckCommand#getCheckName()
+   * @see #getCheckCommand()
    * @generated
    */
-  EReference getCheckDecl_CheckName();
+  EReference getCheckCommand_CheckName();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.alloyplugin.basics.CheckDecl#getCheck <em>Check</em>}'.
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getCheck <em>Check</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Check</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.CheckDecl#getCheck()
-   * @see #getCheckDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.CheckCommand#getCheck()
+   * @see #getCheckCommand()
    * @generated
    */
-  EAttribute getCheckDecl_Check();
+  EAttribute getCheckCommand_Check();
 
   /**
-   * Returns the meta object for the reference '{@link fr.univartois.cril.alloyplugin.basics.CheckDecl#getName2 <em>Name2</em>}'.
+   * Returns the meta object for the reference '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getName2 <em>Name2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Name2</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.CheckDecl#getName2()
-   * @see #getCheckDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.CheckCommand#getName2()
+   * @see #getCheckCommand()
    * @generated
    */
-  EReference getCheckDecl_Name2();
+  EReference getCheckCommand_Name2();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.CheckDecl#getB <em>B</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getB <em>B</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>B</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.CheckDecl#getB()
-   * @see #getCheckDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.CheckCommand#getB()
+   * @see #getCheckCommand()
    * @generated
    */
-  EReference getCheckDecl_B();
+  EReference getCheckCommand_B();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.CheckDecl#getScope <em>Scope</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.CheckCommand#getScope <em>Scope</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Scope</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.CheckDecl#getScope()
-   * @see #getCheckDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.CheckCommand#getScope()
+   * @see #getCheckCommand()
    * @generated
    */
-  EReference getCheckDecl_Scope();
+  EReference getCheckCommand_Scope();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.Scope <em>Scope</em>}'.
@@ -2080,80 +2080,80 @@ public interface BasicsPackage extends EPackage
   EReference getEnumDecl_Name3();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.SigDecl <em>Sig Decl</em>}'.
+   * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.Signature <em>Signature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Sig Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.SigDecl
+   * @return the meta object for class '<em>Signature</em>'.
+   * @see fr.univartois.cril.alloyplugin.basics.Signature
    * @generated
    */
-  EClass getSigDecl();
+  EClass getSignature();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getSigName <em>Sig Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Signature#getSigName <em>Sig Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Sig Name</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.SigDecl#getSigName()
-   * @see #getSigDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Signature#getSigName()
+   * @see #getSignature()
    * @generated
    */
-  EReference getSigDecl_SigName();
+  EReference getSignature_SigName();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getName2 <em>Name2</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.alloyplugin.basics.Signature#getName2 <em>Name2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Name2</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.SigDecl#getName2()
-   * @see #getSigDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Signature#getName2()
+   * @see #getSignature()
    * @generated
    */
-  EReference getSigDecl_Name2();
+  EReference getSignature_Name2();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getSigExt <em>Sig Ext</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Signature#getSigExt <em>Sig Ext</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Sig Ext</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.SigDecl#getSigExt()
-   * @see #getSigDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Signature#getSigExt()
+   * @see #getSignature()
    * @generated
    */
-  EReference getSigDecl_SigExt();
+  EReference getSignature_SigExt();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getDecl <em>Decl</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Signature#getDecl <em>Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Decl</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.SigDecl#getDecl()
-   * @see #getSigDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Signature#getDecl()
+   * @see #getSignature()
    * @generated
    */
-  EReference getSigDecl_Decl();
+  EReference getSignature_Decl();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getDecl2 <em>Decl2</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.alloyplugin.basics.Signature#getDecl2 <em>Decl2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Decl2</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.SigDecl#getDecl2()
-   * @see #getSigDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Signature#getDecl2()
+   * @see #getSignature()
    * @generated
    */
-  EReference getSigDecl_Decl2();
+  EReference getSignature_Decl2();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.SigDecl#getB <em>B</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.alloyplugin.basics.Signature#getB <em>B</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>B</em>'.
-   * @see fr.univartois.cril.alloyplugin.basics.SigDecl#getB()
-   * @see #getSigDecl()
+   * @see fr.univartois.cril.alloyplugin.basics.Signature#getB()
+   * @see #getSignature()
    * @generated
    */
-  EReference getSigDecl_B();
+  EReference getSignature_B();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.alloyplugin.basics.SigExt <em>Sig Ext</em>}'.
@@ -2707,14 +2707,14 @@ public interface BasicsPackage extends EPackage
     EClass PARAGRAPH = eINSTANCE.getParagraph();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.FactDeclImpl <em>Fact Decl</em>}' class.
+     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.FactImpl <em>Fact</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.univartois.cril.alloyplugin.basics.impl.FactDeclImpl
-     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getFactDecl()
+     * @see fr.univartois.cril.alloyplugin.basics.impl.FactImpl
+     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getFact()
      * @generated
      */
-    EClass FACT_DECL = eINSTANCE.getFactDecl();
+    EClass FACT = eINSTANCE.getFact();
 
     /**
      * The meta object literal for the '<em><b>Fact Name</b></em>' containment reference feature.
@@ -2722,7 +2722,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FACT_DECL__FACT_NAME = eINSTANCE.getFactDecl_FactName();
+    EReference FACT__FACT_NAME = eINSTANCE.getFact_FactName();
 
     /**
      * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
@@ -2730,17 +2730,17 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FACT_DECL__B = eINSTANCE.getFactDecl_B();
+    EReference FACT__B = eINSTANCE.getFact_B();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.AssertDeclImpl <em>Assert Decl</em>}' class.
+     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.AssertionImpl <em>Assertion</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.univartois.cril.alloyplugin.basics.impl.AssertDeclImpl
-     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getAssertDecl()
+     * @see fr.univartois.cril.alloyplugin.basics.impl.AssertionImpl
+     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getAssertion()
      * @generated
      */
-    EClass ASSERT_DECL = eINSTANCE.getAssertDecl();
+    EClass ASSERTION = eINSTANCE.getAssertion();
 
     /**
      * The meta object literal for the '<em><b>Assert Name</b></em>' containment reference feature.
@@ -2748,7 +2748,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSERT_DECL__ASSERT_NAME = eINSTANCE.getAssertDecl_AssertName();
+    EReference ASSERTION__ASSERT_NAME = eINSTANCE.getAssertion_AssertName();
 
     /**
      * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
@@ -2756,17 +2756,17 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSERT_DECL__B = eINSTANCE.getAssertDecl_B();
+    EReference ASSERTION__B = eINSTANCE.getAssertion_B();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl <em>Fun Decl</em>}' class.
+     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl <em>Function</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.univartois.cril.alloyplugin.basics.impl.FunDeclImpl
-     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getFunDecl()
+     * @see fr.univartois.cril.alloyplugin.basics.impl.FunctionImpl
+     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getFunction()
      * @generated
      */
-    EClass FUN_DECL = eINSTANCE.getFunDecl();
+    EClass FUNCTION = eINSTANCE.getFunction();
 
     /**
      * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
@@ -2774,7 +2774,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUN_DECL__REF = eINSTANCE.getFunDecl_Ref();
+    EReference FUNCTION__REF = eINSTANCE.getFunction_Ref();
 
     /**
      * The meta object literal for the '<em><b>Fun Name</b></em>' containment reference feature.
@@ -2782,7 +2782,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUN_DECL__FUN_NAME = eINSTANCE.getFunDecl_FunName();
+    EReference FUNCTION__FUN_NAME = eINSTANCE.getFunction_FunName();
 
     /**
      * The meta object literal for the '<em><b>Decl</b></em>' containment reference feature.
@@ -2790,7 +2790,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUN_DECL__DECL = eINSTANCE.getFunDecl_Decl();
+    EReference FUNCTION__DECL = eINSTANCE.getFunction_Decl();
 
     /**
      * The meta object literal for the '<em><b>Decl2</b></em>' containment reference list feature.
@@ -2798,7 +2798,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUN_DECL__DECL2 = eINSTANCE.getFunDecl_Decl2();
+    EReference FUNCTION__DECL2 = eINSTANCE.getFunction_Decl2();
 
     /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
@@ -2806,7 +2806,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUN_DECL__EXPR = eINSTANCE.getFunDecl_Expr();
+    EReference FUNCTION__EXPR = eINSTANCE.getFunction_Expr();
 
     /**
      * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
@@ -2814,17 +2814,17 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUN_DECL__B = eINSTANCE.getFunDecl_B();
+    EReference FUNCTION__B = eINSTANCE.getFunction_B();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl <em>Pred Decl</em>}' class.
+     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl <em>Predicate</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.univartois.cril.alloyplugin.basics.impl.PredDeclImpl
-     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getPredDecl()
+     * @see fr.univartois.cril.alloyplugin.basics.impl.PredicateImpl
+     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getPredicate()
      * @generated
      */
-    EClass PRED_DECL = eINSTANCE.getPredDecl();
+    EClass PREDICATE = eINSTANCE.getPredicate();
 
     /**
      * The meta object literal for the '<em><b>Pred</b></em>' attribute feature.
@@ -2832,7 +2832,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PRED_DECL__PRED = eINSTANCE.getPredDecl_Pred();
+    EAttribute PREDICATE__PRED = eINSTANCE.getPredicate_Pred();
 
     /**
      * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
@@ -2840,7 +2840,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PRED_DECL__REF = eINSTANCE.getPredDecl_Ref();
+    EReference PREDICATE__REF = eINSTANCE.getPredicate_Ref();
 
     /**
      * The meta object literal for the '<em><b>Pred Name</b></em>' containment reference feature.
@@ -2848,7 +2848,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PRED_DECL__PRED_NAME = eINSTANCE.getPredDecl_PredName();
+    EReference PREDICATE__PRED_NAME = eINSTANCE.getPredicate_PredName();
 
     /**
      * The meta object literal for the '<em><b>Decl</b></em>' containment reference feature.
@@ -2856,7 +2856,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PRED_DECL__DECL = eINSTANCE.getPredDecl_Decl();
+    EReference PREDICATE__DECL = eINSTANCE.getPredicate_Decl();
 
     /**
      * The meta object literal for the '<em><b>Decl2</b></em>' containment reference list feature.
@@ -2864,7 +2864,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PRED_DECL__DECL2 = eINSTANCE.getPredDecl_Decl2();
+    EReference PREDICATE__DECL2 = eINSTANCE.getPredicate_Decl2();
 
     /**
      * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
@@ -2872,17 +2872,17 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PRED_DECL__B = eINSTANCE.getPredDecl_B();
+    EReference PREDICATE__B = eINSTANCE.getPredicate_B();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.RunDeclImpl <em>Run Decl</em>}' class.
+     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.RunCommandImpl <em>Run Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.univartois.cril.alloyplugin.basics.impl.RunDeclImpl
-     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getRunDecl()
+     * @see fr.univartois.cril.alloyplugin.basics.impl.RunCommandImpl
+     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getRunCommand()
      * @generated
      */
-    EClass RUN_DECL = eINSTANCE.getRunDecl();
+    EClass RUN_COMMAND = eINSTANCE.getRunCommand();
 
     /**
      * The meta object literal for the '<em><b>Run Name</b></em>' containment reference feature.
@@ -2890,7 +2890,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RUN_DECL__RUN_NAME = eINSTANCE.getRunDecl_RunName();
+    EReference RUN_COMMAND__RUN_NAME = eINSTANCE.getRunCommand_RunName();
 
     /**
      * The meta object literal for the '<em><b>Run</b></em>' attribute feature.
@@ -2898,7 +2898,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RUN_DECL__RUN = eINSTANCE.getRunDecl_Run();
+    EAttribute RUN_COMMAND__RUN = eINSTANCE.getRunCommand_Run();
 
     /**
      * The meta object literal for the '<em><b>Name2</b></em>' reference feature.
@@ -2906,7 +2906,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RUN_DECL__NAME2 = eINSTANCE.getRunDecl_Name2();
+    EReference RUN_COMMAND__NAME2 = eINSTANCE.getRunCommand_Name2();
 
     /**
      * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
@@ -2914,7 +2914,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RUN_DECL__B = eINSTANCE.getRunDecl_B();
+    EReference RUN_COMMAND__B = eINSTANCE.getRunCommand_B();
 
     /**
      * The meta object literal for the '<em><b>Scope</b></em>' containment reference feature.
@@ -2922,17 +2922,17 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RUN_DECL__SCOPE = eINSTANCE.getRunDecl_Scope();
+    EReference RUN_COMMAND__SCOPE = eINSTANCE.getRunCommand_Scope();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.CheckDeclImpl <em>Check Decl</em>}' class.
+     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.CheckCommandImpl <em>Check Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.univartois.cril.alloyplugin.basics.impl.CheckDeclImpl
-     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getCheckDecl()
+     * @see fr.univartois.cril.alloyplugin.basics.impl.CheckCommandImpl
+     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getCheckCommand()
      * @generated
      */
-    EClass CHECK_DECL = eINSTANCE.getCheckDecl();
+    EClass CHECK_COMMAND = eINSTANCE.getCheckCommand();
 
     /**
      * The meta object literal for the '<em><b>Check Name</b></em>' containment reference feature.
@@ -2940,7 +2940,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CHECK_DECL__CHECK_NAME = eINSTANCE.getCheckDecl_CheckName();
+    EReference CHECK_COMMAND__CHECK_NAME = eINSTANCE.getCheckCommand_CheckName();
 
     /**
      * The meta object literal for the '<em><b>Check</b></em>' attribute feature.
@@ -2948,7 +2948,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CHECK_DECL__CHECK = eINSTANCE.getCheckDecl_Check();
+    EAttribute CHECK_COMMAND__CHECK = eINSTANCE.getCheckCommand_Check();
 
     /**
      * The meta object literal for the '<em><b>Name2</b></em>' reference feature.
@@ -2956,7 +2956,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CHECK_DECL__NAME2 = eINSTANCE.getCheckDecl_Name2();
+    EReference CHECK_COMMAND__NAME2 = eINSTANCE.getCheckCommand_Name2();
 
     /**
      * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
@@ -2964,7 +2964,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CHECK_DECL__B = eINSTANCE.getCheckDecl_B();
+    EReference CHECK_COMMAND__B = eINSTANCE.getCheckCommand_B();
 
     /**
      * The meta object literal for the '<em><b>Scope</b></em>' containment reference feature.
@@ -2972,7 +2972,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CHECK_DECL__SCOPE = eINSTANCE.getCheckDecl_Scope();
+    EReference CHECK_COMMAND__SCOPE = eINSTANCE.getCheckCommand_Scope();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.ScopeImpl <em>Scope</em>}' class.
@@ -3045,14 +3045,14 @@ public interface BasicsPackage extends EPackage
     EReference ENUM_DECL__NAME3 = eINSTANCE.getEnumDecl_Name3();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl <em>Sig Decl</em>}' class.
+     * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl <em>Signature</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl
-     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getSigDecl()
+     * @see fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl
+     * @see fr.univartois.cril.alloyplugin.basics.impl.BasicsPackageImpl#getSignature()
      * @generated
      */
-    EClass SIG_DECL = eINSTANCE.getSigDecl();
+    EClass SIGNATURE = eINSTANCE.getSignature();
 
     /**
      * The meta object literal for the '<em><b>Sig Name</b></em>' containment reference feature.
@@ -3060,7 +3060,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SIG_DECL__SIG_NAME = eINSTANCE.getSigDecl_SigName();
+    EReference SIGNATURE__SIG_NAME = eINSTANCE.getSignature_SigName();
 
     /**
      * The meta object literal for the '<em><b>Name2</b></em>' containment reference list feature.
@@ -3068,7 +3068,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SIG_DECL__NAME2 = eINSTANCE.getSigDecl_Name2();
+    EReference SIGNATURE__NAME2 = eINSTANCE.getSignature_Name2();
 
     /**
      * The meta object literal for the '<em><b>Sig Ext</b></em>' containment reference feature.
@@ -3076,7 +3076,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SIG_DECL__SIG_EXT = eINSTANCE.getSigDecl_SigExt();
+    EReference SIGNATURE__SIG_EXT = eINSTANCE.getSignature_SigExt();
 
     /**
      * The meta object literal for the '<em><b>Decl</b></em>' containment reference feature.
@@ -3084,7 +3084,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SIG_DECL__DECL = eINSTANCE.getSigDecl_Decl();
+    EReference SIGNATURE__DECL = eINSTANCE.getSignature_Decl();
 
     /**
      * The meta object literal for the '<em><b>Decl2</b></em>' containment reference list feature.
@@ -3092,7 +3092,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SIG_DECL__DECL2 = eINSTANCE.getSigDecl_Decl2();
+    EReference SIGNATURE__DECL2 = eINSTANCE.getSignature_Decl2();
 
     /**
      * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
@@ -3100,7 +3100,7 @@ public interface BasicsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SIG_DECL__B = eINSTANCE.getSigDecl_B();
+    EReference SIGNATURE__B = eINSTANCE.getSignature_B();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.alloyplugin.basics.impl.SigExtImpl <em>Sig Ext</em>}' class.

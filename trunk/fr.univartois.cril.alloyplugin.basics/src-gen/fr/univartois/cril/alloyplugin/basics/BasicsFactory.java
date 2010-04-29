@@ -62,58 +62,58 @@ public interface BasicsFactory extends EFactory
   Paragraph createParagraph();
 
   /**
-   * Returns a new object of class '<em>Fact Decl</em>'.
+   * Returns a new object of class '<em>Fact</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Fact Decl</em>'.
+   * @return a new object of class '<em>Fact</em>'.
    * @generated
    */
-  FactDecl createFactDecl();
+  Fact createFact();
 
   /**
-   * Returns a new object of class '<em>Assert Decl</em>'.
+   * Returns a new object of class '<em>Assertion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assert Decl</em>'.
+   * @return a new object of class '<em>Assertion</em>'.
    * @generated
    */
-  AssertDecl createAssertDecl();
+  Assertion createAssertion();
 
   /**
-   * Returns a new object of class '<em>Fun Decl</em>'.
+   * Returns a new object of class '<em>Function</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Fun Decl</em>'.
+   * @return a new object of class '<em>Function</em>'.
    * @generated
    */
-  FunDecl createFunDecl();
+  Function createFunction();
 
   /**
-   * Returns a new object of class '<em>Pred Decl</em>'.
+   * Returns a new object of class '<em>Predicate</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Pred Decl</em>'.
+   * @return a new object of class '<em>Predicate</em>'.
    * @generated
    */
-  PredDecl createPredDecl();
+  Predicate createPredicate();
 
   /**
-   * Returns a new object of class '<em>Run Decl</em>'.
+   * Returns a new object of class '<em>Run Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Run Decl</em>'.
+   * @return a new object of class '<em>Run Command</em>'.
    * @generated
    */
-  RunDecl createRunDecl();
+  RunCommand createRunCommand();
 
   /**
-   * Returns a new object of class '<em>Check Decl</em>'.
+   * Returns a new object of class '<em>Check Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Check Decl</em>'.
+   * @return a new object of class '<em>Check Command</em>'.
    * @generated
    */
-  CheckDecl createCheckDecl();
+  CheckCommand createCheckCommand();
 
   /**
    * Returns a new object of class '<em>Scope</em>'.
@@ -143,13 +143,13 @@ public interface BasicsFactory extends EFactory
   EnumDecl createEnumDecl();
 
   /**
-   * Returns a new object of class '<em>Sig Decl</em>'.
+   * Returns a new object of class '<em>Signature</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sig Decl</em>'.
+   * @return a new object of class '<em>Signature</em>'.
    * @generated
    */
-  SigDecl createSigDecl();
+  Signature createSignature();
 
   /**
    * Returns a new object of class '<em>Sig Ext</em>'.

@@ -9,8 +9,8 @@ import fr.univartois.cril.alloyplugin.basics.BasicsPackage;
 import fr.univartois.cril.alloyplugin.basics.BlockBis;
 import fr.univartois.cril.alloyplugin.basics.Decl;
 import fr.univartois.cril.alloyplugin.basics.Name;
-import fr.univartois.cril.alloyplugin.basics.SigDecl;
 import fr.univartois.cril.alloyplugin.basics.SigExt;
+import fr.univartois.cril.alloyplugin.basics.Signature;
 
 import java.util.Collection;
 
@@ -29,23 +29,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Sig Decl</b></em>'.
+ * An implementation of the model object '<em><b>Signature</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl#getSigName <em>Sig Name</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl#getName2 <em>Name2</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl#getSigExt <em>Sig Ext</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl#getDecl <em>Decl</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl#getDecl2 <em>Decl2</em>}</li>
- *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SigDeclImpl#getB <em>B</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl#getSigName <em>Sig Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl#getName2 <em>Name2</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl#getSigExt <em>Sig Ext</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl#getDecl <em>Decl</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl#getDecl2 <em>Decl2</em>}</li>
+ *   <li>{@link fr.univartois.cril.alloyplugin.basics.impl.SignatureImpl#getB <em>B</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SigDeclImpl extends ParagraphImpl implements SigDecl
+public class SignatureImpl extends ParagraphImpl implements Signature
 {
   /**
    * The cached value of the '{@link #getSigName() <em>Sig Name</em>}' containment reference.
@@ -112,7 +112,7 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SigDeclImpl()
+  protected SignatureImpl()
   {
     super();
   }
@@ -125,7 +125,7 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
   @Override
   protected EClass eStaticClass()
   {
-    return BasicsPackage.Literals.SIG_DECL;
+    return BasicsPackage.Literals.SIGNATURE;
   }
 
   /**
@@ -149,7 +149,7 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
     sigName = newSigName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.SIG_DECL__SIG_NAME, oldSigName, newSigName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.SIGNATURE__SIG_NAME, oldSigName, newSigName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -166,14 +166,14 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
     {
       NotificationChain msgs = null;
       if (sigName != null)
-        msgs = ((InternalEObject)sigName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIG_DECL__SIG_NAME, null, msgs);
+        msgs = ((InternalEObject)sigName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIGNATURE__SIG_NAME, null, msgs);
       if (newSigName != null)
-        msgs = ((InternalEObject)newSigName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIG_DECL__SIG_NAME, null, msgs);
+        msgs = ((InternalEObject)newSigName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIGNATURE__SIG_NAME, null, msgs);
       msgs = basicSetSigName(newSigName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.SIG_DECL__SIG_NAME, newSigName, newSigName));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.SIGNATURE__SIG_NAME, newSigName, newSigName));
   }
 
   /**
@@ -185,7 +185,7 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
   {
     if (name2 == null)
     {
-      name2 = new EObjectContainmentEList<Name>(Name.class, this, BasicsPackage.SIG_DECL__NAME2);
+      name2 = new EObjectContainmentEList<Name>(Name.class, this, BasicsPackage.SIGNATURE__NAME2);
     }
     return name2;
   }
@@ -211,7 +211,7 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
     sigExt = newSigExt;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.SIG_DECL__SIG_EXT, oldSigExt, newSigExt);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.SIGNATURE__SIG_EXT, oldSigExt, newSigExt);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -228,14 +228,14 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
     {
       NotificationChain msgs = null;
       if (sigExt != null)
-        msgs = ((InternalEObject)sigExt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIG_DECL__SIG_EXT, null, msgs);
+        msgs = ((InternalEObject)sigExt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIGNATURE__SIG_EXT, null, msgs);
       if (newSigExt != null)
-        msgs = ((InternalEObject)newSigExt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIG_DECL__SIG_EXT, null, msgs);
+        msgs = ((InternalEObject)newSigExt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIGNATURE__SIG_EXT, null, msgs);
       msgs = basicSetSigExt(newSigExt, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.SIG_DECL__SIG_EXT, newSigExt, newSigExt));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.SIGNATURE__SIG_EXT, newSigExt, newSigExt));
   }
 
   /**
@@ -259,7 +259,7 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
     decl = newDecl;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.SIG_DECL__DECL, oldDecl, newDecl);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.SIGNATURE__DECL, oldDecl, newDecl);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -276,14 +276,14 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
     {
       NotificationChain msgs = null;
       if (decl != null)
-        msgs = ((InternalEObject)decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIG_DECL__DECL, null, msgs);
+        msgs = ((InternalEObject)decl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIGNATURE__DECL, null, msgs);
       if (newDecl != null)
-        msgs = ((InternalEObject)newDecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIG_DECL__DECL, null, msgs);
+        msgs = ((InternalEObject)newDecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIGNATURE__DECL, null, msgs);
       msgs = basicSetDecl(newDecl, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.SIG_DECL__DECL, newDecl, newDecl));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.SIGNATURE__DECL, newDecl, newDecl));
   }
 
   /**
@@ -295,7 +295,7 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
   {
     if (decl2 == null)
     {
-      decl2 = new EObjectContainmentEList<Decl>(Decl.class, this, BasicsPackage.SIG_DECL__DECL2);
+      decl2 = new EObjectContainmentEList<Decl>(Decl.class, this, BasicsPackage.SIGNATURE__DECL2);
     }
     return decl2;
   }
@@ -321,7 +321,7 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
     b = newB;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.SIG_DECL__B, oldB, newB);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasicsPackage.SIGNATURE__B, oldB, newB);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -338,14 +338,14 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
     {
       NotificationChain msgs = null;
       if (b != null)
-        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIG_DECL__B, null, msgs);
+        msgs = ((InternalEObject)b).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIGNATURE__B, null, msgs);
       if (newB != null)
-        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIG_DECL__B, null, msgs);
+        msgs = ((InternalEObject)newB).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasicsPackage.SIGNATURE__B, null, msgs);
       msgs = basicSetB(newB, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.SIG_DECL__B, newB, newB));
+      eNotify(new ENotificationImpl(this, Notification.SET, BasicsPackage.SIGNATURE__B, newB, newB));
   }
 
   /**
@@ -358,17 +358,17 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.SIG_DECL__SIG_NAME:
+      case BasicsPackage.SIGNATURE__SIG_NAME:
         return basicSetSigName(null, msgs);
-      case BasicsPackage.SIG_DECL__NAME2:
+      case BasicsPackage.SIGNATURE__NAME2:
         return ((InternalEList<?>)getName2()).basicRemove(otherEnd, msgs);
-      case BasicsPackage.SIG_DECL__SIG_EXT:
+      case BasicsPackage.SIGNATURE__SIG_EXT:
         return basicSetSigExt(null, msgs);
-      case BasicsPackage.SIG_DECL__DECL:
+      case BasicsPackage.SIGNATURE__DECL:
         return basicSetDecl(null, msgs);
-      case BasicsPackage.SIG_DECL__DECL2:
+      case BasicsPackage.SIGNATURE__DECL2:
         return ((InternalEList<?>)getDecl2()).basicRemove(otherEnd, msgs);
-      case BasicsPackage.SIG_DECL__B:
+      case BasicsPackage.SIGNATURE__B:
         return basicSetB(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -384,17 +384,17 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.SIG_DECL__SIG_NAME:
+      case BasicsPackage.SIGNATURE__SIG_NAME:
         return getSigName();
-      case BasicsPackage.SIG_DECL__NAME2:
+      case BasicsPackage.SIGNATURE__NAME2:
         return getName2();
-      case BasicsPackage.SIG_DECL__SIG_EXT:
+      case BasicsPackage.SIGNATURE__SIG_EXT:
         return getSigExt();
-      case BasicsPackage.SIG_DECL__DECL:
+      case BasicsPackage.SIGNATURE__DECL:
         return getDecl();
-      case BasicsPackage.SIG_DECL__DECL2:
+      case BasicsPackage.SIGNATURE__DECL2:
         return getDecl2();
-      case BasicsPackage.SIG_DECL__B:
+      case BasicsPackage.SIGNATURE__B:
         return getB();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -411,24 +411,24 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.SIG_DECL__SIG_NAME:
+      case BasicsPackage.SIGNATURE__SIG_NAME:
         setSigName((Name)newValue);
         return;
-      case BasicsPackage.SIG_DECL__NAME2:
+      case BasicsPackage.SIGNATURE__NAME2:
         getName2().clear();
         getName2().addAll((Collection<? extends Name>)newValue);
         return;
-      case BasicsPackage.SIG_DECL__SIG_EXT:
+      case BasicsPackage.SIGNATURE__SIG_EXT:
         setSigExt((SigExt)newValue);
         return;
-      case BasicsPackage.SIG_DECL__DECL:
+      case BasicsPackage.SIGNATURE__DECL:
         setDecl((Decl)newValue);
         return;
-      case BasicsPackage.SIG_DECL__DECL2:
+      case BasicsPackage.SIGNATURE__DECL2:
         getDecl2().clear();
         getDecl2().addAll((Collection<? extends Decl>)newValue);
         return;
-      case BasicsPackage.SIG_DECL__B:
+      case BasicsPackage.SIGNATURE__B:
         setB((BlockBis)newValue);
         return;
     }
@@ -445,22 +445,22 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.SIG_DECL__SIG_NAME:
+      case BasicsPackage.SIGNATURE__SIG_NAME:
         setSigName((Name)null);
         return;
-      case BasicsPackage.SIG_DECL__NAME2:
+      case BasicsPackage.SIGNATURE__NAME2:
         getName2().clear();
         return;
-      case BasicsPackage.SIG_DECL__SIG_EXT:
+      case BasicsPackage.SIGNATURE__SIG_EXT:
         setSigExt((SigExt)null);
         return;
-      case BasicsPackage.SIG_DECL__DECL:
+      case BasicsPackage.SIGNATURE__DECL:
         setDecl((Decl)null);
         return;
-      case BasicsPackage.SIG_DECL__DECL2:
+      case BasicsPackage.SIGNATURE__DECL2:
         getDecl2().clear();
         return;
-      case BasicsPackage.SIG_DECL__B:
+      case BasicsPackage.SIGNATURE__B:
         setB((BlockBis)null);
         return;
     }
@@ -477,20 +477,20 @@ public class SigDeclImpl extends ParagraphImpl implements SigDecl
   {
     switch (featureID)
     {
-      case BasicsPackage.SIG_DECL__SIG_NAME:
+      case BasicsPackage.SIGNATURE__SIG_NAME:
         return sigName != null;
-      case BasicsPackage.SIG_DECL__NAME2:
+      case BasicsPackage.SIGNATURE__NAME2:
         return name2 != null && !name2.isEmpty();
-      case BasicsPackage.SIG_DECL__SIG_EXT:
+      case BasicsPackage.SIGNATURE__SIG_EXT:
         return sigExt != null;
-      case BasicsPackage.SIG_DECL__DECL:
+      case BasicsPackage.SIGNATURE__DECL:
         return decl != null;
-      case BasicsPackage.SIG_DECL__DECL2:
+      case BasicsPackage.SIGNATURE__DECL2:
         return decl2 != null && !decl2.isEmpty();
-      case BasicsPackage.SIG_DECL__B:
+      case BasicsPackage.SIGNATURE__B:
         return b != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //SigDeclImpl
+} //SignatureImpl

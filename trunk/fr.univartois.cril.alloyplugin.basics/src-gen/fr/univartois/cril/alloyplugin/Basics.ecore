@@ -26,19 +26,19 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Paragraph"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FactDecl" eSuperTypes="#//Paragraph">
+  <eClassifiers xsi:type="ecore:EClass" name="Fact" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="factName" eType="#//Name"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="b" eType="#//BlockBis"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AssertDecl" eSuperTypes="#//Paragraph">
+  <eClassifiers xsi:type="ecore:EClass" name="Assertion" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="assertName" eType="#//Name"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="b" eType="#//BlockBis"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunDecl" eSuperTypes="#//Paragraph">
+  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Ref" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="funName" eType="#//Name"
         containment="true"/>
@@ -50,7 +50,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="b" eType="#//BlockBis"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PredDecl" eSuperTypes="#//Paragraph">
+  <eClassifiers xsi:type="ecore:EClass" name="Predicate" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pred" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Ref" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="predName" eType="#//Name"
@@ -61,7 +61,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="b" eType="#//BlockBis"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RunDecl" eSuperTypes="#//Paragraph">
+  <eClassifiers xsi:type="ecore:EClass" name="RunCommand" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="runName" eType="#//Name"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="run" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -71,7 +71,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="scope" eType="#//Scope"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CheckDecl" eSuperTypes="#//Paragraph">
+  <eClassifiers xsi:type="ecore:EClass" name="CheckCommand" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="checkName" eType="#//Name"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="check" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -96,7 +96,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="name3" upperBound="-1"
         eType="#//Name" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SigDecl" eSuperTypes="#//Paragraph">
+  <eClassifiers xsi:type="ecore:EClass" name="Signature" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sigName" eType="#//Name"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="name2" upperBound="-1"
