@@ -1,125 +1,108 @@
-grammar fr.univartois.cril.alloyplugin.Basics with org.eclipse.xtext.common.Terminals
-hidden(WS, ML_COMMENT, SL_COMMENT,COMMENT)
-generate basics "http://www.univartois.fr/cril/alloyplugin/Basics"
+grammar fr.univartois.cril.alloyplugin.Basics with org.eclipse.xtext.common.
+Terminals hidden (WS, ML_COMMENT, SL_COMMENT, COMMENT)
 
-/*
+generate basics "http://www.univartois.fr/cril/alloyplugin/Basics" /*
 	specification ::= [module] open* paragraph*
 */
-Specification	:
-	module=Module? open+=Open* paragraph+=Paragraph* ;
-	
-/*
+
+Specification:
+  module=Module? open+=Open* paragraph+=Paragraph*; /*
 	module ::= "module" name  [ "["  ["exactly"] name  ("," ["exactly"] num)*    "]" ]
-*/	
-Module	:
-	"module" moduleName=Name ("[" "exactly"? suite=Name ("," "exactly"? INT)* "]")?;
-	
-/*
+*/
+
+Module:
+  "module" moduleName=Name ("[" "exactly"? suite=Name (Comma "exactly"? INT)* "]")?; /*
 	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
-*/	
-Open	:
-	"private"? "open" name=Name ("[" ref=Ref ("," ref2+=Ref)* "]")? ("as" name2=Name)?;
-	
-/*
+*/
+
+Open:
+//
+  Private? "open" name=Name ("[" ref=Ref (Comma ref2+=Ref)* "]")? ("as" name2=Name)?; /*
 	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
 */
-Paragraph	:
-	FactDecl	|
-	AssertDecl	|
-	FunDecl		|
-	PredDecl	|
-	RunDecl		|
-	CheckDecl	|
-	EnumDecl	|
-	SigDecl		;
 
-/*
+Paragraph:
+  FactDecl|AssertDecl|FunDecl|PredDecl|RunDecl|CheckDecl|EnumDecl|SigDecl; /*
 	factDecl ::= "fact" [name] block
 */
-FactDecl returns Fact :
-	"fact" factName=Name? b=BlockBis;
 
-/*
+FactDecl returns Fact:
+//
+  "fact" factName=Name? b=BlockBis; /*
 	assertDecl ::= "assert" [name] block
 */
-AssertDecl	returns Assertion :
-	"assert" assertName=Name? b=BlockBis;
-	
-/*
+
+AssertDecl returns Assertion:
+//
+  "assert" assertName=Name? b=BlockBis; /*
 	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
 	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
-*/	
-FunDecl	returns Function :
-	"private"? "fun" (ref=Ref ".")? funName=Name	( "[" (decl=Decl ("," decl2+=Decl)*)? "]" | "(" (decl=Decl ("," decl2+=Decl)*)? ")" ) ":" expr=Expression b=BlockBis	;
+*/
 
-/*
+FunDecl returns Function:
+//
+  Private? "fun" (ref=Ref Dote)? funName=Name ("[" (decl=Decl (Comma decl2+=Decl)*)? "]"|
+  "(" (decl=Decl (Comma decl2+=Decl)*)? ")") Colon expr=Expression b=BlockBis; /*
 	funDecl ::= ["private"] "pred" [ref "."] name "(" decl,* ")" block
 	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 	funDecl ::= ["private"] "pred" [ref "."] name                block
-*/	
-PredDecl returns Predicate	:
-	"private"? pred="pred" (ref=Ref ".")? predName=Name	( "[" (decl=Decl ("," decl2+=Decl)*)? "]" | "(" (decl=Decl ("," decl2+=Decl)*)? ")" )?  b=BlockBis	;
+*/
 
-/*
+PredDecl returns Predicate:
+//
+  Private? pred="pred" (ref=Ref Dote)? predName=Name ("[" (decl=Decl (Comma decl2+=Decl)
+  *)? "]"|"(" (decl=Decl (Comma decl2+=Decl)*)? ")")? b=BlockBis; /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
-RunDecl	returns RunCommand :
-	(runName=Name ":")? run="run" (name2=[Name]| b=BlockBis ) scope=Scope;
 
-/*
+RunDecl returns RunCommand:
+  (runName=Name ":")? run="run" (name2=[Name]|b=BlockBis) scope=Scope; /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
-*/	
-CheckDecl	returns CheckCommand :
-	(checkName=Name ":")? check="check" (name2=[Name]| b=BlockBis ) scope=Scope;
-	
-/*
+*/
+
+CheckDecl returns CheckCommand:
+  (checkName=Name ":")? check="check" (name2=[Name]|b=BlockBis) scope=Scope; /*
 	scope ::= "for" number                   ["expect" [0|1]]
 	scope ::= "for" number "but" typescope,+ ["expect" [0|1]]
 	scope ::= "for"              typescope,+ ["expect" [0|1]]
 	scope ::=                                ["expect" [0|1]]
 	
-*/	
-Scope	:
-	("for" (INT ("but" typescope=Typescope ("," typescope=Typescope)*)?|typescope=Typescope ("," typescope=Typescope)*)? )?	("expect" ("0"|"1") )? 	;										
+*/
 
-/*
+Scope:
+  ("for" (INT ("but" typescope=Typescope (Comma typescope=Typescope)*)?|typescope=
+  Typescope (Comma typescope=Typescope)*)?)? ("expect" ("0"|"1"))?; /*
 	typescope ::= ["exactly"] number [name|"int"|"seq"]
 */
-Typescope	:
-	"exactly"? INT (n=[Name]|("int"|"seq"))	;
-		
-/*
+
+Typescope:
+  "exactly"? INT (n=[Name]|("int"|"seq")); /*
 	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
 */
-EnumDecl	:
-	"enum" enumName=Name "{" name2=Name ("," name3+=Name)* "}";
 
-/*
+EnumDecl:
+//
+  "enum" enumName=Name LeftCurlyBracket name2=Name (Comma name3+=Name)* RightCurlyBracket; /*
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
-*/	
-SigDecl	returns Signature :
-	SigQual* "sig" sigName=Name ("," name2+=Name)* (sigExt=SigExt)? "{" (decl=Decl ("," decl2+=Decl)* )? "}" (b=BlockBis)?;
-	
-/*
+*/
+
+SigDecl returns Signature:
+  SigQual? "sig" sigName=Name (Comma name2+=Name)* (sigExt=SigExt)? LeftCurlyBracket (decl=
+  Decl ("," decl2+=Decl)*)? RightCurlyBracket (b=BlockBis)?; /*
 	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
 */
-SigQual	:
-	"abstract"		|
-	"lone"			|
-	"one"			|
-	"some"			|
-	"private"		;
 
-/*
+SigQual:
+//
+  sigq=( "abstract" | "lone" | "one" | "some" | "private" ) ("abstract"|"lone"|"one"|"some"|
+  "private")*; /*
 	sigExt ::= "extends" ref
 	sigExt ::= "in" ref ["+" ref]*
-*/	
-SigExt	:
-	"extends" ref=Ref				|  
-	"in" ref=Ref ("+" ref2+=Ref)*	;
+*/
 
-/*
+SigExt:
+  "extends" ref=Ref|"in" ref=Ref ("+" ref2+=Ref)*; /*
 	expr ::= "let" letDecl,+ blockOrBar						1./	
        | quant decl,+    blockOrBar							2./
        | unOp expr											3./
@@ -140,96 +123,101 @@ SigExt	:
        | block												18./
        | "{" decl,+ blockOrBar "}"							19./
 	
-*/	
-Expression :
-	
-	(term=TerminalExpr) (
-						"[" ( exprT=Expression (","expr+=Expression)* )? "]"											|//8./												
-						op=("+"|"&"|"."|"-"|"||"|"or"|"&&"|"and"|"<=>"|"iff"|"++"|"<:"|":>"|"<<"	|">>"|">>>") right=Expression 	|//4./
-						("!"|"not")? op=("="|"in"|"<"|">"|"<="|">=") right=Expression		|//6./													
-						arrowOp=ArrowOp right=Expression									|//5./	
-						("=>"|"implies") then=Expression ("else" right=Expression)?     	//7./ 
-						)?;
-												
+*/
+Expression:
+  (term=TerminalExpr) ("[" (exprT=Expression (Comma expr+=Expression)*)? "]"|//8./												
+  ( "+" | "&" | Dote | "-" | "||" | "or" | "&&" | "and" | "<=>" | "iff" | "++" | "<:" | ":>" | "<<" | ">>" |
+  ">>>" ) right=Expression|//4./
+  (op="!"|"not")? ( "=" | "in" | "<" | ">" | "<=" | ">=" ) right=Expression|//6./													
+  arrowOp=ArrowOp right=Expression|//5./	
+  ("=>"|"implies") then=Expression ("else" right=Expression)? //7./ 
+)?;
+
 TerminalExpr returns Expression:
-	"let" letDecl=LetDecl ("," letDecl=LetDecl)* blockOrBarBis=BlockOrBar								|//1./
-	("all"|"sum") decl=Decl b=BlockOrBar														|//2./
-	("!"|"not"|"set"|"seq"|"#"|"~"|"*"|"^") Expression											|//3./
-   	("no"|"some"|"lone"|"one") ( decl=Decl ("," declSuite+=Decl)* block=BlockOrBar | t=Expression)	|//2./ AND 3./
-    INT																							|//9./
-   	Integer																						|//10./
-	"none"																						|//11./
-	"iden"																						|//12./
-	"univ"																						|//13./
-	"Int"																						|//14./
-	"seq/Int"																					|//15./
-	"(" exprT=Expression ")"																	|//16./
-	"@"? nameRef=[Name]																			|//17./
-	"{" (Block | (decl=Decl ",")+ blockOrBar=BlockOrBar "}")									;//18 AND 19./
-	
+  "let" letDecl=LetDecl (Comma letDecl=LetDecl)* blockOrBarBis=BlockOrBar|//1./
+  ("all"|"sum") decl=Decl b=BlockOrBar|//2./
+  (unop=( "!" | "#" | "~" |  "^" )|"not"|"*" |"set"|"seq") exprT=Expression|//3./
+  ("no"|"some"|"lone"|"one") (decl=Decl (Comma declSuite+=Decl)* block=BlockOrBar|t=
+  Expression)|//2./ AND 3./
+  INT|//9./
+  Integer|//10./
+  "none"|//11./
+  "iden"|//12./
+  "univ"|//13./
+  "Int"|//14./
+  "seq/Int"|//15./
+  "(" exprT=Expression ")"|//16./
+  "@"? nameRef=[Name]|//17./
+  LeftCurlyBracket (block=Block|(decl=Decl Comma)+ blockOrBar=BlockOrBar
+  RightCurlyBracket); //18 AND 19./
 /*
 	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
-*/	
-Decl	:
-	("private")? ("disj")? nameExpression+=Name ("," nameExpression+=Name)*    ":" ("disj")? exprDecl=Expression	;
-	
-/*
-	letDecl ::= name "=" expr
-*/	
-LetDecl	:
-	nameExpression=Name "=" exprLet=Expression	;
+*/
 
-/*
+Decl:
+  (Private)? ("disj")? nameExpression+=Name (Comma nameExpression+=Name)* Colon ("disj")?
+  exprDecl=Expression; /*
+	letDecl ::= name "=" expr
+*/
+
+LetDecl:
+  nameExpression=Name "=" exprLet=Expression; /*
 	arrowOp ::= ["some"|"one"|"lone"|"set"]? "->" ["some"|"one"|"lone"|"set"]? //redondance in the end of the expression
 */
-ArrowOp	:
-	("some" | "one" | "lone" | "set" )? s="->";
 
-/*
+ArrowOp:
+  ("some"|"one"|"lone"|"set")? s="->"; /*
 	block ::= "{" expr* "}" //without "{"
 */
-Block	:
-	expr+=Expression* "}";
 
-/*
+Block:
+  expr+=Expression* RightCurlyBracket; /*
 	block ::= "{" expr* "}" //with "{"
 */
-BlockBis	:
-	"{" Block	;
 
-/*
+BlockBis:
+  LeftCurlyBracket block=Block; /*
 	blockOrBar ::= block
 	blockOrBar ::= "|" expr
-*/	
-BlockOrBar	:
-	BlockBis					|
-	"|" Expression				;
+*/
 
-/*
+BlockOrBar:
+  BlockBis|"|" Expression; /*
 	name ::= ["this" | ID] ["/" ID]*
 */
-Name :
-	this="this"		|
-	name=ID			|
-	nameComplete=NameBis		;
+
+Name:
+  this="this"|name=ID|nameComplete=NameBis;
 
 NameBis:
-	("this"|ID) ("/" suite=ID)+;
-
-/*
+  ("this"|ID) ("/" suite=ID)+; /*
 	ref ::= name | "univ" | "Int" | "seq/Int"
-*/	
-Ref	:
-	name=[Name]	|
-	"univ"		|
-	"Int"		|
-	"seq/Int"	;
-	
-terminal Integer	:
-	"-" INT;
-	
-terminal COMMENT	:
-	'--'->'\n';	
-	
-terminal ID : 
-  ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*("'")*; 
+*/
+
+Ref:
+  name=[Name]|"univ"|"Int"|"seq/Int";
+
+LeftCurlyBracket:
+  "{";
+
+RightCurlyBracket:
+  "}";
+
+Private:
+  "private";
+  
+Comma :
+",";
+Dote :
+".";
+Colon :
+":";
+terminal Integer:
+  "-" INT;
+
+terminal COMMENT:
+  '--'->'\n';
+
+terminal ID:
+  ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')* ("'")*;
+
