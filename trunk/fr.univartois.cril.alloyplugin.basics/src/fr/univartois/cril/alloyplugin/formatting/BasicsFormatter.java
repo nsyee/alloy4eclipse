@@ -131,7 +131,8 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 	private void setFormattingRunDecl(FormattingConfig c, BasicsGrammarAccess f) {
 		c.setNoLinewrap().after(f.getRunDeclAccess().getColonKeyword_0_1());
 		c.setNoSpace().before(f.getRunDeclAccess().getColonKeyword_0_1());
-		c.setLinewrap(2).before(f.getRunDeclAccess().getRunRunKeyword_1_0());
+		c.setLinewrap(2)
+				.before(f.getRunDeclAccess().getRunNameAssignment_0_0());
 	}
 
 	private void setFormattingComma(FormattingConfig c, BasicsGrammarAccess f) {
@@ -143,7 +144,7 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 		c.setNoLinewrap().after(f.getCheckDeclAccess().getColonKeyword_0_1());
 		c.setLinewrap(2).before(
 				f.getCheckDeclAccess().getCheckCheckKeyword_1_0());
-		c.setNoSpace().before(f.getRunDeclAccess().getColonKeyword_0_1());
+		c.setLinewrap(2).after(f.getCheckDeclAccess().getScopeAssignment_3());
 	}
 
 	private void setFormattingColon(FormattingConfig c, BasicsGrammarAccess f) {
