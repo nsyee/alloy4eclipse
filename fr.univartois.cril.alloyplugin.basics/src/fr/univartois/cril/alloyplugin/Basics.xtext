@@ -38,13 +38,13 @@ Paragraph:
 	factDecl ::= "fact" [name] block
 */
 FactDecl returns Fact:
-  "fact" factName=TypeName? b=BlockBis; 
+  "fact" factName=TypeName? b=Block; 
 
 /*
 	assertDecl ::= "assert" [name] block
 */
 AssertDecl returns Assertion:
-  "assert" assertName=AssertionName? b=BlockBis; 
+  "assert" assertName=AssertionName? b=Block; 
   
 /*
 	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
@@ -53,7 +53,7 @@ AssertDecl returns Assertion:
 */
 FunDecl returns Function:
   Private? "fun" (ref=Ref Dot)? funName=TypeName ("[" (decl=Decl (Comma decl2+=Decl)*)? "]"|
-  "(" (decl=Decl (Comma decl2+=Decl)*)? ")") Colon expr=Expression b=BlockBis; 
+  "(" (decl=Decl (Comma decl2+=Decl)*)? ")") Colon expr=Expression b=Block; 
   
 /*
 	funDecl ::= ["private"] "pred" [ref "."] name "(" decl,* ")" block
@@ -62,19 +62,19 @@ FunDecl returns Function:
 */
 PredDecl returns Predicate:
   Private? pred="pred" (ref=Ref Dot)? predName=PredicateName ("[" (decl=Decl (Comma decl2+=Decl)
-  *)? "]"|"(" (decl=Decl (Comma decl2+=Decl)*)? ")")? b=BlockBis; 
+  *)? "]"|"(" (decl=Decl (Comma decl2+=Decl)*)? ")")? b=Block; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
 RunDecl returns RunCommand:
-  (runName=Alias ":")? run="run" (name2=[PredicateName]|b=BlockBis) scope=Scope; 
+  (runName=Alias ":")? run="run" (name2=[PredicateName]|b=Block) scope=Scope; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 */
 CheckDecl returns CheckCommand:
-  (checkName=Alias ":")? check="check" (name2=[AssertionName]|b=BlockBis) scope=Scope; 
+  (checkName=Alias ":")? check="check" (name2=[AssertionName]|b=Block) scope=Scope; 
   
 /*
 	scope ::= "for" number                   ["expect" [0|1]]
@@ -83,7 +83,11 @@ CheckDecl returns CheckCommand:
 	scope ::=                                ["expect" [0|1]]	
 */
 Scope:
-  ("for" (INT ("but" typescope=Typescope (Comma typescope=Typescope)*)?|typescope=Typescope (Comma typescope=Typescope)*)?)? ("expect" ("0"|"1"))?; 
+	"for" INT 														   ("expect" ("0"|"1"))?	|
+	"for" INT "but" typescope+=Typescope ("," typescope+=Typescope)* ("expect" ("0"|"1"))?	|
+	"for"           typescope+=Typescope ("," typescope+=Typescope)* ("expect" ("0"|"1"))?	|
+																	   ("expect" ("0"|"1"))?	;	
+  //("for" (INT ("but" typescope=Typescope (Comma typescope=Typescope)*)?|typescope=Typescope (Comma typescope=Typescope)*)?)? ("expect" ("0"|"1"))?; 
   
 /*
 	typescope ::= ["exactly"] number [name|"int"|"seq"]
@@ -101,7 +105,7 @@ EnumDecl:
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */
 SigDecl returns Signature:
-  SigQual? "sig" sigName+=TypeName (Comma sigName+=TypeName)* (sigExt=SigExt)? LeftCurlyBracket (decl+=Decl ("," decl+=Decl)*)? RightCurlyBracket (b=BlockBis)?; 
+  SigQual? "sig" sigName+=TypeName (Comma sigName+=TypeName)* (sigExt=SigExt)? LeftCurlyBracket (decl+=Decl ("," decl+=Decl)*)? RightCurlyBracket (b=Block)?; 
   
 /*
 	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
@@ -121,7 +125,7 @@ SigExt:
        | expr binOp   expr									4./
        | expr arrowOp expr									5./
        | expr ["!"|"not"]? compareOp expr					6./
-       | expr ["=>"|"implies"] expr "else" expr //PROBLEM	7./
+       | expr ["=>"|"implies"] expr "else" expr 			7./
        | expr "[" expr,* "]"								8./
        |     number											9./
        | "-" number											10./
@@ -137,28 +141,27 @@ SigExt:
 	
 */
 Expression:
-  (term=TerminalExpr) ("[" (exprT=Expression (Comma expr+=Expression)*)? "]"																|//8./												
-  ( "+" | "&" | Dot | "-" | "||" | "or" | "&&" | "and" | "<=>" | "iff" | "++" | "<:" | ":>" | "<<" | ">>" |">>>" ) right=Expression		|//4./
-  (op="!"|"not")? ( "=" | "in" | "<" | ">" | "<=" | ">=" ) right=Expression																	|//6./													
-  arrowOp=ArrowOp right=Expression																											|//5./	
-  ("=>"|"implies") then=Expression ("else" right=Expression)? 																				 //7./ 
-)?;
-
-TerminalExpr returns Expression:
-  "let" letDecl=LetDecl (Comma letDecl=LetDecl)* blockOrBarBis=BlockOrBar						|//1./
-  ("all"|"sum") decl=Decl b=BlockOrBar															|//2./
-  (unop=( "!" | "#" | "~" |  "^" )|"not"|"*" |"set"|"seq") exprT=Expression						|//3./
-  ("no"|"some"|"lone"|"one") (decl=Decl (Comma declSuite+=Decl)* block=BlockOrBar|t=Expression)	|//2./ AND 3./
-  INT																							|//9./
-  Integer																						|//10./
-  "none"																						|//11./
-  "iden"																						|//12./
-  "univ"																						|//13./
-  "Int"																							|//14./
-  "seq/Int"																						|//15./
-  "(" exprT=Expression ")"																		|//16./
-  "@"? nameRef=Name																			|//17./
-  LeftCurlyBracket (block=Block|(decl=Decl Comma)+ blockOrBar=BlockOrBar RightCurlyBracket)		; //18 AND 19./
+	TerminalExpression (b=BinOp expr=Expression									|//4./
+						a=ArrowOp expr=Expression								|//5./
+						("!"|"not")? cmp=CompareOp expr=Expression				|//6./
+						("=>"|"implies") expr=Expression "else" expr=Expression	|//7./
+						"[" (expr=Expression ("," expr=Expression)* )? "]"									 //8./						
+						)*;
+TerminalExpression returns Expression:
+	"let" letdecl+=LetDecl ("," letdecl+=LetDecl)* blockOrBar=BlockOrBar	|//1./
+	Quant decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar				|//2./
+	unOp=UnOp expr=Expression												|//3./
+	INT																		|//9./
+	Integer																	|//10./
+	"none"																	|//11./
+    "iden"																	|//12./
+    "univ"																	|//13./
+    "Int"																	|//14./
+    "seq/Int"																|//15./
+    "(" Expression ")"														|//16./
+    "@"? nameRef=Name														|//17./
+    Block																	|//18./
+    "{" decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar "}"				;//19./
 
 /*
 	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
@@ -175,27 +178,34 @@ LetDecl:
 /*
 	arrowOp ::= ["some"|"one"|"lone"|"set"]? "->" ["some"|"one"|"lone"|"set"]? //redondance in the end of the expression
 */
+Quant	:
+	"all" | "no" | "some" | "lone" | "one" | "sum";
+	
+BinOp	: 
+	"||" | "or" | "&&" | "and" | "&" | "<=>" | "iff"
+        | "=>" | "implies" | "+" | "-" | "++" | "<:" | ":>" | "." | "<<" | ">>" | ">>>";
+UnOp	:
+	"!" | "not" | "no" | "some" | "lone" | "one" | "set" | "seq" | "#" | "~" | "*" | "^";
+	
+CompareOp	:
+	"=" | "in" | "<" | ">" | "=<" | ">=";
+	
 ArrowOp:
   ("some"|"one"|"lone"|"set")? s="->"; 
-  
+   
 /*
-	block ::= "{" expr* "}" //without "{"
+	block ::= "{" expr* "}"
 */
 Block:
-  expr+=Expression* RightCurlyBracket; 
-
-/*
-	block ::= "{" expr* "}" //with "{"
-*/
-BlockBis:
-  LeftCurlyBracket block=Block; 
+  LeftCurlyBracket (exp+=Expression)* RightCurlyBracket; 
 
 /*
 	blockOrBar ::= block
 	blockOrBar ::= "|" expr
 */
 BlockOrBar:
-  BlockBis|"|" Expression; 
+  Block				|
+  "|" Expression	; 
   
 /*
 	name ::= ["this" | ID] ["/" ID]*
