@@ -7,14 +7,17 @@ import org.eclipse.xtext.ui.core.DefaultLabelProvider;
 
 import fr.univartois.cril.alloyplugin.basics.Assertion;
 import fr.univartois.cril.alloyplugin.basics.CheckCommand;
+import fr.univartois.cril.alloyplugin.basics.CommandName;
 import fr.univartois.cril.alloyplugin.basics.EnumDecl;
 import fr.univartois.cril.alloyplugin.basics.Fact;
 import fr.univartois.cril.alloyplugin.basics.Function;
 import fr.univartois.cril.alloyplugin.basics.Module;
+import fr.univartois.cril.alloyplugin.basics.Name;
 import fr.univartois.cril.alloyplugin.basics.Predicate;
 import fr.univartois.cril.alloyplugin.basics.RunCommand;
 import fr.univartois.cril.alloyplugin.basics.Signature;
 import fr.univartois.cril.alloyplugin.basics.Specification;
+import fr.univartois.cril.alloyplugin.basics.TypeName;
 
 /**
  * see
@@ -32,8 +35,49 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	/*
 	 * String text(Module module) { return module.getName().getName(); }
 	 */
+	private String converter(CommandName name){
+		String str=name.getThis();
+		if(str!=null)
+			return str;
+		str=name.getName();
+		if(str!=null)
+			return str;
+		str=name.getNameComplete().getMainName();
+		if(str==null) return "";
+		for(String n : name.getNameComplete().getSuite())
+			str+="/"+n;
+		return str;
+	}
+	private String converter(TypeName name){
+		String str=name.getThis();
+		if(str!=null)
+			return str;
+		str=name.getName();
+		if(str!=null)
+			return str;
+		str=name.getNameComplete().getMainName();
+		if(str==null) return "";
+		for(String n : name.getNameComplete().getSuite())
+			str+="/"+n;
+		return str;
+	}
+	private String converter(Name name){
+		String str=name.getThis();
+		if(str!=null)
+			return str;
+		str=name.getName();
+		if(str!=null)
+			return str;
+		str=name.getNameComplete().getMainName();
+		if(str==null) return "";
+		for(String n : name.getNameComplete().getSuite())
+			str+="/"+n;
+		return str;
+	}
+	
 	String text(Specification spec){
-		return spec.getModule().getModuleName().getName();
+		//return spec.getModule().getModuleName().getName();
+		return converter(spec.getModule().getModuleName());
 	}
 	
 	String image(Specification spec) {
@@ -41,7 +85,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 	
 	String text(Module module){
-		return module.getModuleName().getName();
+		return converter(module.getModuleName());
 	}
 
 	String image(Module module) {
@@ -49,7 +93,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(Signature sig){
-		return sig.getSigName().getName();
+		return converter(sig.getSigName().get(0));
 	}
 	
 	String image(Signature sig) {
@@ -57,7 +101,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(Fact fact){
-		return fact.getFactName().getName();
+		return converter(fact.getFactName());
 	}
 	
 	String image(Fact fact) {
@@ -65,7 +109,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(Assertion assertD){
-		return assertD.getAssertName().getName();
+		return converter(assertD.getAssertName());
 	}
 	
 	String image(Assertion assertD) {
@@ -73,7 +117,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(Function fun){
-		return fun.getFunName().getName();
+		return converter(fun.getFunName());
 	}
 	
 	String image(Function fun) {
@@ -81,7 +125,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(Predicate fun){
-		return fun.getPredName().getName();
+		return converter(fun.getPredName());
 	}
 	
 	String image(Predicate fun) {
@@ -89,7 +133,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(RunCommand run){
-		return run.getRunName().getName();
+		return converter(run.getRunName());
 	}
 	
 	String image(RunCommand run) {
@@ -97,7 +141,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 	
 	String text(CheckCommand check){
-		return check.getCheckName().getName();
+		return converter(check.getCheckName());
 	}
 	
 	String image(CheckCommand check) {
@@ -105,11 +149,11 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(EnumDecl enumD){
-		return enumD.getEnumName().getName();
+		return converter(enumD.getEnumName());
 	}
 	
 	String image(EnumDecl enumD) {
 		return "sig.gif";
 	}
-
+	
 }
