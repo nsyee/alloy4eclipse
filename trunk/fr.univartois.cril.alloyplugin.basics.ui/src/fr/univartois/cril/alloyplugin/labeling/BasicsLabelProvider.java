@@ -5,15 +5,17 @@ package fr.univartois.cril.alloyplugin.labeling;
 
 import org.eclipse.xtext.ui.core.DefaultLabelProvider;
 
+import fr.univartois.cril.alloyplugin.basics.Alias;
 import fr.univartois.cril.alloyplugin.basics.Assertion;
+import fr.univartois.cril.alloyplugin.basics.AssertionName;
 import fr.univartois.cril.alloyplugin.basics.CheckCommand;
-import fr.univartois.cril.alloyplugin.basics.CommandName;
 import fr.univartois.cril.alloyplugin.basics.EnumDecl;
 import fr.univartois.cril.alloyplugin.basics.Fact;
 import fr.univartois.cril.alloyplugin.basics.Function;
 import fr.univartois.cril.alloyplugin.basics.Module;
 import fr.univartois.cril.alloyplugin.basics.Name;
 import fr.univartois.cril.alloyplugin.basics.Predicate;
+import fr.univartois.cril.alloyplugin.basics.PredicateName;
 import fr.univartois.cril.alloyplugin.basics.RunCommand;
 import fr.univartois.cril.alloyplugin.basics.Signature;
 import fr.univartois.cril.alloyplugin.basics.Specification;
@@ -35,7 +37,30 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	/*
 	 * String text(Module module) { return module.getName().getName(); }
 	 */
-	private String converter(CommandName name){
+	private String converter(Alias name){
+		String str=name.getName();
+		if(str!=null)
+			return str;
+		str=name.getNameComplete().getMainName();
+		if(str==null) return "";
+		for(String n : name.getNameComplete().getSuite())
+			str+="/"+n;
+		return str;
+	}
+	private String converter(AssertionName name){
+		String str=name.getThis();
+		if(str!=null)
+			return str;
+		str=name.getName();
+		if(str!=null)
+			return str;
+		str=name.getNameComplete().getMainName();
+		if(str==null) return "";
+		for(String n : name.getNameComplete().getSuite())
+			str+="/"+n;
+		return str;
+	}
+	private String converter(PredicateName name){
 		String str=name.getThis();
 		if(str!=null)
 			return str;
