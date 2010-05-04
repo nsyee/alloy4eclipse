@@ -111,8 +111,8 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 	}
 
 	private void setFormattingDote(FormattingConfig c, BasicsGrammarAccess f) {
-		c.setNoSpace().after(f.getDoteAccess().getFullStopKeyword());
-		c.setNoSpace().before(f.getDoteAccess().getFullStopKeyword());
+		c.setNoSpace().after(f.getDotAccess().getFullStopKeyword());
+		c.setNoSpace().before(f.getDotAccess().getFullStopKeyword());
 	}
 
 	private void setFormattingExression(FormattingConfig c,

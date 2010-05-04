@@ -52,7 +52,7 @@ AssertDecl returns Assertion:
 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 */
 FunDecl returns Function:
-  Private? "fun" (ref=Ref Dote)? funName=TypeName ("[" (decl=Decl (Comma decl2+=Decl)*)? "]"|
+  Private? "fun" (ref=Ref Dot)? funName=TypeName ("[" (decl=Decl (Comma decl2+=Decl)*)? "]"|
   "(" (decl=Decl (Comma decl2+=Decl)*)? ")") Colon expr=Expression b=BlockBis; 
   
 /*
@@ -61,7 +61,7 @@ FunDecl returns Function:
 	funDecl ::= ["private"] "pred" [ref "."] name                block
 */
 PredDecl returns Predicate:
-  Private? pred="pred" (ref=Ref Dote)? predName=PredicateName ("[" (decl=Decl (Comma decl2+=Decl)
+  Private? pred="pred" (ref=Ref Dot)? predName=PredicateName ("[" (decl=Decl (Comma decl2+=Decl)
   *)? "]"|"(" (decl=Decl (Comma decl2+=Decl)*)? ")")? b=BlockBis; 
   
 /*
@@ -138,7 +138,7 @@ SigExt:
 */
 Expression:
   (term=TerminalExpr) ("[" (exprT=Expression (Comma expr+=Expression)*)? "]"																|//8./												
-  ( "+" | "&" | Dote | "-" | "||" | "or" | "&&" | "and" | "<=>" | "iff" | "++" | "<:" | ":>" | "<<" | ">>" |">>>" ) right=Expression		|//4./
+  ( "+" | "&" | Dot | "-" | "||" | "or" | "&&" | "and" | "<=>" | "iff" | "++" | "<:" | ":>" | "<<" | ">>" |">>>" ) right=Expression		|//4./
   (op="!"|"not")? ( "=" | "in" | "<" | ">" | "<=" | ">=" ) right=Expression																	|//6./													
   arrowOp=ArrowOp right=Expression																											|//5./	
   ("=>"|"implies") then=Expression ("else" right=Expression)? 																				 //7./ 
@@ -157,7 +157,7 @@ TerminalExpr returns Expression:
   "Int"																							|//14./
   "seq/Int"																						|//15./
   "(" exprT=Expression ")"																		|//16./
-  "@"? nameRef=[TypeName]																			|//17./
+  "@"? nameRef=Name																			|//17./
   LeftCurlyBracket (block=Block|(decl=Decl Comma)+ blockOrBar=BlockOrBar RightCurlyBracket)		; //18 AND 19./
 
 /*
@@ -238,7 +238,7 @@ Private:
   
 Comma :
 ",";
-Dote :
+Dot :
 ".";
 Colon :
 ":";
