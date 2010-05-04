@@ -44,7 +44,7 @@ FactDecl returns Fact:
 	assertDecl ::= "assert" [name] block
 */
 AssertDecl returns Assertion:
-  "assert" assertName=CommandName? b=BlockBis; 
+  "assert" assertName=AssertionName? b=BlockBis; 
   
 /*
 	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
@@ -61,20 +61,20 @@ FunDecl returns Function:
 	funDecl ::= ["private"] "pred" [ref "."] name                block
 */
 PredDecl returns Predicate:
-  Private? pred="pred" (ref=Ref Dote)? predName=CommandName ("[" (decl=Decl (Comma decl2+=Decl)
+  Private? pred="pred" (ref=Ref Dote)? predName=PredicateName ("[" (decl=Decl (Comma decl2+=Decl)
   *)? "]"|"(" (decl=Decl (Comma decl2+=Decl)*)? ")")? b=BlockBis; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
 RunDecl returns RunCommand:
-  (runName=CommandName ":")? run="run" (name2=[CommandName]|b=BlockBis) scope=Scope; 
+  (runName=Alias ":")? run="run" (name2=[PredicateName]|b=BlockBis) scope=Scope; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 */
 CheckDecl returns CheckCommand:
-  (checkName=CommandName ":")? check="check" (name2=[CommandName]|b=BlockBis) scope=Scope; 
+  (checkName=Alias ":")? check="check" (name2=[AssertionName]|b=BlockBis) scope=Scope; 
   
 /*
 	scope ::= "for" number                   ["expect" [0|1]]
@@ -202,10 +202,16 @@ BlockOrBar:
 */
 Name:
 	this="this"|name=ID|nameComplete=NameBis;
-  
-CommandName :
+
+Alias:
+	name=ID|nameComplete=NameBis;
+	  
+AssertionName :
 	this="this"|name=ID|nameComplete=NameBis;
 
+PredicateName :
+	this="this"|name=ID|nameComplete=NameBis;
+	
 TypeName:
 	this="this"|name=ID|nameComplete=NameBis;
 	
