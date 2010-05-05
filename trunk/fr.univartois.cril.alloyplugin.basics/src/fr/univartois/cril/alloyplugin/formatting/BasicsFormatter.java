@@ -34,8 +34,8 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 		this.setFormattingPrivate(c, f);
 		this.setFormattingSig(c, f);
 		this.setFormattingSigQual(c, f);
-		this.setFormattingExression(c, f);
-		this.setFormattingTerminalExression(c, f);
+		// this.setFormattingExression(c, f);
+		// this.setFormattingTerminalExression(c, f);
 		this.setFormattingRunDecl(c, f);
 		this.setFormattingCheckDecl(c, f);
 		this.setFormattingComma(c, f);
@@ -115,6 +115,7 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 		c.setNoSpace().before(f.getDotAccess().getFullStopKeyword());
 	}
 
+	/*
 	private void setFormattingExression(FormattingConfig c,
 			BasicsGrammarAccess f) {
 		c.setNoSpace().after(f.getExpressionAccess().getOpAssignment_1_2_0_0());
@@ -126,7 +127,7 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 		c.setNoSpace().after(
 				f.getTerminalExprAccess().getUnopAssignment_2_0_0());
 
-	}
+	}*/
 
 	private void setFormattingRunDecl(FormattingConfig c, BasicsGrammarAccess f) {
 		c.setNoLinewrap().after(f.getRunDeclAccess().getColonKeyword_0_1());
