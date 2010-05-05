@@ -53,7 +53,7 @@ AssertDecl returns Assertion:
 */
 FunDecl returns Function:
   Private? "fun" (ref=Ref Dot)? funName=TypeName ("[" (decl=Decl (Comma decl2+=Decl)*)? "]"|
-  "(" (decl=Decl (Comma decl2+=Decl)*)? ")") Colon expr=Expression b=Block; 
+  "(" (decl=Decl (Comma decl2+=Decl)*)? ")")? Colon expr=Expression b=Block; 
   
 /*
 	funDecl ::= ["private"] "pred" [ref "."] name "(" decl,* ")" block
@@ -144,7 +144,7 @@ Expression:
 	TerminalExpression (b=BinOp expr=Expression									|//4./
 						a=ArrowOp expr=Expression								|//5./
 						("!"|"not")? cmp=CompareOp expr=Expression				|//6./
-						("=>"|"implies") expr=Expression "else" expr=Expression	|//7./
+						("=>"|"implies") expr=Expression ("else" expr=Expression)?	|//7./
 						"[" (expr=Expression ("," expr=Expression)* )? "]"									 //8./						
 						)*;
 TerminalExpression returns Expression:
@@ -152,7 +152,7 @@ TerminalExpression returns Expression:
 	Quant decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar				|//2./
 	unOp=UnOp expr=Expression												|//3./
 	INT																		|//9./
-	Integer																	|//10./
+	NegativeInteger															|//10./
 	"none"																	|//11./
     "iden"																	|//12./
     "univ"																	|//13./
@@ -176,20 +176,33 @@ LetDecl:
   nameExpression=PropertyName "=" exprLet=Expression; 
   
 /*
-	arrowOp ::= ["some"|"one"|"lone"|"set"]? "->" ["some"|"one"|"lone"|"set"]? //redondance in the end of the expression
+	quant ::= "all" | "no" | "some" | "lone" | "one" | "sum"
 */
 Quant	:
 	"all" | "no" | "some" | "lone" | "one" | "sum";
-	
+
+/*	
+	binOp ::= "||" | "or" | "&&" | "and" | "&" | "<=>" | "iff"| "=>" | "implies" | "+" | "-" | "++" | "<:" | ":>" | "." | "<<" | ">>" | ">>>"
+*/	
 BinOp	: 
 	"||" | "or" | "&&" | "and" | "&" | "<=>" | "iff"
-        | "=>" | "implies" | "+" | "-" | "++" | "<:" | ":>" | "." | "<<" | ">>" | ">>>";
+        |"+" | "-" | "++" | "<:" | ":>" | "." | "<<" | ">>" | ">>>";
+
+/*
+	unOp ::= "!" | "not" | "no" | "some" | "lone" | "one" | "set" | "seq" | "#" | "~" | "*" | "^"
+*/
 UnOp	:
 	"!" | "not" | "no" | "some" | "lone" | "one" | "set" | "seq" | "#" | "~" | "*" | "^";
-	
+
+/*
+	compareOp ::= "=" | "in" | "<" | ">" | "=<" | ">="
+*/	
 CompareOp	:
 	"=" | "in" | "<" | ">" | "=<" | "<=" /* UNDOCUMENTED */| ">=";
 	
+/*
+	arrowOp ::= ["some"|"one"|"lone"|"set"]? "->" ["some"|"one"|"lone"|"set"]? 
+*/
 ArrowOp:
   ("some"|"one"|"lone"|"set")? s="->"; 
    
@@ -229,7 +242,7 @@ PropertyName:
 	this="this"|name=ID|nameComplete=NameBis;
 
 NameBis:
-  mainName=("this"|ID) ("/" suite+=ID)+; 
+ 	("this"|ID) ("/" ID)+; 
   
 /*
 	ref ::= name | "univ" | "Int" | "seq/Int"
@@ -252,7 +265,7 @@ Dot :
 ".";
 Colon :
 ":";
-terminal Integer:
+terminal NegativeInteger:
   "-" INT;
 terminal ML_COMMENT	:
 	('/*'->'*/' ) | ('--'->'\n') ;
