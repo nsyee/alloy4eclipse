@@ -84,8 +84,8 @@ CheckDecl returns CheckCommand:
 */
 Scope:
 	"for" INT 														   ("expect" ("0"|"1"))?	|
-	"for" INT "but" typescope+=Typescope ("," typescope+=Typescope)* ("expect" ("0"|"1"))?	|
-	"for"           typescope+=Typescope ("," typescope+=Typescope)* ("expect" ("0"|"1"))?	|
+	"for" INT "but" typescope+=Typescope ("," typescope+=Typescope)*   ("expect" ("0"|"1"))?	|
+	"for"           typescope+=Typescope ("," typescope+=Typescope)*   ("expect" ("0"|"1"))?	|
 																	   ("expect" ("0"|"1"))?	;	
   //("for" (INT ("but" typescope=Typescope (Comma typescope=Typescope)*)?|typescope=Typescope (Comma typescope=Typescope)*)?)? ("expect" ("0"|"1"))?; 
   
@@ -188,7 +188,7 @@ UnOp	:
 	"!" | "not" | "no" | "some" | "lone" | "one" | "set" | "seq" | "#" | "~" | "*" | "^";
 	
 CompareOp	:
-	"=" | "in" | "<" | ">" | "=<" | ">=";
+	"=" | "in" | "<" | ">" | "=<" | "<=" /* UNDOCUMENTED */| ">=";
 	
 ArrowOp:
   ("some"|"one"|"lone"|"set")? s="->"; 
