@@ -41,10 +41,10 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 		String str=name.getName();
 		if(str!=null)
 			return str;
-		str=name.getNameComplete().getMainName();
-		if(str==null) return "";
+		str=name.getNameComplete();
+		/*if(str==null) return "";
 		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;
+			str+="/"+n;*/
 		return str;
 	}
 	private String converter(AssertionName name){
@@ -54,10 +54,10 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 		str=name.getName();
 		if(str!=null)
 			return str;
-		str=name.getNameComplete().getMainName();
-		if(str==null) return "";
+		str=name.getNameComplete();
+		/*if(str==null) return "";
 		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;
+			str+="/"+n;*/
 		return str;
 	}
 	private String converter(PredicateName name){
@@ -67,10 +67,10 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 		str=name.getName();
 		if(str!=null)
 			return str;
-		str=name.getNameComplete().getMainName();
-		if(str==null) return "";
+		str=name.getNameComplete();
+		/*if(str==null) return "";
 		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;
+			str+="/"+n;*/
 		return str;
 	}
 	private String converter(TypeName name){
@@ -80,10 +80,10 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 		str=name.getName();
 		if(str!=null)
 			return str;
-		str=name.getNameComplete().getMainName();
-		if(str==null) return "";
+		str=name.getNameComplete();
+		/*if(str==null) return "";
 		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;
+			str+="/"+n;*/
 		return str;
 	}
 	private String converter(Name name){
@@ -93,10 +93,10 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 		str=name.getName();
 		if(str!=null)
 			return str;
-		str=name.getNameComplete().getMainName();
-		if(str==null) return "";
+		str=name.getNameComplete();
+		/*if(str==null) return "";
 		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;
+			str+="/"+n;*/
 		return str;
 	}
 	
