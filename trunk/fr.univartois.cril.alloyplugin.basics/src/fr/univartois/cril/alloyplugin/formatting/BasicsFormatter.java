@@ -34,73 +34,38 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 		this.setFormattingPrivate(c, f);
 		this.setFormattingSig(c, f);
 		this.setFormattingSigQual(c, f);
+		// this.setFormattingExression(c, f);
+		// this.setFormattingTerminalExression(c, f);
 		this.setFormattingRunDecl(c, f);
 		this.setFormattingCheckDecl(c, f);
 		this.setFormattingComma(c, f);
-		this.setFormattingDot(c, f);
+		this.setFormattingDote(c, f);
 		this.setFormattingColon(c, f);
-		this.setFormattingUnOp(c, f);
-		this.setFormattingExpression(c, f);
-		this.setFormattingParenthesis(c, f);
-		this.setFormattingSquareBracket(c, f);
-		
 	}
 
 	private void setFormattingCurlyBracket(FormattingConfig c,
 			BasicsGrammarAccess f) {
 
 		c.setIndentation(f.getLeftCurlyBracketAccess()
-				.getLeftCurlyBracketKeyword(), f.getRightCurlyBracketAccess()
-				.getRightCurlyBracketKeyword());
+				.getLeftCurlyBracketLeftCurlyBracketKeyword_0(), f.getRightCurlyBracketAccess()
+				.getRightCurlyBracketRightCurlyBracketKeyword_0());//ici
 
 		c.setLinewrap().after(
-				f.getLeftCurlyBracketAccess().getLeftCurlyBracketKeyword());
+				f.getLeftCurlyBracketAccess().getLeftCurlyBracketLeftCurlyBracketKeyword_0());//ici
 		c.setLinewrap().before(
-				f.getRightCurlyBracketAccess().getRightCurlyBracketKeyword());
+				f.getRightCurlyBracketAccess().getRightCurlyBracketRightCurlyBracketKeyword_0());//ici
 		c.setLinewrap().after(
-				f.getRightCurlyBracketAccess().getRightCurlyBracketKeyword());
+				f.getRightCurlyBracketAccess().getRightCurlyBracketRightCurlyBracketKeyword_0());//ici
 	}
 
 	private void setFormattingFactDecl(FormattingConfig c, BasicsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getFactDeclAccess().getFactKeyword_0());
+		c.setLinewrap(2).before(f.getFactDeclAccess().getFactNameAssignment_0());//ici
 
-	}
-
-	private void setFormattingParenthesis(FormattingConfig c,
-			BasicsGrammarAccess f) {
-		c.setNoSpace().after(
-				f.getLeftParenthesisAccess().getLeftParenthesisKeyword());
-		c.setNoSpace().before(
-				f.getLeftParenthesisAccess().getLeftParenthesisKeyword());
-		c.setNoSpace().before(
-				f.getRightParenthesisAccess().getRightParenthesisKeyword());
-		c.setNoSpace().after(
-				f.getTerminalExpressionAccess()
-						.getLeftParenthesisKeyword_10_0());
-		c.setNoSpace().before(
-				f.getTerminalExpressionAccess()
-						.getLeftParenthesisKeyword_10_0());
-		c.setNoSpace().before(
-				f.getTerminalExpressionAccess()
-						.getRightParenthesisKeyword_10_2());
-	}
-
-	private void setFormattingSquareBracket(FormattingConfig c,
-			BasicsGrammarAccess f) {
-		c.setNoSpace().after(
-				f.getLeftSquareBracketKeywordAccess()
-						.getLeftSquareBracketKeyword());
-		c.setNoSpace().before(
-				f.getLeftSquareBracketKeywordAccess()
-						.getLeftSquareBracketKeyword());
-		c.setNoSpace().before(
-				f.getRightSquareBracketKeywordAccess()
-						.getRightSquareBracketKeyword());
 	}
 
 	private void setFormattingAssertDecl(FormattingConfig c,
 			BasicsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getAssertDeclAccess().getAssertKeyword_0());
+		c.setLinewrap(2).before(f.getAssertDeclAccess().getAssertonNameAssignment_0());//ici
 	}
 
 	private void setFormattingFunDecl(FormattingConfig c, BasicsGrammarAccess f) {
@@ -109,12 +74,12 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 	}
 
 	private void setFormattingPredDecl(FormattingConfig c, BasicsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getPredDeclAccess().getPredPredKeyword_1_0());
+		c.setLinewrap(2).before(f.getPredDeclAccess().getPredicateNamePredicateNameParserRuleCall_3_0());//ICI
 		c.setNoLinewrap().after(f.getPrivateAccess().getPrivateKeyword());
 	}
 
 	private void setFormattingOpen(FormattingConfig c, BasicsGrammarAccess f) {
-		c.setLinewrap().before(f.getOpenAccess().getOpenKeyword_1());
+		c.setLinewrap().before(f.getOpenAccess().getOpenNameOpenNameParserRuleCall_1_0());//ICI
 		c.setNoLinewrap().after(f.getPrivateAccess().getPrivateKeyword());
 	}
 
@@ -124,7 +89,7 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 	}
 
 	private void setFormattingEnumDecl(FormattingConfig c, BasicsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getEnumDeclAccess().getEnumKeyword_0());
+		c.setLinewrap(2).before(f.getEnumDeclAccess().getEnumNameEnumNameParserRuleCall_0_0());//ici
 
 	}
 
@@ -145,34 +110,34 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 
 	}
 
-	private void setFormattingUnOp(FormattingConfig c, BasicsGrammarAccess f) {
-		c.setNoSpace().after(f.getUnOpAccess().getOpAssignment_7());
+	private void setFormattingDote(FormattingConfig c, BasicsGrammarAccess f) {
+		c.setNoSpace().after(f.getDotAccess().getDotFullStopKeyword_0());//ici
+		c.setNoSpace().before(f.getDotAccess().getDotFullStopKeyword_0());//ici
+	}
+
+	/*
+	private void setFormattingExression(FormattingConfig c,
+			BasicsGrammarAccess f) {
+		c.setNoSpace().after(f.getExpressionAccess().getOpAssignment_1_2_0_0());
 
 	}
 
-	private void setFormattingExpression(FormattingConfig c,
+	private void setFormattingTerminalExression(FormattingConfig c,
 			BasicsGrammarAccess f) {
 		c.setNoSpace().after(
-				f.getExpressionAccess().getExclamationMarkKeyword_1_2_0_0());
+				f.getTerminalExprAccess().getUnopAssignment_2_0_0());
 
-	}
-
-	private void setFormattingDot(FormattingConfig c, BasicsGrammarAccess f) {
-		c.setNoSpace().after(f.getDotAccess().getFullStopKeyword());
-		c.setNoSpace().before(f.getDotAccess().getFullStopKeyword());
-		c.setNoSpace().after(f.getBinOpAccess().getOpFullStopKeyword_12_0());
-		c.setNoSpace().before(f.getBinOpAccess().getOpFullStopKeyword_12_0());
-
-	}
+	}*/
 
 	private void setFormattingRunDecl(FormattingConfig c, BasicsGrammarAccess f) {
 		c.setNoLinewrap().after(f.getRunDeclAccess().getColonKeyword_0_1());
 		c.setNoSpace().before(f.getRunDeclAccess().getColonKeyword_0_1());
-		c.setLinewrap(2).before(f.getRunDeclAccess().getRunRunKeyword_1_0());
+		c.setLinewrap(2)
+				.before(f.getRunDeclAccess().getRunNameAssignment_0_0());
 	}
 
 	private void setFormattingComma(FormattingConfig c, BasicsGrammarAccess f) {
-		c.setNoSpace().before(f.getCommaAccess().getCommaKeyword());
+		c.setNoSpace().before(f.getCommaAccess().getCommaCommaKeyword_0());//ici
 	}
 
 	private void setFormattingCheckDecl(FormattingConfig c,
@@ -180,12 +145,11 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 		c.setNoLinewrap().after(f.getCheckDeclAccess().getColonKeyword_0_1());
 		c.setLinewrap(2).before(
 				f.getCheckDeclAccess().getCheckCheckKeyword_1_0());
-		c.setNoSpace().before(f.getRunDeclAccess().getColonKeyword_0_1());
+		c.setLinewrap(2).after(f.getCheckDeclAccess().getScopeAssignment_3());
 	}
 
 	private void setFormattingColon(FormattingConfig c, BasicsGrammarAccess f) {
-		c.setNoSpace().before(f.getColonAccess().getColonKeyword());
+		c.setNoSpace().before(f.getColonAccess().getColonColonKeyword_0());//ICI
 	}
-
 
 }
