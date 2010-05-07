@@ -5,21 +5,16 @@ package fr.univartois.cril.alloyplugin.labeling;
 
 import org.eclipse.xtext.ui.core.DefaultLabelProvider;
 
-import fr.univartois.cril.alloyplugin.basics.Alias;
 import fr.univartois.cril.alloyplugin.basics.Assertion;
-import fr.univartois.cril.alloyplugin.basics.AssertionName;
 import fr.univartois.cril.alloyplugin.basics.CheckCommand;
 import fr.univartois.cril.alloyplugin.basics.EnumDecl;
 import fr.univartois.cril.alloyplugin.basics.Fact;
 import fr.univartois.cril.alloyplugin.basics.Function;
 import fr.univartois.cril.alloyplugin.basics.Module;
-import fr.univartois.cril.alloyplugin.basics.Name;
 import fr.univartois.cril.alloyplugin.basics.Predicate;
-import fr.univartois.cril.alloyplugin.basics.PredicateName;
 import fr.univartois.cril.alloyplugin.basics.RunCommand;
 import fr.univartois.cril.alloyplugin.basics.Signature;
 import fr.univartois.cril.alloyplugin.basics.Specification;
-import fr.univartois.cril.alloyplugin.basics.TypeName;
 
 /**
  * see
@@ -37,148 +32,85 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	/*
 	 * String text(Module module) { return module.getName().getName(); }
 	 */
-	private String converter(Alias name){
-		String str=name.getName();
-		if(str!=null)
-			return str;
-		str=name.getNameComplete();
-		/*if(str==null) return "";
-		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;*/
-		return str;
+	String text(Specification spec) {
+		// return spec.getModule().getModuleName().getName();
+		return spec.getModule().getModule().getName();
 	}
-	private String converter(AssertionName name){
-		String str=name.getThis();
-		if(str!=null)
-			return str;
-		str=name.getName();
-		if(str!=null)
-			return str;
-		str=name.getNameComplete();
-		/*if(str==null) return "";
-		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;*/
-		return str;
-	}
-	private String converter(PredicateName name){
-		String str=name.getThis();
-		if(str!=null)
-			return str;
-		str=name.getName();
-		if(str!=null)
-			return str;
-		str=name.getNameComplete();
-		/*if(str==null) return "";
-		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;*/
-		return str;
-	}
-	private String converter(TypeName name){
-		String str=name.getThis();
-		if(str!=null)
-			return str;
-		str=name.getName();
-		if(str!=null)
-			return str;
-		str=name.getNameComplete();
-		/*if(str==null) return "";
-		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;*/
-		return str;
-	}
-	private String converter(Name name){
-		String str=name.getThis();
-		if(str!=null)
-			return str;
-		str=name.getName();
-		if(str!=null)
-			return str;
-		str=name.getNameComplete();
-		/*if(str==null) return "";
-		for(String n : name.getNameComplete().getSuite())
-			str+="/"+n;*/
-		return str;
-	}
-	
-	String text(Specification spec){
-		//return spec.getModule().getModuleName().getName();
-		return converter(spec.getModule().getModuleName());
-	}
-	
+
 	String image(Specification spec) {
 		return "module.gif";
 	}
-	
+
 	String text(Module module){
-		return converter(module.getModuleName());
+		return module.getModule().getName();
 	}
 
 	String image(Module module) {
 		return "module.gif";
 	}
 
-	String text(Signature sig){
-		return converter(sig.getSigName().get(0));
+	String text(Signature sig) {
+		return sig.getSignatureName().get(0).getName();
 	}
-	
+
 	String image(Signature sig) {
 		return "sig.gif";
 	}
 
 	String text(Fact fact){
-		return converter(fact.getFactName());
+		return fact.getFactName().getName();
 	}
-	
+
 	String image(Fact fact) {
 		return "fact.gif";
 	}
 
-	String text(Assertion assertD){
-		return converter(assertD.getAssertName());
+	String text(Assertion assertD) {
+		return assertD.getAssertonName().getName();
 	}
-	
+
 	String image(Assertion assertD) {
 		return "assert.gif";
 	}
 
-	String text(Function fun){
-		return converter(fun.getFunName());
+	String text(Function fun) {
+		return fun.getFunctionName().getName();
 	}
-	
+
 	String image(Function fun) {
 		return "function.gif";
 	}
 
-	String text(Predicate fun){
-		return converter(fun.getPredName());
+	String text(Predicate pred) {
+		return pred.getPredicateName().getName();
 	}
-	
+
 	String image(Predicate fun) {
 		return "predicate.gif";
 	}
 
-	String text(RunCommand run){
-		return converter(run.getRunName());
+	String text(RunCommand run) {
+		return run.getRunName().getName().getName();
 	}
-	
+
 	String image(RunCommand run) {
 		return "run.gif";
 	}
-	
-	String text(CheckCommand check){
-		return converter(check.getCheckName());
+
+	String text(CheckCommand check) {
+		return check.getCheckName().getName().getName();
 	}
-	
+
 	String image(CheckCommand check) {
 		return "check.gif";
 	}
 
-	String text(EnumDecl enumD){
-		return converter(enumD.getEnumName());
+	String text(EnumDecl enumD) {
+		return enumD.getEnumName().getName();
 	}
-	
+
 	String image(EnumDecl enumD) {
 		return "sig.gif";
 	}
-	
+
 }
