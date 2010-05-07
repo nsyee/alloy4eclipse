@@ -3,7 +3,6 @@
 */
 package fr.univartois.cril.alloyplugin.contentassist;
 
-import fr.univartois.cril.alloyplugin.contentassist.AbstractBasicsProposalProvider;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
