@@ -13,13 +13,13 @@ Specification  :
 	module ::= "module" name  [ "["  ["exactly"] name  ("," ["exactly"] num)*    "]" ]
 */
 Module:
-  "module" moduleName=Name (LeftSquareBracketKeyword "exactly"? suite=Name (Comma "exactly"? INT)* RightSquareBracketKeyword)?; 
+  module=ModuleName (left=LeftSquareBracketKeyword "exactly"? name=Name (comma=Comma "exactly"? INT)* right=RightSquareBracketKeyword)?; 
   
 /*
 	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
 */
 Open:
-  Private? "open" name=Name (LeftSquareBracketKeyword ref=Ref (Comma ref2+=Ref)* RightSquareBracketKeyword)? ("as" name2=Name)?; 
+  Private? openName=OpenName  (left=LeftSquareBracketKeyword ref+=Ref (comma=Comma ref+=Ref)* right=RightSquareBracketKeyword)? ("as" nameAs=Name)?; 
   
 /*
 	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
@@ -38,13 +38,13 @@ Paragraph:
 	factDecl ::= "fact" [name] block
 */
 FactDecl returns Fact:
-  "fact" factName=TypeName? b=Block; 
+  factName=FactName block=Block; 
 
 /*
 	assertDecl ::= "assert" [name] block
 */
 AssertDecl returns Assertion:
-  "assert" assertName=AssertionName? b=Block; 
+  assertonName=AssertionName block=Block; 
   
 /*
 	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
@@ -52,8 +52,10 @@ AssertDecl returns Assertion:
 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 */
 FunDecl returns Function:
-  Private? "fun" (ref=Ref Dot)? funName=TypeName (LeftSquareBracketKeyword (decl=Decl (Comma decl2+=Decl)*)? RightSquareBracketKeyword|
-  LeftParenthesis (decl=Decl (Comma decl2+=Decl)*)? RightParenthesis)? Colon expr=Expression b=Block; 
+  Private? "fun" (ref=Ref dot=Dot)? functionName=FunctionName (
+  		leftS=LeftSquareBracketKeyword (decl+=Decl (comma=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
+  		leftP=LeftParenthesis (decl+=Decl (comma=Comma decl+=Decl)*)? rightP=RightParenthesis
+  		)? colon=Colon expr=Expression block=Block; 
   
 /*
 	funDecl ::= ["private"] "pred" [ref "."] name "(" decl,* ")" block
@@ -61,8 +63,10 @@ FunDecl returns Function:
 	funDecl ::= ["private"] "pred" [ref "."] name                block
 */
 PredDecl returns Predicate:
-  Private? pred="pred" (ref=Ref Dot)? predName=PredicateName (LeftSquareBracketKeyword (decl=Decl (Comma decl2+=Decl)
-  *)? RightSquareBracketKeyword|LeftParenthesis (decl=Decl (Comma decl2+=Decl)*)? RightParenthesis)? b=Block; 
+  Private? "pred" (ref=Ref dot=Dot)? predicateName=PredicateName (
+  		leftS=LeftSquareBracketKeyword (decl+=Decl (comma=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
+  		leftP=LeftParenthesis (decl+=Decl (comma=Comma decl+=Decl)*)? rightP=RightParenthesis
+  		)? b=Block; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
@@ -74,7 +78,7 @@ RunDecl returns RunCommand:
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 */
 CheckDecl returns CheckCommand:
-  (checkName=Alias ":")? check="check" (name2=[AssertionName]|b=Block) scope=Scope; 
+  (checkName=Alias ":")? check="check" (name=[AssertionName]|b=Block) scope=Scope; 
   
 /*
 	scope ::= "for" number                   ["expect" [0|1]]
@@ -87,25 +91,24 @@ Scope:
 	"for" INT "but" typescope+=Typescope ("," typescope+=Typescope)*   ("expect" ("0"|"1"))?	|
 	"for"           typescope+=Typescope ("," typescope+=Typescope)*   ("expect" ("0"|"1"))?	|
 																	   ("expect" ("0"|"1"))?	;	
-  //("for" (INT ("but" typescope=Typescope (Comma typescope=Typescope)*)?|typescope=Typescope (Comma typescope=Typescope)*)?)? ("expect" ("0"|"1"))?; 
   
 /*
 	typescope ::= ["exactly"] number [name|"int"|"seq"]
 */
 Typescope:
-  "exactly"? INT (n=[TypeName]|("int"|"seq")); 
+  "exactly"? INT (n=[ReferencesName]|("int"|"seq")); //A VOIR
   
 /*
 	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
 */
 EnumDecl:
-  "enum" enumName=TypeName LeftCurlyBracket name2=TypeName (Comma name3+=TypeName)* RightCurlyBracket; 
+  enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma=Comma propertyEnum+=EnumPropertyName)* rightC=RightCurlyBracket; 
   
 /*
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */
 SigDecl returns Signature:
-  SigQual? "sig" sigName+=TypeName (Comma sigName+=TypeName)* (sigExt=SigExt)? LeftCurlyBracket (decl+=Decl ("," decl+=Decl)*)? RightCurlyBracket (b=Block)?; 
+  SigQual? "sig" signatureName+=SignatureName (comma=Comma signatureName+=SignatureName)* (sigExt=SigExt)? leftC=LeftCurlyBracket (decl+=Decl ("," decl+=Decl)*)? rightC=RightCurlyBracket (b=Block)?; 
   
 /*
 	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
@@ -146,21 +149,21 @@ Expression:
 						a=ArrowOp expr=Expression								|//5./
 						("!"|"not")? cmp=CompareOp expr=Expression				|//6./
 						("=>"|"implies") expr=Expression ("else" expr=Expression)?	|//7./
-						LeftSquareBracketKeyword (expr=Expression ("," expr=Expression)* )? RightSquareBracketKeyword									 //8./						
+						left=LeftSquareBracketKeyword (expr=Expression ("," expr=Expression)* )? right=RightSquareBracketKeyword									 //8./						
 						)*;
 TerminalExpression returns Expression:
 	"let" letdecl+=LetDecl ("," letdecl+=LetDecl)* blockOrBar=BlockOrBar	|//1./
 	Quant decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar				|//2./
 	unOp=UnOp expr=Expression												|//3./
 	INT																		|//9./
-	NegativeInteger															|//10./
+	NEGATIVE_INTEGER															|//10./
 	"none"																	|//11./
     "iden"																	|//12./
     "univ"																	|//13./
     "Int"																	|//14./
     "seq/Int"																|//15./
     "(" Expression ")"														|//16./
-    "@"? nameRef=Name														|//17./
+    "@"? nameRef=Name/*[ReferencesName]*/														|//17./
     Block																	|//18./
     "{" decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar "}"				;//19./
 
@@ -168,7 +171,7 @@ TerminalExpression returns Expression:
 	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
 */
 Decl:
-  (Private)? ("disj")? nameExpression+=PropertyName (Comma nameExpression+=PropertyName)* Colon ("disj")? exprDecl=Expression; 
+  (Private)? ("disj")? propertyName+=PropertyName (comma=Comma propertyName+=PropertyName)* colon=Colon ("disj")? exprDecl=Expression; 
   
 /*
 	letDecl ::= name "=" expr
@@ -212,7 +215,7 @@ ArrowOp:
 	block ::= "{" expr* "}"
 */
 Block:
-  LeftCurlyBracket (exp+=Expression)* RightCurlyBracket; 
+  leftC=LeftCurlyBracket (exp+=Expression)* rightC=RightCurlyBracket; 
 
 /*
 	blockOrBar ::= block
@@ -225,23 +228,45 @@ BlockOrBar:
 /*
 	name ::= ["this" | ID] ["/" ID]*
 */
-Name:
-	this="this"|name=ID|nameComplete=NameBis;
 
-Alias:
-	name=ID|nameComplete=NameBis;
-	  
+ModuleName :
+	"module" name=Name;
+	
+OpenName	:
+	"open" name=Name;
+	
+FactName	:
+	"fact" name=Name?;
+
 AssertionName :
-	this="this"|name=ID|nameComplete=NameBis;
+	"assert" name=Name?;
+	
+FunctionName	:
+	 name=Name;
 
 PredicateName :
-	this="this"|name=ID|nameComplete=NameBis;
+	 name=Name;
+			
+Alias:
+	name=NameAlias;
+
+EnumName	:
+	"enum" name=Name;
 	
-TypeName:
-	this="this"|name=ID|nameComplete=NameBis;
-	
+EnumPropertyName	:
+	 name=Name;
+	 	
+SignatureName :
+	name=Name  ;
+		
 PropertyName:
-	this="this"|name=ID|nameComplete=NameBis;
+	name=Name;
+
+NameAlias:
+	name=ID|name=NameBis;
+	
+Name:
+	"this"|ID|NameBis;
 
 NameBis:
  	("this"|ID) ("/" ID)+; 
@@ -249,33 +274,50 @@ NameBis:
 /*
 	ref ::= name | "univ" | "Int" | "seq/Int"
 */
+ReferencesName	:
+	FactName		|
+	FunctionName	|
+	EnumName		|
+	EnumPropertyName|
+	SignatureName	|
+	//PropertyName	|
+	PredicateName;
+	
 Ref:
-  name=[TypeName]|"univ"|"Int"|"seq/Int";
+  nameRef=[ReferencesName]|"univ"|"Int"|"seq/Int";//A VOIR
 
 LeftCurlyBracket:
-  "{";
+  leftCurlyBracket="{";
 
 RightCurlyBracket:
-  "}";
+  rightCurlyBracket="}";
 
 Private:
   "private";
+
 Dot:
-".";  
+	dot=".";
+  
 Comma :
-",";
+comma=",";
+
 Colon :
-":";
+	colon=":";
 LeftParenthesis:
-"(";
+	leftParenthesis="(";
+
 RightParenthesis:
-")";
+	rightParenthesis=")";
+	
 LeftSquareBracketKeyword:
-"[";
+	leftSquareBracketKeyword="[";
+
 RightSquareBracketKeyword:
-"]";
-terminal NegativeInteger:
+	rightSquareBracketKeyword="]";
+
+terminal NEGATIVE_INTEGER:
   "-" INT;
+
 terminal ML_COMMENT	:
 	('/*'->'*/' ) | ('--'->'\n') ;
 
