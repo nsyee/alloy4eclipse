@@ -87,11 +87,14 @@ CheckDecl returns CheckCommand:
 	scope ::=                                ["expect" [0|1]]	
 */
 Scope:
-	"for" INT 														   ("expect" ("0"|"1"))?	|
-	"for" INT "but" typescope+=Typescope ("," typescope+=Typescope)*   ("expect" ("0"|"1"))?	|
-	"for"           typescope+=Typescope ("," typescope+=Typescope)*   ("expect" ("0"|"1"))?	|
-																	   ("expect" ("0"|"1"))?	;	
-  
+	"for" INT 														   expect=Expectation?	|
+	"for" INT "but" typescope+=Typescope ("," typescope+=Typescope)*   expect=Expectation?	|
+	"for"           typescope+=Typescope ("," typescope+=Typescope)*   expect=Expectation?	|
+																	   expect=Expectation?	;	
+
+Expectation:
+    "expect" value=INT;
+      
 /*
 	typescope ::= ["exactly"] number [name|"int"|"seq"]
 */
