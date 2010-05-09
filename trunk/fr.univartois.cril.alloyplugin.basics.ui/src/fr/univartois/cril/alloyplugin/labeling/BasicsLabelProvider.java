@@ -11,6 +11,7 @@ import fr.univartois.cril.alloyplugin.basics.EnumDecl;
 import fr.univartois.cril.alloyplugin.basics.Fact;
 import fr.univartois.cril.alloyplugin.basics.Function;
 import fr.univartois.cril.alloyplugin.basics.Module;
+import fr.univartois.cril.alloyplugin.basics.Open;
 import fr.univartois.cril.alloyplugin.basics.Predicate;
 import fr.univartois.cril.alloyplugin.basics.RunCommand;
 import fr.univartois.cril.alloyplugin.basics.Signature;
@@ -21,28 +22,17 @@ import fr.univartois.cril.alloyplugin.basics.Specification;
  * http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
  */
 public class BasicsLabelProvider extends DefaultLabelProvider {
-	/*
-	 * 
-	 * //Labels and icons can be computed like this:
-	 * 
-	 * String text(MyModel ele) { return "my "+ele.getName(); }
-	 * 
-	 * String image(MyModel ele) { return "MyModel.gif"; }
-	 */
-	/*
-	 * String text(Module module) { return module.getName().getName(); }
-	 */
-	String text(Specification spec) {
-		// return spec.getModule().getModuleName().getName();
-		return spec.getModule().getModule().getName();
-	}
-
+	
 	String image(Specification spec) {
 		return "module.gif";
 	}
 
 	String text(Module module){
 		return module.getModule().getName();
+	}
+	
+	String text(Open open){
+		return open.getOpenName().getName();
 	}
 
 	String image(Module module) {
