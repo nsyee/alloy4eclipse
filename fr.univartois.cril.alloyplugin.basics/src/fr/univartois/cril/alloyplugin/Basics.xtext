@@ -124,7 +124,7 @@ SigQual:
 	sigExt ::= "in" ref ["+" ref]*
 */
 SigExt:
-  "extends" ref=Ref|"in" ref=Ref ("+" ref2+=Ref)*;
+  "extends" ref=ReferencesSig|"in" ref=ReferencesSig ("+" ref2+=ReferencesSig)*;
 /*
 	expr ::= "let" letDecl,+ blockOrBar						1./	
        | quant decl,+    blockOrBar							2./
@@ -155,20 +155,21 @@ Expression:
 						left=LeftSquareBracketKeyword (expr=Expression ("," expr=Expression)* )? right=RightSquareBracketKeyword									 //8./						
 						)*;
 TerminalExpression returns Expression:
-	"let" letdecl+=LetDecl ("," letdecl+=LetDecl)* blockOrBar=BlockOrBar	|//1./
-	Quant decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar				|//2./
-	unOp=UnOp expr=Expression												|//3./
-	INT																		|//9./
-	NEGATIVE_INTEGER															|//10./
-	"none"																	|//11./
-    "iden"																	|//12./
-    "univ"																	|//13./
-    "Int"																	|//14./
-    "seq/Int"																|//15./
-    "(" Expression ")"														|//16./
-    "@"? nameRef=Name/*[ReferencesName]*/														|//17./
-    Block																	|//18./
-    "{" decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar "}"				;//19./
+	"let" letdecl+=LetDecl ("," letdecl+=LetDecl)* blockOrBar=BlockOrBar				|//1./
+	Quant decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar							|//2./
+	unOp=UnOp expr=Expression															|//3./
+	CommonQuantUnOp (decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar|expr=Expression)|//2./ and 3./
+	INT																					|//9./
+	NEGATIVE_INTEGER																	|//10./
+	"none"																				|//11./
+    "iden"																				|//12./
+    "univ"																				|//13./
+    "Int"																				|//14./
+    "seq/Int"																			|//15./
+    "(" Expression ")"																	|//16./
+    "@"? nameRef=Name/*[ReferencesName]*/												|//17./
+    Block																				|//18./
+    "{" decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar "}"							;//19./
 
 /*
 	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
@@ -186,7 +187,7 @@ LetDecl:
 	quant ::= "all" | "no" | "some" | "lone" | "one" | "sum"
 */
 Quant	:
-	"all" | "no" | "some" | "lone" | "one" | "sum";
+	"all" | "sum";
 
 /*	
 	binOp ::= "||" | "or" | "&&" | "and" | "&" | "<=>" | "iff"| "=>" | "implies" | "+" | "-" | "++" | "<:" | ":>" | "." | "<<" | ">>" | ">>>"
@@ -200,7 +201,10 @@ BinOp	:
 */
 //ici
 UnOp	:
-	 "not" | "no" | "some" | "lone" | "one" | "set" | "seq" | op=("!" | "#" | "~" | "*" | "^");
+	 "not" | "set" | "seq" | op=("!" | "#" | "~" | "*" | "^");
+	 
+CommonQuantUnOp	:
+	"no" | "some" | "lone" | "one";
 
 /*
 	compareOp ::= "=" | "in" | "<" | ">" | "=<" | ">="
@@ -213,6 +217,7 @@ CompareOp	:
 */
 ArrowOp:
   ("some"|"one"|"lone"|"set")? s="->"; 
+  
    
 /*
 	block ::= "{" expr* "}"
@@ -285,7 +290,10 @@ ReferencesName	:
 	SignatureName	|
 	//PropertyName	|
 	PredicateName;
-	
+
+ReferencesSig	:
+  nameRef=[SignatureName]|"univ"|"Int"|"seq/Int";
+  	
 Ref:
   nameRef=[ReferencesName]|"univ"|"Int"|"seq/Int";//A VOIR
 
