@@ -15,6 +15,7 @@ import fr.univartois.cril.alloyplugin.basics.Open;
 import fr.univartois.cril.alloyplugin.basics.Predicate;
 import fr.univartois.cril.alloyplugin.basics.RunCommand;
 import fr.univartois.cril.alloyplugin.basics.Signature;
+import fr.univartois.cril.alloyplugin.basics.SignatureName;
 import fr.univartois.cril.alloyplugin.basics.Specification;
 
 /**
@@ -28,7 +29,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(Module module){
-		return module.getModule().getName();
+		return module.getModuleName().getName();
 	}
 	
 	String text(Open open){
@@ -40,7 +41,10 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(Signature sig) {
-		return sig.getSignatureName().get(0).getName();
+		String name = sig.getSignatureName().get(0).getName();
+		for(SignatureName n : sig.getSignatureName().subList(1, sig.getSignatureName().size()))
+			name+=", "+n.getName();
+		return name;
 	}
 
 	String image(Signature sig) {
@@ -80,7 +84,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(RunCommand run) {
-		return run.getRunName().getName().getName();
+		return run.getRunName().getName();
 	}
 
 	String image(RunCommand run) {
@@ -88,7 +92,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(CheckCommand check) {
-		return check.getCheckName().getName().getName();
+		return check.getCheckName().getName();
 	}
 
 	String image(CheckCommand check) {
