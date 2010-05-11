@@ -44,7 +44,7 @@ FactDecl returns Fact:
 	assertDecl ::= "assert" [name] block
 */
 AssertDecl returns Assertion:
-  assertonName=AssertionName block=Block	; 
+  assertionName=AssertionName block=Block	; 
   
 /*
 	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
@@ -66,19 +66,19 @@ PredDecl returns Predicate:
   Private? "pred" (ref=Ref dot=Dot)? predicateName=PredicateName (
   		leftS=LeftSquareBracketKeyword (decl+=Decl (comma=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
   		leftP=LeftParenthesis (decl+=Decl (comma=Comma decl+=Decl)*)? rightP=RightParenthesis
-  		)? b=Block	; 
+  		)? block=Block	; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
 RunDecl returns RunCommand:
-  (runName=Alias ":")? run="run" (name2=[PredicateName]|b=Block) scope=Scope	; 
+  (runName=Alias ":")? run="run" (name2=[PredicateName]|block=Block) scope=Scope	; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 */
 CheckDecl returns CheckCommand:
-  (checkName=Alias ":")? check="check" (name=[AssertionName]|b=Block) scope=Scope	; 
+  (checkName=Alias ":")? check="check" (name=[AssertionName]|block=Block) scope=Scope	; 
   
 /*
 	scope ::= "for" number                   ["expect" [0|1]]
@@ -99,7 +99,7 @@ Expectation:
 	typescope ::= ["exactly"] number [name|"int"|"seq"]
 */
 Typescope:
-  "exactly"? INT (n=[ReferencesName]|("int"|"seq"))	; //A VOIR
+  "exactly"? INT (name=[ReferencesName]|("int"|"seq"))	; //A VOIR
   
 /*
 	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
@@ -111,7 +111,7 @@ EnumDecl:
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */
 SigDecl returns Signature:
-  SigQual? "sig" signatureName+=SignatureName (comma=Comma signatureName+=SignatureName)* (sigExt=SigExt)? leftC=LeftCurlyBracket (decl+=Decl ("," decl+=Decl)*)? rightC=RightCurlyBracket (b=Block)?	; 
+  SigQual? "sig" signatureName+=SignatureName (comma=Comma signatureName+=SignatureName)* (sigExt=SigExt)? leftC=LeftCurlyBracket (decl+=Decl ("," decl+=Decl)*)? rightC=RightCurlyBracket (block=Block)?	; 
   
 /*
 	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
@@ -149,40 +149,40 @@ SigExt:
 	
 */
 Expression:
-	term=TerminalExpression (binOp=BinOp expr=Expression									|//4./
-						arrowOp=ArrowOp expr=Expression								|//5./
-						("!"|"not")? cmp=CompareOp expr=Expression				|//6./
-						("=>"|"implies") expr=Expression ("else" expr=Expression)?	|//7./
-						left=LeftSquareBracketKeyword (expr=Expression ("," expr=Expression)* )? right=RightSquareBracketKeyword									 //8./						
+	term=TerminalExpression (binOp=BinOp expr+=Expression									|//4./
+						arrowOp=ArrowOp expr+=Expression								|//5./
+						("!"|"not")? cmp=CompareOp expr+=Expression				|//6./
+						("=>"|"implies") expr+=Expression ("else" expr+=Expression)?	|//7./
+						left=LeftSquareBracketKeyword (expr+=Expression ("," expr+=Expression)* )? right=RightSquareBracketKeyword									 //8./						
 						)*	;
 TerminalExpression returns Expression:
-	let="let" letdecl+=LetDecl ("," letdecl+=LetDecl)* blockOrBar=BlockOrBar				|//1./
-	quant=Quant decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar							|//2./
-	unOp=UnOp expr=Expression															|//3./
-	common=CommonQuantUnOp (decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar|expr=Expression)|//2./ and 3./
-	INT																					|//9./
-	NEGATIVE_INTEGER																	|//10./
-	none="none"																				|//11./
-    iden="iden"																				|//12./
-    univ="univ"																				|//13./
-    int="Int"																				|//14./
-    seq="seq/Int"																			|//15./
-    parO="(" expR=Expression parF=")"																	|//16./
-    "@"? nameRef=Name/*[ReferencesName]*/												|//17./
-    Block																				|//18./
-    "{" decl+=Decl ("," decl+=Decl)* blockOrBar=BlockOrBar "}"							;//19./
+	let="let" letdecl+=LetDecl ("," letdecl+=LetDecl)* blockOrBar+=BlockOrBar							|//1./
+	quant=Quant decl+=Decl ("," decl+=Decl)* blockOrBar+=BlockOrBar										|//2./
+	unOp=UnOp expr+=Expression																			|//3./
+	common=CommonQuantUnOp (decl+=Decl ("," decl+=Decl)* blockOrBar+=BlockOrBar|expr+=Expression)		|//2./ and 3./
+	INT																									|//9./
+	NEGATIVE_INTEGER																					|//10./
+	none="none"																							|//11./
+    iden="iden"																							|//12./
+    univ="univ"																							|//13./
+    int="Int"																							|//14./
+    seq="seq/Int"																						|//15./
+    parO="(" expr+=Expression parF=")"																	|//16./
+    "@"? nameRef=Name/*[ReferencesName]*/																		|//17./
+    block+=Block																						|//18./
+    "{" decl+=Decl ("," decl+=Decl)* blockOrBar+=BlockOrBar "}"											;//19./
 
 /*
 	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
 */
 Decl:
-  (Private)? ("disj")? propertyName+=PropertyName (comma=Comma propertyName+=PropertyName)* colon=Colon ("disj")? exprDecl=Expression	; 
+  (Private)? ("disj")? propertyName+=PropertyName (comma=Comma propertyName+=PropertyName)* colon=Colon ("disj")? expr=Expression	; 
   
 /*
 	letDecl ::= name "=" expr
 */
 LetDecl:
-  nameExpression=PropertyName "=" exprLet=Expression	; 
+  nameExpression=PropertyName "=" expr=Expression	; 
   
 /*
 	quant ::= "all" | "no" | "some" | "lone" | "one" | "sum"
@@ -216,22 +216,22 @@ CompareOp :
 	arrowOp ::= ["some"|"one"|"lone"|"set"]? "->" ["some"|"one"|"lone"|"set"]? 
 */
 ArrowOp:
-  ("some"|"one"|"lone"|"set")? s="->"	; 
+  ("some"|"one"|"lone"|"set")? arrow="->"	; 
   
    
 /*
 	block ::= "{" expr* "}"
 */
 Block:
-  leftC=LeftCurlyBracket (exp+=Expression)* rightC=RightCurlyBracket	; 
+  leftC=LeftCurlyBracket (expr+=Expression)* rightC=RightCurlyBracket	; 
 
 /*
 	blockOrBar ::= block
 	blockOrBar ::= "|" expr
 */
 BlockOrBar:
-  Block				|
-  "|" Expression	; 
+  block=Block				|
+  "|" expr=Expression	; 
   
 /*
 	name ::= ["this" | ID] ["/" ID]*
@@ -291,12 +291,13 @@ ReferencesName	:
 	EnumName		|
 	EnumPropertyName|
 	SignatureName	|
-	//PropertyName	|
+	PropertyName	|
 	PredicateName	;
 
 ReferencesSig	:
   nameRef=[SignatureName]|"univ"|"Int"|"seq/Int"	;
-  	
+
+ 	
 Ref:
   nameRef=[ReferencesName]|"univ"|"Int"|"seq/Int"	;//A VOIR
 
