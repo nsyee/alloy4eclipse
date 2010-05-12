@@ -25,7 +25,7 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 		c.setAutoLinewrap(120);
 		c.setIndentationSpace("    ");
 		this.setFormattingCurlyBracket(c, f);
-		this.setFormattingAssertDecl(c, f);
+		//this.setFormattingAssertDecl(c, f);
 		this.setFormattingOpen(c, f);
 		this.setFormattingFactDecl(c, f);
 		this.setFormattingFunDecl(c, f);
@@ -63,10 +63,10 @@ public class BasicsFormatter extends AbstractDeclarativeFormatter {
 
 	}
 
-	private void setFormattingAssertDecl(FormattingConfig c,
+	/*private void setFormattingAssertDecl(FormattingConfig c,
 			BasicsGrammarAccess f) {
 		c.setLinewrap(2).before(f.getAssertDeclAccess().getAssertonNameAssignment_0());//ici
-	}
+	}*/
 
 	private void setFormattingFunDecl(FormattingConfig c, BasicsGrammarAccess f) {
 		c.setLinewrap(2).before(f.getFunDeclAccess().getFunKeyword_1());
