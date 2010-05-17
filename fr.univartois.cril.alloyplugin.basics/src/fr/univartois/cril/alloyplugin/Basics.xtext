@@ -111,7 +111,7 @@ EnumDecl:
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */
 SigDecl returns Signature:
-  SigQual? "sig" signatureName+=SignatureName (comma=Comma signatureName+=SignatureName)* (sigExt=SigExt)? leftC=LeftCurlyBracket (decl+=Decl ("," decl+=Decl)*)? rightC=RightCurlyBracket (block=Block)?	; 
+  SigQual? "sig" signatureName+=SignatureName (comma=Comma signatureName+=SignatureName)* (sigExt=SigExt)? leftC=LeftCurlyBracket (decl+=DeclSig ("," decl+=DeclSig)*)? rightC=RightCurlyBracket (block=Block)?	; 
   
 /*
 	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
@@ -168,7 +168,7 @@ TerminalExpression returns Expression:
     int="Int"																							|//14./
     seq="seq/Int"																						|//15./
     parO="(" expr+=Expression parF=")"																	|//16./
-    "@"? nameRef=[ReferencesName]																	|//17./
+    "@"? (nameRef=[ReferencesName]|"this")																	|//17./
     block+=Block																						|//18./
     "{" decl+=Decl ("," decl+=Decl)* blockOrBar+=BlockOrBar "}"											;//19./
 
@@ -177,6 +177,9 @@ TerminalExpression returns Expression:
 */
 Decl:
   (Private)? ("disj")? propertyName+=PropertyName (comma=Comma propertyName+=PropertyName)* colon=Colon ("disj")? expr=Expression	; 
+
+DeclSig:
+  (Private)? ("disj")? propertyName+=VariableName (comma=Comma propertyName+=VariableName)* colon=Colon ("disj")? expr=Expression	; 
   
 /*
 	letDecl ::= name "=" expr
@@ -269,6 +272,9 @@ SignatureName :
 		
 PropertyName:
 	name=Name;
+	
+VariableName:
+	name=Name;
 
 NameAlias:
 	ID ("/" ID)*;
@@ -292,6 +298,7 @@ ReferencesName	:
 	EnumPropertyName|
 	SignatureName	|
 	PropertyName	|
+	VariableName	|
 	PredicateName	;
 
 ReferencesSig	:
