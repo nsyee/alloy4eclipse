@@ -17,214 +17,70 @@ import fr.univartois.cril.alloyplugin.basics.BasicsPackage;
 import fr.univartois.cril.alloyplugin.basics.CheckCommand;
 import fr.univartois.cril.alloyplugin.basics.Expression;
 import fr.univartois.cril.alloyplugin.basics.Ref;
+import fr.univartois.cril.alloyplugin.basics.ReferencesName;
 import fr.univartois.cril.alloyplugin.basics.ReferencesSig;
 import fr.univartois.cril.alloyplugin.basics.RunCommand;
 import fr.univartois.cril.alloyplugin.basics.Typescope;
 
-public class SemanticHighlightingCalculator implements
-		ISemanticHighlightingCalculator {
-	static int i = 0;
+public class SemanticHighlightingCalculator implements ISemanticHighlightingCalculator {
+	
+	public void provideHighlightingFor(XtextResource resource,IHighlightedPositionAcceptor acceptor) {
+		
+		Iterator<EObject> iter = EcoreUtil.getAllContents(resource, true);
+		//getUsedSimpleTypes(resource);
+		while (iter.hasNext()) {
+			EObject current = iter.next();
+			if (current instanceof Expression) {
+				treatment(current, ((Expression) current).getNameRef(),
+						acceptor, BasicsPackage.Literals.EXPRESSION__NAME_REF
+								.getName());
+			}
+			if (current instanceof Ref) {
+				treatment(current, ((Ref) current).getNameRef(), acceptor,
+						BasicsPackage.Literals.REF__NAME_REF.getName());
+			}
 
-	// Dummy-Highlighting
-	// of each block of 10 characters the last 5 are to be highlighted
-	// this is not semantic but very briefly illustrates what kind of
-	// information is processed
-	public void provideHighlightingFor(XtextResource resource,
-			IHighlightedPositionAcceptor acceptor) {
+			if (current instanceof CheckCommand) {
+				simpleTreatment(current, acceptor,
+						BasicsPackage.Literals.CHECK_COMMAND__NAME.getName(),
+						SemanticHighlightingConfiguration.assertionName);
+			}
+			if (current instanceof ReferencesSig) {
+				simpleTreatment(current, acceptor,
+						BasicsPackage.Literals.REFERENCES_SIG__NAME_REF
+								.getName(),
+						SemanticHighlightingConfiguration.signatureName);
+			}
+			if (current instanceof Typescope) {
+				treatment(current, ((Typescope) current).getName(), acceptor,
+						BasicsPackage.Literals.TYPESCOPE__NAME.getName());
+			}
+			if (current instanceof RunCommand) {
+				simpleTreatment(current, acceptor,
+						BasicsPackage.Literals.RUN_COMMAND__NAME2.getName(),
+						SemanticHighlightingConfiguration.predicateName);
+			}
+
+		}
+	}
+
+	/*private Collection<String> getUsedSimpleTypes(XtextResource resource) {
+		Collection<String> result = new HashSet<String>();
 		Iterator<EObject> iter = EcoreUtil.getAllContents(resource, true);
 		while (iter.hasNext()) {
 			EObject current = iter.next();
-
 			if (current instanceof Expression) {
-				if (((Expression) current).getNameRef() != null) {
-					if (((Expression) current).getNameRef().eContainingFeature() != null) {
-						if (((Expression) current).getNameRef().eContainingFeature().getName().equals("signatureName")) {
-							System.out.println(((Expression) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.EXPRESSION__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.signatureName,acceptor);
-						}
-						if (((Expression) current).getNameRef().eContainingFeature().getName().equals("predicateName")) {
-							System.out.println(((Expression) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.EXPRESSION__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.predicateName,acceptor);
-						}
-						if (((Expression) current).getNameRef().eContainingFeature().getName().equals("factName")) {
-							System.out.println(((Expression) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.EXPRESSION__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.factName,acceptor);
-						}
-						if (((Expression) current).getNameRef().eContainingFeature().getName().equals("functionName")) {
-							System.out.println(((Expression) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.EXPRESSION__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.functionName,acceptor);
-						}
-								
-						if (((Expression) current).getNameRef().eContainingFeature().getName().equals("propertyName")) {
-							System.out.println(((Expression) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.EXPRESSION__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.proprityName,acceptor);
-						}
-						if (((Expression) current).getNameRef().eContainingFeature().getName().equals("enumName")) {
-							System.out.println(((Expression) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.EXPRESSION__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.enumName,acceptor);
-						}
-						if (((Expression) current).getNameRef().eContainingFeature().getName().equals("enumPropertyName")) {
-							System.out.println(((Expression) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.EXPRESSION__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.enumPropertyName,acceptor);
-						}
-					}
-					else{
-						System.out.println("RETURN NULL");
-						AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.EXPRESSION__NAME_REF.getName());
-						highlightNode(node,SemanticHighlightingConfiguration.referenceName,acceptor);
-					}
+				if(((Expression) current).getNameRef()!=null){
+					
+				    if(((Expression) current).getNameRef().getName()!=null){
+				    	System.out.println( ((Expression) current).getNameRef().getName() + " " + i++);	
+					    result.add(((Expression) current).getNameRef().getName());
+				    }
 				}
-
 			}
-			if (current instanceof Ref) {
-				// System.out.println(BasicsPackage.Literals.REF__NAME_REF.getName());
-				
-				if (((Ref) current).getNameRef() != null) {
-					if (((Ref) current).getNameRef().eContainingFeature() != null) {
-						if (((Ref) current).getNameRef().eContainingFeature().getName().equals("signatureName")) {
-							System.out.println(((Ref) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.REF__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.signatureName,acceptor);
-						}
-						if (((Ref) current).getNameRef().eContainingFeature().getName().equals("predicateName")) {
-							System.out.println(((Ref) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.REF__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.predicateName,acceptor);
-						}
-						if (((Ref) current).getNameRef().eContainingFeature().getName().equals("factName")) {
-							System.out.println(((Ref) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.REF__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.factName,acceptor);
-						}
-						if (((Ref) current).getNameRef().eContainingFeature().getName().equals("functionName")) {
-							System.out.println(((Ref) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.REF__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.functionName,acceptor);
-						}
-								
-						if (((Ref) current).getNameRef().eContainingFeature().getName().equals("propertyName")) {
-							System.out.println(((Ref) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.REF__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.proprityName,acceptor);
-						}
-						if (((Ref) current).getNameRef().eContainingFeature().getName().equals("enumName")) {
-							System.out.println(((Ref) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.REF__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.enumName,acceptor);
-						}
-						if (((Ref) current).getNameRef().eContainingFeature().getName().equals("enumPropertyName")) {
-							System.out.println(((Ref) current).getNameRef().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.REF__NAME_REF.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.enumPropertyName,acceptor);
-						}
-					}
-					else{
-						System.out.println("RETURN NULL");
-						AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.REF__NAME_REF.getName());
-						highlightNode(node,SemanticHighlightingConfiguration.referenceName,acceptor);
-					}
-				}
-
-
-			}
-			if (current instanceof CheckCommand) {
-				// System.out.println(BasicsPackage.Literals.CHECK_COMMAND__NAME.getName());
-				AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.CHECK_COMMAND__NAME.getName());
-				highlightNode(node,SemanticHighlightingConfiguration.assertionName,acceptor);
-			}
-			if (current instanceof ReferencesSig) {
-				// System.out.println(BasicsPackage.Literals.REFERENCES_SIG__NAME_REF.getName());
-				AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.REFERENCES_SIG__NAME_REF.getName());
-				highlightNode(node,SemanticHighlightingConfiguration.signatureName,acceptor);
-			}
-			if (current instanceof Typescope) {
-				if (((Typescope) current).getName() != null) {
-					if (((Typescope) current).getName().eContainingFeature() != null) {
-						if (((Typescope) current).getName().eContainingFeature().getName().equals("signatureName")) {
-							System.out.println(((Typescope) current).getName().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.TYPESCOPE__NAME.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.signatureName,acceptor);
-						}
-						if (((Typescope) current).getName().eContainingFeature().getName().equals("predicateName")) {
-							System.out.println(((Typescope) current).getName().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.TYPESCOPE__NAME.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.predicateName,acceptor);
-						}
-						if (((Typescope) current).getName().eContainingFeature().getName().equals("factName")) {
-							System.out.println(((Typescope) current).getName().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.TYPESCOPE__NAME.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.factName,acceptor);
-						}
-						if (((Typescope) current).getName().eContainingFeature().getName().equals("functionName")) {
-							System.out.println(((Typescope) current).getName().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.TYPESCOPE__NAME.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.functionName,acceptor);
-						}
-								
-						if (((Typescope) current).getName().eContainingFeature().getName().equals("propertyName")) {
-							System.out.println(((Typescope) current).getName().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.TYPESCOPE__NAME.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.proprityName,acceptor);
-						}
-						if (((Typescope) current).getName().eContainingFeature().getName().equals("enumName")) {
-							System.out.println(((Typescope) current).getName().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.TYPESCOPE__NAME.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.enumName,acceptor);
-						}
-						if (((Typescope) current).getName().eContainingFeature().getName().equals("enumPropertyName")) {
-							System.out.println(((Typescope) current).getName().eContainingFeature().getName());
-							AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.TYPESCOPE__NAME.getName());
-							highlightNode(node,SemanticHighlightingConfiguration.enumPropertyName,acceptor);
-						}
-					}
-					else{
-						System.out.println("RETURN NULL");
-						AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.TYPESCOPE__NAME.getName());
-						highlightNode(node,SemanticHighlightingConfiguration.referenceName,acceptor);
-					}
-				}
-
-
-				// System.out.println(BasicsPackage.Literals.TYPESCOPE__NAME.getName());
-			}
-			if (current instanceof RunCommand) {
-				// System.out.println(BasicsPackage.Literals.RUN_COMMAND__NAME2.getName());
-				AbstractNode node = this.getFirstFeatureNode(current,BasicsPackage.Literals.RUN_COMMAND__NAME2.getName());
-				highlightNode(node,SemanticHighlightingConfiguration.predicateName,acceptor);
-			}
-			/*
-			 * if (current instanceof ReferencesName) {
-			 * System.out.println(BasicsPackage
-			 * .Literals.REFERENCES_NAME.getName()); AbstractNode node =
-			 * this.getFirstFeatureNode(current,
-			 * BasicsPackage.Literals.REFERENCES_NAME.getName());
-			 * highlightNode(node,
-			 * SemanticHighlightingConfiguration.referenceName,acceptor); }
-			 */
-			/*
-			 * if (current instanceof NameBis) { if (current.eContainer()
-			 * instanceof SignatureNameImpl) { //System.out.println("3iw");
-			 * 
-			 * AbstractNode node = this.getFirstFeatureNode( (NameBis) current,
-			 * BasicsPackage.Literals.NAME_BIS__DE.getName());
-			 * highlightNode(node,
-			 * SemanticHighlightingConfiguration.signatureName, acceptor);
-			 * 
-			 * }
-			 * 
-			 * }
-			 */
 		}
-
-	}
-
+		return result;
+	}*/
 	private void highlightNode(AbstractNode node, String id,
 			IHighlightedPositionAcceptor acceptor) {
 		if (node == null)
@@ -234,7 +90,8 @@ public class SemanticHighlightingCalculator implements
 		} else {
 			for (LeafNode leaf : node.getLeafNodes()) {
 				if (!leaf.isHidden()) {
-					acceptor.addPosition(leaf.getOffset(), leaf.getLength(), id);
+					acceptor
+							.addPosition(leaf.getOffset(), leaf.getLength(), id);
 				}
 			}
 		}
@@ -257,4 +114,81 @@ public class SemanticHighlightingCalculator implements
 		return null;
 	}
 
+	private void simpleTreatment(EObject current,
+			IHighlightedPositionAcceptor acceptor, String string, String style) {
+		AbstractNode node = this.getFirstFeatureNode(current, string);
+		highlightNode(node, style, acceptor);
+	}
+
+	private void treatment(EObject current, ReferencesName refname,
+			IHighlightedPositionAcceptor acceptor, String string) {
+		if (refname != null) {
+			if (refname.eContainingFeature() != null) {
+				if (refname.eContainingFeature().getName().equals(
+						"signatureName")) {
+					AbstractNode node = this.getFirstFeatureNode(current,
+							string);
+					highlightNode(node,
+							SemanticHighlightingConfiguration.signatureName,
+							acceptor);
+				}
+				if (refname.eContainingFeature().getName().equals(
+						"predicateName")) {
+					AbstractNode node = this.getFirstFeatureNode(current,
+							string);
+					highlightNode(node,
+							SemanticHighlightingConfiguration.predicateName,
+							acceptor);
+				}
+				if (refname.eContainingFeature().getName().equals("factName")) {
+					AbstractNode node = this.getFirstFeatureNode(current,
+							string);
+					highlightNode(node,
+							SemanticHighlightingConfiguration.factName,
+							acceptor);
+				}
+				if (refname.eContainingFeature().getName().equals(
+						"functionName")) {
+					AbstractNode node = this.getFirstFeatureNode(current,
+							string);
+					highlightNode(node,
+							SemanticHighlightingConfiguration.functionName,
+							acceptor);
+				}
+
+				if (refname.eContainingFeature().getName().equals(
+						"propertyName")) {
+					AbstractNode node = this.getFirstFeatureNode(current,
+							string);
+					highlightNode(node,
+							SemanticHighlightingConfiguration.proprityName,
+							acceptor);
+				}
+				if (refname.eContainingFeature().getName().equals("enumName")) {
+					AbstractNode node = this.getFirstFeatureNode(current,
+							string);
+					highlightNode(node,
+							SemanticHighlightingConfiguration.enumName,
+							acceptor);
+				}
+				if (refname.eContainingFeature().getName().equals(
+						"enumPropertyName")) {
+					AbstractNode node = this.getFirstFeatureNode(current,
+							string);
+					highlightNode(node,
+							SemanticHighlightingConfiguration.enumPropertyName,
+							acceptor);
+				}
+			} else {
+//				System.out.println("{");
+//				System.out.println("RETURN NULL");
+//				System.out.println(current.eContainer());
+//				System.out.println("}");
+				AbstractNode node = this.getFirstFeatureNode(current, string);
+				highlightNode(node,
+						SemanticHighlightingConfiguration.referenceName,
+						acceptor);
+			}
+		}
+	}
 }
