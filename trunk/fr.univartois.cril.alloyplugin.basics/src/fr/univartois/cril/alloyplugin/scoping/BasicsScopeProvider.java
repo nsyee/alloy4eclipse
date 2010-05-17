@@ -3,7 +3,25 @@
  */
 package fr.univartois.cril.alloyplugin.scoping;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.IScopedElement;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.scoping.impl.ScopedElement;
+import org.eclipse.xtext.scoping.impl.SimpleScope;
+
+import fr.univartois.cril.alloyplugin.basics.Block;
+import fr.univartois.cril.alloyplugin.basics.Decl;
+import fr.univartois.cril.alloyplugin.basics.Expectation;
+import fr.univartois.cril.alloyplugin.basics.Expression;
+import fr.univartois.cril.alloyplugin.basics.Fact;
+import fr.univartois.cril.alloyplugin.basics.Function;
+import fr.univartois.cril.alloyplugin.basics.PropertyName;
+import fr.univartois.cril.alloyplugin.basics.Scope;
 
 /**
  * This class contains custom scoping description.
@@ -13,5 +31,44 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  *
  */
 public class BasicsScopeProvider extends AbstractDeclarativeScopeProvider {
+	
+	
+	public IScope scope_Expression_nameRef(Fact context,EReference reference){
+		IScope scope = super.getScope(context, reference);
+		Block block ;
+		List<IScopedElement> newScope=new ArrayList<IScopedElement>();
+		for(IScopedElement element : scope.getContents())
+			newScope.add(element);
+		block = context.getBlock();
+		if(block != null){
+			for(Expression expression : block.getExpr()){
+				if(expression == null) continue;
+				
+				for(Decl decl : expression.getDecl()){
+					if(decl == null) continue;
+					System.out.println("pr");
+					for(PropertyName property : decl.getPropertyName()){
+						System.out.println(property.getName());
+					}
+				}
+			}
+		}
+		return new SimpleScope(newScope);
+	}
+	
+	public IScope scope_Expression_nameRef(Function context,EReference reference){
+		IScope scope = super.getScope(context, reference);
+		List<IScopedElement> newScope=new ArrayList<IScopedElement>();
+		for(IScopedElement element : scope.getContents())
+			newScope.add(element);
+		for(Decl decl : context.getDecl()){
+			if(decl == null) continue;
+			for(PropertyName propertyName : decl.getPropertyName()){
+				if(propertyName == null) continue;
+				newScope.add(ScopedElement.create(propertyName.getName(), null));
+			}
+		}
+		return new SimpleScope(newScope);
+	}
 
 }
