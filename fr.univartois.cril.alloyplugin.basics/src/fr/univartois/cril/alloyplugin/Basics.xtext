@@ -159,7 +159,7 @@ TerminalExpression returns Expression:
 	let="let" letdecl+=LetDecl ("," letdecl+=LetDecl)* blockOrBar+=BlockOrBar							|//1./
 	quant=Quant decl+=Decl ("," decl+=Decl)* blockOrBar+=BlockOrBar										|//2./
 	unOp=UnOp expr+=Expression																			|//3./
-	common=CommonQuantUnOp (decl+=Decl ("," decl+=Decl)* blockOrBar+=BlockOrBar|expr+=Expression)		|//2./ and 3./
+	common+=CommonQuantUnOp (decl+=Decl ("," decl+=Decl)* blockOrBar+=BlockOrBar|expr+=Expression)		|//2./ and 3./
 	INT																									|//9./
 	NEGATIVE_INTEGER																					|//10./
 	none="none"																							|//11./
@@ -226,7 +226,7 @@ ArrowOp:
 	block ::= "{" expr* "}"
 */
 Block:
-  leftC=LeftCurlyBracket (expr+=Expression)* rightC=RightCurlyBracket	; 
+  leftC=LeftCurlyBracket (exprB+=Expression)* rightC=RightCurlyBracket	; 
 
 /*
 	blockOrBar ::= block
