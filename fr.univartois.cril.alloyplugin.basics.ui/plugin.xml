@@ -110,8 +110,62 @@
 			type="als">
 		</parser>
 	</extension>
+	<!--ici
+	<extension point="org.eclipse.ui.commands">
+            <command
+               id="fr.univartois.cril.alloyplugin.basics.ui.editor.outline.SampleOutlineCommand"
+               name="Sample Command"
+               description="Just a sample command">
+            </command>
+         </extension>
+         
+         <extension
+  point="org.eclipse.ui.handlers">
+  <handler
+     class="fr.univartois.cril.alloyplugin.basics.ui.editor.outline.SampleOutlineNodeHandler"
+     commandId="fr.univartois.cril.alloyplugin.basics.ui.editor.outline.SampleOutlineCommand">
+  </handler>
+</extension>
 
+<extension
+  point="org.eclipse.ui.menus">
+  <menuContribution
+     locationURI="popup:org.eclipse.xtext.ui.common.outline?after=additions">
+     <command
+         commandId="fr.univartois.cril.alloyplugin.basics.ui.editor.outline.SampleOutlineCommand"
+         label="Sample action registered for Attributes">
+         <visibleWhen checkEnabled="false">
+           <iterate>
+              <adapt type="fr.univartois.cril.alloyplugin.basics.RunCommand" />
+           </iterate>
+         </visibleWhen>
+     </command>
+  </menuContribution>
+</extension>
+-->
 
+<extension-point id="fr.univartois.cril.alloyplugin.editorlistener" name="editorlistener"/>
+<extension-point id="fr.univartois.cril.alloyplugin.projectbuilderscontribution" name="Project nature contributions"/>
+<extension
+         point="org.eclipse.ui.editors">
+     <editor
+            class="fr.univartois.cril.alloyplugin.editor.ALSEditor"
+            icon="icons/AlloyFile.gif"
+            default="true"
+            name="Alloy editor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            id="fr.univartois.cril.alloyplugin.editor.ALSEditor"
+            extensions="als"/>  
+      <editor
+            class="fr.univartois.cril.alloyplugin.editor.MultiPageEditor"
+            contributorClass="fr.univartois.cril.alloyplugin.editor.MultiPageEditorContributor"
+            default="false"
+            extensions="xml"
+            icon="icons/graph.gif"
+            id="fr.univartois.cril.alloyplugin.editors.MultiPageEditor"
+            matchingStrategy="fr.univartois.cril.alloyplugin.editor.AlloyXMLEditorMatchingStrategy"
+            name="Alloy XML answer viewer"/>
+</extension>
 
 
 </plugin>
