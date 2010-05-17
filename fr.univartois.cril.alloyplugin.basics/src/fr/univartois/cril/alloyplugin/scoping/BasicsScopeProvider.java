@@ -37,13 +37,12 @@ public class BasicsScopeProvider extends AbstractDeclarativeScopeProvider {
 		IScope scope = super.getScope(context, reference);
 		Block block ;
 		List<IScopedElement> newScope=new ArrayList<IScopedElement>();
-		for(IScopedElement element : scope.getContents())
-			newScope.add(element);
 		block = context.getBlock();
 		if(block != null){
-			for(Expression expression : block.getExpr()){
+			//System.out.println(block.getExprB().size());
+			for(Expression expression : block.getExprB()){
 				if(expression == null) continue;
-				
+				//System.out.println(expression.getCommon());
 				for(Decl decl : expression.getDecl()){
 					if(decl == null) continue;
 					System.out.println("pr");
@@ -53,22 +52,20 @@ public class BasicsScopeProvider extends AbstractDeclarativeScopeProvider {
 				}
 			}
 		}
-		return new SimpleScope(newScope);
+		return new SimpleScope(scope,newScope);
 	}
 	
 	public IScope scope_Expression_nameRef(Function context,EReference reference){
 		IScope scope = super.getScope(context, reference);
 		List<IScopedElement> newScope=new ArrayList<IScopedElement>();
-		for(IScopedElement element : scope.getContents())
-			newScope.add(element);
 		for(Decl decl : context.getDecl()){
 			if(decl == null) continue;
 			for(PropertyName propertyName : decl.getPropertyName()){
 				if(propertyName == null) continue;
-				newScope.add(ScopedElement.create(propertyName.getName(), null));
+				newScope.add(ScopedElement.create(propertyName.getName(), propertyName));
 			}
 		}
-		return new SimpleScope(newScope);
+		return new SimpleScope(scope, newScope);
 	}
 
 }
