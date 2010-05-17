@@ -168,7 +168,7 @@ TerminalExpression returns Expression:
     int="Int"																							|//14./
     seq="seq/Int"																						|//15./
     parO="(" expr+=Expression parF=")"																	|//16./
-    "@"? nameRef=Name/*[ReferencesName]*/																		|//17./
+    "@"? nameRef=[ReferencesName]																	|//17./
     block+=Block																						|//18./
     "{" decl+=Decl ("," decl+=Decl)* blockOrBar+=BlockOrBar "}"											;//19./
 
