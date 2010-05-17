@@ -18,7 +18,9 @@ public class SemanticHighlightingConfiguration implements
 	public final static String functionName = "functionName";
 	public final static String enumName = "enumName";
 	public final static String enumPropertyName = "enumPropertyName";
-	
+	public final static String opName = "opName";
+	public final static String quantifier="quantifier";
+		
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		acceptor.acceptDefaultHighlighting(signatureName, "Signature name", signatureNameStyle());
 		acceptor.acceptDefaultHighlighting(proprityName, "Proprity name", proprityNameStyle());
@@ -29,6 +31,16 @@ public class SemanticHighlightingConfiguration implements
 		acceptor.acceptDefaultHighlighting(functionName, "Function Name", functionNameStyle());
 		acceptor.acceptDefaultHighlighting(enumName, "Enum Name", enumNameStyle());
 		acceptor.acceptDefaultHighlighting(enumPropertyName, "Enum Property Name", enumPropertyNameStyle());
+		acceptor.acceptDefaultHighlighting(opName, "Operation Name", opNameStyle());
+		acceptor.acceptDefaultHighlighting(quantifier, "Quantifier", quantifierStyle());
+	}
+	public TextStyle quantifierStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(85, 107, 47));
+		
+		textStyle.setStyle(SWT.BOLD);
+		return textStyle; 
 	}
 	public TextStyle assertionNameStyle() {
 		TextStyle textStyle = new TextStyle();
@@ -90,6 +102,14 @@ public class SemanticHighlightingConfiguration implements
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(24, 22, 13));
 		textStyle.setStyle(SWT.ITALIC);
+		return textStyle;
+	}
+	public TextStyle opNameStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setColor(new RGB(105, 105, 105));
+		textStyle.setStyle(SWT.ITALIC);
+		textStyle.setStyle(SWT.BOLD);
 		return textStyle;
 	}
 }
