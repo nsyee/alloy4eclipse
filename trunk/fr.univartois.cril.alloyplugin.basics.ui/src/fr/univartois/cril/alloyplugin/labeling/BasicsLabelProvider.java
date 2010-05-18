@@ -60,7 +60,7 @@ public class BasicsLabelProvider extends DefaultLabelProvider {
 	}
 
 	String text(Assertion assertD) {
-		return assertD.getAssertonName().getName();
+		return assertD.getAssertionName().getName();
 	}
 
 	String image(Assertion assertD) {
