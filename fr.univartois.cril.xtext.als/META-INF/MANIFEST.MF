@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.univartois.cril.xtext.als
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0
+Bundle-SymbolicName: fr.univartois.cril.xtext.als; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.generator;resolution:=optional,
+ de.itemis.xtext.antlr;resolution:=optional,
+ org.apache.commons.logging;resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ com.ibm.icu;resolution:=optional,
+ org.eclipse.xtext.xtend;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: fr.univartois.cril.xtext,
+ fr.univartois.cril.xtext.services,
+ fr.univartois.cril.xtext.als,
+ fr.univartois.cril.xtext.als.impl,
+ fr.univartois.cril.xtext.als.util,
+ fr.univartois.cril.xtext.parseTreeConstruction,
+ fr.univartois.cril.xtext.parser.antlr,
+ fr.univartois.cril.xtext.parser.antlr.internal,
+ fr.univartois.cril.xtext.validation
