@@ -144,7 +144,7 @@
 </extension>
 -->
 
-<extension-point id="fr.univartois.cril.alloyplugin.editorlistener" name="editorlistener"/>
+<!--<extension-point id="fr.univartois.cril.alloyplugin.editorlistener" name="editorlistener"/>
 <extension-point id="fr.univartois.cril.alloyplugin.projectbuilderscontribution" name="Project nature contributions"/>
 <extension
          point="org.eclipse.ui.editors">
@@ -165,7 +165,7 @@
             id="fr.univartois.cril.alloyplugin.editors.MultiPageEditor"
             matchingStrategy="fr.univartois.cril.alloyplugin.editor.AlloyXMLEditorMatchingStrategy"
             name="Alloy XML answer viewer"/>
-</extension>
+</extension>-->
 
 
 </plugin>
