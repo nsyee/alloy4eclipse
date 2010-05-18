@@ -6,7 +6,6 @@ package fr.univartois.cril.alloyplugin;
 import org.eclipse.xtext.ui.common.editor.outline.actions.IContentOutlineNodeAdapterFactory;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingConfiguration;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.DefaultAntlrTokenToAttributeIdMapper;
 
 import fr.univartois.cril.alloyplugin.outline.BasicsOutlineNodeAdapterFactory;
@@ -24,11 +23,11 @@ public class BasicsUiModule extends
 		return SemanticHighlightingConfiguration.class;
 	}
 
-//	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
-//		return DefaultAntlrTokenToAttributeIdMapper.class;
-//	}
-//	
-//	public Class<? extends IContentOutlineNodeAdapterFactory> bindIContentOutlineAdapterFactory() {
-//		return BasicsOutlineNodeAdapterFactory.class;
-//	}
+	public Class<? extends DefaultAntlrTokenToAttributeIdMapper> bindDefaultAntlrTokenToAttributeIdMapper() {
+		return TokenToIdMapper.class;
+	}
+	
+	public Class<? extends IContentOutlineNodeAdapterFactory> bindIContentOutlineAdapterFactory() {
+		return BasicsOutlineNodeAdapterFactory.class;
+	}
 }
