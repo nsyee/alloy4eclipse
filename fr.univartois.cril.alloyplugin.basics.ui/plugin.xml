@@ -152,5 +152,15 @@
          id="fr.univartois.cril.alloyplugin.alloyperspective"
          name="Alloy"/>
 </extension>
+<extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+       <image
+            icon="icons/AlloyProject2.gif"
+            id="fr.univartois.cril.alloyplugin.image"
+            natureId="fr.univartois.cril.alloyplugin.AlloyProjectNature"/>
+ </extension>
+   
+
+
 
 </plugin>
