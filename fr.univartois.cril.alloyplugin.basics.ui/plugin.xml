@@ -144,6 +144,13 @@
   </menuContribution>
 </extension>
 -->
-
+<extension
+      point="org.eclipse.ui.perspectives">
+   <perspective
+         class="fr.univartois.cril.alloyplugin.ui.PerspectiveFactory"
+         icon="icons/AlloyProject.gif"
+         id="fr.univartois.cril.alloyplugin.alloyperspective"
+         name="Alloy"/>
+</extension>
 
 </plugin>
