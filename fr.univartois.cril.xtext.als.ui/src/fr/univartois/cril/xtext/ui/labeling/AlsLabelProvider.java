@@ -8,6 +8,19 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
 import com.google.inject.Inject;
 
+import fr.univartois.cril.xtext.als.Assertion;
+import fr.univartois.cril.xtext.als.CheckCommand;
+import fr.univartois.cril.xtext.als.EnumDecl;
+import fr.univartois.cril.xtext.als.Fact;
+import fr.univartois.cril.xtext.als.Function;
+import fr.univartois.cril.xtext.als.Module;
+import fr.univartois.cril.xtext.als.Open;
+import fr.univartois.cril.xtext.als.Predicate;
+import fr.univartois.cril.xtext.als.RunCommand;
+import fr.univartois.cril.xtext.als.Signature;
+import fr.univartois.cril.xtext.als.SignatureName;
+import fr.univartois.cril.xtext.als.Specification;
+
 /**
  * Provides labels for a EObjects.
  * 
@@ -31,4 +44,87 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
       return "MyModel.gif";
     }
 */
+	
+	String image(Specification spec) {
+		return "module.gif";
+	}
+
+	String text(Module module){
+		return module.getModuleName().getName();
+	}
+	
+	String text(Open open){
+		return open.getOpenName().getName();
+	}
+
+	String image(Module module) {
+		return "module.gif";
+	}
+
+	String text(Signature sig) {
+		String name = sig.getSignatureName().get(0).getName();
+		for(SignatureName n : sig.getSignatureName().subList(1, sig.getSignatureName().size()))
+			name+=", "+n.getName();
+		return name;
+	}
+
+	String image(Signature sig) {
+		return "sig.gif";
+	}
+
+	String text(Fact fact){
+		return fact.getFactName().getName();
+	}
+
+	String image(Fact fact) {
+		return "fact.gif";
+	}
+
+	String text(Assertion assertD) {
+		return assertD.getAssertionName().getName();
+	}
+
+	String image(Assertion assertD) {
+		return "assert.gif";
+	}
+
+	String text(Function fun) {
+		return fun.getFunctionName().getName();
+	}
+
+	String image(Function fun) {
+		return "function.gif";
+	}
+
+	String text(Predicate pred) {
+		return pred.getPredicateName().getName();
+	}
+
+	String image(Predicate fun) {
+		return "predicate.gif";
+	}
+
+	String text(RunCommand run) {
+		return run.getRunName().getName();
+	}
+
+	String image(RunCommand run) {
+		return "run.gif";
+	}
+
+	String text(CheckCommand check) {
+		return check.getCheckName().getName();
+	}
+
+	String image(CheckCommand check) {
+		return "check.gif";
+	}
+
+	String text(EnumDecl enumD) {
+		return enumD.getEnumName().getName();
+	}
+
+	String image(EnumDecl enumD) {
+		return "sig.gif";
+	}
 }
