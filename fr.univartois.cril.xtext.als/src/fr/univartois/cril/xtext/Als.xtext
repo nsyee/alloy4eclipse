@@ -149,7 +149,7 @@ SigExt:
 	
 */
 Expression:
-	term=TerminalExpression (binOp+=BinOp expr+=Expression									|//4./
+	TerminalExpression (binOp+=BinOp expr+=Expression									|//4./
 						arrowOp+=ArrowOp expr+=Expression								|//5./
 						("!"|"not")? cmp+=CompareOp expr+=Expression				|//6./
 						("=>"|"implies") expr+=Expression ("else" expr+=Expression)?	|//7./
