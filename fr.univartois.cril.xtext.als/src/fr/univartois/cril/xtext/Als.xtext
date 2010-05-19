@@ -278,15 +278,9 @@ VariableName:
 
 NameAlias:
 	ID ("/" ID)*;
-	//id=ID|name=NameBis;
 	
 Name:
-	NameBis	;
-	//this="this"|id=ID|name=NameBis	;
-
-NameBis :
-	("this"|ID) ("/" ID)*;
- 	//mainName=("this"|ID) ("/" nameSuite+=ID)+	; 
+	("this"|ID) ("/" ID)*; 
   
 /*
 	ref ::= name | "univ" | "Int" | "seq/Int"
