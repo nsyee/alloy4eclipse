@@ -4,6 +4,9 @@
 package fr.univartois.cril.xtext.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.DefaultAntlrTokenToAttributeIdMapper;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -12,6 +15,20 @@ public class AlsUiModule extends fr.univartois.cril.xtext.ui.AbstractAlsUiModule
 	public AlsUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
+
+	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
+		return SemanticHighlightingCalculator.class;
+	}
+
+	public Class<? extends IHighlightingConfiguration> bindISemanticHighlightingConfiguration() {
+		return HighlightingConfiguration.class;
+	}
+
+	public Class<? extends DefaultAntlrTokenToAttributeIdMapper> bindDefaultAntlrTokenToAttributeIdMapper() {
+		return TokenToIdMapper.class;
+	}
 	
-	
+	/*public Class<? extends IContentOutlineNodeAdapterFactory> bindIContentOutlineAdapterFactory() {
+		return BasicsOutlineNodeAdapterFactory.class;
+	}*/
 }
