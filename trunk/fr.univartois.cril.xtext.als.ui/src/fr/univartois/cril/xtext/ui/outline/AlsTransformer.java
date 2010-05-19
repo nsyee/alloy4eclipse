@@ -16,6 +16,7 @@ import fr.univartois.cril.xtext.als.Specification;
  * 
  */
 public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer {
+	
 	@Override
 	protected List<EObject> getChildren(EObject semanticNode) {
 		if(semanticNode instanceof Specification)
@@ -23,6 +24,7 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 		return NO_CHILDREN;
 	}
 
+	
 	public String createNode(Specification semanticNode, ContentOutlineNode parentNode) {	    
 	    return INVISIBLE_ROOT_NODE;
 	}
