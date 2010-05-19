@@ -157,11 +157,12 @@ public class SemanticHighlightingCalculator implements ISemanticHighlightingCalc
 				}
 
 				if (refname.eContainingFeature().getName().equals(
-						"propertyName")) {
+						"propertyName")||refname.eContainingFeature().getName().equals(
+						"VariableName")) {
 					AbstractNode node = this.getFirstFeatureNode(current,
 							string);
 					highlightNode(node,
-							HighlightingConfiguration.proprityName,
+							HighlightingConfiguration.propertyName,
 							acceptor);
 				}
 				if (refname.eContainingFeature().getName().equals("enumName")) {
@@ -180,10 +181,10 @@ public class SemanticHighlightingCalculator implements ISemanticHighlightingCalc
 							acceptor);
 				}
 			} else {
-//				System.out.println("{");
-//				System.out.println("RETURN NULL");
-//				System.out.println(current.eContainer());
-//				System.out.println("}");
+				System.out.println("{");
+				System.out.println("RETURN NULL");
+				System.out.println(current.eContainer());
+				System.out.println("}");
 				AbstractNode node = this.getFirstFeatureNode(current, string);
 				highlightNode(node,
 						HighlightingConfiguration.referenceName,

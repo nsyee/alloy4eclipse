@@ -9,7 +9,7 @@ import org.eclipse.xtext.ui.editor.utils.TextStyle;
 public class HighlightingConfiguration extends DefaultHighlightingConfiguration {
 
 	public final static String signatureName = "SignatureName";
-	public final static String proprityName = "proprityName";
+	public final static String propertyName = "propertyName";
 	public final static String referenceName = "referenceName";
 	public final static String predicateName = "predicateName";
 	public final static String assertionName = "assertionName";
@@ -23,7 +23,7 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
         super.configure(acceptor);	
 		acceptor.acceptDefaultHighlighting(signatureName, "Signature name", signatureNameStyle());
-		acceptor.acceptDefaultHighlighting(proprityName, "Proprity name", proprityNameStyle());
+		acceptor.acceptDefaultHighlighting(propertyName, "Property name", propertyNameStyle());
 		acceptor.acceptDefaultHighlighting(referenceName, "Reference Name", referenceNameStyle());
 		acceptor.acceptDefaultHighlighting(predicateName, "Predicate Name", predicateNameStyle());
 		acceptor.acceptDefaultHighlighting(assertionName, "Assertion Name", assertionNameStyle());
@@ -90,7 +90,7 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 	}
 
 	
-	public TextStyle proprityNameStyle() {
+	public TextStyle propertyNameStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(244, 232, 13));
