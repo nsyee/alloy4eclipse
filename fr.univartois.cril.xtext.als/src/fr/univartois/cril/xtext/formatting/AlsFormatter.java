@@ -25,7 +25,6 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(0, 1, 2).before(f.getML_COMMENTRule());
 		c.setLinewrap(0, 1, 1).after(f.getML_COMMENTRule());*/
 
-		// ...
 	
 		AlsGrammarAccess f = (AlsGrammarAccess) getGrammarAccess();
 		c.setAutoLinewrap(120);
