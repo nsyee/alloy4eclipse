@@ -3,18 +3,21 @@
  */
 package fr.univartois.cril.xtext.scoping;
 
-import java.awt.List;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.resource.EObjectDescription;
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
 
+import fr.univartois.cril.xtext.als.Block;
 import fr.univartois.cril.xtext.als.Decl;
 import fr.univartois.cril.xtext.als.Expression;
 import fr.univartois.cril.xtext.als.Fact;
-import fr.univartois.cril.xtext.als.Function;
 import fr.univartois.cril.xtext.als.PropertyName;
 
 /**
@@ -26,11 +29,44 @@ import fr.univartois.cril.xtext.als.PropertyName;
  */
 public class AlsScopeProvider extends AbstractDeclarativeScopeProvider {
 	
+	public IScope scope_Expression_nameRef(Fact context,EReference reference){
+		//System.out.println(context.getFactName());
+		IScope scope = super.delegateGetScope(context, reference);
+		List<IEObjectDescription> liste = new ArrayList<IEObjectDescription>();
+		Block block = context.getBlock();
+		for(IEObjectDescription s : scope.getContents())
+			//System.out.println(s.getName());;
+		if(block != null){
+			for(Expression expression : block.getExprB()){
+				if(expression == null) continue;
+				for(Decl decl : expression.getDecl()){
+					if(decl == null) continue;
+					for(PropertyName property : decl.getPropertyName()){
+						if(property == null) continue;
+						//System.out.println(property);
+//						System.out
+//						.println("AlsScopeProvider.scope_Expression_nameRef() 3");
+//						IEObjectDescription object =(IEObjectDescription) property.eContainer();
+//						System.out
+//						.println("AlsScopeProvider.scope_Expression_nameRef() 2");
+//						liste.add(object);
+//						System.out
+//								.println("AlsScopeProvider.scope_Expression_nameRef()");
+					}
+						
+				}
+			}
+		}
+		
+		return scope;
+//		for(IEObjectDescription element : scope.getAllContents())
+//			System.out.println(element.getName());
+//		return scope;
+	}
 	/*public IScope scope_Expression_nameRef(Fact context,EReference reference){
 		IScope scope = super.getScope(context, reference);
-		scope.get
 		Block block ;
-		List<IE> newScope=new ArrayList<IScopedElement>();
+		/*List<IEObjectDescription> newScope=new ArrayList<IEObjectDescription>();
 		block = context.getBlock();
 		System.out.println(context.getFactName());
 		if(block != null){
@@ -47,12 +83,13 @@ public class AlsScopeProvider extends AbstractDeclarativeScopeProvider {
 				}
 			}
 		}
-		return new SimpleScope(scope,newScope);
-	}
+		return new SimpleScope(scope,newScope);*/
+		/*return SimpleScope.NULLSCOPE;
+	}*/
 	
-	public IScope scope_Expression_nameRef(Function context,EReference reference){
+	/*public IScope scope_Expression_nameRef(Function context,EReference reference){
 		IScope scope = super.getScope(context, reference);
-		List<IScopedElement> newScope=new ArrayList<IScopedElement>();
+		List<IEObjectDescription> newScope=new ArrayList<IEObjectDescription>();
 		for(Decl decl : context.getDecl()){
 			if(decl == null) continue;
 			for(PropertyName propertyName : decl.getPropertyName()){
