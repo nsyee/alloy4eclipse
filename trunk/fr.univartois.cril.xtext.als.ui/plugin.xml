@@ -8,6 +8,7 @@
         <editor
             class="fr.univartois.cril.xtext.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            icon="icons/AlloyFile.gif"
             default="true"
             extensions="als"
             id="fr.univartois.cril.xtext.Als"
