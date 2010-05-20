@@ -244,7 +244,7 @@ ModuleName :
 	"module" name=Name	;
 	
 OpenName	:
-	"open" name=Name	;
+	"open" importURI=Name	;
 	
 FactName	:
 	{FactName}"fact" name=Name?	;
