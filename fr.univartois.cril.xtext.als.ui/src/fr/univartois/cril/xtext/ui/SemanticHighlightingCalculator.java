@@ -108,8 +108,8 @@ public class SemanticHighlightingCalculator implements
 				if (((RunCommand) current).getName2() != null) {
 
 					if (((RunCommand) current).getName2().getName() != null) {
-						System.out.println(((RunCommand) current).getName2()
-								.getName());
+						//System.out.println(((RunCommand) current).getName2()
+							//	.getName());
 						result.add(((RunCommand) current).getName2().getName());
 					}
 				}
