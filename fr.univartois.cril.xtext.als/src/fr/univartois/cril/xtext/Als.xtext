@@ -13,13 +13,13 @@ Specification  :
 	module ::= "module" name  [ "["  ["exactly"] name  ("," ["exactly"] num)*    "]" ]
 */
 Module:
-  moduleName=ModuleName (left=LeftSquareBracketKeyword exactly+="exactly"? name=Name (comma+=Comma exactly+="exactly"? number+=INT)* right=RightSquareBracketKeyword)?	; 
+  moduleName=ModuleName (left=LeftSquareBracketKeyword exactly+="exactly"? name=ExactlyName (comma+=Comma exactly+="exactly"? number+=INT)* right=RightSquareBracketKeyword)?	; 
   
 /*
 	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
 */
 Open:
-  "private"? openName=OpenName  (left=LeftSquareBracketKeyword ref+=Ref (comma+=Comma ref+=Ref)* right=RightSquareBracketKeyword)? ("as" nameAs=Name)?	; 
+  "private"? openName=OpenName  (left=LeftSquareBracketKeyword ref+=Ref (comma+=Comma ref+=Ref)* right=RightSquareBracketKeyword)? ("as" nameAs=ExactlyName)?	; 
   
 /*
 	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
@@ -111,7 +111,7 @@ EnumDecl:
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */
 SigDecl returns Signature:
-  SigQual? "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* (sigExt=SigExt)? leftC=LeftCurlyBracket (decl+=DeclSig (comma+=Comma decl+=DeclSig)*)? rightC=RightCurlyBracket (block=Block)?	; 
+  SigQual? "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* (sigExt=SigExt)? leftC=LeftCurlyBracket (decl+=Decl (comma+=Comma decl+=Decl)*)? rightC=RightCurlyBracket (block=Block)?	; 
   
 /*
 	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
@@ -177,9 +177,6 @@ TerminalExpression returns Expression:
 */
 Decl:
   ("private")? ("disj")? propertyName+=PropertyName (comma+=Comma propertyName+=PropertyName)* colon=Colon ("disj")? expr=Expression	; 
-
-DeclSig:
-  ("private")? ("disj")? propertyName+=VariableName (comma+=Comma propertyName+=VariableName)* colon=Colon ("disj")? expr=Expression	; 
   
 /*
 	letDecl ::= name "=" expr
@@ -226,7 +223,7 @@ ArrowOp:
 	block ::= "{" expr* "}"
 */
 Block:
-  leftC=LeftCurlyBracket (exprB+=Expression)* rightC=RightCurlyBracket	; 
+  leftC=LeftCurlyBracket (expr+=Expression)* rightC=RightCurlyBracket	; 
 
 /*
 	blockOrBar ::= block
@@ -244,7 +241,7 @@ ModuleName :
 	"module" name=Name	;
 	
 OpenName	:
-	"open" importURI=/*Name*/STRING	;
+	"open" importURI=Name	;
 	
 FactName	:
 	{FactName}"fact" name=Name?	;
@@ -273,7 +270,7 @@ SignatureName :
 PropertyName:
 	name=Name;
 	
-VariableName:
+ExactlyName:
 	name=Name;
 
 NameAlias:
@@ -292,7 +289,7 @@ ReferencesName	:
 	EnumPropertyName|
 	SignatureName	|
 	PropertyName	|
-	VariableName	|
+	ExactlyName		|
 	PredicateName	;
 
 ReferencesSig	:
