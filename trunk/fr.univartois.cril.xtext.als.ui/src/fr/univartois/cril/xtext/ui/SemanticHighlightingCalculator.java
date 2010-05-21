@@ -97,8 +97,8 @@ public class SemanticHighlightingCalculator implements
 				if (((Expression) current).getNameRef() != null) {
 
 					if (((Expression) current).getNameRef().getName() != null) {
-						System.out.println(((Expression) current).getNameRef()
-								.getName());
+//						System.out.println(((Expression) current).getNameRef()
+//								.getName());
 						result.add(((Expression) current).getNameRef()
 								.getName());
 					}
