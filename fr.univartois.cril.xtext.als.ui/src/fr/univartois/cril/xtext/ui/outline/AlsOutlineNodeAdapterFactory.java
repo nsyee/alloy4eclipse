@@ -5,12 +5,15 @@ package fr.univartois.cril.xtext.ui.outline;
 
 import org.eclipse.xtext.ui.editor.outline.actions.DefaultContentOutlineNodeAdapterFactory;
 
+import fr.univartois.cril.xtext.als.RunCommand;
+
 public class AlsOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapterFactory {
 
 	private static final Class<?>[] types = { 
 		// provide list of classes to adapt to, e.g.:
 		// Entity.class
 		// Service.class
+		RunCommand.class
 	};
 
 	@Override
