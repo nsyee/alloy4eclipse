@@ -3,20 +3,7 @@
  */
 package fr.univartois.cril.xtext.scoping;
 
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtext.resource.IEObjectDescription;
-import org.eclipse.xtext.resource.IReferenceDescription;
-import org.eclipse.xtext.resource.IResourceDescription;
-import org.eclipse.xtext.resource.IResourceServiceProvider;
-import org.eclipse.xtext.resource.IResourceDescription.Manager;
-import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
-import org.eclipse.xtext.scoping.impl.SimpleScope;
-
-import com.google.inject.Inject;
-
-import fr.univartois.cril.xtext.als.Fact;
 
 /**
  * This class contains custom scoping description.
@@ -26,65 +13,5 @@ import fr.univartois.cril.xtext.als.Fact;
  * 
  */
 public class AlsScopeProvider extends AbstractDeclarativeScopeProvider {
-	@Inject
-	private static IResourceServiceProvider.Registry resourceServiceProviderRegistry=IResourceServiceProvider.Registry.INSTANCE;
 
-	private IResourceDescription.Manager getManager(Resource res) {
-		System.out.println("AlsScopeProvider.getManager() --"+res.getURI());
-		IResourceServiceProvider resourceServiceProvider = resourceServiceProviderRegistry.getResourceServiceProvider(res.getURI());
-		return resourceServiceProvider.getResourceDescriptionManager();
-	}
-
-	public IScope scope_Expression_nameRef(Fact context, EReference reference) {
-		System.out.println("AlsScopeProvider.scope_Expression_nameRef()");
-		Resource resource = reference.eResource();
-		System.out.println("AlsScopeProvider.scope_Expression_nameRef() 2");
-		Manager manager = getManager(resource);
-		System.out.println("AlsScopeProvider.scope_Expression_nameRef() 3");
-		IResourceDescription description = manager
-				.getResourceDescription(resource);
-		System.out.println("AlsScopeProvider.scope_Expression_nameRef() 4");
-		for (IEObjectDescription eObjDescription : description
-				.getExportedObjects()) {
-			System.out.println("object = "+eObjDescription.getQualifiedName());
-		}
-System.out.println("AlsScopeProvider.scope_Expression_nameRef() 5");
-		return SimpleScope.NULLSCOPE;
-	}
-	// public IScope scope_Expression_nameRef(Fact context,EReference
-	// reference){
-	// IScope scope = super.delegateGetScope(context, reference);
-	// List<IEObjectDescription> liste = new ArrayList<IEObjectDescription>();
-	// Block block = context.getBlock();
-	// if(block != null){
-	// for(Expression expression : block.getExprB()){
-	// if(expression == null) continue;
-	// for(Decl decl : expression.getDecl()){
-	// if(decl == null) continue;
-	// for(PropertyName property : decl.getPropertyName()){
-	// if(property == null) continue;
-	// EObjectDescription object = new EObjectDescription(property.getName(),
-	// property, null);
-	// liste.add(object);
-	// //System.out.println(property);
-	// }
-	// }
-	// }
-	// }
-	// return new SimpleScope(scope,liste);
-	// }
-
-	// public IScope scope_Expression_nameRef(Function context,EReference
-	// reference){
-	// IScope scope = super.delegateGetScope(context, reference);
-	// List<IEObjectDescription> newScope=new ArrayList<IEObjectDescription>();
-	// for(Decl decl : context.getDecl()){
-	// if(decl == null) continue;
-	// for(PropertyName property : decl.getPropertyName()){
-	// if(property == null) continue;
-	// newScope.add(new EObjectDescription(property.getName(), property, null));
-	// }
-	// }
-	// return new SimpleScope(scope, newScope);
-	// }
 }
