@@ -118,8 +118,8 @@ public class SemanticHighlightingCalculator implements
 				if (((CheckCommand) current).getName() != null) {
 
 					if (((CheckCommand) current).getName().getName() != null) {
-						System.out.println(((CheckCommand) current).getName()
-								.getName());
+						//System.out.println(((CheckCommand) current).getName()
+						//		.getName());
 						result
 								.add(((CheckCommand) current).getName()
 										.getName());
@@ -130,8 +130,8 @@ public class SemanticHighlightingCalculator implements
 				if (((Typescope) current).getName() != null) {
 
 					if (((Typescope) current).getName().getName() != null) {
-						System.out.println(((Typescope) current).getName()
-								.getName());
+						//System.out.println(((Typescope) current).getName()
+						//		.getName());
 						result.add(((Typescope) current).getName().getName());
 					}
 				}
@@ -140,8 +140,8 @@ public class SemanticHighlightingCalculator implements
 				if (((ReferencesSig) current).getNameRef() != null) {
 
 					if (((ReferencesSig) current).getNameRef().getName() != null) {
-						System.out.println(((ReferencesSig) current)
-								.getNameRef().getName());
+						//System.out.println(((ReferencesSig) current)
+						//		.getNameRef().getName());
 						result.add(((ReferencesSig) current).getNameRef()
 								.getName());
 					}
@@ -151,8 +151,8 @@ public class SemanticHighlightingCalculator implements
 				if (((Ref) current).getNameRef() != null) {
 
 					if (((Ref) current).getNameRef().getName() != null) {
-						System.out.println(((Ref) current).getNameRef()
-								.getName());
+						//System.out.println(((Ref) current).getNameRef()
+						//		.getName());
 						result.add(((Ref) current).getNameRef().getName());
 					}
 				}
