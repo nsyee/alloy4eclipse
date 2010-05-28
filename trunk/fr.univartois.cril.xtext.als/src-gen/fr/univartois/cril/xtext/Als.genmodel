@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.univartois.cril.xtext.als/src-gen"
+    editDirectory="/fr.univartois.cril.xtext.als.edit/src" editorDirectory="/fr.univartois.cril.xtext.als.editor/src"
+    modelPluginID="fr.univartois.cril.xtext.als" forceOverwrite="true" modelName="Als"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="fr.univartois.cril.xtext.als.edit"
+    editorPluginID="fr.univartois.cril.xtext.als.editor">
+  <genPackages prefix="Als" basePackage="fr.univartois.cril.xtext" disposableProviderFactory="true"
+      ecorePackage="Als.ecore#/">
+    <genClasses ecoreClass="Als.ecore#//Specification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Specification/module"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Specification/open"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Specification/paragraph"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Module">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Module/moduleName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Module/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Module/exactly"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Module/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Module/comma"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Module/number"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Module/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Open">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/openName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/comma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/right"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/nameAs"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Paragraph"/>
+    <genClasses ecoreClass="Als.ecore#//Fact">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Fact/factName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Fact/block"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Assertion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Assertion/assertionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Assertion/block"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Function">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/dot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/functionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/leftS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/decl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/comma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/rightS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/leftP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/rightP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/colon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/block"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Predicate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/dot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/predicateName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/leftS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/decl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/comma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/rightS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/leftP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/rightP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/block"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//RunCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//RunCommand/runName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//RunCommand/run"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//RunCommand/name2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//RunCommand/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//RunCommand/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//CheckCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//CheckCommand/checkName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//CheckCommand/check"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//CheckCommand/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//CheckCommand/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//CheckCommand/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Scope">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Scope/expect"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Scope/typescope"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Scope/comma"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Expectation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expectation/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Typescope">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//Typescope/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//EnumDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//EnumDecl/enumName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//EnumDecl/leftC"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//EnumDecl/propertyEnum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//EnumDecl/comma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//EnumDecl/rightC"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Signature">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Signature/signatureName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Signature/comma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Signature/sigExt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Signature/decl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Signature/comma2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Signature/block"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//SigQual">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//SigQual/sigq"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//SigExt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//SigExt/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//SigExt/ref2"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/binOp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/arrowOp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/cmp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/comma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/let"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/letdecl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/blockOrBar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/quant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/decl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/unOp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/common"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/none"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/iden"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/univ"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/int"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/seq"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/parO"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expression/parF"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/nameRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/leftCurlyBracket"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Expression/rightCurlyBracket"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Decl/propertyName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Decl/comma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Decl/colon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Decl/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//LetDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//LetDecl/nameExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//LetDecl/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//BinOp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//BinOp/dot"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//UnOp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//UnOp/op"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//CommonQuantUnOp"/>
+    <genClasses ecoreClass="Als.ecore#//ArrowOp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//ArrowOp/arrow"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Block/leftC"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Block/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Block/rightC"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//BlockOrBar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//BlockOrBar/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//BlockOrBar/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//ModuleName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//ModuleName/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//OpenName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//OpenName/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//FactName"/>
+    <genClasses ecoreClass="Als.ecore#//AssertionName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//AssertionName/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//FunctionName"/>
+    <genClasses ecoreClass="Als.ecore#//PredicateName"/>
+    <genClasses ecoreClass="Als.ecore#//Alias">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Alias/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//EnumName"/>
+    <genClasses ecoreClass="Als.ecore#//EnumPropertyName"/>
+    <genClasses ecoreClass="Als.ecore#//SignatureName"/>
+    <genClasses ecoreClass="Als.ecore#//PropertyName"/>
+    <genClasses ecoreClass="Als.ecore#//ExactlyName"/>
+    <genClasses ecoreClass="Als.ecore#//ReferencesName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//ReferencesName/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//ReferencesSig">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//ReferencesSig/nameRef"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Ref">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//Ref/nameRef"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//LeftCurlyBracket">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//LeftCurlyBracket/leftCurlyBracket"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//RightCurlyBracket">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//RightCurlyBracket/rightCurlyBracket"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Dot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Dot/dot"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Comma">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Comma/comma"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Colon">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Colon/colon"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//LeftParenthesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//LeftParenthesis/leftParenthesis"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//RightParenthesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//RightParenthesis/rightParenthesis"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//LeftSquareBracketKeyword">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//LeftSquareBracketKeyword/leftSquareBracketKeyword"/>
+    </genClasses>
+    <genClasses ecoreClass="Als.ecore#//RightSquareBracketKeyword">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//RightSquareBracketKeyword/rightSquareBracketKeyword"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
