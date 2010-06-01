@@ -12,8 +12,12 @@ Require-Bundle: fr.univartois.cril.xtext.als;visibility:=reexport,
  org.eclipse.xtext.ui.shared,
  org.eclipse.ui,
  org.eclipse.xtext.builder,
- org.antlr.runtime
-Import-Package: org.apache.log4j
+ org.antlr.runtime,
+ fr.univartois.cril.alloyplugin;bundle-version="0.2.35",
+ org.eclipse.core.resources,
+ fr.univartois.cril.alloyplugin.launch
+Import-Package: edu.mit.csail.sdg.alloy4,
+ org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: fr.univartois.cril.xtext.ui.contentassist.antlr
 Bundle-Activator: fr.univartois.cril.xtext.ui.internal.AlsActivator
