@@ -95,7 +95,7 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 	private int retrieveIndexOfCommand(List<Command> commands, Command command) {
 		int index = 0;
 		for (Command cm : commands) {
-			if (cm.label.equals(command.label))
+			if (cm.pos().y ==command.pos().y)
 				return index;
 			index++;
 		}
