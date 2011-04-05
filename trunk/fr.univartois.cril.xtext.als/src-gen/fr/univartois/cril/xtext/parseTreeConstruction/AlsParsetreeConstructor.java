@@ -3683,11 +3683,11 @@ protected class PredDecl_BlockAssignment_5 extends AssignmentToken  {
  * / *
  * 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
  * * /RunDecl returns RunCommand:
- * 	(runName=Alias ":")? run="run" (name2=[PredicateName] | block=Block) scope=Scope;
+ * 	(runName=Alias ":")? "run" (name2=[PredicateName] | block=Block) scope=Scope;
  *
  **/
 
-// (runName=Alias ":")? run="run" (name2=[PredicateName] | block=Block) scope=Scope
+// (runName=Alias ":")? "run" (name2=[PredicateName] | block=Block) scope=Scope
 protected class RunDecl_Group extends GroupToken {
 	
 	public RunDecl_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3806,16 +3806,16 @@ protected class RunDecl_ColonKeyword_0_1 extends KeywordToken  {
 }
 
 
-// run="run"
-protected class RunDecl_RunAssignment_1 extends AssignmentToken  {
+// "run"
+protected class RunDecl_RunKeyword_1 extends KeywordToken  {
 	
-	public RunDecl_RunAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RunDecl_RunKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getRunDeclAccess().getRunAssignment_1();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRunDeclAccess().getRunKeyword_1();
 	}
 
     @Override
@@ -3824,18 +3824,6 @@ protected class RunDecl_RunAssignment_1 extends AssignmentToken  {
 			case 0: return new RunDecl_Group_0(lastRuleCallOrigin, this, 0, inst);
 			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
 		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("run",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("run");
-		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getRunDeclAccess().getRunRunKeyword_1_0(), value, null)) {
-			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getRunDeclAccess().getRunRunKeyword_1_0();
-			return obj;
-		}
-		return null;
 	}
 
 }
@@ -3878,7 +3866,7 @@ protected class RunDecl_Name2Assignment_2_0 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RunDecl_RunAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RunDecl_RunKeyword_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -3940,7 +3928,7 @@ protected class RunDecl_BlockAssignment_2_1 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new RunDecl_RunAssignment_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new RunDecl_RunKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -4002,11 +3990,11 @@ protected class RunDecl_ScopeAssignment_3 extends AssignmentToken  {
  * / *
  * 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
  * * /CheckDecl returns CheckCommand:
- * 	(checkName=Alias ":")? check="check" (name=[AssertionName] | block=Block) scope=Scope;
+ * 	(checkName=Alias ":")? "check" (name=[AssertionName] | block=Block) scope=Scope;
  *
  **/
 
-// (checkName=Alias ":")? check="check" (name=[AssertionName] | block=Block) scope=Scope
+// (checkName=Alias ":")? "check" (name=[AssertionName] | block=Block) scope=Scope
 protected class CheckDecl_Group extends GroupToken {
 	
 	public CheckDecl_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4125,16 +4113,16 @@ protected class CheckDecl_ColonKeyword_0_1 extends KeywordToken  {
 }
 
 
-// check="check"
-protected class CheckDecl_CheckAssignment_1 extends AssignmentToken  {
+// "check"
+protected class CheckDecl_CheckKeyword_1 extends KeywordToken  {
 	
-	public CheckDecl_CheckAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public CheckDecl_CheckKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getCheckDeclAccess().getCheckAssignment_1();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCheckDeclAccess().getCheckKeyword_1();
 	}
 
     @Override
@@ -4143,18 +4131,6 @@ protected class CheckDecl_CheckAssignment_1 extends AssignmentToken  {
 			case 0: return new CheckDecl_Group_0(lastRuleCallOrigin, this, 0, inst);
 			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
 		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("check",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("check");
-		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getCheckDeclAccess().getCheckCheckKeyword_1_0(), value, null)) {
-			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getCheckDeclAccess().getCheckCheckKeyword_1_0();
-			return obj;
-		}
-		return null;
 	}
 
 }
@@ -4197,7 +4173,7 @@ protected class CheckDecl_NameAssignment_2_0 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new CheckDecl_CheckAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new CheckDecl_CheckKeyword_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -4259,7 +4235,7 @@ protected class CheckDecl_BlockAssignment_2_1 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new CheckDecl_CheckAssignment_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new CheckDecl_CheckKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -6910,7 +6886,7 @@ protected class Expression_Group extends GroupToken {
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getTerminalExpressionAccess().getExpressionAction_3_0().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getTerminalExpressionAccess().getExpressionAction_14_0().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}
@@ -7921,7 +7897,7 @@ protected class TerminalExpression_Alternatives extends AlternativesToken {
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getTerminalExpressionAccess().getExpressionAction_3_0().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getTerminalExpressionAccess().getExpressionAction_14_0().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}

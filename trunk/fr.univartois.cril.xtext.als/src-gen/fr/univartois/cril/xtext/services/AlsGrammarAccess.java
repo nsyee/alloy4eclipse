@@ -711,8 +711,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRunNameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
 		private final RuleCall cRunNameAliasParserRuleCall_0_0_0 = (RuleCall)cRunNameAssignment_0_0.eContents().get(0);
 		private final Keyword cColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cRunAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cRunRunKeyword_1_0 = (Keyword)cRunAssignment_1.eContents().get(0);
+		private final Keyword cRunKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cName2Assignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final CrossReference cName2PredicateNameCrossReference_2_0_0 = (CrossReference)cName2Assignment_2_0.eContents().get(0);
@@ -725,10 +724,10 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		/// *
 		//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 		// * /RunDecl returns RunCommand:
-		//	(runName=Alias ":")? run="run" (name2=[PredicateName] | block=Block) scope=Scope;
+		//	(runName=Alias ":")? "run" (name2=[PredicateName] | block=Block) scope=Scope;
 		public ParserRule getRule() { return rule; }
 
-		//(runName=Alias ":")? run="run" (name2=[PredicateName] | block=Block) scope=Scope
+		//(runName=Alias ":")? "run" (name2=[PredicateName] | block=Block) scope=Scope
 		public Group getGroup() { return cGroup; }
 
 		//(runName=Alias ":")?
@@ -743,11 +742,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_0_1() { return cColonKeyword_0_1; }
 
-		//run="run"
-		public Assignment getRunAssignment_1() { return cRunAssignment_1; }
-
 		//"run"
-		public Keyword getRunRunKeyword_1_0() { return cRunRunKeyword_1_0; }
+		public Keyword getRunKeyword_1() { return cRunKeyword_1; }
 
 		//name2=[PredicateName] | block=Block
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
@@ -781,8 +777,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCheckNameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
 		private final RuleCall cCheckNameAliasParserRuleCall_0_0_0 = (RuleCall)cCheckNameAssignment_0_0.eContents().get(0);
 		private final Keyword cColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cCheckAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cCheckCheckKeyword_1_0 = (Keyword)cCheckAssignment_1.eContents().get(0);
+		private final Keyword cCheckKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final CrossReference cNameAssertionNameCrossReference_2_0_0 = (CrossReference)cNameAssignment_2_0.eContents().get(0);
@@ -795,10 +790,10 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		/// *
 		//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 		// * /CheckDecl returns CheckCommand:
-		//	(checkName=Alias ":")? check="check" (name=[AssertionName] | block=Block) scope=Scope;
+		//	(checkName=Alias ":")? "check" (name=[AssertionName] | block=Block) scope=Scope;
 		public ParserRule getRule() { return rule; }
 
-		//(checkName=Alias ":")? check="check" (name=[AssertionName] | block=Block) scope=Scope
+		//(checkName=Alias ":")? "check" (name=[AssertionName] | block=Block) scope=Scope
 		public Group getGroup() { return cGroup; }
 
 		//(checkName=Alias ":")?
@@ -813,11 +808,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_0_1() { return cColonKeyword_0_1; }
 
-		//check="check"
-		public Assignment getCheckAssignment_1() { return cCheckAssignment_1; }
-
 		//"check"
-		public Keyword getCheckCheckKeyword_1_0() { return cCheckCheckKeyword_1_0; }
+		public Keyword getCheckKeyword_1() { return cCheckKeyword_1; }
 
 		//name=[AssertionName] | block=Block
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
@@ -3370,7 +3362,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 	// * /RunDecl returns RunCommand:
-	//	(runName=Alias ":")? run="run" (name2=[PredicateName] | block=Block) scope=Scope;
+	//	(runName=Alias ":")? "run" (name2=[PredicateName] | block=Block) scope=Scope;
 	public RunDeclElements getRunDeclAccess() {
 		return (pRunDecl != null) ? pRunDecl : (pRunDecl = new RunDeclElements());
 	}
@@ -3382,7 +3374,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 	// * /CheckDecl returns CheckCommand:
-	//	(checkName=Alias ":")? check="check" (name=[AssertionName] | block=Block) scope=Scope;
+	//	(checkName=Alias ":")? "check" (name=[AssertionName] | block=Block) scope=Scope;
 	public CheckDeclElements getCheckDeclAccess() {
 		return (pCheckDecl != null) ? pCheckDecl : (pCheckDecl = new CheckDeclElements());
 	}

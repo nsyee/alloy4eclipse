@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package fr.univartois.cril.xtext.als.impl;
 
@@ -29,7 +28,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.CheckCommandImpl#getCheckName <em>Check Name</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.CheckCommandImpl#getCheck <em>Check</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.CheckCommandImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.CheckCommandImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.CheckCommandImpl#getScope <em>Scope</em>}</li>
@@ -49,26 +47,6 @@ public class CheckCommandImpl extends ParagraphImpl implements CheckCommand
    * @ordered
    */
   protected Alias checkName;
-
-  /**
-   * The default value of the '{@link #getCheck() <em>Check</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCheck()
-   * @generated
-   * @ordered
-   */
-  protected static final String CHECK_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCheck() <em>Check</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCheck()
-   * @generated
-   * @ordered
-   */
-  protected String check = CHECK_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' reference.
@@ -167,29 +145,6 @@ public class CheckCommandImpl extends ParagraphImpl implements CheckCommand
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.CHECK_COMMAND__CHECK_NAME, newCheckName, newCheckName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getCheck()
-  {
-    return check;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCheck(String newCheck)
-  {
-    String oldCheck = check;
-    check = newCheck;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.CHECK_COMMAND__CHECK, oldCheck, check));
   }
 
   /**
@@ -363,8 +318,6 @@ public class CheckCommandImpl extends ParagraphImpl implements CheckCommand
     {
       case AlsPackage.CHECK_COMMAND__CHECK_NAME:
         return getCheckName();
-      case AlsPackage.CHECK_COMMAND__CHECK:
-        return getCheck();
       case AlsPackage.CHECK_COMMAND__NAME:
         if (resolve) return getName();
         return basicGetName();
@@ -388,9 +341,6 @@ public class CheckCommandImpl extends ParagraphImpl implements CheckCommand
     {
       case AlsPackage.CHECK_COMMAND__CHECK_NAME:
         setCheckName((Alias)newValue);
-        return;
-      case AlsPackage.CHECK_COMMAND__CHECK:
-        setCheck((String)newValue);
         return;
       case AlsPackage.CHECK_COMMAND__NAME:
         setName((AssertionName)newValue);
@@ -418,9 +368,6 @@ public class CheckCommandImpl extends ParagraphImpl implements CheckCommand
       case AlsPackage.CHECK_COMMAND__CHECK_NAME:
         setCheckName((Alias)null);
         return;
-      case AlsPackage.CHECK_COMMAND__CHECK:
-        setCheck(CHECK_EDEFAULT);
-        return;
       case AlsPackage.CHECK_COMMAND__NAME:
         setName((AssertionName)null);
         return;
@@ -446,8 +393,6 @@ public class CheckCommandImpl extends ParagraphImpl implements CheckCommand
     {
       case AlsPackage.CHECK_COMMAND__CHECK_NAME:
         return checkName != null;
-      case AlsPackage.CHECK_COMMAND__CHECK:
-        return CHECK_EDEFAULT == null ? check != null : !CHECK_EDEFAULT.equals(check);
       case AlsPackage.CHECK_COMMAND__NAME:
         return name != null;
       case AlsPackage.CHECK_COMMAND__BLOCK:
@@ -456,23 +401,6 @@ public class CheckCommandImpl extends ParagraphImpl implements CheckCommand
         return scope != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (check: ");
-    result.append(check);
-    result.append(')');
-    return result.toString();
   }
 
 } //CheckCommandImpl

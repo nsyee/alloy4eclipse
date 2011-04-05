@@ -1678,28 +1678,11 @@ ruleRunDecl returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getRunDeclAccess().getColonKeyword_0_1(), null); 
     }
-)?(
-(
-		lv_run_2_0=	'run' 
+)?	'run' 
     {
-        createLeafNode(grammarAccess.getRunDeclAccess().getRunRunKeyword_1_0(), "run"); 
+        createLeafNode(grammarAccess.getRunDeclAccess().getRunKeyword_1(), null); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getRunDeclRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "run", lv_run_2_0, "run", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)((
+((
 (
 		{ 
 		  /* */ 
@@ -1816,28 +1799,11 @@ ruleCheckDecl returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getCheckDeclAccess().getColonKeyword_0_1(), null); 
     }
-)?(
-(
-		lv_check_2_0=	'check' 
+)?	'check' 
     {
-        createLeafNode(grammarAccess.getCheckDeclAccess().getCheckCheckKeyword_1_0(), "check"); 
+        createLeafNode(grammarAccess.getCheckDeclAccess().getCheckKeyword_1(), null); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getCheckDeclRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "check", lv_check_2_0, "check", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)((
+((
 (
 		{ 
 		  /* */ 

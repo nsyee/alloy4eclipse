@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package fr.univartois.cril.xtext.als;
 
@@ -16,7 +15,6 @@ package fr.univartois.cril.xtext.als;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getRunName <em>Run Name</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getRun <em>Run</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getName2 <em>Name2</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getScope <em>Scope</em>}</li>
@@ -54,32 +52,6 @@ public interface RunCommand extends Paragraph
    * @generated
    */
   void setRunName(Alias value);
-
-  /**
-   * Returns the value of the '<em><b>Run</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Run</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Run</em>' attribute.
-   * @see #setRun(String)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getRunCommand_Run()
-   * @model
-   * @generated
-   */
-  String getRun();
-
-  /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.RunCommand#getRun <em>Run</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Run</em>' attribute.
-   * @see #getRun()
-   * @generated
-   */
-  void setRun(String value);
 
   /**
    * Returns the value of the '<em><b>Name2</b></em>' reference.

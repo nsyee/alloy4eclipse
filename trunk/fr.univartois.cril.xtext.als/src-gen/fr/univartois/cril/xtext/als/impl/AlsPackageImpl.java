@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package fr.univartois.cril.xtext.als.impl;
 
@@ -1012,19 +1011,9 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRunCommand_Run()
-  {
-    return (EAttribute)runCommandEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getRunCommand_Name2()
   {
-    return (EReference)runCommandEClass.getEStructuralFeatures().get(2);
+    return (EReference)runCommandEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1034,7 +1023,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    */
   public EReference getRunCommand_Block()
   {
-    return (EReference)runCommandEClass.getEStructuralFeatures().get(3);
+    return (EReference)runCommandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1044,7 +1033,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    */
   public EReference getRunCommand_Scope()
   {
-    return (EReference)runCommandEClass.getEStructuralFeatures().get(4);
+    return (EReference)runCommandEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1072,19 +1061,9 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCheckCommand_Check()
-  {
-    return (EAttribute)checkCommandEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getCheckCommand_Name()
   {
-    return (EReference)checkCommandEClass.getEStructuralFeatures().get(2);
+    return (EReference)checkCommandEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1094,7 +1073,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    */
   public EReference getCheckCommand_Block()
   {
-    return (EReference)checkCommandEClass.getEStructuralFeatures().get(3);
+    return (EReference)checkCommandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1104,7 +1083,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    */
   public EReference getCheckCommand_Scope()
   {
-    return (EReference)checkCommandEClass.getEStructuralFeatures().get(4);
+    return (EReference)checkCommandEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2337,14 +2316,12 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
 
     runCommandEClass = createEClass(RUN_COMMAND);
     createEReference(runCommandEClass, RUN_COMMAND__RUN_NAME);
-    createEAttribute(runCommandEClass, RUN_COMMAND__RUN);
     createEReference(runCommandEClass, RUN_COMMAND__NAME2);
     createEReference(runCommandEClass, RUN_COMMAND__BLOCK);
     createEReference(runCommandEClass, RUN_COMMAND__SCOPE);
 
     checkCommandEClass = createEClass(CHECK_COMMAND);
     createEReference(checkCommandEClass, CHECK_COMMAND__CHECK_NAME);
-    createEAttribute(checkCommandEClass, CHECK_COMMAND__CHECK);
     createEReference(checkCommandEClass, CHECK_COMMAND__NAME);
     createEReference(checkCommandEClass, CHECK_COMMAND__BLOCK);
     createEReference(checkCommandEClass, CHECK_COMMAND__SCOPE);
@@ -2612,14 +2589,12 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
 
     initEClass(runCommandEClass, RunCommand.class, "RunCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRunCommand_RunName(), this.getAlias(), null, "runName", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRunCommand_Run(), ecorePackage.getEString(), "run", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunCommand_Name2(), this.getPredicateName(), null, "name2", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunCommand_Block(), this.getBlock(), null, "block", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunCommand_Scope(), this.getScope(), null, "scope", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(checkCommandEClass, CheckCommand.class, "CheckCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCheckCommand_CheckName(), this.getAlias(), null, "checkName", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCheckCommand_Check(), ecorePackage.getEString(), "check", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCheckCommand_Name(), this.getAssertionName(), null, "name", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCheckCommand_Block(), this.getBlock(), null, "block", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCheckCommand_Scope(), this.getScope(), null, "scope", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
