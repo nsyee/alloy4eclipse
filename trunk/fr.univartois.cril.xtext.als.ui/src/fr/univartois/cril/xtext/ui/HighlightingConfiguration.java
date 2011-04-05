@@ -37,11 +37,12 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 	public TextStyle quantifierStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(85, 107, 47));
+		textStyle.setColor(new RGB(12, 105, 225));
 		
 		textStyle.setStyle(SWT.BOLD);
 		return textStyle; 
 	}
+	
 	public TextStyle assertionNameStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
@@ -58,7 +59,7 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 	}public TextStyle functionNameStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(4, 12, 243));
+		textStyle.setColor(new RGB(72, 127, 98));
 		textStyle.setStyle(SWT.BOLD);
 		return textStyle; 
 	}public TextStyle enumNameStyle() {
@@ -77,14 +78,14 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 	public TextStyle predicateNameStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(234, 12, 143));
+		textStyle.setColor(new RGB(6, 29, 66));
 		textStyle.setStyle(SWT.ITALIC);
 		return textStyle; 
 	}
 	public TextStyle signatureNameStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(34, 232, 123));
+		textStyle.setColor(new RGB(205, 127, 50));
 		textStyle.setStyle(SWT.BOLD);
 		return textStyle; 
 	}
@@ -93,7 +94,7 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 	public TextStyle propertyNameStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(244, 232, 13));
+		textStyle.setColor(new RGB(148, 17, 255));
 		textStyle.setStyle(SWT.ITALIC);
 		return textStyle;
 	}
