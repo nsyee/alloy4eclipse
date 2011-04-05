@@ -25,13 +25,14 @@ import fr.univartois.cril.alloyplugin.core.Reporter;
 public class CommandOutlineNodeHandler extends AbstractHandler {
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		
 		IXtextDocument document;
 		XtextEditor editor;
 		IResource resource;
 		ALSFile file;
 		int line, offset;
 		Command command;
-
+		
 		editor = EditorUtils.getActiveXtextEditor(event);
 		if (editor == null)
 			return null;
