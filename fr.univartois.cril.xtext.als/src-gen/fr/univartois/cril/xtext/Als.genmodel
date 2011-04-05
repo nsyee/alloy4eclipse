@@ -68,14 +68,12 @@
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//RunCommand">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//RunCommand/runName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//RunCommand/run"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//RunCommand/name2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//RunCommand/block"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//RunCommand/scope"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//CheckCommand">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//CheckCommand/checkName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//CheckCommand/check"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//CheckCommand/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//CheckCommand/block"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//CheckCommand/scope"/>

@@ -286,9 +286,7 @@
           </elements>
           <elements xsi:type="xtext:Keyword" value=":"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="run" operator="=">
-          <terminal xsi:type="xtext:Keyword" value="run"/>
-        </elements>
+        <elements xsi:type="xtext:Keyword" value="run"/>
         <elements xsi:type="xtext:Alternatives">
           <elements xsi:type="xtext:Assignment" feature="name2" operator="=">
             <terminal xsi:type="xtext:CrossReference">
@@ -318,9 +316,7 @@
           </elements>
           <elements xsi:type="xtext:Keyword" value=":"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="check" operator="=">
-          <terminal xsi:type="xtext:Keyword" value="check"/>
-        </elements>
+        <elements xsi:type="xtext:Keyword" value="check"/>
         <elements xsi:type="xtext:Alternatives">
           <elements xsi:type="xtext:Assignment" feature="name" operator="=">
             <terminal xsi:type="xtext:CrossReference">

@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package fr.univartois.cril.xtext.als;
 
@@ -610,22 +609,13 @@ public interface AlsPackage extends EPackage
   int RUN_COMMAND__RUN_NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Run</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RUN_COMMAND__RUN = PARAGRAPH_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Name2</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RUN_COMMAND__NAME2 = PARAGRAPH_FEATURE_COUNT + 2;
+  int RUN_COMMAND__NAME2 = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -634,7 +624,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_COMMAND__BLOCK = PARAGRAPH_FEATURE_COUNT + 3;
+  int RUN_COMMAND__BLOCK = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Scope</b></em>' containment reference.
@@ -643,7 +633,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_COMMAND__SCOPE = PARAGRAPH_FEATURE_COUNT + 4;
+  int RUN_COMMAND__SCOPE = PARAGRAPH_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Run Command</em>' class.
@@ -652,7 +642,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_COMMAND_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 5;
+  int RUN_COMMAND_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.CheckCommandImpl <em>Check Command</em>}' class.
@@ -674,22 +664,13 @@ public interface AlsPackage extends EPackage
   int CHECK_COMMAND__CHECK_NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Check</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHECK_COMMAND__CHECK = PARAGRAPH_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHECK_COMMAND__NAME = PARAGRAPH_FEATURE_COUNT + 2;
+  int CHECK_COMMAND__NAME = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -698,7 +679,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_COMMAND__BLOCK = PARAGRAPH_FEATURE_COUNT + 3;
+  int CHECK_COMMAND__BLOCK = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Scope</b></em>' containment reference.
@@ -707,7 +688,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_COMMAND__SCOPE = PARAGRAPH_FEATURE_COUNT + 4;
+  int CHECK_COMMAND__SCOPE = PARAGRAPH_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Check Command</em>' class.
@@ -716,7 +697,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_COMMAND_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 5;
+  int CHECK_COMMAND_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.ScopeImpl <em>Scope</em>}' class.
@@ -2835,17 +2816,6 @@ public interface AlsPackage extends EPackage
   EReference getRunCommand_RunName();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.RunCommand#getRun <em>Run</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Run</em>'.
-   * @see fr.univartois.cril.xtext.als.RunCommand#getRun()
-   * @see #getRunCommand()
-   * @generated
-   */
-  EAttribute getRunCommand_Run();
-
-  /**
    * Returns the meta object for the reference '{@link fr.univartois.cril.xtext.als.RunCommand#getName2 <em>Name2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2898,17 +2868,6 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EReference getCheckCommand_CheckName();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.CheckCommand#getCheck <em>Check</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Check</em>'.
-   * @see fr.univartois.cril.xtext.als.CheckCommand#getCheck()
-   * @see #getCheckCommand()
-   * @generated
-   */
-  EAttribute getCheckCommand_Check();
 
   /**
    * Returns the meta object for the reference '{@link fr.univartois.cril.xtext.als.CheckCommand#getName <em>Name</em>}'.
@@ -4615,14 +4574,6 @@ public interface AlsPackage extends EPackage
     EReference RUN_COMMAND__RUN_NAME = eINSTANCE.getRunCommand_RunName();
 
     /**
-     * The meta object literal for the '<em><b>Run</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute RUN_COMMAND__RUN = eINSTANCE.getRunCommand_Run();
-
-    /**
      * The meta object literal for the '<em><b>Name2</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4663,14 +4614,6 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EReference CHECK_COMMAND__CHECK_NAME = eINSTANCE.getCheckCommand_CheckName();
-
-    /**
-     * The meta object literal for the '<em><b>Check</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CHECK_COMMAND__CHECK = eINSTANCE.getCheckCommand_Check();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' reference feature.

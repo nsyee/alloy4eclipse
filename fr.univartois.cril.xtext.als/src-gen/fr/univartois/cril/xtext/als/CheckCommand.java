@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package fr.univartois.cril.xtext.als;
 
@@ -16,7 +15,6 @@ package fr.univartois.cril.xtext.als;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.CheckCommand#getCheckName <em>Check Name</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.CheckCommand#getCheck <em>Check</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.CheckCommand#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.CheckCommand#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.CheckCommand#getScope <em>Scope</em>}</li>
@@ -54,32 +52,6 @@ public interface CheckCommand extends Paragraph
    * @generated
    */
   void setCheckName(Alias value);
-
-  /**
-   * Returns the value of the '<em><b>Check</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Check</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Check</em>' attribute.
-   * @see #setCheck(String)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getCheckCommand_Check()
-   * @model
-   * @generated
-   */
-  String getCheck();
-
-  /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.CheckCommand#getCheck <em>Check</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Check</em>' attribute.
-   * @see #getCheck()
-   * @generated
-   */
-  void setCheck(String value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' reference.

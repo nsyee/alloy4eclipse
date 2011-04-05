@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package fr.univartois.cril.xtext.als;
 

@@ -72,13 +72,13 @@ PredDecl returns Predicate:
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
 RunDecl returns RunCommand:
-  (runName=Alias ":")? run="run" (name2=[PredicateName]|block=Block) scope=Scope	; 
+  (runName=Alias ":")? "run" (name2=[PredicateName]|block=Block) scope=Scope	; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
 */
 CheckDecl returns CheckCommand:
-  (checkName=Alias ":")? check="check" (name=[AssertionName]|block=Block) scope=Scope	; 
+  (checkName=Alias ":")? "check" (name=[AssertionName]|block=Block) scope=Scope	; 
   
 /*
 	scope ::= "for" number                   ["expect" [0|1]]

@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package fr.univartois.cril.xtext.als.impl;
 
@@ -29,7 +28,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getRunName <em>Run Name</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getRun <em>Run</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getName2 <em>Name2</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getScope <em>Scope</em>}</li>
@@ -49,26 +47,6 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    * @ordered
    */
   protected Alias runName;
-
-  /**
-   * The default value of the '{@link #getRun() <em>Run</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRun()
-   * @generated
-   * @ordered
-   */
-  protected static final String RUN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getRun() <em>Run</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRun()
-   * @generated
-   * @ordered
-   */
-  protected String run = RUN_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getName2() <em>Name2</em>}' reference.
@@ -167,29 +145,6 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__RUN_NAME, newRunName, newRunName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getRun()
-  {
-    return run;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRun(String newRun)
-  {
-    String oldRun = run;
-    run = newRun;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__RUN, oldRun, run));
   }
 
   /**
@@ -363,8 +318,6 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
     {
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         return getRunName();
-      case AlsPackage.RUN_COMMAND__RUN:
-        return getRun();
       case AlsPackage.RUN_COMMAND__NAME2:
         if (resolve) return getName2();
         return basicGetName2();
@@ -388,9 +341,6 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
     {
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         setRunName((Alias)newValue);
-        return;
-      case AlsPackage.RUN_COMMAND__RUN:
-        setRun((String)newValue);
         return;
       case AlsPackage.RUN_COMMAND__NAME2:
         setName2((PredicateName)newValue);
@@ -418,9 +368,6 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         setRunName((Alias)null);
         return;
-      case AlsPackage.RUN_COMMAND__RUN:
-        setRun(RUN_EDEFAULT);
-        return;
       case AlsPackage.RUN_COMMAND__NAME2:
         setName2((PredicateName)null);
         return;
@@ -446,8 +393,6 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
     {
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         return runName != null;
-      case AlsPackage.RUN_COMMAND__RUN:
-        return RUN_EDEFAULT == null ? run != null : !RUN_EDEFAULT.equals(run);
       case AlsPackage.RUN_COMMAND__NAME2:
         return name2 != null;
       case AlsPackage.RUN_COMMAND__BLOCK:
@@ -456,23 +401,6 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
         return scope != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (run: ");
-    result.append(run);
-    result.append(')');
-    return result.toString();
   }
 
 } //RunCommandImpl
