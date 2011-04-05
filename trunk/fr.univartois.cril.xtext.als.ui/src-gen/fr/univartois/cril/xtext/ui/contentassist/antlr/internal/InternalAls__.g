@@ -55,27 +55,27 @@ T56 : 'seq/Int' ;
 T57 : 'as' ;
 T58 : 'fun' ;
 T59 : 'pred' ;
-T60 : ':' ;
-T61 : 'for' ;
-T62 : 'but' ;
-T63 : 'expect' ;
-T64 : 'exactly' ;
-T65 : 'sig' ;
-T66 : '{' ;
-T67 : '}' ;
-T68 : 'extends' ;
-T69 : 'else' ;
-T70 : '@' ;
-T71 : 'disj' ;
-T72 : '|' ;
-T73 : 'module' ;
-T74 : 'open' ;
-T75 : 'fact' ;
-T76 : 'assert' ;
-T77 : 'enum' ;
-T78 : '/' ;
-T79 : 'run' ;
-T80 : 'check' ;
+T60 : 'run' ;
+T61 : ':' ;
+T62 : 'check' ;
+T63 : 'for' ;
+T64 : 'but' ;
+T65 : 'expect' ;
+T66 : 'exactly' ;
+T67 : 'sig' ;
+T68 : '{' ;
+T69 : '}' ;
+T70 : 'extends' ;
+T71 : 'else' ;
+T72 : '@' ;
+T73 : 'disj' ;
+T74 : '|' ;
+T75 : 'module' ;
+T76 : 'open' ;
+T77 : 'fact' ;
+T78 : 'assert' ;
+T79 : 'enum' ;
+T80 : '/' ;
 T81 : ',' ;
 T82 : 'let' ;
 T83 : 'none' ;
@@ -87,28 +87,28 @@ T88 : '.' ;
 T89 : '[' ;
 T90 : ']' ;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14019
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 13977
 RULE_NEGATIVE_INTEGER : '-' RULE_INT;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14021
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 13979
 RULE_SL_COMMENT : ('//' ~(('\n'|'\r'))* ('\r'? '\n')?|'--' ( options {greedy=false;} : . )*'\n');
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14023
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 13981
 RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')* '\''*;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14025
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 13983
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14027
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 13985
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14029
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 13987
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14031
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 13989
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14033
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 13991
 RULE_ANY_OTHER : .;
 
 
