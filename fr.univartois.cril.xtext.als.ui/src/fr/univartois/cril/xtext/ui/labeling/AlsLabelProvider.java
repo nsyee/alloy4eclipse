@@ -74,6 +74,10 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(Fact fact){
+		if(fact.getFactName().getName()==null){
+			return "Block Fact";
+			
+		}
 		return fact.getFactName().getName();
 	}
 
@@ -106,8 +110,18 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(RunCommand run) {
-		return run.getName2().getName();
-		//return "!!";
+		if (run.getRunName()==null){			
+			if(run.getName2()==null){
+				return "Block Run";
+			}
+			else{
+				return run.getName2().getName();
+			}		
+		}
+		//System.out.println("Nom du run:"+run.getRunName().getName()+"!!");
+		//if(run.getRunName().getName()==null){			
+		//}
+		return run.getRunName().getName();
 	}
 
 	String image(RunCommand run) {
@@ -116,7 +130,16 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(CheckCommand check) {
-		return check.getName().getName();
+		if (check.getCheckName()==null){
+			if(check.getName()==null){
+				return "Block Check";
+			}
+			else{
+				return check.getName().getName();
+			}
+		
+		}
+		return check.getCheckName().getName();
 	}
 
 	String image(CheckCommand check) {

@@ -5050,9 +5050,11 @@ rule__RunDecl__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getRunDeclAccess().getRunAssignment_1()); }
-(rule__RunDecl__RunAssignment_1)
-{ after(grammarAccess.getRunDeclAccess().getRunAssignment_1()); }
+{ before(grammarAccess.getRunDeclAccess().getRunKeyword_1()); }
+
+	'run' 
+
+{ after(grammarAccess.getRunDeclAccess().getRunKeyword_1()); }
 )
 
 ;
@@ -5236,9 +5238,11 @@ rule__CheckDecl__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getCheckDeclAccess().getCheckAssignment_1()); }
-(rule__CheckDecl__CheckAssignment_1)
-{ after(grammarAccess.getCheckDeclAccess().getCheckAssignment_1()); }
+{ before(grammarAccess.getCheckDeclAccess().getCheckKeyword_1()); }
+
+	'check' 
+
+{ after(grammarAccess.getCheckDeclAccess().getCheckKeyword_1()); }
 )
 
 ;
@@ -11961,29 +11965,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__RunDecl__RunAssignment_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getRunDeclAccess().getRunRunKeyword_1_0()); }
-(
-{ before(grammarAccess.getRunDeclAccess().getRunRunKeyword_1_0()); }
-
-	'run' 
-
-{ after(grammarAccess.getRunDeclAccess().getRunRunKeyword_1_0()); }
-)
-
-{ after(grammarAccess.getRunDeclAccess().getRunRunKeyword_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__RunDecl__Name2Assignment_2_0
     @init {
 		int stackSize = keepStackSize();
@@ -12041,29 +12022,6 @@ rule__CheckDecl__CheckNameAssignment_0_0
 (
 { before(grammarAccess.getCheckDeclAccess().getCheckNameAliasParserRuleCall_0_0_0()); }
 	ruleAlias{ after(grammarAccess.getCheckDeclAccess().getCheckNameAliasParserRuleCall_0_0_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CheckDecl__CheckAssignment_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getCheckDeclAccess().getCheckCheckKeyword_1_0()); }
-(
-{ before(grammarAccess.getCheckDeclAccess().getCheckCheckKeyword_1_0()); }
-
-	'check' 
-
-{ after(grammarAccess.getCheckDeclAccess().getCheckCheckKeyword_1_0()); }
-)
-
-{ after(grammarAccess.getCheckDeclAccess().getCheckCheckKeyword_1_0()); }
 )
 
 ;
