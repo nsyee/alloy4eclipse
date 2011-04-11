@@ -3,12 +3,15 @@
  */
 package fr.univartois.cril.xtext.ui;
 
+
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.resource.ILocationInFileProvider;
 import org.eclipse.xtext.ui.editor.outline.actions.IContentOutlineNodeAdapterFactory;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.DefaultAntlrTokenToAttributeIdMapper;
 
+import fr.univartois.cril.xtext.ui.labeling.AlsLabelProvider;
 import fr.univartois.cril.xtext.ui.outline.AlsOutlineNodeAdapterFactory;
 
 /**
@@ -34,4 +37,5 @@ public class AlsUiModule extends fr.univartois.cril.xtext.ui.AbstractAlsUiModule
 	public Class<? extends IContentOutlineNodeAdapterFactory> bindIContentOutlineNodeAdapterFactory() {
 		return AlsOutlineNodeAdapterFactory.class;
 	}
+	
 }

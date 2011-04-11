@@ -14,13 +14,13 @@
   			name="Als Editor" /> 
 		<!-- added--> 
   		<editor 
-  			class="fr.univartois.cril.alloyplugin.editor.MultiPageEditor" 
-  			contributorClass="fr.univartois.cril.alloyplugin.editor.MultiPageEditorContributor" 
+  			class="fr.univartois.cril.xtext.alloyplugin.editor.MultiPageEditor" 
+  			contributorClass="fr.univartois.cril.xtext.alloyplugin.editor.MultiPageEditorContributor" 
   			default="false" 
   			extensions="xml" 
   			icon="icons/graph.gif" 
-  			id="fr.univartois.cril.alloyplugin.editors.MultiPageEditor" 
-  			matchingStrategy="fr.univartois.cril.alloyplugin.editor.AlloyXMLEditorMatchingStrategy" 
+  			id="fr.univartois.cril.xtext.alloyplugin.editors.MultiPageEditor" 
+  			matchingStrategy="fr.univartois.cril.xtext.alloyplugin.editor.AlloyXMLEditorMatchingStrategy" 
   			name="Alloy XML answer viewer" /> 
 		<!-- YES--> 
   	</extension>
@@ -85,8 +85,8 @@
   		</page>
 		<!-- ADDED--> 
   		<page 
-  			class="fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage" 
-  			id="fr.univartois.cril.alloyplugin.preferences.AlloyPreferencePage" 
+  			class="fr.univartois.cril.xtext.alloyplugin.preferences.AlloyPreferencePage" 
+  			id="fr.univartois.cril.xtext.alloyplugin.preferences.AlloyPreferencePage" 
   			name="Alloy Preferences" /> 
   	</extension>
 	<extension 
@@ -174,32 +174,32 @@
   			id="org.eclipse.xtext.ui.editor.outline.QuickOutline" 
   			name="Quick Outline" /> 
   		<category 
-  			id="fr.univartois.cril.alloyplugin.launch.category" 
+  			id="fr.univartois.cril.xtext.alloyplugin.launch.category" 
   			name="Alloy" /> 
   		<command 
-  			categoryId="fr.univartois.cril.alloyplugin.launch.category" 
+  			categoryId="fr.univartois.cril.xtext.alloyplugin.launch.category" 
   			description="Close All VizView" 
-  			id="fr.univartois.cril.alloyplugin.launch.closeallview" 
+  			id="fr.univartois.cril.xtext.alloyplugin.launch.closeallview" 
   			name="Close All VizView" /> 
   		<command 
-  			categoryId="fr.univartois.cril.alloyplugin.launch.category" 
+  			categoryId="fr.univartois.cril.xtext.alloyplugin.launch.category" 
   			description="launch Alloy command" 
-  			id="fr.univartois.cril.alloyplugin.launch.runalloycommand" 
+  			id="fr.univartois.cril.xtext.alloyplugin.launch.runalloycommand" 
   			name="Run Alloy command" /> 
   		<command 
-  			categoryId="fr.univartois.cril.alloyplugin.launch.category" 
+  			categoryId="fr.univartois.cril.xtext.alloyplugin.launch.category" 
   			description="Display Alloy answer" 
-  			id="fr.univartois.cril.alloyplugin.launch.displayalloycommandanswer" 
+  			id="fr.univartois.cril.xtext.alloyplugin.launch.displayalloycommandanswer" 
   			name="Show Alloy answer" /> 
   		<command 
-  			categoryId="fr.univartois.cril.alloyplugin.launch.category" 
+  			categoryId="fr.univartois.cril.xtext.alloyplugin.launch.category" 
   			description="Open Alloy 4 Sample Models" 
-  			id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction" 
+  			id="fr.univartois.cril.xtext.alloyplugin.ui.OpenLibraryModelAction" 
   			name="Open Sample Models" /> 
   		<command 
-  			categoryId="fr.univartois.cril.alloyplugin.launch.category" 
+  			categoryId="fr.univartois.cril.xtext.alloyplugin.launch.category" 
   			description="Rename an Alloy 4 identifier" 
-  			id="fr.univartois.cril.alloyplugin.RenameAls" 
+  			id="fr.univartois.cril.xtext.alloyplugin.RenameAls" 
   			name="Rename A4 Identifier" /> 
   	</extension>
 	<extension 
@@ -226,60 +226,60 @@
   	</extension>
 	<!-- ancien--> 
 	<extension-point 
-		id="fr.univartois.cril.alloyplugin.editorlistener" 
+		id="fr.univartois.cril.xtext.alloyplugin.editorlistener" 
 		name="editorlistener"/>
 	<extension-point 
-		id="fr.univartois.cril.alloyplugin.projectbuilderscontribution" 
+		id="fr.univartois.cril.xtext.alloyplugin.projectbuilderscontribution" 
 		name="Project nature contributions"/>
 	<extension 
 		point="org.eclipse.core.filebuffers.documentSetup">
   		<participant 
-  			class="fr.univartois.cril.alloyplugin.editor.ALSDocumentSetupParticipant" 
+  			class="fr.univartois.cril.xtext.alloyplugin.editor.ALSDocumentSetupParticipant" 
   			extensions="als" /> 
   	</extension>
 	<!-- YES--> 
 	<extension 
 		point="org.eclipse.ui.newWizards">
 		<category 
-			id="fr.univartois.cril.alloyplugin" 
+			id="fr.univartois.cril.xtext.alloyplugin" 
 			name="Alloy" /> 
   		<wizard 
-  			category="fr.univartois.cril.alloyplugin" 
-  			class="fr.univartois.cril.alloyplugin.ui.NewAlloyFileWizard" 
-  			finalPerspective="fr.univartois.cril.alloyplugin.alloyperspective" 
+  			category="fr.univartois.cril.xtext.alloyplugin" 
+  			class="fr.univartois.cril.xtext.alloyplugin.ui.NewAlloyFileWizard" 
+  			finalPerspective="fr.univartois.cril.xtext.alloyplugin.alloyperspective" 
   			icon="icons/AlloySpec.gif" 
-  			id="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard" 
+  			id="fr.univartois.cril.xtext.alloyplugin.wizards.NewAlloyFileWizard" 
   			name="Alloy 4 Model" 
   			project="false" /> 
   		<wizard 
-  			category="fr.univartois.cril.alloyplugin" 
-  			class="fr.univartois.cril.alloyplugin.ui.NewAlloyProjectWizard" 
-  			finalPerspective="fr.univartois.cril.alloyplugin.alloyperspective" 
+  			category="fr.univartois.cril.xtext.alloyplugin" 
+  			class="fr.univartois.cril.xtext.alloyplugin.ui.NewAlloyProjectWizard" 
+  			finalPerspective="fr.univartois.cril.xtext.alloyplugin.alloyperspective" 
   			hasPages="true" 
   			icon="icons/AlloyProject.gif" 
-  			id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject" 
+  			id="fr.univartois.cril.xtext.alloyplugin.wizards.NewAlloyProject" 
   			name="Alloy 4 Project" 
-  			preferredPerspectives="fr.univartois.cril.alloyplugin.alloyperspective" 
+  			preferredPerspectives="fr.univartois.cril.xtext.alloyplugin.alloyperspective" 
   			project="true" /> 
 	</extension>
 	<!-- YES--> 
 	<extension 
 		point="org.eclipse.ui.perspectives">
   		<perspective 
-  			class="fr.univartois.cril.alloyplugin.ui.PerspectiveFactory" 
+  			class="fr.univartois.cril.xtext.alloyplugin.ui.PerspectiveFactory" 
   			icon="icons/AlloyProject.gif" 
-  			id="fr.univartois.cril.alloyplugin.alloyperspective" 
+  			id="fr.univartois.cril.xtext.alloyplugin.alloyperspective" 
   			name="Alloy" /> 
   	</extension>
 	<!-- YES--> 
 	<extension 
 		point="org.eclipse.ui.perspectiveExtensions">
 		<perspectiveExtension 
-			targetID="fr.univartois.cril.alloyplugin.alloyperspective">
+			targetID="fr.univartois.cril.xtext.alloyplugin.alloyperspective">
   			<newWizardShortcut 
-  				id="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject" /> 
+  				id="fr.univartois.cril.xtext.alloyplugin.wizards.NewAlloyProject" /> 
   			<newWizardShortcut 
-  				id="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard" /> 
+  				id="fr.univartois.cril.xtext.alloyplugin.wizards.NewAlloyFileWizard" /> 
   		</perspectiveExtension>
 	</extension>
 	<!-- YES --> 
@@ -289,7 +289,7 @@
 		point="org.eclipse.core.resources.natures">
 		<runtime>
   			<run 
-  				class="fr.univartois.cril.alloyplugin.ProjectNature" /> 
+  				class="fr.univartois.cril.xtext.alloyplugin.ProjectNature" /> 
   		</runtime>
   	</extension>
 	<!-- YES--> 
@@ -299,12 +299,12 @@
 			adaptable="true" 
 			objectClass="org.eclipse.core.resources.IProject" 
 			nameFilter="*" 
-			id="fr.univartois.cril.alloyplugin.contribution">
+			id="fr.univartois.cril.xtext.alloyplugin.contribution">
   			<action 
   				label="Show Project Nature" 
-  				class="fr.univartois.cril.alloyplugin.ui.ShowNatureAction" 
+  				class="fr.univartois.cril.xtext.alloyplugin.ui.ShowNatureAction" 
   				enablesFor="+" 
-  				id="fr.univartois.cril.alloyplugin.ShowNatureAction" /> 
+  				id="fr.univartois.cril.xtext.alloyplugin.ShowNatureAction" /> 
   		</objectContribution>
   	</extension>
 	<!--   
@@ -324,12 +324,12 @@
          point="org.eclipse.core.runtime.contentTypes">
       <content-type
             file-extensions="als"
-            id="fr.univartois.cril.alloyplugin.alsfile"
+            id="fr.univartois.cril.xtext.alloyplugin.alsfile"
             name="ALS file"
             priority="normal"/>
       <content-type
             file-extensions="thm"
-            id="fr.univartois.cril.alloyplugin.thmfile"
+            id="fr.univartois.cril.xtext.alloyplugin.thmfile"
             name="Alloy Theme file"
             priority="normal" />
    </extension><!--aaaa--> 
@@ -340,7 +340,7 @@
       <builder
             hasNature="false"
             isConfigurable="false">
-         <run class="fr.univartois.cril.alloyplugin.ProjectBuilder"/>
+         <run class="fr.univartois.cril.xtext.alloyplugin.ProjectBuilder"/>
       </builder>
    </extension><!--voila--> 
 - <!-- a voir --> 
@@ -350,11 +350,11 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="fr.univartois.cril.alloyplugin.contribution2">
+            id="fr.univartois.cril.xtext.alloyplugin.contribution2">
          <action
-               class="fr.univartois.cril.alloyplugin.ui.ToggleNatureAction"
+               class="fr.univartois.cril.xtext.alloyplugin.ui.ToggleNatureAction"
                enablesFor="+"
-               id="fr.univartois.cril.alloyplugin.addremovebutton"
+               id="fr.univartois.cril.xtext.alloyplugin.addremovebutton"
                label="Add/Remove Alloy project Nature">
          </action>
       </objectContribution>
@@ -367,13 +367,13 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="fr.univartois.cril.alloyplugin.contribution3">
+            id="fr.univartois.cril.xtext.alloyplugin.contribution3">
          <action
                label="Open sample models ..."
-               class="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
+               class="fr.univartois.cril.xtext.alloyplugin.ui.OpenLibraryModelAction"
                enablesFor="+"
-               definitionId="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
-               id="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction">
+               definitionId="fr.univartois.cril.xtext.alloyplugin.ui.OpenLibraryModelAction"
+               id="fr.univartois.cril.xtext.alloyplugin.ui.OpenLibraryModelAction">
          </action>
       </objectContribution>
    </extension><!--voila-->
@@ -381,9 +381,9 @@
 	<extension 
 		point="org.eclipse.debug.ui.launchShortcuts">
 		<shortcut 
-			class="fr.univartois.cril.alloyplugin.launch.ui.LaunchShortcut" 
+			class="fr.univartois.cril.xtext.alloyplugin.launch.ui.LaunchShortcut" 
 			icon="icons/icon.gif" 
-			id="fr.univartois.cril.alloyplugin.shortcut" 
+			id="fr.univartois.cril.xtext.alloyplugin.shortcut" 
 			label="Alloy Specification" 
 			modes="run,debug">
 			<contextualLaunch>
@@ -404,7 +404,7 @@
 <extension
          point="org.eclipse.ui.commandImages">
       <image
-            commandId="fr.univartois.cril.alloyplugin.launch.runalloycommand"
+            commandId="fr.univartois.cril.xtext.alloyplugin.launch.runalloycommand"
             icon="icons/AlloyCommand.gif"/>
    </extension><!--voila-->
 - <!-- a voir
@@ -412,14 +412,14 @@
 	<extension 
 		point="org.eclipse.ui.perspectiveExtensions">
 		<perspectiveExtension 
-			targetID="fr.univartois.cril.alloyplugin.alloyperspective">
+			targetID="fr.univartois.cril.xtext.alloyplugin.alloyperspective">
   			<actionSet 
   				id="org.eclipse.debug.ui.launchActionSet" /> 
   		</perspectiveExtension>
 	</extension>
 	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
   		<launchConfigurationType 
-  			delegate="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationDelegate" id="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType" 
+  			delegate="fr.univartois.cril.xtext.alloyplugin.launch.ui.LaunchConfigurationDelegate" id="fr.univartois.cril.xtext.alloyplugin.launch.ui.LaunchConfigurationType" 
   			modes="run" 
   			name="Alloy command" 
   			public="true" /> 
@@ -427,16 +427,16 @@
 <extension
          point="org.eclipse.debug.ui.launchConfigurationTypeImages">
       <launchConfigurationTypeImage
-            configTypeID="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType"
+            configTypeID="fr.univartois.cril.xtext.alloyplugin.launch.ui.LaunchConfigurationType"
             icon="icons/AlloyCommand.gif"
-            id="fr.univartois.cril.alloyplugin.launch.launchConfigurationTypeImage1"/>
+            id="fr.univartois.cril.xtext.alloyplugin.launch.launchConfigurationTypeImage1"/>
    </extension><!--voila-->
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
       <launchConfigurationTabGroup
-            class="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationTabGroups"
-            id="fr.univartois.cril.alloyplugin.launch.launchConfigurationTabGroup1"
-            type="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType">
+            class="fr.univartois.cril.xtext.alloyplugin.launch.ui.LaunchConfigurationTabGroups"
+            id="fr.univartois.cril.xtext.alloyplugin.launch.launchConfigurationTabGroup1"
+            type="fr.univartois.cril.xtext.alloyplugin.launch.ui.LaunchConfigurationType">
       </launchConfigurationTabGroup>
 	</extension><!--voila--> 
 	<!-- a voir --> 
@@ -444,35 +444,35 @@
  	<extension 
  		point="org.eclipse.core.runtime.preferences">
   		<initializer 
-  			class="fr.univartois.cril.alloyplugin.preferences.PreferenceInitializer" /> 
+  			class="fr.univartois.cril.xtext.alloyplugin.preferences.PreferenceInitializer" /> 
   	</extension>
 	<extension 
 		point="org.eclipse.ui.ide.projectNatureImages">
   		<image 
   			icon="icons/AlloyProject2.gif" 
-  			id="fr.univartois.cril.alloyplugin.image" 
-  			natureId="fr.univartois.cril.alloyplugin.AlloyProjectNature" /> 
+  			id="fr.univartois.cril.xtext.alloyplugin.image" 
+  			natureId="fr.univartois.cril.xtext.alloyplugin.AlloyProjectNature" /> 
 	</extension>
 	<extension 
 		point="org.eclipse.ui.views">
 		<category 
-			id="fr.univartois.cril.alloyplugin.views" 
+			id="fr.univartois.cril.xtext.alloyplugin.views" 
 			name="Alloy4Eclipse" /> 
   			<view 
   				allowMultiple="true" 
-  				category="fr.univartois.cril.alloyplugin.views" 
-  				class="fr.univartois.cril.alloyplugin.views.VizView" 
+  				category="fr.univartois.cril.xtext.alloyplugin.views" 
+  				class="fr.univartois.cril.xtext.alloyplugin.views.VizView" 
   				icon="icons/graph.gif" 
-  				id="fr.univartois.cril.alloyplugin.views.vizview" 
+  				id="fr.univartois.cril.xtext.alloyplugin.views.vizview" 
   				name="Graphical View" /> 
 	</extension>
 <extension point="org.eclipse.ui.popupMenus">
   <viewerContribution targetID="#TextEditorContext" 
-                      id="fr.univartois.cril.alloyplugin.RenameAls">
+                      id="fr.univartois.cril.xtext.alloyplugin.RenameAls">
        <action
-             class="fr.univartois.cril.alloyplugin.ui.RenameAls"
-             definitionId="fr.univartois.cril.alloyplugin.RenameAls"
-             id="fr.univartois.cril.alloyplugin.RenameAls"
+             class="fr.univartois.cril.xtext.alloyplugin.ui.RenameAls"
+             definitionId="fr.univartois.cril.xtext.alloyplugin.RenameAls"
+             id="fr.univartois.cril.xtext.alloyplugin.RenameAls"
              label="Rename..."
              menubarPath="additions"/>
   </viewerContribution>
@@ -480,13 +480,13 @@
 - <!-- <extension
       point="org.eclipse.ui.bindings">
    <key
-         commandId="fr.univartois.cril.alloyplugin.RenameAls"
+         commandId="fr.univartois.cril.xtext.alloyplugin.RenameAls"
          contextId="org.eclipse.ui.textEditorScope"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="Ctrl+Alt+R">
    </key>
    <key
-         commandId="fr.univartois.cril.alloyplugin.ui.OpenLibraryModelAction"
+         commandId="fr.univartois.cril.xtext.alloyplugin.ui.OpenLibraryModelAction"
          contextId="org.eclipse.ui.contexts.window"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="Ctrl+Alt+O">
@@ -496,7 +496,7 @@
 	<extension point="org.eclipse.ui.navigator.navigatorContent">
 		<commonWizard 
 			type="new" 
-			wizardId="fr.univartois.cril.alloyplugin.wizards.NewAlloyProject">
+			wizardId="fr.univartois.cril.xtext.alloyplugin.wizards.NewAlloyProject">
 			<enablement>
 				<or>
   					<adapt type="org.eclipse.core.resources.IProject" /> 
@@ -506,7 +506,7 @@
   		</commonWizard>
 		<commonWizard 
 			type="new" 
-			wizardId="fr.univartois.cril.alloyplugin.wizards.NewAlloyFileWizard">
+			wizardId="fr.univartois.cril.xtext.alloyplugin.wizards.NewAlloyFileWizard">
 			<enablement>
 				<or>
   					<adapt type="org.eclipse.core.resources.IFile" /> 

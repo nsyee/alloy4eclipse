@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
+import org.eclipse.xtext.ui.editor.outline.actions.IActionBarContributor;
 import org.eclipse.xtext.ui.editor.outline.transformer.AbstractDeclarativeSemanticModelTransformer;
 
 import fr.univartois.cril.xtext.als.Specification;
@@ -28,4 +29,5 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 	public String createNode(Specification semanticNode, ContentOutlineNode parentNode) {	    
 	    return INVISIBLE_ROOT_NODE;
 	}
+	
 }
