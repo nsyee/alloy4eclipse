@@ -9,6 +9,8 @@ public class AlsStandaloneSetup extends AlsStandaloneSetupGenerated{
 
 	public static void doSetup() {
 		new AlsStandaloneSetup().createInjectorAndDoEMFRegistration();
+		
 	}
+	
 }
 
