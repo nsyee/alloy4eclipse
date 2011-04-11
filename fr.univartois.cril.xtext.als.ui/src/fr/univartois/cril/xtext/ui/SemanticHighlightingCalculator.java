@@ -64,6 +64,7 @@ public class SemanticHighlightingCalculator implements
 						AlsPackage.Literals.TYPESCOPE__NAME.getName());
 			}
 			if (current instanceof RunCommand) {
+				
 				simpleTreatment(current, acceptor,
 						AlsPackage.Literals.RUN_COMMAND__NAME2.getName(),
 						HighlightingConfiguration.predicateName);
@@ -88,6 +89,7 @@ public class SemanticHighlightingCalculator implements
 	}
 
 	private Collection<String> getUsedSimpleTypes(XtextResource resource) {
+		
 		Collection<String> result = new HashSet<String>();
 		Iterator<EObject> iter = EcoreUtil.getAllContents(resource, true);
 		// compteur2 = 0;

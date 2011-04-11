@@ -17,10 +17,10 @@ import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
-import fr.univartois.cril.alloyplugin.api.IReporter;
-import fr.univartois.cril.alloyplugin.core.ALSFile;
-import fr.univartois.cril.alloyplugin.core.ExecutableCommand;
-import fr.univartois.cril.alloyplugin.core.Reporter;
+import fr.univartois.cril.xtext.alloyplugin.api.IReporter;
+import fr.univartois.cril.xtext.alloyplugin.core.ALSFile;
+import fr.univartois.cril.xtext.alloyplugin.core.ExecutableCommand;
+import fr.univartois.cril.xtext.alloyplugin.core.Reporter;
 
 public class CommandOutlineNodeHandler extends AbstractHandler {
 
