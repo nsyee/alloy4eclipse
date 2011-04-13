@@ -1861,7 +1861,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getOpenName_ImportURI()
+  public EAttribute getOpenName_ImportedNamespace()
   {
     return (EAttribute)openNameEClass.getEStructuralFeatures().get(0);
   }
@@ -2420,7 +2420,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEAttribute(moduleNameEClass, MODULE_NAME__NAME);
 
     openNameEClass = createEClass(OPEN_NAME);
-    createEAttribute(openNameEClass, OPEN_NAME__IMPORT_URI);
+    createEAttribute(openNameEClass, OPEN_NAME__IMPORTED_NAMESPACE);
 
     factNameEClass = createEClass(FACT_NAME);
 
@@ -2693,7 +2693,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEAttribute(getModuleName_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModuleName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(openNameEClass, OpenName.class, "OpenName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getOpenName_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, OpenName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOpenName_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, OpenName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(factNameEClass, FactName.class, "FactName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

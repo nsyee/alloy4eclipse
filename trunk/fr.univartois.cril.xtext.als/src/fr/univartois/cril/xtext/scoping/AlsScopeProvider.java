@@ -14,4 +14,7 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  */
 public class AlsScopeProvider extends AbstractDeclarativeScopeProvider {
 
+	
+	
 }
+	

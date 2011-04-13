@@ -18,6 +18,8 @@ Module:
 /*
 	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
 */
+
+
 Open:
   "private"? openName=OpenName  (left=LeftSquareBracketKeyword ref+=Ref (comma+=Comma ref+=Ref)* right=RightSquareBracketKeyword)? ("as" nameAs=ExactlyName)?	; 
   
@@ -241,7 +243,7 @@ ModuleName :
 	"module" name=Name	;
 	
 OpenName	:
-	"open" importURI=Name	;
+	"open" importedNamespace=Name	;
 	
 FactName	:
 	{FactName}"fact" name=Name?	;
@@ -273,6 +275,8 @@ PropertyName:
 ExactlyName:
 	name=Name;
 
+
+
 NameAlias:
 	ID ("/" ID)*;
 	
@@ -298,6 +302,8 @@ ReferencesSig	:
  	
 Ref:
   {Ref}(nameRef=[ReferencesName]|"univ"|"Int"|"seq/Int")	;//A VOIR
+  
+
 
 LeftCurlyBracket:
   leftCurlyBracket="{"	;

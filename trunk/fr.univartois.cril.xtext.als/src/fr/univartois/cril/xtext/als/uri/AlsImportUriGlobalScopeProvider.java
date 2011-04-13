@@ -11,7 +11,10 @@ public class AlsImportUriGlobalScopeProvider  extends ImportUriGlobalScopeProvid
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 		
-		
+		System.out.println(
+                "scope_" + reference.getEContainingClass().getName() + "_" + reference.getName()
+                + "(" + context.eClass().getName() + ", ..)"
+        );
 
 		return super.getScope(context, reference);
 	}
