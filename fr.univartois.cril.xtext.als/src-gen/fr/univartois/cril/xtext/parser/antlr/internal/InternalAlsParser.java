@@ -13302,21 +13302,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleOpenName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5397:1: ruleOpenName returns [EObject current=null] : ( 'open' ( (lv_importURI_1_0= ruleName ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5397:1: ruleOpenName returns [EObject current=null] : ( 'open' ( (lv_importedNamespace_1_0= ruleName ) ) ) ;
     public final EObject ruleOpenName() throws RecognitionException {
         EObject current = null;
 
-        AntlrDatatypeRuleToken lv_importURI_1_0 = null;
+        AntlrDatatypeRuleToken lv_importedNamespace_1_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5402:6: ( ( 'open' ( (lv_importURI_1_0= ruleName ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5403:1: ( 'open' ( (lv_importURI_1_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5402:6: ( ( 'open' ( (lv_importedNamespace_1_0= ruleName ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5403:1: ( 'open' ( (lv_importedNamespace_1_0= ruleName ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5403:1: ( 'open' ( (lv_importURI_1_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5403:3: 'open' ( (lv_importURI_1_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5403:1: ( 'open' ( (lv_importedNamespace_1_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5403:3: 'open' ( (lv_importedNamespace_1_0= ruleName ) )
             {
             match(input,83,FOLLOW_83_in_ruleOpenName7909); if (failed) return current;
             if ( backtracking==0 ) {
@@ -13324,19 +13324,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getOpenNameAccess().getOpenKeyword_0(), null); 
                   
             }
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5407:1: ( (lv_importURI_1_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5408:1: (lv_importURI_1_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5407:1: ( (lv_importedNamespace_1_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5408:1: (lv_importedNamespace_1_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5408:1: (lv_importURI_1_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5409:3: lv_importURI_1_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5408:1: (lv_importedNamespace_1_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5409:3: lv_importedNamespace_1_0= ruleName
             {
             if ( backtracking==0 ) {
                
-              	        currentNode=createCompositeNode(grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0(), currentNode); 
+              	        currentNode=createCompositeNode(grammarAccess.getOpenNameAccess().getImportedNamespaceNameParserRuleCall_1_0(), currentNode); 
               	    
             }
             pushFollow(FOLLOW_ruleName_in_ruleOpenName7930);
-            lv_importURI_1_0=ruleName();
+            lv_importedNamespace_1_0=ruleName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
@@ -13348,8 +13348,8 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
               	        try {
               	       		set(
               	       			current, 
-              	       			"importURI",
-              	        		lv_importURI_1_0, 
+              	       			"importedNamespace",
+              	        		lv_importedNamespace_1_0, 
               	        		"Name", 
               	        		currentNode);
               	        } catch (ValueConverterException vce) {
