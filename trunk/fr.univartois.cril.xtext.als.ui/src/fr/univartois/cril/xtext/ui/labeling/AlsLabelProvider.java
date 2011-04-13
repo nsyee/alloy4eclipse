@@ -16,7 +16,6 @@ import fr.univartois.cril.xtext.als.Function;
 import fr.univartois.cril.xtext.als.Module;
 import fr.univartois.cril.xtext.als.Open;
 import fr.univartois.cril.xtext.als.Predicate;
-import fr.univartois.cril.xtext.als.PredicateName;
 import fr.univartois.cril.xtext.als.RunCommand;
 import fr.univartois.cril.xtext.als.Signature;
 import fr.univartois.cril.xtext.als.SignatureName;
@@ -55,7 +54,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	String text(Open open){
-		return open.getOpenName().getImportURI();
+		return open.getOpenName().getImportedNamespace();
 	}
 
 	String image(Module module) {
