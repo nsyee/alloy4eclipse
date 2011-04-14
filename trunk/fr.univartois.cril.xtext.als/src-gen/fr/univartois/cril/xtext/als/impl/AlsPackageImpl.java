@@ -35,7 +35,6 @@ import fr.univartois.cril.xtext.als.LeftParenthesis;
 import fr.univartois.cril.xtext.als.LeftSquareBracketKeyword;
 import fr.univartois.cril.xtext.als.LetDecl;
 import fr.univartois.cril.xtext.als.Module;
-import fr.univartois.cril.xtext.als.ModuleName;
 import fr.univartois.cril.xtext.als.Open;
 import fr.univartois.cril.xtext.als.OpenName;
 import fr.univartois.cril.xtext.als.Paragraph;
@@ -254,13 +253,6 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * @generated
    */
   private EClass blockOrBarEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass moduleNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -541,9 +533,9 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_ModuleName()
+  public EAttribute getModule_ImportedNamespace()
   {
-    return (EReference)moduleEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)moduleEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1831,26 +1823,6 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getModuleName()
-  {
-    return moduleNameEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getModuleName_Name()
-  {
-    return (EAttribute)moduleNameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getOpenName()
   {
     return openNameEClass;
@@ -2262,7 +2234,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEReference(specificationEClass, SPECIFICATION__PARAGRAPH);
 
     moduleEClass = createEClass(MODULE);
-    createEReference(moduleEClass, MODULE__MODULE_NAME);
+    createEAttribute(moduleEClass, MODULE__IMPORTED_NAMESPACE);
     createEReference(moduleEClass, MODULE__LEFT);
     createEAttribute(moduleEClass, MODULE__EXACTLY);
     createEReference(moduleEClass, MODULE__NAME);
@@ -2416,9 +2388,6 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEReference(blockOrBarEClass, BLOCK_OR_BAR__BLOCK);
     createEReference(blockOrBarEClass, BLOCK_OR_BAR__EXPR);
 
-    moduleNameEClass = createEClass(MODULE_NAME);
-    createEAttribute(moduleNameEClass, MODULE_NAME__NAME);
-
     openNameEClass = createEClass(OPEN_NAME);
     createEAttribute(openNameEClass, OPEN_NAME__IMPORTED_NAMESPACE);
 
@@ -2535,7 +2504,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEReference(getSpecification_Paragraph(), this.getParagraph(), null, "paragraph", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moduleEClass, Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModule_ModuleName(), this.getModuleName(), null, "moduleName", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModule_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_Left(), this.getLeftSquareBracketKeyword(), null, "left", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getModule_Exactly(), ecorePackage.getEString(), "exactly", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_Name(), this.getExactlyName(), null, "name", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2688,9 +2657,6 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEClass(blockOrBarEClass, BlockOrBar.class, "BlockOrBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBlockOrBar_Block(), this.getBlock(), null, "block", null, 0, 1, BlockOrBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBlockOrBar_Expr(), this.getExpression(), null, "expr", null, 0, 1, BlockOrBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(moduleNameEClass, ModuleName.class, "ModuleName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModuleName_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModuleName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(openNameEClass, OpenName.class, "OpenName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOpenName_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, OpenName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -11,9 +11,10 @@ public class AlsImportedNamespaceAwareLocalScopeProvider extends ImportedNamespa
 	protected ImportNormalizer createImportNormalizer(final String name) {
 		
 		String newName=name.replace('/', '.');
-		
+		System.out.println(newName);
 		return new ImportNormalizer(new QualifiedName(newName+".*"));
 	}
+	
 
 
 }

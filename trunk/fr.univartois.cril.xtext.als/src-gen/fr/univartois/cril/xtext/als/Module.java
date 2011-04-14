@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.Module#getModuleName <em>Module Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Module#getImportedNamespace <em>Imported Namespace</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Module#getLeft <em>Left</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Module#getExactly <em>Exactly</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Module#getName <em>Name</em>}</li>
@@ -34,30 +34,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Module extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Module Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Module Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Imported Namespace</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Module Name</em>' containment reference.
-   * @see #setModuleName(ModuleName)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getModule_ModuleName()
-   * @model containment="true"
+   * @return the value of the '<em>Imported Namespace</em>' attribute.
+   * @see #setImportedNamespace(String)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getModule_ImportedNamespace()
+   * @model
    * @generated
    */
-  ModuleName getModuleName();
+  String getImportedNamespace();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Module#getModuleName <em>Module Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Module#getImportedNamespace <em>Imported Namespace</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Module Name</em>' containment reference.
-   * @see #getModuleName()
+   * @param value the new value of the '<em>Imported Namespace</em>' attribute.
+   * @see #getImportedNamespace()
    * @generated
    */
-  void setModuleName(ModuleName value);
+  void setImportedNamespace(String value);
 
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.

@@ -13,7 +13,7 @@ Specification  :
 	module ::= "module" name  [ "["  ["exactly"] name  ("," ["exactly"] num)*    "]" ]
 */
 Module:
-  moduleName=ModuleName (left=LeftSquareBracketKeyword exactly+="exactly"? name=ExactlyName (comma+=Comma exactly+="exactly"? number+=INT)* right=RightSquareBracketKeyword)?	; 
+  "module" importedNamespace=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name=ExactlyName (comma+=Comma exactly+="exactly"? number+=INT)* right=RightSquareBracketKeyword)?	; 
   
 /*
 	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
@@ -239,8 +239,6 @@ BlockOrBar:
 	name ::= ["this" | ID] ["/" ID]*
 */
 
-ModuleName :
-	"module" name=Name	;
 	
 OpenName	:
 	"open" importedNamespace=Name	;
