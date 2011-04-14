@@ -1,5 +1,7 @@
 package fr.univartois.cril.xtext.alloyplugin.ui;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.resources.IFile;
@@ -107,11 +109,21 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 		IPath to=new Path(AlloyPreferencePage
 				.getA4SampleModelsPath());
 		
-		IFolder file = project.getFolder(to.lastSegment());
-		file.createLink(to,IResource.NONE,null);
 		
-	
-		project.setDescription(description, null);
+		File models=new File(to.toOSString());
+		for(File f :models.listFiles()){
+			IFolder file = project.getFolder(f.getName());
+			
+			try {
+				
+				file.createLink(Path.fromOSString(f.getCanonicalPath()),IResource.NONE,monitor);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		project.setDescription(description, monitor);
 
 		
 		
