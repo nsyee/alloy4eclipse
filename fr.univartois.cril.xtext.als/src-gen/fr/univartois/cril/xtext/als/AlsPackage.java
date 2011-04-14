@@ -116,13 +116,13 @@ public interface AlsPackage extends EPackage
   int MODULE = 1;
 
   /**
-   * The feature id for the '<em><b>Module Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODULE__MODULE_NAME = 0;
+  int MODULE__IMPORTED_NAMESPACE = 0;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1580,34 +1580,6 @@ public interface AlsPackage extends EPackage
   int BLOCK_OR_BAR_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.ModuleNameImpl <em>Module Name</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext.als.impl.ModuleNameImpl
-   * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getModuleName()
-   * @generated
-   */
-  int MODULE_NAME = 26;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODULE_NAME__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Module Name</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODULE_NAME_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.OpenNameImpl <em>Open Name</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1615,7 +1587,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getOpenName()
    * @generated
    */
-  int OPEN_NAME = 27;
+  int OPEN_NAME = 26;
 
   /**
    * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -1643,7 +1615,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getReferencesName()
    * @generated
    */
-  int REFERENCES_NAME = 38;
+  int REFERENCES_NAME = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1671,7 +1643,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getFactName()
    * @generated
    */
-  int FACT_NAME = 28;
+  int FACT_NAME = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1699,7 +1671,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getAssertionName()
    * @generated
    */
-  int ASSERTION_NAME = 29;
+  int ASSERTION_NAME = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1727,7 +1699,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getFunctionName()
    * @generated
    */
-  int FUNCTION_NAME = 30;
+  int FUNCTION_NAME = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1755,7 +1727,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getPredicateName()
    * @generated
    */
-  int PREDICATE_NAME = 31;
+  int PREDICATE_NAME = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1783,7 +1755,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getAlias()
    * @generated
    */
-  int ALIAS = 32;
+  int ALIAS = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1811,7 +1783,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getEnumName()
    * @generated
    */
-  int ENUM_NAME = 33;
+  int ENUM_NAME = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1839,7 +1811,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getEnumPropertyName()
    * @generated
    */
-  int ENUM_PROPERTY_NAME = 34;
+  int ENUM_PROPERTY_NAME = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1867,7 +1839,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getSignatureName()
    * @generated
    */
-  int SIGNATURE_NAME = 35;
+  int SIGNATURE_NAME = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1895,7 +1867,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getPropertyName()
    * @generated
    */
-  int PROPERTY_NAME = 36;
+  int PROPERTY_NAME = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1923,7 +1895,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getExactlyName()
    * @generated
    */
-  int EXACTLY_NAME = 37;
+  int EXACTLY_NAME = 36;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1951,7 +1923,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getReferencesSig()
    * @generated
    */
-  int REFERENCES_SIG = 39;
+  int REFERENCES_SIG = 38;
 
   /**
    * The feature id for the '<em><b>Name Ref</b></em>' reference.
@@ -1979,7 +1951,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getRef()
    * @generated
    */
-  int REF = 40;
+  int REF = 39;
 
   /**
    * The feature id for the '<em><b>Name Ref</b></em>' reference.
@@ -2007,7 +1979,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getLeftCurlyBracket()
    * @generated
    */
-  int LEFT_CURLY_BRACKET = 41;
+  int LEFT_CURLY_BRACKET = 40;
 
   /**
    * The feature id for the '<em><b>Left Curly Bracket</b></em>' attribute.
@@ -2035,7 +2007,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getRightCurlyBracket()
    * @generated
    */
-  int RIGHT_CURLY_BRACKET = 42;
+  int RIGHT_CURLY_BRACKET = 41;
 
   /**
    * The feature id for the '<em><b>Right Curly Bracket</b></em>' attribute.
@@ -2063,7 +2035,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getDot()
    * @generated
    */
-  int DOT = 43;
+  int DOT = 42;
 
   /**
    * The feature id for the '<em><b>Dot</b></em>' attribute.
@@ -2091,7 +2063,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getComma()
    * @generated
    */
-  int COMMA = 44;
+  int COMMA = 43;
 
   /**
    * The feature id for the '<em><b>Comma</b></em>' attribute.
@@ -2119,7 +2091,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getColon()
    * @generated
    */
-  int COLON = 45;
+  int COLON = 44;
 
   /**
    * The feature id for the '<em><b>Colon</b></em>' attribute.
@@ -2147,7 +2119,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getLeftParenthesis()
    * @generated
    */
-  int LEFT_PARENTHESIS = 46;
+  int LEFT_PARENTHESIS = 45;
 
   /**
    * The feature id for the '<em><b>Left Parenthesis</b></em>' attribute.
@@ -2175,7 +2147,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getRightParenthesis()
    * @generated
    */
-  int RIGHT_PARENTHESIS = 47;
+  int RIGHT_PARENTHESIS = 46;
 
   /**
    * The feature id for the '<em><b>Right Parenthesis</b></em>' attribute.
@@ -2203,7 +2175,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getLeftSquareBracketKeyword()
    * @generated
    */
-  int LEFT_SQUARE_BRACKET_KEYWORD = 48;
+  int LEFT_SQUARE_BRACKET_KEYWORD = 47;
 
   /**
    * The feature id for the '<em><b>Left Square Bracket Keyword</b></em>' attribute.
@@ -2231,7 +2203,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getRightSquareBracketKeyword()
    * @generated
    */
-  int RIGHT_SQUARE_BRACKET_KEYWORD = 49;
+  int RIGHT_SQUARE_BRACKET_KEYWORD = 48;
 
   /**
    * The feature id for the '<em><b>Right Square Bracket Keyword</b></em>' attribute.
@@ -2306,15 +2278,15 @@ public interface AlsPackage extends EPackage
   EClass getModule();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Module#getModuleName <em>Module Name</em>}'.
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Module#getImportedNamespace <em>Imported Namespace</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Module Name</em>'.
-   * @see fr.univartois.cril.xtext.als.Module#getModuleName()
+   * @return the meta object for the attribute '<em>Imported Namespace</em>'.
+   * @see fr.univartois.cril.xtext.als.Module#getImportedNamespace()
    * @see #getModule()
    * @generated
    */
-  EReference getModule_ModuleName();
+  EAttribute getModule_ImportedNamespace();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Module#getLeft <em>Left</em>}'.
@@ -3701,27 +3673,6 @@ public interface AlsPackage extends EPackage
   EReference getBlockOrBar_Expr();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext.als.ModuleName <em>Module Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Module Name</em>'.
-   * @see fr.univartois.cril.xtext.als.ModuleName
-   * @generated
-   */
-  EClass getModuleName();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.ModuleName#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see fr.univartois.cril.xtext.als.ModuleName#getName()
-   * @see #getModuleName()
-   * @generated
-   */
-  EAttribute getModuleName_Name();
-
-  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext.als.OpenName <em>Open Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4184,12 +4135,12 @@ public interface AlsPackage extends EPackage
     EClass MODULE = eINSTANCE.getModule();
 
     /**
-     * The meta object literal for the '<em><b>Module Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODULE__MODULE_NAME = eINSTANCE.getModule_ModuleName();
+    EAttribute MODULE__IMPORTED_NAMESPACE = eINSTANCE.getModule_ImportedNamespace();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -5262,24 +5213,6 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EReference BLOCK_OR_BAR__EXPR = eINSTANCE.getBlockOrBar_Expr();
-
-    /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext.als.impl.ModuleNameImpl <em>Module Name</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext.als.impl.ModuleNameImpl
-     * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getModuleName()
-     * @generated
-     */
-    EClass MODULE_NAME = eINSTANCE.getModuleName();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODULE_NAME__NAME = eINSTANCE.getModuleName_Name();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext.als.impl.OpenNameImpl <em>Open Name</em>}' class.

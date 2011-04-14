@@ -260,15 +260,6 @@ public interface AlsFactory extends EFactory
   BlockOrBar createBlockOrBar();
 
   /**
-   * Returns a new object of class '<em>Module Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Module Name</em>'.
-   * @generated
-   */
-  ModuleName createModuleName();
-
-  /**
    * Returns a new object of class '<em>Open Name</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
