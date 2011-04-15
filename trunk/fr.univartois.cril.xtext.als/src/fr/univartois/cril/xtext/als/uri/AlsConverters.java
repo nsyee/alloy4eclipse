@@ -12,14 +12,12 @@ public class AlsConverters extends DefaultTerminalConverters {
 	public IValueConverter<String> Name() {
 		return new IValueConverter<String>() {
 
-			@Override
 			public String toValue(String string, AbstractNode node)
 					throws ValueConverterException {
 			
 				return string;
 			}
 
-			@Override
 			public String toString(String value) throws ValueConverterException {
 				if (value.contains(".")) {
 					throw new ValueConverterException(
