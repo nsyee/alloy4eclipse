@@ -50,11 +50,11 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(Module module){
-		return module.getImportedNamespace();
+		return module.getModuleName();
 	}
 	
 	String text(Open open){
-		return open.getOpenName().getImportedNamespace();
+		return open.getOpenName().getImportURI();
 	}
 
 	String image(Module module) {

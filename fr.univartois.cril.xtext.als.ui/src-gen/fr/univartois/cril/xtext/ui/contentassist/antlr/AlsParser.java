@@ -37,6 +37,7 @@ public class AlsParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getModuleAccess().getAlternatives_2_3_1(), "rule__Module__Alternatives_2_3_1");
 					put(grammarAccess.getParagraphAccess().getAlternatives(), "rule__Paragraph__Alternatives");
 					put(grammarAccess.getFunDeclAccess().getAlternatives_4(), "rule__FunDecl__Alternatives_4");
 					put(grammarAccess.getPredDeclAccess().getAlternatives_4(), "rule__PredDecl__Alternatives_4");
@@ -70,6 +71,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModuleAccess().getGroup(), "rule__Module__Group__0");
 					put(grammarAccess.getModuleAccess().getGroup_2(), "rule__Module__Group_2__0");
 					put(grammarAccess.getModuleAccess().getGroup_2_3(), "rule__Module__Group_2_3__0");
+					put(grammarAccess.getModuleAccess().getGroup_2_3_1_0(), "rule__Module__Group_2_3_1_0__0");
 					put(grammarAccess.getOpenAccess().getGroup(), "rule__Open__Group__0");
 					put(grammarAccess.getOpenAccess().getGroup_2(), "rule__Open__Group_2__0");
 					put(grammarAccess.getOpenAccess().getGroup_2_2(), "rule__Open__Group_2_2__0");
@@ -165,13 +167,14 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSpecificationAccess().getModuleAssignment_0(), "rule__Specification__ModuleAssignment_0");
 					put(grammarAccess.getSpecificationAccess().getOpenAssignment_1(), "rule__Specification__OpenAssignment_1");
 					put(grammarAccess.getSpecificationAccess().getParagraphAssignment_2(), "rule__Specification__ParagraphAssignment_2");
-					put(grammarAccess.getModuleAccess().getImportedNamespaceAssignment_1(), "rule__Module__ImportedNamespaceAssignment_1");
+					put(grammarAccess.getModuleAccess().getModuleNameAssignment_1(), "rule__Module__ModuleNameAssignment_1");
 					put(grammarAccess.getModuleAccess().getLeftAssignment_2_0(), "rule__Module__LeftAssignment_2_0");
 					put(grammarAccess.getModuleAccess().getExactlyAssignment_2_1(), "rule__Module__ExactlyAssignment_2_1");
 					put(grammarAccess.getModuleAccess().getNameAssignment_2_2(), "rule__Module__NameAssignment_2_2");
 					put(grammarAccess.getModuleAccess().getCommaAssignment_2_3_0(), "rule__Module__CommaAssignment_2_3_0");
-					put(grammarAccess.getModuleAccess().getExactlyAssignment_2_3_1(), "rule__Module__ExactlyAssignment_2_3_1");
-					put(grammarAccess.getModuleAccess().getNumberAssignment_2_3_2(), "rule__Module__NumberAssignment_2_3_2");
+					put(grammarAccess.getModuleAccess().getExactlyAssignment_2_3_1_0_0(), "rule__Module__ExactlyAssignment_2_3_1_0_0");
+					put(grammarAccess.getModuleAccess().getNumberAssignment_2_3_1_0_1(), "rule__Module__NumberAssignment_2_3_1_0_1");
+					put(grammarAccess.getModuleAccess().getNameAssignment_2_3_1_1(), "rule__Module__NameAssignment_2_3_1_1");
 					put(grammarAccess.getModuleAccess().getRightAssignment_2_4(), "rule__Module__RightAssignment_2_4");
 					put(grammarAccess.getOpenAccess().getOpenNameAssignment_1(), "rule__Open__OpenNameAssignment_1");
 					put(grammarAccess.getOpenAccess().getLeftAssignment_2_0(), "rule__Open__LeftAssignment_2_0");
@@ -314,7 +317,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBlockAccess().getRightCAssignment_2(), "rule__Block__RightCAssignment_2");
 					put(grammarAccess.getBlockOrBarAccess().getBlockAssignment_0(), "rule__BlockOrBar__BlockAssignment_0");
 					put(grammarAccess.getBlockOrBarAccess().getExprAssignment_1_1(), "rule__BlockOrBar__ExprAssignment_1_1");
-					put(grammarAccess.getOpenNameAccess().getImportedNamespaceAssignment_1(), "rule__OpenName__ImportedNamespaceAssignment_1");
+					put(grammarAccess.getOpenNameAccess().getImportURIAssignment_1(), "rule__OpenName__ImportURIAssignment_1");
 					put(grammarAccess.getFactNameAccess().getNameAssignment_2(), "rule__FactName__NameAssignment_2");
 					put(grammarAccess.getAssertionNameAccess().getNameAssignment_2(), "rule__AssertionName__NameAssignment_2");
 					put(grammarAccess.getFunctionNameAccess().getNameAssignment(), "rule__FunctionName__NameAssignment");
@@ -325,6 +328,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSignatureNameAccess().getNameAssignment(), "rule__SignatureName__NameAssignment");
 					put(grammarAccess.getPropertyNameAccess().getNameAssignment(), "rule__PropertyName__NameAssignment");
 					put(grammarAccess.getExactlyNameAccess().getNameAssignment(), "rule__ExactlyName__NameAssignment");
+					put(grammarAccess.getAsNameAccess().getNameAssignment(), "rule__AsName__NameAssignment");
 					put(grammarAccess.getReferencesSigAccess().getNameRefAssignment_1_0(), "rule__ReferencesSig__NameRefAssignment_1_0");
 					put(grammarAccess.getRefAccess().getNameRefAssignment_1_0(), "rule__Ref__NameRefAssignment_1_0");
 					put(grammarAccess.getLeftCurlyBracketAccess().getLeftCurlyBracketAssignment(), "rule__LeftCurlyBracket__LeftCurlyBracketAssignment");
