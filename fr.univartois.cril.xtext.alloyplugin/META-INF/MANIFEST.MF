@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.univartois.cril.xtext.alloyplugin;singleton:=true
-Bundle-Version: 0.3.0
+Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: fr.univartois.cril.xtext.alloyplugin.AlloyPlugin
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
@@ -22,7 +22,7 @@ Require-Bundle: org.eclipse.core.runtime,
  swingintegration.example,
  fr.univartois.cril.alloyplugin.launch;bundle-version="4.1.9"
 Bundle-ActivationPolicy: lazy
-Bundle-Vendor: CRIL - Université d'Artois
+Bundle-Vendor: CRIL-CNRS Université d'Artois
 Bundle-ClassPath: .
 Export-Package: fr.univartois.cril.xtext.alloyplugin,
  fr.univartois.cril.xtext.alloyplugin.XMLEditor,
