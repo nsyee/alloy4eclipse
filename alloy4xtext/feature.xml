@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="alloy4xtext"
+      label="Alloy4xtext"
+      version="0.3.0.alpha">
+
+   <description url="http://alloy4eclipse.googlecode.com">
+      This is a completly new version of the Alloy4Eclipse plugin based on the Xtext technology.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="fr.univartois.cril.alloyplugin.help"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.univartois.cril.alloyplugin.launch"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="fr.univartois.cril.xtext.alloyplugin"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.univartois.cril.xtext.als"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.univartois.cril.xtext.als.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
