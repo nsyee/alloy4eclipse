@@ -2,22 +2,12 @@ package fr.univartois.cril.xtext.alloyplugin;
 
 
 
-import org.eclipse.core.internal.preferences.OSGiPreferencesServiceImpl;
-import org.eclipse.core.internal.preferences.OSGiPreferencesServiceManager;
-import org.eclipse.core.internal.registry.osgi.OSGIUtils;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import edu.mit.csail.sdg.alloy4.Util;
-import fr.univartois.cril.xtext.alloyplugin.preferences.PreferenceConstants;
 
 public class AlloyPlugin extends AbstractUIPlugin {
 	/** instance of the plugin */
@@ -25,7 +15,7 @@ public class AlloyPlugin extends AbstractUIPlugin {
 	/**
 	 * The plug-in ID.
 	 */
-	public static final String PLUGIN_ID = "fr.univartois.cril.alloyplugin";
+	public static final String PLUGIN_ID = "fr.univartois.cril.xtext.alloyplugin";
 
 	/***/
 	public static final String ALS_PARTITIONING = "__pos_als_partitioning";
