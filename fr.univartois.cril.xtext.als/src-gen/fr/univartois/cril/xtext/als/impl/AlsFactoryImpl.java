@@ -104,6 +104,7 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.SIGNATURE_NAME: return createSignatureName();
       case AlsPackage.PROPERTY_NAME: return createPropertyName();
       case AlsPackage.EXACTLY_NAME: return createExactlyName();
+      case AlsPackage.AS_NAME: return createAsName();
       case AlsPackage.REFERENCES_NAME: return createReferencesName();
       case AlsPackage.REFERENCES_SIG: return createReferencesSig();
       case AlsPackage.REF: return createRef();
@@ -526,6 +527,17 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     ExactlyNameImpl exactlyName = new ExactlyNameImpl();
     return exactlyName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AsName createAsName()
+  {
+    AsNameImpl asName = new AsNameImpl();
+    return asName;
   }
 
   /**

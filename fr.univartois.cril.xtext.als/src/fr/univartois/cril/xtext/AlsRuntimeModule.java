@@ -3,23 +3,24 @@
  */
 package fr.univartois.cril.xtext;
 
-import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.conversion.IValueConverterService;
+import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 
-import fr.univartois.cril.xtext.als.uri.AlsImportedNamespaceAwareLocalScopeProvider;
-import fr.univartois.cril.xtext.als.uri.AlsQNP;
+import fr.univartois.cril.xtext.als.uri.AlsConverters;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class AlsRuntimeModule extends fr.univartois.cril.xtext.AbstractAlsRuntimeModule {
-	@Override
-	public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
-		return AlsQNP.class;
-	}
+	
+	
 	
 	@Override
-	public void configureIScopeProviderDelegate(com.google.inject.Binder binder) {
-		binder.bind(org.eclipse.xtext.scoping.IScopeProvider.class).annotatedWith(com.google.inject.name.Names.named("org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.delegate")).to(AlsImportedNamespaceAwareLocalScopeProvider.class);
+	public Class<? extends IValueConverterService> bindIValueConverterService() {
+		return AlsConverters.class;
 	}
-
+	
+	public Class<? extends ImportUriResolver> bindImportUriResolver(){
+		return fr.univartois.cril.xtext.als.uri.AlsImportUriResolver.class;
+	}
 }
