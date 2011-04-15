@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.views,
  org.eclipse.debug.ui,
  swingintegration.example,
- fr.univartois.cril.alloyplugin.launch;bundle-version="4.1.9"
+ fr.univartois.cril.alloyplugin.launch;bundle-version="4.2.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: CRIL-CNRS Université d'Artois
 Bundle-ClassPath: .
