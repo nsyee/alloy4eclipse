@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: fr.univartois.cril.xtext.als.ui
-Bundle-Vendor: My Company
-Bundle-Version: 0.3.0
+Bundle-Vendor: CRIL-CNRS Université d'Artois
+Bundle-Version: 0.3.0.qualifier
 Bundle-SymbolicName: fr.univartois.cril.xtext.als.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.antlr.runtime,
