@@ -372,6 +372,13 @@ public class AlsSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AlsPackage.AS_NAME:
+      {
+        AsName asName = (AsName)theEObject;
+        T result = caseAsName(asName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AlsPackage.REFERENCES_NAME:
       {
         ReferencesName referencesName = (ReferencesName)theEObject;
@@ -1048,6 +1055,22 @@ public class AlsSwitch<T>
    * @generated
    */
   public T caseExactlyName(ExactlyName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>As Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>As Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAsName(AsName object)
   {
     return null;
   }

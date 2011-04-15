@@ -6,8 +6,8 @@
 package fr.univartois.cril.xtext.als.impl;
 
 import fr.univartois.cril.xtext.als.AlsPackage;
+import fr.univartois.cril.xtext.als.AsName;
 import fr.univartois.cril.xtext.als.Comma;
-import fr.univartois.cril.xtext.als.ExactlyName;
 import fr.univartois.cril.xtext.als.LeftSquareBracketKeyword;
 import fr.univartois.cril.xtext.als.Open;
 import fr.univartois.cril.xtext.als.OpenName;
@@ -108,7 +108,7 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
    * @generated
    * @ordered
    */
-  protected ExactlyName nameAs;
+  protected AsName nameAs;
 
   /**
    * <!-- begin-user-doc -->
@@ -308,7 +308,7 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExactlyName getNameAs()
+  public AsName getNameAs()
   {
     return nameAs;
   }
@@ -318,9 +318,9 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetNameAs(ExactlyName newNameAs, NotificationChain msgs)
+  public NotificationChain basicSetNameAs(AsName newNameAs, NotificationChain msgs)
   {
-    ExactlyName oldNameAs = nameAs;
+    AsName oldNameAs = nameAs;
     nameAs = newNameAs;
     if (eNotificationRequired())
     {
@@ -335,7 +335,7 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNameAs(ExactlyName newNameAs)
+  public void setNameAs(AsName newNameAs)
   {
     if (newNameAs != nameAs)
     {
@@ -432,7 +432,7 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
         setRight((RightSquareBracketKeyword)newValue);
         return;
       case AlsPackage.OPEN__NAME_AS:
-        setNameAs((ExactlyName)newValue);
+        setNameAs((AsName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -464,7 +464,7 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
         setRight((RightSquareBracketKeyword)null);
         return;
       case AlsPackage.OPEN__NAME_AS:
-        setNameAs((ExactlyName)null);
+        setNameAs((AsName)null);
         return;
     }
     super.eUnset(featureID);

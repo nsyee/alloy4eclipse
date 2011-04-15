@@ -1589,8 +1589,8 @@ public class InternalAlsLexer extends Lexer {
     public final void mRULE_NEGATIVE_INTEGER() throws RecognitionException {
         try {
             int _type = RULE_NEGATIVE_INTEGER;
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6532:23: ( '-' RULE_INT )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6532:25: '-' RULE_INT
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6602:23: ( '-' RULE_INT )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6602:25: '-' RULE_INT
             {
             match('-'); 
             mRULE_INT(); 
@@ -1608,10 +1608,10 @@ public class InternalAlsLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:17: ( ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:17: ( ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1623,17 +1623,17 @@ public class InternalAlsLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("6534:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )", 5, 0, input);
+                    new NoViableAltException("6604:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )", 5, 0, input);
 
                 throw nvae;
             }
             switch (alt5) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:20: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:20: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
                     {
                     match("//"); 
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:25: (~ ( ( '\\n' | '\\r' ) ) )*
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:25: (~ ( ( '\\n' | '\\r' ) ) )*
                     loop1:
                     do {
                         int alt1=2;
@@ -1646,7 +1646,7 @@ public class InternalAlsLexer extends Lexer {
 
                         switch (alt1) {
                     	case 1 :
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:25: ~ ( ( '\\n' | '\\r' ) )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:25: ~ ( ( '\\n' | '\\r' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1667,7 +1667,7 @@ public class InternalAlsLexer extends Lexer {
                         }
                     } while (true);
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:41: ( ( '\\r' )? '\\n' )?
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:41: ( ( '\\r' )? '\\n' )?
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -1676,9 +1676,9 @@ public class InternalAlsLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:42: ( '\\r' )? '\\n'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:42: ( '\\r' )? '\\n'
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:42: ( '\\r' )?
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:42: ( '\\r' )?
                             int alt2=2;
                             int LA2_0 = input.LA(1);
 
@@ -1687,7 +1687,7 @@ public class InternalAlsLexer extends Lexer {
                             }
                             switch (alt2) {
                                 case 1 :
-                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:42: '\\r'
+                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:42: '\\r'
                                     {
                                     match('\r'); 
 
@@ -1707,11 +1707,11 @@ public class InternalAlsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:55: '--' ( options {greedy=false; } : . )* '\\n'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:55: '--' ( options {greedy=false; } : . )* '\\n'
                     {
                     match("--"); 
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:60: ( options {greedy=false; } : . )*
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:60: ( options {greedy=false; } : . )*
                     loop4:
                     do {
                         int alt4=2;
@@ -1727,7 +1727,7 @@ public class InternalAlsLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6534:88: .
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6604:88: .
                     	    {
                     	    matchAny(); 
 
@@ -1760,8 +1760,8 @@ public class InternalAlsLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6536:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* ( '\\'' )* )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6536:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* ( '\\'' )*
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6606:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* ( '\\'' | '\"' )* )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6606:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* ( '\\'' | '\"' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1773,7 +1773,7 @@ public class InternalAlsLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6536:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6606:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -1807,22 +1807,31 @@ public class InternalAlsLexer extends Lexer {
                 }
             } while (true);
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6536:69: ( '\\'' )*
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6606:69: ( '\\'' | '\"' )*
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0=='\'') ) {
+                if ( (LA7_0=='\"'||LA7_0=='\'') ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6536:69: '\\''
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:
             	    {
-            	    match('\''); 
+            	    if ( input.LA(1)=='\"'||input.LA(1)=='\'' ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse =
+            	            new MismatchedSetException(null,input);
+            	        recover(mse);    throw mse;
+            	    }
+
 
             	    }
             	    break;
@@ -1846,10 +1855,10 @@ public class InternalAlsLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6538:10: ( ( '0' .. '9' )+ )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6538:12: ( '0' .. '9' )+
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6608:10: ( ( '0' .. '9' )+ )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6608:12: ( '0' .. '9' )+
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6538:12: ( '0' .. '9' )+
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6608:12: ( '0' .. '9' )+
             int cnt8=0;
             loop8:
             do {
@@ -1863,7 +1872,7 @@ public class InternalAlsLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6538:13: '0' .. '9'
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6608:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1893,10 +1902,10 @@ public class InternalAlsLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1908,16 +1917,16 @@ public class InternalAlsLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("6540:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 11, 0, input);
+                    new NoViableAltException("6610:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 11, 0, input);
 
                 throw nvae;
             }
             switch (alt11) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -1933,7 +1942,7 @@ public class InternalAlsLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1950,7 +1959,7 @@ public class InternalAlsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1976,10 +1985,10 @@ public class InternalAlsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop10:
                     do {
                         int alt10=3;
@@ -1995,7 +2004,7 @@ public class InternalAlsLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -2012,7 +2021,7 @@ public class InternalAlsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6540:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -2054,12 +2063,12 @@ public class InternalAlsLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6542:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6542:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6612:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6612:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6542:24: ( options {greedy=false; } : . )*
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6612:24: ( options {greedy=false; } : . )*
             loop12:
             do {
                 int alt12=2;
@@ -2084,7 +2093,7 @@ public class InternalAlsLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6542:52: .
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6612:52: .
             	    {
             	    matchAny(); 
 
@@ -2112,10 +2121,10 @@ public class InternalAlsLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6544:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6544:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6614:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6614:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6544:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6614:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -2168,8 +2177,8 @@ public class InternalAlsLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6546:16: ( . )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6546:18: .
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6616:16: ( . )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6616:18: .
             {
             matchAny(); 
 
@@ -2205,7 +2214,7 @@ public class InternalAlsLexer extends Lexer {
                             if ( (LA14_205=='e') ) {
                                 int LA14_226 = input.LA(7);
 
-                                if ( (LA14_226=='\''||(LA14_226>='0' && LA14_226<='9')||(LA14_226>='A' && LA14_226<='Z')||LA14_226=='_'||(LA14_226>='a' && LA14_226<='z')) ) {
+                                if ( (LA14_226=='\"'||LA14_226=='\''||(LA14_226>='0' && LA14_226<='9')||(LA14_226>='A' && LA14_226<='Z')||LA14_226=='_'||(LA14_226>='a' && LA14_226<='z')) ) {
                                     alt14=82;
                                 }
                                 else {
@@ -2238,7 +2247,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_123=='e') ) {
                         int LA14_168 = input.LA(5);
 
-                        if ( (LA14_168=='\''||(LA14_168>='0' && LA14_168<='9')||(LA14_168>='A' && LA14_168<='Z')||LA14_168=='_'||(LA14_168>='a' && LA14_168<='z')) ) {
+                        if ( (LA14_168=='\"'||LA14_168=='\''||(LA14_168>='0' && LA14_168<='9')||(LA14_168>='A' && LA14_168<='Z')||LA14_168=='_'||(LA14_168>='a' && LA14_168<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -2270,7 +2279,7 @@ public class InternalAlsLexer extends Lexer {
                                 if ( (LA14_227=='y') ) {
                                     int LA14_236 = input.LA(8);
 
-                                    if ( (LA14_236=='\''||(LA14_236>='0' && LA14_236<='9')||(LA14_236>='A' && LA14_236<='Z')||LA14_236=='_'||(LA14_236>='a' && LA14_236<='z')) ) {
+                                    if ( (LA14_236=='\"'||LA14_236=='\''||(LA14_236>='0' && LA14_236<='9')||(LA14_236>='A' && LA14_236<='Z')||LA14_236=='_'||(LA14_236>='a' && LA14_236<='z')) ) {
                                         alt14=82;
                                     }
                                     else {
@@ -2305,7 +2314,7 @@ public class InternalAlsLexer extends Lexer {
                                 if ( (LA14_228=='s') ) {
                                     int LA14_237 = input.LA(8);
 
-                                    if ( (LA14_237=='\''||(LA14_237>='0' && LA14_237<='9')||(LA14_237>='A' && LA14_237<='Z')||LA14_237=='_'||(LA14_237>='a' && LA14_237<='z')) ) {
+                                    if ( (LA14_237=='\"'||LA14_237=='\''||(LA14_237>='0' && LA14_237<='9')||(LA14_237>='A' && LA14_237<='Z')||LA14_237=='_'||(LA14_237>='a' && LA14_237<='z')) ) {
                                         alt14=82;
                                     }
                                     else {
@@ -2337,7 +2346,7 @@ public class InternalAlsLexer extends Lexer {
                             if ( (LA14_209=='t') ) {
                                 int LA14_229 = input.LA(7);
 
-                                if ( (LA14_229=='\''||(LA14_229>='0' && LA14_229<='9')||(LA14_229>='A' && LA14_229<='Z')||LA14_229=='_'||(LA14_229>='a' && LA14_229<='z')) ) {
+                                if ( (LA14_229=='\"'||LA14_229=='\''||(LA14_229>='0' && LA14_229<='9')||(LA14_229>='A' && LA14_229<='Z')||LA14_229=='_'||(LA14_229>='a' && LA14_229<='z')) ) {
                                     alt14=82;
                                 }
                                 else {
@@ -2368,7 +2377,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_127=='m') ) {
                         int LA14_172 = input.LA(5);
 
-                        if ( (LA14_172=='\''||(LA14_172>='0' && LA14_172<='9')||(LA14_172>='A' && LA14_172<='Z')||LA14_172=='_'||(LA14_172>='a' && LA14_172<='z')) ) {
+                        if ( (LA14_172=='\"'||LA14_172=='\''||(LA14_172>='0' && LA14_172<='9')||(LA14_172>='A' && LA14_172<='Z')||LA14_172=='_'||(LA14_172>='a' && LA14_172<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -2406,7 +2415,7 @@ public class InternalAlsLexer extends Lexer {
                                 if ( (LA14_230=='e') ) {
                                     int LA14_239 = input.LA(8);
 
-                                    if ( (LA14_239=='\''||(LA14_239>='0' && LA14_239<='9')||(LA14_239>='A' && LA14_239<='Z')||LA14_239=='_'||(LA14_239>='a' && LA14_239<='z')) ) {
+                                    if ( (LA14_239=='\"'||LA14_239=='\''||(LA14_239>='0' && LA14_239<='9')||(LA14_239>='A' && LA14_239<='Z')||LA14_239=='_'||(LA14_239>='a' && LA14_239<='z')) ) {
                                         alt14=82;
                                     }
                                     else {
@@ -2432,7 +2441,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_129=='d') ) {
                         int LA14_174 = input.LA(5);
 
-                        if ( (LA14_174=='\''||(LA14_174>='0' && LA14_174<='9')||(LA14_174>='A' && LA14_174<='Z')||LA14_174=='_'||(LA14_174>='a' && LA14_174<='z')) ) {
+                        if ( (LA14_174=='\"'||LA14_174=='\''||(LA14_174>='0' && LA14_174<='9')||(LA14_174>='A' && LA14_174<='Z')||LA14_174=='_'||(LA14_174>='a' && LA14_174<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -2458,7 +2467,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_53=='l') ) {
                     int LA14_130 = input.LA(4);
 
-                    if ( (LA14_130=='\''||(LA14_130>='0' && LA14_130<='9')||(LA14_130>='A' && LA14_130<='Z')||LA14_130=='_'||(LA14_130>='a' && LA14_130<='z')) ) {
+                    if ( (LA14_130=='\"'||LA14_130=='\''||(LA14_130>='0' && LA14_130<='9')||(LA14_130>='A' && LA14_130<='Z')||LA14_130=='_'||(LA14_130>='a' && LA14_130<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -2475,7 +2484,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_54=='d') ) {
                     int LA14_131 = input.LA(4);
 
-                    if ( (LA14_131=='\''||(LA14_131>='0' && LA14_131<='9')||(LA14_131>='A' && LA14_131<='Z')||LA14_131=='_'||(LA14_131>='a' && LA14_131<='z')) ) {
+                    if ( (LA14_131=='\"'||LA14_131=='\''||(LA14_131>='0' && LA14_131<='9')||(LA14_131>='A' && LA14_131<='Z')||LA14_131=='_'||(LA14_131>='a' && LA14_131<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -2501,7 +2510,7 @@ public class InternalAlsLexer extends Lexer {
                             if ( (LA14_213=='t') ) {
                                 int LA14_231 = input.LA(7);
 
-                                if ( (LA14_231=='\''||(LA14_231>='0' && LA14_231<='9')||(LA14_231>='A' && LA14_231<='Z')||LA14_231=='_'||(LA14_231>='a' && LA14_231<='z')) ) {
+                                if ( (LA14_231=='\"'||LA14_231=='\''||(LA14_231>='0' && LA14_231<='9')||(LA14_231>='A' && LA14_231<='Z')||LA14_231=='_'||(LA14_231>='a' && LA14_231<='z')) ) {
                                     alt14=82;
                                 }
                                 else {
@@ -2517,6 +2526,7 @@ public class InternalAlsLexer extends Lexer {
                         alt14=82;}
                     }
                     break;
+                case '\"':
                 case '\'':
                 case '0':
                 case '1':
@@ -2611,7 +2621,7 @@ public class InternalAlsLexer extends Lexer {
                                     if ( (LA14_241=='t') ) {
                                         int LA14_246 = input.LA(9);
 
-                                        if ( (LA14_246=='\''||(LA14_246>='0' && LA14_246<='9')||(LA14_246>='A' && LA14_246<='Z')||LA14_246=='_'||(LA14_246>='a' && LA14_246<='z')) ) {
+                                        if ( (LA14_246=='\"'||LA14_246=='\''||(LA14_246>='0' && LA14_246<='9')||(LA14_246>='A' && LA14_246<='Z')||LA14_246=='_'||(LA14_246>='a' && LA14_246<='z')) ) {
                                             alt14=82;
                                         }
                                         else {
@@ -2649,7 +2659,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_57=='r') ) {
                     int LA14_135 = input.LA(4);
 
-                    if ( (LA14_135=='\''||(LA14_135>='0' && LA14_135<='9')||(LA14_135>='A' && LA14_135<='Z')||LA14_135=='_'||(LA14_135>='a' && LA14_135<='z')) ) {
+                    if ( (LA14_135=='\"'||LA14_135=='\''||(LA14_135>='0' && LA14_135<='9')||(LA14_135>='A' && LA14_135<='Z')||LA14_135=='_'||(LA14_135>='a' && LA14_135<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -2666,7 +2676,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_58=='n') ) {
                     int LA14_136 = input.LA(4);
 
-                    if ( (LA14_136=='\''||(LA14_136>='0' && LA14_136<='9')||(LA14_136>='A' && LA14_136<='Z')||LA14_136=='_'||(LA14_136>='a' && LA14_136<='z')) ) {
+                    if ( (LA14_136=='\"'||LA14_136=='\''||(LA14_136>='0' && LA14_136<='9')||(LA14_136>='A' && LA14_136<='Z')||LA14_136=='_'||(LA14_136>='a' && LA14_136<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -2686,7 +2696,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_137=='t') ) {
                         int LA14_181 = input.LA(5);
 
-                        if ( (LA14_181=='\''||(LA14_181>='0' && LA14_181<='9')||(LA14_181>='A' && LA14_181<='Z')||LA14_181=='_'||(LA14_181>='a' && LA14_181<='z')) ) {
+                        if ( (LA14_181=='\"'||LA14_181=='\''||(LA14_181>='0' && LA14_181<='9')||(LA14_181>='A' && LA14_181<='Z')||LA14_181=='_'||(LA14_181>='a' && LA14_181<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -2721,7 +2731,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_62=='n') ) {
                     int LA14_138 = input.LA(4);
 
-                    if ( (LA14_138=='\''||(LA14_138>='0' && LA14_138<='9')||(LA14_138>='A' && LA14_138<='Z')||LA14_138=='_'||(LA14_138>='a' && LA14_138<='z')) ) {
+                    if ( (LA14_138=='\"'||LA14_138=='\''||(LA14_138>='0' && LA14_138<='9')||(LA14_138>='A' && LA14_138<='Z')||LA14_138=='_'||(LA14_138>='a' && LA14_138<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -2748,7 +2758,7 @@ public class InternalAlsLexer extends Lexer {
                         if ( (LA14_183=='k') ) {
                             int LA14_216 = input.LA(6);
 
-                            if ( (LA14_216=='\''||(LA14_216>='0' && LA14_216<='9')||(LA14_216>='A' && LA14_216<='Z')||LA14_216=='_'||(LA14_216>='a' && LA14_216<='z')) ) {
+                            if ( (LA14_216=='\"'||LA14_216=='\''||(LA14_216>='0' && LA14_216<='9')||(LA14_216>='A' && LA14_216<='Z')||LA14_216=='_'||(LA14_216>='a' && LA14_216<='z')) ) {
                                 alt14=82;
                             }
                             else {
@@ -2775,7 +2785,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_64=='t') ) {
                     int LA14_140 = input.LA(4);
 
-                    if ( (LA14_140=='\''||(LA14_140>='0' && LA14_140<='9')||(LA14_140>='A' && LA14_140<='Z')||LA14_140=='_'||(LA14_140>='a' && LA14_140<='z')) ) {
+                    if ( (LA14_140=='\"'||LA14_140=='\''||(LA14_140>='0' && LA14_140<='9')||(LA14_140>='A' && LA14_140<='Z')||LA14_140=='_'||(LA14_140>='a' && LA14_140<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -2808,7 +2818,7 @@ public class InternalAlsLexer extends Lexer {
                                 if ( (LA14_234=='s') ) {
                                     int LA14_242 = input.LA(8);
 
-                                    if ( (LA14_242=='\''||(LA14_242>='0' && LA14_242<='9')||(LA14_242>='A' && LA14_242<='Z')||LA14_242=='_'||(LA14_242>='a' && LA14_242<='z')) ) {
+                                    if ( (LA14_242=='\"'||LA14_242=='\''||(LA14_242>='0' && LA14_242<='9')||(LA14_242>='A' && LA14_242<='Z')||LA14_242=='_'||(LA14_242>='a' && LA14_242<='z')) ) {
                                         alt14=82;
                                     }
                                     else {
@@ -2840,7 +2850,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_142=='n') ) {
                         int LA14_186 = input.LA(5);
 
-                        if ( (LA14_186=='\''||(LA14_186>='0' && LA14_186<='9')||(LA14_186>='A' && LA14_186<='Z')||LA14_186=='_'||(LA14_186>='a' && LA14_186<='z')) ) {
+                        if ( (LA14_186=='\"'||LA14_186=='\''||(LA14_186>='0' && LA14_186<='9')||(LA14_186>='A' && LA14_186<='Z')||LA14_186=='_'||(LA14_186>='a' && LA14_186<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -2860,13 +2870,14 @@ public class InternalAlsLexer extends Lexer {
                     {
                     int LA14_143 = input.LA(4);
 
-                    if ( (LA14_143=='\''||(LA14_143>='0' && LA14_143<='9')||(LA14_143>='A' && LA14_143<='Z')||LA14_143=='_'||(LA14_143>='a' && LA14_143<='z')) ) {
+                    if ( (LA14_143=='\"'||LA14_143=='\''||(LA14_143>='0' && LA14_143<='9')||(LA14_143>='A' && LA14_143<='Z')||LA14_143=='_'||(LA14_143>='a' && LA14_143<='z')) ) {
                         alt14=82;
                     }
                     else {
                         alt14=13;}
                     }
                     break;
+                case '\"':
                 case '\'':
                 case '0':
                 case '1':
@@ -2946,7 +2957,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_68=='f') ) {
                     int LA14_145 = input.LA(4);
 
-                    if ( (LA14_145=='\''||(LA14_145>='0' && LA14_145<='9')||(LA14_145>='A' && LA14_145<='Z')||LA14_145=='_'||(LA14_145>='a' && LA14_145<='z')) ) {
+                    if ( (LA14_145=='\"'||LA14_145=='\''||(LA14_145>='0' && LA14_145<='9')||(LA14_145>='A' && LA14_145<='Z')||LA14_145=='_'||(LA14_145>='a' && LA14_145<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -2972,7 +2983,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_146=='e') ) {
                         int LA14_189 = input.LA(5);
 
-                        if ( (LA14_189=='\''||(LA14_189>='0' && LA14_189<='9')||(LA14_189>='A' && LA14_189<='Z')||LA14_189=='_'||(LA14_189>='a' && LA14_189<='z')) ) {
+                        if ( (LA14_189=='\"'||LA14_189=='\''||(LA14_189>='0' && LA14_189<='9')||(LA14_189>='A' && LA14_189<='Z')||LA14_189=='_'||(LA14_189>='a' && LA14_189<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -2992,7 +3003,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_70=='m') ) {
                     int LA14_147 = input.LA(4);
 
-                    if ( (LA14_147=='\''||(LA14_147>='0' && LA14_147<='9')||(LA14_147>='A' && LA14_147<='Z')||LA14_147=='_'||(LA14_147>='a' && LA14_147<='z')) ) {
+                    if ( (LA14_147=='\"'||LA14_147=='\''||(LA14_147>='0' && LA14_147<='9')||(LA14_147>='A' && LA14_147<='Z')||LA14_147=='_'||(LA14_147>='a' && LA14_147<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -3013,6 +3024,7 @@ public class InternalAlsLexer extends Lexer {
                         alt14=36;
                         }
                         break;
+                    case '\"':
                     case '\'':
                     case '0':
                     case '1':
@@ -3090,7 +3102,7 @@ public class InternalAlsLexer extends Lexer {
                     {
                     int LA14_149 = input.LA(4);
 
-                    if ( (LA14_149=='\''||(LA14_149>='0' && LA14_149<='9')||(LA14_149>='A' && LA14_149<='Z')||LA14_149=='_'||(LA14_149>='a' && LA14_149<='z')) ) {
+                    if ( (LA14_149=='\"'||LA14_149=='\''||(LA14_149>='0' && LA14_149<='9')||(LA14_149>='A' && LA14_149<='Z')||LA14_149=='_'||(LA14_149>='a' && LA14_149<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -3109,7 +3121,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_72=='g') ) {
                     int LA14_150 = input.LA(4);
 
-                    if ( (LA14_150=='\''||(LA14_150>='0' && LA14_150<='9')||(LA14_150>='A' && LA14_150<='Z')||LA14_150=='_'||(LA14_150>='a' && LA14_150<='z')) ) {
+                    if ( (LA14_150=='\"'||LA14_150=='\''||(LA14_150>='0' && LA14_150<='9')||(LA14_150>='A' && LA14_150<='Z')||LA14_150=='_'||(LA14_150>='a' && LA14_150<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -3141,7 +3153,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_76=='t') ) {
                     int LA14_151 = input.LA(4);
 
-                    if ( (LA14_151=='\''||(LA14_151>='0' && LA14_151<='9')||(LA14_151>='A' && LA14_151<='Z')||LA14_151=='_'||(LA14_151>='a' && LA14_151<='z')) ) {
+                    if ( (LA14_151=='\"'||LA14_151=='\''||(LA14_151>='0' && LA14_151<='9')||(LA14_151>='A' && LA14_151<='Z')||LA14_151=='_'||(LA14_151>='a' && LA14_151<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -3161,7 +3173,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_152=='e') ) {
                         int LA14_196 = input.LA(5);
 
-                        if ( (LA14_196=='\''||(LA14_196>='0' && LA14_196<='9')||(LA14_196>='A' && LA14_196<='Z')||LA14_196=='_'||(LA14_196>='a' && LA14_196<='z')) ) {
+                        if ( (LA14_196=='\"'||LA14_196=='\''||(LA14_196>='0' && LA14_196<='9')||(LA14_196>='A' && LA14_196<='Z')||LA14_196=='_'||(LA14_196>='a' && LA14_196<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -3187,7 +3199,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_78=='e') ) {
                     int LA14_153 = input.LA(4);
 
-                    if ( (LA14_153=='\''||(LA14_153>='0' && LA14_153<='9')||(LA14_153>='A' && LA14_153<='Z')||LA14_153=='_'||(LA14_153>='a' && LA14_153<='z')) ) {
+                    if ( (LA14_153=='\"'||LA14_153=='\''||(LA14_153>='0' && LA14_153<='9')||(LA14_153>='A' && LA14_153<='Z')||LA14_153=='_'||(LA14_153>='a' && LA14_153<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -3201,7 +3213,7 @@ public class InternalAlsLexer extends Lexer {
                 {
                 int LA14_79 = input.LA(3);
 
-                if ( (LA14_79=='\''||(LA14_79>='0' && LA14_79<='9')||(LA14_79>='A' && LA14_79<='Z')||LA14_79=='_'||(LA14_79>='a' && LA14_79<='z')) ) {
+                if ( (LA14_79=='\"'||LA14_79=='\''||(LA14_79>='0' && LA14_79<='9')||(LA14_79>='A' && LA14_79<='Z')||LA14_79=='_'||(LA14_79>='a' && LA14_79<='z')) ) {
                     alt14=82;
                 }
                 else {
@@ -3218,7 +3230,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_155=='n') ) {
                         int LA14_198 = input.LA(5);
 
-                        if ( (LA14_198=='\''||(LA14_198>='0' && LA14_198<='9')||(LA14_198>='A' && LA14_198<='Z')||LA14_198=='_'||(LA14_198>='a' && LA14_198<='z')) ) {
+                        if ( (LA14_198=='\"'||LA14_198=='\''||(LA14_198>='0' && LA14_198<='9')||(LA14_198>='A' && LA14_198<='Z')||LA14_198=='_'||(LA14_198>='a' && LA14_198<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -3259,7 +3271,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_156=='e') ) {
                         int LA14_199 = input.LA(5);
 
-                        if ( (LA14_199=='\''||(LA14_199>='0' && LA14_199<='9')||(LA14_199>='A' && LA14_199<='Z')||LA14_199=='_'||(LA14_199>='a' && LA14_199<='z')) ) {
+                        if ( (LA14_199=='\"'||LA14_199=='\''||(LA14_199>='0' && LA14_199<='9')||(LA14_199>='A' && LA14_199<='Z')||LA14_199=='_'||(LA14_199>='a' && LA14_199<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -3273,13 +3285,14 @@ public class InternalAlsLexer extends Lexer {
                     {
                     int LA14_157 = input.LA(4);
 
-                    if ( (LA14_157=='\''||(LA14_157>='0' && LA14_157<='9')||(LA14_157>='A' && LA14_157<='Z')||LA14_157=='_'||(LA14_157>='a' && LA14_157<='z')) ) {
+                    if ( (LA14_157=='\"'||LA14_157=='\''||(LA14_157>='0' && LA14_157<='9')||(LA14_157>='A' && LA14_157<='Z')||LA14_157=='_'||(LA14_157>='a' && LA14_157<='z')) ) {
                         alt14=82;
                     }
                     else {
                         alt14=27;}
                     }
                     break;
+                case '\"':
                 case '\'':
                 case '0':
                 case '1':
@@ -3381,7 +3394,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_159=='v') ) {
                         int LA14_201 = input.LA(5);
 
-                        if ( (LA14_201=='\''||(LA14_201>='0' && LA14_201<='9')||(LA14_201>='A' && LA14_201<='Z')||LA14_201=='_'||(LA14_201>='a' && LA14_201<='z')) ) {
+                        if ( (LA14_201=='\"'||LA14_201=='\''||(LA14_201>='0' && LA14_201<='9')||(LA14_201>='A' && LA14_201<='Z')||LA14_201=='_'||(LA14_201>='a' && LA14_201<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -3405,7 +3418,7 @@ public class InternalAlsLexer extends Lexer {
                 if ( (LA14_89=='t') ) {
                     int LA14_160 = input.LA(4);
 
-                    if ( (LA14_160=='\''||(LA14_160>='0' && LA14_160<='9')||(LA14_160>='A' && LA14_160<='Z')||LA14_160=='_'||(LA14_160>='a' && LA14_160<='z')) ) {
+                    if ( (LA14_160=='\"'||LA14_160=='\''||(LA14_160>='0' && LA14_160<='9')||(LA14_160>='A' && LA14_160<='Z')||LA14_160=='_'||(LA14_160>='a' && LA14_160<='z')) ) {
                         alt14=82;
                     }
                     else {
@@ -3438,7 +3451,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_161=='s') ) {
                         int LA14_203 = input.LA(5);
 
-                        if ( (LA14_203=='\''||(LA14_203>='0' && LA14_203<='9')||(LA14_203>='A' && LA14_203<='Z')||LA14_203=='_'||(LA14_203>='a' && LA14_203<='z')) ) {
+                        if ( (LA14_203=='\"'||LA14_203=='\''||(LA14_203>='0' && LA14_203<='9')||(LA14_203>='A' && LA14_203<='Z')||LA14_203=='_'||(LA14_203>='a' && LA14_203<='z')) ) {
                             alt14=82;
                         }
                         else {
@@ -3465,7 +3478,7 @@ public class InternalAlsLexer extends Lexer {
                     if ( (LA14_162=='j') ) {
                         int LA14_204 = input.LA(5);
 
-                        if ( (LA14_204=='\''||(LA14_204>='0' && LA14_204<='9')||(LA14_204>='A' && LA14_204<='Z')||LA14_204=='_'||(LA14_204>='a' && LA14_204<='z')) ) {
+                        if ( (LA14_204=='\"'||LA14_204=='\''||(LA14_204>='0' && LA14_204<='9')||(LA14_204>='A' && LA14_204<='Z')||LA14_204=='_'||(LA14_204>='a' && LA14_204<='z')) ) {
                             alt14=82;
                         }
                         else {

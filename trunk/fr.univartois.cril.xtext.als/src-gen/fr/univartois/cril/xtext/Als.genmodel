@@ -15,7 +15,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Specification/paragraph"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Module">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Module/importedNamespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Module/moduleName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Module/left"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Module/exactly"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Module/name"/>
@@ -168,7 +168,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//BlockOrBar/expr"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//OpenName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//OpenName/importedNamespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//OpenName/importURI"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//FactName"/>
     <genClasses ecoreClass="Als.ecore#//AssertionName">
@@ -184,6 +184,9 @@
     <genClasses ecoreClass="Als.ecore#//SignatureName"/>
     <genClasses ecoreClass="Als.ecore#//PropertyName"/>
     <genClasses ecoreClass="Als.ecore#//ExactlyName"/>
+    <genClasses ecoreClass="Als.ecore#//AsName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//AsName/name"/>
+    </genClasses>
     <genClasses ecoreClass="Als.ecore#//ReferencesName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//ReferencesName/name"/>
     </genClasses>

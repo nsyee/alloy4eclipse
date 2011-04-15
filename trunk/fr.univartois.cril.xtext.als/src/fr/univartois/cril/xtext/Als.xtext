@@ -13,7 +13,7 @@ Specification  :
 	module ::= "module" name  [ "["  ["exactly"] name  ("," ["exactly"] num)*    "]" ]
 */
 Module:
-  "module" importedNamespace=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name=ExactlyName (comma+=Comma exactly+="exactly"? number+=INT)* right=RightSquareBracketKeyword)?	; 
+  "module" moduleName=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name+=ExactlyName (comma+=Comma (exactly+="exactly"? number+=INT|name+=ExactlyName))* right=RightSquareBracketKeyword)?	; 
   
 /*
 	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
@@ -21,7 +21,7 @@ Module:
 
 
 Open:
-  "private"? openName=OpenName  (left=LeftSquareBracketKeyword ref+=Ref (comma+=Comma ref+=Ref)* right=RightSquareBracketKeyword)? ("as" nameAs=ExactlyName)?	; 
+  "private"? openName=OpenName  (left=LeftSquareBracketKeyword ref+=Ref (comma+=Comma ref+=Ref)* right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?	; 
   
 /*
 	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
@@ -196,7 +196,7 @@ Quant	:
 	binOp ::= "||" | "or" | "&&" | "and" | "&" | "<=>" | "iff"| "=>" | "implies" | "+" | "-" | "++" | "<:" | ":>" | "." | "<<" | ">>" | ">>>"
 */	
 BinOp : 
-	{BinOp}("||" | "or" | "&&" | "and" | "&" | "<=>" | "iff"
+	{BinOp}("||" | "or" | "&&" | "and" | "&" | "<=>" | "iff" 
         |"+" | "-" | "++" | "<:" | ":>" | dot=Dot | "<<" | ">>" | ">>>"	);
 
 /*
@@ -241,13 +241,13 @@ BlockOrBar:
 
 	
 OpenName	:
-	"open" importedNamespace=Name	;
+	"open" importURI=Name;
 	
 FactName	:
-	{FactName}"fact" name=Name?	;
+	{FactName} "fact" name=Name?	;
 
 AssertionName :
-	{AssertionName}"assert" name=Name?	;
+	{AssertionName} "assert" name=Name?	;
 	
 FunctionName	:
 	 name=Name	;
@@ -273,7 +273,8 @@ PropertyName:
 ExactlyName:
 	name=Name;
 
-
+AsName:
+	name=Name;
 
 NameAlias:
 	ID ("/" ID)*;
@@ -339,4 +340,4 @@ terminal SL_COMMENT	:
 	('//' !('\n'|'\r')* ('\r'? '\n')?) | ('--'->'\n')	;
 
 terminal ID:
-  ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')* ("'")*	;
+  ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')* ("'"|'"')*	;

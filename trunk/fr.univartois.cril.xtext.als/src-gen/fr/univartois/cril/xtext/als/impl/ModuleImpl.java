@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.ModuleImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.ModuleImpl#getModuleName <em>Module Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ModuleImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ModuleImpl#getExactly <em>Exactly</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ModuleImpl#getName <em>Name</em>}</li>
@@ -51,24 +51,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
 {
   /**
-   * The default value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
+   * The default value of the '{@link #getModuleName() <em>Module Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImportedNamespace()
+   * @see #getModuleName()
    * @generated
    * @ordered
    */
-  protected static final String IMPORTED_NAMESPACE_EDEFAULT = null;
+  protected static final String MODULE_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
+   * The cached value of the '{@link #getModuleName() <em>Module Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImportedNamespace()
+   * @see #getModuleName()
    * @generated
    * @ordered
    */
-  protected String importedNamespace = IMPORTED_NAMESPACE_EDEFAULT;
+  protected String moduleName = MODULE_NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
@@ -91,14 +91,14 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
   protected EList<String> exactly;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected ExactlyName name;
+  protected EList<ExactlyName> name;
 
   /**
    * The cached value of the '{@link #getComma() <em>Comma</em>}' containment reference list.
@@ -156,9 +156,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getImportedNamespace()
+  public String getModuleName()
   {
-    return importedNamespace;
+    return moduleName;
   }
 
   /**
@@ -166,12 +166,12 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setImportedNamespace(String newImportedNamespace)
+  public void setModuleName(String newModuleName)
   {
-    String oldImportedNamespace = importedNamespace;
-    importedNamespace = newImportedNamespace;
+    String oldModuleName = moduleName;
+    moduleName = newModuleName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.MODULE__IMPORTED_NAMESPACE, oldImportedNamespace, importedNamespace));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.MODULE__MODULE_NAME, oldModuleName, moduleName));
   }
 
   /**
@@ -241,47 +241,13 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExactlyName getName()
+  public EList<ExactlyName> getName()
   {
+    if (name == null)
+    {
+      name = new EObjectContainmentEList<ExactlyName>(ExactlyName.class, this, AlsPackage.MODULE__NAME);
+    }
     return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetName(ExactlyName newName, NotificationChain msgs)
-  {
-    ExactlyName oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.MODULE__NAME, oldName, newName);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(ExactlyName newName)
-  {
-    if (newName != name)
-    {
-      NotificationChain msgs = null;
-      if (name != null)
-        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.MODULE__NAME, null, msgs);
-      if (newName != null)
-        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.MODULE__NAME, null, msgs);
-      msgs = basicSetName(newName, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.MODULE__NAME, newName, newName));
   }
 
   /**
@@ -373,7 +339,7 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case AlsPackage.MODULE__LEFT:
         return basicSetLeft(null, msgs);
       case AlsPackage.MODULE__NAME:
-        return basicSetName(null, msgs);
+        return ((InternalEList<?>)getName()).basicRemove(otherEnd, msgs);
       case AlsPackage.MODULE__COMMA:
         return ((InternalEList<?>)getComma()).basicRemove(otherEnd, msgs);
       case AlsPackage.MODULE__RIGHT:
@@ -392,8 +358,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
   {
     switch (featureID)
     {
-      case AlsPackage.MODULE__IMPORTED_NAMESPACE:
-        return getImportedNamespace();
+      case AlsPackage.MODULE__MODULE_NAME:
+        return getModuleName();
       case AlsPackage.MODULE__LEFT:
         return getLeft();
       case AlsPackage.MODULE__EXACTLY:
@@ -421,8 +387,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
   {
     switch (featureID)
     {
-      case AlsPackage.MODULE__IMPORTED_NAMESPACE:
-        setImportedNamespace((String)newValue);
+      case AlsPackage.MODULE__MODULE_NAME:
+        setModuleName((String)newValue);
         return;
       case AlsPackage.MODULE__LEFT:
         setLeft((LeftSquareBracketKeyword)newValue);
@@ -432,7 +398,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         getExactly().addAll((Collection<? extends String>)newValue);
         return;
       case AlsPackage.MODULE__NAME:
-        setName((ExactlyName)newValue);
+        getName().clear();
+        getName().addAll((Collection<? extends ExactlyName>)newValue);
         return;
       case AlsPackage.MODULE__COMMA:
         getComma().clear();
@@ -459,8 +426,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
   {
     switch (featureID)
     {
-      case AlsPackage.MODULE__IMPORTED_NAMESPACE:
-        setImportedNamespace(IMPORTED_NAMESPACE_EDEFAULT);
+      case AlsPackage.MODULE__MODULE_NAME:
+        setModuleName(MODULE_NAME_EDEFAULT);
         return;
       case AlsPackage.MODULE__LEFT:
         setLeft((LeftSquareBracketKeyword)null);
@@ -469,7 +436,7 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         getExactly().clear();
         return;
       case AlsPackage.MODULE__NAME:
-        setName((ExactlyName)null);
+        getName().clear();
         return;
       case AlsPackage.MODULE__COMMA:
         getComma().clear();
@@ -494,14 +461,14 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
   {
     switch (featureID)
     {
-      case AlsPackage.MODULE__IMPORTED_NAMESPACE:
-        return IMPORTED_NAMESPACE_EDEFAULT == null ? importedNamespace != null : !IMPORTED_NAMESPACE_EDEFAULT.equals(importedNamespace);
+      case AlsPackage.MODULE__MODULE_NAME:
+        return MODULE_NAME_EDEFAULT == null ? moduleName != null : !MODULE_NAME_EDEFAULT.equals(moduleName);
       case AlsPackage.MODULE__LEFT:
         return left != null;
       case AlsPackage.MODULE__EXACTLY:
         return exactly != null && !exactly.isEmpty();
       case AlsPackage.MODULE__NAME:
-        return name != null;
+        return name != null && !name.isEmpty();
       case AlsPackage.MODULE__COMMA:
         return comma != null && !comma.isEmpty();
       case AlsPackage.MODULE__NUMBER:
@@ -523,8 +490,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (importedNamespace: ");
-    result.append(importedNamespace);
+    result.append(" (moduleName: ");
+    result.append(moduleName);
     result.append(", exactly: ");
     result.append(exactly);
     result.append(", number: ");

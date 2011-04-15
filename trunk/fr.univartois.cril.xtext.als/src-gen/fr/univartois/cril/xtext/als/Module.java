@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.Module#getImportedNamespace <em>Imported Namespace</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Module#getModuleName <em>Module Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Module#getLeft <em>Left</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Module#getExactly <em>Exactly</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Module#getName <em>Name</em>}</li>
@@ -34,30 +34,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Module extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute.
+   * Returns the value of the '<em><b>Module Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Imported Namespace</em>' attribute isn't clear,
+   * If the meaning of the '<em>Module Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Imported Namespace</em>' attribute.
-   * @see #setImportedNamespace(String)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getModule_ImportedNamespace()
+   * @return the value of the '<em>Module Name</em>' attribute.
+   * @see #setModuleName(String)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getModule_ModuleName()
    * @model
    * @generated
    */
-  String getImportedNamespace();
+  String getModuleName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Module#getImportedNamespace <em>Imported Namespace</em>}' attribute.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Module#getModuleName <em>Module Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Imported Namespace</em>' attribute.
-   * @see #getImportedNamespace()
+   * @param value the new value of the '<em>Module Name</em>' attribute.
+   * @see #getModuleName()
    * @generated
    */
-  void setImportedNamespace(String value);
+  void setModuleName(String value);
 
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
@@ -102,30 +102,20 @@ public interface Module extends EObject
   EList<String> getExactly();
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference list.
+   * The list contents are of type {@link fr.univartois.cril.xtext.als.ExactlyName}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' containment reference.
-   * @see #setName(ExactlyName)
+   * @return the value of the '<em>Name</em>' containment reference list.
    * @see fr.univartois.cril.xtext.als.AlsPackage#getModule_Name()
    * @model containment="true"
    * @generated
    */
-  ExactlyName getName();
-
-  /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Module#getName <em>Name</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' containment reference.
-   * @see #getName()
-   * @generated
-   */
-  void setName(ExactlyName value);
+  EList<ExactlyName> getName();
 
   /**
    * Returns the value of the '<em><b>Comma</b></em>' containment reference list.

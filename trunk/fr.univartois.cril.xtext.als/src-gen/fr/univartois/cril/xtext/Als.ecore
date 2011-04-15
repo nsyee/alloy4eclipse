@@ -12,12 +12,12 @@
         eType="#//Paragraph" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moduleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//LeftSquareBracketKeyword"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exactly" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ExactlyName"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" upperBound="-1" eType="#//ExactlyName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comma" upperBound="-1"
         eType="#//Comma" containment="true"/>
@@ -37,7 +37,7 @@
         eType="#//Comma" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//RightSquareBracketKeyword"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nameAs" eType="#//ExactlyName"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nameAs" eType="#//AsName"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Paragraph"/>
@@ -246,7 +246,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OpenName">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FactName" eSuperTypes="#//ReferencesName"/>
   <eClassifiers xsi:type="ecore:EClass" name="AssertionName">
@@ -262,6 +262,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="SignatureName" eSuperTypes="#//ReferencesName"/>
   <eClassifiers xsi:type="ecore:EClass" name="PropertyName" eSuperTypes="#//ReferencesName"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExactlyName" eSuperTypes="#//ReferencesName"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AsName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReferencesName">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

@@ -59,8 +59,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Module");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cModuleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cImportedNamespaceNameParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
+		private final Assignment cModuleNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cModuleNameNameParserRuleCall_1_0 = (RuleCall)cModuleNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Assignment cLeftAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
 		private final RuleCall cLeftLeftSquareBracketKeywordParserRuleCall_2_0_0 = (RuleCall)cLeftAssignment_2_0.eContents().get(0);
@@ -71,35 +71,39 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
 		private final Assignment cCommaAssignment_2_3_0 = (Assignment)cGroup_2_3.eContents().get(0);
 		private final RuleCall cCommaCommaParserRuleCall_2_3_0_0 = (RuleCall)cCommaAssignment_2_3_0.eContents().get(0);
-		private final Assignment cExactlyAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
-		private final Keyword cExactlyExactlyKeyword_2_3_1_0 = (Keyword)cExactlyAssignment_2_3_1.eContents().get(0);
-		private final Assignment cNumberAssignment_2_3_2 = (Assignment)cGroup_2_3.eContents().get(2);
-		private final RuleCall cNumberINTTerminalRuleCall_2_3_2_0 = (RuleCall)cNumberAssignment_2_3_2.eContents().get(0);
+		private final Alternatives cAlternatives_2_3_1 = (Alternatives)cGroup_2_3.eContents().get(1);
+		private final Group cGroup_2_3_1_0 = (Group)cAlternatives_2_3_1.eContents().get(0);
+		private final Assignment cExactlyAssignment_2_3_1_0_0 = (Assignment)cGroup_2_3_1_0.eContents().get(0);
+		private final Keyword cExactlyExactlyKeyword_2_3_1_0_0_0 = (Keyword)cExactlyAssignment_2_3_1_0_0.eContents().get(0);
+		private final Assignment cNumberAssignment_2_3_1_0_1 = (Assignment)cGroup_2_3_1_0.eContents().get(1);
+		private final RuleCall cNumberINTTerminalRuleCall_2_3_1_0_1_0 = (RuleCall)cNumberAssignment_2_3_1_0_1.eContents().get(0);
+		private final Assignment cNameAssignment_2_3_1_1 = (Assignment)cAlternatives_2_3_1.eContents().get(1);
+		private final RuleCall cNameExactlyNameParserRuleCall_2_3_1_1_0 = (RuleCall)cNameAssignment_2_3_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
 		private final RuleCall cRightRightSquareBracketKeywordParserRuleCall_2_4_0 = (RuleCall)cRightAssignment_2_4.eContents().get(0);
 		
 		/// *
 		//	module ::= "module" name  [ "["  ["exactly"] name  ("," ["exactly"] num)*    "]" ]
 		// * /Module:
-		//	"module" importedNamespace=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name=ExactlyName (comma+=Comma
-		//	exactly+="exactly"? number+=INT)* right=RightSquareBracketKeyword)?;
+		//	"module" moduleName=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name+=ExactlyName (comma+=Comma
+		//	(exactly+="exactly"? number+=INT | name+=ExactlyName))* right=RightSquareBracketKeyword)?;
 		public ParserRule getRule() { return rule; }
 
-		//"module" importedNamespace=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name=ExactlyName (comma+=Comma
-		//exactly+="exactly"? number+=INT)* right=RightSquareBracketKeyword)?
+		//"module" moduleName=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name+=ExactlyName (comma+=Comma
+		//(exactly+="exactly"? number+=INT | name+=ExactlyName))* right=RightSquareBracketKeyword)?
 		public Group getGroup() { return cGroup; }
 
 		//"module"
 		public Keyword getModuleKeyword_0() { return cModuleKeyword_0; }
 
-		//importedNamespace=Name
-		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
+		//moduleName=Name
+		public Assignment getModuleNameAssignment_1() { return cModuleNameAssignment_1; }
 
 		//Name
-		public RuleCall getImportedNamespaceNameParserRuleCall_1_0() { return cImportedNamespaceNameParserRuleCall_1_0; }
+		public RuleCall getModuleNameNameParserRuleCall_1_0() { return cModuleNameNameParserRuleCall_1_0; }
 
-		//(left=LeftSquareBracketKeyword exactly+="exactly"? name=ExactlyName (comma+=Comma exactly+="exactly"? number+=INT)*
-		//right=RightSquareBracketKeyword)?
+		//(left=LeftSquareBracketKeyword exactly+="exactly"? name+=ExactlyName (comma+=Comma (exactly+="exactly"? number+=INT |
+		//name+=ExactlyName))* right=RightSquareBracketKeyword)?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//left=LeftSquareBracketKeyword
@@ -114,13 +118,13 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//"exactly"
 		public Keyword getExactlyExactlyKeyword_2_1_0() { return cExactlyExactlyKeyword_2_1_0; }
 
-		//name=ExactlyName
+		//name+=ExactlyName
 		public Assignment getNameAssignment_2_2() { return cNameAssignment_2_2; }
 
 		//ExactlyName
 		public RuleCall getNameExactlyNameParserRuleCall_2_2_0() { return cNameExactlyNameParserRuleCall_2_2_0; }
 
-		//(comma+=Comma exactly+="exactly"? number+=INT)*
+		//(comma+=Comma (exactly+="exactly"? number+=INT | name+=ExactlyName))*
 		public Group getGroup_2_3() { return cGroup_2_3; }
 
 		//comma+=Comma
@@ -129,17 +133,29 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Comma
 		public RuleCall getCommaCommaParserRuleCall_2_3_0_0() { return cCommaCommaParserRuleCall_2_3_0_0; }
 
+		//exactly+="exactly"? number+=INT | name+=ExactlyName
+		public Alternatives getAlternatives_2_3_1() { return cAlternatives_2_3_1; }
+
+		//exactly+="exactly"? number+=INT
+		public Group getGroup_2_3_1_0() { return cGroup_2_3_1_0; }
+
 		//exactly+="exactly"?
-		public Assignment getExactlyAssignment_2_3_1() { return cExactlyAssignment_2_3_1; }
+		public Assignment getExactlyAssignment_2_3_1_0_0() { return cExactlyAssignment_2_3_1_0_0; }
 
 		//"exactly"
-		public Keyword getExactlyExactlyKeyword_2_3_1_0() { return cExactlyExactlyKeyword_2_3_1_0; }
+		public Keyword getExactlyExactlyKeyword_2_3_1_0_0_0() { return cExactlyExactlyKeyword_2_3_1_0_0_0; }
 
 		//number+=INT
-		public Assignment getNumberAssignment_2_3_2() { return cNumberAssignment_2_3_2; }
+		public Assignment getNumberAssignment_2_3_1_0_1() { return cNumberAssignment_2_3_1_0_1; }
 
 		//INT
-		public RuleCall getNumberINTTerminalRuleCall_2_3_2_0() { return cNumberINTTerminalRuleCall_2_3_2_0; }
+		public RuleCall getNumberINTTerminalRuleCall_2_3_1_0_1_0() { return cNumberINTTerminalRuleCall_2_3_1_0_1_0; }
+
+		//name+=ExactlyName
+		public Assignment getNameAssignment_2_3_1_1() { return cNameAssignment_2_3_1_1; }
+
+		//ExactlyName
+		public RuleCall getNameExactlyNameParserRuleCall_2_3_1_1_0() { return cNameExactlyNameParserRuleCall_2_3_1_1_0; }
 
 		//right=RightSquareBracketKeyword
 		public Assignment getRightAssignment_2_4() { return cRightAssignment_2_4; }
@@ -169,17 +185,17 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cAsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameAsExactlyNameParserRuleCall_3_1_0 = (RuleCall)cNameAsAssignment_3_1.eContents().get(0);
+		private final RuleCall cNameAsAsNameParserRuleCall_3_1_0 = (RuleCall)cNameAsAssignment_3_1.eContents().get(0);
 		
 		/// *
 		//	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
 		// * /Open:
 		//	"private"? openName=OpenName (left=LeftSquareBracketKeyword ref+=Ref (comma+=Comma ref+=Ref)*
-		//	right=RightSquareBracketKeyword)? ("as" nameAs=ExactlyName)?;
+		//	right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?;
 		public ParserRule getRule() { return rule; }
 
 		//"private"? openName=OpenName (left=LeftSquareBracketKeyword ref+=Ref (comma+=Comma ref+=Ref)*
-		//right=RightSquareBracketKeyword)? ("as" nameAs=ExactlyName)?
+		//right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?
 		public Group getGroup() { return cGroup; }
 
 		//"private"?
@@ -227,17 +243,17 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//RightSquareBracketKeyword
 		public RuleCall getRightRightSquareBracketKeywordParserRuleCall_2_3_0() { return cRightRightSquareBracketKeywordParserRuleCall_2_3_0; }
 
-		//("as" nameAs=ExactlyName)?
+		//("as" nameAs=AsName)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"as"
 		public Keyword getAsKeyword_3_0() { return cAsKeyword_3_0; }
 
-		//nameAs=ExactlyName
+		//nameAs=AsName
 		public Assignment getNameAsAssignment_3_1() { return cNameAsAssignment_3_1; }
 
-		//ExactlyName
-		public RuleCall getNameAsExactlyNameParserRuleCall_3_1_0() { return cNameAsExactlyNameParserRuleCall_3_1_0; }
+		//AsName
+		public RuleCall getNameAsAsNameParserRuleCall_3_1_0() { return cNameAsAsNameParserRuleCall_3_1_0; }
 	}
 
 	public class ParagraphElements extends AbstractParserRuleElementFinder {
@@ -2595,26 +2611,26 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OpenName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cOpenKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cImportedNamespaceNameParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
+		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportURINameParserRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
 		
 		/// *
 		//	name ::= ["this" | ID] ["/" ID]*
 		// * /OpenName:
-		//	"open" importedNamespace=Name;
+		//	"open" importURI=Name;
 		public ParserRule getRule() { return rule; }
 
-		//"open" importedNamespace=Name
+		//"open" importURI=Name
 		public Group getGroup() { return cGroup; }
 
 		//"open"
 		public Keyword getOpenKeyword_0() { return cOpenKeyword_0; }
 
-		//importedNamespace=Name
-		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
+		//importURI=Name
+		public Assignment getImportURIAssignment_1() { return cImportURIAssignment_1; }
 
 		//Name
-		public RuleCall getImportedNamespaceNameParserRuleCall_1_0() { return cImportedNamespaceNameParserRuleCall_1_0; }
+		public RuleCall getImportURINameParserRuleCall_1_0() { return cImportURINameParserRuleCall_1_0; }
 	}
 
 	public class FactNameElements extends AbstractParserRuleElementFinder {
@@ -2809,6 +2825,22 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameNameParserRuleCall_0() { return cNameNameParserRuleCall_0; }
 	}
 
+	public class AsNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AsName");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameNameParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//AsName:
+		//	name=Name;
+		public ParserRule getRule() { return rule; }
+
+		//name=Name
+		public Assignment getNameAssignment() { return cNameAssignment; }
+
+		//Name
+		public RuleCall getNameNameParserRuleCall_0() { return cNameNameParserRuleCall_0; }
+	}
+
 	public class NameAliasElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NameAlias");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2970,33 +3002,33 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Assignment cNameRefAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
 		private final CrossReference cNameRefReferencesNameCrossReference_1_0_0 = (CrossReference)cNameRefAssignment_1_0.eContents().get(0);
-		private final RuleCall cNameRefReferencesNameNameParserRuleCall_1_0_0_1 = (RuleCall)cNameRefReferencesNameCrossReference_1_0_0.eContents().get(1);
+		private final RuleCall cNameRefReferencesNameIDTerminalRuleCall_1_0_0_1 = (RuleCall)cNameRefReferencesNameCrossReference_1_0_0.eContents().get(1);
 		private final Keyword cUnivKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Keyword cIntKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
 		private final Keyword cSeqIntKeyword_1_3 = (Keyword)cAlternatives_1.eContents().get(3);
 		
 		////A VOIR
 		//Ref:
-		//	{Ref} (nameRef=[ReferencesName|Name] | "univ" | "Int" | "seq/Int");
+		//	{Ref} (nameRef=[ReferencesName] | "univ" | "Int" | "seq/Int");
 		public ParserRule getRule() { return rule; }
 
-		//{Ref} (nameRef=[ReferencesName|Name] | "univ" | "Int" | "seq/Int")
+		//{Ref} (nameRef=[ReferencesName] | "univ" | "Int" | "seq/Int")
 		public Group getGroup() { return cGroup; }
 
 		//{Ref}
 		public Action getRefAction_0() { return cRefAction_0; }
 
-		//nameRef=[ReferencesName|Name] | "univ" | "Int" | "seq/Int"
+		//nameRef=[ReferencesName] | "univ" | "Int" | "seq/Int"
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
-		//nameRef=[ReferencesName|Name]
+		//nameRef=[ReferencesName]
 		public Assignment getNameRefAssignment_1_0() { return cNameRefAssignment_1_0; }
 
-		//[ReferencesName|Name]
+		//[ReferencesName]
 		public CrossReference getNameRefReferencesNameCrossReference_1_0_0() { return cNameRefReferencesNameCrossReference_1_0_0; }
 
-		//Name
-		public RuleCall getNameRefReferencesNameNameParserRuleCall_1_0_0_1() { return cNameRefReferencesNameNameParserRuleCall_1_0_0_1; }
+		//ID
+		public RuleCall getNameRefReferencesNameIDTerminalRuleCall_1_0_0_1() { return cNameRefReferencesNameIDTerminalRuleCall_1_0_0_1; }
 
 		//"univ"
 		public Keyword getUnivKeyword_1_1() { return cUnivKeyword_1_1; }
@@ -3193,6 +3225,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	private SignatureNameElements pSignatureName;
 	private PropertyNameElements pPropertyName;
 	private ExactlyNameElements pExactlyName;
+	private AsNameElements pAsName;
 	private NameAliasElements pNameAlias;
 	private NameElements pName;
 	private ReferencesNameElements pReferencesName;
@@ -3247,8 +3280,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	module ::= "module" name  [ "["  ["exactly"] name  ("," ["exactly"] num)*    "]" ]
 	// * /Module:
-	//	"module" importedNamespace=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name=ExactlyName (comma+=Comma
-	//	exactly+="exactly"? number+=INT)* right=RightSquareBracketKeyword)?;
+	//	"module" moduleName=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name+=ExactlyName (comma+=Comma
+	//	(exactly+="exactly"? number+=INT | name+=ExactlyName))* right=RightSquareBracketKeyword)?;
 	public ModuleElements getModuleAccess() {
 		return (pModule != null) ? pModule : (pModule = new ModuleElements());
 	}
@@ -3261,7 +3294,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
 	// * /Open:
 	//	"private"? openName=OpenName (left=LeftSquareBracketKeyword ref+=Ref (comma+=Comma ref+=Ref)*
-	//	right=RightSquareBracketKeyword)? ("as" nameAs=ExactlyName)?;
+	//	right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?;
 	public OpenElements getOpenAccess() {
 		return (pOpen != null) ? pOpen : (pOpen = new OpenElements());
 	}
@@ -3646,7 +3679,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	name ::= ["this" | ID] ["/" ID]*
 	// * /OpenName:
-	//	"open" importedNamespace=Name;
+	//	"open" importURI=Name;
 	public OpenNameElements getOpenNameAccess() {
 		return (pOpenName != null) ? pOpenName : (pOpenName = new OpenNameElements());
 	}
@@ -3755,6 +3788,16 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		return getExactlyNameAccess().getRule();
 	}
 
+	//AsName:
+	//	name=Name;
+	public AsNameElements getAsNameAccess() {
+		return (pAsName != null) ? pAsName : (pAsName = new AsNameElements());
+	}
+	
+	public ParserRule getAsNameRule() {
+		return getAsNameAccess().getRule();
+	}
+
 	//NameAlias returns ecore::EString:
 	//	ID ("/" ID)*;
 	public NameAliasElements getNameAliasAccess() {
@@ -3799,7 +3842,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 
 	////A VOIR
 	//Ref:
-	//	{Ref} (nameRef=[ReferencesName|Name] | "univ" | "Int" | "seq/Int");
+	//	{Ref} (nameRef=[ReferencesName] | "univ" | "Int" | "seq/Int");
 	public RefElements getRefAccess() {
 		return (pRef != null) ? pRef : (pRef = new RefElements());
 	}
@@ -3911,7 +3954,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal ID:
-	//	("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")* "\'"*;
+	//	("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")* ("\'" | "\"")*;
 	public TerminalRule getIDRule() {
 		return (tID != null) ? tID : (tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID"));
 	} 

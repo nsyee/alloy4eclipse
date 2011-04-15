@@ -151,12 +151,12 @@ public interface Open extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name As</em>' containment reference.
-   * @see #setNameAs(ExactlyName)
+   * @see #setNameAs(AsName)
    * @see fr.univartois.cril.xtext.als.AlsPackage#getOpen_NameAs()
    * @model containment="true"
    * @generated
    */
-  ExactlyName getNameAs();
+  AsName getNameAs();
 
   /**
    * Sets the value of the '{@link fr.univartois.cril.xtext.als.Open#getNameAs <em>Name As</em>}' containment reference.
@@ -166,6 +166,6 @@ public interface Open extends EObject
    * @see #getNameAs()
    * @generated
    */
-  void setNameAs(ExactlyName value);
+  void setNameAs(AsName value);
 
 } // Open

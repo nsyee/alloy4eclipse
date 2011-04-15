@@ -359,6 +359,15 @@ public interface AlsFactory extends EFactory
   ExactlyName createExactlyName();
 
   /**
+   * Returns a new object of class '<em>As Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>As Name</em>'.
+   * @generated
+   */
+  AsName createAsName();
+
+  /**
    * Returns a new object of class '<em>References Name</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
