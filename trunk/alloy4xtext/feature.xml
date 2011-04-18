@@ -2,7 +2,7 @@
 <feature
       id="alloy4xtext"
       label="Alloy4xtext"
-      version="0.3.0.alpha">
+      version="0.3.0.qualifier">
 
    <description url="http://alloy4eclipse.googlecode.com">
       This is a completly new version of the Alloy4Eclipse plugin based on the Xtext technology.
