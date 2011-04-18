@@ -141,6 +141,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightC" eType="#//RightCurlyBracket"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Let" eSuperTypes="#//Paragraph">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="letName" eType="#//LetName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftS" eType="#//LeftSquareBracketKeyword"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nameRef" upperBound="-1"
+        eType="#//ReferencesName" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comma" upperBound="-1"
+        eType="#//Comma" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightS" eType="#//RightSquareBracketKeyword"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Block"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprName" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Signature" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="signatureName" upperBound="-1"
         eType="#//SignatureName" containment="true"/>
@@ -259,6 +275,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumName" eSuperTypes="#//ReferencesName"/>
   <eClassifiers xsi:type="ecore:EClass" name="EnumPropertyName" eSuperTypes="#//ReferencesName"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LetName" eSuperTypes="#//ReferencesName"/>
   <eClassifiers xsi:type="ecore:EClass" name="SignatureName" eSuperTypes="#//ReferencesName"/>
   <eClassifiers xsi:type="ecore:EClass" name="PropertyName" eSuperTypes="#//ReferencesName"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExactlyName" eSuperTypes="#//ReferencesName"/>

@@ -34,7 +34,9 @@ import fr.univartois.cril.xtext.als.FunctionName;
 import fr.univartois.cril.xtext.als.LeftCurlyBracket;
 import fr.univartois.cril.xtext.als.LeftParenthesis;
 import fr.univartois.cril.xtext.als.LeftSquareBracketKeyword;
+import fr.univartois.cril.xtext.als.Let;
 import fr.univartois.cril.xtext.als.LetDecl;
+import fr.univartois.cril.xtext.als.LetName;
 import fr.univartois.cril.xtext.als.Module;
 import fr.univartois.cril.xtext.als.Open;
 import fr.univartois.cril.xtext.als.OpenName;
@@ -176,6 +178,13 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass letEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass signatureEClass = null;
 
   /**
@@ -310,6 +319,13 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * @generated
    */
   private EClass enumPropertyNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass letNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1231,6 +1247,86 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getLet()
+  {
+    return letEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLet_LetName()
+  {
+    return (EReference)letEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLet_LeftS()
+  {
+    return (EReference)letEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLet_NameRef()
+  {
+    return (EReference)letEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLet_Comma()
+  {
+    return (EReference)letEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLet_RightS()
+  {
+    return (EReference)letEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLet_Block()
+  {
+    return (EReference)letEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLet_ExprName()
+  {
+    return (EReference)letEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSignature()
   {
     return signatureEClass;
@@ -1941,6 +2037,16 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getLetName()
+  {
+    return letNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSignatureName()
   {
     return signatureNameEClass;
@@ -2344,6 +2450,15 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEReference(enumDeclEClass, ENUM_DECL__COMMA);
     createEReference(enumDeclEClass, ENUM_DECL__RIGHT_C);
 
+    letEClass = createEClass(LET);
+    createEReference(letEClass, LET__LET_NAME);
+    createEReference(letEClass, LET__LEFT_S);
+    createEReference(letEClass, LET__NAME_REF);
+    createEReference(letEClass, LET__COMMA);
+    createEReference(letEClass, LET__RIGHT_S);
+    createEReference(letEClass, LET__BLOCK);
+    createEReference(letEClass, LET__EXPR_NAME);
+
     signatureEClass = createEClass(SIGNATURE);
     createEReference(signatureEClass, SIGNATURE__SIGNATURE_NAME);
     createEReference(signatureEClass, SIGNATURE__COMMA);
@@ -2435,6 +2550,8 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
 
     enumPropertyNameEClass = createEClass(ENUM_PROPERTY_NAME);
 
+    letNameEClass = createEClass(LET_NAME);
+
     signatureNameEClass = createEClass(SIGNATURE_NAME);
 
     propertyNameEClass = createEClass(PROPERTY_NAME);
@@ -2517,6 +2634,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     runCommandEClass.getESuperTypes().add(this.getParagraph());
     checkCommandEClass.getESuperTypes().add(this.getParagraph());
     enumDeclEClass.getESuperTypes().add(this.getParagraph());
+    letEClass.getESuperTypes().add(this.getParagraph());
     signatureEClass.getESuperTypes().add(this.getParagraph());
     sigQualEClass.getESuperTypes().add(this.getSignature());
     factNameEClass.getESuperTypes().add(this.getReferencesName());
@@ -2524,6 +2642,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     predicateNameEClass.getESuperTypes().add(this.getReferencesName());
     enumNameEClass.getESuperTypes().add(this.getReferencesName());
     enumPropertyNameEClass.getESuperTypes().add(this.getReferencesName());
+    letNameEClass.getESuperTypes().add(this.getReferencesName());
     signatureNameEClass.getESuperTypes().add(this.getReferencesName());
     propertyNameEClass.getESuperTypes().add(this.getReferencesName());
     exactlyNameEClass.getESuperTypes().add(this.getReferencesName());
@@ -2617,6 +2736,15 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEReference(getEnumDecl_Comma(), this.getComma(), null, "comma", null, 0, -1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEnumDecl_RightC(), this.getRightCurlyBracket(), null, "rightC", null, 0, 1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(letEClass, Let.class, "Let", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLet_LetName(), this.getLetName(), null, "letName", null, 0, 1, Let.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLet_LeftS(), this.getLeftSquareBracketKeyword(), null, "leftS", null, 0, 1, Let.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLet_NameRef(), this.getReferencesName(), null, "nameRef", null, 0, -1, Let.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLet_Comma(), this.getComma(), null, "comma", null, 0, -1, Let.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLet_RightS(), this.getRightSquareBracketKeyword(), null, "rightS", null, 0, 1, Let.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLet_Block(), this.getBlock(), null, "block", null, 0, 1, Let.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLet_ExprName(), this.getExpression(), null, "exprName", null, 0, 1, Let.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(signatureEClass, Signature.class, "Signature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSignature_SignatureName(), this.getSignatureName(), null, "signatureName", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSignature_Comma(), this.getComma(), null, "comma", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2707,6 +2835,8 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEClass(enumNameEClass, EnumName.class, "EnumName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(enumPropertyNameEClass, EnumPropertyName.class, "EnumPropertyName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(letNameEClass, LetName.class, "LetName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(signatureNameEClass, SignatureName.class, "SignatureName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

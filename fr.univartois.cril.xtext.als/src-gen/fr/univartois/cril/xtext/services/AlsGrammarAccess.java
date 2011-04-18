@@ -266,15 +266,16 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRunDeclParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cCheckDeclParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cEnumDeclParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cSigDeclParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cLetOutDeclParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cSigDeclParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		
 		/// *
 		//	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
 		// * /Paragraph:
-		//	FactDecl | AssertDecl | FunDecl | PredDecl | RunDecl | CheckDecl | EnumDecl | SigDecl;
+		//	FactDecl | AssertDecl | FunDecl | PredDecl | RunDecl | CheckDecl | EnumDecl | LetOutDecl | SigDecl;
 		public ParserRule getRule() { return rule; }
 
-		//FactDecl | AssertDecl | FunDecl | PredDecl | RunDecl | CheckDecl | EnumDecl | SigDecl
+		//FactDecl | AssertDecl | FunDecl | PredDecl | RunDecl | CheckDecl | EnumDecl | LetOutDecl | SigDecl
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//FactDecl
@@ -298,8 +299,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//EnumDecl
 		public RuleCall getEnumDeclParserRuleCall_6() { return cEnumDeclParserRuleCall_6; }
 
+		//LetOutDecl
+		public RuleCall getLetOutDeclParserRuleCall_7() { return cLetOutDeclParserRuleCall_7; }
+
 		//SigDecl
-		public RuleCall getSigDeclParserRuleCall_7() { return cSigDeclParserRuleCall_7; }
+		public RuleCall getSigDeclParserRuleCall_8() { return cSigDeclParserRuleCall_8; }
 	}
 
 	public class FactDeclElements extends AbstractParserRuleElementFinder {
@@ -1166,6 +1170,109 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 
 		//RightCurlyBracket
 		public RuleCall getRightCRightCurlyBracketParserRuleCall_4_0() { return cRightCRightCurlyBracketParserRuleCall_4_0; }
+	}
+
+	public class LetOutDeclElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LetOutDecl");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLetNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLetNameLetNameParserRuleCall_0_0 = (RuleCall)cLetNameAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cLeftSAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cLeftSLeftSquareBracketKeywordParserRuleCall_1_0_0 = (RuleCall)cLeftSAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Assignment cNameRefAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cNameRefReferencesNameParserRuleCall_1_1_0_0 = (RuleCall)cNameRefAssignment_1_1_0.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
+		private final Assignment cCommaAssignment_1_1_1_0 = (Assignment)cGroup_1_1_1.eContents().get(0);
+		private final RuleCall cCommaCommaParserRuleCall_1_1_1_0_0 = (RuleCall)cCommaAssignment_1_1_1_0.eContents().get(0);
+		private final Assignment cNameRefAssignment_1_1_1_1 = (Assignment)cGroup_1_1_1.eContents().get(1);
+		private final RuleCall cNameRefReferencesNameParserRuleCall_1_1_1_1_0 = (RuleCall)cNameRefAssignment_1_1_1_1.eContents().get(0);
+		private final Assignment cRightSAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightSRightSquareBracketKeywordParserRuleCall_1_2_0 = (RuleCall)cRightSAssignment_1_2.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cBlockAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cBlockBlockParserRuleCall_2_0_0 = (RuleCall)cBlockAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cExprNameAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cExprNameExpressionParserRuleCall_2_1_1_0 = (RuleCall)cExprNameAssignment_2_1_1.eContents().get(0);
+		
+		//LetOutDecl returns Let:
+		//	letName=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
+		//	rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression);
+		public ParserRule getRule() { return rule; }
+
+		//letName=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
+		//rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression)
+		public Group getGroup() { return cGroup; }
+
+		//letName=LetName
+		public Assignment getLetNameAssignment_0() { return cLetNameAssignment_0; }
+
+		//LetName
+		public RuleCall getLetNameLetNameParserRuleCall_0_0() { return cLetNameLetNameParserRuleCall_0_0; }
+
+		//(leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
+		//rightS=RightSquareBracketKeyword)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//leftS=LeftSquareBracketKeyword
+		public Assignment getLeftSAssignment_1_0() { return cLeftSAssignment_1_0; }
+
+		//LeftSquareBracketKeyword
+		public RuleCall getLeftSLeftSquareBracketKeywordParserRuleCall_1_0_0() { return cLeftSLeftSquareBracketKeywordParserRuleCall_1_0_0; }
+
+		//(nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+
+		//nameRef+=ReferencesName
+		public Assignment getNameRefAssignment_1_1_0() { return cNameRefAssignment_1_1_0; }
+
+		//ReferencesName
+		public RuleCall getNameRefReferencesNameParserRuleCall_1_1_0_0() { return cNameRefReferencesNameParserRuleCall_1_1_0_0; }
+
+		//(comma+=Comma nameRef+=ReferencesName)*
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+
+		//comma+=Comma
+		public Assignment getCommaAssignment_1_1_1_0() { return cCommaAssignment_1_1_1_0; }
+
+		//Comma
+		public RuleCall getCommaCommaParserRuleCall_1_1_1_0_0() { return cCommaCommaParserRuleCall_1_1_1_0_0; }
+
+		//nameRef+=ReferencesName
+		public Assignment getNameRefAssignment_1_1_1_1() { return cNameRefAssignment_1_1_1_1; }
+
+		//ReferencesName
+		public RuleCall getNameRefReferencesNameParserRuleCall_1_1_1_1_0() { return cNameRefReferencesNameParserRuleCall_1_1_1_1_0; }
+
+		//rightS=RightSquareBracketKeyword
+		public Assignment getRightSAssignment_1_2() { return cRightSAssignment_1_2; }
+
+		//RightSquareBracketKeyword
+		public RuleCall getRightSRightSquareBracketKeywordParserRuleCall_1_2_0() { return cRightSRightSquareBracketKeywordParserRuleCall_1_2_0; }
+
+		//block=Block | "=" exprName=Expression
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
+		//block=Block
+		public Assignment getBlockAssignment_2_0() { return cBlockAssignment_2_0; }
+
+		//Block
+		public RuleCall getBlockBlockParserRuleCall_2_0_0() { return cBlockBlockParserRuleCall_2_0_0; }
+
+		//"=" exprName=Expression
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2_1_0() { return cEqualsSignKeyword_2_1_0; }
+
+		//exprName=Expression
+		public Assignment getExprNameAssignment_2_1_1() { return cExprNameAssignment_2_1_1; }
+
+		//Expression
+		public RuleCall getExprNameExpressionParserRuleCall_2_1_1_0() { return cExprNameExpressionParserRuleCall_2_1_1_0; }
 	}
 
 	public class SigDeclElements extends AbstractParserRuleElementFinder {
@@ -2777,6 +2884,30 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameNameParserRuleCall_0() { return cNameNameParserRuleCall_0; }
 	}
 
+	public class LetNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LetName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLetKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//LetName:
+		//	"let" name=Name;
+		public ParserRule getRule() { return rule; }
+
+		//"let" name=Name
+		public Group getGroup() { return cGroup; }
+
+		//"let"
+		public Keyword getLetKeyword_0() { return cLetKeyword_0; }
+
+		//name=Name
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//Name
+		public RuleCall getNameNameParserRuleCall_1_0() { return cNameNameParserRuleCall_1_0; }
+	}
+
 	public class SignatureNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SignatureName");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
@@ -2915,15 +3046,18 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSignatureNameParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cPropertyNameParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cExactlyNameParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cPredicateNameParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cLetNameParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cPredicateNameParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		
 		/// *
 		//	ref ::= name | "univ" | "Int" | "seq/Int"
 		// * /ReferencesName:
-		//	FactName | FunctionName | EnumName | EnumPropertyName | SignatureName | PropertyName | ExactlyName | PredicateName;
+		//	FactName | FunctionName | EnumName | EnumPropertyName | SignatureName | PropertyName | ExactlyName | LetName |
+		//	PredicateName;
 		public ParserRule getRule() { return rule; }
 
-		//FactName | FunctionName | EnumName | EnumPropertyName | SignatureName | PropertyName | ExactlyName | PredicateName
+		//FactName | FunctionName | EnumName | EnumPropertyName | SignatureName | PropertyName | ExactlyName | LetName |
+		//PredicateName
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//FactName
@@ -2947,8 +3081,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//ExactlyName
 		public RuleCall getExactlyNameParserRuleCall_6() { return cExactlyNameParserRuleCall_6; }
 
+		//LetName
+		public RuleCall getLetNameParserRuleCall_7() { return cLetNameParserRuleCall_7; }
+
 		//PredicateName
-		public RuleCall getPredicateNameParserRuleCall_7() { return cPredicateNameParserRuleCall_7; }
+		public RuleCall getPredicateNameParserRuleCall_8() { return cPredicateNameParserRuleCall_8; }
 	}
 
 	public class ReferencesSigElements extends AbstractParserRuleElementFinder {
@@ -3199,6 +3336,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	private ExpectationElements pExpectation;
 	private TypescopeElements pTypescope;
 	private EnumDeclElements pEnumDecl;
+	private LetOutDeclElements pLetOutDecl;
 	private SigDeclElements pSigDecl;
 	private SigQualElements pSigQual;
 	private SigExtElements pSigExt;
@@ -3222,6 +3360,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	private AliasElements pAlias;
 	private EnumNameElements pEnumName;
 	private EnumPropertyNameElements pEnumPropertyName;
+	private LetNameElements pLetName;
 	private SignatureNameElements pSignatureName;
 	private PropertyNameElements pPropertyName;
 	private ExactlyNameElements pExactlyName;
@@ -3306,7 +3445,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
 	// * /Paragraph:
-	//	FactDecl | AssertDecl | FunDecl | PredDecl | RunDecl | CheckDecl | EnumDecl | SigDecl;
+	//	FactDecl | AssertDecl | FunDecl | PredDecl | RunDecl | CheckDecl | EnumDecl | LetOutDecl | SigDecl;
 	public ParagraphElements getParagraphAccess() {
 		return (pParagraph != null) ? pParagraph : (pParagraph = new ParagraphElements());
 	}
@@ -3446,6 +3585,17 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEnumDeclRule() {
 		return getEnumDeclAccess().getRule();
+	}
+
+	//LetOutDecl returns Let:
+	//	letName=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
+	//	rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression);
+	public LetOutDeclElements getLetOutDeclAccess() {
+		return (pLetOutDecl != null) ? pLetOutDecl : (pLetOutDecl = new LetOutDeclElements());
+	}
+	
+	public ParserRule getLetOutDeclRule() {
+		return getLetOutDeclAccess().getRule();
 	}
 
 	/// *
@@ -3758,6 +3908,16 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		return getEnumPropertyNameAccess().getRule();
 	}
 
+	//LetName:
+	//	"let" name=Name;
+	public LetNameElements getLetNameAccess() {
+		return (pLetName != null) ? pLetName : (pLetName = new LetNameElements());
+	}
+	
+	public ParserRule getLetNameRule() {
+		return getLetNameAccess().getRule();
+	}
+
 	//SignatureName:
 	//	name=Name;
 	public SignatureNameElements getSignatureNameAccess() {
@@ -3821,7 +3981,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	ref ::= name | "univ" | "Int" | "seq/Int"
 	// * /ReferencesName:
-	//	FactName | FunctionName | EnumName | EnumPropertyName | SignatureName | PropertyName | ExactlyName | PredicateName;
+	//	FactName | FunctionName | EnumName | EnumPropertyName | SignatureName | PropertyName | ExactlyName | LetName |
+	//	PredicateName;
 	public ReferencesNameElements getReferencesNameAccess() {
 		return (pReferencesName != null) ? pReferencesName : (pReferencesName = new ReferencesNameElements());
 	}

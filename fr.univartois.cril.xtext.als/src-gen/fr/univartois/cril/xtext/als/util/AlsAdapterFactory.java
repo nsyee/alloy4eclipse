@@ -148,6 +148,11 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createEnumDeclAdapter();
       }
       @Override
+      public Adapter caseLet(Let object)
+      {
+        return createLetAdapter();
+      }
+      @Override
       public Adapter caseSignature(Signature object)
       {
         return createSignatureAdapter();
@@ -246,6 +251,11 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
       public Adapter caseEnumPropertyName(EnumPropertyName object)
       {
         return createEnumPropertyNameAdapter();
+      }
+      @Override
+      public Adapter caseLetName(LetName object)
+      {
+        return createLetNameAdapter();
       }
       @Override
       public Adapter caseSignatureName(SignatureName object)
@@ -560,6 +570,21 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext.als.Let <em>Let</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext.als.Let
+   * @generated
+   */
+  public Adapter createLetAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext.als.Signature <em>Signature</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -855,6 +880,21 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEnumPropertyNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext.als.LetName <em>Let Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext.als.LetName
+   * @generated
+   */
+  public Adapter createLetNameAdapter()
   {
     return null;
   }

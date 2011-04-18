@@ -81,6 +81,7 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.EXPECTATION: return createExpectation();
       case AlsPackage.TYPESCOPE: return createTypescope();
       case AlsPackage.ENUM_DECL: return createEnumDecl();
+      case AlsPackage.LET: return createLet();
       case AlsPackage.SIGNATURE: return createSignature();
       case AlsPackage.SIG_QUAL: return createSigQual();
       case AlsPackage.SIG_EXT: return createSigExt();
@@ -101,6 +102,7 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.ALIAS: return createAlias();
       case AlsPackage.ENUM_NAME: return createEnumName();
       case AlsPackage.ENUM_PROPERTY_NAME: return createEnumPropertyName();
+      case AlsPackage.LET_NAME: return createLetName();
       case AlsPackage.SIGNATURE_NAME: return createSignatureName();
       case AlsPackage.PROPERTY_NAME: return createPropertyName();
       case AlsPackage.EXACTLY_NAME: return createExactlyName();
@@ -274,6 +276,17 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     EnumDeclImpl enumDecl = new EnumDeclImpl();
     return enumDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Let createLet()
+  {
+    LetImpl let = new LetImpl();
+    return let;
   }
 
   /**
@@ -494,6 +507,17 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     EnumPropertyNameImpl enumPropertyName = new EnumPropertyNameImpl();
     return enumPropertyName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LetName createLetName()
+  {
+    LetNameImpl letName = new LetNameImpl();
+    return letName;
   }
 
   /**
