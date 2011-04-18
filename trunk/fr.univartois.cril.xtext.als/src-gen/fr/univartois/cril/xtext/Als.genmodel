@@ -96,6 +96,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//EnumDecl/comma"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//EnumDecl/rightC"/>
     </genClasses>
+    <genClasses ecoreClass="Als.ecore#//Let">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/letName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/leftS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/nameRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/comma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/rightS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/exprName"/>
+    </genClasses>
     <genClasses ecoreClass="Als.ecore#//Signature">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Signature/signatureName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Signature/comma"/>
@@ -181,6 +190,7 @@
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//EnumName"/>
     <genClasses ecoreClass="Als.ecore#//EnumPropertyName"/>
+    <genClasses ecoreClass="Als.ecore#//LetName"/>
     <genClasses ecoreClass="Als.ecore#//SignatureName"/>
     <genClasses ecoreClass="Als.ecore#//PropertyName"/>
     <genClasses ecoreClass="Als.ecore#//ExactlyName"/>

@@ -34,6 +34,7 @@ Paragraph:
   RunDecl		|
   CheckDecl		|
   EnumDecl		|
+  LetOutDecl	|
   SigDecl		; 
 
 /*
@@ -108,7 +109,13 @@ Typescope:
 */
 EnumDecl:
   enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma propertyEnum+=EnumPropertyName)* rightC=RightCurlyBracket	; 
+
   
+LetOutDecl returns Let:
+	letName=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName(comma+=Comma nameRef+=ReferencesName)*)? rightS=RightSquareBracketKeyword)? (block=Block |
+					"=" exprName=Expression);
+	
+
 /*
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */
@@ -185,6 +192,8 @@ Decl:
 */
 LetDecl:
   nameExpression=PropertyName "=" expr=Expression	; 
+
+ 
   
 /*
 	quant ::= "all" | "no" | "some" | "lone" | "one" | "sum"
@@ -263,7 +272,10 @@ EnumName	:
 	
 EnumPropertyName	:
 	 name=Name	;
-	 	
+	 
+LetName :
+	"let" name=Name;
+	
 SignatureName :
 	name=Name  ;
 		
@@ -293,6 +305,7 @@ ReferencesName	:
 	SignatureName	|
 	PropertyName	|
 	ExactlyName		|
+	LetName			|
 	PredicateName	;
 
 ReferencesSig	:

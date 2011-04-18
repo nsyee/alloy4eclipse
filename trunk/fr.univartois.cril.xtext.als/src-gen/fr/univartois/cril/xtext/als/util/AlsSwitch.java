@@ -200,6 +200,14 @@ public class AlsSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AlsPackage.LET:
+      {
+        Let let = (Let)theEObject;
+        T result = caseLet(let);
+        if (result == null) result = caseParagraph(let);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AlsPackage.SIGNATURE:
       {
         Signature signature = (Signature)theEObject;
@@ -345,6 +353,14 @@ public class AlsSwitch<T>
         EnumPropertyName enumPropertyName = (EnumPropertyName)theEObject;
         T result = caseEnumPropertyName(enumPropertyName);
         if (result == null) result = caseReferencesName(enumPropertyName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AlsPackage.LET_NAME:
+      {
+        LetName letName = (LetName)theEObject;
+        T result = caseLetName(letName);
+        if (result == null) result = caseReferencesName(letName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -692,6 +708,22 @@ public class AlsSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Let</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Let</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLet(Let object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Signature</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1007,6 +1039,22 @@ public class AlsSwitch<T>
    * @generated
    */
   public T caseEnumPropertyName(EnumPropertyName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Let Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Let Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLetName(LetName object)
   {
     return null;
   }

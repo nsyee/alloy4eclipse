@@ -152,6 +152,15 @@ public interface AlsFactory extends EFactory
   EnumDecl createEnumDecl();
 
   /**
+   * Returns a new object of class '<em>Let</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let</em>'.
+   * @generated
+   */
+  Let createLet();
+
+  /**
    * Returns a new object of class '<em>Signature</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -330,6 +339,15 @@ public interface AlsFactory extends EFactory
    * @generated
    */
   EnumPropertyName createEnumPropertyName();
+
+  /**
+   * Returns a new object of class '<em>Let Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let Name</em>'.
+   * @generated
+   */
+  LetName createLetName();
 
   /**
    * Returns a new object of class '<em>Signature Name</em>'.
