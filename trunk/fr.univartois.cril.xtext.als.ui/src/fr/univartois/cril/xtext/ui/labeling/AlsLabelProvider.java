@@ -13,6 +13,7 @@ import fr.univartois.cril.xtext.als.CheckCommand;
 import fr.univartois.cril.xtext.als.EnumDecl;
 import fr.univartois.cril.xtext.als.Fact;
 import fr.univartois.cril.xtext.als.Function;
+import fr.univartois.cril.xtext.als.Let;
 import fr.univartois.cril.xtext.als.Module;
 import fr.univartois.cril.xtext.als.Open;
 import fr.univartois.cril.xtext.als.Predicate;
@@ -72,6 +73,9 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 		return "sig.gif";
 	}
 
+	String text(Let l){
+		return l.getLetName().getName();
+	}
 	String text(Fact fact){
 		if(fact.getFactName().getName()==null){
 			return "Block Fact";
