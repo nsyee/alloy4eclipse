@@ -46,6 +46,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScopeAccess().getAlternatives(), "rule__Scope__Alternatives");
 					put(grammarAccess.getTypescopeAccess().getAlternatives_3(), "rule__Typescope__Alternatives_3");
 					put(grammarAccess.getTypescopeAccess().getAlternatives_3_1(), "rule__Typescope__Alternatives_3_1");
+					put(grammarAccess.getLetOutDeclAccess().getAlternatives_2(), "rule__LetOutDecl__Alternatives_2");
 					put(grammarAccess.getSigQualAccess().getSigqAlternatives_0_0(), "rule__SigQual__SigqAlternatives_0_0");
 					put(grammarAccess.getSigQualAccess().getAlternatives_1(), "rule__SigQual__Alternatives_1");
 					put(grammarAccess.getSigExtAccess().getAlternatives(), "rule__SigExt__Alternatives");
@@ -108,6 +109,11 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypescopeAccess().getGroup(), "rule__Typescope__Group__0");
 					put(grammarAccess.getEnumDeclAccess().getGroup(), "rule__EnumDecl__Group__0");
 					put(grammarAccess.getEnumDeclAccess().getGroup_3(), "rule__EnumDecl__Group_3__0");
+					put(grammarAccess.getLetOutDeclAccess().getGroup(), "rule__LetOutDecl__Group__0");
+					put(grammarAccess.getLetOutDeclAccess().getGroup_1(), "rule__LetOutDecl__Group_1__0");
+					put(grammarAccess.getLetOutDeclAccess().getGroup_1_1(), "rule__LetOutDecl__Group_1_1__0");
+					put(grammarAccess.getLetOutDeclAccess().getGroup_1_1_1(), "rule__LetOutDecl__Group_1_1_1__0");
+					put(grammarAccess.getLetOutDeclAccess().getGroup_2_1(), "rule__LetOutDecl__Group_2_1__0");
 					put(grammarAccess.getSigDeclAccess().getGroup(), "rule__SigDecl__Group__0");
 					put(grammarAccess.getSigDeclAccess().getGroup_3(), "rule__SigDecl__Group_3__0");
 					put(grammarAccess.getSigDeclAccess().getGroup_6(), "rule__SigDecl__Group_6__0");
@@ -158,6 +164,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFactNameAccess().getGroup(), "rule__FactName__Group__0");
 					put(grammarAccess.getAssertionNameAccess().getGroup(), "rule__AssertionName__Group__0");
 					put(grammarAccess.getEnumNameAccess().getGroup(), "rule__EnumName__Group__0");
+					put(grammarAccess.getLetNameAccess().getGroup(), "rule__LetName__Group__0");
 					put(grammarAccess.getNameAliasAccess().getGroup(), "rule__NameAlias__Group__0");
 					put(grammarAccess.getNameAliasAccess().getGroup_1(), "rule__NameAlias__Group_1__0");
 					put(grammarAccess.getNameAccess().getGroup(), "rule__Name__Group__0");
@@ -243,6 +250,14 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEnumDeclAccess().getCommaAssignment_3_0(), "rule__EnumDecl__CommaAssignment_3_0");
 					put(grammarAccess.getEnumDeclAccess().getPropertyEnumAssignment_3_1(), "rule__EnumDecl__PropertyEnumAssignment_3_1");
 					put(grammarAccess.getEnumDeclAccess().getRightCAssignment_4(), "rule__EnumDecl__RightCAssignment_4");
+					put(grammarAccess.getLetOutDeclAccess().getLetNameAssignment_0(), "rule__LetOutDecl__LetNameAssignment_0");
+					put(grammarAccess.getLetOutDeclAccess().getLeftSAssignment_1_0(), "rule__LetOutDecl__LeftSAssignment_1_0");
+					put(grammarAccess.getLetOutDeclAccess().getNameRefAssignment_1_1_0(), "rule__LetOutDecl__NameRefAssignment_1_1_0");
+					put(grammarAccess.getLetOutDeclAccess().getCommaAssignment_1_1_1_0(), "rule__LetOutDecl__CommaAssignment_1_1_1_0");
+					put(grammarAccess.getLetOutDeclAccess().getNameRefAssignment_1_1_1_1(), "rule__LetOutDecl__NameRefAssignment_1_1_1_1");
+					put(grammarAccess.getLetOutDeclAccess().getRightSAssignment_1_2(), "rule__LetOutDecl__RightSAssignment_1_2");
+					put(grammarAccess.getLetOutDeclAccess().getBlockAssignment_2_0(), "rule__LetOutDecl__BlockAssignment_2_0");
+					put(grammarAccess.getLetOutDeclAccess().getExprNameAssignment_2_1_1(), "rule__LetOutDecl__ExprNameAssignment_2_1_1");
 					put(grammarAccess.getSigDeclAccess().getSignatureNameAssignment_2(), "rule__SigDecl__SignatureNameAssignment_2");
 					put(grammarAccess.getSigDeclAccess().getCommaAssignment_3_0(), "rule__SigDecl__CommaAssignment_3_0");
 					put(grammarAccess.getSigDeclAccess().getSignatureNameAssignment_3_1(), "rule__SigDecl__SignatureNameAssignment_3_1");
@@ -325,6 +340,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAliasAccess().getNameAssignment(), "rule__Alias__NameAssignment");
 					put(grammarAccess.getEnumNameAccess().getNameAssignment_1(), "rule__EnumName__NameAssignment_1");
 					put(grammarAccess.getEnumPropertyNameAccess().getNameAssignment(), "rule__EnumPropertyName__NameAssignment");
+					put(grammarAccess.getLetNameAccess().getNameAssignment_1(), "rule__LetName__NameAssignment_1");
 					put(grammarAccess.getSignatureNameAccess().getNameAssignment(), "rule__SignatureName__NameAssignment");
 					put(grammarAccess.getPropertyNameAccess().getNameAssignment(), "rule__PropertyName__NameAssignment");
 					put(grammarAccess.getExactlyNameAccess().getNameAssignment(), "rule__ExactlyName__NameAssignment");
