@@ -87,7 +87,7 @@
   		<page 
   			class="fr.univartois.cril.xtext.alloyplugin.preferences.AlloyPreferencePage" 
   			id="fr.univartois.cril.xtext.alloyplugin.preferences.AlloyPreferencePage" 
-  			name="Alloy Preferences" /> 
+  			name="Alloy Preferences" />   			
   	</extension>
 	<extension 
 		point="org.eclipse.ui.keywords">
