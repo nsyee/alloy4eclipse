@@ -14,6 +14,7 @@ import fr.univartois.cril.xtext.als.Assertion;
 import fr.univartois.cril.xtext.als.CheckCommand;
 import fr.univartois.cril.xtext.als.Fact;
 import fr.univartois.cril.xtext.als.Function;
+import fr.univartois.cril.xtext.als.Let;
 import fr.univartois.cril.xtext.als.Module;
 import fr.univartois.cril.xtext.als.Open;
 import fr.univartois.cril.xtext.als.Predicate;
@@ -97,6 +98,13 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 	public ContentOutlineNode createNode(Fact fNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
 		    node.setLabel("Fact : " + node.getLabel());
+		    node.setImage(node.getImage());
+		    return node;
+		
+	}
+	public ContentOutlineNode createNode(Let fNode, ContentOutlineNode parentNode) {	    
+		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
+		    node.setLabel("Let " + node.getLabel());
 		    node.setImage(node.getImage());
 		    return node;
 		
