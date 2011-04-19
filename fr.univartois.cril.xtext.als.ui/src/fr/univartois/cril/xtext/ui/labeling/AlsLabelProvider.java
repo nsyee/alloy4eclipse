@@ -47,11 +47,6 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
       return "MyModel.gif";
     }
 */
-	public Image image(Module element) {
-		System.out.println("Je passe ici");
-		 return new Image(Display.getDefault(),AlsLabelProvider.class  
-				     .getResourceAsStream("/icons/module.gif"));  
-	}  
 	
 
 
@@ -67,9 +62,9 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 		return open.getOpenName().getImportURI();
 	}
 
-	/*String image(Module module) {
+	String image(Module module) {
 		return "module.gif";
-	}*/
+	}
 
 	String text(Signature sig) {
 		String name = sig.getSignatureName().get(0).getName();
