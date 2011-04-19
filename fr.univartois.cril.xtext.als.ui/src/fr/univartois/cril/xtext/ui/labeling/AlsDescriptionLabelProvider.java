@@ -3,6 +3,7 @@
 */
 package fr.univartois.cril.xtext.ui.labeling;
 
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider;
 
 /**
@@ -23,5 +24,6 @@ public class AlsDescriptionLabelProvider extends DefaultDescriptionLabelProvider
       return ele.getEClass().getName() + ".gif";
     }	 
 */
+	
 
 }

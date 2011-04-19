@@ -4,6 +4,8 @@
 package fr.univartois.cril.xtext.ui.labeling;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
 import com.google.inject.Inject;
@@ -45,10 +47,17 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
       return "MyModel.gif";
     }
 */
+	public Image image(Specification element) {
+		System.out.println("Je passe ici");
+		 return new Image(Display.getDefault(),AlsLabelProvider.class  
+				     .getResourceAsStream("/icons/module.gif"));  
+	}  
 	
-	String image(Specification spec) {
+
+
+	/*String image(Specification spec) {
 		return "module.gif";
-	}
+	}*/
 
 	String text(Module module){
 		return module.getModuleName();
