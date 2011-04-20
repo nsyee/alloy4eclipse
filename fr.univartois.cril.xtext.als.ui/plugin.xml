@@ -63,7 +63,7 @@
 		<page 
 			class="fr.univartois.cril.xtext.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage" 
 			id="fr.univartois.cril.xtext.Als" 
-			name="Als">
+			name="Alloy">
   			<keywordReference 
   				id="fr.univartois.cril.xtext.ui.keyword_Als" /> 
   		</page>
