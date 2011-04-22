@@ -10,14 +10,29 @@ Require-Bundle: org.antlr.runtime,
  org.eclipse.ui.editors;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0",
  fr.univartois.cril.xtext.als;visibility:=reexport,
+ swingintegration.example,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.builder,
- fr.univartois.cril.alloyplugin.launch,
  org.eclipse.core.resources,
- fr.univartois.cril.xtext.alloyplugin;bundle-version="0.3.0"
+ org.eclipse.core.runtime,
+ org.eclipse.xtend,
+ org.eclipse.xpand
 Import-Package: edu.mit.csail.sdg.alloy4,
- org.apache.log4j
+ edu.mit.csail.sdg.alloy4compiler.ast,
+ edu.mit.csail.sdg.alloy4compiler.parser,
+ edu.mit.csail.sdg.alloy4compiler.translator,
+ edu.mit.csail.sdg.alloy4graph,
+ edu.mit.csail.sdg.alloy4viz,
+ org.apache.log4j,
+ org.eclipse.debug.core,
+ org.eclipse.debug.core.model,
+ org.eclipse.debug.ui,
+ org.eclipse.debug.ui.console,
+ org.eclipse.ltk.core.refactoring,
+ org.eclipse.ltk.core.refactoring.participants,
+ org.eclipse.ltk.ui.refactoring,
+ org.eclipse.ui.console
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: fr.univartois.cril.xtext.ui.contentassist.antlr
-Bundle-Activator: fr.univartois.cril.xtext.ui.internal.AlsActivator
+Bundle-Activator: fr.univartois.cril.xtext.ui.activator.AlsActivator
