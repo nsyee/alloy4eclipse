@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.univartois.cril.alloyplugin.launch;singleton:=true
 Bundle-Version: 4.2.0.qualifier
-Bundle-Activator: fr.univartois.cril.alloyplugin.launch.Activator
 Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
@@ -20,7 +19,6 @@ Export-Package: edu.mit.csail.sdg.alloy4,
  edu.mit.csail.sdg.alloy4graph,
  edu.mit.csail.sdg.alloy4viz,
  edu.mit.csail.sdg.alloy4whole,
- fr.univartois.cril.alloyplugin.launch,
  java_cup_11a.runtime,
  kodkod.ast,
  kodkod.ast.operator,
