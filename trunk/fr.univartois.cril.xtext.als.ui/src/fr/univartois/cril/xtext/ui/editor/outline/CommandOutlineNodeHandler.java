@@ -39,6 +39,7 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 		document = XtextDocumentUtil.get(editor);
 		if(editor.isSaveOnCloseNeeded()) return null;
 		resource = editor.getResource();
+		
 		offset = editor.getHighlightRange().getOffset();
 		line = getLine(document, offset) + 1;
 		if (line == -1)
