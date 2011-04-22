@@ -2,6 +2,7 @@
 <?eclipse version="3.0"?> 
 
 <plugin>
+
 	<extension 
 		point="org.eclipse.ui.editors">
   		<editor 
@@ -43,6 +44,7 @@
   			</activeWhen>
 		</handler>
 	</extension>
+	
 	<extension
 		point="org.eclipse.core.expressions.definitions">
 		<definition id="fr.univartois.cril.xtext.Als.Editor.opened">
@@ -58,6 +60,7 @@
   			</and>
   		</definition>
   	</extension>
+  	
 	<extension 
 		point="org.eclipse.ui.preferencePages">
 		<page 
@@ -85,10 +88,23 @@
   		</page>
 		<!-- ADDED--> 
   		<page 
-  			class="fr.univartois.cril.xtext.alloyplugin.preferences.AlloyPreferencePage" 
-  			id="fr.univartois.cril.xtext.alloyplugin.preferences.AlloyPreferencePage" 
-  			name="Alloy Preferences" />   			
+  		    category="fr.univartois.cril.xtext.Als" 
+  			class="fr.univartois.cril.xtext.preferences.AlloyPreferencePage" 
+  			id="fr.univartois.cril.xtext.preferences.AlloyPreferencePage" 
+  			name="Alloy4 settings">
+  			<keywordReference 
+				id="fr.univartois.cril.xtext.ui.keyword_Als" /> 
+		</page> 
+  			 			
   	</extension>
+  	<extension
+  	      point="org.eclipse.core.runtime.preferences">
+    <initializer
+          class="fr.univartois.cril.xtext.preferences.PreferenceInitializer"/>
+   
+ 	</extension>
+  		
+  
 	<extension 
 		point="org.eclipse.ui.keywords">
   		<keyword 
@@ -102,6 +118,7 @@
   			id="fr.univartois.cril.xtext.Als.validate" 
   			name="Validate" /> 
 	</extension>
+	
 	<extension 
 		point="org.eclipse.ui.menus">
 		<menuContribution 
@@ -118,6 +135,7 @@
   			</command>
   		</menuContribution>
   	</extension>
+  	
 	<extension 
 		point="org.eclipse.ui.menus">
 		<menuContribution 
@@ -132,6 +150,7 @@
   			</command>
   		</menuContribution>
   	</extension>
+  	
 	<extension 
 		point="org.eclipse.ui.handlers">
 		<handler 
@@ -144,18 +163,21 @@
   		</handler>
   	</extension>
 	<!--  adding resource factories --> 
+	
 	<extension 
 		point="org.eclipse.emf.ecore.extension_parser">
   		<parser 
   			class="fr.univartois.cril.xtext.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory" 
   			type="als" /> 
   	</extension>
+  	
 	<extension 
 		point="org.eclipse.xtext.extension_resourceServiceProvider">
   		<resourceServiceProvider 
   			class="fr.univartois.cril.xtext.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider" 
   			uriExtension="als" /> 
   	</extension>
+  	
 	<!--  Quick Outline --> 
 	<extension 
 		point="org.eclipse.ui.handlers">
@@ -168,6 +190,7 @@
   			</activeWhen>
   		</handler>
   	</extension>
+  	
 	<extension point="org.eclipse.ui.commands">
   		<command 
   			description="Open the quick outline." 
@@ -202,6 +225,7 @@
   			id="fr.univartois.cril.xtext.alloyplugin.RenameAls" 
   			name="Rename A4 Identifier" /> 
   	</extension>
+  	
 	<extension 
 		point="org.eclipse.ui.menus">
 		<menuContribution 
@@ -218,12 +242,14 @@
   			</command>
   		</menuContribution>
   	</extension>
+  	
 	<!--  quickfix marker resolution generator --> 
 	<extension 
 		point="org.eclipse.ui.ide.markerResolution">
   		<markerResolutionGenerator 
   			class="fr.univartois.cril.xtext.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator" /> 
   	</extension>
+  	
 	<!-- ancien--> 
 	<extension-point 
 		id="fr.univartois.cril.xtext.alloyplugin.editorlistener" 
@@ -237,7 +263,9 @@
   			class="fr.univartois.cril.xtext.alloyplugin.editor.ALSDocumentSetupParticipant" 
   			extensions="als" /> 
   	</extension>
-	<!-- YES--> 
+  	
+	<!-- YES -->
+	
 	<extension 
 		point="org.eclipse.ui.newWizards">
 		<category 
@@ -262,6 +290,7 @@
   			preferredPerspectives="fr.univartois.cril.xtext.alloyplugin.alloyperspective" 
   			project="true" /> 
 	</extension>
+	
 	<!-- YES--> 
 	<extension 
 		point="org.eclipse.ui.perspectives">
@@ -271,6 +300,7 @@
   			id="fr.univartois.cril.xtext.alloyplugin.alloyperspective" 
   			name="Alloy" /> 
   	</extension>
+  	
 	<!-- YES--> 
 	<extension 
 		point="org.eclipse.ui.perspectiveExtensions">
@@ -282,6 +312,7 @@
   				id="fr.univartois.cril.xtext.alloyplugin.wizards.NewAlloyFileWizard" /> 
   		</perspectiveExtension>
 	</extension>
+	
 	<!-- YES --> 
 	<extension 
 		id="AlloyProjectNature" 
@@ -292,6 +323,7 @@
   				class="fr.univartois.cril.xtext.alloyplugin.ProjectNature" /> 
   		</runtime>
   	</extension>
+  
 	<!-- YES--> 
 	<extension 
 		point="org.eclipse.ui.popupMenus">
@@ -307,6 +339,7 @@
   				id="fr.univartois.cril.xtext.alloyplugin.ShowNatureAction" /> 
   		</objectContribution>
   	</extension>
+  		
 	<!--   
 	<extension
          id="AlloyProblem"
@@ -333,6 +366,7 @@
             name="Alloy Theme file"
             priority="normal" />
    </extension><!--aaaa--> 
+  
 	<extension
          id="builder"
          name="Alloy Builder"
@@ -344,6 +378,7 @@
       </builder>
    </extension><!--voila--> 
 - <!-- a voir --> 
+ 
 <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
@@ -361,6 +396,7 @@
    </extension> <!--voila-->
 - <!-- a voir
   --> 
+  
 <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
@@ -378,6 +414,7 @@
       </objectContribution>
    </extension><!--voila-->
 	<!-- a voir --> 
+	
 	<extension 
 		point="org.eclipse.debug.ui.launchShortcuts">
 		<shortcut 
@@ -401,6 +438,7 @@
   			</contextualLaunch>
   		</shortcut>
 	</extension>
+	
 <extension
          point="org.eclipse.ui.commandImages">
       <image
@@ -409,6 +447,7 @@
    </extension><!--voila-->
 - <!-- a voir
   --> 
+  
 	<extension 
 		point="org.eclipse.ui.perspectiveExtensions">
 		<perspectiveExtension 
@@ -417,6 +456,7 @@
   				id="org.eclipse.debug.ui.launchActionSet" /> 
   		</perspectiveExtension>
 	</extension>
+	
 	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
   		<launchConfigurationType 
   			delegate="fr.univartois.cril.xtext.alloyplugin.launch.ui.LaunchConfigurationDelegate" id="fr.univartois.cril.xtext.alloyplugin.launch.ui.LaunchConfigurationType" 
@@ -424,6 +464,7 @@
   			name="Alloy command" 
   			public="true" /> 
   	</extension>
+  	
 <extension
          point="org.eclipse.debug.ui.launchConfigurationTypeImages">
       <launchConfigurationTypeImage
@@ -441,11 +482,7 @@
 	</extension><!--voila--> 
 	<!-- a voir --> 
  	<!-- --> 
- 	<extension 
- 		point="org.eclipse.core.runtime.preferences">
-  		<initializer 
-  			class="fr.univartois.cril.xtext.alloyplugin.preferences.PreferenceInitializer" /> 
-  	</extension>
+ 	
 	<extension 
 		point="org.eclipse.ui.ide.projectNatureImages">
   		<image 
@@ -548,5 +585,6 @@
   			</command>
   		</menuContribution>
   	</extension>
+ 
   	
 </plugin>

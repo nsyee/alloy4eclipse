@@ -181,4 +181,16 @@
       </markerResolutionGenerator>
    </extension>
 
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.xtext.projectwiz"
+            class="fr.univartois.cril.xtext.ui.AlsExecutableExtensionFactory:fr.univartois.cril.xtext.ui.wizard.AlsNewProjectWizard"
+            icon="icons/editor.gif"
+            id="fr.univartois.cril.xtext.ui.wizard.AlsNewProjectWizard"
+            name="Als Project"
+            project="true">
+      </wizard>
+   </extension>
+
 </plugin>
