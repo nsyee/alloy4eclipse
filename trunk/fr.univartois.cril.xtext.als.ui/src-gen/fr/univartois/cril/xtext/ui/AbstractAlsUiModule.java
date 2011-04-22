@@ -118,5 +118,7 @@ public abstract class AbstractAlsUiModule extends DefaultUiModule {
 		binder.bind(org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.CONTENT_ASSIST)).to(fr.univartois.cril.xtext.ui.contentassist.antlr.internal.InternalAlsLexer.class);
 	}
 
+	
+
 
 }

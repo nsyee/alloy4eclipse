@@ -17,12 +17,12 @@ public class AlsExecutableExtensionFactory extends AbstractGuiceAwareExecutableE
 
 	@Override
 	protected Bundle getBundle() {
-		return fr.univartois.cril.xtext.ui.internal.AlsActivator.getInstance().getBundle();
+		return fr.univartois.cril.xtext.ui.activator.AlsActivator.getInstance().getBundle();
 	}
 	
 	@Override
 	protected Injector getInjector() {
-		return fr.univartois.cril.xtext.ui.internal.AlsActivator.getInstance().getInjector("fr.univartois.cril.xtext.Als");
+		return fr.univartois.cril.xtext.ui.activator.AlsActivator.getInstance().getInjector("fr.univartois.cril.xtext.Als");
 	}
 	
 }
