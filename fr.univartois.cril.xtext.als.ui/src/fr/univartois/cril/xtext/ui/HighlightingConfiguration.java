@@ -34,14 +34,14 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 		acceptor.acceptDefaultHighlighting(enumPropertyName, "Enum Property Name", enumPropertyNameStyle());
 		acceptor.acceptDefaultHighlighting(opName, "Operation Name", opNameStyle());
 		acceptor.acceptDefaultHighlighting(quantifier, "Quantifier", quantifierStyle());
-		acceptor.acceptDefaultHighlighting(asName, "Open alias", aliasStyle());
+		acceptor.acceptDefaultHighlighting(asName, "As Name", asNameStyle());
 	}
 	
-	public TextStyle aliasStyle() {
+	public TextStyle asNameStyle() {
 		TextStyle textStyle = new TextStyle();
-		textStyle.setBackgroundColor(new RGB(255, 255, 255));
+		textStyle.setBackgroundColor(new RGB(0,0, 0));
 		textStyle.setColor(new RGB(0, 128, 127));
-		
+		System.out.println("ASNAME");
 		textStyle.setStyle(SWT.ITALIC);
 		return textStyle; 
 	}
