@@ -6,7 +6,7 @@ Bundle-Version: 4.2.0.qualifier
 Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
- alloy4-nosat4j.jar
+ alloy4.2-nosat4j.jar
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -19,7 +19,7 @@ Export-Package: edu.mit.csail.sdg.alloy4,
  edu.mit.csail.sdg.alloy4graph,
  edu.mit.csail.sdg.alloy4viz,
  edu.mit.csail.sdg.alloy4whole,
- java_cup_11a.runtime,
+ java_cup.runtime,
  kodkod.ast,
  kodkod.ast.operator,
  kodkod.ast.visitor,
