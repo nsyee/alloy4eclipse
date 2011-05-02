@@ -7,6 +7,7 @@ package fr.univartois.cril.xtext.als.impl;
 
 import fr.univartois.cril.xtext.als.AlsPackage;
 import fr.univartois.cril.xtext.als.ArrowOp;
+import fr.univartois.cril.xtext.als.AsName;
 import fr.univartois.cril.xtext.als.BinOp;
 import fr.univartois.cril.xtext.als.Block;
 import fr.univartois.cril.xtext.als.BlockOrBar;
@@ -67,6 +68,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getSeq <em>Seq</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParO <em>Par O</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParF <em>Par F</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getAsname <em>Asname</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getLeftCurlyBracket <em>Left Curly Bracket</em>}</li>
@@ -377,6 +379,16 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected String parF = PAR_F_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getAsname() <em>Asname</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAsname()
+   * @generated
+   * @ordered
+   */
+  protected AsName asname;
 
   /**
    * The cached value of the '{@link #getNameRef() <em>Name Ref</em>}' reference.
@@ -853,6 +865,54 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
+  public AsName getAsname()
+  {
+    return asname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAsname(AsName newAsname, NotificationChain msgs)
+  {
+    AsName oldAsname = asname;
+    asname = newAsname;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__ASNAME, oldAsname, newAsname);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAsname(AsName newAsname)
+  {
+    if (newAsname != asname)
+    {
+      NotificationChain msgs = null;
+      if (asname != null)
+        msgs = ((InternalEObject)asname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.EXPRESSION__ASNAME, null, msgs);
+      if (newAsname != null)
+        msgs = ((InternalEObject)newAsname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.EXPRESSION__ASNAME, null, msgs);
+      msgs = basicSetAsname(newAsname, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__ASNAME, newAsname, newAsname));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ReferencesName getNameRef()
   {
     if (nameRef != null && nameRef.eIsProxy())
@@ -1033,6 +1093,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return basicSetUnOp(null, msgs);
       case AlsPackage.EXPRESSION__COMMON:
         return ((InternalEList<?>)getCommon()).basicRemove(otherEnd, msgs);
+      case AlsPackage.EXPRESSION__ASNAME:
+        return basicSetAsname(null, msgs);
       case AlsPackage.EXPRESSION__BLOCK:
         return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
       case AlsPackage.EXPRESSION__LEFT_CURLY_BRACKET:
@@ -1095,6 +1157,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return getParO();
       case AlsPackage.EXPRESSION__PAR_F:
         return getParF();
+      case AlsPackage.EXPRESSION__ASNAME:
+        return getAsname();
       case AlsPackage.EXPRESSION__NAME_REF:
         if (resolve) return getNameRef();
         return basicGetNameRef();
@@ -1193,6 +1257,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__PAR_F:
         setParF((String)newValue);
         return;
+      case AlsPackage.EXPRESSION__ASNAME:
+        setAsname((AsName)newValue);
+        return;
       case AlsPackage.EXPRESSION__NAME_REF:
         setNameRef((ReferencesName)newValue);
         return;
@@ -1283,6 +1350,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__PAR_F:
         setParF(PAR_F_EDEFAULT);
         return;
+      case AlsPackage.EXPRESSION__ASNAME:
+        setAsname((AsName)null);
+        return;
       case AlsPackage.EXPRESSION__NAME_REF:
         setNameRef((ReferencesName)null);
         return;
@@ -1351,6 +1421,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return PAR_O_EDEFAULT == null ? parO != null : !PAR_O_EDEFAULT.equals(parO);
       case AlsPackage.EXPRESSION__PAR_F:
         return PAR_F_EDEFAULT == null ? parF != null : !PAR_F_EDEFAULT.equals(parF);
+      case AlsPackage.EXPRESSION__ASNAME:
+        return asname != null;
       case AlsPackage.EXPRESSION__NAME_REF:
         return nameRef != null;
       case AlsPackage.EXPRESSION__BLOCK:

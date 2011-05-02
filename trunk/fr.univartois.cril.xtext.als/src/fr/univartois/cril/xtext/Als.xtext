@@ -177,7 +177,7 @@ TerminalExpression returns Expression:
     {Expression} int="Int"																							|//14./
     {Expression} seq="seq/Int"																						|//15./
     {Expression} parO="(" expr+=Expression parF=")"																	|//16./
-    {Expression} "@"? (nameRef=[ReferencesName]|"this")																	|//17./
+    {Expression} "@"? ((asname=AsName|"fun"|"pred") "/")? ( nameRef=[ReferencesName]|"this")						|//17./
     {Expression} block+=Block																						|//18./
     {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket											;//19./
 
@@ -258,11 +258,11 @@ FactName	:
 AssertionName :
 	{AssertionName} "assert" name=Name?	;
 	
-FunctionName	:
-	 name=Name	;
+FunctionName	: 
+	name=Name	;
 
 PredicateName :
-	 name=Name	;
+	name=Name	;
 			
 Alias:
 	name=NameAlias	;
@@ -271,7 +271,7 @@ EnumName	:
 	"enum" name=Name	;
 	
 EnumPropertyName	:
-	 name=Name	;
+	name=Name	;
 	 
 LetName :
 	"let" name=Name;
@@ -283,17 +283,18 @@ PropertyName:
 	name=Name;
 	
 ExactlyName:
-	name=Name;
+	 name=Name;
 
 AsName:
-	name=Name;
-
+	name=ID;
+	
 NameAlias:
 	ID ("/" ID)*;
 	
 Name:
 	("this"|ID) ("/" ID)*; 
   
+
 /*
 	ref ::= name | "univ" | "Int" | "seq/Int"
 */
@@ -309,12 +310,13 @@ ReferencesName	:
 	PredicateName	;
 
 ReferencesSig	:
-  {ReferencesSig}(nameRef=[SignatureName]|"univ"|"Int"|"seq/Int")	;
+  {ReferencesSig}( nameRef=[SignatureName]|"univ"|"Int"|"seq/Int")	;
 
  	
 Ref:
-  {Ref}(nameRef=[ReferencesName]|"univ"|"Int"|"seq/Int")	;//A VOIR
+  {Ref}( nameRef=[ ReferencesName]|"univ"|"Int"|"seq/Int")	;//A VOIR
   
+
 
 
 LeftCurlyBracket:

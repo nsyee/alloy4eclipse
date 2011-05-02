@@ -1339,13 +1339,22 @@ public interface AlsPackage extends EPackage
   int EXPRESSION__PAR_F = 20;
 
   /**
+   * The feature id for the '<em><b>Asname</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__ASNAME = 21;
+
+  /**
    * The feature id for the '<em><b>Name Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__NAME_REF = 21;
+  int EXPRESSION__NAME_REF = 22;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference list.
@@ -1354,7 +1363,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__BLOCK = 22;
+  int EXPRESSION__BLOCK = 23;
 
   /**
    * The feature id for the '<em><b>Left Curly Bracket</b></em>' containment reference.
@@ -1363,7 +1372,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__LEFT_CURLY_BRACKET = 23;
+  int EXPRESSION__LEFT_CURLY_BRACKET = 24;
 
   /**
    * The feature id for the '<em><b>Right Curly Bracket</b></em>' containment reference.
@@ -1372,7 +1381,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__RIGHT_CURLY_BRACKET = 24;
+  int EXPRESSION__RIGHT_CURLY_BRACKET = 25;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1381,7 +1390,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 25;
+  int EXPRESSION_FEATURE_COUNT = 26;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.DeclImpl <em>Decl</em>}' class.
@@ -3620,6 +3629,17 @@ public interface AlsPackage extends EPackage
   EAttribute getExpression_ParF();
 
   /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Expression#getAsname <em>Asname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Asname</em>'.
+   * @see fr.univartois.cril.xtext.als.Expression#getAsname()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Asname();
+
+  /**
    * Returns the meta object for the reference '{@link fr.univartois.cril.xtext.als.Expression#getNameRef <em>Name Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5311,6 +5331,14 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EAttribute EXPRESSION__PAR_F = eINSTANCE.getExpression_ParF();
+
+    /**
+     * The meta object literal for the '<em><b>Asname</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__ASNAME = eINSTANCE.getExpression_Asname();
 
     /**
      * The meta object literal for the '<em><b>Name Ref</b></em>' reference feature.
