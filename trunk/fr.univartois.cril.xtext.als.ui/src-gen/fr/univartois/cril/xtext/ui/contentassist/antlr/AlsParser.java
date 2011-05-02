@@ -55,7 +55,8 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpressionAccess().getAlternatives_1_3_0(), "rule__Expression__Alternatives_1_3_0");
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives(), "rule__TerminalExpression__Alternatives");
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives_3_2(), "rule__TerminalExpression__Alternatives_3_2");
-					put(grammarAccess.getTerminalExpressionAccess().getAlternatives_12_2(), "rule__TerminalExpression__Alternatives_12_2");
+					put(grammarAccess.getTerminalExpressionAccess().getAlternatives_12_2_0(), "rule__TerminalExpression__Alternatives_12_2_0");
+					put(grammarAccess.getTerminalExpressionAccess().getAlternatives_12_3(), "rule__TerminalExpression__Alternatives_12_3");
 					put(grammarAccess.getQuantAccess().getAlternatives(), "rule__Quant__Alternatives");
 					put(grammarAccess.getBinOpAccess().getAlternatives_1(), "rule__BinOp__Alternatives_1");
 					put(grammarAccess.getUnOpAccess().getAlternatives_1(), "rule__UnOp__Alternatives_1");
@@ -148,6 +149,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_10(), "rule__TerminalExpression__Group_10__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_11(), "rule__TerminalExpression__Group_11__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_12(), "rule__TerminalExpression__Group_12__0");
+					put(grammarAccess.getTerminalExpressionAccess().getGroup_12_2(), "rule__TerminalExpression__Group_12_2__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_13(), "rule__TerminalExpression__Group_13__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_14(), "rule__TerminalExpression__Group_14__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_14_3(), "rule__TerminalExpression__Group_14_3__0");
@@ -309,7 +311,8 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getParOAssignment_11_1(), "rule__TerminalExpression__ParOAssignment_11_1");
 					put(grammarAccess.getTerminalExpressionAccess().getExprAssignment_11_2(), "rule__TerminalExpression__ExprAssignment_11_2");
 					put(grammarAccess.getTerminalExpressionAccess().getParFAssignment_11_3(), "rule__TerminalExpression__ParFAssignment_11_3");
-					put(grammarAccess.getTerminalExpressionAccess().getNameRefAssignment_12_2_0(), "rule__TerminalExpression__NameRefAssignment_12_2_0");
+					put(grammarAccess.getTerminalExpressionAccess().getAsnameAssignment_12_2_0_0(), "rule__TerminalExpression__AsnameAssignment_12_2_0_0");
+					put(grammarAccess.getTerminalExpressionAccess().getNameRefAssignment_12_3_0(), "rule__TerminalExpression__NameRefAssignment_12_3_0");
 					put(grammarAccess.getTerminalExpressionAccess().getBlockAssignment_13_1(), "rule__TerminalExpression__BlockAssignment_13_1");
 					put(grammarAccess.getTerminalExpressionAccess().getLeftCurlyBracketAssignment_14_1(), "rule__TerminalExpression__LeftCurlyBracketAssignment_14_1");
 					put(grammarAccess.getTerminalExpressionAccess().getDeclAssignment_14_2(), "rule__TerminalExpression__DeclAssignment_14_2");

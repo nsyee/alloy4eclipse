@@ -18,44 +18,44 @@ T19 : '!' ;
 T20 : 'not' ;
 T21 : '=>' ;
 T22 : 'implies' ;
-T23 : 'this' ;
-T24 : 'all' ;
-T25 : 'sum' ;
-T26 : '||' ;
-T27 : 'or' ;
-T28 : '&&' ;
-T29 : 'and' ;
-T30 : '&' ;
-T31 : '<=>' ;
-T32 : 'iff' ;
-T33 : '+' ;
-T34 : '-' ;
-T35 : '++' ;
-T36 : '<:' ;
-T37 : ':>' ;
-T38 : '<<' ;
-T39 : '>>' ;
-T40 : '>>>' ;
-T41 : 'set' ;
-T42 : '#' ;
-T43 : '~' ;
-T44 : '*' ;
-T45 : '^' ;
-T46 : 'no' ;
-T47 : '=' ;
-T48 : 'in' ;
-T49 : '<' ;
-T50 : '>' ;
-T51 : '=<' ;
-T52 : '<=' ;
-T53 : '>=' ;
-T54 : 'univ' ;
-T55 : 'Int' ;
-T56 : 'seq/Int' ;
-T57 : 'module' ;
-T58 : 'as' ;
-T59 : 'fun' ;
-T60 : 'pred' ;
+T23 : 'fun' ;
+T24 : 'pred' ;
+T25 : 'this' ;
+T26 : 'all' ;
+T27 : 'sum' ;
+T28 : '||' ;
+T29 : 'or' ;
+T30 : '&&' ;
+T31 : 'and' ;
+T32 : '&' ;
+T33 : '<=>' ;
+T34 : 'iff' ;
+T35 : '+' ;
+T36 : '-' ;
+T37 : '++' ;
+T38 : '<:' ;
+T39 : ':>' ;
+T40 : '<<' ;
+T41 : '>>' ;
+T42 : '>>>' ;
+T43 : 'set' ;
+T44 : '#' ;
+T45 : '~' ;
+T46 : '*' ;
+T47 : '^' ;
+T48 : 'no' ;
+T49 : '=' ;
+T50 : 'in' ;
+T51 : '<' ;
+T52 : '>' ;
+T53 : '=<' ;
+T54 : '<=' ;
+T55 : '>=' ;
+T56 : 'univ' ;
+T57 : 'Int' ;
+T58 : 'seq/Int' ;
+T59 : 'module' ;
+T60 : 'as' ;
 T61 : 'run' ;
 T62 : ':' ;
 T63 : 'check' ;
@@ -69,14 +69,14 @@ T70 : '}' ;
 T71 : 'extends' ;
 T72 : 'else' ;
 T73 : '@' ;
-T74 : 'disj' ;
-T75 : '|' ;
-T76 : 'open' ;
-T77 : 'fact' ;
-T78 : 'assert' ;
-T79 : 'enum' ;
-T80 : 'let' ;
-T81 : '/' ;
+T74 : '/' ;
+T75 : 'disj' ;
+T76 : '|' ;
+T77 : 'open' ;
+T78 : 'fact' ;
+T79 : 'assert' ;
+T80 : 'enum' ;
+T81 : 'let' ;
 T82 : ',' ;
 T83 : 'none' ;
 T84 : 'iden' ;
@@ -87,28 +87,28 @@ T88 : '.' ;
 T89 : '[' ;
 T90 : ']' ;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14754
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14895
 RULE_NEGATIVE_INTEGER : '-' RULE_INT;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14756
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14897
 RULE_SL_COMMENT : ('//' ~(('\n'|'\r'))* ('\r'? '\n')?|'--' ( options {greedy=false;} : . )*'\n');
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14758
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14899
 RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')* ('\''|'"')*;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14760
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14901
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14762
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14903
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14764
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14905
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14766
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14907
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14768
+// $ANTLR src "../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g" 14909
 RULE_ANY_OTHER : .;
 
 
