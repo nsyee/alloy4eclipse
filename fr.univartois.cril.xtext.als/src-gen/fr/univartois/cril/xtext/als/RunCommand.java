@@ -62,12 +62,12 @@ public interface RunCommand extends Paragraph
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name2</em>' reference.
-   * @see #setName2(PredicateName)
+   * @see #setName2(ReferencesName)
    * @see fr.univartois.cril.xtext.als.AlsPackage#getRunCommand_Name2()
    * @model
    * @generated
    */
-  PredicateName getName2();
+  ReferencesName getName2();
 
   /**
    * Sets the value of the '{@link fr.univartois.cril.xtext.als.RunCommand#getName2 <em>Name2</em>}' reference.
@@ -77,7 +77,7 @@ public interface RunCommand extends Paragraph
    * @see #getName2()
    * @generated
    */
-  void setName2(PredicateName value);
+  void setName2(ReferencesName value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.

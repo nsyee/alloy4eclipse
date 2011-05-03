@@ -300,7 +300,7 @@
           <elements xsi:type="xtext:Assignment" feature="name2" operator="=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//PredicateName"/>
+                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//ReferencesName"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.59"/>
             </terminal>
@@ -765,7 +765,7 @@
           <elements xsi:type="xtext:Assignment" feature="common" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
           </elements>
-          <elements xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:Alternatives" cardinality="?">
             <elements xsi:type="xtext:Group">
               <elements xsi:type="xtext:Assignment" feature="decl" operator="+=">
                 <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
@@ -883,6 +883,7 @@
               </elements>
               <elements xsi:type="xtext:Keyword" value="fun"/>
               <elements xsi:type="xtext:Keyword" value="pred"/>
+              <elements xsi:type="xtext:Keyword" value="this"/>
             </elements>
             <elements xsi:type="xtext:Keyword" value="/"/>
           </elements>
