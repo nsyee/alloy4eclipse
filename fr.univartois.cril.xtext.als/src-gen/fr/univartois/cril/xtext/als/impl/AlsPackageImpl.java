@@ -31,6 +31,7 @@ import fr.univartois.cril.xtext.als.Fact;
 import fr.univartois.cril.xtext.als.FactName;
 import fr.univartois.cril.xtext.als.Function;
 import fr.univartois.cril.xtext.als.FunctionName;
+import fr.univartois.cril.xtext.als.FunctionNamewParam;
 import fr.univartois.cril.xtext.als.LeftCurlyBracket;
 import fr.univartois.cril.xtext.als.LeftParenthesis;
 import fr.univartois.cril.xtext.als.LeftSquareBracketKeyword;
@@ -291,6 +292,13 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * @generated
    */
   private EClass functionNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionNamewParamEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -890,6 +898,16 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
   public EReference getFunction_Block()
   {
     return (EReference)functionEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunction_FunctionNamewParam()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(12);
   }
 
   /**
@@ -1997,6 +2015,16 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getFunctionNamewParam()
+  {
+    return functionNamewParamEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPredicateName()
   {
     return predicateNameEClass;
@@ -2417,6 +2445,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEReference(functionEClass, FUNCTION__COLON);
     createEReference(functionEClass, FUNCTION__EXPR);
     createEReference(functionEClass, FUNCTION__BLOCK);
+    createEReference(functionEClass, FUNCTION__FUNCTION_NAMEW_PARAM);
 
     predicateEClass = createEClass(PREDICATE);
     createEReference(predicateEClass, PREDICATE__REF);
@@ -2552,6 +2581,8 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
 
     functionNameEClass = createEClass(FUNCTION_NAME);
 
+    functionNamewParamEClass = createEClass(FUNCTION_NAMEW_PARAM);
+
     predicateNameEClass = createEClass(PREDICATE_NAME);
 
     aliasEClass = createEClass(ALIAS);
@@ -2650,6 +2681,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     sigQualEClass.getESuperTypes().add(this.getSignature());
     factNameEClass.getESuperTypes().add(this.getReferencesName());
     functionNameEClass.getESuperTypes().add(this.getReferencesName());
+    functionNamewParamEClass.getESuperTypes().add(this.getReferencesName());
     predicateNameEClass.getESuperTypes().add(this.getReferencesName());
     enumNameEClass.getESuperTypes().add(this.getReferencesName());
     enumPropertyNameEClass.getESuperTypes().add(this.getReferencesName());
@@ -2704,6 +2736,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEReference(getFunction_Colon(), this.getColon(), null, "colon", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_Expr(), this.getExpression(), null, "expr", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_Block(), this.getBlock(), null, "block", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_FunctionNamewParam(), this.getFunctionNamewParam(), null, "functionNamewParam", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(predicateEClass, Predicate.class, "Predicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPredicate_Ref(), this.getRef(), null, "ref", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2838,6 +2871,8 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEAttribute(getAssertionName_Name(), ecorePackage.getEString(), "name", null, 0, 1, AssertionName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionNameEClass, FunctionName.class, "FunctionName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(functionNamewParamEClass, FunctionNamewParam.class, "FunctionNamewParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(predicateNameEClass, PredicateName.class, "PredicateName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

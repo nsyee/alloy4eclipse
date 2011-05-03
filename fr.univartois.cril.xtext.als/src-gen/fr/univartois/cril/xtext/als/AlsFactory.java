@@ -305,6 +305,15 @@ public interface AlsFactory extends EFactory
   FunctionName createFunctionName();
 
   /**
+   * Returns a new object of class '<em>Function Namew Param</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Namew Param</em>'.
+   * @generated
+   */
+  FunctionNamewParam createFunctionNamewParam();
+
+  /**
    * Returns a new object of class '<em>Predicate Name</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

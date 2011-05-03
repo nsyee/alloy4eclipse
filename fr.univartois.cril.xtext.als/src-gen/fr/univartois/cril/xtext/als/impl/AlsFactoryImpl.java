@@ -98,6 +98,7 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.FACT_NAME: return createFactName();
       case AlsPackage.ASSERTION_NAME: return createAssertionName();
       case AlsPackage.FUNCTION_NAME: return createFunctionName();
+      case AlsPackage.FUNCTION_NAMEW_PARAM: return createFunctionNamewParam();
       case AlsPackage.PREDICATE_NAME: return createPredicateName();
       case AlsPackage.ALIAS: return createAlias();
       case AlsPackage.ENUM_NAME: return createEnumName();
@@ -463,6 +464,17 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     FunctionNameImpl functionName = new FunctionNameImpl();
     return functionName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionNamewParam createFunctionNamewParam()
+  {
+    FunctionNamewParamImpl functionNamewParam = new FunctionNamewParamImpl();
+    return functionNamewParam;
   }
 
   /**

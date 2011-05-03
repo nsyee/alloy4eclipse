@@ -233,6 +233,11 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createFunctionNameAdapter();
       }
       @Override
+      public Adapter caseFunctionNamewParam(FunctionNamewParam object)
+      {
+        return createFunctionNamewParamAdapter();
+      }
+      @Override
       public Adapter casePredicateName(PredicateName object)
       {
         return createPredicateNameAdapter();
@@ -820,6 +825,21 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFunctionNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext.als.FunctionNamewParam <em>Function Namew Param</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext.als.FunctionNamewParam
+   * @generated
+   */
+  public Adapter createFunctionNamewParamAdapter()
   {
     return null;
   }

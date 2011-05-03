@@ -472,13 +472,22 @@ public interface AlsPackage extends EPackage
   int FUNCTION__BLOCK = PARAGRAPH_FEATURE_COUNT + 11;
 
   /**
+   * The feature id for the '<em><b>Function Namew Param</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__FUNCTION_NAMEW_PARAM = PARAGRAPH_FEATURE_COUNT + 12;
+
+  /**
    * The number of structural features of the '<em>Function</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 12;
+  int FUNCTION_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 13;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.PredicateImpl <em>Predicate</em>}' class.
@@ -1706,7 +1715,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getReferencesName()
    * @generated
    */
-  int REFERENCES_NAME = 40;
+  int REFERENCES_NAME = 41;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1811,6 +1820,34 @@ public interface AlsPackage extends EPackage
   int FUNCTION_NAME_FEATURE_COUNT = REFERENCES_NAME_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.FunctionNamewParamImpl <em>Function Namew Param</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext.als.impl.FunctionNamewParamImpl
+   * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getFunctionNamewParam()
+   * @generated
+   */
+  int FUNCTION_NAMEW_PARAM = 31;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_NAMEW_PARAM__NAME = REFERENCES_NAME__NAME;
+
+  /**
+   * The number of structural features of the '<em>Function Namew Param</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_NAMEW_PARAM_FEATURE_COUNT = REFERENCES_NAME_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.PredicateNameImpl <em>Predicate Name</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1818,7 +1855,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getPredicateName()
    * @generated
    */
-  int PREDICATE_NAME = 31;
+  int PREDICATE_NAME = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1846,7 +1883,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getAlias()
    * @generated
    */
-  int ALIAS = 32;
+  int ALIAS = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1874,7 +1911,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getEnumName()
    * @generated
    */
-  int ENUM_NAME = 33;
+  int ENUM_NAME = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1902,7 +1939,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getEnumPropertyName()
    * @generated
    */
-  int ENUM_PROPERTY_NAME = 34;
+  int ENUM_PROPERTY_NAME = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1930,7 +1967,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getLetName()
    * @generated
    */
-  int LET_NAME = 35;
+  int LET_NAME = 36;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1958,7 +1995,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getSignatureName()
    * @generated
    */
-  int SIGNATURE_NAME = 36;
+  int SIGNATURE_NAME = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1986,7 +2023,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getPropertyName()
    * @generated
    */
-  int PROPERTY_NAME = 37;
+  int PROPERTY_NAME = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2014,7 +2051,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getExactlyName()
    * @generated
    */
-  int EXACTLY_NAME = 38;
+  int EXACTLY_NAME = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2042,7 +2079,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getAsName()
    * @generated
    */
-  int AS_NAME = 39;
+  int AS_NAME = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2070,7 +2107,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getReferencesSig()
    * @generated
    */
-  int REFERENCES_SIG = 41;
+  int REFERENCES_SIG = 42;
 
   /**
    * The feature id for the '<em><b>Name Ref</b></em>' reference.
@@ -2098,7 +2135,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getRef()
    * @generated
    */
-  int REF = 42;
+  int REF = 43;
 
   /**
    * The feature id for the '<em><b>Name Ref</b></em>' reference.
@@ -2126,7 +2163,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getLeftCurlyBracket()
    * @generated
    */
-  int LEFT_CURLY_BRACKET = 43;
+  int LEFT_CURLY_BRACKET = 44;
 
   /**
    * The feature id for the '<em><b>Left Curly Bracket</b></em>' attribute.
@@ -2154,7 +2191,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getRightCurlyBracket()
    * @generated
    */
-  int RIGHT_CURLY_BRACKET = 44;
+  int RIGHT_CURLY_BRACKET = 45;
 
   /**
    * The feature id for the '<em><b>Right Curly Bracket</b></em>' attribute.
@@ -2182,7 +2219,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getDot()
    * @generated
    */
-  int DOT = 45;
+  int DOT = 46;
 
   /**
    * The feature id for the '<em><b>Dot</b></em>' attribute.
@@ -2210,7 +2247,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getComma()
    * @generated
    */
-  int COMMA = 46;
+  int COMMA = 47;
 
   /**
    * The feature id for the '<em><b>Comma</b></em>' attribute.
@@ -2238,7 +2275,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getColon()
    * @generated
    */
-  int COLON = 47;
+  int COLON = 48;
 
   /**
    * The feature id for the '<em><b>Colon</b></em>' attribute.
@@ -2266,7 +2303,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getLeftParenthesis()
    * @generated
    */
-  int LEFT_PARENTHESIS = 48;
+  int LEFT_PARENTHESIS = 49;
 
   /**
    * The feature id for the '<em><b>Left Parenthesis</b></em>' attribute.
@@ -2294,7 +2331,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getRightParenthesis()
    * @generated
    */
-  int RIGHT_PARENTHESIS = 49;
+  int RIGHT_PARENTHESIS = 50;
 
   /**
    * The feature id for the '<em><b>Right Parenthesis</b></em>' attribute.
@@ -2322,7 +2359,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getLeftSquareBracketKeyword()
    * @generated
    */
-  int LEFT_SQUARE_BRACKET_KEYWORD = 50;
+  int LEFT_SQUARE_BRACKET_KEYWORD = 51;
 
   /**
    * The feature id for the '<em><b>Left Square Bracket Keyword</b></em>' attribute.
@@ -2350,7 +2387,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getRightSquareBracketKeyword()
    * @generated
    */
-  int RIGHT_SQUARE_BRACKET_KEYWORD = 51;
+  int RIGHT_SQUARE_BRACKET_KEYWORD = 52;
 
   /**
    * The feature id for the '<em><b>Right Square Bracket Keyword</b></em>' attribute.
@@ -2792,6 +2829,17 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EReference getFunction_Block();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Function#getFunctionNamewParam <em>Function Namew Param</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Function Namew Param</em>'.
+   * @see fr.univartois.cril.xtext.als.Function#getFunctionNamewParam()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_FunctionNamewParam();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext.als.Predicate <em>Predicate</em>}'.
@@ -3980,6 +4028,16 @@ public interface AlsPackage extends EPackage
   EClass getFunctionName();
 
   /**
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext.als.FunctionNamewParam <em>Function Namew Param</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function Namew Param</em>'.
+   * @see fr.univartois.cril.xtext.als.FunctionNamewParam
+   * @generated
+   */
+  EClass getFunctionNamewParam();
+
+  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext.als.PredicateName <em>Predicate Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4691,6 +4749,14 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EReference FUNCTION__BLOCK = eINSTANCE.getFunction_Block();
+
+    /**
+     * The meta object literal for the '<em><b>Function Namew Param</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__FUNCTION_NAMEW_PARAM = eINSTANCE.getFunction_FunctionNamewParam();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext.als.impl.PredicateImpl <em>Predicate</em>}' class.
@@ -5619,6 +5685,16 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EClass FUNCTION_NAME = eINSTANCE.getFunctionName();
+
+    /**
+     * The meta object literal for the '{@link fr.univartois.cril.xtext.als.impl.FunctionNamewParamImpl <em>Function Namew Param</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.univartois.cril.xtext.als.impl.FunctionNamewParamImpl
+     * @see fr.univartois.cril.xtext.als.impl.AlsPackageImpl#getFunctionNamewParam()
+     * @generated
+     */
+    EClass FUNCTION_NAMEW_PARAM = eINSTANCE.getFunctionNamewParam();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext.als.impl.PredicateNameImpl <em>Predicate Name</em>}' class.
