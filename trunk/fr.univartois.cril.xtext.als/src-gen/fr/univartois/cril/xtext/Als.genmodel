@@ -53,6 +53,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/colon"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/functionNamewParam"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Predicate">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/ref"/>
@@ -185,6 +186,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//AssertionName/name"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//FunctionName"/>
+    <genClasses ecoreClass="Als.ecore#//FunctionNamewParam"/>
     <genClasses ecoreClass="Als.ecore#//PredicateName"/>
     <genClasses ecoreClass="Als.ecore#//Alias">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Alias/name"/>

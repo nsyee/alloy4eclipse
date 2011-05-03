@@ -76,6 +76,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Block"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionNamewParam" eType="#//FunctionNamewParam"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Predicate" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Ref" containment="true"/>
@@ -271,6 +273,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionName" eSuperTypes="#//ReferencesName"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionNamewParam" eSuperTypes="#//ReferencesName"/>
   <eClassifiers xsi:type="ecore:EClass" name="PredicateName" eSuperTypes="#//ReferencesName"/>
   <eClassifiers xsi:type="ecore:EClass" name="Alias">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

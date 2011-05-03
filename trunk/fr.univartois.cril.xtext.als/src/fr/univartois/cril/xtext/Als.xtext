@@ -32,6 +32,7 @@ Paragraph:
   FunDecl		|
   PredDecl		|
   RunDecl		|
+  FunDeclWParam |
   CheckDecl		|
   EnumDecl		|
   LetOutDecl	|
@@ -58,7 +59,15 @@ FunDecl returns Function:
   "private"? "fun" (ref=Ref dot=Dot)? functionName=FunctionName (
   		leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
   		leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
-  		)? colon=Colon expr=Expression block=Block	; 
+  		) colon=Colon expr=Expression block=Block	; 
+  		
+  		/*
+	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
+	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
+	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
+*/
+FunDeclWParam returns Function: /* without parameters*/
+  "private"? "fun" (ref=Ref dot=Dot)? functionNamewParam=FunctionNamewParam  colon=Colon expr=Expression block=Block	; 
   
 /*
 	funDecl ::= ["private"] "pred" [ref "."] name "(" decl,* ")" block
@@ -260,6 +269,9 @@ AssertionName :
 	
 FunctionName	: 
 	name=Name	;
+	
+FunctionNamewParam :
+	name=Name;
 
 PredicateName :
 	name=Name	;
@@ -301,6 +313,7 @@ Name:
 ReferencesName	:
 	FactName		|
 	FunctionName	|
+	FunctionNamewParam |
 	EnumName		|
 	EnumPropertyName|
 	SignatureName	|

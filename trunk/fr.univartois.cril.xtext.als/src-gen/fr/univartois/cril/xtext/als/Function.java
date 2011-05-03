@@ -27,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getColon <em>Colon</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getExpr <em>Expr</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getBlock <em>Block</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Function#getFunctionNamewParam <em>Function Namew Param</em>}</li>
  * </ul>
  * </p>
  *
@@ -327,5 +328,31 @@ public interface Function extends Paragraph
    * @generated
    */
   void setBlock(Block value);
+
+  /**
+   * Returns the value of the '<em><b>Function Namew Param</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Function Namew Param</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Function Namew Param</em>' containment reference.
+   * @see #setFunctionNamewParam(FunctionNamewParam)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getFunction_FunctionNamewParam()
+   * @model containment="true"
+   * @generated
+   */
+  FunctionNamewParam getFunctionNamewParam();
+
+  /**
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Function#getFunctionNamewParam <em>Function Namew Param</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Function Namew Param</em>' containment reference.
+   * @see #getFunctionNamewParam()
+   * @generated
+   */
+  void setFunctionNamewParam(FunctionNamewParam value);
 
 } // Function

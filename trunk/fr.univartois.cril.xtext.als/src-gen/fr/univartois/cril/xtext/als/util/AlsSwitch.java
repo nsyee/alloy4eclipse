@@ -325,6 +325,14 @@ public class AlsSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AlsPackage.FUNCTION_NAMEW_PARAM:
+      {
+        FunctionNamewParam functionNamewParam = (FunctionNamewParam)theEObject;
+        T result = caseFunctionNamewParam(functionNamewParam);
+        if (result == null) result = caseReferencesName(functionNamewParam);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AlsPackage.PREDICATE_NAME:
       {
         PredicateName predicateName = (PredicateName)theEObject;
@@ -975,6 +983,22 @@ public class AlsSwitch<T>
    * @generated
    */
   public T caseFunctionName(FunctionName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Namew Param</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Namew Param</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionNamewParam(FunctionNamewParam object)
   {
     return null;
   }
