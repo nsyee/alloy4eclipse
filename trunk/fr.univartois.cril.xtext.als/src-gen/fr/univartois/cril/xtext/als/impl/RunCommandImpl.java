@@ -8,7 +8,7 @@ package fr.univartois.cril.xtext.als.impl;
 import fr.univartois.cril.xtext.als.Alias;
 import fr.univartois.cril.xtext.als.AlsPackage;
 import fr.univartois.cril.xtext.als.Block;
-import fr.univartois.cril.xtext.als.PredicateName;
+import fr.univartois.cril.xtext.als.ReferencesName;
 import fr.univartois.cril.xtext.als.RunCommand;
 import fr.univartois.cril.xtext.als.Scope;
 
@@ -56,7 +56,7 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    * @generated
    * @ordered
    */
-  protected PredicateName name2;
+  protected ReferencesName name2;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -152,12 +152,12 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public PredicateName getName2()
+  public ReferencesName getName2()
   {
     if (name2 != null && name2.eIsProxy())
     {
       InternalEObject oldName2 = (InternalEObject)name2;
-      name2 = (PredicateName)eResolveProxy(oldName2);
+      name2 = (ReferencesName)eResolveProxy(oldName2);
       if (name2 != oldName2)
       {
         if (eNotificationRequired())
@@ -172,7 +172,7 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public PredicateName basicGetName2()
+  public ReferencesName basicGetName2()
   {
     return name2;
   }
@@ -182,9 +182,9 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName2(PredicateName newName2)
+  public void setName2(ReferencesName newName2)
   {
-    PredicateName oldName2 = name2;
+    ReferencesName oldName2 = name2;
     name2 = newName2;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__NAME2, oldName2, name2));
@@ -343,7 +343,7 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
         setRunName((Alias)newValue);
         return;
       case AlsPackage.RUN_COMMAND__NAME2:
-        setName2((PredicateName)newValue);
+        setName2((ReferencesName)newValue);
         return;
       case AlsPackage.RUN_COMMAND__BLOCK:
         setBlock((Block)newValue);
@@ -369,7 +369,7 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
         setRunName((Alias)null);
         return;
       case AlsPackage.RUN_COMMAND__NAME2:
-        setName2((PredicateName)null);
+        setName2((ReferencesName)null);
         return;
       case AlsPackage.RUN_COMMAND__BLOCK:
         setBlock((Block)null);

@@ -3826,11 +3826,11 @@ protected class PredDecl_BlockAssignment_5 extends AssignmentToken  {
  * / *
  * 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
  * * /RunDecl returns RunCommand:
- * 	(runName=Alias ":")? "run" (name2=[PredicateName] | block=Block) scope=Scope;
+ * 	(runName=Alias ":")? "run" (name2=[ReferencesName] | block=Block) scope=Scope;
  *
  **/
 
-// (runName=Alias ":")? "run" (name2=[PredicateName] | block=Block) scope=Scope
+// (runName=Alias ":")? "run" (name2=[ReferencesName] | block=Block) scope=Scope
 protected class RunDecl_Group extends GroupToken {
 	
 	public RunDecl_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3971,7 +3971,7 @@ protected class RunDecl_RunKeyword_1 extends KeywordToken  {
 
 }
 
-// name2=[PredicateName] | block=Block
+// name2=[ReferencesName] | block=Block
 protected class RunDecl_Alternatives_2 extends AlternativesToken {
 
 	public RunDecl_Alternatives_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3994,7 +3994,7 @@ protected class RunDecl_Alternatives_2 extends AlternativesToken {
 
 }
 
-// name2=[PredicateName]
+// name2=[ReferencesName]
 protected class RunDecl_Name2Assignment_2_0 extends AssignmentToken  {
 	
 	public RunDecl_Name2Assignment_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4020,9 +4020,9 @@ protected class RunDecl_Name2Assignment_2_0 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name2");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getRunDeclAccess().getName2PredicateNameCrossReference_2_0_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getRunDeclAccess().getName2ReferencesNameCrossReference_2_0_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getRunDeclAccess().getName2PredicateNameCrossReference_2_0_0(); 
+				element = grammarAccess.getRunDeclAccess().getName2ReferencesNameCrossReference_2_0_0(); 
 				return obj;
 			}
 		}
@@ -8515,7 +8515,6 @@ protected class Expression_RightAssignment_1_4_2 extends AssignmentToken  {
  * TerminalExpression returns Expression:
  * 	{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar //1./
  * 	//2./
- * 	//3./
  * 	//2./ and 3./
  * 	//9./
  * 	//10./
@@ -8529,17 +8528,16 @@ protected class Expression_RightAssignment_1_4_2 extends AssignmentToken  {
  * 	//18./
  * 	| {Expression} quant=Quant decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | {Expression} unOp=UnOp
  * 	expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
- * 	| expr+=Expression) | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression} none="none" | {Expression}
+ * 	| expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression} none="none" | {Expression}
  * 	iden="iden" | {Expression} univ="univ" | {Expression} int="Int" | {Expression} seq="seq/Int" | {Expression} parO="("
- * 	expr+=Expression parF=")" | {Expression} "@"? ((asname=AsName | "fun" | "pred") "/")? (nameRef=[ReferencesName] |
- * 	"this") | {Expression} block+=Block | {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma
- * 	decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket;
+ * 	expr+=Expression parF=")" | {Expression} "@"? ((asname=AsName | "fun" | "pred" | "this") "/")?
+ * 	(nameRef=[ReferencesName] | "this") | {Expression} block+=Block | {Expression} leftCurlyBracket=LeftCurlyBracket
+ * 	decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket;
  *
  **/
 
 // {Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar //1./
 // //2./
-// //3./
 // //2./ and 3./
 // //9./
 // //10./
@@ -8553,11 +8551,11 @@ protected class Expression_RightAssignment_1_4_2 extends AssignmentToken  {
 // //18./
 // | {Expression} quant=Quant decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | {Expression} unOp=UnOp
 // expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar |
-// expr+=Expression) | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression} none="none" | {Expression}
+// expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression} none="none" | {Expression}
 // iden="iden" | {Expression} univ="univ" | {Expression} int="Int" | {Expression} seq="seq/Int" | {Expression} parO="("
-// expr+=Expression parF=")" | {Expression} "@"? ((asname=AsName | "fun" | "pred") "/")? (nameRef=[ReferencesName] |
-// "this") | {Expression} block+=Block | {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma
-// decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket
+// expr+=Expression parF=")" | {Expression} "@"? ((asname=AsName | "fun" | "pred" | "this") "/")?
+// (nameRef=[ReferencesName] | "this") | {Expression} block+=Block | {Expression} leftCurlyBracket=LeftCurlyBracket
+// decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket
 protected class TerminalExpression_Alternatives extends AlternativesToken {
 
 	public TerminalExpression_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9325,7 +9323,7 @@ protected class TerminalExpression_ExprAssignment_2_2 extends AssignmentToken  {
 }
 
 
-// {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | expr+=Expression)
+// {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | expr+=Expression)?
 protected class TerminalExpression_Group_3 extends GroupToken {
 	
 	public TerminalExpression_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9341,6 +9339,7 @@ protected class TerminalExpression_Group_3 extends GroupToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new TerminalExpression_Alternatives_3_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TerminalExpression_CommonAssignment_3_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -9419,7 +9418,7 @@ protected class TerminalExpression_CommonAssignment_3_1 extends AssignmentToken 
 	}	
 }
 
-// decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | expr+=Expression
+// (decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | expr+=Expression)?
 protected class TerminalExpression_Alternatives_3_2 extends AlternativesToken {
 
 	public TerminalExpression_Alternatives_3_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10442,7 +10441,7 @@ protected class TerminalExpression_ParFAssignment_11_3 extends AssignmentToken  
 }
 
 
-// {Expression} "@"? ((asname=AsName | "fun" | "pred") "/")? (nameRef=[ReferencesName] | "this")
+// {Expression} "@"? ((asname=AsName | "fun" | "pred" | "this") "/")? (nameRef=[ReferencesName] | "this")
 protected class TerminalExpression_Group_12 extends GroupToken {
 	
 	public TerminalExpression_Group_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10490,7 +10489,7 @@ protected class TerminalExpression_ExpressionAction_12_0 extends ActionToken  {
 	}
 }
 
-// ((asname=AsName | "fun" | "pred") "/")?
+// ((asname=AsName | "fun" | "pred" | "this") "/")?
 protected class TerminalExpression_Group_12_2 extends GroupToken {
 	
 	public TerminalExpression_Group_12_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10512,7 +10511,7 @@ protected class TerminalExpression_Group_12_2 extends GroupToken {
 
 }
 
-// asname=AsName | "fun" | "pred"
+// asname=AsName | "fun" | "pred" | "this"
 protected class TerminalExpression_Alternatives_12_2_0 extends AlternativesToken {
 
 	public TerminalExpression_Alternatives_12_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {

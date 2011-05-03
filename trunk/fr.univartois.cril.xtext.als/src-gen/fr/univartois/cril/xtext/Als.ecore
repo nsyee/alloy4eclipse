@@ -100,7 +100,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="RunCommand" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="runName" eType="#//Alias"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name2" eType="#//PredicateName"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name2" eType="#//ReferencesName"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Block"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scope" eType="#//Scope"

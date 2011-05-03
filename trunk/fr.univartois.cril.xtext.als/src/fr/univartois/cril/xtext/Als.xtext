@@ -75,7 +75,7 @@ PredDecl returns Predicate:
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
 RunDecl returns RunCommand:
-  (runName=Alias ":")? "run" (name2=[PredicateName]|block=Block) scope=Scope	; 
+  (runName=Alias ":")? "run" (name2=[ReferencesName]|block=Block) scope=Scope	; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
@@ -167,8 +167,8 @@ Expression:
 TerminalExpression returns Expression:
 	{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar							|//1./
 	{Expression} quant=Quant decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar										|//2./
-	{Expression} unOp=UnOp expr+=Expression																			|//3./
-	{Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma  decl+=Decl)* blockOrBar+=BlockOrBar|expr+=Expression)		|//2./ and 3./
+	{Expression} unOp=UnOp expr+=Expression		|
+	{Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma  decl+=Decl)* blockOrBar+=BlockOrBar|expr+=Expression)?	|//2./ and 3./
 	{Expression} INT																									|//9./
 	{Expression} NEGATIVE_INTEGER																					|//10./
 	{Expression} none="none"																							|//11./
@@ -177,7 +177,7 @@ TerminalExpression returns Expression:
     {Expression} int="Int"																							|//14./
     {Expression} seq="seq/Int"																						|//15./
     {Expression} parO="(" expr+=Expression parF=")"																	|//16./
-    {Expression} "@"? ((asname=AsName|"fun"|"pred") "/")? ( nameRef=[ReferencesName]|"this")						|//17./
+    {Expression} "@"? ((asname=AsName|"fun"|"pred"|"this") "/")?  (nameRef=[ReferencesName]|"this")					|//17./
     {Expression} block+=Block																						|//18./
     {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket											;//19./
 
@@ -185,7 +185,7 @@ TerminalExpression returns Expression:
 	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
 */
 Decl:
-  ("private")? ("disj")? propertyName+=PropertyName (comma+=Comma propertyName+=PropertyName)* colon=Colon ("disj")? expr=Expression	; 
+  ("private")? ("disj")?  propertyName+=PropertyName  (comma+=Comma propertyName+=PropertyName)* colon=Colon ("disj")? expr=Expression	; 
   
 /*
 	letDecl ::= name "=" expr
@@ -314,7 +314,7 @@ ReferencesSig	:
 
  	
 Ref:
-  {Ref}( nameRef=[ ReferencesName]|"univ"|"Int"|"seq/Int")	;//A VOIR
+  {Ref}( nameRef=[ReferencesName]|"univ"|"Int"|"seq/Int")	;//A VOIR
   
 
 
