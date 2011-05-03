@@ -2296,6 +2296,14 @@ rule__TerminalExpression__Alternatives_12_2_0
 { after(grammarAccess.getTerminalExpressionAccess().getPredKeyword_12_2_0_2()); }
 )
 
+    |(
+{ before(grammarAccess.getTerminalExpressionAccess().getThisKeyword_12_2_0_3()); }
+
+	'this' 
+
+{ after(grammarAccess.getTerminalExpressionAccess().getThisKeyword_12_2_0_3()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -9133,7 +9141,7 @@ rule__TerminalExpression__Group_3__2__Impl
 :
 (
 { before(grammarAccess.getTerminalExpressionAccess().getAlternatives_3_2()); }
-(rule__TerminalExpression__Alternatives_3_2)
+(rule__TerminalExpression__Alternatives_3_2)?
 { after(grammarAccess.getTerminalExpressionAccess().getAlternatives_3_2()); }
 )
 
@@ -12739,12 +12747,12 @@ rule__RunDecl__Name2Assignment_2_0
     }
 :
 (
-{ before(grammarAccess.getRunDeclAccess().getName2PredicateNameCrossReference_2_0_0()); }
+{ before(grammarAccess.getRunDeclAccess().getName2ReferencesNameCrossReference_2_0_0()); }
 (
-{ before(grammarAccess.getRunDeclAccess().getName2PredicateNameIDTerminalRuleCall_2_0_0_1()); }
-	RULE_ID{ after(grammarAccess.getRunDeclAccess().getName2PredicateNameIDTerminalRuleCall_2_0_0_1()); }
+{ before(grammarAccess.getRunDeclAccess().getName2ReferencesNameIDTerminalRuleCall_2_0_0_1()); }
+	RULE_ID{ after(grammarAccess.getRunDeclAccess().getName2ReferencesNameIDTerminalRuleCall_2_0_0_1()); }
 )
-{ after(grammarAccess.getRunDeclAccess().getName2PredicateNameCrossReference_2_0_0()); }
+{ after(grammarAccess.getRunDeclAccess().getName2ReferencesNameCrossReference_2_0_0()); }
 )
 
 ;
