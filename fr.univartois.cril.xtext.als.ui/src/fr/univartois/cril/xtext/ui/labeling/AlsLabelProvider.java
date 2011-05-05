@@ -67,8 +67,6 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(Signature sig) {
-		System.out.println("signame:"+sig.getSignatureName()+"!");
-		System.out.println("signameget0:"+sig.getSignatureName().get(0)+"!");
 		String name = sig.getSignatureName().get(0).getName();
 		
 		for(SignatureName n : sig.getSignatureName().subList(1, sig.getSignatureName().size()))
