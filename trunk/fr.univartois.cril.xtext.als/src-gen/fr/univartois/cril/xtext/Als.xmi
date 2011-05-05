@@ -795,7 +795,7 @@
           <elements xsi:type="xtext:Assignment" feature="common" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
           </elements>
-          <elements xsi:type="xtext:Alternatives" cardinality="?">
+          <elements xsi:type="xtext:Alternatives">
             <elements xsi:type="xtext:Group">
               <elements xsi:type="xtext:Assignment" feature="decl" operator="+=">
                 <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
@@ -870,8 +870,11 @@
             </type>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="int" operator="=">
-            <terminal xsi:type="xtext:Keyword" value="Int"/>
+            <terminal xsi:type="xtext:Keyword" value="int"/>
           </elements>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="int" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="Int"/>
         </elements>
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:Action">
