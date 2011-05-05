@@ -7,28 +7,20 @@ package fr.univartois.cril.xtext.als.impl;
 
 import fr.univartois.cril.xtext.als.AlsPackage;
 import fr.univartois.cril.xtext.als.AsName;
-import fr.univartois.cril.xtext.als.Comma;
 import fr.univartois.cril.xtext.als.LeftSquareBracketKeyword;
 import fr.univartois.cril.xtext.als.Open;
 import fr.univartois.cril.xtext.als.OpenName;
-import fr.univartois.cril.xtext.als.Ref;
+import fr.univartois.cril.xtext.als.ReferencesName;
 import fr.univartois.cril.xtext.als.RightSquareBracketKeyword;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,8 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenImpl#getOpenName <em>Open Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenImpl#getRef <em>Ref</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenImpl#getComma <em>Comma</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenImpl#getPreviousNameAs <em>Previous Name As</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenImpl#getRefname <em>Refname</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenImpl#getRight <em>Right</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenImpl#getNameAs <em>Name As</em>}</li>
  * </ul>
@@ -71,24 +63,24 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
   protected LeftSquareBracketKeyword left;
 
   /**
-   * The cached value of the '{@link #getRef() <em>Ref</em>}' containment reference list.
+   * The cached value of the '{@link #getPreviousNameAs() <em>Previous Name As</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRef()
+   * @see #getPreviousNameAs()
    * @generated
    * @ordered
    */
-  protected EList<Ref> ref;
+  protected AsName previousNameAs;
 
   /**
-   * The cached value of the '{@link #getComma() <em>Comma</em>}' containment reference list.
+   * The cached value of the '{@link #getRefname() <em>Refname</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getComma()
+   * @see #getRefname()
    * @generated
    * @ordered
    */
-  protected EList<Comma> comma;
+  protected ReferencesName refname;
 
   /**
    * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -232,13 +224,9 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Ref> getRef()
+  public AsName getPreviousNameAs()
   {
-    if (ref == null)
-    {
-      ref = new EObjectContainmentEList<Ref>(Ref.class, this, AlsPackage.OPEN__REF);
-    }
-    return ref;
+    return previousNameAs;
   }
 
   /**
@@ -246,13 +234,85 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Comma> getComma()
+  public NotificationChain basicSetPreviousNameAs(AsName newPreviousNameAs, NotificationChain msgs)
   {
-    if (comma == null)
+    AsName oldPreviousNameAs = previousNameAs;
+    previousNameAs = newPreviousNameAs;
+    if (eNotificationRequired())
     {
-      comma = new EObjectContainmentEList<Comma>(Comma.class, this, AlsPackage.OPEN__COMMA);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.OPEN__PREVIOUS_NAME_AS, oldPreviousNameAs, newPreviousNameAs);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return comma;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPreviousNameAs(AsName newPreviousNameAs)
+  {
+    if (newPreviousNameAs != previousNameAs)
+    {
+      NotificationChain msgs = null;
+      if (previousNameAs != null)
+        msgs = ((InternalEObject)previousNameAs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.OPEN__PREVIOUS_NAME_AS, null, msgs);
+      if (newPreviousNameAs != null)
+        msgs = ((InternalEObject)newPreviousNameAs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.OPEN__PREVIOUS_NAME_AS, null, msgs);
+      msgs = basicSetPreviousNameAs(newPreviousNameAs, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.OPEN__PREVIOUS_NAME_AS, newPreviousNameAs, newPreviousNameAs));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReferencesName getRefname()
+  {
+    return refname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRefname(ReferencesName newRefname, NotificationChain msgs)
+  {
+    ReferencesName oldRefname = refname;
+    refname = newRefname;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.OPEN__REFNAME, oldRefname, newRefname);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRefname(ReferencesName newRefname)
+  {
+    if (newRefname != refname)
+    {
+      NotificationChain msgs = null;
+      if (refname != null)
+        msgs = ((InternalEObject)refname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.OPEN__REFNAME, null, msgs);
+      if (newRefname != null)
+        msgs = ((InternalEObject)newRefname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.OPEN__REFNAME, null, msgs);
+      msgs = basicSetRefname(newRefname, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.OPEN__REFNAME, newRefname, newRefname));
   }
 
   /**
@@ -365,10 +425,10 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
         return basicSetOpenName(null, msgs);
       case AlsPackage.OPEN__LEFT:
         return basicSetLeft(null, msgs);
-      case AlsPackage.OPEN__REF:
-        return ((InternalEList<?>)getRef()).basicRemove(otherEnd, msgs);
-      case AlsPackage.OPEN__COMMA:
-        return ((InternalEList<?>)getComma()).basicRemove(otherEnd, msgs);
+      case AlsPackage.OPEN__PREVIOUS_NAME_AS:
+        return basicSetPreviousNameAs(null, msgs);
+      case AlsPackage.OPEN__REFNAME:
+        return basicSetRefname(null, msgs);
       case AlsPackage.OPEN__RIGHT:
         return basicSetRight(null, msgs);
       case AlsPackage.OPEN__NAME_AS:
@@ -391,10 +451,10 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
         return getOpenName();
       case AlsPackage.OPEN__LEFT:
         return getLeft();
-      case AlsPackage.OPEN__REF:
-        return getRef();
-      case AlsPackage.OPEN__COMMA:
-        return getComma();
+      case AlsPackage.OPEN__PREVIOUS_NAME_AS:
+        return getPreviousNameAs();
+      case AlsPackage.OPEN__REFNAME:
+        return getRefname();
       case AlsPackage.OPEN__RIGHT:
         return getRight();
       case AlsPackage.OPEN__NAME_AS:
@@ -408,7 +468,6 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -420,13 +479,11 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
       case AlsPackage.OPEN__LEFT:
         setLeft((LeftSquareBracketKeyword)newValue);
         return;
-      case AlsPackage.OPEN__REF:
-        getRef().clear();
-        getRef().addAll((Collection<? extends Ref>)newValue);
+      case AlsPackage.OPEN__PREVIOUS_NAME_AS:
+        setPreviousNameAs((AsName)newValue);
         return;
-      case AlsPackage.OPEN__COMMA:
-        getComma().clear();
-        getComma().addAll((Collection<? extends Comma>)newValue);
+      case AlsPackage.OPEN__REFNAME:
+        setRefname((ReferencesName)newValue);
         return;
       case AlsPackage.OPEN__RIGHT:
         setRight((RightSquareBracketKeyword)newValue);
@@ -454,11 +511,11 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
       case AlsPackage.OPEN__LEFT:
         setLeft((LeftSquareBracketKeyword)null);
         return;
-      case AlsPackage.OPEN__REF:
-        getRef().clear();
+      case AlsPackage.OPEN__PREVIOUS_NAME_AS:
+        setPreviousNameAs((AsName)null);
         return;
-      case AlsPackage.OPEN__COMMA:
-        getComma().clear();
+      case AlsPackage.OPEN__REFNAME:
+        setRefname((ReferencesName)null);
         return;
       case AlsPackage.OPEN__RIGHT:
         setRight((RightSquareBracketKeyword)null);
@@ -484,10 +541,10 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
         return openName != null;
       case AlsPackage.OPEN__LEFT:
         return left != null;
-      case AlsPackage.OPEN__REF:
-        return ref != null && !ref.isEmpty();
-      case AlsPackage.OPEN__COMMA:
-        return comma != null && !comma.isEmpty();
+      case AlsPackage.OPEN__PREVIOUS_NAME_AS:
+        return previousNameAs != null;
+      case AlsPackage.OPEN__REFNAME:
+        return refname != null;
       case AlsPackage.OPEN__RIGHT:
         return right != null;
       case AlsPackage.OPEN__NAME_AS:

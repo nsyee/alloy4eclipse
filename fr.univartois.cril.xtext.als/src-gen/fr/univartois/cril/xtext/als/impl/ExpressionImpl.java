@@ -65,11 +65,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getIden <em>Iden</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getUniv <em>Univ</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getInt <em>Int</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getSeq <em>Seq</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParO <em>Par O</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParF <em>Par F</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getAsname <em>Asname</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getLeftCurlyBracket <em>Left Curly Bracket</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getRightCurlyBracket <em>Right Curly Bracket</em>}</li>
@@ -321,6 +321,16 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   protected String int_ = INT_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getNameRef() <em>Name Ref</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameRef()
+   * @generated
+   * @ordered
+   */
+  protected ReferencesName nameRef;
+
+  /**
    * The default value of the '{@link #getSeq() <em>Seq</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -389,16 +399,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected AsName asname;
-
-  /**
-   * The cached value of the '{@link #getNameRef() <em>Name Ref</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNameRef()
-   * @generated
-   * @ordered
-   */
-  protected ReferencesName nameRef;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
@@ -796,6 +796,49 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
+  public ReferencesName getNameRef()
+  {
+    if (nameRef != null && nameRef.eIsProxy())
+    {
+      InternalEObject oldNameRef = (InternalEObject)nameRef;
+      nameRef = (ReferencesName)eResolveProxy(oldNameRef);
+      if (nameRef != oldNameRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AlsPackage.EXPRESSION__NAME_REF, oldNameRef, nameRef));
+      }
+    }
+    return nameRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReferencesName basicGetNameRef()
+  {
+    return nameRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameRef(ReferencesName newNameRef)
+  {
+    ReferencesName oldNameRef = nameRef;
+    nameRef = newNameRef;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__NAME_REF, oldNameRef, nameRef));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getSeq()
   {
     return seq;
@@ -906,49 +949,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__ASNAME, newAsname, newAsname));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ReferencesName getNameRef()
-  {
-    if (nameRef != null && nameRef.eIsProxy())
-    {
-      InternalEObject oldNameRef = (InternalEObject)nameRef;
-      nameRef = (ReferencesName)eResolveProxy(oldNameRef);
-      if (nameRef != oldNameRef)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AlsPackage.EXPRESSION__NAME_REF, oldNameRef, nameRef));
-      }
-    }
-    return nameRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ReferencesName basicGetNameRef()
-  {
-    return nameRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setNameRef(ReferencesName newNameRef)
-  {
-    ReferencesName oldNameRef = nameRef;
-    nameRef = newNameRef;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__NAME_REF, oldNameRef, nameRef));
   }
 
   /**
@@ -1151,6 +1151,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return getUniv();
       case AlsPackage.EXPRESSION__INT:
         return getInt();
+      case AlsPackage.EXPRESSION__NAME_REF:
+        if (resolve) return getNameRef();
+        return basicGetNameRef();
       case AlsPackage.EXPRESSION__SEQ:
         return getSeq();
       case AlsPackage.EXPRESSION__PAR_O:
@@ -1159,9 +1162,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return getParF();
       case AlsPackage.EXPRESSION__ASNAME:
         return getAsname();
-      case AlsPackage.EXPRESSION__NAME_REF:
-        if (resolve) return getNameRef();
-        return basicGetNameRef();
       case AlsPackage.EXPRESSION__BLOCK:
         return getBlock();
       case AlsPackage.EXPRESSION__LEFT_CURLY_BRACKET:
@@ -1248,6 +1248,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__INT:
         setInt((String)newValue);
         return;
+      case AlsPackage.EXPRESSION__NAME_REF:
+        setNameRef((ReferencesName)newValue);
+        return;
       case AlsPackage.EXPRESSION__SEQ:
         setSeq((String)newValue);
         return;
@@ -1259,9 +1262,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return;
       case AlsPackage.EXPRESSION__ASNAME:
         setAsname((AsName)newValue);
-        return;
-      case AlsPackage.EXPRESSION__NAME_REF:
-        setNameRef((ReferencesName)newValue);
         return;
       case AlsPackage.EXPRESSION__BLOCK:
         getBlock().clear();
@@ -1341,6 +1341,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__INT:
         setInt(INT_EDEFAULT);
         return;
+      case AlsPackage.EXPRESSION__NAME_REF:
+        setNameRef((ReferencesName)null);
+        return;
       case AlsPackage.EXPRESSION__SEQ:
         setSeq(SEQ_EDEFAULT);
         return;
@@ -1352,9 +1355,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return;
       case AlsPackage.EXPRESSION__ASNAME:
         setAsname((AsName)null);
-        return;
-      case AlsPackage.EXPRESSION__NAME_REF:
-        setNameRef((ReferencesName)null);
         return;
       case AlsPackage.EXPRESSION__BLOCK:
         getBlock().clear();
@@ -1415,6 +1415,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return UNIV_EDEFAULT == null ? univ != null : !UNIV_EDEFAULT.equals(univ);
       case AlsPackage.EXPRESSION__INT:
         return INT_EDEFAULT == null ? int_ != null : !INT_EDEFAULT.equals(int_);
+      case AlsPackage.EXPRESSION__NAME_REF:
+        return nameRef != null;
       case AlsPackage.EXPRESSION__SEQ:
         return SEQ_EDEFAULT == null ? seq != null : !SEQ_EDEFAULT.equals(seq);
       case AlsPackage.EXPRESSION__PAR_O:
@@ -1423,8 +1425,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return PAR_F_EDEFAULT == null ? parF != null : !PAR_F_EDEFAULT.equals(parF);
       case AlsPackage.EXPRESSION__ASNAME:
         return asname != null;
-      case AlsPackage.EXPRESSION__NAME_REF:
-        return nameRef != null;
       case AlsPackage.EXPRESSION__BLOCK:
         return block != null && !block.isEmpty();
       case AlsPackage.EXPRESSION__LEFT_CURLY_BRACKET:

@@ -665,7 +665,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOpen_Ref()
+  public EReference getOpen_PreviousNameAs()
   {
     return (EReference)openEClass.getEStructuralFeatures().get(2);
   }
@@ -675,7 +675,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOpen_Comma()
+  public EReference getOpen_Refname()
   {
     return (EReference)openEClass.getEStructuralFeatures().get(3);
   }
@@ -1655,9 +1655,9 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExpression_Seq()
+  public EReference getExpression_NameRef()
   {
-    return (EAttribute)expressionEClass.getEStructuralFeatures().get(18);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(18);
   }
 
   /**
@@ -1665,7 +1665,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExpression_ParO()
+  public EAttribute getExpression_Seq()
   {
     return (EAttribute)expressionEClass.getEStructuralFeatures().get(19);
   }
@@ -1675,7 +1675,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExpression_ParF()
+  public EAttribute getExpression_ParO()
   {
     return (EAttribute)expressionEClass.getEStructuralFeatures().get(20);
   }
@@ -1685,9 +1685,9 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpression_Asname()
+  public EAttribute getExpression_ParF()
   {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(21);
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(21);
   }
 
   /**
@@ -1695,7 +1695,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpression_NameRef()
+  public EReference getExpression_Asname()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(22);
   }
@@ -2165,9 +2165,19 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReferencesSig_NameRef()
+  public EReference getReferencesSig_AsName()
   {
     return (EReference)referencesSigEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getReferencesSig_NameRef()
+  {
+    return (EReference)referencesSigEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2417,8 +2427,8 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     openEClass = createEClass(OPEN);
     createEReference(openEClass, OPEN__OPEN_NAME);
     createEReference(openEClass, OPEN__LEFT);
-    createEReference(openEClass, OPEN__REF);
-    createEReference(openEClass, OPEN__COMMA);
+    createEReference(openEClass, OPEN__PREVIOUS_NAME_AS);
+    createEReference(openEClass, OPEN__REFNAME);
     createEReference(openEClass, OPEN__RIGHT);
     createEReference(openEClass, OPEN__NAME_AS);
 
@@ -2532,11 +2542,11 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEAttribute(expressionEClass, EXPRESSION__IDEN);
     createEAttribute(expressionEClass, EXPRESSION__UNIV);
     createEAttribute(expressionEClass, EXPRESSION__INT);
+    createEReference(expressionEClass, EXPRESSION__NAME_REF);
     createEAttribute(expressionEClass, EXPRESSION__SEQ);
     createEAttribute(expressionEClass, EXPRESSION__PAR_O);
     createEAttribute(expressionEClass, EXPRESSION__PAR_F);
     createEReference(expressionEClass, EXPRESSION__ASNAME);
-    createEReference(expressionEClass, EXPRESSION__NAME_REF);
     createEReference(expressionEClass, EXPRESSION__BLOCK);
     createEReference(expressionEClass, EXPRESSION__LEFT_CURLY_BRACKET);
     createEReference(expressionEClass, EXPRESSION__RIGHT_CURLY_BRACKET);
@@ -2607,6 +2617,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEAttribute(referencesNameEClass, REFERENCES_NAME__NAME);
 
     referencesSigEClass = createEClass(REFERENCES_SIG);
+    createEReference(referencesSigEClass, REFERENCES_SIG__AS_NAME);
     createEReference(referencesSigEClass, REFERENCES_SIG__NAME_REF);
 
     refEClass = createEClass(REF);
@@ -2708,8 +2719,8 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEClass(openEClass, Open.class, "Open", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOpen_OpenName(), this.getOpenName(), null, "openName", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOpen_Left(), this.getLeftSquareBracketKeyword(), null, "left", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOpen_Ref(), this.getRef(), null, "ref", null, 0, -1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOpen_Comma(), this.getComma(), null, "comma", null, 0, -1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOpen_PreviousNameAs(), this.getAsName(), null, "previousNameAs", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOpen_Refname(), this.getReferencesName(), null, "refname", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOpen_Right(), this.getRightSquareBracketKeyword(), null, "right", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOpen_NameAs(), this.getAsName(), null, "nameAs", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2752,7 +2763,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
 
     initEClass(runCommandEClass, RunCommand.class, "RunCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRunCommand_RunName(), this.getAlias(), null, "runName", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRunCommand_Name2(), this.getReferencesName(), null, "name2", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRunCommand_Name2(), this.getReferencesName(), null, "name2", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunCommand_Block(), this.getBlock(), null, "block", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunCommand_Scope(), this.getScope(), null, "scope", null, 0, 1, RunCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2823,11 +2834,11 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEAttribute(getExpression_Iden(), ecorePackage.getEString(), "iden", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_Univ(), ecorePackage.getEString(), "univ", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_Int(), ecorePackage.getEString(), "int", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_NameRef(), this.getReferencesName(), null, "nameRef", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_Seq(), ecorePackage.getEString(), "seq", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_ParO(), ecorePackage.getEString(), "parO", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_ParF(), ecorePackage.getEString(), "parF", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Asname(), this.getAsName(), null, "asname", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_NameRef(), this.getReferencesName(), null, "nameRef", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Block(), this.getBlock(), null, "block", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_LeftCurlyBracket(), this.getLeftCurlyBracket(), null, "leftCurlyBracket", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_RightCurlyBracket(), this.getRightCurlyBracket(), null, "rightCurlyBracket", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2898,6 +2909,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEAttribute(getReferencesName_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReferencesName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(referencesSigEClass, ReferencesSig.class, "ReferencesSig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReferencesSig_AsName(), this.getAsName(), null, "asName", null, 0, 1, ReferencesSig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getReferencesSig_NameRef(), this.getSignatureName(), null, "nameRef", null, 0, 1, ReferencesSig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(refEClass, Ref.class, "Ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

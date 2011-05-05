@@ -5,8 +5,6 @@
  */
 package fr.univartois.cril.xtext.als;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.Open#getOpenName <em>Open Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Open#getLeft <em>Left</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Open#getRef <em>Ref</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Open#getComma <em>Comma</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Open#getPreviousNameAs <em>Previous Name As</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Open#getRefname <em>Refname</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Open#getRight <em>Right</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Open#getNameAs <em>Name As</em>}</li>
  * </ul>
@@ -85,36 +83,56 @@ public interface Open extends EObject
   void setLeft(LeftSquareBracketKeyword value);
 
   /**
-   * Returns the value of the '<em><b>Ref</b></em>' containment reference list.
-   * The list contents are of type {@link fr.univartois.cril.xtext.als.Ref}.
+   * Returns the value of the '<em><b>Previous Name As</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Ref</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Previous Name As</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ref</em>' containment reference list.
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getOpen_Ref()
+   * @return the value of the '<em>Previous Name As</em>' containment reference.
+   * @see #setPreviousNameAs(AsName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getOpen_PreviousNameAs()
    * @model containment="true"
    * @generated
    */
-  EList<Ref> getRef();
+  AsName getPreviousNameAs();
 
   /**
-   * Returns the value of the '<em><b>Comma</b></em>' containment reference list.
-   * The list contents are of type {@link fr.univartois.cril.xtext.als.Comma}.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Open#getPreviousNameAs <em>Previous Name As</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Previous Name As</em>' containment reference.
+   * @see #getPreviousNameAs()
+   * @generated
+   */
+  void setPreviousNameAs(AsName value);
+
+  /**
+   * Returns the value of the '<em><b>Refname</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Comma</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Refname</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Comma</em>' containment reference list.
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getOpen_Comma()
+   * @return the value of the '<em>Refname</em>' containment reference.
+   * @see #setRefname(ReferencesName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getOpen_Refname()
    * @model containment="true"
    * @generated
    */
-  EList<Comma> getComma();
+  ReferencesName getRefname();
+
+  /**
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Open#getRefname <em>Refname</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Refname</em>' containment reference.
+   * @see #getRefname()
+   * @generated
+   */
+  void setRefname(ReferencesName value);
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference.

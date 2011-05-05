@@ -35,11 +35,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getIden <em>Iden</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getUniv <em>Univ</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getInt <em>Int</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Expression#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getSeq <em>Seq</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getParO <em>Par O</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getParF <em>Par F</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getAsname <em>Asname</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Expression#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getLeftCurlyBracket <em>Left Curly Bracket</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getRightCurlyBracket <em>Right Curly Bracket</em>}</li>
@@ -411,6 +411,32 @@ public interface Expression extends EObject
   void setInt(String value);
 
   /**
+   * Returns the value of the '<em><b>Name Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name Ref</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name Ref</em>' reference.
+   * @see #setNameRef(ReferencesName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_NameRef()
+   * @model
+   * @generated
+   */
+  ReferencesName getNameRef();
+
+  /**
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Expression#getNameRef <em>Name Ref</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name Ref</em>' reference.
+   * @see #getNameRef()
+   * @generated
+   */
+  void setNameRef(ReferencesName value);
+
+  /**
    * Returns the value of the '<em><b>Seq</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -513,32 +539,6 @@ public interface Expression extends EObject
    * @generated
    */
   void setAsname(AsName value);
-
-  /**
-   * Returns the value of the '<em><b>Name Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name Ref</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name Ref</em>' reference.
-   * @see #setNameRef(ReferencesName)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_NameRef()
-   * @model
-   * @generated
-   */
-  ReferencesName getNameRef();
-
-  /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Expression#getNameRef <em>Name Ref</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name Ref</em>' reference.
-   * @see #getNameRef()
-   * @generated
-   */
-  void setNameRef(ReferencesName value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference list.

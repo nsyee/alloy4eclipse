@@ -21,7 +21,7 @@ Module:
 
 
 Open:
-  "private"? openName=OpenName  (left=LeftSquareBracketKeyword ref+=Ref (comma+=Comma ref+=Ref)* right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?	; 
+  "private"? openName=OpenName  (left=LeftSquareBracketKeyword /*ref+=Ref (comma+=Comma ref+=Ref)**/ (previousNameAs=AsName "/")? refname=ReferencesName right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?	; 
   
 /*
 	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
@@ -84,7 +84,7 @@ PredDecl returns Predicate:
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
 RunDecl returns RunCommand:
-  (runName=Alias ":")? "run" (name2=[ReferencesName]|block=Block) scope=Scope	; 
+  (runName=Alias ":")? "run" (name2=FunctionNamewParam|name2=FunctionName |name2=PredicateName |block=Block) scope=Scope	; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
@@ -184,10 +184,10 @@ TerminalExpression returns Expression:
 	{Expression} none="none"																							|//11./
     {Expression} iden="iden"																							|//12./
     {Expression} univ="univ"																							|//13./
-    {Expression} int="int"|int="Int"																							|//14./
+    {Expression} (int="int" (nameRef=[ReferencesName])? )|int="Int"																							|//14./
     {Expression} seq="seq/Int"																						|//15./
     {Expression} parO="(" expr+=Expression parF=")"																	|//16./
-    {Expression} "@"? ((asname=AsName|"fun"|"pred"|"this") "/")?  (nameRef=[ReferencesName]|"this")					|//17./
+    {Expression} "@"? "int"? ((asname=AsName|"fun"|"pred"|"this") "/")?  (nameRef=[ReferencesName]|"this")					|//17./
     {Expression} block+=Block																						|//18./
     {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket											;//19./
 
@@ -290,7 +290,7 @@ LetName :
 	"let" name=Name;
 	
 SignatureName :
-	name=Name  ;
+	 name=Name  ;
 		
 PropertyName:
 	name=Name;
@@ -324,7 +324,7 @@ ReferencesName	:
 	PredicateName	;
 
 ReferencesSig	:
-  {ReferencesSig}( nameRef=[SignatureName]|"univ"|"Int"|"seq/Int")	;
+  {ReferencesSig}(	(asName=AsName)? nameRef=[SignatureName]|"univ"|"Int"|"seq/Int")	;
 
  	
 Ref:
