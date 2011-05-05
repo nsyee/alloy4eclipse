@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext.als.ReferencesSig#getAsName <em>As Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.ReferencesSig#getNameRef <em>Name Ref</em>}</li>
  * </ul>
  * </p>
@@ -25,6 +26,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ReferencesSig extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>As Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>As Name</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>As Name</em>' containment reference.
+   * @see #setAsName(AsName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getReferencesSig_AsName()
+   * @model containment="true"
+   * @generated
+   */
+  AsName getAsName();
+
+  /**
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.ReferencesSig#getAsName <em>As Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>As Name</em>' containment reference.
+   * @see #getAsName()
+   * @generated
+   */
+  void setAsName(AsName value);
+
   /**
    * Returns the value of the '<em><b>Name Ref</b></em>' reference.
    * <!-- begin-user-doc -->

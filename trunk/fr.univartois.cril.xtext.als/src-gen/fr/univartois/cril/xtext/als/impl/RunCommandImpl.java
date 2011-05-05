@@ -49,7 +49,7 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
   protected Alias runName;
 
   /**
-   * The cached value of the '{@link #getName2() <em>Name2</em>}' reference.
+   * The cached value of the '{@link #getName2() <em>Name2</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName2()
@@ -154,16 +154,6 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    */
   public ReferencesName getName2()
   {
-    if (name2 != null && name2.eIsProxy())
-    {
-      InternalEObject oldName2 = (InternalEObject)name2;
-      name2 = (ReferencesName)eResolveProxy(oldName2);
-      if (name2 != oldName2)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AlsPackage.RUN_COMMAND__NAME2, oldName2, name2));
-      }
-    }
     return name2;
   }
 
@@ -172,9 +162,16 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public ReferencesName basicGetName2()
+  public NotificationChain basicSetName2(ReferencesName newName2, NotificationChain msgs)
   {
-    return name2;
+    ReferencesName oldName2 = name2;
+    name2 = newName2;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__NAME2, oldName2, newName2);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -184,10 +181,18 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    */
   public void setName2(ReferencesName newName2)
   {
-    ReferencesName oldName2 = name2;
-    name2 = newName2;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__NAME2, oldName2, name2));
+    if (newName2 != name2)
+    {
+      NotificationChain msgs = null;
+      if (name2 != null)
+        msgs = ((InternalEObject)name2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.RUN_COMMAND__NAME2, null, msgs);
+      if (newName2 != null)
+        msgs = ((InternalEObject)newName2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.RUN_COMMAND__NAME2, null, msgs);
+      msgs = basicSetName2(newName2, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__NAME2, newName2, newName2));
   }
 
   /**
@@ -298,6 +303,8 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
     {
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         return basicSetRunName(null, msgs);
+      case AlsPackage.RUN_COMMAND__NAME2:
+        return basicSetName2(null, msgs);
       case AlsPackage.RUN_COMMAND__BLOCK:
         return basicSetBlock(null, msgs);
       case AlsPackage.RUN_COMMAND__SCOPE:
@@ -319,8 +326,7 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         return getRunName();
       case AlsPackage.RUN_COMMAND__NAME2:
-        if (resolve) return getName2();
-        return basicGetName2();
+        return getName2();
       case AlsPackage.RUN_COMMAND__BLOCK:
         return getBlock();
       case AlsPackage.RUN_COMMAND__SCOPE:

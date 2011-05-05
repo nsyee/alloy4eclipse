@@ -31,10 +31,10 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//LeftSquareBracketKeyword"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" upperBound="-1" eType="#//Ref"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="previousNameAs" eType="#//AsName"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="comma" upperBound="-1"
-        eType="#//Comma" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refname" eType="#//ReferencesName"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//RightSquareBracketKeyword"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nameAs" eType="#//AsName"
@@ -102,7 +102,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="RunCommand" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="runName" eType="#//Alias"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name2" eType="#//ReferencesName"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name2" eType="#//ReferencesName"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Block"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scope" eType="#//Scope"
@@ -212,12 +213,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iden" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="univ" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="int" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nameRef" eType="#//ReferencesName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="seq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parO" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parF" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asname" eType="#//AsName"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nameRef" eType="#//ReferencesName"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
         eType="#//Block" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftCurlyBracket" eType="#//LeftCurlyBracket"
@@ -291,6 +292,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReferencesSig">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asName" eType="#//AsName"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nameRef" eType="#//SignatureName"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ref">

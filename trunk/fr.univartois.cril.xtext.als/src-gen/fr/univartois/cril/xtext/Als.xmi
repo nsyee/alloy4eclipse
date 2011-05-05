@@ -79,16 +79,14 @@
           <elements xsi:type="xtext:Assignment" feature="left" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.57"/>
           </elements>
-          <elements xsi:type="xtext:Assignment" feature="ref" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.49"/>
+          <elements xsi:type="xtext:Group" cardinality="?">
+            <elements xsi:type="xtext:Assignment" feature="previousNameAs" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.44"/>
+            </elements>
+            <elements xsi:type="xtext:Keyword" value="/"/>
           </elements>
-          <elements xsi:type="xtext:Group" cardinality="*">
-            <elements xsi:type="xtext:Assignment" feature="comma" operator="+=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.53"/>
-            </elements>
-            <elements xsi:type="xtext:Assignment" feature="ref" operator="+=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.49"/>
-            </elements>
+          <elements xsi:type="xtext:Assignment" feature="refname" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.47"/>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="right" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.58"/>
@@ -328,12 +326,13 @@
         <elements xsi:type="xtext:Keyword" value="run"/>
         <elements xsi:type="xtext:Alternatives">
           <elements xsi:type="xtext:Assignment" feature="name2" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//ReferencesName"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.61"/>
-            </terminal>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.35"/>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="name2" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="name2" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.36"/>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="block" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.29"/>
@@ -869,8 +868,18 @@
               <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//Expression"/>
             </type>
           </elements>
-          <elements xsi:type="xtext:Assignment" feature="int" operator="=">
-            <terminal xsi:type="xtext:Keyword" value="int"/>
+          <elements xsi:type="xtext:Group">
+            <elements xsi:type="xtext:Assignment" feature="int" operator="=">
+              <terminal xsi:type="xtext:Keyword" value="int"/>
+            </elements>
+            <elements xsi:type="xtext:Assignment" cardinality="?" feature="nameRef" operator="=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//ReferencesName"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.61"/>
+              </terminal>
+            </elements>
           </elements>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="int" operator="=">
@@ -909,6 +918,7 @@
             </type>
           </elements>
           <elements xsi:type="xtext:Keyword" cardinality="?" value="@"/>
+          <elements xsi:type="xtext:Keyword" cardinality="?" value="int"/>
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Alternatives">
               <elements xsi:type="xtext:Assignment" feature="asname" operator="=">
@@ -1351,13 +1361,18 @@
           </type>
         </elements>
         <elements xsi:type="xtext:Alternatives">
-          <elements xsi:type="xtext:Assignment" feature="nameRef" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//SignatureName"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.61"/>
-            </terminal>
+          <elements xsi:type="xtext:Group">
+            <elements xsi:type="xtext:Assignment" cardinality="?" feature="asName" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.44"/>
+            </elements>
+            <elements xsi:type="xtext:Assignment" feature="nameRef" operator="=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//SignatureName"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.61"/>
+              </terminal>
+            </elements>
           </elements>
           <elements xsi:type="xtext:Keyword" value="univ"/>
           <elements xsi:type="xtext:Keyword" value="Int"/>
