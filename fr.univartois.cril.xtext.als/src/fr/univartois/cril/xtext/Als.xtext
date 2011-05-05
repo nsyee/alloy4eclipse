@@ -167,9 +167,9 @@ SigExt:
 	
 */
 Expression:
-	TerminalExpression (binOp+=BinOp expr+=Expression									|//4./
-						arrowOp+=ArrowOp expr+=Expression								|//5./
-						("!"|"not")? cmp+=CompareOp expr+=Expression				|//6./
+	TerminalExpression  ( binOp+=BinOp expr+=Expression									|//4./
+						arrowOp+=ArrowOp  expr+=Expression							|//5./
+						("!"|"not")? cmp+=CompareOp expr+=Expression 		|//6./
 						("=>"|"implies") expr+=Expression ("else" expr+=Expression)?	|//7./
 						left+=LeftSquareBracketKeyword (expr+=Expression (comma+=Comma expr+=Expression)* )? right+=RightSquareBracketKeyword									 //8./						
 						)*	;
@@ -177,13 +177,14 @@ TerminalExpression returns Expression:
 	{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar							|//1./
 	{Expression} quant=Quant decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar										|//2./
 	{Expression} unOp=UnOp expr+=Expression		|
-	{Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma  decl+=Decl)* blockOrBar+=BlockOrBar|expr+=Expression)?	|//2./ and 3./
+	{Expression} common+=CommonQuantUnOp  (decl+=Decl (comma+=Comma  decl+=Decl)*blockOrBar+=BlockOrBar | expr+=Expression) 	|//2./ and 3./
+	 
 	{Expression} INT																									|//9./
 	{Expression} NEGATIVE_INTEGER																					|//10./
 	{Expression} none="none"																							|//11./
     {Expression} iden="iden"																							|//12./
     {Expression} univ="univ"																							|//13./
-    {Expression} int="Int"																							|//14./
+    {Expression} int="int"|int="Int"																							|//14./
     {Expression} seq="seq/Int"																						|//15./
     {Expression} parO="(" expr+=Expression parF=")"																	|//16./
     {Expression} "@"? ((asname=AsName|"fun"|"pred"|"this") "/")?  (nameRef=[ReferencesName]|"this")					|//17./
@@ -208,14 +209,14 @@ LetDecl:
 	quant ::= "all" | "no" | "some" | "lone" | "one" | "sum"
 */
 Quant	:
-	"all" | "sum"	;
+	"all" | "sum" 	;
 
 /*	
 	binOp ::= "||" | "or" | "&&" | "and" | "&" | "<=>" | "iff"| "=>" | "implies" | "+" | "-" | "++" | "<:" | ":>" | "." | "<<" | ">>" | ">>>"
 */	
 BinOp : 
 	{BinOp}("||" | "or" | "&&" | "and" | "&" | "<=>" | "iff" 
-        |"+" | "-" | "++" | "<:" | ":>" | dot=Dot | "<<" | ">>" | ">>>"	);
+        |"+" | "-" | "++" | "<:" | ":>" | dot=Dot | "<<" | ">>" | ">>>");
 
 /*
 	unOp ::= "!" | "not" | "no" | "some" | "lone" | "one" | "set" | "seq" | "#" | "~" | "*" | "^"
