@@ -179,8 +179,8 @@ public class AlsActivator extends AbstractUIPlugin {
            "models/book/chapter6/hotel.thm", "models/book/chapter6/hotel1.als", "models/book/chapter6/hotel2.als",
            "models/book/chapter6/hotel3.als", "models/book/chapter6/hotel4.als", "models/book/chapter6/mediaAssets.als",
            "models/book/chapter6/memory/abstractMemory.als", "models/book/chapter6/memory/cacheMemory.als",
-           "models/book/chapter6/memory/checkCache.als", "models/book/chapter6/memory/checkFixedSize.als",
-           "models/book/chapter6/memory/fixedSizeMemory.als", "models/book/chapter6/memory/fixedSizeMemory_H.als",
+           /*"models/book/chapter6/memory/checkCache.als", "models/book/chapter6/memory/checkFixedSize.als",*/
+           "models/book/chapter6/memory/fixedSizeMemory.als", /*"models/book/chapter6/memory/fixedSizeMemory_H.als",*/
            "models/book/chapter6/ringElection.thm", "models/book/chapter6/ringElection1.als", "models/book/chapter6/ringElection2.als",
            "models/examples/algorithms/dijkstra.als", "models/examples/algorithms/dijkstra.thm",
            "models/examples/algorithms/messaging.als", "models/examples/algorithms/messaging.thm",
