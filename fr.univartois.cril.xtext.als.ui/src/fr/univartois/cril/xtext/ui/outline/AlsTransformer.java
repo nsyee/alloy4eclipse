@@ -3,13 +3,16 @@
 */
 package fr.univartois.cril.xtext.ui.outline;
 
+import java.awt.Color;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.StyledString.Styler;
+import org.eclipse.swt.graphics.*;
+import org.eclipse.swt.graphics.TextStyle;
 import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.actions.IActionBarContributor;
 import org.eclipse.xtext.ui.editor.outline.transformer.AbstractDeclarativeSemanticModelTransformer;
-
 import fr.univartois.cril.xtext.als.Assertion;
 import fr.univartois.cril.xtext.als.CheckCommand;
 import fr.univartois.cril.xtext.als.Fact;
@@ -92,6 +95,17 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
 		    node.setLabel("Check : " + node.getLabel());
 		    node.setImage(node.getImage());
+		    Styler styler=new Styler() {
+				
+				@Override
+				public void applyStyles(TextStyle textStyle) {
+					org.eclipse.swt.graphics.Color i=new org.eclipse.swt.graphics.Color(null,0,0,0);
+					textStyle.foreground=i;
+					
+				}
+			};
+			
+		    node.setStyler(styler);
 		    return node;
 		
 	}
@@ -102,9 +116,9 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 		    return node;
 		
 	}
-	public ContentOutlineNode createNode(Let fNode, ContentOutlineNode parentNode) {	    
+	public ContentOutlineNode createNode(Let fNode, ContentOutlineNode parentNode) {
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
-		    node.setLabel("Let " + node.getLabel());
+		    node.setLabel("Let : " + node.getLabel());
 		    node.setImage(node.getImage());
 		    return node;
 		
