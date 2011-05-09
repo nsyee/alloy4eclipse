@@ -178,6 +178,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//BlockOrBar/block"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//BlockOrBar/expr"/>
     </genClasses>
+    <genClasses ecoreClass="Als.ecore#//BlockOrPossibleBar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//BlockOrPossibleBar/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//BlockOrPossibleBar/expr"/>
+    </genClasses>
     <genClasses ecoreClass="Als.ecore#//OpenName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//OpenName/importURI"/>
     </genClasses>

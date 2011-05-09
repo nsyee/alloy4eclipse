@@ -1852,15 +1852,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cExpressionAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cQuantAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cQuantQuantParserRuleCall_1_1_0 = (RuleCall)cQuantAssignment_1_1.eContents().get(0);
-		private final Assignment cDeclAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cDeclDeclParserRuleCall_1_2_0 = (RuleCall)cDeclAssignment_1_2.eContents().get(0);
-		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
-		private final Assignment cCommaAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
-		private final RuleCall cCommaCommaParserRuleCall_1_3_0_0 = (RuleCall)cCommaAssignment_1_3_0.eContents().get(0);
-		private final Assignment cDeclAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final RuleCall cDeclDeclParserRuleCall_1_3_1_0 = (RuleCall)cDeclAssignment_1_3_1.eContents().get(0);
-		private final Assignment cBlockOrBarAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cBlockOrBarBlockOrBarParserRuleCall_1_4_0 = (RuleCall)cBlockOrBarAssignment_1_4.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Assignment cDeclAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final RuleCall cDeclDeclParserRuleCall_1_2_0_0 = (RuleCall)cDeclAssignment_1_2_0.eContents().get(0);
+		private final Group cGroup_1_2_1 = (Group)cGroup_1_2.eContents().get(1);
+		private final Assignment cCommaAssignment_1_2_1_0 = (Assignment)cGroup_1_2_1.eContents().get(0);
+		private final RuleCall cCommaCommaParserRuleCall_1_2_1_0_0 = (RuleCall)cCommaAssignment_1_2_1_0.eContents().get(0);
+		private final Assignment cDeclAssignment_1_2_1_1 = (Assignment)cGroup_1_2_1.eContents().get(1);
+		private final RuleCall cDeclDeclParserRuleCall_1_2_1_1_0 = (RuleCall)cDeclAssignment_1_2_1_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_3 = (Alternatives)cGroup_1.eContents().get(3);
+		private final Assignment cBlockOrBarAssignment_1_3_0 = (Assignment)cAlternatives_1_3.eContents().get(0);
+		private final RuleCall cBlockOrBarBlockOrBarParserRuleCall_1_3_0_0 = (RuleCall)cBlockOrBarAssignment_1_3_0.eContents().get(0);
+		private final Assignment cExprAssignment_1_3_1 = (Assignment)cAlternatives_1_3.eContents().get(1);
+		private final RuleCall cExprExpressionParserRuleCall_1_3_1_0 = (RuleCall)cExprAssignment_1_3_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cExpressionAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Assignment cUnOpAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -1871,19 +1875,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cExpressionAction_3_0 = (Action)cGroup_3.eContents().get(0);
 		private final Assignment cCommonAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cCommonCommonQuantUnOpParserRuleCall_3_1_0 = (RuleCall)cCommonAssignment_3_1.eContents().get(0);
-		private final Alternatives cAlternatives_3_2 = (Alternatives)cGroup_3.eContents().get(2);
-		private final Group cGroup_3_2_0 = (Group)cAlternatives_3_2.eContents().get(0);
-		private final Assignment cDeclAssignment_3_2_0_0 = (Assignment)cGroup_3_2_0.eContents().get(0);
-		private final RuleCall cDeclDeclParserRuleCall_3_2_0_0_0 = (RuleCall)cDeclAssignment_3_2_0_0.eContents().get(0);
-		private final Group cGroup_3_2_0_1 = (Group)cGroup_3_2_0.eContents().get(1);
-		private final Assignment cCommaAssignment_3_2_0_1_0 = (Assignment)cGroup_3_2_0_1.eContents().get(0);
-		private final RuleCall cCommaCommaParserRuleCall_3_2_0_1_0_0 = (RuleCall)cCommaAssignment_3_2_0_1_0.eContents().get(0);
-		private final Assignment cDeclAssignment_3_2_0_1_1 = (Assignment)cGroup_3_2_0_1.eContents().get(1);
-		private final RuleCall cDeclDeclParserRuleCall_3_2_0_1_1_0 = (RuleCall)cDeclAssignment_3_2_0_1_1.eContents().get(0);
-		private final Assignment cBlockOrBarAssignment_3_2_0_2 = (Assignment)cGroup_3_2_0.eContents().get(2);
-		private final RuleCall cBlockOrBarBlockOrBarParserRuleCall_3_2_0_2_0 = (RuleCall)cBlockOrBarAssignment_3_2_0_2.eContents().get(0);
-		private final Assignment cExprAssignment_3_2_1 = (Assignment)cAlternatives_3_2.eContents().get(1);
-		private final RuleCall cExprExpressionParserRuleCall_3_2_1_0 = (RuleCall)cExprAssignment_3_2_1.eContents().get(0);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Assignment cDeclAssignment_3_2_0 = (Assignment)cGroup_3_2.eContents().get(0);
+		private final RuleCall cDeclDeclParserRuleCall_3_2_0_0 = (RuleCall)cDeclAssignment_3_2_0.eContents().get(0);
+		private final Group cGroup_3_2_1 = (Group)cGroup_3_2.eContents().get(1);
+		private final Assignment cCommaAssignment_3_2_1_0 = (Assignment)cGroup_3_2_1.eContents().get(0);
+		private final RuleCall cCommaCommaParserRuleCall_3_2_1_0_0 = (RuleCall)cCommaAssignment_3_2_1_0.eContents().get(0);
+		private final Assignment cDeclAssignment_3_2_1_1 = (Assignment)cGroup_3_2_1.eContents().get(1);
+		private final RuleCall cDeclDeclParserRuleCall_3_2_1_1_0 = (RuleCall)cDeclAssignment_3_2_1_1.eContents().get(0);
+		private final Alternatives cAlternatives_3_3 = (Alternatives)cGroup_3.eContents().get(3);
+		private final Assignment cBlockOrBarAssignment_3_3_0 = (Assignment)cAlternatives_3_3.eContents().get(0);
+		private final RuleCall cBlockOrBarBlockOrBarParserRuleCall_3_3_0_0 = (RuleCall)cBlockOrBarAssignment_3_3_0.eContents().get(0);
+		private final Assignment cExprAssignment_3_3_1 = (Assignment)cAlternatives_3_3.eContents().get(1);
+		private final RuleCall cExprExpressionParserRuleCall_3_3_1_0 = (RuleCall)cExprAssignment_3_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
 		private final Action cExpressionAction_4_0 = (Action)cGroup_4.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
@@ -1965,7 +1969,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//TerminalExpression returns Expression:
 		//	{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar //1./
 		//	//2./
-		//	//2./ and 3./
+		//	//2./ and 3./	
 		//	//9./
 		//	//10./
 		//	//11./
@@ -1976,19 +1980,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	//16./
 		//	//17./
 		//	//18./
-		//	| {Expression} quant=Quant decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | {Expression} unOp=UnOp
-		//	expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
-		//	| expr+=Expression) | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression} none="none" | {Expression}
-		//	iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?) | int="Int" | {Expression}
-		//	seq="seq/Int" | {Expression} parO="(" expr+=Expression parF=")" | {Expression} "@"? "int"? ((asname=AsName | "fun" |
-		//	"pred" | "this") "/")? (nameRef=[ReferencesName] | "this") | {Expression} block+=Block | {Expression}
-		//	leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
-		//	rightCurlyBracket=RightCurlyBracket;
+		//	| {Expression} quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? |
+		//	{Expression} unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma
+		//	decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER |
+		//	{Expression} none="none" | {Expression} iden="iden" | {Expression} univ="univ" | {Expression} (int="int"
+		//	nameRef=[ReferencesName]?) | int="Int" | {Expression} seq="seq/Int" | {Expression} parO="(" expr+=Expression parF=")"
+		//	| {Expression} "@"? "int"? ((asname=AsName | "fun" | "pred" | "this") "/")? (nameRef=[ReferencesName] | "this") |
+		//	{Expression} block+=Block | {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)*
+		//	blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket;
 		public ParserRule getRule() { return rule; }
 
 		//{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar //1./
 		////2./
-		////2./ and 3./
+		////2./ and 3./	
 		////9./
 		////10./
 		////11./
@@ -1999,13 +2003,13 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		////16./
 		////17./
 		////18./
-		//| {Expression} quant=Quant decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | {Expression} unOp=UnOp
-		//expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar |
-		//expr+=Expression) | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression} none="none" | {Expression}
-		//iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?) | int="Int" | {Expression}
-		//seq="seq/Int" | {Expression} parO="(" expr+=Expression parF=")" | {Expression} "@"? "int"? ((asname=AsName | "fun" |
-		//"pred" | "this") "/")? (nameRef=[ReferencesName] | "this") | {Expression} block+=Block | {Expression}
-		//leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
+		//| {Expression} quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? |
+		//{Expression} unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//(blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
+		//none="none" | {Expression} iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?)
+		//| int="Int" | {Expression} seq="seq/Int" | {Expression} parO="(" expr+=Expression parF=")" | {Expression} "@"? "int"?
+		//((asname=AsName | "fun" | "pred" | "this") "/")? (nameRef=[ReferencesName] | "this") | {Expression} block+=Block |
+		//{Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
 		//rightCurlyBracket=RightCurlyBracket
 		public Alternatives getAlternatives() { return cAlternatives; }
 
@@ -2048,7 +2052,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//BlockOrBar
 		public RuleCall getBlockOrBarBlockOrBarParserRuleCall_0_4_0() { return cBlockOrBarBlockOrBarParserRuleCall_0_4_0; }
 
-		//{Expression} quant=Quant decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
+		//{Expression} quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{Expression}
@@ -2060,32 +2064,44 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Quant
 		public RuleCall getQuantQuantParserRuleCall_1_1_0() { return cQuantQuantParserRuleCall_1_1_0; }
 
+		//(decl+=Decl (comma+=Comma decl+=Decl)*)?
+		public Group getGroup_1_2() { return cGroup_1_2; }
+
 		//decl+=Decl
-		public Assignment getDeclAssignment_1_2() { return cDeclAssignment_1_2; }
+		public Assignment getDeclAssignment_1_2_0() { return cDeclAssignment_1_2_0; }
 
 		//Decl
-		public RuleCall getDeclDeclParserRuleCall_1_2_0() { return cDeclDeclParserRuleCall_1_2_0; }
+		public RuleCall getDeclDeclParserRuleCall_1_2_0_0() { return cDeclDeclParserRuleCall_1_2_0_0; }
 
 		//(comma+=Comma decl+=Decl)*
-		public Group getGroup_1_3() { return cGroup_1_3; }
+		public Group getGroup_1_2_1() { return cGroup_1_2_1; }
 
 		//comma+=Comma
-		public Assignment getCommaAssignment_1_3_0() { return cCommaAssignment_1_3_0; }
+		public Assignment getCommaAssignment_1_2_1_0() { return cCommaAssignment_1_2_1_0; }
 
 		//Comma
-		public RuleCall getCommaCommaParserRuleCall_1_3_0_0() { return cCommaCommaParserRuleCall_1_3_0_0; }
+		public RuleCall getCommaCommaParserRuleCall_1_2_1_0_0() { return cCommaCommaParserRuleCall_1_2_1_0_0; }
 
 		//decl+=Decl
-		public Assignment getDeclAssignment_1_3_1() { return cDeclAssignment_1_3_1; }
+		public Assignment getDeclAssignment_1_2_1_1() { return cDeclAssignment_1_2_1_1; }
 
 		//Decl
-		public RuleCall getDeclDeclParserRuleCall_1_3_1_0() { return cDeclDeclParserRuleCall_1_3_1_0; }
+		public RuleCall getDeclDeclParserRuleCall_1_2_1_1_0() { return cDeclDeclParserRuleCall_1_2_1_1_0; }
+
+		//(blockOrBar+=BlockOrBar | expr+=Expression)?
+		public Alternatives getAlternatives_1_3() { return cAlternatives_1_3; }
 
 		//blockOrBar+=BlockOrBar
-		public Assignment getBlockOrBarAssignment_1_4() { return cBlockOrBarAssignment_1_4; }
+		public Assignment getBlockOrBarAssignment_1_3_0() { return cBlockOrBarAssignment_1_3_0; }
 
 		//BlockOrBar
-		public RuleCall getBlockOrBarBlockOrBarParserRuleCall_1_4_0() { return cBlockOrBarBlockOrBarParserRuleCall_1_4_0; }
+		public RuleCall getBlockOrBarBlockOrBarParserRuleCall_1_3_0_0() { return cBlockOrBarBlockOrBarParserRuleCall_1_3_0_0; }
+
+		//expr+=Expression
+		public Assignment getExprAssignment_1_3_1() { return cExprAssignment_1_3_1; }
+
+		//Expression
+		public RuleCall getExprExpressionParserRuleCall_1_3_1_0() { return cExprExpressionParserRuleCall_1_3_1_0; }
 
 		//{Expression} unOp=UnOp expr+=Expression
 		public Group getGroup_2() { return cGroup_2; }
@@ -2105,7 +2121,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getExprExpressionParserRuleCall_2_2_0() { return cExprExpressionParserRuleCall_2_2_0; }
 
-		//{Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | expr+=Expression)
+		//{Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar |
+		//expr+=Expression)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//{Expression}
@@ -2117,44 +2134,44 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//CommonQuantUnOp
 		public RuleCall getCommonCommonQuantUnOpParserRuleCall_3_1_0() { return cCommonCommonQuantUnOpParserRuleCall_3_1_0; }
 
-		//decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | expr+=Expression
-		public Alternatives getAlternatives_3_2() { return cAlternatives_3_2; }
-
-		//decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
-		public Group getGroup_3_2_0() { return cGroup_3_2_0; }
+		//(decl+=Decl (comma+=Comma decl+=Decl)*)?
+		public Group getGroup_3_2() { return cGroup_3_2; }
 
 		//decl+=Decl
-		public Assignment getDeclAssignment_3_2_0_0() { return cDeclAssignment_3_2_0_0; }
+		public Assignment getDeclAssignment_3_2_0() { return cDeclAssignment_3_2_0; }
 
 		//Decl
-		public RuleCall getDeclDeclParserRuleCall_3_2_0_0_0() { return cDeclDeclParserRuleCall_3_2_0_0_0; }
+		public RuleCall getDeclDeclParserRuleCall_3_2_0_0() { return cDeclDeclParserRuleCall_3_2_0_0; }
 
 		//(comma+=Comma decl+=Decl)*
-		public Group getGroup_3_2_0_1() { return cGroup_3_2_0_1; }
+		public Group getGroup_3_2_1() { return cGroup_3_2_1; }
 
 		//comma+=Comma
-		public Assignment getCommaAssignment_3_2_0_1_0() { return cCommaAssignment_3_2_0_1_0; }
+		public Assignment getCommaAssignment_3_2_1_0() { return cCommaAssignment_3_2_1_0; }
 
 		//Comma
-		public RuleCall getCommaCommaParserRuleCall_3_2_0_1_0_0() { return cCommaCommaParserRuleCall_3_2_0_1_0_0; }
+		public RuleCall getCommaCommaParserRuleCall_3_2_1_0_0() { return cCommaCommaParserRuleCall_3_2_1_0_0; }
 
 		//decl+=Decl
-		public Assignment getDeclAssignment_3_2_0_1_1() { return cDeclAssignment_3_2_0_1_1; }
+		public Assignment getDeclAssignment_3_2_1_1() { return cDeclAssignment_3_2_1_1; }
 
 		//Decl
-		public RuleCall getDeclDeclParserRuleCall_3_2_0_1_1_0() { return cDeclDeclParserRuleCall_3_2_0_1_1_0; }
+		public RuleCall getDeclDeclParserRuleCall_3_2_1_1_0() { return cDeclDeclParserRuleCall_3_2_1_1_0; }
+
+		//(blockOrBar+=BlockOrBar | expr+=Expression)?
+		public Alternatives getAlternatives_3_3() { return cAlternatives_3_3; }
 
 		//blockOrBar+=BlockOrBar
-		public Assignment getBlockOrBarAssignment_3_2_0_2() { return cBlockOrBarAssignment_3_2_0_2; }
+		public Assignment getBlockOrBarAssignment_3_3_0() { return cBlockOrBarAssignment_3_3_0; }
 
 		//BlockOrBar
-		public RuleCall getBlockOrBarBlockOrBarParserRuleCall_3_2_0_2_0() { return cBlockOrBarBlockOrBarParserRuleCall_3_2_0_2_0; }
+		public RuleCall getBlockOrBarBlockOrBarParserRuleCall_3_3_0_0() { return cBlockOrBarBlockOrBarParserRuleCall_3_3_0_0; }
 
 		//expr+=Expression
-		public Assignment getExprAssignment_3_2_1() { return cExprAssignment_3_2_1; }
+		public Assignment getExprAssignment_3_3_1() { return cExprAssignment_3_3_1; }
 
 		//Expression
-		public RuleCall getExprExpressionParserRuleCall_3_2_1_0() { return cExprExpressionParserRuleCall_3_2_1_0; }
+		public RuleCall getExprExpressionParserRuleCall_3_3_1_0() { return cExprExpressionParserRuleCall_3_3_1_0; }
 
 		//{Expression} INT
 		public Group getGroup_4() { return cGroup_4; }
@@ -2499,7 +2516,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSumKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		
 		/// *
-		//	quant ::= "all" | "no" | "some" | "lone" | "one" | "sum"
+		//	quant ::= "all" | "no" | "some" | "" | "one" | "sum"
 		// * /Quant returns ecore::EString:
 		//	"all" | "sum";
 		public ParserRule getRule() { return rule; }
@@ -2856,6 +2873,42 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"|"
+		public Keyword getVerticalLineKeyword_1_0() { return cVerticalLineKeyword_1_0; }
+
+		//expr=Expression
+		public Assignment getExprAssignment_1_1() { return cExprAssignment_1_1; }
+
+		//Expression
+		public RuleCall getExprExpressionParserRuleCall_1_1_0() { return cExprExpressionParserRuleCall_1_1_0; }
+	}
+
+	public class BlockOrPossibleBarElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BlockOrPossibleBar");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cBlockAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cBlockBlockParserRuleCall_0_0 = (RuleCall)cBlockAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cVerticalLineKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cExprAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cExprExpressionParserRuleCall_1_1_0 = (RuleCall)cExprAssignment_1_1.eContents().get(0);
+		
+		//BlockOrPossibleBar:
+		//	block=Block | "|"? expr=Expression;
+		public ParserRule getRule() { return rule; }
+
+		//block=Block | "|"? expr=Expression
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//block=Block
+		public Assignment getBlockAssignment_0() { return cBlockAssignment_0; }
+
+		//Block
+		public RuleCall getBlockBlockParserRuleCall_0_0() { return cBlockBlockParserRuleCall_0_0; }
+
+		//"|"? expr=Expression
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"|"?
 		public Keyword getVerticalLineKeyword_1_0() { return cVerticalLineKeyword_1_0; }
 
 		//expr=Expression
@@ -3536,6 +3589,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	private ArrowOpElements pArrowOp;
 	private BlockElements pBlock;
 	private BlockOrBarElements pBlockOrBar;
+	private BlockOrPossibleBarElements pBlockOrPossibleBar;
 	private OpenNameElements pOpenName;
 	private FactNameElements pFactName;
 	private AssertionNameElements pAssertionName;
@@ -3878,7 +3932,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//TerminalExpression returns Expression:
 	//	{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar //1./
 	//	//2./
-	//	//2./ and 3./
+	//	//2./ and 3./	
 	//	//9./
 	//	//10./
 	//	//11./
@@ -3889,14 +3943,14 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	//16./
 	//	//17./
 	//	//18./
-	//	| {Expression} quant=Quant decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar | {Expression} unOp=UnOp
-	//	expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
-	//	| expr+=Expression) | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression} none="none" | {Expression}
-	//	iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?) | int="Int" | {Expression}
-	//	seq="seq/Int" | {Expression} parO="(" expr+=Expression parF=")" | {Expression} "@"? "int"? ((asname=AsName | "fun" |
-	//	"pred" | "this") "/")? (nameRef=[ReferencesName] | "this") | {Expression} block+=Block | {Expression}
-	//	leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
-	//	rightCurlyBracket=RightCurlyBracket;
+	//	| {Expression} quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? |
+	//	{Expression} unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma
+	//	decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER |
+	//	{Expression} none="none" | {Expression} iden="iden" | {Expression} univ="univ" | {Expression} (int="int"
+	//	nameRef=[ReferencesName]?) | int="Int" | {Expression} seq="seq/Int" | {Expression} parO="(" expr+=Expression parF=")"
+	//	| {Expression} "@"? "int"? ((asname=AsName | "fun" | "pred" | "this") "/")? (nameRef=[ReferencesName] | "this") |
+	//	{Expression} block+=Block | {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)*
+	//	blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket;
 	public TerminalExpressionElements getTerminalExpressionAccess() {
 		return (pTerminalExpression != null) ? pTerminalExpression : (pTerminalExpression = new TerminalExpressionElements());
 	}
@@ -3931,7 +3985,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *
-	//	quant ::= "all" | "no" | "some" | "lone" | "one" | "sum"
+	//	quant ::= "all" | "no" | "some" | "" | "one" | "sum"
 	// * /Quant returns ecore::EString:
 	//	"all" | "sum";
 	public QuantElements getQuantAccess() {
@@ -4024,6 +4078,16 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getBlockOrBarRule() {
 		return getBlockOrBarAccess().getRule();
+	}
+
+	//BlockOrPossibleBar:
+	//	block=Block | "|"? expr=Expression;
+	public BlockOrPossibleBarElements getBlockOrPossibleBarAccess() {
+		return (pBlockOrPossibleBar != null) ? pBlockOrPossibleBar : (pBlockOrPossibleBar = new BlockOrPossibleBarElements());
+	}
+	
+	public ParserRule getBlockOrPossibleBarRule() {
+		return getBlockOrPossibleBarAccess().getRule();
 	}
 
 	/// *

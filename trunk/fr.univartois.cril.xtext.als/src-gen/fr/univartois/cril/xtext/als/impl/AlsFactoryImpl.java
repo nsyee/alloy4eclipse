@@ -94,6 +94,7 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.ARROW_OP: return createArrowOp();
       case AlsPackage.BLOCK: return createBlock();
       case AlsPackage.BLOCK_OR_BAR: return createBlockOrBar();
+      case AlsPackage.BLOCK_OR_POSSIBLE_BAR: return createBlockOrPossibleBar();
       case AlsPackage.OPEN_NAME: return createOpenName();
       case AlsPackage.FACT_NAME: return createFactName();
       case AlsPackage.ASSERTION_NAME: return createAssertionName();
@@ -420,6 +421,17 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     BlockOrBarImpl blockOrBar = new BlockOrBarImpl();
     return blockOrBar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BlockOrPossibleBar createBlockOrPossibleBar()
+  {
+    BlockOrPossibleBarImpl blockOrPossibleBar = new BlockOrPossibleBarImpl();
+    return blockOrPossibleBar;
   }
 
   /**
