@@ -39,7 +39,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
         public InternalAlsParser(TokenStream input) {
             super(input);
-            ruleMemo = new HashMap[298+1];
+            ruleMemo = new HashMap[303+1];
          }
         
 
@@ -4979,31 +4979,6 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         alt40=2;
                         }
                         break;
-                    case RULE_ID:
-                        {
-                        int LA40_6 = input.LA(4);
-
-                        if ( (LA40_6==15||LA40_6==19) ) {
-                            alt40=1;
-                        }
-                        else if ( (LA40_6==EOF||LA40_6==RULE_ID||LA40_6==14||(LA40_6>=17 && LA40_6<=18)||(LA40_6>=20 && LA40_6<=21)||LA40_6==24||LA40_6==28||LA40_6==30||(LA40_6>=32 && LA40_6<=35)||LA40_6==44||(LA40_6>=85 && LA40_6<=87)) ) {
-                            alt40=3;
-                        }
-                        else {
-                            if (backtracking>0) {failed=true; return current;}
-                            NoViableAltException nvae =
-                                new NoViableAltException("2162:1: ( ( () 'for' RULE_INT ( (lv_expect_3_0= ruleExpectation ) )? ) | ( () 'for' RULE_INT 'but' ( (lv_typescope_8_0= ruleTypescope ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_typescope_10_0= ruleTypescope ) ) )* ( (lv_expect_11_0= ruleExpectation ) )? ) | ( () 'for' ( (lv_typescope_14_0= ruleTypescope ) ) ( ( (lv_comma_15_0= ruleComma ) ) ( (lv_typescope_16_0= ruleTypescope ) ) )* ( (lv_expect_17_0= ruleExpectation ) )? ) | ( () ( (lv_expect_19_0= ruleExpectation ) )? ) )", 40, 6, input);
-
-                            throw nvae;
-                        }
-                        }
-                        break;
-                    case 25:
-                    case 26:
-                        {
-                        alt40=3;
-                        }
-                        break;
                     case EOF:
                     case 14:
                     case 17:
@@ -5022,6 +4997,31 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     case 87:
                         {
                         alt40=1;
+                        }
+                        break;
+                    case RULE_ID:
+                        {
+                        int LA40_7 = input.LA(4);
+
+                        if ( (LA40_7==15||LA40_7==19) ) {
+                            alt40=1;
+                        }
+                        else if ( (LA40_7==EOF||LA40_7==RULE_ID||LA40_7==14||(LA40_7>=17 && LA40_7<=18)||(LA40_7>=20 && LA40_7<=21)||LA40_7==24||LA40_7==28||LA40_7==30||(LA40_7>=32 && LA40_7<=35)||LA40_7==44||(LA40_7>=85 && LA40_7<=87)) ) {
+                            alt40=3;
+                        }
+                        else {
+                            if (backtracking>0) {failed=true; return current;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("2162:1: ( ( () 'for' RULE_INT ( (lv_expect_3_0= ruleExpectation ) )? ) | ( () 'for' RULE_INT 'but' ( (lv_typescope_8_0= ruleTypescope ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_typescope_10_0= ruleTypescope ) ) )* ( (lv_expect_11_0= ruleExpectation ) )? ) | ( () 'for' ( (lv_typescope_14_0= ruleTypescope ) ) ( ( (lv_comma_15_0= ruleComma ) ) ( (lv_typescope_16_0= ruleTypescope ) ) )* ( (lv_expect_17_0= ruleExpectation ) )? ) | ( () ( (lv_expect_19_0= ruleExpectation ) )? ) )", 40, 7, input);
+
+                            throw nvae;
+                        }
+                        }
+                        break;
+                    case 25:
+                    case 26:
+                        {
+                        alt40=3;
                         }
                         break;
                     default:
@@ -9458,19 +9458,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTerminalExpression
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3872:1: ruleTerminalExpression returns [EObject current=null] : ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3872:1: ruleTerminalExpression returns [EObject current=null] : ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) ) ;
     public final EObject ruleTerminalExpression() throws RecognitionException {
         EObject current = null;
 
         Token lv_let_1_0=null;
-        Token lv_none_27_0=null;
-        Token lv_iden_29_0=null;
-        Token lv_univ_31_0=null;
-        Token lv_int_33_0=null;
-        Token lv_int_35_0=null;
-        Token lv_seq_37_0=null;
-        Token lv_parO_39_0=null;
-        Token lv_parF_41_0=null;
+        Token lv_none_28_0=null;
+        Token lv_iden_30_0=null;
+        Token lv_univ_32_0=null;
+        Token lv_int_34_0=null;
+        Token lv_int_36_0=null;
+        Token lv_seq_38_0=null;
+        Token lv_parO_40_0=null;
+        Token lv_parF_42_0=null;
         EObject lv_letdecl_2_0 = null;
 
         EObject lv_comma_3_0 = null;
@@ -9489,59 +9489,61 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
         EObject lv_blockOrBar_11_0 = null;
 
-        EObject lv_unOp_13_0 = null;
+        EObject lv_expr_12_0 = null;
 
-        EObject lv_expr_14_0 = null;
+        EObject lv_unOp_14_0 = null;
 
-        EObject lv_common_16_0 = null;
+        EObject lv_expr_15_0 = null;
 
-        EObject lv_decl_17_0 = null;
+        EObject lv_common_17_0 = null;
 
-        EObject lv_comma_18_0 = null;
+        EObject lv_decl_18_0 = null;
 
-        EObject lv_decl_19_0 = null;
+        EObject lv_comma_19_0 = null;
 
-        EObject lv_blockOrBar_20_0 = null;
+        EObject lv_decl_20_0 = null;
 
-        EObject lv_expr_21_0 = null;
+        EObject lv_blockOrBar_21_0 = null;
 
-        EObject lv_expr_40_0 = null;
+        EObject lv_expr_22_0 = null;
 
-        EObject lv_asname_45_0 = null;
+        EObject lv_expr_41_0 = null;
 
-        EObject lv_block_53_0 = null;
+        EObject lv_asname_46_0 = null;
 
-        EObject lv_leftCurlyBracket_55_0 = null;
+        EObject lv_block_54_0 = null;
 
-        EObject lv_decl_56_0 = null;
+        EObject lv_leftCurlyBracket_56_0 = null;
 
-        EObject lv_comma_57_0 = null;
+        EObject lv_decl_57_0 = null;
 
-        EObject lv_decl_58_0 = null;
+        EObject lv_comma_58_0 = null;
 
-        EObject lv_blockOrBar_59_0 = null;
+        EObject lv_decl_59_0 = null;
 
-        EObject lv_rightCurlyBracket_60_0 = null;
+        EObject lv_blockOrBar_60_0 = null;
+
+        EObject lv_rightCurlyBracket_61_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3877:6: ( ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3877:6: ( ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )
-            int alt76=16;
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )
+            int alt79=16;
             switch ( input.LA(1) ) {
             case 44:
                 {
-                alt76=1;
+                alt79=1;
                 }
                 break;
             case 55:
             case 56:
                 {
-                alt76=2;
+                alt79=2;
                 }
                 break;
             case 26:
@@ -9553,7 +9555,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             case 74:
             case 75:
                 {
-                alt76=3;
+                alt79=3;
                 }
                 break;
             case 33:
@@ -9561,48 +9563,48 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             case 35:
             case 76:
                 {
-                alt76=4;
+                alt79=4;
                 }
                 break;
             case RULE_INT:
                 {
-                alt76=5;
+                alt79=5;
                 }
                 break;
             case RULE_NEGATIVE_INTEGER:
                 {
-                alt76=6;
+                alt79=6;
                 }
                 break;
             case 45:
                 {
-                alt76=7;
+                alt79=7;
                 }
                 break;
             case 46:
                 {
-                alt76=8;
+                alt79=8;
                 }
                 break;
             case 47:
                 {
-                alt76=9;
+                alt79=9;
                 }
                 break;
             case 25:
                 {
-                int LA76_10 = input.LA(2);
+                int LA79_10 = input.LA(2);
 
-                if ( (synpred104()) ) {
-                    alt76=10;
+                if ( (synpred109()) ) {
+                    alt79=10;
                 }
-                else if ( (synpred115()) ) {
-                    alt76=14;
+                else if ( (synpred120()) ) {
+                    alt79=14;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )", 76, 10, input);
+                        new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )", 79, 10, input);
 
                     throw nvae;
                 }
@@ -9610,17 +9612,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 break;
             case 48:
                 {
-                alt76=11;
+                alt79=11;
                 }
                 break;
             case 49:
                 {
-                alt76=12;
+                alt79=12;
                 }
                 break;
             case 50:
                 {
-                alt76=13;
+                alt79=13;
                 }
                 break;
             case RULE_ID:
@@ -9629,7 +9631,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             case 52:
             case 53:
                 {
-                alt76=14;
+                alt79=14;
                 }
                 break;
             case 29:
@@ -9665,7 +9667,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 75:
                 case 76:
                     {
-                    alt76=15;
+                    alt79=15;
                     }
                     break;
                 case RULE_ID:
@@ -9730,37 +9732,37 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     case 88:
                     case 89:
                         {
-                        alt76=15;
+                        alt79=15;
                         }
                         break;
                     case 15:
                         {
-                        int LA76_21 = input.LA(4);
+                        int LA79_21 = input.LA(4);
 
-                        if ( (LA76_21==RULE_ID) ) {
-                            int LA76_22 = input.LA(5);
+                        if ( (LA79_21==RULE_ID) ) {
+                            int LA79_22 = input.LA(5);
 
-                            if ( (LA76_22==15||LA76_22==19||LA76_22==30) ) {
-                                alt76=16;
+                            if ( (LA79_22==15||LA79_22==19||LA79_22==30) ) {
+                                alt79=16;
                             }
-                            else if ( ((LA76_22>=RULE_INT && LA76_22<=RULE_NEGATIVE_INTEGER)||(LA76_22>=17 && LA76_22<=18)||(LA76_22>=25 && LA76_22<=27)||LA76_22==29||LA76_22==31||(LA76_22>=33 && LA76_22<=35)||(LA76_22>=37 && LA76_22<=42)||(LA76_22>=44 && LA76_22<=50)||(LA76_22>=52 && LA76_22<=53)||(LA76_22>=55 && LA76_22<=82)||(LA76_22>=88 && LA76_22<=89)) ) {
-                                alt76=15;
+                            else if ( ((LA79_22>=RULE_INT && LA79_22<=RULE_NEGATIVE_INTEGER)||(LA79_22>=17 && LA79_22<=18)||(LA79_22>=25 && LA79_22<=27)||LA79_22==29||LA79_22==31||(LA79_22>=33 && LA79_22<=35)||(LA79_22>=37 && LA79_22<=42)||(LA79_22>=44 && LA79_22<=50)||(LA79_22>=52 && LA79_22<=53)||(LA79_22>=55 && LA79_22<=82)||(LA79_22>=88 && LA79_22<=89)) ) {
+                                alt79=15;
                             }
                             else {
                                 if (backtracking>0) {failed=true; return current;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )", 76, 22, input);
+                                    new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )", 79, 22, input);
 
                                 throw nvae;
                             }
                         }
-                        else if ( (LA76_21==53) ) {
-                            alt76=15;
+                        else if ( (LA79_21==53) ) {
+                            alt79=15;
                         }
                         else {
                             if (backtracking>0) {failed=true; return current;}
                             NoViableAltException nvae =
-                                new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )", 76, 21, input);
+                                new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )", 79, 21, input);
 
                             throw nvae;
                         }
@@ -9769,13 +9771,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     case 19:
                     case 30:
                         {
-                        alt76=16;
+                        alt79=16;
                         }
                         break;
                     default:
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )", 76, 18, input);
+                            new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )", 79, 18, input);
 
                         throw nvae;
                     }
@@ -9785,45 +9787,6 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 53:
                     {
                     switch ( input.LA(3) ) {
-                    case 15:
-                        {
-                        int LA76_21 = input.LA(4);
-
-                        if ( (LA76_21==RULE_ID) ) {
-                            int LA76_22 = input.LA(5);
-
-                            if ( (LA76_22==15||LA76_22==19||LA76_22==30) ) {
-                                alt76=16;
-                            }
-                            else if ( ((LA76_22>=RULE_INT && LA76_22<=RULE_NEGATIVE_INTEGER)||(LA76_22>=17 && LA76_22<=18)||(LA76_22>=25 && LA76_22<=27)||LA76_22==29||LA76_22==31||(LA76_22>=33 && LA76_22<=35)||(LA76_22>=37 && LA76_22<=42)||(LA76_22>=44 && LA76_22<=50)||(LA76_22>=52 && LA76_22<=53)||(LA76_22>=55 && LA76_22<=82)||(LA76_22>=88 && LA76_22<=89)) ) {
-                                alt76=15;
-                            }
-                            else {
-                                if (backtracking>0) {failed=true; return current;}
-                                NoViableAltException nvae =
-                                    new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )", 76, 22, input);
-
-                                throw nvae;
-                            }
-                        }
-                        else if ( (LA76_21==53) ) {
-                            alt76=15;
-                        }
-                        else {
-                            if (backtracking>0) {failed=true; return current;}
-                            NoViableAltException nvae =
-                                new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )", 76, 21, input);
-
-                            throw nvae;
-                        }
-                        }
-                        break;
-                    case 19:
-                    case 30:
-                        {
-                        alt76=16;
-                        }
-                        break;
                     case RULE_INT:
                     case RULE_ID:
                     case RULE_NEGATIVE_INTEGER:
@@ -9883,13 +9846,52 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     case 88:
                     case 89:
                         {
-                        alt76=15;
+                        alt79=15;
+                        }
+                        break;
+                    case 15:
+                        {
+                        int LA79_21 = input.LA(4);
+
+                        if ( (LA79_21==RULE_ID) ) {
+                            int LA79_22 = input.LA(5);
+
+                            if ( (LA79_22==15||LA79_22==19||LA79_22==30) ) {
+                                alt79=16;
+                            }
+                            else if ( ((LA79_22>=RULE_INT && LA79_22<=RULE_NEGATIVE_INTEGER)||(LA79_22>=17 && LA79_22<=18)||(LA79_22>=25 && LA79_22<=27)||LA79_22==29||LA79_22==31||(LA79_22>=33 && LA79_22<=35)||(LA79_22>=37 && LA79_22<=42)||(LA79_22>=44 && LA79_22<=50)||(LA79_22>=52 && LA79_22<=53)||(LA79_22>=55 && LA79_22<=82)||(LA79_22>=88 && LA79_22<=89)) ) {
+                                alt79=15;
+                            }
+                            else {
+                                if (backtracking>0) {failed=true; return current;}
+                                NoViableAltException nvae =
+                                    new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )", 79, 22, input);
+
+                                throw nvae;
+                            }
+                        }
+                        else if ( (LA79_21==53) ) {
+                            alt79=15;
+                        }
+                        else {
+                            if (backtracking>0) {failed=true; return current;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )", 79, 21, input);
+
+                            throw nvae;
+                        }
+                        }
+                        break;
+                    case 19:
+                    case 30:
+                        {
+                        alt79=16;
                         }
                         break;
                     default:
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )", 76, 19, input);
+                            new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )", 79, 19, input);
 
                         throw nvae;
                     }
@@ -9899,13 +9901,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 14:
                 case 54:
                     {
-                    alt76=16;
+                    alt79=16;
                     }
                     break;
                 default:
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )", 76, 15, input);
+                        new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )", 79, 15, input);
 
                     throw nvae;
                 }
@@ -9915,12 +9917,12 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) ) | ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) ) | ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_27_0= 'none' ) ) ) | ( () ( (lv_iden_29_0= 'iden' ) ) ) | ( () ( (lv_univ_31_0= 'univ' ) ) ) | ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_35_0= 'Int' ) ) | ( () ( (lv_seq_37_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_53_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) ) )", 76, 0, input);
+                    new NoViableAltException("3878:1: ( ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) ) | ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? ) | ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) ) | ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? ) | ( () RULE_INT ) | ( () RULE_NEGATIVE_INTEGER ) | ( () ( (lv_none_28_0= 'none' ) ) ) | ( () ( (lv_iden_30_0= 'iden' ) ) ) | ( () ( (lv_univ_32_0= 'univ' ) ) ) | ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) ) | ( (lv_int_36_0= 'Int' ) ) | ( () ( (lv_seq_38_0= 'seq/Int' ) ) ) | ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) ) | ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) | ( () ( (lv_block_54_0= ruleBlock ) ) ) | ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) ) )", 79, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt76) {
+            switch (alt79) {
                 case 1 :
                     // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3878:2: ( () ( (lv_let_1_0= 'let' ) ) ( (lv_letdecl_2_0= ruleLetDecl ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_letdecl_4_0= ruleLetDecl ) ) )* ( (lv_blockOrBar_5_0= ruleBlockOrBar ) ) )
                     {
@@ -10174,10 +10176,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4010:6: ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4010:6: ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4010:6: ( () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4010:7: () ( (lv_quant_7_0= ruleQuant ) ) ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* ( (lv_blockOrBar_11_0= ruleBlockOrBar ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4010:6: ( () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )? )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4010:7: () ( (lv_quant_7_0= ruleQuant ) ) ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )?
                     {
                     // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4010:7: ()
                     // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4011:2: 
@@ -10242,187 +10244,583 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4048:2: ( (lv_decl_8_0= ruleDecl ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4049:1: (lv_decl_8_0= ruleDecl )
-                    {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4049:1: (lv_decl_8_0= ruleDecl )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4050:3: lv_decl_8_0= ruleDecl
-                    {
-                    if ( backtracking==0 ) {
-                       
-                      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_1_2_0(), currentNode); 
-                      	    
-                    }
-                    pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression5537);
-                    lv_decl_8_0=ruleDecl();
-                    _fsp--;
-                    if (failed) return current;
-                    if ( backtracking==0 ) {
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4048:2: ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )?
+                    int alt67=2;
+                    switch ( input.LA(1) ) {
+                        case 14:
+                            {
+                            int LA67_1 = input.LA(2);
 
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		add(
-                      	       			current, 
-                      	       			"decl",
-                      	        		lv_decl_8_0, 
-                      	        		"Decl", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
-                    }
+                            if ( (synpred93()) ) {
+                                alt67=1;
+                            }
+                            }
+                            break;
+                        case 54:
+                            {
+                            alt67=1;
+                            }
+                            break;
+                        case 53:
+                            {
+                            int LA67_3 = input.LA(2);
 
-                    }
+                            if ( (synpred93()) ) {
+                                alt67=1;
+                            }
+                            }
+                            break;
+                        case RULE_ID:
+                            {
+                            int LA67_4 = input.LA(2);
 
-
+                            if ( (synpred93()) ) {
+                                alt67=1;
+                            }
+                            }
+                            break;
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:2: ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )*
-                    loop66:
-                    do {
-                        int alt66=2;
-                        int LA66_0 = input.LA(1);
+                    switch (alt67) {
+                        case 1 :
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4048:3: ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )*
+                            {
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4048:3: ( (lv_decl_8_0= ruleDecl ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4049:1: (lv_decl_8_0= ruleDecl )
+                            {
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4049:1: (lv_decl_8_0= ruleDecl )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4050:3: lv_decl_8_0= ruleDecl
+                            {
+                            if ( backtracking==0 ) {
+                               
+                              	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_1_2_0_0(), currentNode); 
+                              	    
+                            }
+                            pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression5538);
+                            lv_decl_8_0=ruleDecl();
+                            _fsp--;
+                            if (failed) return current;
+                            if ( backtracking==0 ) {
 
-                        if ( (LA66_0==30) ) {
-                            alt66=1;
-                        }
+                              	        if (current==null) {
+                              	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
+                              	            associateNodeWithAstElement(currentNode.getParent(), current);
+                              	        }
+                              	        try {
+                              	       		add(
+                              	       			current, 
+                              	       			"decl",
+                              	        		lv_decl_8_0, 
+                              	        		"Decl", 
+                              	        		currentNode);
+                              	        } catch (ValueConverterException vce) {
+                              				handleValueConverterException(vce);
+                              	        }
+                              	        currentNode = currentNode.getParent();
+                              	    
+                            }
 
-
-                        switch (alt66) {
-                    	case 1 :
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:3: ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) )
-                    	    {
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:3: ( (lv_comma_9_0= ruleComma ) )
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4073:1: (lv_comma_9_0= ruleComma )
-                    	    {
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4073:1: (lv_comma_9_0= ruleComma )
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4074:3: lv_comma_9_0= ruleComma
-                    	    {
-                    	    if ( backtracking==0 ) {
-                    	       
-                    	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_1_3_0_0(), currentNode); 
-                    	      	    
-                    	    }
-                    	    pushFollow(FOLLOW_ruleComma_in_ruleTerminalExpression5559);
-                    	    lv_comma_9_0=ruleComma();
-                    	    _fsp--;
-                    	    if (failed) return current;
-                    	    if ( backtracking==0 ) {
-
-                    	      	        if (current==null) {
-                    	      	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
-                    	      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                    	      	        }
-                    	      	        try {
-                    	      	       		add(
-                    	      	       			current, 
-                    	      	       			"comma",
-                    	      	        		lv_comma_9_0, 
-                    	      	        		"Comma", 
-                    	      	        		currentNode);
-                    	      	        } catch (ValueConverterException vce) {
-                    	      				handleValueConverterException(vce);
-                    	      	        }
-                    	      	        currentNode = currentNode.getParent();
-                    	      	    
-                    	    }
-
-                    	    }
+                            }
 
 
-                    	    }
+                            }
 
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4096:2: ( (lv_decl_10_0= ruleDecl ) )
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4097:1: (lv_decl_10_0= ruleDecl )
-                    	    {
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4097:1: (lv_decl_10_0= ruleDecl )
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4098:3: lv_decl_10_0= ruleDecl
-                    	    {
-                    	    if ( backtracking==0 ) {
-                    	       
-                    	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_1_3_1_0(), currentNode); 
-                    	      	    
-                    	    }
-                    	    pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression5580);
-                    	    lv_decl_10_0=ruleDecl();
-                    	    _fsp--;
-                    	    if (failed) return current;
-                    	    if ( backtracking==0 ) {
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:2: ( ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) ) )*
+                            loop66:
+                            do {
+                                int alt66=2;
+                                int LA66_0 = input.LA(1);
 
-                    	      	        if (current==null) {
-                    	      	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
-                    	      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                    	      	        }
-                    	      	        try {
-                    	      	       		add(
-                    	      	       			current, 
-                    	      	       			"decl",
-                    	      	        		lv_decl_10_0, 
-                    	      	        		"Decl", 
-                    	      	        		currentNode);
-                    	      	        } catch (ValueConverterException vce) {
-                    	      				handleValueConverterException(vce);
-                    	      	        }
-                    	      	        currentNode = currentNode.getParent();
-                    	      	    
-                    	    }
+                                if ( (LA66_0==30) ) {
+                                    int LA66_2 = input.LA(2);
 
-                    	    }
+                                    if ( (synpred92()) ) {
+                                        alt66=1;
+                                    }
 
 
-                    	    }
+                                }
 
 
-                    	    }
-                    	    break;
+                                switch (alt66) {
+                            	case 1 :
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:3: ( (lv_comma_9_0= ruleComma ) ) ( (lv_decl_10_0= ruleDecl ) )
+                            	    {
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:3: ( (lv_comma_9_0= ruleComma ) )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4073:1: (lv_comma_9_0= ruleComma )
+                            	    {
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4073:1: (lv_comma_9_0= ruleComma )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4074:3: lv_comma_9_0= ruleComma
+                            	    {
+                            	    if ( backtracking==0 ) {
+                            	       
+                            	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_1_2_1_0_0(), currentNode); 
+                            	      	    
+                            	    }
+                            	    pushFollow(FOLLOW_ruleComma_in_ruleTerminalExpression5560);
+                            	    lv_comma_9_0=ruleComma();
+                            	    _fsp--;
+                            	    if (failed) return current;
+                            	    if ( backtracking==0 ) {
 
-                    	default :
-                    	    break loop66;
-                        }
-                    } while (true);
+                            	      	        if (current==null) {
+                            	      	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
+                            	      	            associateNodeWithAstElement(currentNode.getParent(), current);
+                            	      	        }
+                            	      	        try {
+                            	      	       		add(
+                            	      	       			current, 
+                            	      	       			"comma",
+                            	      	        		lv_comma_9_0, 
+                            	      	        		"Comma", 
+                            	      	        		currentNode);
+                            	      	        } catch (ValueConverterException vce) {
+                            	      				handleValueConverterException(vce);
+                            	      	        }
+                            	      	        currentNode = currentNode.getParent();
+                            	      	    
+                            	    }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4120:4: ( (lv_blockOrBar_11_0= ruleBlockOrBar ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4121:1: (lv_blockOrBar_11_0= ruleBlockOrBar )
-                    {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4121:1: (lv_blockOrBar_11_0= ruleBlockOrBar )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4122:3: lv_blockOrBar_11_0= ruleBlockOrBar
-                    {
-                    if ( backtracking==0 ) {
-                       
-                      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_1_4_0(), currentNode); 
-                      	    
+                            	    }
+
+
+                            	    }
+
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4096:2: ( (lv_decl_10_0= ruleDecl ) )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4097:1: (lv_decl_10_0= ruleDecl )
+                            	    {
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4097:1: (lv_decl_10_0= ruleDecl )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4098:3: lv_decl_10_0= ruleDecl
+                            	    {
+                            	    if ( backtracking==0 ) {
+                            	       
+                            	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_1_2_1_1_0(), currentNode); 
+                            	      	    
+                            	    }
+                            	    pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression5581);
+                            	    lv_decl_10_0=ruleDecl();
+                            	    _fsp--;
+                            	    if (failed) return current;
+                            	    if ( backtracking==0 ) {
+
+                            	      	        if (current==null) {
+                            	      	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
+                            	      	            associateNodeWithAstElement(currentNode.getParent(), current);
+                            	      	        }
+                            	      	        try {
+                            	      	       		add(
+                            	      	       			current, 
+                            	      	       			"decl",
+                            	      	        		lv_decl_10_0, 
+                            	      	        		"Decl", 
+                            	      	        		currentNode);
+                            	      	        } catch (ValueConverterException vce) {
+                            	      				handleValueConverterException(vce);
+                            	      	        }
+                            	      	        currentNode = currentNode.getParent();
+                            	      	    
+                            	    }
+
+                            	    }
+
+
+                            	    }
+
+
+                            	    }
+                            	    break;
+
+                            	default :
+                            	    break loop66;
+                                }
+                            } while (true);
+
+
+                            }
+                            break;
+
                     }
-                    pushFollow(FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression5603);
-                    lv_blockOrBar_11_0=ruleBlockOrBar();
-                    _fsp--;
-                    if (failed) return current;
-                    if ( backtracking==0 ) {
 
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		add(
-                      	       			current, 
-                      	       			"blockOrBar",
-                      	        		lv_blockOrBar_11_0, 
-                      	        		"BlockOrBar", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4120:6: ( ( (lv_blockOrBar_11_0= ruleBlockOrBar ) ) | ( (lv_expr_12_0= ruleExpression ) ) )?
+                    int alt68=3;
+                    switch ( input.LA(1) ) {
+                        case 29:
+                            {
+                            int LA68_1 = input.LA(2);
+
+                            if ( (synpred94()) ) {
+                                alt68=1;
+                            }
+                            else if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 83:
+                            {
+                            int LA68_2 = input.LA(2);
+
+                            if ( (synpred94()) ) {
+                                alt68=1;
+                            }
+                            }
+                            break;
+                        case 44:
+                            {
+                            int LA68_3 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 55:
+                            {
+                            int LA68_4 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 56:
+                            {
+                            int LA68_5 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 40:
+                            {
+                            int LA68_6 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 71:
+                            {
+                            int LA68_7 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 26:
+                            {
+                            int LA68_8 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 39:
+                            {
+                            int LA68_9 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 72:
+                            {
+                            int LA68_10 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 73:
+                            {
+                            int LA68_11 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 74:
+                            {
+                            int LA68_12 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 75:
+                            {
+                            int LA68_13 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 76:
+                            {
+                            int LA68_14 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 35:
+                            {
+                            int LA68_15 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 33:
+                            {
+                            int LA68_16 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 34:
+                            {
+                            int LA68_17 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case RULE_INT:
+                            {
+                            int LA68_18 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case RULE_NEGATIVE_INTEGER:
+                            {
+                            int LA68_19 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 45:
+                            {
+                            int LA68_20 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 46:
+                            {
+                            int LA68_21 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 47:
+                            {
+                            int LA68_22 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 25:
+                            {
+                            int LA68_23 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 48:
+                            {
+                            int LA68_24 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 49:
+                            {
+                            int LA68_25 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 50:
+                            {
+                            int LA68_26 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 52:
+                            {
+                            int LA68_27 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case RULE_ID:
+                            {
+                            int LA68_28 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 17:
+                            {
+                            int LA68_29 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 18:
+                            {
+                            int LA68_30 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
+                        case 53:
+                            {
+                            int LA68_31 = input.LA(2);
+
+                            if ( (synpred95()) ) {
+                                alt68=2;
+                            }
+                            }
+                            break;
                     }
 
-                    }
+                    switch (alt68) {
+                        case 1 :
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4120:7: ( (lv_blockOrBar_11_0= ruleBlockOrBar ) )
+                            {
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4120:7: ( (lv_blockOrBar_11_0= ruleBlockOrBar ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4121:1: (lv_blockOrBar_11_0= ruleBlockOrBar )
+                            {
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4121:1: (lv_blockOrBar_11_0= ruleBlockOrBar )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4122:3: lv_blockOrBar_11_0= ruleBlockOrBar
+                            {
+                            if ( backtracking==0 ) {
+                               
+                              	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_1_3_0_0(), currentNode); 
+                              	    
+                            }
+                            pushFollow(FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression5607);
+                            lv_blockOrBar_11_0=ruleBlockOrBar();
+                            _fsp--;
+                            if (failed) return current;
+                            if ( backtracking==0 ) {
 
+                              	        if (current==null) {
+                              	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
+                              	            associateNodeWithAstElement(currentNode.getParent(), current);
+                              	        }
+                              	        try {
+                              	       		add(
+                              	       			current, 
+                              	       			"blockOrBar",
+                              	        		lv_blockOrBar_11_0, 
+                              	        		"BlockOrBar", 
+                              	        		currentNode);
+                              	        } catch (ValueConverterException vce) {
+                              				handleValueConverterException(vce);
+                              	        }
+                              	        currentNode = currentNode.getParent();
+                              	    
+                            }
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+                        case 2 :
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4145:6: ( (lv_expr_12_0= ruleExpression ) )
+                            {
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4145:6: ( (lv_expr_12_0= ruleExpression ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4146:1: (lv_expr_12_0= ruleExpression )
+                            {
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4146:1: (lv_expr_12_0= ruleExpression )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4147:3: lv_expr_12_0= ruleExpression
+                            {
+                            if ( backtracking==0 ) {
+                               
+                              	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_1_3_1_0(), currentNode); 
+                              	    
+                            }
+                            pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression5634);
+                            lv_expr_12_0=ruleExpression();
+                            _fsp--;
+                            if (failed) return current;
+                            if ( backtracking==0 ) {
+
+                              	        if (current==null) {
+                              	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
+                              	            associateNodeWithAstElement(currentNode.getParent(), current);
+                              	        }
+                              	        try {
+                              	       		add(
+                              	       			current, 
+                              	       			"expr",
+                              	        		lv_expr_12_0, 
+                              	        		"Expression", 
+                              	        		currentNode);
+                              	        } catch (ValueConverterException vce) {
+                              				handleValueConverterException(vce);
+                              	        }
+                              	        currentNode = currentNode.getParent();
+                              	    
+                            }
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
 
                     }
 
@@ -10433,13 +10831,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4145:6: ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4170:6: ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4145:6: ( () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4145:7: () ( (lv_unOp_13_0= ruleUnOp ) ) ( (lv_expr_14_0= ruleExpression ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4170:6: ( () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4170:7: () ( (lv_unOp_14_0= ruleUnOp ) ) ( (lv_expr_15_0= ruleExpression ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4145:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4146:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4170:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4171:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -10461,19 +10859,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4159:2: ( (lv_unOp_13_0= ruleUnOp ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4160:1: (lv_unOp_13_0= ruleUnOp )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4184:2: ( (lv_unOp_14_0= ruleUnOp ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4185:1: (lv_unOp_14_0= ruleUnOp )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4160:1: (lv_unOp_13_0= ruleUnOp )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4161:3: lv_unOp_13_0= ruleUnOp
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4185:1: (lv_unOp_14_0= ruleUnOp )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4186:3: lv_unOp_14_0= ruleUnOp
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getUnOpUnOpParserRuleCall_2_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleUnOp_in_ruleTerminalExpression5644);
-                    lv_unOp_13_0=ruleUnOp();
+                    pushFollow(FOLLOW_ruleUnOp_in_ruleTerminalExpression5677);
+                    lv_unOp_14_0=ruleUnOp();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -10486,7 +10884,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	       		set(
                       	       			current, 
                       	       			"unOp",
-                      	        		lv_unOp_13_0, 
+                      	        		lv_unOp_14_0, 
                       	        		"UnOp", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -10501,19 +10899,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4183:2: ( (lv_expr_14_0= ruleExpression ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4184:1: (lv_expr_14_0= ruleExpression )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4208:2: ( (lv_expr_15_0= ruleExpression ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4209:1: (lv_expr_15_0= ruleExpression )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4184:1: (lv_expr_14_0= ruleExpression )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4185:3: lv_expr_14_0= ruleExpression
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4209:1: (lv_expr_15_0= ruleExpression )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4210:3: lv_expr_15_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_2_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression5665);
-                    lv_expr_14_0=ruleExpression();
+                    pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression5698);
+                    lv_expr_15_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -10526,7 +10924,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	       		add(
                       	       			current, 
                       	       			"expr",
-                      	        		lv_expr_14_0, 
+                      	        		lv_expr_15_0, 
                       	        		"Expression", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -10548,13 +10946,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4208:6: ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4233:6: ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4208:6: ( () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4208:7: () ( (lv_common_16_0= ruleCommonQuantUnOp ) ) ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4233:6: ( () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )? )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4233:7: () ( (lv_common_17_0= ruleCommonQuantUnOp ) ) ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )? ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )?
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4208:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4209:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4233:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4234:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -10576,19 +10974,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4222:2: ( (lv_common_16_0= ruleCommonQuantUnOp ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4223:1: (lv_common_16_0= ruleCommonQuantUnOp )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4247:2: ( (lv_common_17_0= ruleCommonQuantUnOp ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4248:1: (lv_common_17_0= ruleCommonQuantUnOp )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4223:1: (lv_common_16_0= ruleCommonQuantUnOp )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4224:3: lv_common_16_0= ruleCommonQuantUnOp
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4248:1: (lv_common_17_0= ruleCommonQuantUnOp )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4249:3: lv_common_17_0= ruleCommonQuantUnOp
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommonCommonQuantUnOpParserRuleCall_3_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleCommonQuantUnOp_in_ruleTerminalExpression5706);
-                    lv_common_16_0=ruleCommonQuantUnOp();
+                    pushFollow(FOLLOW_ruleCommonQuantUnOp_in_ruleTerminalExpression5739);
+                    lv_common_17_0=ruleCommonQuantUnOp();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -10601,7 +10999,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	       		add(
                       	       			current, 
                       	       			"common",
-                      	        		lv_common_16_0, 
+                      	        		lv_common_17_0, 
                       	        		"CommonQuantUnOp", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -10616,113 +11014,60 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:2: ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) )
-                    int alt68=2;
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:2: ( ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )* )?
+                    int alt70=2;
                     switch ( input.LA(1) ) {
-                    case 14:
-                    case 54:
-                        {
-                        alt68=1;
-                        }
-                        break;
-                    case 53:
-                        {
-                        int LA68_3 = input.LA(2);
+                        case 14:
+                            {
+                            int LA70_1 = input.LA(2);
 
-                        if ( (synpred96()) ) {
-                            alt68=1;
-                        }
-                        else if ( (true) ) {
-                            alt68=2;
-                        }
-                        else {
-                            if (backtracking>0) {failed=true; return current;}
-                            NoViableAltException nvae =
-                                new NoViableAltException("4246:2: ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) )", 68, 3, input);
+                            if ( (synpred99()) ) {
+                                alt70=1;
+                            }
+                            }
+                            break;
+                        case 54:
+                            {
+                            alt70=1;
+                            }
+                            break;
+                        case 53:
+                            {
+                            int LA70_3 = input.LA(2);
 
-                            throw nvae;
-                        }
-                        }
-                        break;
-                    case RULE_ID:
-                        {
-                        int LA68_4 = input.LA(2);
+                            if ( (synpred99()) ) {
+                                alt70=1;
+                            }
+                            }
+                            break;
+                        case RULE_ID:
+                            {
+                            int LA70_4 = input.LA(2);
 
-                        if ( (synpred96()) ) {
-                            alt68=1;
-                        }
-                        else if ( (true) ) {
-                            alt68=2;
-                        }
-                        else {
-                            if (backtracking>0) {failed=true; return current;}
-                            NoViableAltException nvae =
-                                new NoViableAltException("4246:2: ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) )", 68, 4, input);
-
-                            throw nvae;
-                        }
-                        }
-                        break;
-                    case RULE_INT:
-                    case RULE_NEGATIVE_INTEGER:
-                    case 17:
-                    case 18:
-                    case 25:
-                    case 26:
-                    case 29:
-                    case 33:
-                    case 34:
-                    case 35:
-                    case 39:
-                    case 40:
-                    case 44:
-                    case 45:
-                    case 46:
-                    case 47:
-                    case 48:
-                    case 49:
-                    case 50:
-                    case 52:
-                    case 55:
-                    case 56:
-                    case 71:
-                    case 72:
-                    case 73:
-                    case 74:
-                    case 75:
-                    case 76:
-                        {
-                        alt68=2;
-                        }
-                        break;
-                    default:
-                        if (backtracking>0) {failed=true; return current;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("4246:2: ( ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) ) | ( (lv_expr_21_0= ruleExpression ) ) )", 68, 0, input);
-
-                        throw nvae;
+                            if ( (synpred99()) ) {
+                                alt70=1;
+                            }
+                            }
+                            break;
                     }
 
-                    switch (alt68) {
+                    switch (alt70) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:3: ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:3: ( (lv_decl_18_0= ruleDecl ) ) ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )*
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:3: ( ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) ) )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:4: ( (lv_decl_17_0= ruleDecl ) ) ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )* ( (lv_blockOrBar_20_0= ruleBlockOrBar ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:3: ( (lv_decl_18_0= ruleDecl ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4272:1: (lv_decl_18_0= ruleDecl )
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:4: ( (lv_decl_17_0= ruleDecl ) )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4247:1: (lv_decl_17_0= ruleDecl )
-                            {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4247:1: (lv_decl_17_0= ruleDecl )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4248:3: lv_decl_17_0= ruleDecl
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4272:1: (lv_decl_18_0= ruleDecl )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4273:3: lv_decl_18_0= ruleDecl
                             {
                             if ( backtracking==0 ) {
                                
-                              	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_3_2_0_0_0(), currentNode); 
+                              	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_3_2_0_0(), currentNode); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression5729);
-                            lv_decl_17_0=ruleDecl();
+                            pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression5761);
+                            lv_decl_18_0=ruleDecl();
                             _fsp--;
                             if (failed) return current;
                             if ( backtracking==0 ) {
@@ -10735,7 +11080,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               	       		add(
                               	       			current, 
                               	       			"decl",
-                              	        		lv_decl_17_0, 
+                              	        		lv_decl_18_0, 
                               	        		"Decl", 
                               	        		currentNode);
                               	        } catch (ValueConverterException vce) {
@@ -10750,34 +11095,40 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4270:2: ( ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) ) )*
-                            loop67:
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:2: ( ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) ) )*
+                            loop69:
                             do {
-                                int alt67=2;
-                                int LA67_0 = input.LA(1);
+                                int alt69=2;
+                                int LA69_0 = input.LA(1);
 
-                                if ( (LA67_0==30) ) {
-                                    alt67=1;
+                                if ( (LA69_0==30) ) {
+                                    int LA69_2 = input.LA(2);
+
+                                    if ( (synpred98()) ) {
+                                        alt69=1;
+                                    }
+
+
                                 }
 
 
-                                switch (alt67) {
+                                switch (alt69) {
                             	case 1 :
-                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4270:3: ( (lv_comma_18_0= ruleComma ) ) ( (lv_decl_19_0= ruleDecl ) )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:3: ( (lv_comma_19_0= ruleComma ) ) ( (lv_decl_20_0= ruleDecl ) )
                             	    {
-                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4270:3: ( (lv_comma_18_0= ruleComma ) )
-                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:1: (lv_comma_18_0= ruleComma )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:3: ( (lv_comma_19_0= ruleComma ) )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4296:1: (lv_comma_19_0= ruleComma )
                             	    {
-                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:1: (lv_comma_18_0= ruleComma )
-                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4272:3: lv_comma_18_0= ruleComma
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4296:1: (lv_comma_19_0= ruleComma )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4297:3: lv_comma_19_0= ruleComma
                             	    {
                             	    if ( backtracking==0 ) {
                             	       
-                            	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_3_2_0_1_0_0(), currentNode); 
+                            	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_3_2_1_0_0(), currentNode); 
                             	      	    
                             	    }
-                            	    pushFollow(FOLLOW_ruleComma_in_ruleTerminalExpression5751);
-                            	    lv_comma_18_0=ruleComma();
+                            	    pushFollow(FOLLOW_ruleComma_in_ruleTerminalExpression5783);
+                            	    lv_comma_19_0=ruleComma();
                             	    _fsp--;
                             	    if (failed) return current;
                             	    if ( backtracking==0 ) {
@@ -10790,7 +11141,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             	      	       		add(
                             	      	       			current, 
                             	      	       			"comma",
-                            	      	        		lv_comma_18_0, 
+                            	      	        		lv_comma_19_0, 
                             	      	        		"Comma", 
                             	      	        		currentNode);
                             	      	        } catch (ValueConverterException vce) {
@@ -10805,19 +11156,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                             	    }
 
-                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4294:2: ( (lv_decl_19_0= ruleDecl ) )
-                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:1: (lv_decl_19_0= ruleDecl )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4319:2: ( (lv_decl_20_0= ruleDecl ) )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4320:1: (lv_decl_20_0= ruleDecl )
                             	    {
-                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:1: (lv_decl_19_0= ruleDecl )
-                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4296:3: lv_decl_19_0= ruleDecl
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4320:1: (lv_decl_20_0= ruleDecl )
+                            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4321:3: lv_decl_20_0= ruleDecl
                             	    {
                             	    if ( backtracking==0 ) {
                             	       
-                            	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_3_2_0_1_1_0(), currentNode); 
+                            	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_3_2_1_1_0(), currentNode); 
                             	      	    
                             	    }
-                            	    pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression5772);
-                            	    lv_decl_19_0=ruleDecl();
+                            	    pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression5804);
+                            	    lv_decl_20_0=ruleDecl();
                             	    _fsp--;
                             	    if (failed) return current;
                             	    if ( backtracking==0 ) {
@@ -10830,7 +11181,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             	      	       		add(
                             	      	       			current, 
                             	      	       			"decl",
-                            	      	        		lv_decl_19_0, 
+                            	      	        		lv_decl_20_0, 
                             	      	        		"Decl", 
                             	      	        		currentNode);
                             	      	        } catch (ValueConverterException vce) {
@@ -10850,23 +11201,320 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             	    break;
 
                             	default :
-                            	    break loop67;
+                            	    break loop69;
                                 }
                             } while (true);
 
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4318:4: ( (lv_blockOrBar_20_0= ruleBlockOrBar ) )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4319:1: (lv_blockOrBar_20_0= ruleBlockOrBar )
+
+                            }
+                            break;
+
+                    }
+
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4343:6: ( ( (lv_blockOrBar_21_0= ruleBlockOrBar ) ) | ( (lv_expr_22_0= ruleExpression ) ) )?
+                    int alt71=3;
+                    switch ( input.LA(1) ) {
+                        case 29:
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4319:1: (lv_blockOrBar_20_0= ruleBlockOrBar )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4320:3: lv_blockOrBar_20_0= ruleBlockOrBar
+                            int LA71_1 = input.LA(2);
+
+                            if ( (synpred100()) ) {
+                                alt71=1;
+                            }
+                            else if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 83:
+                            {
+                            int LA71_2 = input.LA(2);
+
+                            if ( (synpred100()) ) {
+                                alt71=1;
+                            }
+                            }
+                            break;
+                        case 44:
+                            {
+                            int LA71_3 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 55:
+                            {
+                            int LA71_4 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 56:
+                            {
+                            int LA71_5 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 40:
+                            {
+                            int LA71_6 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 71:
+                            {
+                            int LA71_7 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 26:
+                            {
+                            int LA71_8 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 39:
+                            {
+                            int LA71_9 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 72:
+                            {
+                            int LA71_10 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 73:
+                            {
+                            int LA71_11 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 74:
+                            {
+                            int LA71_12 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 75:
+                            {
+                            int LA71_13 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 76:
+                            {
+                            int LA71_14 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 35:
+                            {
+                            int LA71_15 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 33:
+                            {
+                            int LA71_16 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 34:
+                            {
+                            int LA71_17 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case RULE_INT:
+                            {
+                            int LA71_18 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case RULE_NEGATIVE_INTEGER:
+                            {
+                            int LA71_19 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 45:
+                            {
+                            int LA71_20 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 46:
+                            {
+                            int LA71_21 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 47:
+                            {
+                            int LA71_22 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 25:
+                            {
+                            int LA71_23 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 48:
+                            {
+                            int LA71_24 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 49:
+                            {
+                            int LA71_25 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 50:
+                            {
+                            int LA71_26 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 52:
+                            {
+                            int LA71_27 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case RULE_ID:
+                            {
+                            int LA71_28 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 17:
+                            {
+                            int LA71_29 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 18:
+                            {
+                            int LA71_30 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                        case 53:
+                            {
+                            int LA71_31 = input.LA(2);
+
+                            if ( (synpred101()) ) {
+                                alt71=2;
+                            }
+                            }
+                            break;
+                    }
+
+                    switch (alt71) {
+                        case 1 :
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4343:7: ( (lv_blockOrBar_21_0= ruleBlockOrBar ) )
+                            {
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4343:7: ( (lv_blockOrBar_21_0= ruleBlockOrBar ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4344:1: (lv_blockOrBar_21_0= ruleBlockOrBar )
+                            {
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4344:1: (lv_blockOrBar_21_0= ruleBlockOrBar )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4345:3: lv_blockOrBar_21_0= ruleBlockOrBar
                             {
                             if ( backtracking==0 ) {
                                
-                              	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_3_2_0_2_0(), currentNode); 
+                              	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_3_3_0_0(), currentNode); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression5795);
-                            lv_blockOrBar_20_0=ruleBlockOrBar();
+                            pushFollow(FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression5830);
+                            lv_blockOrBar_21_0=ruleBlockOrBar();
                             _fsp--;
                             if (failed) return current;
                             if ( backtracking==0 ) {
@@ -10879,7 +11527,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               	       		add(
                               	       			current, 
                               	       			"blockOrBar",
-                              	        		lv_blockOrBar_20_0, 
+                              	        		lv_blockOrBar_21_0, 
                               	        		"BlockOrBar", 
                               	        		currentNode);
                               	        } catch (ValueConverterException vce) {
@@ -10896,26 +11544,23 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
                             }
-
-
-                            }
                             break;
                         case 2 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4343:6: ( (lv_expr_21_0= ruleExpression ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4368:6: ( (lv_expr_22_0= ruleExpression ) )
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4343:6: ( (lv_expr_21_0= ruleExpression ) )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4344:1: (lv_expr_21_0= ruleExpression )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4368:6: ( (lv_expr_22_0= ruleExpression ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4369:1: (lv_expr_22_0= ruleExpression )
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4344:1: (lv_expr_21_0= ruleExpression )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4345:3: lv_expr_21_0= ruleExpression
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4369:1: (lv_expr_22_0= ruleExpression )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4370:3: lv_expr_22_0= ruleExpression
                             {
                             if ( backtracking==0 ) {
                                
-                              	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_3_2_1_0(), currentNode); 
+                              	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_3_3_1_0(), currentNode); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression5823);
-                            lv_expr_21_0=ruleExpression();
+                            pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression5857);
+                            lv_expr_22_0=ruleExpression();
                             _fsp--;
                             if (failed) return current;
                             if ( backtracking==0 ) {
@@ -10928,7 +11573,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               	       		add(
                               	       			current, 
                               	       			"expr",
-                              	        		lv_expr_21_0, 
+                              	        		lv_expr_22_0, 
                               	        		"Expression", 
                               	        		currentNode);
                               	        } catch (ValueConverterException vce) {
@@ -10956,13 +11601,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4368:6: ( () RULE_INT )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4393:6: ( () RULE_INT )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4368:6: ( () RULE_INT )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4368:7: () RULE_INT
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4393:6: ( () RULE_INT )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4393:7: () RULE_INT
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4368:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4369:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4393:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4394:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -10984,7 +11629,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleTerminalExpression5853); if (failed) return current;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleTerminalExpression5888); if (failed) return current;
                     if ( backtracking==0 ) {
                        
                           createLeafNode(grammarAccess.getTerminalExpressionAccess().getINTTerminalRuleCall_4_1(), null); 
@@ -10997,13 +11642,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4387:6: ( () RULE_NEGATIVE_INTEGER )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4412:6: ( () RULE_NEGATIVE_INTEGER )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4387:6: ( () RULE_NEGATIVE_INTEGER )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4387:7: () RULE_NEGATIVE_INTEGER
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4412:6: ( () RULE_NEGATIVE_INTEGER )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4412:7: () RULE_NEGATIVE_INTEGER
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4387:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4388:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4412:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4413:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11025,7 +11670,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,RULE_NEGATIVE_INTEGER,FOLLOW_RULE_NEGATIVE_INTEGER_in_ruleTerminalExpression5881); if (failed) return current;
+                    match(input,RULE_NEGATIVE_INTEGER,FOLLOW_RULE_NEGATIVE_INTEGER_in_ruleTerminalExpression5916); if (failed) return current;
                     if ( backtracking==0 ) {
                        
                           createLeafNode(grammarAccess.getTerminalExpressionAccess().getNEGATIVE_INTEGERTerminalRuleCall_5_1(), null); 
@@ -11038,13 +11683,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4406:6: ( () ( (lv_none_27_0= 'none' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4431:6: ( () ( (lv_none_28_0= 'none' ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4406:6: ( () ( (lv_none_27_0= 'none' ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4406:7: () ( (lv_none_27_0= 'none' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4431:6: ( () ( (lv_none_28_0= 'none' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4431:7: () ( (lv_none_28_0= 'none' ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4406:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4407:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4431:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4432:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11066,14 +11711,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4420:2: ( (lv_none_27_0= 'none' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4421:1: (lv_none_27_0= 'none' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4445:2: ( (lv_none_28_0= 'none' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4446:1: (lv_none_28_0= 'none' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4421:1: (lv_none_27_0= 'none' )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4422:3: lv_none_27_0= 'none'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4446:1: (lv_none_28_0= 'none' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4447:3: lv_none_28_0= 'none'
                     {
-                    lv_none_27_0=(Token)input.LT(1);
-                    match(input,45,FOLLOW_45_in_ruleTerminalExpression5918); if (failed) return current;
+                    lv_none_28_0=(Token)input.LT(1);
+                    match(input,45,FOLLOW_45_in_ruleTerminalExpression5953); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getNoneNoneKeyword_6_1_0(), "none"); 
@@ -11087,7 +11732,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                       	        
                       	        try {
-                      	       		set(current, "none", lv_none_27_0, "none", lastConsumedNode);
+                      	       		set(current, "none", lv_none_28_0, "none", lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
                       				handleValueConverterException(vce);
                       	        }
@@ -11106,13 +11751,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4442:6: ( () ( (lv_iden_29_0= 'iden' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4467:6: ( () ( (lv_iden_30_0= 'iden' ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4442:6: ( () ( (lv_iden_29_0= 'iden' ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4442:7: () ( (lv_iden_29_0= 'iden' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4467:6: ( () ( (lv_iden_30_0= 'iden' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4467:7: () ( (lv_iden_30_0= 'iden' ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4442:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4443:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4467:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4468:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11134,14 +11779,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4456:2: ( (lv_iden_29_0= 'iden' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4457:1: (lv_iden_29_0= 'iden' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4481:2: ( (lv_iden_30_0= 'iden' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4482:1: (lv_iden_30_0= 'iden' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4457:1: (lv_iden_29_0= 'iden' )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4458:3: lv_iden_29_0= 'iden'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4482:1: (lv_iden_30_0= 'iden' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4483:3: lv_iden_30_0= 'iden'
                     {
-                    lv_iden_29_0=(Token)input.LT(1);
-                    match(input,46,FOLLOW_46_in_ruleTerminalExpression5969); if (failed) return current;
+                    lv_iden_30_0=(Token)input.LT(1);
+                    match(input,46,FOLLOW_46_in_ruleTerminalExpression6004); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getIdenIdenKeyword_7_1_0(), "iden"); 
@@ -11155,7 +11800,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                       	        
                       	        try {
-                      	       		set(current, "iden", lv_iden_29_0, "iden", lastConsumedNode);
+                      	       		set(current, "iden", lv_iden_30_0, "iden", lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
                       				handleValueConverterException(vce);
                       	        }
@@ -11174,13 +11819,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4478:6: ( () ( (lv_univ_31_0= 'univ' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4503:6: ( () ( (lv_univ_32_0= 'univ' ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4478:6: ( () ( (lv_univ_31_0= 'univ' ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4478:7: () ( (lv_univ_31_0= 'univ' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4503:6: ( () ( (lv_univ_32_0= 'univ' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4503:7: () ( (lv_univ_32_0= 'univ' ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4478:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4479:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4503:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4504:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11202,14 +11847,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4492:2: ( (lv_univ_31_0= 'univ' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4493:1: (lv_univ_31_0= 'univ' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4517:2: ( (lv_univ_32_0= 'univ' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4518:1: (lv_univ_32_0= 'univ' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4493:1: (lv_univ_31_0= 'univ' )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4494:3: lv_univ_31_0= 'univ'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4518:1: (lv_univ_32_0= 'univ' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4519:3: lv_univ_32_0= 'univ'
                     {
-                    lv_univ_31_0=(Token)input.LT(1);
-                    match(input,47,FOLLOW_47_in_ruleTerminalExpression6020); if (failed) return current;
+                    lv_univ_32_0=(Token)input.LT(1);
+                    match(input,47,FOLLOW_47_in_ruleTerminalExpression6055); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getUnivUnivKeyword_8_1_0(), "univ"); 
@@ -11223,7 +11868,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                       	        
                       	        try {
-                      	       		set(current, "univ", lv_univ_31_0, "univ", lastConsumedNode);
+                      	       		set(current, "univ", lv_univ_32_0, "univ", lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
                       				handleValueConverterException(vce);
                       	        }
@@ -11242,13 +11887,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4514:6: ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4539:6: ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4514:6: ( () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4514:7: () ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4539:6: ( () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4539:7: () ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4514:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4515:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4539:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4540:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11270,17 +11915,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4528:2: ( ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )? )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4528:3: ( (lv_int_33_0= 'int' ) ) ( ( RULE_ID ) )?
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4553:2: ( ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )? )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4553:3: ( (lv_int_34_0= 'int' ) ) ( ( RULE_ID ) )?
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4528:3: ( (lv_int_33_0= 'int' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4529:1: (lv_int_33_0= 'int' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4553:3: ( (lv_int_34_0= 'int' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4554:1: (lv_int_34_0= 'int' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4529:1: (lv_int_33_0= 'int' )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4530:3: lv_int_33_0= 'int'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4554:1: (lv_int_34_0= 'int' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4555:3: lv_int_34_0= 'int'
                     {
-                    lv_int_33_0=(Token)input.LT(1);
-                    match(input,25,FOLLOW_25_in_ruleTerminalExpression6072); if (failed) return current;
+                    lv_int_34_0=(Token)input.LT(1);
+                    match(input,25,FOLLOW_25_in_ruleTerminalExpression6107); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getIntIntKeyword_9_1_0_0(), "int"); 
@@ -11294,7 +11939,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                       	        
                       	        try {
-                      	       		set(current, "int", lv_int_33_0, "int", lastConsumedNode);
+                      	       		set(current, "int", lv_int_34_0, "int", lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
                       				handleValueConverterException(vce);
                       	        }
@@ -11306,23 +11951,23 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4549:2: ( ( RULE_ID ) )?
-                    int alt69=2;
-                    int LA69_0 = input.LA(1);
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4574:2: ( ( RULE_ID ) )?
+                    int alt72=2;
+                    int LA72_0 = input.LA(1);
 
-                    if ( (LA69_0==RULE_ID) ) {
-                        int LA69_1 = input.LA(2);
+                    if ( (LA72_0==RULE_ID) ) {
+                        int LA72_1 = input.LA(2);
 
-                        if ( (synpred103()) ) {
-                            alt69=1;
+                        if ( (synpred108()) ) {
+                            alt72=1;
                         }
                     }
-                    switch (alt69) {
+                    switch (alt72) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4550:1: ( RULE_ID )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4575:1: ( RULE_ID )
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4550:1: ( RULE_ID )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4551:3: RULE_ID
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4575:1: ( RULE_ID )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4576:3: RULE_ID
                             {
                             if ( backtracking==0 ) {
                                
@@ -11337,7 +11982,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               	        }
                                       
                             }
-                            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTerminalExpression6107); if (failed) return current;
+                            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTerminalExpression6142); if (failed) return current;
                             if ( backtracking==0 ) {
 
                               		createLeafNode(grammarAccess.getTerminalExpressionAccess().getNameRefReferencesNameCrossReference_9_1_1_0(), "nameRef"); 
@@ -11362,16 +12007,16 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4567:6: ( (lv_int_35_0= 'Int' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4592:6: ( (lv_int_36_0= 'Int' ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4567:6: ( (lv_int_35_0= 'Int' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4568:1: (lv_int_35_0= 'Int' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4592:6: ( (lv_int_36_0= 'Int' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4593:1: (lv_int_36_0= 'Int' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4568:1: (lv_int_35_0= 'Int' )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4569:3: lv_int_35_0= 'Int'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4593:1: (lv_int_36_0= 'Int' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4594:3: lv_int_36_0= 'Int'
                     {
-                    lv_int_35_0=(Token)input.LT(1);
-                    match(input,48,FOLLOW_48_in_ruleTerminalExpression6134); if (failed) return current;
+                    lv_int_36_0=(Token)input.LT(1);
+                    match(input,48,FOLLOW_48_in_ruleTerminalExpression6169); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getIntIntKeyword_10_0(), "int"); 
@@ -11385,7 +12030,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                       	        
                       	        try {
-                      	       		set(current, "int", lv_int_35_0, "Int", lastConsumedNode);
+                      	       		set(current, "int", lv_int_36_0, "Int", lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
                       				handleValueConverterException(vce);
                       	        }
@@ -11401,13 +12046,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4589:6: ( () ( (lv_seq_37_0= 'seq/Int' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4614:6: ( () ( (lv_seq_38_0= 'seq/Int' ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4589:6: ( () ( (lv_seq_37_0= 'seq/Int' ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4589:7: () ( (lv_seq_37_0= 'seq/Int' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4614:6: ( () ( (lv_seq_38_0= 'seq/Int' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4614:7: () ( (lv_seq_38_0= 'seq/Int' ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4589:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4590:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4614:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4615:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11429,14 +12074,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4603:2: ( (lv_seq_37_0= 'seq/Int' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4604:1: (lv_seq_37_0= 'seq/Int' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4628:2: ( (lv_seq_38_0= 'seq/Int' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4629:1: (lv_seq_38_0= 'seq/Int' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4604:1: (lv_seq_37_0= 'seq/Int' )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4605:3: lv_seq_37_0= 'seq/Int'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4629:1: (lv_seq_38_0= 'seq/Int' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4630:3: lv_seq_38_0= 'seq/Int'
                     {
-                    lv_seq_37_0=(Token)input.LT(1);
-                    match(input,49,FOLLOW_49_in_ruleTerminalExpression6184); if (failed) return current;
+                    lv_seq_38_0=(Token)input.LT(1);
+                    match(input,49,FOLLOW_49_in_ruleTerminalExpression6219); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getSeqSeqIntKeyword_11_1_0(), "seq"); 
@@ -11450,7 +12095,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                       	        
                       	        try {
-                      	       		set(current, "seq", lv_seq_37_0, "seq/Int", lastConsumedNode);
+                      	       		set(current, "seq", lv_seq_38_0, "seq/Int", lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
                       				handleValueConverterException(vce);
                       	        }
@@ -11469,13 +12114,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4625:6: ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4650:6: ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4625:6: ( () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4625:7: () ( (lv_parO_39_0= '(' ) ) ( (lv_expr_40_0= ruleExpression ) ) ( (lv_parF_41_0= ')' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4650:6: ( () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4650:7: () ( (lv_parO_40_0= '(' ) ) ( (lv_expr_41_0= ruleExpression ) ) ( (lv_parF_42_0= ')' ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4625:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4626:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4650:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4651:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11497,14 +12142,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4639:2: ( (lv_parO_39_0= '(' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4640:1: (lv_parO_39_0= '(' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4664:2: ( (lv_parO_40_0= '(' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4665:1: (lv_parO_40_0= '(' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4640:1: (lv_parO_39_0= '(' )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4641:3: lv_parO_39_0= '('
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4665:1: (lv_parO_40_0= '(' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4666:3: lv_parO_40_0= '('
                     {
-                    lv_parO_39_0=(Token)input.LT(1);
-                    match(input,50,FOLLOW_50_in_ruleTerminalExpression6235); if (failed) return current;
+                    lv_parO_40_0=(Token)input.LT(1);
+                    match(input,50,FOLLOW_50_in_ruleTerminalExpression6270); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getParOLeftParenthesisKeyword_12_1_0(), "parO"); 
@@ -11518,7 +12163,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                       	        
                       	        try {
-                      	       		set(current, "parO", lv_parO_39_0, "(", lastConsumedNode);
+                      	       		set(current, "parO", lv_parO_40_0, "(", lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
                       				handleValueConverterException(vce);
                       	        }
@@ -11530,19 +12175,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4660:2: ( (lv_expr_40_0= ruleExpression ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4661:1: (lv_expr_40_0= ruleExpression )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4685:2: ( (lv_expr_41_0= ruleExpression ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4686:1: (lv_expr_41_0= ruleExpression )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4661:1: (lv_expr_40_0= ruleExpression )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4662:3: lv_expr_40_0= ruleExpression
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4686:1: (lv_expr_41_0= ruleExpression )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4687:3: lv_expr_41_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_12_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression6269);
-                    lv_expr_40_0=ruleExpression();
+                    pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression6304);
+                    lv_expr_41_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -11555,7 +12200,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	       		add(
                       	       			current, 
                       	       			"expr",
-                      	        		lv_expr_40_0, 
+                      	        		lv_expr_41_0, 
                       	        		"Expression", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -11570,14 +12215,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4684:2: ( (lv_parF_41_0= ')' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4685:1: (lv_parF_41_0= ')' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4709:2: ( (lv_parF_42_0= ')' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4710:1: (lv_parF_42_0= ')' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4685:1: (lv_parF_41_0= ')' )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4686:3: lv_parF_41_0= ')'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4710:1: (lv_parF_42_0= ')' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4711:3: lv_parF_42_0= ')'
                     {
-                    lv_parF_41_0=(Token)input.LT(1);
-                    match(input,51,FOLLOW_51_in_ruleTerminalExpression6287); if (failed) return current;
+                    lv_parF_42_0=(Token)input.LT(1);
+                    match(input,51,FOLLOW_51_in_ruleTerminalExpression6322); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getParFRightParenthesisKeyword_12_3_0(), "parF"); 
@@ -11591,7 +12236,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                       	        
                       	        try {
-                      	       		set(current, "parF", lv_parF_41_0, ")", lastConsumedNode);
+                      	       		set(current, "parF", lv_parF_42_0, ")", lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
                       				handleValueConverterException(vce);
                       	        }
@@ -11610,13 +12255,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4706:6: ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4731:6: ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4706:6: ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4706:7: () ( '@' )? ( 'int' )? ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4731:6: ( () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4731:7: () ( '@' )? ( 'int' )? ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4706:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4707:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4731:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4732:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11638,18 +12283,18 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4720:2: ( '@' )?
-                    int alt70=2;
-                    int LA70_0 = input.LA(1);
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4745:2: ( '@' )?
+                    int alt73=2;
+                    int LA73_0 = input.LA(1);
 
-                    if ( (LA70_0==52) ) {
-                        alt70=1;
+                    if ( (LA73_0==52) ) {
+                        alt73=1;
                     }
-                    switch (alt70) {
+                    switch (alt73) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4720:4: '@'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4745:4: '@'
                             {
-                            match(input,52,FOLLOW_52_in_ruleTerminalExpression6331); if (failed) return current;
+                            match(input,52,FOLLOW_52_in_ruleTerminalExpression6366); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       createLeafNode(grammarAccess.getTerminalExpressionAccess().getCommercialAtKeyword_13_1(), null); 
@@ -11661,18 +12306,18 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4724:3: ( 'int' )?
-                    int alt71=2;
-                    int LA71_0 = input.LA(1);
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4749:3: ( 'int' )?
+                    int alt74=2;
+                    int LA74_0 = input.LA(1);
 
-                    if ( (LA71_0==25) ) {
-                        alt71=1;
+                    if ( (LA74_0==25) ) {
+                        alt74=1;
                     }
-                    switch (alt71) {
+                    switch (alt74) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4724:5: 'int'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4749:5: 'int'
                             {
-                            match(input,25,FOLLOW_25_in_ruleTerminalExpression6344); if (failed) return current;
+                            match(input,25,FOLLOW_25_in_ruleTerminalExpression6379); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       createLeafNode(grammarAccess.getTerminalExpressionAccess().getIntKeyword_13_2(), null); 
@@ -11684,87 +12329,87 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:3: ( ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )?
-                    int alt73=2;
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:3: ( ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )?
+                    int alt76=2;
                     switch ( input.LA(1) ) {
                         case RULE_ID:
                             {
-                            int LA73_1 = input.LA(2);
+                            int LA76_1 = input.LA(2);
 
-                            if ( (LA73_1==15) ) {
-                                alt73=1;
+                            if ( (LA76_1==15) ) {
+                                alt76=1;
                             }
                             }
                             break;
                         case 17:
                         case 18:
                             {
-                            alt73=1;
+                            alt76=1;
                             }
                             break;
                         case 53:
                             {
-                            int LA73_3 = input.LA(2);
+                            int LA76_3 = input.LA(2);
 
-                            if ( (LA73_3==15) ) {
-                                alt73=1;
+                            if ( (LA76_3==15) ) {
+                                alt76=1;
                             }
                             }
                             break;
                     }
 
-                    switch (alt73) {
+                    switch (alt76) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:4: ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:4: ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/'
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:4: ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' )
-                            int alt72=4;
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:4: ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' )
+                            int alt75=4;
                             switch ( input.LA(1) ) {
                             case RULE_ID:
                                 {
-                                alt72=1;
+                                alt75=1;
                                 }
                                 break;
                             case 17:
                                 {
-                                alt72=2;
+                                alt75=2;
                                 }
                                 break;
                             case 18:
                                 {
-                                alt72=3;
+                                alt75=3;
                                 }
                                 break;
                             case 53:
                                 {
-                                alt72=4;
+                                alt75=4;
                                 }
                                 break;
                             default:
                                 if (backtracking>0) {failed=true; return current;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("4728:4: ( ( (lv_asname_45_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' )", 72, 0, input);
+                                    new NoViableAltException("4753:4: ( ( (lv_asname_46_0= ruleAsName ) ) | 'fun' | 'pred' | 'this' )", 75, 0, input);
 
                                 throw nvae;
                             }
 
-                            switch (alt72) {
+                            switch (alt75) {
                                 case 1 :
-                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:5: ( (lv_asname_45_0= ruleAsName ) )
+                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:5: ( (lv_asname_46_0= ruleAsName ) )
                                     {
-                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:5: ( (lv_asname_45_0= ruleAsName ) )
-                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4729:1: (lv_asname_45_0= ruleAsName )
+                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:5: ( (lv_asname_46_0= ruleAsName ) )
+                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4754:1: (lv_asname_46_0= ruleAsName )
                                     {
-                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4729:1: (lv_asname_45_0= ruleAsName )
-                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4730:3: lv_asname_45_0= ruleAsName
+                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4754:1: (lv_asname_46_0= ruleAsName )
+                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4755:3: lv_asname_46_0= ruleAsName
                                     {
                                     if ( backtracking==0 ) {
                                        
                                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getAsnameAsNameParserRuleCall_13_3_0_0_0(), currentNode); 
                                       	    
                                     }
-                                    pushFollow(FOLLOW_ruleAsName_in_ruleTerminalExpression6369);
-                                    lv_asname_45_0=ruleAsName();
+                                    pushFollow(FOLLOW_ruleAsName_in_ruleTerminalExpression6404);
+                                    lv_asname_46_0=ruleAsName();
                                     _fsp--;
                                     if (failed) return current;
                                     if ( backtracking==0 ) {
@@ -11777,7 +12422,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                       	       		set(
                                       	       			current, 
                                       	       			"asname",
-                                      	        		lv_asname_45_0, 
+                                      	        		lv_asname_46_0, 
                                       	        		"AsName", 
                                       	        		currentNode);
                                       	        } catch (ValueConverterException vce) {
@@ -11796,9 +12441,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                     }
                                     break;
                                 case 2 :
-                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:7: 'fun'
+                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4778:7: 'fun'
                                     {
-                                    match(input,17,FOLLOW_17_in_ruleTerminalExpression6385); if (failed) return current;
+                                    match(input,17,FOLLOW_17_in_ruleTerminalExpression6420); if (failed) return current;
                                     if ( backtracking==0 ) {
 
                                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getFunKeyword_13_3_0_1(), null); 
@@ -11808,9 +12453,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                     }
                                     break;
                                 case 3 :
-                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4758:7: 'pred'
+                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4783:7: 'pred'
                                     {
-                                    match(input,18,FOLLOW_18_in_ruleTerminalExpression6401); if (failed) return current;
+                                    match(input,18,FOLLOW_18_in_ruleTerminalExpression6436); if (failed) return current;
                                     if ( backtracking==0 ) {
 
                                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getPredKeyword_13_3_0_2(), null); 
@@ -11820,9 +12465,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                     }
                                     break;
                                 case 4 :
-                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4763:7: 'this'
+                                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4788:7: 'this'
                                     {
-                                    match(input,53,FOLLOW_53_in_ruleTerminalExpression6417); if (failed) return current;
+                                    match(input,53,FOLLOW_53_in_ruleTerminalExpression6452); if (failed) return current;
                                     if ( backtracking==0 ) {
 
                                               createLeafNode(grammarAccess.getTerminalExpressionAccess().getThisKeyword_13_3_0_3(), null); 
@@ -11834,7 +12479,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            match(input,15,FOLLOW_15_in_ruleTerminalExpression6428); if (failed) return current;
+                            match(input,15,FOLLOW_15_in_ruleTerminalExpression6463); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       createLeafNode(grammarAccess.getTerminalExpressionAccess().getSolidusKeyword_13_3_1(), null); 
@@ -11846,32 +12491,32 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4771:3: ( ( ( RULE_ID ) ) | 'this' )
-                    int alt74=2;
-                    int LA74_0 = input.LA(1);
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4796:3: ( ( ( RULE_ID ) ) | 'this' )
+                    int alt77=2;
+                    int LA77_0 = input.LA(1);
 
-                    if ( (LA74_0==RULE_ID) ) {
-                        alt74=1;
+                    if ( (LA77_0==RULE_ID) ) {
+                        alt77=1;
                     }
-                    else if ( (LA74_0==53) ) {
-                        alt74=2;
+                    else if ( (LA77_0==53) ) {
+                        alt77=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("4771:3: ( ( ( RULE_ID ) ) | 'this' )", 74, 0, input);
+                            new NoViableAltException("4796:3: ( ( ( RULE_ID ) ) | 'this' )", 77, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt74) {
+                    switch (alt77) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4771:4: ( ( RULE_ID ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4796:4: ( ( RULE_ID ) )
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4771:4: ( ( RULE_ID ) )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4772:1: ( RULE_ID )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4796:4: ( ( RULE_ID ) )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4797:1: ( RULE_ID )
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4772:1: ( RULE_ID )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4773:3: RULE_ID
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4797:1: ( RULE_ID )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4798:3: RULE_ID
                             {
                             if ( backtracking==0 ) {
                                
@@ -11886,7 +12531,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               	        }
                                       
                             }
-                            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTerminalExpression6453); if (failed) return current;
+                            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTerminalExpression6488); if (failed) return current;
                             if ( backtracking==0 ) {
 
                               		createLeafNode(grammarAccess.getTerminalExpressionAccess().getNameRefReferencesNameCrossReference_13_4_0_0(), "nameRef"); 
@@ -11902,9 +12547,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4789:7: 'this'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4814:7: 'this'
                             {
-                            match(input,53,FOLLOW_53_in_ruleTerminalExpression6469); if (failed) return current;
+                            match(input,53,FOLLOW_53_in_ruleTerminalExpression6504); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       createLeafNode(grammarAccess.getTerminalExpressionAccess().getThisKeyword_13_4_1(), null); 
@@ -11923,13 +12568,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4794:6: ( () ( (lv_block_53_0= ruleBlock ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4819:6: ( () ( (lv_block_54_0= ruleBlock ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4794:6: ( () ( (lv_block_53_0= ruleBlock ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4794:7: () ( (lv_block_53_0= ruleBlock ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4819:6: ( () ( (lv_block_54_0= ruleBlock ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4819:7: () ( (lv_block_54_0= ruleBlock ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4794:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4795:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4819:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4820:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11951,19 +12596,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4808:2: ( (lv_block_53_0= ruleBlock ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4809:1: (lv_block_53_0= ruleBlock )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4833:2: ( (lv_block_54_0= ruleBlock ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4834:1: (lv_block_54_0= ruleBlock )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4809:1: (lv_block_53_0= ruleBlock )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4810:3: lv_block_53_0= ruleBlock
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4834:1: (lv_block_54_0= ruleBlock )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4835:3: lv_block_54_0= ruleBlock
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockBlockParserRuleCall_14_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleBlock_in_ruleTerminalExpression6511);
-                    lv_block_53_0=ruleBlock();
+                    pushFollow(FOLLOW_ruleBlock_in_ruleTerminalExpression6546);
+                    lv_block_54_0=ruleBlock();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -11976,7 +12621,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	       		add(
                       	       			current, 
                       	       			"block",
-                      	        		lv_block_53_0, 
+                      	        		lv_block_54_0, 
                       	        		"Block", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -11998,13 +12643,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4833:6: ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4858:6: ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4833:6: ( () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4833:7: () ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) ) ( (lv_decl_56_0= ruleDecl ) ) ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )* ( (lv_blockOrBar_59_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4858:6: ( () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4858:7: () ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) ) ( (lv_decl_57_0= ruleDecl ) ) ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )* ( (lv_blockOrBar_60_0= ruleBlockOrBar ) ) ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4833:7: ()
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4834:2: 
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4858:7: ()
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4859:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -12026,19 +12671,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4847:2: ( (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4848:1: (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4872:2: ( (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4873:1: (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4848:1: (lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4849:3: lv_leftCurlyBracket_55_0= ruleLeftCurlyBracket
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4873:1: (lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4874:3: lv_leftCurlyBracket_56_0= ruleLeftCurlyBracket
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getLeftCurlyBracketLeftCurlyBracketParserRuleCall_15_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleLeftCurlyBracket_in_ruleTerminalExpression6552);
-                    lv_leftCurlyBracket_55_0=ruleLeftCurlyBracket();
+                    pushFollow(FOLLOW_ruleLeftCurlyBracket_in_ruleTerminalExpression6587);
+                    lv_leftCurlyBracket_56_0=ruleLeftCurlyBracket();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -12051,7 +12696,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	       		set(
                       	       			current, 
                       	       			"leftCurlyBracket",
-                      	        		lv_leftCurlyBracket_55_0, 
+                      	        		lv_leftCurlyBracket_56_0, 
                       	        		"LeftCurlyBracket", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -12066,19 +12711,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4871:2: ( (lv_decl_56_0= ruleDecl ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4872:1: (lv_decl_56_0= ruleDecl )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4896:2: ( (lv_decl_57_0= ruleDecl ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4897:1: (lv_decl_57_0= ruleDecl )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4872:1: (lv_decl_56_0= ruleDecl )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4873:3: lv_decl_56_0= ruleDecl
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4897:1: (lv_decl_57_0= ruleDecl )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4898:3: lv_decl_57_0= ruleDecl
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_15_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression6573);
-                    lv_decl_56_0=ruleDecl();
+                    pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression6608);
+                    lv_decl_57_0=ruleDecl();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -12091,7 +12736,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	       		add(
                       	       			current, 
                       	       			"decl",
-                      	        		lv_decl_56_0, 
+                      	        		lv_decl_57_0, 
                       	        		"Decl", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -12106,34 +12751,34 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4895:2: ( ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) ) )*
-                    loop75:
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4920:2: ( ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) ) )*
+                    loop78:
                     do {
-                        int alt75=2;
-                        int LA75_0 = input.LA(1);
+                        int alt78=2;
+                        int LA78_0 = input.LA(1);
 
-                        if ( (LA75_0==30) ) {
-                            alt75=1;
+                        if ( (LA78_0==30) ) {
+                            alt78=1;
                         }
 
 
-                        switch (alt75) {
+                        switch (alt78) {
                     	case 1 :
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4895:3: ( (lv_comma_57_0= ruleComma ) ) ( (lv_decl_58_0= ruleDecl ) )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4920:3: ( (lv_comma_58_0= ruleComma ) ) ( (lv_decl_59_0= ruleDecl ) )
                     	    {
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4895:3: ( (lv_comma_57_0= ruleComma ) )
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4896:1: (lv_comma_57_0= ruleComma )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4920:3: ( (lv_comma_58_0= ruleComma ) )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4921:1: (lv_comma_58_0= ruleComma )
                     	    {
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4896:1: (lv_comma_57_0= ruleComma )
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4897:3: lv_comma_57_0= ruleComma
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4921:1: (lv_comma_58_0= ruleComma )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4922:3: lv_comma_58_0= ruleComma
                     	    {
                     	    if ( backtracking==0 ) {
                     	       
                     	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_15_3_0_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleComma_in_ruleTerminalExpression6595);
-                    	    lv_comma_57_0=ruleComma();
+                    	    pushFollow(FOLLOW_ruleComma_in_ruleTerminalExpression6630);
+                    	    lv_comma_58_0=ruleComma();
                     	    _fsp--;
                     	    if (failed) return current;
                     	    if ( backtracking==0 ) {
@@ -12146,7 +12791,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     	      	       		add(
                     	      	       			current, 
                     	      	       			"comma",
-                    	      	        		lv_comma_57_0, 
+                    	      	        		lv_comma_58_0, 
                     	      	        		"Comma", 
                     	      	        		currentNode);
                     	      	        } catch (ValueConverterException vce) {
@@ -12161,19 +12806,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4919:2: ( (lv_decl_58_0= ruleDecl ) )
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4920:1: (lv_decl_58_0= ruleDecl )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4944:2: ( (lv_decl_59_0= ruleDecl ) )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4945:1: (lv_decl_59_0= ruleDecl )
                     	    {
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4920:1: (lv_decl_58_0= ruleDecl )
-                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4921:3: lv_decl_58_0= ruleDecl
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4945:1: (lv_decl_59_0= ruleDecl )
+                    	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4946:3: lv_decl_59_0= ruleDecl
                     	    {
                     	    if ( backtracking==0 ) {
                     	       
                     	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_15_3_1_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression6616);
-                    	    lv_decl_58_0=ruleDecl();
+                    	    pushFollow(FOLLOW_ruleDecl_in_ruleTerminalExpression6651);
+                    	    lv_decl_59_0=ruleDecl();
                     	    _fsp--;
                     	    if (failed) return current;
                     	    if ( backtracking==0 ) {
@@ -12186,7 +12831,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     	      	       		add(
                     	      	       			current, 
                     	      	       			"decl",
-                    	      	        		lv_decl_58_0, 
+                    	      	        		lv_decl_59_0, 
                     	      	        		"Decl", 
                     	      	        		currentNode);
                     	      	        } catch (ValueConverterException vce) {
@@ -12206,23 +12851,23 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop75;
+                    	    break loop78;
                         }
                     } while (true);
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4943:4: ( (lv_blockOrBar_59_0= ruleBlockOrBar ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4944:1: (lv_blockOrBar_59_0= ruleBlockOrBar )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4968:4: ( (lv_blockOrBar_60_0= ruleBlockOrBar ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4969:1: (lv_blockOrBar_60_0= ruleBlockOrBar )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4944:1: (lv_blockOrBar_59_0= ruleBlockOrBar )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4945:3: lv_blockOrBar_59_0= ruleBlockOrBar
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4969:1: (lv_blockOrBar_60_0= ruleBlockOrBar )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4970:3: lv_blockOrBar_60_0= ruleBlockOrBar
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_15_4_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression6639);
-                    lv_blockOrBar_59_0=ruleBlockOrBar();
+                    pushFollow(FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression6674);
+                    lv_blockOrBar_60_0=ruleBlockOrBar();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -12235,7 +12880,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	       		add(
                       	       			current, 
                       	       			"blockOrBar",
-                      	        		lv_blockOrBar_59_0, 
+                      	        		lv_blockOrBar_60_0, 
                       	        		"BlockOrBar", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -12250,19 +12895,19 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4967:2: ( (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4968:1: (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4992:2: ( (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4993:1: (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4968:1: (lv_rightCurlyBracket_60_0= ruleRightCurlyBracket )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4969:3: lv_rightCurlyBracket_60_0= ruleRightCurlyBracket
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4993:1: (lv_rightCurlyBracket_61_0= ruleRightCurlyBracket )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4994:3: lv_rightCurlyBracket_61_0= ruleRightCurlyBracket
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getRightCurlyBracketRightCurlyBracketParserRuleCall_15_5_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleRightCurlyBracket_in_ruleTerminalExpression6660);
-                    lv_rightCurlyBracket_60_0=ruleRightCurlyBracket();
+                    pushFollow(FOLLOW_ruleRightCurlyBracket_in_ruleTerminalExpression6695);
+                    lv_rightCurlyBracket_61_0=ruleRightCurlyBracket();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -12275,7 +12920,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	       		set(
                       	       			current, 
                       	       			"rightCurlyBracket",
-                      	        		lv_rightCurlyBracket_60_0, 
+                      	        		lv_rightCurlyBracket_61_0, 
                       	        		"RightCurlyBracket", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -12321,7 +12966,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDecl
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4999:1: entryRuleDecl returns [EObject current=null] : iv_ruleDecl= ruleDecl EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5024:1: entryRuleDecl returns [EObject current=null] : iv_ruleDecl= ruleDecl EOF ;
     public final EObject entryRuleDecl() throws RecognitionException {
         EObject current = null;
 
@@ -12329,20 +12974,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5000:2: (iv_ruleDecl= ruleDecl EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5001:2: iv_ruleDecl= ruleDecl EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5025:2: (iv_ruleDecl= ruleDecl EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5026:2: iv_ruleDecl= ruleDecl EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDeclRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleDecl_in_entryRuleDecl6697);
+            pushFollow(FOLLOW_ruleDecl_in_entryRuleDecl6732);
             iv_ruleDecl=ruleDecl();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleDecl; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDecl6707); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDecl6742); if (failed) return current;
 
             }
 
@@ -12360,7 +13005,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDecl
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5008:1: ruleDecl returns [EObject current=null] : ( ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5033:1: ruleDecl returns [EObject current=null] : ( ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) ) ) ;
     public final EObject ruleDecl() throws RecognitionException {
         EObject current = null;
 
@@ -12378,24 +13023,24 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5013:6: ( ( ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5014:1: ( ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5038:6: ( ( ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5039:1: ( ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5014:1: ( ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5014:2: ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5039:1: ( ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5039:2: ( 'private' )? ( 'disj' )? ( (lv_propertyName_2_0= rulePropertyName ) ) ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )* ( (lv_colon_5_0= ruleColon ) ) ( 'disj' )? ( (lv_expr_7_0= ruleExpression ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5014:2: ( 'private' )?
-            int alt77=2;
-            int LA77_0 = input.LA(1);
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5039:2: ( 'private' )?
+            int alt80=2;
+            int LA80_0 = input.LA(1);
 
-            if ( (LA77_0==14) ) {
-                alt77=1;
+            if ( (LA80_0==14) ) {
+                alt80=1;
             }
-            switch (alt77) {
+            switch (alt80) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5014:4: 'private'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5039:4: 'private'
                     {
-                    match(input,14,FOLLOW_14_in_ruleDecl6743); if (failed) return current;
+                    match(input,14,FOLLOW_14_in_ruleDecl6778); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getDeclAccess().getPrivateKeyword_0(), null); 
@@ -12407,18 +13052,18 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5018:3: ( 'disj' )?
-            int alt78=2;
-            int LA78_0 = input.LA(1);
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5043:3: ( 'disj' )?
+            int alt81=2;
+            int LA81_0 = input.LA(1);
 
-            if ( (LA78_0==54) ) {
-                alt78=1;
+            if ( (LA81_0==54) ) {
+                alt81=1;
             }
-            switch (alt78) {
+            switch (alt81) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5018:5: 'disj'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5043:5: 'disj'
                     {
-                    match(input,54,FOLLOW_54_in_ruleDecl6756); if (failed) return current;
+                    match(input,54,FOLLOW_54_in_ruleDecl6791); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getDeclAccess().getDisjKeyword_1(), null); 
@@ -12430,18 +13075,18 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5022:3: ( (lv_propertyName_2_0= rulePropertyName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5023:1: (lv_propertyName_2_0= rulePropertyName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5047:3: ( (lv_propertyName_2_0= rulePropertyName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5048:1: (lv_propertyName_2_0= rulePropertyName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5023:1: (lv_propertyName_2_0= rulePropertyName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5024:3: lv_propertyName_2_0= rulePropertyName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5048:1: (lv_propertyName_2_0= rulePropertyName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5049:3: lv_propertyName_2_0= rulePropertyName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getDeclAccess().getPropertyNamePropertyNameParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_rulePropertyName_in_ruleDecl6779);
+            pushFollow(FOLLOW_rulePropertyName_in_ruleDecl6814);
             lv_propertyName_2_0=rulePropertyName();
             _fsp--;
             if (failed) return current;
@@ -12470,33 +13115,33 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5046:2: ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )*
-            loop79:
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5071:2: ( ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) ) )*
+            loop82:
             do {
-                int alt79=2;
-                int LA79_0 = input.LA(1);
+                int alt82=2;
+                int LA82_0 = input.LA(1);
 
-                if ( (LA79_0==30) ) {
-                    alt79=1;
+                if ( (LA82_0==30) ) {
+                    alt82=1;
                 }
 
 
-                switch (alt79) {
+                switch (alt82) {
             	case 1 :
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5046:3: ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) )
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5071:3: ( (lv_comma_3_0= ruleComma ) ) ( (lv_propertyName_4_0= rulePropertyName ) )
             	    {
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5046:3: ( (lv_comma_3_0= ruleComma ) )
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5047:1: (lv_comma_3_0= ruleComma )
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5071:3: ( (lv_comma_3_0= ruleComma ) )
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5072:1: (lv_comma_3_0= ruleComma )
             	    {
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5047:1: (lv_comma_3_0= ruleComma )
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5048:3: lv_comma_3_0= ruleComma
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5072:1: (lv_comma_3_0= ruleComma )
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5073:3: lv_comma_3_0= ruleComma
             	    {
             	    if ( backtracking==0 ) {
             	       
             	      	        currentNode=createCompositeNode(grammarAccess.getDeclAccess().getCommaCommaParserRuleCall_3_0_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleComma_in_ruleDecl6801);
+            	    pushFollow(FOLLOW_ruleComma_in_ruleDecl6836);
             	    lv_comma_3_0=ruleComma();
             	    _fsp--;
             	    if (failed) return current;
@@ -12525,18 +13170,18 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5070:2: ( (lv_propertyName_4_0= rulePropertyName ) )
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5071:1: (lv_propertyName_4_0= rulePropertyName )
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5095:2: ( (lv_propertyName_4_0= rulePropertyName ) )
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5096:1: (lv_propertyName_4_0= rulePropertyName )
             	    {
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5071:1: (lv_propertyName_4_0= rulePropertyName )
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5072:3: lv_propertyName_4_0= rulePropertyName
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5096:1: (lv_propertyName_4_0= rulePropertyName )
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5097:3: lv_propertyName_4_0= rulePropertyName
             	    {
             	    if ( backtracking==0 ) {
             	       
             	      	        currentNode=createCompositeNode(grammarAccess.getDeclAccess().getPropertyNamePropertyNameParserRuleCall_3_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_rulePropertyName_in_ruleDecl6822);
+            	    pushFollow(FOLLOW_rulePropertyName_in_ruleDecl6857);
             	    lv_propertyName_4_0=rulePropertyName();
             	    _fsp--;
             	    if (failed) return current;
@@ -12570,22 +13215,22 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop79;
+            	    break loop82;
                 }
             } while (true);
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5094:4: ( (lv_colon_5_0= ruleColon ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5095:1: (lv_colon_5_0= ruleColon )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5119:4: ( (lv_colon_5_0= ruleColon ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5120:1: (lv_colon_5_0= ruleColon )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5095:1: (lv_colon_5_0= ruleColon )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5096:3: lv_colon_5_0= ruleColon
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5120:1: (lv_colon_5_0= ruleColon )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5121:3: lv_colon_5_0= ruleColon
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getDeclAccess().getColonColonParserRuleCall_4_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleColon_in_ruleDecl6845);
+            pushFollow(FOLLOW_ruleColon_in_ruleDecl6880);
             lv_colon_5_0=ruleColon();
             _fsp--;
             if (failed) return current;
@@ -12614,18 +13259,18 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5118:2: ( 'disj' )?
-            int alt80=2;
-            int LA80_0 = input.LA(1);
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5143:2: ( 'disj' )?
+            int alt83=2;
+            int LA83_0 = input.LA(1);
 
-            if ( (LA80_0==54) ) {
-                alt80=1;
+            if ( (LA83_0==54) ) {
+                alt83=1;
             }
-            switch (alt80) {
+            switch (alt83) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5118:4: 'disj'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5143:4: 'disj'
                     {
-                    match(input,54,FOLLOW_54_in_ruleDecl6856); if (failed) return current;
+                    match(input,54,FOLLOW_54_in_ruleDecl6891); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getDeclAccess().getDisjKeyword_5(), null); 
@@ -12637,18 +13282,18 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5122:3: ( (lv_expr_7_0= ruleExpression ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5123:1: (lv_expr_7_0= ruleExpression )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5147:3: ( (lv_expr_7_0= ruleExpression ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5148:1: (lv_expr_7_0= ruleExpression )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5123:1: (lv_expr_7_0= ruleExpression )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5124:3: lv_expr_7_0= ruleExpression
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5148:1: (lv_expr_7_0= ruleExpression )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5149:3: lv_expr_7_0= ruleExpression
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getDeclAccess().getExprExpressionParserRuleCall_6_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleDecl6879);
+            pushFollow(FOLLOW_ruleExpression_in_ruleDecl6914);
             lv_expr_7_0=ruleExpression();
             _fsp--;
             if (failed) return current;
@@ -12702,7 +13347,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLetDecl
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5154:1: entryRuleLetDecl returns [EObject current=null] : iv_ruleLetDecl= ruleLetDecl EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5179:1: entryRuleLetDecl returns [EObject current=null] : iv_ruleLetDecl= ruleLetDecl EOF ;
     public final EObject entryRuleLetDecl() throws RecognitionException {
         EObject current = null;
 
@@ -12710,20 +13355,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5155:2: (iv_ruleLetDecl= ruleLetDecl EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5156:2: iv_ruleLetDecl= ruleLetDecl EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5180:2: (iv_ruleLetDecl= ruleLetDecl EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5181:2: iv_ruleLetDecl= ruleLetDecl EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLetDeclRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleLetDecl_in_entryRuleLetDecl6915);
+            pushFollow(FOLLOW_ruleLetDecl_in_entryRuleLetDecl6950);
             iv_ruleLetDecl=ruleLetDecl();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleLetDecl; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLetDecl6925); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLetDecl6960); if (failed) return current;
 
             }
 
@@ -12741,7 +13386,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLetDecl
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5163:1: ruleLetDecl returns [EObject current=null] : ( ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5188:1: ruleLetDecl returns [EObject current=null] : ( ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) ) ) ;
     public final EObject ruleLetDecl() throws RecognitionException {
         EObject current = null;
 
@@ -12753,24 +13398,24 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5168:6: ( ( ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5169:1: ( ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5193:6: ( ( ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5194:1: ( ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5169:1: ( ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5169:2: ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5194:1: ( ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5194:2: ( (lv_nameExpression_0_0= rulePropertyName ) ) '=' ( (lv_expr_2_0= ruleExpression ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5169:2: ( (lv_nameExpression_0_0= rulePropertyName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5170:1: (lv_nameExpression_0_0= rulePropertyName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5194:2: ( (lv_nameExpression_0_0= rulePropertyName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5195:1: (lv_nameExpression_0_0= rulePropertyName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5170:1: (lv_nameExpression_0_0= rulePropertyName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5171:3: lv_nameExpression_0_0= rulePropertyName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5195:1: (lv_nameExpression_0_0= rulePropertyName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5196:3: lv_nameExpression_0_0= rulePropertyName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getLetDeclAccess().getNameExpressionPropertyNameParserRuleCall_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_rulePropertyName_in_ruleLetDecl6971);
+            pushFollow(FOLLOW_rulePropertyName_in_ruleLetDecl7006);
             lv_nameExpression_0_0=rulePropertyName();
             _fsp--;
             if (failed) return current;
@@ -12799,24 +13444,24 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,27,FOLLOW_27_in_ruleLetDecl6981); if (failed) return current;
+            match(input,27,FOLLOW_27_in_ruleLetDecl7016); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getLetDeclAccess().getEqualsSignKeyword_1(), null); 
                   
             }
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5197:1: ( (lv_expr_2_0= ruleExpression ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5198:1: (lv_expr_2_0= ruleExpression )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5222:1: ( (lv_expr_2_0= ruleExpression ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5223:1: (lv_expr_2_0= ruleExpression )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5198:1: (lv_expr_2_0= ruleExpression )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5199:3: lv_expr_2_0= ruleExpression
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5223:1: (lv_expr_2_0= ruleExpression )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5224:3: lv_expr_2_0= ruleExpression
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getLetDeclAccess().getExprExpressionParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleLetDecl7002);
+            pushFollow(FOLLOW_ruleExpression_in_ruleLetDecl7037);
             lv_expr_2_0=ruleExpression();
             _fsp--;
             if (failed) return current;
@@ -12870,7 +13515,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleQuant
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5229:1: entryRuleQuant returns [String current=null] : iv_ruleQuant= ruleQuant EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5254:1: entryRuleQuant returns [String current=null] : iv_ruleQuant= ruleQuant EOF ;
     public final String entryRuleQuant() throws RecognitionException {
         String current = null;
 
@@ -12878,20 +13523,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5230:2: (iv_ruleQuant= ruleQuant EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5231:2: iv_ruleQuant= ruleQuant EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5255:2: (iv_ruleQuant= ruleQuant EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5256:2: iv_ruleQuant= ruleQuant EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getQuantRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleQuant_in_entryRuleQuant7039);
+            pushFollow(FOLLOW_ruleQuant_in_entryRuleQuant7074);
             iv_ruleQuant=ruleQuant();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleQuant.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQuant7050); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQuant7085); if (failed) return current;
 
             }
 
@@ -12909,7 +13554,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleQuant
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5238:1: ruleQuant returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'all' | kw= 'sum' ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5263:1: ruleQuant returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'all' | kw= 'sum' ) ;
     public final AntlrDatatypeRuleToken ruleQuant() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -12918,32 +13563,32 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5243:6: ( (kw= 'all' | kw= 'sum' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5244:1: (kw= 'all' | kw= 'sum' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5268:6: ( (kw= 'all' | kw= 'sum' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5269:1: (kw= 'all' | kw= 'sum' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5244:1: (kw= 'all' | kw= 'sum' )
-            int alt81=2;
-            int LA81_0 = input.LA(1);
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5269:1: (kw= 'all' | kw= 'sum' )
+            int alt84=2;
+            int LA84_0 = input.LA(1);
 
-            if ( (LA81_0==55) ) {
-                alt81=1;
+            if ( (LA84_0==55) ) {
+                alt84=1;
             }
-            else if ( (LA81_0==56) ) {
-                alt81=2;
+            else if ( (LA84_0==56) ) {
+                alt84=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("5244:1: (kw= 'all' | kw= 'sum' )", 81, 0, input);
+                    new NoViableAltException("5269:1: (kw= 'all' | kw= 'sum' )", 84, 0, input);
 
                 throw nvae;
             }
-            switch (alt81) {
+            switch (alt84) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5245:2: kw= 'all'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5270:2: kw= 'all'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,55,FOLLOW_55_in_ruleQuant7088); if (failed) return current;
+                    match(input,55,FOLLOW_55_in_ruleQuant7123); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -12954,10 +13599,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5252:2: kw= 'sum'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5277:2: kw= 'sum'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,56,FOLLOW_56_in_ruleQuant7107); if (failed) return current;
+                    match(input,56,FOLLOW_56_in_ruleQuant7142); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -12992,7 +13637,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBinOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5265:1: entryRuleBinOp returns [EObject current=null] : iv_ruleBinOp= ruleBinOp EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5290:1: entryRuleBinOp returns [EObject current=null] : iv_ruleBinOp= ruleBinOp EOF ;
     public final EObject entryRuleBinOp() throws RecognitionException {
         EObject current = null;
 
@@ -13000,20 +13645,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5266:2: (iv_ruleBinOp= ruleBinOp EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5267:2: iv_ruleBinOp= ruleBinOp EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5291:2: (iv_ruleBinOp= ruleBinOp EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5292:2: iv_ruleBinOp= ruleBinOp EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getBinOpRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBinOp_in_entryRuleBinOp7147);
+            pushFollow(FOLLOW_ruleBinOp_in_entryRuleBinOp7182);
             iv_ruleBinOp=ruleBinOp();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleBinOp; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBinOp7157); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBinOp7192); if (failed) return current;
 
             }
 
@@ -13031,7 +13676,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBinOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5274:1: ruleBinOp returns [EObject current=null] : ( () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5299:1: ruleBinOp returns [EObject current=null] : ( () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' ) ) ;
     public final EObject ruleBinOp() throws RecognitionException {
         EObject current = null;
 
@@ -13041,14 +13686,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5279:6: ( ( () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5280:1: ( () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5304:6: ( ( () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5305:1: ( () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5280:1: ( () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5280:2: () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5305:1: ( () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5305:2: () ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5280:2: ()
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5281:2: 
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5305:2: ()
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5306:2: 
             {
             if ( backtracking==0 ) {
                
@@ -13070,102 +13715,102 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5294:2: ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' )
-            int alt82=16;
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5319:2: ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' )
+            int alt85=16;
             switch ( input.LA(1) ) {
             case 57:
                 {
-                alt82=1;
+                alt85=1;
                 }
                 break;
             case 58:
                 {
-                alt82=2;
+                alt85=2;
                 }
                 break;
             case 59:
                 {
-                alt82=3;
+                alt85=3;
                 }
                 break;
             case 60:
                 {
-                alt82=4;
+                alt85=4;
                 }
                 break;
             case 61:
                 {
-                alt82=5;
+                alt85=5;
                 }
                 break;
             case 62:
                 {
-                alt82=6;
+                alt85=6;
                 }
                 break;
             case 63:
                 {
-                alt82=7;
+                alt85=7;
                 }
                 break;
             case 38:
                 {
-                alt82=8;
+                alt85=8;
                 }
                 break;
             case 64:
                 {
-                alt82=9;
+                alt85=9;
                 }
                 break;
             case 65:
                 {
-                alt82=10;
+                alt85=10;
                 }
                 break;
             case 66:
                 {
-                alt82=11;
+                alt85=11;
                 }
                 break;
             case 67:
                 {
-                alt82=12;
+                alt85=12;
                 }
                 break;
             case 88:
                 {
-                alt82=13;
+                alt85=13;
                 }
                 break;
             case 68:
                 {
-                alt82=14;
+                alt85=14;
                 }
                 break;
             case 69:
                 {
-                alt82=15;
+                alt85=15;
                 }
                 break;
             case 70:
                 {
-                alt82=16;
+                alt85=16;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("5294:2: ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' )", 82, 0, input);
+                    new NoViableAltException("5319:2: ( '||' | 'or' | '&&' | 'and' | '&' | '<=>' | 'iff' | '+' | '-' | '++' | '<:' | ':>' | ( (lv_dot_13_0= ruleDot ) ) | '<<' | '>>' | '>>>' )", 85, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt82) {
+            switch (alt85) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5294:4: '||'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5319:4: '||'
                     {
-                    match(input,57,FOLLOW_57_in_ruleBinOp7205); if (failed) return current;
+                    match(input,57,FOLLOW_57_in_ruleBinOp7240); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getVerticalLineVerticalLineKeyword_1_0(), null); 
@@ -13175,9 +13820,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5299:7: 'or'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5324:7: 'or'
                     {
-                    match(input,58,FOLLOW_58_in_ruleBinOp7221); if (failed) return current;
+                    match(input,58,FOLLOW_58_in_ruleBinOp7256); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getOrKeyword_1_1(), null); 
@@ -13187,9 +13832,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5304:7: '&&'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5329:7: '&&'
                     {
-                    match(input,59,FOLLOW_59_in_ruleBinOp7237); if (failed) return current;
+                    match(input,59,FOLLOW_59_in_ruleBinOp7272); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getAmpersandAmpersandKeyword_1_2(), null); 
@@ -13199,9 +13844,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5309:7: 'and'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5334:7: 'and'
                     {
-                    match(input,60,FOLLOW_60_in_ruleBinOp7253); if (failed) return current;
+                    match(input,60,FOLLOW_60_in_ruleBinOp7288); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getAndKeyword_1_3(), null); 
@@ -13211,9 +13856,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5314:7: '&'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5339:7: '&'
                     {
-                    match(input,61,FOLLOW_61_in_ruleBinOp7269); if (failed) return current;
+                    match(input,61,FOLLOW_61_in_ruleBinOp7304); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getAmpersandKeyword_1_4(), null); 
@@ -13223,9 +13868,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5319:7: '<=>'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5344:7: '<=>'
                     {
-                    match(input,62,FOLLOW_62_in_ruleBinOp7285); if (failed) return current;
+                    match(input,62,FOLLOW_62_in_ruleBinOp7320); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getLessThanSignEqualsSignGreaterThanSignKeyword_1_5(), null); 
@@ -13235,9 +13880,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5324:7: 'iff'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5349:7: 'iff'
                     {
-                    match(input,63,FOLLOW_63_in_ruleBinOp7301); if (failed) return current;
+                    match(input,63,FOLLOW_63_in_ruleBinOp7336); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getIffKeyword_1_6(), null); 
@@ -13247,9 +13892,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5329:7: '+'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5354:7: '+'
                     {
-                    match(input,38,FOLLOW_38_in_ruleBinOp7317); if (failed) return current;
+                    match(input,38,FOLLOW_38_in_ruleBinOp7352); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getPlusSignKeyword_1_7(), null); 
@@ -13259,9 +13904,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5334:7: '-'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5359:7: '-'
                     {
-                    match(input,64,FOLLOW_64_in_ruleBinOp7333); if (failed) return current;
+                    match(input,64,FOLLOW_64_in_ruleBinOp7368); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getHyphenMinusKeyword_1_8(), null); 
@@ -13271,9 +13916,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5339:7: '++'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5364:7: '++'
                     {
-                    match(input,65,FOLLOW_65_in_ruleBinOp7349); if (failed) return current;
+                    match(input,65,FOLLOW_65_in_ruleBinOp7384); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getPlusSignPlusSignKeyword_1_9(), null); 
@@ -13283,9 +13928,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5344:7: '<:'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5369:7: '<:'
                     {
-                    match(input,66,FOLLOW_66_in_ruleBinOp7365); if (failed) return current;
+                    match(input,66,FOLLOW_66_in_ruleBinOp7400); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getLessThanSignColonKeyword_1_10(), null); 
@@ -13295,9 +13940,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5349:7: ':>'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5374:7: ':>'
                     {
-                    match(input,67,FOLLOW_67_in_ruleBinOp7381); if (failed) return current;
+                    match(input,67,FOLLOW_67_in_ruleBinOp7416); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getColonGreaterThanSignKeyword_1_11(), null); 
@@ -13307,20 +13952,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5354:6: ( (lv_dot_13_0= ruleDot ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5379:6: ( (lv_dot_13_0= ruleDot ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5354:6: ( (lv_dot_13_0= ruleDot ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5355:1: (lv_dot_13_0= ruleDot )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5379:6: ( (lv_dot_13_0= ruleDot ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5380:1: (lv_dot_13_0= ruleDot )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5355:1: (lv_dot_13_0= ruleDot )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5356:3: lv_dot_13_0= ruleDot
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5380:1: (lv_dot_13_0= ruleDot )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5381:3: lv_dot_13_0= ruleDot
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBinOpAccess().getDotDotParserRuleCall_1_12_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleDot_in_ruleBinOp7408);
+                    pushFollow(FOLLOW_ruleDot_in_ruleBinOp7443);
                     lv_dot_13_0=ruleDot();
                     _fsp--;
                     if (failed) return current;
@@ -13353,9 +13998,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5379:7: '<<'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5404:7: '<<'
                     {
-                    match(input,68,FOLLOW_68_in_ruleBinOp7424); if (failed) return current;
+                    match(input,68,FOLLOW_68_in_ruleBinOp7459); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getLessThanSignLessThanSignKeyword_1_13(), null); 
@@ -13365,9 +14010,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5384:7: '>>'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5409:7: '>>'
                     {
-                    match(input,69,FOLLOW_69_in_ruleBinOp7440); if (failed) return current;
+                    match(input,69,FOLLOW_69_in_ruleBinOp7475); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getGreaterThanSignGreaterThanSignKeyword_1_14(), null); 
@@ -13377,9 +14022,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5389:7: '>>>'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5414:7: '>>>'
                     {
-                    match(input,70,FOLLOW_70_in_ruleBinOp7456); if (failed) return current;
+                    match(input,70,FOLLOW_70_in_ruleBinOp7491); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBinOpAccess().getGreaterThanSignGreaterThanSignGreaterThanSignKeyword_1_15(), null); 
@@ -13416,7 +14061,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleUnOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5401:1: entryRuleUnOp returns [EObject current=null] : iv_ruleUnOp= ruleUnOp EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5426:1: entryRuleUnOp returns [EObject current=null] : iv_ruleUnOp= ruleUnOp EOF ;
     public final EObject entryRuleUnOp() throws RecognitionException {
         EObject current = null;
 
@@ -13424,20 +14069,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5402:2: (iv_ruleUnOp= ruleUnOp EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5403:2: iv_ruleUnOp= ruleUnOp EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5427:2: (iv_ruleUnOp= ruleUnOp EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5428:2: iv_ruleUnOp= ruleUnOp EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getUnOpRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleUnOp_in_entryRuleUnOp7493);
+            pushFollow(FOLLOW_ruleUnOp_in_entryRuleUnOp7528);
             iv_ruleUnOp=ruleUnOp();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleUnOp; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnOp7503); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnOp7538); if (failed) return current;
 
             }
 
@@ -13455,7 +14100,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUnOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5410:1: ruleUnOp returns [EObject current=null] : ( () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5435:1: ruleUnOp returns [EObject current=null] : ( () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) ) ) ;
     public final EObject ruleUnOp() throws RecognitionException {
         EObject current = null;
 
@@ -13468,14 +14113,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5415:6: ( ( () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5416:1: ( () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5440:6: ( ( () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5441:1: ( () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5416:1: ( () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5416:2: () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5441:1: ( () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5441:2: () ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5416:2: ()
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5417:2: 
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5441:2: ()
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5442:2: 
             {
             if ( backtracking==0 ) {
                
@@ -13497,22 +14142,22 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5430:2: ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) )
-            int alt84=4;
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5455:2: ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) )
+            int alt87=4;
             switch ( input.LA(1) ) {
             case 40:
                 {
-                alt84=1;
+                alt87=1;
                 }
                 break;
             case 71:
                 {
-                alt84=2;
+                alt87=2;
                 }
                 break;
             case 26:
                 {
-                alt84=3;
+                alt87=3;
                 }
                 break;
             case 39:
@@ -13521,22 +14166,22 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             case 74:
             case 75:
                 {
-                alt84=4;
+                alt87=4;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("5430:2: ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) )", 84, 0, input);
+                    new NoViableAltException("5455:2: ( 'not' | 'set' | 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) )", 87, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt84) {
+            switch (alt87) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5430:4: 'not'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5455:4: 'not'
                     {
-                    match(input,40,FOLLOW_40_in_ruleUnOp7551); if (failed) return current;
+                    match(input,40,FOLLOW_40_in_ruleUnOp7586); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getUnOpAccess().getNotKeyword_1_0(), null); 
@@ -13546,9 +14191,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5435:7: 'set'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5460:7: 'set'
                     {
-                    match(input,71,FOLLOW_71_in_ruleUnOp7567); if (failed) return current;
+                    match(input,71,FOLLOW_71_in_ruleUnOp7602); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getUnOpAccess().getSetKeyword_1_1(), null); 
@@ -13558,9 +14203,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5440:7: 'seq'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5465:7: 'seq'
                     {
-                    match(input,26,FOLLOW_26_in_ruleUnOp7583); if (failed) return current;
+                    match(input,26,FOLLOW_26_in_ruleUnOp7618); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getUnOpAccess().getSeqKeyword_1_2(), null); 
@@ -13570,56 +14215,56 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5445:6: ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5470:6: ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5445:6: ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5446:1: ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5470:6: ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5471:1: ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5446:1: ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5447:1: (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5471:1: ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5472:1: (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5447:1: (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' )
-                    int alt83=5;
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5472:1: (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' )
+                    int alt86=5;
                     switch ( input.LA(1) ) {
                     case 39:
                         {
-                        alt83=1;
+                        alt86=1;
                         }
                         break;
                     case 72:
                         {
-                        alt83=2;
+                        alt86=2;
                         }
                         break;
                     case 73:
                         {
-                        alt83=3;
+                        alt86=3;
                         }
                         break;
                     case 74:
                         {
-                        alt83=4;
+                        alt86=4;
                         }
                         break;
                     case 75:
                         {
-                        alt83=5;
+                        alt86=5;
                         }
                         break;
                     default:
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("5447:1: (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' )", 83, 0, input);
+                            new NoViableAltException("5472:1: (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' )", 86, 0, input);
 
                         throw nvae;
                     }
 
-                    switch (alt83) {
+                    switch (alt86) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5448:3: lv_op_4_1= '!'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5473:3: lv_op_4_1= '!'
                             {
                             lv_op_4_1=(Token)input.LT(1);
-                            match(input,39,FOLLOW_39_in_ruleUnOp7609); if (failed) return current;
+                            match(input,39,FOLLOW_39_in_ruleUnOp7644); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       createLeafNode(grammarAccess.getUnOpAccess().getOpExclamationMarkKeyword_1_3_0_0(), "op"); 
@@ -13643,10 +14288,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5466:8: lv_op_4_2= '#'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5491:8: lv_op_4_2= '#'
                             {
                             lv_op_4_2=(Token)input.LT(1);
-                            match(input,72,FOLLOW_72_in_ruleUnOp7638); if (failed) return current;
+                            match(input,72,FOLLOW_72_in_ruleUnOp7673); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       createLeafNode(grammarAccess.getUnOpAccess().getOpNumberSignKeyword_1_3_0_1(), "op"); 
@@ -13670,10 +14315,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5484:8: lv_op_4_3= '~'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5509:8: lv_op_4_3= '~'
                             {
                             lv_op_4_3=(Token)input.LT(1);
-                            match(input,73,FOLLOW_73_in_ruleUnOp7667); if (failed) return current;
+                            match(input,73,FOLLOW_73_in_ruleUnOp7702); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       createLeafNode(grammarAccess.getUnOpAccess().getOpTildeKeyword_1_3_0_2(), "op"); 
@@ -13697,10 +14342,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5502:8: lv_op_4_4= '*'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5527:8: lv_op_4_4= '*'
                             {
                             lv_op_4_4=(Token)input.LT(1);
-                            match(input,74,FOLLOW_74_in_ruleUnOp7696); if (failed) return current;
+                            match(input,74,FOLLOW_74_in_ruleUnOp7731); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       createLeafNode(grammarAccess.getUnOpAccess().getOpAsteriskKeyword_1_3_0_3(), "op"); 
@@ -13724,10 +14369,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 5 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5520:8: lv_op_4_5= '^'
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5545:8: lv_op_4_5= '^'
                             {
                             lv_op_4_5=(Token)input.LT(1);
-                            match(input,75,FOLLOW_75_in_ruleUnOp7725); if (failed) return current;
+                            match(input,75,FOLLOW_75_in_ruleUnOp7760); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       createLeafNode(grammarAccess.getUnOpAccess().getOpCircumflexAccentKeyword_1_3_0_4(), "op"); 
@@ -13790,7 +14435,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleCommonQuantUnOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5549:1: entryRuleCommonQuantUnOp returns [EObject current=null] : iv_ruleCommonQuantUnOp= ruleCommonQuantUnOp EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5574:1: entryRuleCommonQuantUnOp returns [EObject current=null] : iv_ruleCommonQuantUnOp= ruleCommonQuantUnOp EOF ;
     public final EObject entryRuleCommonQuantUnOp() throws RecognitionException {
         EObject current = null;
 
@@ -13798,20 +14443,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5550:2: (iv_ruleCommonQuantUnOp= ruleCommonQuantUnOp EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5551:2: iv_ruleCommonQuantUnOp= ruleCommonQuantUnOp EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5575:2: (iv_ruleCommonQuantUnOp= ruleCommonQuantUnOp EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5576:2: iv_ruleCommonQuantUnOp= ruleCommonQuantUnOp EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCommonQuantUnOpRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleCommonQuantUnOp_in_entryRuleCommonQuantUnOp7778);
+            pushFollow(FOLLOW_ruleCommonQuantUnOp_in_entryRuleCommonQuantUnOp7813);
             iv_ruleCommonQuantUnOp=ruleCommonQuantUnOp();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleCommonQuantUnOp; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCommonQuantUnOp7788); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCommonQuantUnOp7823); if (failed) return current;
 
             }
 
@@ -13829,21 +14474,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCommonQuantUnOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5558:1: ruleCommonQuantUnOp returns [EObject current=null] : ( () ( 'no' | 'some' | 'lone' | 'one' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5583:1: ruleCommonQuantUnOp returns [EObject current=null] : ( () ( 'no' | 'some' | 'lone' | 'one' ) ) ;
     public final EObject ruleCommonQuantUnOp() throws RecognitionException {
         EObject current = null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5563:6: ( ( () ( 'no' | 'some' | 'lone' | 'one' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5564:1: ( () ( 'no' | 'some' | 'lone' | 'one' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5588:6: ( ( () ( 'no' | 'some' | 'lone' | 'one' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5589:1: ( () ( 'no' | 'some' | 'lone' | 'one' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5564:1: ( () ( 'no' | 'some' | 'lone' | 'one' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5564:2: () ( 'no' | 'some' | 'lone' | 'one' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5589:1: ( () ( 'no' | 'some' | 'lone' | 'one' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5589:2: () ( 'no' | 'some' | 'lone' | 'one' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5564:2: ()
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5565:2: 
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5589:2: ()
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5590:2: 
             {
             if ( backtracking==0 ) {
                
@@ -13865,42 +14510,42 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5578:2: ( 'no' | 'some' | 'lone' | 'one' )
-            int alt85=4;
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5603:2: ( 'no' | 'some' | 'lone' | 'one' )
+            int alt88=4;
             switch ( input.LA(1) ) {
             case 76:
                 {
-                alt85=1;
+                alt88=1;
                 }
                 break;
             case 35:
                 {
-                alt85=2;
+                alt88=2;
                 }
                 break;
             case 33:
                 {
-                alt85=3;
+                alt88=3;
                 }
                 break;
             case 34:
                 {
-                alt85=4;
+                alt88=4;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("5578:2: ( 'no' | 'some' | 'lone' | 'one' )", 85, 0, input);
+                    new NoViableAltException("5603:2: ( 'no' | 'some' | 'lone' | 'one' )", 88, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt85) {
+            switch (alt88) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5578:4: 'no'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5603:4: 'no'
                     {
-                    match(input,76,FOLLOW_76_in_ruleCommonQuantUnOp7836); if (failed) return current;
+                    match(input,76,FOLLOW_76_in_ruleCommonQuantUnOp7871); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCommonQuantUnOpAccess().getNoKeyword_1_0(), null); 
@@ -13910,9 +14555,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5583:7: 'some'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5608:7: 'some'
                     {
-                    match(input,35,FOLLOW_35_in_ruleCommonQuantUnOp7852); if (failed) return current;
+                    match(input,35,FOLLOW_35_in_ruleCommonQuantUnOp7887); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCommonQuantUnOpAccess().getSomeKeyword_1_1(), null); 
@@ -13922,9 +14567,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5588:7: 'lone'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5613:7: 'lone'
                     {
-                    match(input,33,FOLLOW_33_in_ruleCommonQuantUnOp7868); if (failed) return current;
+                    match(input,33,FOLLOW_33_in_ruleCommonQuantUnOp7903); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCommonQuantUnOpAccess().getLoneKeyword_1_2(), null); 
@@ -13934,9 +14579,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5593:7: 'one'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5618:7: 'one'
                     {
-                    match(input,34,FOLLOW_34_in_ruleCommonQuantUnOp7884); if (failed) return current;
+                    match(input,34,FOLLOW_34_in_ruleCommonQuantUnOp7919); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCommonQuantUnOpAccess().getOneKeyword_1_3(), null); 
@@ -13973,7 +14618,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleCompareOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5605:1: entryRuleCompareOp returns [String current=null] : iv_ruleCompareOp= ruleCompareOp EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5630:1: entryRuleCompareOp returns [String current=null] : iv_ruleCompareOp= ruleCompareOp EOF ;
     public final String entryRuleCompareOp() throws RecognitionException {
         String current = null;
 
@@ -13981,20 +14626,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5606:2: (iv_ruleCompareOp= ruleCompareOp EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5607:2: iv_ruleCompareOp= ruleCompareOp EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5631:2: (iv_ruleCompareOp= ruleCompareOp EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5632:2: iv_ruleCompareOp= ruleCompareOp EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCompareOpRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleCompareOp_in_entryRuleCompareOp7922);
+            pushFollow(FOLLOW_ruleCompareOp_in_entryRuleCompareOp7957);
             iv_ruleCompareOp=ruleCompareOp();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleCompareOp.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompareOp7933); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCompareOp7968); if (failed) return current;
 
             }
 
@@ -14012,7 +14657,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCompareOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5614:1: ruleCompareOp returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5639:1: ruleCompareOp returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' ) ;
     public final AntlrDatatypeRuleToken ruleCompareOp() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -14021,61 +14666,61 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5619:6: ( (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5620:1: (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5644:6: ( (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5645:1: (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5620:1: (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' )
-            int alt86=7;
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5645:1: (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' )
+            int alt89=7;
             switch ( input.LA(1) ) {
             case 27:
                 {
-                alt86=1;
+                alt89=1;
                 }
                 break;
             case 37:
                 {
-                alt86=2;
+                alt89=2;
                 }
                 break;
             case 77:
                 {
-                alt86=3;
+                alt89=3;
                 }
                 break;
             case 78:
                 {
-                alt86=4;
+                alt89=4;
                 }
                 break;
             case 79:
                 {
-                alt86=5;
+                alt89=5;
                 }
                 break;
             case 80:
                 {
-                alt86=6;
+                alt89=6;
                 }
                 break;
             case 81:
                 {
-                alt86=7;
+                alt89=7;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("5620:1: (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' )", 86, 0, input);
+                    new NoViableAltException("5645:1: (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' )", 89, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt86) {
+            switch (alt89) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5621:2: kw= '='
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5646:2: kw= '='
                     {
                     kw=(Token)input.LT(1);
-                    match(input,27,FOLLOW_27_in_ruleCompareOp7971); if (failed) return current;
+                    match(input,27,FOLLOW_27_in_ruleCompareOp8006); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -14086,10 +14731,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5628:2: kw= 'in'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5653:2: kw= 'in'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,37,FOLLOW_37_in_ruleCompareOp7990); if (failed) return current;
+                    match(input,37,FOLLOW_37_in_ruleCompareOp8025); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -14100,10 +14745,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5635:2: kw= '<'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5660:2: kw= '<'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,77,FOLLOW_77_in_ruleCompareOp8009); if (failed) return current;
+                    match(input,77,FOLLOW_77_in_ruleCompareOp8044); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -14114,10 +14759,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5642:2: kw= '>'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5667:2: kw= '>'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,78,FOLLOW_78_in_ruleCompareOp8028); if (failed) return current;
+                    match(input,78,FOLLOW_78_in_ruleCompareOp8063); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -14128,10 +14773,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5649:2: kw= '=<'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5674:2: kw= '=<'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,79,FOLLOW_79_in_ruleCompareOp8047); if (failed) return current;
+                    match(input,79,FOLLOW_79_in_ruleCompareOp8082); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -14142,10 +14787,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5656:2: kw= '<='
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5681:2: kw= '<='
                     {
                     kw=(Token)input.LT(1);
-                    match(input,80,FOLLOW_80_in_ruleCompareOp8066); if (failed) return current;
+                    match(input,80,FOLLOW_80_in_ruleCompareOp8101); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -14156,10 +14801,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5663:2: kw= '>='
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5688:2: kw= '>='
                     {
                     kw=(Token)input.LT(1);
-                    match(input,81,FOLLOW_81_in_ruleCompareOp8085); if (failed) return current;
+                    match(input,81,FOLLOW_81_in_ruleCompareOp8120); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -14194,7 +14839,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleArrowOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5676:1: entryRuleArrowOp returns [EObject current=null] : iv_ruleArrowOp= ruleArrowOp EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5701:1: entryRuleArrowOp returns [EObject current=null] : iv_ruleArrowOp= ruleArrowOp EOF ;
     public final EObject entryRuleArrowOp() throws RecognitionException {
         EObject current = null;
 
@@ -14202,20 +14847,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5677:2: (iv_ruleArrowOp= ruleArrowOp EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5678:2: iv_ruleArrowOp= ruleArrowOp EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5702:2: (iv_ruleArrowOp= ruleArrowOp EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5703:2: iv_ruleArrowOp= ruleArrowOp EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getArrowOpRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleArrowOp_in_entryRuleArrowOp8125);
+            pushFollow(FOLLOW_ruleArrowOp_in_entryRuleArrowOp8160);
             iv_ruleArrowOp=ruleArrowOp();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleArrowOp; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleArrowOp8135); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleArrowOp8170); if (failed) return current;
 
             }
 
@@ -14233,7 +14878,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleArrowOp
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5685:1: ruleArrowOp returns [EObject current=null] : ( ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5710:1: ruleArrowOp returns [EObject current=null] : ( ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) ) ) ;
     public final EObject ruleArrowOp() throws RecognitionException {
         EObject current = null;
 
@@ -14242,42 +14887,42 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5690:6: ( ( ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5691:1: ( ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5715:6: ( ( ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5716:1: ( ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5691:1: ( ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5691:2: ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5716:1: ( ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5716:2: ( 'some' | 'one' | 'lone' | 'set' )? ( (lv_arrow_4_0= '->' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5691:2: ( 'some' | 'one' | 'lone' | 'set' )?
-            int alt87=5;
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5716:2: ( 'some' | 'one' | 'lone' | 'set' )?
+            int alt90=5;
             switch ( input.LA(1) ) {
                 case 35:
                     {
-                    alt87=1;
+                    alt90=1;
                     }
                     break;
                 case 34:
                     {
-                    alt87=2;
+                    alt90=2;
                     }
                     break;
                 case 33:
                     {
-                    alt87=3;
+                    alt90=3;
                     }
                     break;
                 case 71:
                     {
-                    alt87=4;
+                    alt90=4;
                     }
                     break;
             }
 
-            switch (alt87) {
+            switch (alt90) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5691:4: 'some'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5716:4: 'some'
                     {
-                    match(input,35,FOLLOW_35_in_ruleArrowOp8171); if (failed) return current;
+                    match(input,35,FOLLOW_35_in_ruleArrowOp8206); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getArrowOpAccess().getSomeKeyword_0_0(), null); 
@@ -14287,9 +14932,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5696:7: 'one'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5721:7: 'one'
                     {
-                    match(input,34,FOLLOW_34_in_ruleArrowOp8187); if (failed) return current;
+                    match(input,34,FOLLOW_34_in_ruleArrowOp8222); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getArrowOpAccess().getOneKeyword_0_1(), null); 
@@ -14299,9 +14944,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5701:7: 'lone'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5726:7: 'lone'
                     {
-                    match(input,33,FOLLOW_33_in_ruleArrowOp8203); if (failed) return current;
+                    match(input,33,FOLLOW_33_in_ruleArrowOp8238); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getArrowOpAccess().getLoneKeyword_0_2(), null); 
@@ -14311,9 +14956,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5706:7: 'set'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5731:7: 'set'
                     {
-                    match(input,71,FOLLOW_71_in_ruleArrowOp8219); if (failed) return current;
+                    match(input,71,FOLLOW_71_in_ruleArrowOp8254); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getArrowOpAccess().getSetKeyword_0_3(), null); 
@@ -14325,14 +14970,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5710:3: ( (lv_arrow_4_0= '->' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5711:1: (lv_arrow_4_0= '->' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5735:3: ( (lv_arrow_4_0= '->' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5736:1: (lv_arrow_4_0= '->' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5711:1: (lv_arrow_4_0= '->' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5712:3: lv_arrow_4_0= '->'
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5736:1: (lv_arrow_4_0= '->' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5737:3: lv_arrow_4_0= '->'
             {
             lv_arrow_4_0=(Token)input.LT(1);
-            match(input,82,FOLLOW_82_in_ruleArrowOp8239); if (failed) return current;
+            match(input,82,FOLLOW_82_in_ruleArrowOp8274); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getArrowOpAccess().getArrowHyphenMinusGreaterThanSignKeyword_1_0(), "arrow"); 
@@ -14383,7 +15028,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBlock
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5739:1: entryRuleBlock returns [EObject current=null] : iv_ruleBlock= ruleBlock EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5764:1: entryRuleBlock returns [EObject current=null] : iv_ruleBlock= ruleBlock EOF ;
     public final EObject entryRuleBlock() throws RecognitionException {
         EObject current = null;
 
@@ -14391,20 +15036,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5740:2: (iv_ruleBlock= ruleBlock EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5741:2: iv_ruleBlock= ruleBlock EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5765:2: (iv_ruleBlock= ruleBlock EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5766:2: iv_ruleBlock= ruleBlock EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getBlockRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBlock_in_entryRuleBlock8288);
+            pushFollow(FOLLOW_ruleBlock_in_entryRuleBlock8323);
             iv_ruleBlock=ruleBlock();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleBlock; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBlock8298); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBlock8333); if (failed) return current;
 
             }
 
@@ -14422,7 +15067,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBlock
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5748:1: ruleBlock returns [EObject current=null] : ( ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5773:1: ruleBlock returns [EObject current=null] : ( ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) ) ) ;
     public final EObject ruleBlock() throws RecognitionException {
         EObject current = null;
 
@@ -14436,24 +15081,24 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5753:6: ( ( ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5754:1: ( ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5778:6: ( ( ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5779:1: ( ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5754:1: ( ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5754:2: ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5779:1: ( ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5779:2: ( (lv_leftC_0_0= ruleLeftCurlyBracket ) ) ( (lv_expr_1_0= ruleExpression ) )* ( (lv_rightC_2_0= ruleRightCurlyBracket ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5754:2: ( (lv_leftC_0_0= ruleLeftCurlyBracket ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5755:1: (lv_leftC_0_0= ruleLeftCurlyBracket )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5779:2: ( (lv_leftC_0_0= ruleLeftCurlyBracket ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5780:1: (lv_leftC_0_0= ruleLeftCurlyBracket )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5755:1: (lv_leftC_0_0= ruleLeftCurlyBracket )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5756:3: lv_leftC_0_0= ruleLeftCurlyBracket
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5780:1: (lv_leftC_0_0= ruleLeftCurlyBracket )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5781:3: lv_leftC_0_0= ruleLeftCurlyBracket
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getBlockAccess().getLeftCLeftCurlyBracketParserRuleCall_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleLeftCurlyBracket_in_ruleBlock8344);
+            pushFollow(FOLLOW_ruleLeftCurlyBracket_in_ruleBlock8379);
             lv_leftC_0_0=ruleLeftCurlyBracket();
             _fsp--;
             if (failed) return current;
@@ -14482,30 +15127,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5778:2: ( (lv_expr_1_0= ruleExpression ) )*
-            loop88:
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5803:2: ( (lv_expr_1_0= ruleExpression ) )*
+            loop91:
             do {
-                int alt88=2;
-                int LA88_0 = input.LA(1);
+                int alt91=2;
+                int LA91_0 = input.LA(1);
 
-                if ( ((LA88_0>=RULE_INT && LA88_0<=RULE_NEGATIVE_INTEGER)||(LA88_0>=17 && LA88_0<=18)||(LA88_0>=25 && LA88_0<=26)||LA88_0==29||(LA88_0>=33 && LA88_0<=35)||(LA88_0>=39 && LA88_0<=40)||(LA88_0>=44 && LA88_0<=50)||(LA88_0>=52 && LA88_0<=53)||(LA88_0>=55 && LA88_0<=56)||(LA88_0>=71 && LA88_0<=76)) ) {
-                    alt88=1;
+                if ( ((LA91_0>=RULE_INT && LA91_0<=RULE_NEGATIVE_INTEGER)||(LA91_0>=17 && LA91_0<=18)||(LA91_0>=25 && LA91_0<=26)||LA91_0==29||(LA91_0>=33 && LA91_0<=35)||(LA91_0>=39 && LA91_0<=40)||(LA91_0>=44 && LA91_0<=50)||(LA91_0>=52 && LA91_0<=53)||(LA91_0>=55 && LA91_0<=56)||(LA91_0>=71 && LA91_0<=76)) ) {
+                    alt91=1;
                 }
 
 
-                switch (alt88) {
+                switch (alt91) {
             	case 1 :
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5779:1: (lv_expr_1_0= ruleExpression )
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5804:1: (lv_expr_1_0= ruleExpression )
             	    {
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5779:1: (lv_expr_1_0= ruleExpression )
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5780:3: lv_expr_1_0= ruleExpression
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5804:1: (lv_expr_1_0= ruleExpression )
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5805:3: lv_expr_1_0= ruleExpression
             	    {
             	    if ( backtracking==0 ) {
             	       
             	      	        currentNode=createCompositeNode(grammarAccess.getBlockAccess().getExprExpressionParserRuleCall_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleExpression_in_ruleBlock8365);
+            	    pushFollow(FOLLOW_ruleExpression_in_ruleBlock8400);
             	    lv_expr_1_0=ruleExpression();
             	    _fsp--;
             	    if (failed) return current;
@@ -14536,22 +15181,22 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop88;
+            	    break loop91;
                 }
             } while (true);
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5802:3: ( (lv_rightC_2_0= ruleRightCurlyBracket ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5803:1: (lv_rightC_2_0= ruleRightCurlyBracket )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5827:3: ( (lv_rightC_2_0= ruleRightCurlyBracket ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5828:1: (lv_rightC_2_0= ruleRightCurlyBracket )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5803:1: (lv_rightC_2_0= ruleRightCurlyBracket )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5804:3: lv_rightC_2_0= ruleRightCurlyBracket
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5828:1: (lv_rightC_2_0= ruleRightCurlyBracket )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5829:3: lv_rightC_2_0= ruleRightCurlyBracket
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getBlockAccess().getRightCRightCurlyBracketParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleRightCurlyBracket_in_ruleBlock8387);
+            pushFollow(FOLLOW_ruleRightCurlyBracket_in_ruleBlock8422);
             lv_rightC_2_0=ruleRightCurlyBracket();
             _fsp--;
             if (failed) return current;
@@ -14605,7 +15250,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBlockOrBar
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5834:1: entryRuleBlockOrBar returns [EObject current=null] : iv_ruleBlockOrBar= ruleBlockOrBar EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5859:1: entryRuleBlockOrBar returns [EObject current=null] : iv_ruleBlockOrBar= ruleBlockOrBar EOF ;
     public final EObject entryRuleBlockOrBar() throws RecognitionException {
         EObject current = null;
 
@@ -14613,20 +15258,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5835:2: (iv_ruleBlockOrBar= ruleBlockOrBar EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5836:2: iv_ruleBlockOrBar= ruleBlockOrBar EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5860:2: (iv_ruleBlockOrBar= ruleBlockOrBar EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5861:2: iv_ruleBlockOrBar= ruleBlockOrBar EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getBlockOrBarRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBlockOrBar_in_entryRuleBlockOrBar8423);
+            pushFollow(FOLLOW_ruleBlockOrBar_in_entryRuleBlockOrBar8458);
             iv_ruleBlockOrBar=ruleBlockOrBar();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleBlockOrBar; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBlockOrBar8433); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBlockOrBar8468); if (failed) return current;
 
             }
 
@@ -14644,7 +15289,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBlockOrBar
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5843:1: ruleBlockOrBar returns [EObject current=null] : ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5868:1: ruleBlockOrBar returns [EObject current=null] : ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) ) ;
     public final EObject ruleBlockOrBar() throws RecognitionException {
         EObject current = null;
 
@@ -14656,42 +15301,42 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5848:6: ( ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5849:1: ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5873:6: ( ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5874:1: ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5849:1: ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) )
-            int alt89=2;
-            int LA89_0 = input.LA(1);
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5874:1: ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) )
+            int alt92=2;
+            int LA92_0 = input.LA(1);
 
-            if ( (LA89_0==29) ) {
-                alt89=1;
+            if ( (LA92_0==29) ) {
+                alt92=1;
             }
-            else if ( (LA89_0==83) ) {
-                alt89=2;
+            else if ( (LA92_0==83) ) {
+                alt92=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("5849:1: ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) )", 89, 0, input);
+                    new NoViableAltException("5874:1: ( ( (lv_block_0_0= ruleBlock ) ) | ( '|' ( (lv_expr_2_0= ruleExpression ) ) ) )", 92, 0, input);
 
                 throw nvae;
             }
-            switch (alt89) {
+            switch (alt92) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5849:2: ( (lv_block_0_0= ruleBlock ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5874:2: ( (lv_block_0_0= ruleBlock ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5849:2: ( (lv_block_0_0= ruleBlock ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5850:1: (lv_block_0_0= ruleBlock )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5874:2: ( (lv_block_0_0= ruleBlock ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5875:1: (lv_block_0_0= ruleBlock )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5850:1: (lv_block_0_0= ruleBlock )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5851:3: lv_block_0_0= ruleBlock
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5875:1: (lv_block_0_0= ruleBlock )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5876:3: lv_block_0_0= ruleBlock
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBlockOrBarAccess().getBlockBlockParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleBlock_in_ruleBlockOrBar8479);
+                    pushFollow(FOLLOW_ruleBlock_in_ruleBlockOrBar8514);
                     lv_block_0_0=ruleBlock();
                     _fsp--;
                     if (failed) return current;
@@ -14724,29 +15369,29 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5874:6: ( '|' ( (lv_expr_2_0= ruleExpression ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5899:6: ( '|' ( (lv_expr_2_0= ruleExpression ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5874:6: ( '|' ( (lv_expr_2_0= ruleExpression ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5874:8: '|' ( (lv_expr_2_0= ruleExpression ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5899:6: ( '|' ( (lv_expr_2_0= ruleExpression ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5899:8: '|' ( (lv_expr_2_0= ruleExpression ) )
                     {
-                    match(input,83,FOLLOW_83_in_ruleBlockOrBar8496); if (failed) return current;
+                    match(input,83,FOLLOW_83_in_ruleBlockOrBar8531); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBlockOrBarAccess().getVerticalLineKeyword_1_0(), null); 
                           
                     }
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5878:1: ( (lv_expr_2_0= ruleExpression ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5879:1: (lv_expr_2_0= ruleExpression )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5903:1: ( (lv_expr_2_0= ruleExpression ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5904:1: (lv_expr_2_0= ruleExpression )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5879:1: (lv_expr_2_0= ruleExpression )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5880:3: lv_expr_2_0= ruleExpression
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5904:1: (lv_expr_2_0= ruleExpression )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5905:3: lv_expr_2_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBlockOrBarAccess().getExprExpressionParserRuleCall_1_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBlockOrBar8517);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBlockOrBar8552);
                     lv_expr_2_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14806,7 +15451,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleOpenName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5910:1: entryRuleOpenName returns [EObject current=null] : iv_ruleOpenName= ruleOpenName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5937:1: entryRuleOpenName returns [EObject current=null] : iv_ruleOpenName= ruleOpenName EOF ;
     public final EObject entryRuleOpenName() throws RecognitionException {
         EObject current = null;
 
@@ -14814,20 +15459,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5911:2: (iv_ruleOpenName= ruleOpenName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5912:2: iv_ruleOpenName= ruleOpenName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5938:2: (iv_ruleOpenName= ruleOpenName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5939:2: iv_ruleOpenName= ruleOpenName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getOpenNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleOpenName_in_entryRuleOpenName8554);
+            pushFollow(FOLLOW_ruleOpenName_in_entryRuleOpenName8591);
             iv_ruleOpenName=ruleOpenName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleOpenName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOpenName8564); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOpenName8601); if (failed) return current;
 
             }
 
@@ -14845,7 +15490,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleOpenName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5919:1: ruleOpenName returns [EObject current=null] : ( 'open' ( (lv_importURI_1_0= ruleName ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5946:1: ruleOpenName returns [EObject current=null] : ( 'open' ( (lv_importURI_1_0= ruleName ) ) ) ;
     public final EObject ruleOpenName() throws RecognitionException {
         EObject current = null;
 
@@ -14855,30 +15500,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5924:6: ( ( 'open' ( (lv_importURI_1_0= ruleName ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5925:1: ( 'open' ( (lv_importURI_1_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5951:6: ( ( 'open' ( (lv_importURI_1_0= ruleName ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5952:1: ( 'open' ( (lv_importURI_1_0= ruleName ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5925:1: ( 'open' ( (lv_importURI_1_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5925:3: 'open' ( (lv_importURI_1_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5952:1: ( 'open' ( (lv_importURI_1_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5952:3: 'open' ( (lv_importURI_1_0= ruleName ) )
             {
-            match(input,84,FOLLOW_84_in_ruleOpenName8599); if (failed) return current;
+            match(input,84,FOLLOW_84_in_ruleOpenName8636); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getOpenNameAccess().getOpenKeyword_0(), null); 
                   
             }
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5929:1: ( (lv_importURI_1_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5930:1: (lv_importURI_1_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5956:1: ( (lv_importURI_1_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5957:1: (lv_importURI_1_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5930:1: (lv_importURI_1_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5931:3: lv_importURI_1_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5957:1: (lv_importURI_1_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5958:3: lv_importURI_1_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_ruleOpenName8620);
+            pushFollow(FOLLOW_ruleName_in_ruleOpenName8657);
             lv_importURI_1_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -14932,7 +15577,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFactName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5961:1: entryRuleFactName returns [EObject current=null] : iv_ruleFactName= ruleFactName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5988:1: entryRuleFactName returns [EObject current=null] : iv_ruleFactName= ruleFactName EOF ;
     public final EObject entryRuleFactName() throws RecognitionException {
         EObject current = null;
 
@@ -14940,20 +15585,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5962:2: (iv_ruleFactName= ruleFactName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5963:2: iv_ruleFactName= ruleFactName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5989:2: (iv_ruleFactName= ruleFactName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5990:2: iv_ruleFactName= ruleFactName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFactNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFactName_in_entryRuleFactName8656);
+            pushFollow(FOLLOW_ruleFactName_in_entryRuleFactName8693);
             iv_ruleFactName=ruleFactName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFactName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFactName8666); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFactName8703); if (failed) return current;
 
             }
 
@@ -14971,7 +15616,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFactName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5970:1: ruleFactName returns [EObject current=null] : ( () 'fact' ( (lv_name_2_0= ruleName ) )? ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5997:1: ruleFactName returns [EObject current=null] : ( () 'fact' ( (lv_name_2_0= ruleName ) )? ) ;
     public final EObject ruleFactName() throws RecognitionException {
         EObject current = null;
 
@@ -14981,14 +15626,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5975:6: ( ( () 'fact' ( (lv_name_2_0= ruleName ) )? ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5976:1: ( () 'fact' ( (lv_name_2_0= ruleName ) )? )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6002:6: ( ( () 'fact' ( (lv_name_2_0= ruleName ) )? ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6003:1: ( () 'fact' ( (lv_name_2_0= ruleName ) )? )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5976:1: ( () 'fact' ( (lv_name_2_0= ruleName ) )? )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5976:2: () 'fact' ( (lv_name_2_0= ruleName ) )?
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6003:1: ( () 'fact' ( (lv_name_2_0= ruleName ) )? )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6003:2: () 'fact' ( (lv_name_2_0= ruleName ) )?
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5976:2: ()
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5977:2: 
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6003:2: ()
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6004:2: 
             {
             if ( backtracking==0 ) {
                
@@ -15010,32 +15655,32 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,85,FOLLOW_85_in_ruleFactName8713); if (failed) return current;
+            match(input,85,FOLLOW_85_in_ruleFactName8750); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getFactNameAccess().getFactKeyword_1(), null); 
                   
             }
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5994:1: ( (lv_name_2_0= ruleName ) )?
-            int alt90=2;
-            int LA90_0 = input.LA(1);
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6021:1: ( (lv_name_2_0= ruleName ) )?
+            int alt93=2;
+            int LA93_0 = input.LA(1);
 
-            if ( (LA90_0==RULE_ID||LA90_0==53) ) {
-                alt90=1;
+            if ( (LA93_0==RULE_ID||LA93_0==53) ) {
+                alt93=1;
             }
-            switch (alt90) {
+            switch (alt93) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5995:1: (lv_name_2_0= ruleName )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6022:1: (lv_name_2_0= ruleName )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5995:1: (lv_name_2_0= ruleName )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:5996:3: lv_name_2_0= ruleName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6022:1: (lv_name_2_0= ruleName )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6023:3: lv_name_2_0= ruleName
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getFactNameAccess().getNameNameParserRuleCall_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleName_in_ruleFactName8734);
+                    pushFollow(FOLLOW_ruleName_in_ruleFactName8771);
                     lv_name_2_0=ruleName();
                     _fsp--;
                     if (failed) return current;
@@ -15092,7 +15737,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAssertionName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6026:1: entryRuleAssertionName returns [EObject current=null] : iv_ruleAssertionName= ruleAssertionName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6053:1: entryRuleAssertionName returns [EObject current=null] : iv_ruleAssertionName= ruleAssertionName EOF ;
     public final EObject entryRuleAssertionName() throws RecognitionException {
         EObject current = null;
 
@@ -15100,20 +15745,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6027:2: (iv_ruleAssertionName= ruleAssertionName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6028:2: iv_ruleAssertionName= ruleAssertionName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6054:2: (iv_ruleAssertionName= ruleAssertionName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6055:2: iv_ruleAssertionName= ruleAssertionName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAssertionNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAssertionName_in_entryRuleAssertionName8771);
+            pushFollow(FOLLOW_ruleAssertionName_in_entryRuleAssertionName8808);
             iv_ruleAssertionName=ruleAssertionName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAssertionName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAssertionName8781); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAssertionName8818); if (failed) return current;
 
             }
 
@@ -15131,7 +15776,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAssertionName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6035:1: ruleAssertionName returns [EObject current=null] : ( () 'assert' ( (lv_name_2_0= ruleName ) )? ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6062:1: ruleAssertionName returns [EObject current=null] : ( () 'assert' ( (lv_name_2_0= ruleName ) )? ) ;
     public final EObject ruleAssertionName() throws RecognitionException {
         EObject current = null;
 
@@ -15141,14 +15786,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6040:6: ( ( () 'assert' ( (lv_name_2_0= ruleName ) )? ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6041:1: ( () 'assert' ( (lv_name_2_0= ruleName ) )? )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6067:6: ( ( () 'assert' ( (lv_name_2_0= ruleName ) )? ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6068:1: ( () 'assert' ( (lv_name_2_0= ruleName ) )? )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6041:1: ( () 'assert' ( (lv_name_2_0= ruleName ) )? )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6041:2: () 'assert' ( (lv_name_2_0= ruleName ) )?
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6068:1: ( () 'assert' ( (lv_name_2_0= ruleName ) )? )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6068:2: () 'assert' ( (lv_name_2_0= ruleName ) )?
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6041:2: ()
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6042:2: 
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6068:2: ()
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6069:2: 
             {
             if ( backtracking==0 ) {
                
@@ -15170,32 +15815,32 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,86,FOLLOW_86_in_ruleAssertionName8828); if (failed) return current;
+            match(input,86,FOLLOW_86_in_ruleAssertionName8865); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getAssertionNameAccess().getAssertKeyword_1(), null); 
                   
             }
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6059:1: ( (lv_name_2_0= ruleName ) )?
-            int alt91=2;
-            int LA91_0 = input.LA(1);
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6086:1: ( (lv_name_2_0= ruleName ) )?
+            int alt94=2;
+            int LA94_0 = input.LA(1);
 
-            if ( (LA91_0==RULE_ID||LA91_0==53) ) {
-                alt91=1;
+            if ( (LA94_0==RULE_ID||LA94_0==53) ) {
+                alt94=1;
             }
-            switch (alt91) {
+            switch (alt94) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6060:1: (lv_name_2_0= ruleName )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6087:1: (lv_name_2_0= ruleName )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6060:1: (lv_name_2_0= ruleName )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6061:3: lv_name_2_0= ruleName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6087:1: (lv_name_2_0= ruleName )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6088:3: lv_name_2_0= ruleName
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getAssertionNameAccess().getNameNameParserRuleCall_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleName_in_ruleAssertionName8849);
+                    pushFollow(FOLLOW_ruleName_in_ruleAssertionName8886);
                     lv_name_2_0=ruleName();
                     _fsp--;
                     if (failed) return current;
@@ -15252,7 +15897,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFunctionName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6091:1: entryRuleFunctionName returns [EObject current=null] : iv_ruleFunctionName= ruleFunctionName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6118:1: entryRuleFunctionName returns [EObject current=null] : iv_ruleFunctionName= ruleFunctionName EOF ;
     public final EObject entryRuleFunctionName() throws RecognitionException {
         EObject current = null;
 
@@ -15260,20 +15905,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6092:2: (iv_ruleFunctionName= ruleFunctionName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6093:2: iv_ruleFunctionName= ruleFunctionName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6119:2: (iv_ruleFunctionName= ruleFunctionName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6120:2: iv_ruleFunctionName= ruleFunctionName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFunctionNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFunctionName_in_entryRuleFunctionName8886);
+            pushFollow(FOLLOW_ruleFunctionName_in_entryRuleFunctionName8923);
             iv_ruleFunctionName=ruleFunctionName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFunctionName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFunctionName8896); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFunctionName8933); if (failed) return current;
 
             }
 
@@ -15291,7 +15936,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFunctionName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6100:1: ruleFunctionName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6127:1: ruleFunctionName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
     public final EObject ruleFunctionName() throws RecognitionException {
         EObject current = null;
 
@@ -15301,21 +15946,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6105:6: ( ( (lv_name_0_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6106:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6132:6: ( ( (lv_name_0_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6133:1: ( (lv_name_0_0= ruleName ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6106:1: ( (lv_name_0_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6107:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6133:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6134:1: (lv_name_0_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6107:1: (lv_name_0_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6108:3: lv_name_0_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6134:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6135:3: lv_name_0_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getFunctionNameAccess().getNameNameParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_ruleFunctionName8941);
+            pushFollow(FOLLOW_ruleName_in_ruleFunctionName8978);
             lv_name_0_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -15366,7 +16011,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFunctionNamewParam
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6138:1: entryRuleFunctionNamewParam returns [EObject current=null] : iv_ruleFunctionNamewParam= ruleFunctionNamewParam EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6165:1: entryRuleFunctionNamewParam returns [EObject current=null] : iv_ruleFunctionNamewParam= ruleFunctionNamewParam EOF ;
     public final EObject entryRuleFunctionNamewParam() throws RecognitionException {
         EObject current = null;
 
@@ -15374,20 +16019,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6139:2: (iv_ruleFunctionNamewParam= ruleFunctionNamewParam EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6140:2: iv_ruleFunctionNamewParam= ruleFunctionNamewParam EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6166:2: (iv_ruleFunctionNamewParam= ruleFunctionNamewParam EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6167:2: iv_ruleFunctionNamewParam= ruleFunctionNamewParam EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFunctionNamewParamRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFunctionNamewParam_in_entryRuleFunctionNamewParam8976);
+            pushFollow(FOLLOW_ruleFunctionNamewParam_in_entryRuleFunctionNamewParam9013);
             iv_ruleFunctionNamewParam=ruleFunctionNamewParam();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFunctionNamewParam; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFunctionNamewParam8986); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFunctionNamewParam9023); if (failed) return current;
 
             }
 
@@ -15405,7 +16050,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFunctionNamewParam
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6147:1: ruleFunctionNamewParam returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6174:1: ruleFunctionNamewParam returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
     public final EObject ruleFunctionNamewParam() throws RecognitionException {
         EObject current = null;
 
@@ -15415,21 +16060,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6152:6: ( ( (lv_name_0_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6153:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6179:6: ( ( (lv_name_0_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6180:1: ( (lv_name_0_0= ruleName ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6153:1: ( (lv_name_0_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6154:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6180:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6181:1: (lv_name_0_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6154:1: (lv_name_0_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6155:3: lv_name_0_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6181:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6182:3: lv_name_0_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getFunctionNamewParamAccess().getNameNameParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_ruleFunctionNamewParam9031);
+            pushFollow(FOLLOW_ruleName_in_ruleFunctionNamewParam9068);
             lv_name_0_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -15480,7 +16125,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRulePredicateName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6185:1: entryRulePredicateName returns [EObject current=null] : iv_rulePredicateName= rulePredicateName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6212:1: entryRulePredicateName returns [EObject current=null] : iv_rulePredicateName= rulePredicateName EOF ;
     public final EObject entryRulePredicateName() throws RecognitionException {
         EObject current = null;
 
@@ -15488,20 +16133,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6186:2: (iv_rulePredicateName= rulePredicateName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6187:2: iv_rulePredicateName= rulePredicateName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6213:2: (iv_rulePredicateName= rulePredicateName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6214:2: iv_rulePredicateName= rulePredicateName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPredicateNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePredicateName_in_entryRulePredicateName9066);
+            pushFollow(FOLLOW_rulePredicateName_in_entryRulePredicateName9103);
             iv_rulePredicateName=rulePredicateName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePredicateName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePredicateName9076); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePredicateName9113); if (failed) return current;
 
             }
 
@@ -15519,7 +16164,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulePredicateName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6194:1: rulePredicateName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6221:1: rulePredicateName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
     public final EObject rulePredicateName() throws RecognitionException {
         EObject current = null;
 
@@ -15529,21 +16174,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6199:6: ( ( (lv_name_0_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6200:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6226:6: ( ( (lv_name_0_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6227:1: ( (lv_name_0_0= ruleName ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6200:1: ( (lv_name_0_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6201:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6227:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6228:1: (lv_name_0_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6201:1: (lv_name_0_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6202:3: lv_name_0_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6228:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6229:3: lv_name_0_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getPredicateNameAccess().getNameNameParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_rulePredicateName9121);
+            pushFollow(FOLLOW_ruleName_in_rulePredicateName9158);
             lv_name_0_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -15594,7 +16239,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAlias
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6232:1: entryRuleAlias returns [EObject current=null] : iv_ruleAlias= ruleAlias EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6259:1: entryRuleAlias returns [EObject current=null] : iv_ruleAlias= ruleAlias EOF ;
     public final EObject entryRuleAlias() throws RecognitionException {
         EObject current = null;
 
@@ -15602,20 +16247,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6233:2: (iv_ruleAlias= ruleAlias EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6234:2: iv_ruleAlias= ruleAlias EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6260:2: (iv_ruleAlias= ruleAlias EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6261:2: iv_ruleAlias= ruleAlias EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAliasRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAlias_in_entryRuleAlias9156);
+            pushFollow(FOLLOW_ruleAlias_in_entryRuleAlias9193);
             iv_ruleAlias=ruleAlias();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAlias; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAlias9166); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAlias9203); if (failed) return current;
 
             }
 
@@ -15633,7 +16278,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAlias
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6241:1: ruleAlias returns [EObject current=null] : ( (lv_name_0_0= ruleNameAlias ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6268:1: ruleAlias returns [EObject current=null] : ( (lv_name_0_0= ruleNameAlias ) ) ;
     public final EObject ruleAlias() throws RecognitionException {
         EObject current = null;
 
@@ -15643,21 +16288,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6246:6: ( ( (lv_name_0_0= ruleNameAlias ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6247:1: ( (lv_name_0_0= ruleNameAlias ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6273:6: ( ( (lv_name_0_0= ruleNameAlias ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6274:1: ( (lv_name_0_0= ruleNameAlias ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6247:1: ( (lv_name_0_0= ruleNameAlias ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6248:1: (lv_name_0_0= ruleNameAlias )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6274:1: ( (lv_name_0_0= ruleNameAlias ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6275:1: (lv_name_0_0= ruleNameAlias )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6248:1: (lv_name_0_0= ruleNameAlias )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6249:3: lv_name_0_0= ruleNameAlias
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6275:1: (lv_name_0_0= ruleNameAlias )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6276:3: lv_name_0_0= ruleNameAlias
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getAliasAccess().getNameNameAliasParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleNameAlias_in_ruleAlias9211);
+            pushFollow(FOLLOW_ruleNameAlias_in_ruleAlias9248);
             lv_name_0_0=ruleNameAlias();
             _fsp--;
             if (failed) return current;
@@ -15708,7 +16353,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEnumName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6279:1: entryRuleEnumName returns [EObject current=null] : iv_ruleEnumName= ruleEnumName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6306:1: entryRuleEnumName returns [EObject current=null] : iv_ruleEnumName= ruleEnumName EOF ;
     public final EObject entryRuleEnumName() throws RecognitionException {
         EObject current = null;
 
@@ -15716,20 +16361,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6280:2: (iv_ruleEnumName= ruleEnumName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6281:2: iv_ruleEnumName= ruleEnumName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6307:2: (iv_ruleEnumName= ruleEnumName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6308:2: iv_ruleEnumName= ruleEnumName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getEnumNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleEnumName_in_entryRuleEnumName9246);
+            pushFollow(FOLLOW_ruleEnumName_in_entryRuleEnumName9283);
             iv_ruleEnumName=ruleEnumName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleEnumName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumName9256); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumName9293); if (failed) return current;
 
             }
 
@@ -15747,7 +16392,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEnumName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6288:1: ruleEnumName returns [EObject current=null] : ( 'enum' ( (lv_name_1_0= ruleName ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6315:1: ruleEnumName returns [EObject current=null] : ( 'enum' ( (lv_name_1_0= ruleName ) ) ) ;
     public final EObject ruleEnumName() throws RecognitionException {
         EObject current = null;
 
@@ -15757,30 +16402,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6293:6: ( ( 'enum' ( (lv_name_1_0= ruleName ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6294:1: ( 'enum' ( (lv_name_1_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6320:6: ( ( 'enum' ( (lv_name_1_0= ruleName ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6321:1: ( 'enum' ( (lv_name_1_0= ruleName ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6294:1: ( 'enum' ( (lv_name_1_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6294:3: 'enum' ( (lv_name_1_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6321:1: ( 'enum' ( (lv_name_1_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6321:3: 'enum' ( (lv_name_1_0= ruleName ) )
             {
-            match(input,87,FOLLOW_87_in_ruleEnumName9291); if (failed) return current;
+            match(input,87,FOLLOW_87_in_ruleEnumName9328); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getEnumNameAccess().getEnumKeyword_0(), null); 
                   
             }
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6298:1: ( (lv_name_1_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6299:1: (lv_name_1_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6325:1: ( (lv_name_1_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6326:1: (lv_name_1_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6299:1: (lv_name_1_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6300:3: lv_name_1_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6326:1: (lv_name_1_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6327:3: lv_name_1_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getEnumNameAccess().getNameNameParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_ruleEnumName9312);
+            pushFollow(FOLLOW_ruleName_in_ruleEnumName9349);
             lv_name_1_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -15834,7 +16479,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEnumPropertyName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6330:1: entryRuleEnumPropertyName returns [EObject current=null] : iv_ruleEnumPropertyName= ruleEnumPropertyName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6357:1: entryRuleEnumPropertyName returns [EObject current=null] : iv_ruleEnumPropertyName= ruleEnumPropertyName EOF ;
     public final EObject entryRuleEnumPropertyName() throws RecognitionException {
         EObject current = null;
 
@@ -15842,20 +16487,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6331:2: (iv_ruleEnumPropertyName= ruleEnumPropertyName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6332:2: iv_ruleEnumPropertyName= ruleEnumPropertyName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6358:2: (iv_ruleEnumPropertyName= ruleEnumPropertyName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6359:2: iv_ruleEnumPropertyName= ruleEnumPropertyName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getEnumPropertyNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleEnumPropertyName_in_entryRuleEnumPropertyName9348);
+            pushFollow(FOLLOW_ruleEnumPropertyName_in_entryRuleEnumPropertyName9385);
             iv_ruleEnumPropertyName=ruleEnumPropertyName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleEnumPropertyName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumPropertyName9358); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumPropertyName9395); if (failed) return current;
 
             }
 
@@ -15873,7 +16518,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEnumPropertyName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6339:1: ruleEnumPropertyName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6366:1: ruleEnumPropertyName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
     public final EObject ruleEnumPropertyName() throws RecognitionException {
         EObject current = null;
 
@@ -15883,21 +16528,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6344:6: ( ( (lv_name_0_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6345:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6371:6: ( ( (lv_name_0_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6372:1: ( (lv_name_0_0= ruleName ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6345:1: ( (lv_name_0_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6346:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6372:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6373:1: (lv_name_0_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6346:1: (lv_name_0_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6347:3: lv_name_0_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6373:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6374:3: lv_name_0_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getEnumPropertyNameAccess().getNameNameParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_ruleEnumPropertyName9403);
+            pushFollow(FOLLOW_ruleName_in_ruleEnumPropertyName9440);
             lv_name_0_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -15948,7 +16593,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLetName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6377:1: entryRuleLetName returns [EObject current=null] : iv_ruleLetName= ruleLetName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6404:1: entryRuleLetName returns [EObject current=null] : iv_ruleLetName= ruleLetName EOF ;
     public final EObject entryRuleLetName() throws RecognitionException {
         EObject current = null;
 
@@ -15956,20 +16601,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6378:2: (iv_ruleLetName= ruleLetName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6379:2: iv_ruleLetName= ruleLetName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6405:2: (iv_ruleLetName= ruleLetName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6406:2: iv_ruleLetName= ruleLetName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLetNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleLetName_in_entryRuleLetName9438);
+            pushFollow(FOLLOW_ruleLetName_in_entryRuleLetName9475);
             iv_ruleLetName=ruleLetName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleLetName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLetName9448); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLetName9485); if (failed) return current;
 
             }
 
@@ -15987,7 +16632,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLetName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6386:1: ruleLetName returns [EObject current=null] : ( 'let' ( (lv_name_1_0= ruleName ) ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6413:1: ruleLetName returns [EObject current=null] : ( 'let' ( (lv_name_1_0= ruleName ) ) ) ;
     public final EObject ruleLetName() throws RecognitionException {
         EObject current = null;
 
@@ -15997,30 +16642,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6391:6: ( ( 'let' ( (lv_name_1_0= ruleName ) ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6392:1: ( 'let' ( (lv_name_1_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6418:6: ( ( 'let' ( (lv_name_1_0= ruleName ) ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6419:1: ( 'let' ( (lv_name_1_0= ruleName ) ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6392:1: ( 'let' ( (lv_name_1_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6392:3: 'let' ( (lv_name_1_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6419:1: ( 'let' ( (lv_name_1_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6419:3: 'let' ( (lv_name_1_0= ruleName ) )
             {
-            match(input,44,FOLLOW_44_in_ruleLetName9483); if (failed) return current;
+            match(input,44,FOLLOW_44_in_ruleLetName9520); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getLetNameAccess().getLetKeyword_0(), null); 
                   
             }
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6396:1: ( (lv_name_1_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6397:1: (lv_name_1_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6423:1: ( (lv_name_1_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6424:1: (lv_name_1_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6397:1: (lv_name_1_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6398:3: lv_name_1_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6424:1: (lv_name_1_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6425:3: lv_name_1_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getLetNameAccess().getNameNameParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_ruleLetName9504);
+            pushFollow(FOLLOW_ruleName_in_ruleLetName9541);
             lv_name_1_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -16074,7 +16719,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleSignatureName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6428:1: entryRuleSignatureName returns [EObject current=null] : iv_ruleSignatureName= ruleSignatureName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6455:1: entryRuleSignatureName returns [EObject current=null] : iv_ruleSignatureName= ruleSignatureName EOF ;
     public final EObject entryRuleSignatureName() throws RecognitionException {
         EObject current = null;
 
@@ -16082,20 +16727,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6429:2: (iv_ruleSignatureName= ruleSignatureName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6430:2: iv_ruleSignatureName= ruleSignatureName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6456:2: (iv_ruleSignatureName= ruleSignatureName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6457:2: iv_ruleSignatureName= ruleSignatureName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getSignatureNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleSignatureName_in_entryRuleSignatureName9540);
+            pushFollow(FOLLOW_ruleSignatureName_in_entryRuleSignatureName9577);
             iv_ruleSignatureName=ruleSignatureName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleSignatureName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSignatureName9550); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSignatureName9587); if (failed) return current;
 
             }
 
@@ -16113,7 +16758,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSignatureName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6437:1: ruleSignatureName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6464:1: ruleSignatureName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
     public final EObject ruleSignatureName() throws RecognitionException {
         EObject current = null;
 
@@ -16123,21 +16768,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6442:6: ( ( (lv_name_0_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6443:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6469:6: ( ( (lv_name_0_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6470:1: ( (lv_name_0_0= ruleName ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6443:1: ( (lv_name_0_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6444:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6470:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6471:1: (lv_name_0_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6444:1: (lv_name_0_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6445:3: lv_name_0_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6471:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6472:3: lv_name_0_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getSignatureNameAccess().getNameNameParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_ruleSignatureName9595);
+            pushFollow(FOLLOW_ruleName_in_ruleSignatureName9632);
             lv_name_0_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -16188,7 +16833,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRulePropertyName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6475:1: entryRulePropertyName returns [EObject current=null] : iv_rulePropertyName= rulePropertyName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6502:1: entryRulePropertyName returns [EObject current=null] : iv_rulePropertyName= rulePropertyName EOF ;
     public final EObject entryRulePropertyName() throws RecognitionException {
         EObject current = null;
 
@@ -16196,20 +16841,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6476:2: (iv_rulePropertyName= rulePropertyName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6477:2: iv_rulePropertyName= rulePropertyName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6503:2: (iv_rulePropertyName= rulePropertyName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6504:2: iv_rulePropertyName= rulePropertyName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPropertyNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePropertyName_in_entryRulePropertyName9630);
+            pushFollow(FOLLOW_rulePropertyName_in_entryRulePropertyName9667);
             iv_rulePropertyName=rulePropertyName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePropertyName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyName9640); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyName9677); if (failed) return current;
 
             }
 
@@ -16227,7 +16872,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulePropertyName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6484:1: rulePropertyName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6511:1: rulePropertyName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
     public final EObject rulePropertyName() throws RecognitionException {
         EObject current = null;
 
@@ -16237,21 +16882,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6489:6: ( ( (lv_name_0_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6490:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6516:6: ( ( (lv_name_0_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6517:1: ( (lv_name_0_0= ruleName ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6490:1: ( (lv_name_0_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6491:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6517:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6518:1: (lv_name_0_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6491:1: (lv_name_0_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6492:3: lv_name_0_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6518:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6519:3: lv_name_0_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getPropertyNameAccess().getNameNameParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_rulePropertyName9685);
+            pushFollow(FOLLOW_ruleName_in_rulePropertyName9722);
             lv_name_0_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -16302,7 +16947,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleExactlyName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6522:1: entryRuleExactlyName returns [EObject current=null] : iv_ruleExactlyName= ruleExactlyName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6549:1: entryRuleExactlyName returns [EObject current=null] : iv_ruleExactlyName= ruleExactlyName EOF ;
     public final EObject entryRuleExactlyName() throws RecognitionException {
         EObject current = null;
 
@@ -16310,20 +16955,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6523:2: (iv_ruleExactlyName= ruleExactlyName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6524:2: iv_ruleExactlyName= ruleExactlyName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6550:2: (iv_ruleExactlyName= ruleExactlyName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6551:2: iv_ruleExactlyName= ruleExactlyName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getExactlyNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleExactlyName_in_entryRuleExactlyName9720);
+            pushFollow(FOLLOW_ruleExactlyName_in_entryRuleExactlyName9757);
             iv_ruleExactlyName=ruleExactlyName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleExactlyName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExactlyName9730); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExactlyName9767); if (failed) return current;
 
             }
 
@@ -16341,7 +16986,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExactlyName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6531:1: ruleExactlyName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6558:1: ruleExactlyName returns [EObject current=null] : ( (lv_name_0_0= ruleName ) ) ;
     public final EObject ruleExactlyName() throws RecognitionException {
         EObject current = null;
 
@@ -16351,21 +16996,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6536:6: ( ( (lv_name_0_0= ruleName ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6537:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6563:6: ( ( (lv_name_0_0= ruleName ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6564:1: ( (lv_name_0_0= ruleName ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6537:1: ( (lv_name_0_0= ruleName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6538:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6564:1: ( (lv_name_0_0= ruleName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6565:1: (lv_name_0_0= ruleName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6538:1: (lv_name_0_0= ruleName )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6539:3: lv_name_0_0= ruleName
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6565:1: (lv_name_0_0= ruleName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6566:3: lv_name_0_0= ruleName
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getExactlyNameAccess().getNameNameParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleName_in_ruleExactlyName9775);
+            pushFollow(FOLLOW_ruleName_in_ruleExactlyName9812);
             lv_name_0_0=ruleName();
             _fsp--;
             if (failed) return current;
@@ -16416,7 +17061,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAsName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6569:1: entryRuleAsName returns [EObject current=null] : iv_ruleAsName= ruleAsName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6596:1: entryRuleAsName returns [EObject current=null] : iv_ruleAsName= ruleAsName EOF ;
     public final EObject entryRuleAsName() throws RecognitionException {
         EObject current = null;
 
@@ -16424,20 +17069,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6570:2: (iv_ruleAsName= ruleAsName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6571:2: iv_ruleAsName= ruleAsName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6597:2: (iv_ruleAsName= ruleAsName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6598:2: iv_ruleAsName= ruleAsName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAsNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAsName_in_entryRuleAsName9810);
+            pushFollow(FOLLOW_ruleAsName_in_entryRuleAsName9847);
             iv_ruleAsName=ruleAsName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAsName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAsName9820); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAsName9857); if (failed) return current;
 
             }
 
@@ -16455,7 +17100,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAsName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6578:1: ruleAsName returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6605:1: ruleAsName returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleAsName() throws RecognitionException {
         EObject current = null;
 
@@ -16464,17 +17109,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6583:6: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6584:1: ( (lv_name_0_0= RULE_ID ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6610:6: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6611:1: ( (lv_name_0_0= RULE_ID ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6584:1: ( (lv_name_0_0= RULE_ID ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6585:1: (lv_name_0_0= RULE_ID )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6611:1: ( (lv_name_0_0= RULE_ID ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6612:1: (lv_name_0_0= RULE_ID )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6585:1: (lv_name_0_0= RULE_ID )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6586:3: lv_name_0_0= RULE_ID
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6612:1: (lv_name_0_0= RULE_ID )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6613:3: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAsName9861); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAsName9898); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getAsNameAccess().getNameIDTerminalRuleCall_0(), "name"); 
@@ -16526,7 +17171,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleNameAlias
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6616:1: entryRuleNameAlias returns [String current=null] : iv_ruleNameAlias= ruleNameAlias EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6643:1: entryRuleNameAlias returns [String current=null] : iv_ruleNameAlias= ruleNameAlias EOF ;
     public final String entryRuleNameAlias() throws RecognitionException {
         String current = null;
 
@@ -16534,20 +17179,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6617:2: (iv_ruleNameAlias= ruleNameAlias EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6618:2: iv_ruleNameAlias= ruleNameAlias EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6644:2: (iv_ruleNameAlias= ruleNameAlias EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6645:2: iv_ruleNameAlias= ruleNameAlias EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getNameAliasRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleNameAlias_in_entryRuleNameAlias9902);
+            pushFollow(FOLLOW_ruleNameAlias_in_entryRuleNameAlias9939);
             iv_ruleNameAlias=ruleNameAlias();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleNameAlias.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNameAlias9913); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNameAlias9950); if (failed) return current;
 
             }
 
@@ -16565,7 +17210,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleNameAlias
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6625:1: ruleNameAlias returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )* ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6652:1: ruleNameAlias returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleNameAlias() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -16576,14 +17221,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6630:6: ( (this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )* ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6631:1: (this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )* )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6657:6: ( (this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )* ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6658:1: (this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )* )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6631:1: (this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )* )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6631:6: this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )*
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6658:1: (this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )* )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6658:6: this_ID_0= RULE_ID (kw= '/' this_ID_2= RULE_ID )*
             {
             this_ID_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNameAlias9953); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNameAlias9990); if (failed) return current;
             if ( backtracking==0 ) {
 
               		current.merge(this_ID_0);
@@ -16594,23 +17239,23 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                   createLeafNode(grammarAccess.getNameAliasAccess().getIDTerminalRuleCall_0(), null); 
                   
             }
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6638:1: (kw= '/' this_ID_2= RULE_ID )*
-            loop92:
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6665:1: (kw= '/' this_ID_2= RULE_ID )*
+            loop95:
             do {
-                int alt92=2;
-                int LA92_0 = input.LA(1);
+                int alt95=2;
+                int LA95_0 = input.LA(1);
 
-                if ( (LA92_0==15) ) {
-                    alt92=1;
+                if ( (LA95_0==15) ) {
+                    alt95=1;
                 }
 
 
-                switch (alt92) {
+                switch (alt95) {
             	case 1 :
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6639:2: kw= '/' this_ID_2= RULE_ID
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6666:2: kw= '/' this_ID_2= RULE_ID
             	    {
             	    kw=(Token)input.LT(1);
-            	    match(input,15,FOLLOW_15_in_ruleNameAlias9972); if (failed) return current;
+            	    match(input,15,FOLLOW_15_in_ruleNameAlias10009); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              current.merge(kw);
@@ -16618,7 +17263,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	          
             	    }
             	    this_ID_2=(Token)input.LT(1);
-            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNameAlias9987); if (failed) return current;
+            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNameAlias10024); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_ID_2);
@@ -16634,7 +17279,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop92;
+            	    break loop95;
                 }
             } while (true);
 
@@ -16663,7 +17308,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6659:1: entryRuleName returns [String current=null] : iv_ruleName= ruleName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6686:1: entryRuleName returns [String current=null] : iv_ruleName= ruleName EOF ;
     public final String entryRuleName() throws RecognitionException {
         String current = null;
 
@@ -16671,20 +17316,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6660:2: (iv_ruleName= ruleName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6661:2: iv_ruleName= ruleName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6687:2: (iv_ruleName= ruleName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6688:2: iv_ruleName= ruleName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleName_in_entryRuleName10035);
+            pushFollow(FOLLOW_ruleName_in_entryRuleName10072);
             iv_ruleName=ruleName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleName10046); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleName10083); if (failed) return current;
 
             }
 
@@ -16702,7 +17347,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6668:1: ruleName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )* ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6695:1: ruleName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -16713,35 +17358,35 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6673:6: ( ( (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )* ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6674:1: ( (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )* )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6700:6: ( ( (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )* ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6701:1: ( (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )* )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6674:1: ( (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )* )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6674:2: (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )*
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6701:1: ( (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )* )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6701:2: (kw= 'this' | this_ID_1= RULE_ID ) (kw= '/' this_ID_3= RULE_ID )*
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6674:2: (kw= 'this' | this_ID_1= RULE_ID )
-            int alt93=2;
-            int LA93_0 = input.LA(1);
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6701:2: (kw= 'this' | this_ID_1= RULE_ID )
+            int alt96=2;
+            int LA96_0 = input.LA(1);
 
-            if ( (LA93_0==53) ) {
-                alt93=1;
+            if ( (LA96_0==53) ) {
+                alt96=1;
             }
-            else if ( (LA93_0==RULE_ID) ) {
-                alt93=2;
+            else if ( (LA96_0==RULE_ID) ) {
+                alt96=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("6674:2: (kw= 'this' | this_ID_1= RULE_ID )", 93, 0, input);
+                    new NoViableAltException("6701:2: (kw= 'this' | this_ID_1= RULE_ID )", 96, 0, input);
 
                 throw nvae;
             }
-            switch (alt93) {
+            switch (alt96) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6675:2: kw= 'this'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6702:2: kw= 'this'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,53,FOLLOW_53_in_ruleName10085); if (failed) return current;
+                    match(input,53,FOLLOW_53_in_ruleName10122); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -16752,10 +17397,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6681:10: this_ID_1= RULE_ID
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6708:10: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleName10106); if (failed) return current;
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleName10143); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_ID_1);
@@ -16772,23 +17417,23 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6688:2: (kw= '/' this_ID_3= RULE_ID )*
-            loop94:
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6715:2: (kw= '/' this_ID_3= RULE_ID )*
+            loop97:
             do {
-                int alt94=2;
-                int LA94_0 = input.LA(1);
+                int alt97=2;
+                int LA97_0 = input.LA(1);
 
-                if ( (LA94_0==15) ) {
-                    alt94=1;
+                if ( (LA97_0==15) ) {
+                    alt97=1;
                 }
 
 
-                switch (alt94) {
+                switch (alt97) {
             	case 1 :
-            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6689:2: kw= '/' this_ID_3= RULE_ID
+            	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6716:2: kw= '/' this_ID_3= RULE_ID
             	    {
             	    kw=(Token)input.LT(1);
-            	    match(input,15,FOLLOW_15_in_ruleName10126); if (failed) return current;
+            	    match(input,15,FOLLOW_15_in_ruleName10163); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              current.merge(kw);
@@ -16796,7 +17441,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	          
             	    }
             	    this_ID_3=(Token)input.LT(1);
-            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleName10141); if (failed) return current;
+            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleName10178); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_ID_3);
@@ -16812,7 +17457,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop94;
+            	    break loop97;
                 }
             } while (true);
 
@@ -16841,7 +17486,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleReferencesName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6709:1: entryRuleReferencesName returns [EObject current=null] : iv_ruleReferencesName= ruleReferencesName EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6736:1: entryRuleReferencesName returns [EObject current=null] : iv_ruleReferencesName= ruleReferencesName EOF ;
     public final EObject entryRuleReferencesName() throws RecognitionException {
         EObject current = null;
 
@@ -16849,20 +17494,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6710:2: (iv_ruleReferencesName= ruleReferencesName EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6711:2: iv_ruleReferencesName= ruleReferencesName EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6737:2: (iv_ruleReferencesName= ruleReferencesName EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6738:2: iv_ruleReferencesName= ruleReferencesName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getReferencesNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleReferencesName_in_entryRuleReferencesName10188);
+            pushFollow(FOLLOW_ruleReferencesName_in_entryRuleReferencesName10225);
             iv_ruleReferencesName=ruleReferencesName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleReferencesName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleReferencesName10198); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleReferencesName10235); if (failed) return current;
 
             }
 
@@ -16880,7 +17525,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleReferencesName
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6718:1: ruleReferencesName returns [EObject current=null] : (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6745:1: ruleReferencesName returns [EObject current=null] : (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName ) ;
     public final EObject ruleReferencesName() throws RecognitionException {
         EObject current = null;
 
@@ -16908,46 +17553,46 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6723:6: ( (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6724:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6750:6: ( (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6751:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6724:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )
-            int alt95=10;
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6751:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )
+            int alt98=10;
             switch ( input.LA(1) ) {
             case 85:
                 {
-                alt95=1;
+                alt98=1;
                 }
                 break;
             case 53:
                 {
-                int LA95_2 = input.LA(2);
+                int LA98_2 = input.LA(2);
 
-                if ( (synpred166()) ) {
-                    alt95=2;
-                }
-                else if ( (synpred167()) ) {
-                    alt95=3;
-                }
-                else if ( (synpred169()) ) {
-                    alt95=5;
-                }
-                else if ( (synpred170()) ) {
-                    alt95=6;
-                }
-                else if ( (synpred171()) ) {
-                    alt95=7;
+                if ( (synpred171()) ) {
+                    alt98=2;
                 }
                 else if ( (synpred172()) ) {
-                    alt95=8;
+                    alt98=3;
+                }
+                else if ( (synpred174()) ) {
+                    alt98=5;
+                }
+                else if ( (synpred175()) ) {
+                    alt98=6;
+                }
+                else if ( (synpred176()) ) {
+                    alt98=7;
+                }
+                else if ( (synpred177()) ) {
+                    alt98=8;
                 }
                 else if ( (true) ) {
-                    alt95=10;
+                    alt98=10;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("6724:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )", 95, 2, input);
+                        new NoViableAltException("6751:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )", 98, 2, input);
 
                     throw nvae;
                 }
@@ -16955,33 +17600,33 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_ID:
                 {
-                int LA95_3 = input.LA(2);
+                int LA98_3 = input.LA(2);
 
-                if ( (synpred166()) ) {
-                    alt95=2;
-                }
-                else if ( (synpred167()) ) {
-                    alt95=3;
-                }
-                else if ( (synpred169()) ) {
-                    alt95=5;
-                }
-                else if ( (synpred170()) ) {
-                    alt95=6;
-                }
-                else if ( (synpred171()) ) {
-                    alt95=7;
+                if ( (synpred171()) ) {
+                    alt98=2;
                 }
                 else if ( (synpred172()) ) {
-                    alt95=8;
+                    alt98=3;
+                }
+                else if ( (synpred174()) ) {
+                    alt98=5;
+                }
+                else if ( (synpred175()) ) {
+                    alt98=6;
+                }
+                else if ( (synpred176()) ) {
+                    alt98=7;
+                }
+                else if ( (synpred177()) ) {
+                    alt98=8;
                 }
                 else if ( (true) ) {
-                    alt95=10;
+                    alt98=10;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("6724:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )", 95, 3, input);
+                        new NoViableAltException("6751:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )", 98, 3, input);
 
                     throw nvae;
                 }
@@ -16989,25 +17634,25 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 break;
             case 87:
                 {
-                alt95=4;
+                alt98=4;
                 }
                 break;
             case 44:
                 {
-                alt95=9;
+                alt98=9;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("6724:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )", 95, 0, input);
+                    new NoViableAltException("6751:1: (this_FactName_0= ruleFactName | this_FunctionName_1= ruleFunctionName | this_FunctionNamewParam_2= ruleFunctionNamewParam | this_EnumName_3= ruleEnumName | this_EnumPropertyName_4= ruleEnumPropertyName | this_SignatureName_5= ruleSignatureName | this_PropertyName_6= rulePropertyName | this_ExactlyName_7= ruleExactlyName | this_LetName_8= ruleLetName | this_PredicateName_9= rulePredicateName )", 98, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt95) {
+            switch (alt98) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6725:2: this_FactName_0= ruleFactName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6752:2: this_FactName_0= ruleFactName
                     {
                     if ( backtracking==0 ) {
                        
@@ -17019,7 +17664,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getFactNameParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFactName_in_ruleReferencesName10248);
+                    pushFollow(FOLLOW_ruleFactName_in_ruleReferencesName10285);
                     this_FactName_0=ruleFactName();
                     _fsp--;
                     if (failed) return current;
@@ -17033,7 +17678,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6738:2: this_FunctionName_1= ruleFunctionName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6765:2: this_FunctionName_1= ruleFunctionName
                     {
                     if ( backtracking==0 ) {
                        
@@ -17045,7 +17690,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getFunctionNameParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFunctionName_in_ruleReferencesName10278);
+                    pushFollow(FOLLOW_ruleFunctionName_in_ruleReferencesName10315);
                     this_FunctionName_1=ruleFunctionName();
                     _fsp--;
                     if (failed) return current;
@@ -17059,7 +17704,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6751:2: this_FunctionNamewParam_2= ruleFunctionNamewParam
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6778:2: this_FunctionNamewParam_2= ruleFunctionNamewParam
                     {
                     if ( backtracking==0 ) {
                        
@@ -17071,7 +17716,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getFunctionNamewParamParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFunctionNamewParam_in_ruleReferencesName10308);
+                    pushFollow(FOLLOW_ruleFunctionNamewParam_in_ruleReferencesName10345);
                     this_FunctionNamewParam_2=ruleFunctionNamewParam();
                     _fsp--;
                     if (failed) return current;
@@ -17085,7 +17730,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6764:2: this_EnumName_3= ruleEnumName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6791:2: this_EnumName_3= ruleEnumName
                     {
                     if ( backtracking==0 ) {
                        
@@ -17097,7 +17742,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getEnumNameParserRuleCall_3(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleEnumName_in_ruleReferencesName10338);
+                    pushFollow(FOLLOW_ruleEnumName_in_ruleReferencesName10375);
                     this_EnumName_3=ruleEnumName();
                     _fsp--;
                     if (failed) return current;
@@ -17111,7 +17756,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6777:2: this_EnumPropertyName_4= ruleEnumPropertyName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6804:2: this_EnumPropertyName_4= ruleEnumPropertyName
                     {
                     if ( backtracking==0 ) {
                        
@@ -17123,7 +17768,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getEnumPropertyNameParserRuleCall_4(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleEnumPropertyName_in_ruleReferencesName10368);
+                    pushFollow(FOLLOW_ruleEnumPropertyName_in_ruleReferencesName10405);
                     this_EnumPropertyName_4=ruleEnumPropertyName();
                     _fsp--;
                     if (failed) return current;
@@ -17137,7 +17782,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6790:2: this_SignatureName_5= ruleSignatureName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6817:2: this_SignatureName_5= ruleSignatureName
                     {
                     if ( backtracking==0 ) {
                        
@@ -17149,7 +17794,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getSignatureNameParserRuleCall_5(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleSignatureName_in_ruleReferencesName10398);
+                    pushFollow(FOLLOW_ruleSignatureName_in_ruleReferencesName10435);
                     this_SignatureName_5=ruleSignatureName();
                     _fsp--;
                     if (failed) return current;
@@ -17163,7 +17808,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6803:2: this_PropertyName_6= rulePropertyName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6830:2: this_PropertyName_6= rulePropertyName
                     {
                     if ( backtracking==0 ) {
                        
@@ -17175,7 +17820,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getPropertyNameParserRuleCall_6(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_rulePropertyName_in_ruleReferencesName10428);
+                    pushFollow(FOLLOW_rulePropertyName_in_ruleReferencesName10465);
                     this_PropertyName_6=rulePropertyName();
                     _fsp--;
                     if (failed) return current;
@@ -17189,7 +17834,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6816:2: this_ExactlyName_7= ruleExactlyName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6843:2: this_ExactlyName_7= ruleExactlyName
                     {
                     if ( backtracking==0 ) {
                        
@@ -17201,7 +17846,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getExactlyNameParserRuleCall_7(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExactlyName_in_ruleReferencesName10458);
+                    pushFollow(FOLLOW_ruleExactlyName_in_ruleReferencesName10495);
                     this_ExactlyName_7=ruleExactlyName();
                     _fsp--;
                     if (failed) return current;
@@ -17215,7 +17860,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6829:2: this_LetName_8= ruleLetName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6856:2: this_LetName_8= ruleLetName
                     {
                     if ( backtracking==0 ) {
                        
@@ -17227,7 +17872,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getLetNameParserRuleCall_8(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleLetName_in_ruleReferencesName10488);
+                    pushFollow(FOLLOW_ruleLetName_in_ruleReferencesName10525);
                     this_LetName_8=ruleLetName();
                     _fsp--;
                     if (failed) return current;
@@ -17241,7 +17886,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6842:2: this_PredicateName_9= rulePredicateName
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6869:2: this_PredicateName_9= rulePredicateName
                     {
                     if ( backtracking==0 ) {
                        
@@ -17253,7 +17898,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getReferencesNameAccess().getPredicateNameParserRuleCall_9(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_rulePredicateName_in_ruleReferencesName10518);
+                    pushFollow(FOLLOW_rulePredicateName_in_ruleReferencesName10555);
                     this_PredicateName_9=rulePredicateName();
                     _fsp--;
                     if (failed) return current;
@@ -17291,7 +17936,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleReferencesSig
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6861:1: entryRuleReferencesSig returns [EObject current=null] : iv_ruleReferencesSig= ruleReferencesSig EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6888:1: entryRuleReferencesSig returns [EObject current=null] : iv_ruleReferencesSig= ruleReferencesSig EOF ;
     public final EObject entryRuleReferencesSig() throws RecognitionException {
         EObject current = null;
 
@@ -17299,20 +17944,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6862:2: (iv_ruleReferencesSig= ruleReferencesSig EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6863:2: iv_ruleReferencesSig= ruleReferencesSig EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6889:2: (iv_ruleReferencesSig= ruleReferencesSig EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6890:2: iv_ruleReferencesSig= ruleReferencesSig EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getReferencesSigRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleReferencesSig_in_entryRuleReferencesSig10553);
+            pushFollow(FOLLOW_ruleReferencesSig_in_entryRuleReferencesSig10590);
             iv_ruleReferencesSig=ruleReferencesSig();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleReferencesSig; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleReferencesSig10563); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleReferencesSig10600); if (failed) return current;
 
             }
 
@@ -17330,7 +17975,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleReferencesSig
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6870:1: ruleReferencesSig returns [EObject current=null] : ( () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6897:1: ruleReferencesSig returns [EObject current=null] : ( () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' ) ) ;
     public final EObject ruleReferencesSig() throws RecognitionException {
         EObject current = null;
 
@@ -17340,14 +17985,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6875:6: ( ( () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6876:1: ( () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6902:6: ( ( () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6903:1: ( () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6876:1: ( () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6876:2: () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6903:1: ( () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6903:2: () ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6876:2: ()
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6877:2: 
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6903:2: ()
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6904:2: 
             {
             if ( backtracking==0 ) {
                
@@ -17369,68 +18014,68 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6890:2: ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' )
-            int alt97=4;
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6917:2: ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' )
+            int alt100=4;
             switch ( input.LA(1) ) {
             case RULE_ID:
                 {
-                alt97=1;
+                alt100=1;
                 }
                 break;
             case 47:
                 {
-                alt97=2;
+                alt100=2;
                 }
                 break;
             case 48:
                 {
-                alt97=3;
+                alt100=3;
                 }
                 break;
             case 49:
                 {
-                alt97=4;
+                alt100=4;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("6890:2: ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' )", 97, 0, input);
+                    new NoViableAltException("6917:2: ( ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) ) | 'univ' | 'Int' | 'seq/Int' )", 100, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt97) {
+            switch (alt100) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6890:3: ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6917:3: ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6890:3: ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6890:4: ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6917:3: ( ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6917:4: ( (lv_asName_1_0= ruleAsName ) )? ( ( RULE_ID ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6890:4: ( (lv_asName_1_0= ruleAsName ) )?
-                    int alt96=2;
-                    int LA96_0 = input.LA(1);
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6917:4: ( (lv_asName_1_0= ruleAsName ) )?
+                    int alt99=2;
+                    int LA99_0 = input.LA(1);
 
-                    if ( (LA96_0==RULE_ID) ) {
-                        int LA96_1 = input.LA(2);
+                    if ( (LA99_0==RULE_ID) ) {
+                        int LA99_1 = input.LA(2);
 
-                        if ( (LA96_1==RULE_ID) ) {
-                            alt96=1;
+                        if ( (LA99_1==RULE_ID) ) {
+                            alt99=1;
                         }
                     }
-                    switch (alt96) {
+                    switch (alt99) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6891:1: (lv_asName_1_0= ruleAsName )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6918:1: (lv_asName_1_0= ruleAsName )
                             {
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6891:1: (lv_asName_1_0= ruleAsName )
-                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6892:3: lv_asName_1_0= ruleAsName
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6918:1: (lv_asName_1_0= ruleAsName )
+                            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6919:3: lv_asName_1_0= ruleAsName
                             {
                             if ( backtracking==0 ) {
                                
                               	        currentNode=createCompositeNode(grammarAccess.getReferencesSigAccess().getAsNameAsNameParserRuleCall_1_0_0_0(), currentNode); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleAsName_in_ruleReferencesSig10623);
+                            pushFollow(FOLLOW_ruleAsName_in_ruleReferencesSig10660);
                             lv_asName_1_0=ruleAsName();
                             _fsp--;
                             if (failed) return current;
@@ -17462,11 +18107,11 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6914:3: ( ( RULE_ID ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6915:1: ( RULE_ID )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6941:3: ( ( RULE_ID ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6942:1: ( RULE_ID )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6915:1: ( RULE_ID )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6916:3: RULE_ID
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6942:1: ( RULE_ID )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6943:3: RULE_ID
                     {
                     if ( backtracking==0 ) {
                        
@@ -17481,7 +18126,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                               
                     }
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleReferencesSig10646); if (failed) return current;
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleReferencesSig10683); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		createLeafNode(grammarAccess.getReferencesSigAccess().getNameRefSignatureNameCrossReference_1_0_1_0(), "nameRef"); 
@@ -17500,9 +18145,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6932:7: 'univ'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6959:7: 'univ'
                     {
-                    match(input,47,FOLLOW_47_in_ruleReferencesSig10663); if (failed) return current;
+                    match(input,47,FOLLOW_47_in_ruleReferencesSig10700); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getReferencesSigAccess().getUnivKeyword_1_1(), null); 
@@ -17512,9 +18157,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6937:7: 'Int'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6964:7: 'Int'
                     {
-                    match(input,48,FOLLOW_48_in_ruleReferencesSig10679); if (failed) return current;
+                    match(input,48,FOLLOW_48_in_ruleReferencesSig10716); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getReferencesSigAccess().getIntKeyword_1_2(), null); 
@@ -17524,9 +18169,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6942:7: 'seq/Int'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6969:7: 'seq/Int'
                     {
-                    match(input,49,FOLLOW_49_in_ruleReferencesSig10695); if (failed) return current;
+                    match(input,49,FOLLOW_49_in_ruleReferencesSig10732); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getReferencesSigAccess().getSeqIntKeyword_1_3(), null); 
@@ -17563,7 +18208,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleRef
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6954:1: entryRuleRef returns [EObject current=null] : iv_ruleRef= ruleRef EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6981:1: entryRuleRef returns [EObject current=null] : iv_ruleRef= ruleRef EOF ;
     public final EObject entryRuleRef() throws RecognitionException {
         EObject current = null;
 
@@ -17571,20 +18216,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6955:2: (iv_ruleRef= ruleRef EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6956:2: iv_ruleRef= ruleRef EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6982:2: (iv_ruleRef= ruleRef EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6983:2: iv_ruleRef= ruleRef EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getRefRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleRef_in_entryRuleRef10732);
+            pushFollow(FOLLOW_ruleRef_in_entryRuleRef10769);
             iv_ruleRef=ruleRef();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleRef; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRef10742); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRef10779); if (failed) return current;
 
             }
 
@@ -17602,21 +18247,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRef
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6963:1: ruleRef returns [EObject current=null] : ( () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6990:1: ruleRef returns [EObject current=null] : ( () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' ) ) ;
     public final EObject ruleRef() throws RecognitionException {
         EObject current = null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6968:6: ( ( () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6969:1: ( () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6995:6: ( ( () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6996:1: ( () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6969:1: ( () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6969:2: () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6996:1: ( () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6996:2: () ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6969:2: ()
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6970:2: 
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6996:2: ()
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6997:2: 
             {
             if ( backtracking==0 ) {
                
@@ -17638,46 +18283,46 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6983:2: ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' )
-            int alt98=4;
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7010:2: ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' )
+            int alt101=4;
             switch ( input.LA(1) ) {
             case RULE_ID:
                 {
-                alt98=1;
+                alt101=1;
                 }
                 break;
             case 47:
                 {
-                alt98=2;
+                alt101=2;
                 }
                 break;
             case 48:
                 {
-                alt98=3;
+                alt101=3;
                 }
                 break;
             case 49:
                 {
-                alt98=4;
+                alt101=4;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("6983:2: ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' )", 98, 0, input);
+                    new NoViableAltException("7010:2: ( ( ( RULE_ID ) ) | 'univ' | 'Int' | 'seq/Int' )", 101, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt98) {
+            switch (alt101) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6983:3: ( ( RULE_ID ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7010:3: ( ( RULE_ID ) )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6983:3: ( ( RULE_ID ) )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6984:1: ( RULE_ID )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7010:3: ( ( RULE_ID ) )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7011:1: ( RULE_ID )
                     {
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6984:1: ( RULE_ID )
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6985:3: RULE_ID
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7011:1: ( RULE_ID )
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7012:3: RULE_ID
                     {
                     if ( backtracking==0 ) {
                        
@@ -17692,7 +18337,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                       	        }
                               
                     }
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRef10802); if (failed) return current;
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRef10839); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		createLeafNode(grammarAccess.getRefAccess().getNameRefReferencesNameCrossReference_1_0_0(), "nameRef"); 
@@ -17708,9 +18353,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7001:7: 'univ'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7028:7: 'univ'
                     {
-                    match(input,47,FOLLOW_47_in_ruleRef10818); if (failed) return current;
+                    match(input,47,FOLLOW_47_in_ruleRef10855); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getRefAccess().getUnivKeyword_1_1(), null); 
@@ -17720,9 +18365,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7006:7: 'Int'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7033:7: 'Int'
                     {
-                    match(input,48,FOLLOW_48_in_ruleRef10834); if (failed) return current;
+                    match(input,48,FOLLOW_48_in_ruleRef10871); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getRefAccess().getIntKeyword_1_2(), null); 
@@ -17732,9 +18377,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7011:7: 'seq/Int'
+                    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7038:7: 'seq/Int'
                     {
-                    match(input,49,FOLLOW_49_in_ruleRef10850); if (failed) return current;
+                    match(input,49,FOLLOW_49_in_ruleRef10887); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getRefAccess().getSeqIntKeyword_1_3(), null); 
@@ -17771,7 +18416,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLeftCurlyBracket
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7023:1: entryRuleLeftCurlyBracket returns [EObject current=null] : iv_ruleLeftCurlyBracket= ruleLeftCurlyBracket EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7050:1: entryRuleLeftCurlyBracket returns [EObject current=null] : iv_ruleLeftCurlyBracket= ruleLeftCurlyBracket EOF ;
     public final EObject entryRuleLeftCurlyBracket() throws RecognitionException {
         EObject current = null;
 
@@ -17779,20 +18424,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7024:2: (iv_ruleLeftCurlyBracket= ruleLeftCurlyBracket EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7025:2: iv_ruleLeftCurlyBracket= ruleLeftCurlyBracket EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7051:2: (iv_ruleLeftCurlyBracket= ruleLeftCurlyBracket EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7052:2: iv_ruleLeftCurlyBracket= ruleLeftCurlyBracket EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLeftCurlyBracketRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleLeftCurlyBracket_in_entryRuleLeftCurlyBracket10887);
+            pushFollow(FOLLOW_ruleLeftCurlyBracket_in_entryRuleLeftCurlyBracket10924);
             iv_ruleLeftCurlyBracket=ruleLeftCurlyBracket();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleLeftCurlyBracket; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftCurlyBracket10897); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftCurlyBracket10934); if (failed) return current;
 
             }
 
@@ -17810,7 +18455,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLeftCurlyBracket
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7032:1: ruleLeftCurlyBracket returns [EObject current=null] : ( (lv_leftCurlyBracket_0_0= '{' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7059:1: ruleLeftCurlyBracket returns [EObject current=null] : ( (lv_leftCurlyBracket_0_0= '{' ) ) ;
     public final EObject ruleLeftCurlyBracket() throws RecognitionException {
         EObject current = null;
 
@@ -17819,17 +18464,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7037:6: ( ( (lv_leftCurlyBracket_0_0= '{' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7038:1: ( (lv_leftCurlyBracket_0_0= '{' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7064:6: ( ( (lv_leftCurlyBracket_0_0= '{' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7065:1: ( (lv_leftCurlyBracket_0_0= '{' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7038:1: ( (lv_leftCurlyBracket_0_0= '{' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7039:1: (lv_leftCurlyBracket_0_0= '{' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7065:1: ( (lv_leftCurlyBracket_0_0= '{' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7066:1: (lv_leftCurlyBracket_0_0= '{' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7039:1: (lv_leftCurlyBracket_0_0= '{' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7040:3: lv_leftCurlyBracket_0_0= '{'
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7066:1: (lv_leftCurlyBracket_0_0= '{' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7067:3: lv_leftCurlyBracket_0_0= '{'
             {
             lv_leftCurlyBracket_0_0=(Token)input.LT(1);
-            match(input,29,FOLLOW_29_in_ruleLeftCurlyBracket10939); if (failed) return current;
+            match(input,29,FOLLOW_29_in_ruleLeftCurlyBracket10976); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getLeftCurlyBracketAccess().getLeftCurlyBracketLeftCurlyBracketKeyword_0(), "leftCurlyBracket"); 
@@ -17877,7 +18522,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleRightCurlyBracket
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7067:1: entryRuleRightCurlyBracket returns [EObject current=null] : iv_ruleRightCurlyBracket= ruleRightCurlyBracket EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7094:1: entryRuleRightCurlyBracket returns [EObject current=null] : iv_ruleRightCurlyBracket= ruleRightCurlyBracket EOF ;
     public final EObject entryRuleRightCurlyBracket() throws RecognitionException {
         EObject current = null;
 
@@ -17885,20 +18530,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7068:2: (iv_ruleRightCurlyBracket= ruleRightCurlyBracket EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7069:2: iv_ruleRightCurlyBracket= ruleRightCurlyBracket EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7095:2: (iv_ruleRightCurlyBracket= ruleRightCurlyBracket EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7096:2: iv_ruleRightCurlyBracket= ruleRightCurlyBracket EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getRightCurlyBracketRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleRightCurlyBracket_in_entryRuleRightCurlyBracket10987);
+            pushFollow(FOLLOW_ruleRightCurlyBracket_in_entryRuleRightCurlyBracket11024);
             iv_ruleRightCurlyBracket=ruleRightCurlyBracket();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleRightCurlyBracket; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRightCurlyBracket10997); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRightCurlyBracket11034); if (failed) return current;
 
             }
 
@@ -17916,7 +18561,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRightCurlyBracket
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7076:1: ruleRightCurlyBracket returns [EObject current=null] : ( (lv_rightCurlyBracket_0_0= '}' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7103:1: ruleRightCurlyBracket returns [EObject current=null] : ( (lv_rightCurlyBracket_0_0= '}' ) ) ;
     public final EObject ruleRightCurlyBracket() throws RecognitionException {
         EObject current = null;
 
@@ -17925,17 +18570,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7081:6: ( ( (lv_rightCurlyBracket_0_0= '}' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7082:1: ( (lv_rightCurlyBracket_0_0= '}' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7108:6: ( ( (lv_rightCurlyBracket_0_0= '}' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7109:1: ( (lv_rightCurlyBracket_0_0= '}' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7082:1: ( (lv_rightCurlyBracket_0_0= '}' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7083:1: (lv_rightCurlyBracket_0_0= '}' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7109:1: ( (lv_rightCurlyBracket_0_0= '}' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7110:1: (lv_rightCurlyBracket_0_0= '}' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7083:1: (lv_rightCurlyBracket_0_0= '}' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7084:3: lv_rightCurlyBracket_0_0= '}'
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7110:1: (lv_rightCurlyBracket_0_0= '}' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7111:3: lv_rightCurlyBracket_0_0= '}'
             {
             lv_rightCurlyBracket_0_0=(Token)input.LT(1);
-            match(input,31,FOLLOW_31_in_ruleRightCurlyBracket11039); if (failed) return current;
+            match(input,31,FOLLOW_31_in_ruleRightCurlyBracket11076); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getRightCurlyBracketAccess().getRightCurlyBracketRightCurlyBracketKeyword_0(), "rightCurlyBracket"); 
@@ -17983,7 +18628,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDot
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7111:1: entryRuleDot returns [EObject current=null] : iv_ruleDot= ruleDot EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7138:1: entryRuleDot returns [EObject current=null] : iv_ruleDot= ruleDot EOF ;
     public final EObject entryRuleDot() throws RecognitionException {
         EObject current = null;
 
@@ -17991,20 +18636,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7112:2: (iv_ruleDot= ruleDot EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7113:2: iv_ruleDot= ruleDot EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7139:2: (iv_ruleDot= ruleDot EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7140:2: iv_ruleDot= ruleDot EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDotRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleDot_in_entryRuleDot11087);
+            pushFollow(FOLLOW_ruleDot_in_entryRuleDot11124);
             iv_ruleDot=ruleDot();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleDot; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDot11097); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDot11134); if (failed) return current;
 
             }
 
@@ -18022,7 +18667,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDot
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7120:1: ruleDot returns [EObject current=null] : ( (lv_dot_0_0= '.' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7147:1: ruleDot returns [EObject current=null] : ( (lv_dot_0_0= '.' ) ) ;
     public final EObject ruleDot() throws RecognitionException {
         EObject current = null;
 
@@ -18031,17 +18676,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7125:6: ( ( (lv_dot_0_0= '.' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7126:1: ( (lv_dot_0_0= '.' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7152:6: ( ( (lv_dot_0_0= '.' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7153:1: ( (lv_dot_0_0= '.' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7126:1: ( (lv_dot_0_0= '.' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7127:1: (lv_dot_0_0= '.' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7153:1: ( (lv_dot_0_0= '.' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7154:1: (lv_dot_0_0= '.' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7127:1: (lv_dot_0_0= '.' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7128:3: lv_dot_0_0= '.'
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7154:1: (lv_dot_0_0= '.' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7155:3: lv_dot_0_0= '.'
             {
             lv_dot_0_0=(Token)input.LT(1);
-            match(input,88,FOLLOW_88_in_ruleDot11139); if (failed) return current;
+            match(input,88,FOLLOW_88_in_ruleDot11176); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getDotAccess().getDotFullStopKeyword_0(), "dot"); 
@@ -18089,7 +18734,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleComma
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7155:1: entryRuleComma returns [EObject current=null] : iv_ruleComma= ruleComma EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7182:1: entryRuleComma returns [EObject current=null] : iv_ruleComma= ruleComma EOF ;
     public final EObject entryRuleComma() throws RecognitionException {
         EObject current = null;
 
@@ -18097,20 +18742,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7156:2: (iv_ruleComma= ruleComma EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7157:2: iv_ruleComma= ruleComma EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7183:2: (iv_ruleComma= ruleComma EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7184:2: iv_ruleComma= ruleComma EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCommaRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleComma_in_entryRuleComma11187);
+            pushFollow(FOLLOW_ruleComma_in_entryRuleComma11224);
             iv_ruleComma=ruleComma();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleComma; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleComma11197); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleComma11234); if (failed) return current;
 
             }
 
@@ -18128,7 +18773,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleComma
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7164:1: ruleComma returns [EObject current=null] : ( (lv_comma_0_0= ',' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7191:1: ruleComma returns [EObject current=null] : ( (lv_comma_0_0= ',' ) ) ;
     public final EObject ruleComma() throws RecognitionException {
         EObject current = null;
 
@@ -18137,17 +18782,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7169:6: ( ( (lv_comma_0_0= ',' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7170:1: ( (lv_comma_0_0= ',' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7196:6: ( ( (lv_comma_0_0= ',' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7197:1: ( (lv_comma_0_0= ',' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7170:1: ( (lv_comma_0_0= ',' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7171:1: (lv_comma_0_0= ',' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7197:1: ( (lv_comma_0_0= ',' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7198:1: (lv_comma_0_0= ',' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7171:1: (lv_comma_0_0= ',' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7172:3: lv_comma_0_0= ','
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7198:1: (lv_comma_0_0= ',' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7199:3: lv_comma_0_0= ','
             {
             lv_comma_0_0=(Token)input.LT(1);
-            match(input,30,FOLLOW_30_in_ruleComma11239); if (failed) return current;
+            match(input,30,FOLLOW_30_in_ruleComma11276); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getCommaAccess().getCommaCommaKeyword_0(), "comma"); 
@@ -18195,7 +18840,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleColon
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7199:1: entryRuleColon returns [EObject current=null] : iv_ruleColon= ruleColon EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7226:1: entryRuleColon returns [EObject current=null] : iv_ruleColon= ruleColon EOF ;
     public final EObject entryRuleColon() throws RecognitionException {
         EObject current = null;
 
@@ -18203,20 +18848,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7200:2: (iv_ruleColon= ruleColon EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7201:2: iv_ruleColon= ruleColon EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7227:2: (iv_ruleColon= ruleColon EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7228:2: iv_ruleColon= ruleColon EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getColonRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleColon_in_entryRuleColon11287);
+            pushFollow(FOLLOW_ruleColon_in_entryRuleColon11324);
             iv_ruleColon=ruleColon();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleColon; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleColon11297); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleColon11334); if (failed) return current;
 
             }
 
@@ -18234,7 +18879,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleColon
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7208:1: ruleColon returns [EObject current=null] : ( (lv_colon_0_0= ':' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7235:1: ruleColon returns [EObject current=null] : ( (lv_colon_0_0= ':' ) ) ;
     public final EObject ruleColon() throws RecognitionException {
         EObject current = null;
 
@@ -18243,17 +18888,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7213:6: ( ( (lv_colon_0_0= ':' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7214:1: ( (lv_colon_0_0= ':' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7240:6: ( ( (lv_colon_0_0= ':' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7241:1: ( (lv_colon_0_0= ':' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7214:1: ( (lv_colon_0_0= ':' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7215:1: (lv_colon_0_0= ':' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7241:1: ( (lv_colon_0_0= ':' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7242:1: (lv_colon_0_0= ':' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7215:1: (lv_colon_0_0= ':' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7216:3: lv_colon_0_0= ':'
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7242:1: (lv_colon_0_0= ':' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7243:3: lv_colon_0_0= ':'
             {
             lv_colon_0_0=(Token)input.LT(1);
-            match(input,19,FOLLOW_19_in_ruleColon11339); if (failed) return current;
+            match(input,19,FOLLOW_19_in_ruleColon11376); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getColonAccess().getColonColonKeyword_0(), "colon"); 
@@ -18301,7 +18946,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLeftParenthesis
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7243:1: entryRuleLeftParenthesis returns [EObject current=null] : iv_ruleLeftParenthesis= ruleLeftParenthesis EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7270:1: entryRuleLeftParenthesis returns [EObject current=null] : iv_ruleLeftParenthesis= ruleLeftParenthesis EOF ;
     public final EObject entryRuleLeftParenthesis() throws RecognitionException {
         EObject current = null;
 
@@ -18309,20 +18954,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7244:2: (iv_ruleLeftParenthesis= ruleLeftParenthesis EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7245:2: iv_ruleLeftParenthesis= ruleLeftParenthesis EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7271:2: (iv_ruleLeftParenthesis= ruleLeftParenthesis EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7272:2: iv_ruleLeftParenthesis= ruleLeftParenthesis EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLeftParenthesisRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis11387);
+            pushFollow(FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis11424);
             iv_ruleLeftParenthesis=ruleLeftParenthesis();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleLeftParenthesis; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftParenthesis11397); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftParenthesis11434); if (failed) return current;
 
             }
 
@@ -18340,7 +18985,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLeftParenthesis
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7252:1: ruleLeftParenthesis returns [EObject current=null] : ( (lv_leftParenthesis_0_0= '(' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7279:1: ruleLeftParenthesis returns [EObject current=null] : ( (lv_leftParenthesis_0_0= '(' ) ) ;
     public final EObject ruleLeftParenthesis() throws RecognitionException {
         EObject current = null;
 
@@ -18349,17 +18994,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7257:6: ( ( (lv_leftParenthesis_0_0= '(' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7258:1: ( (lv_leftParenthesis_0_0= '(' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7284:6: ( ( (lv_leftParenthesis_0_0= '(' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7285:1: ( (lv_leftParenthesis_0_0= '(' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7258:1: ( (lv_leftParenthesis_0_0= '(' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7259:1: (lv_leftParenthesis_0_0= '(' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7285:1: ( (lv_leftParenthesis_0_0= '(' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7286:1: (lv_leftParenthesis_0_0= '(' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7259:1: (lv_leftParenthesis_0_0= '(' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7260:3: lv_leftParenthesis_0_0= '('
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7286:1: (lv_leftParenthesis_0_0= '(' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7287:3: lv_leftParenthesis_0_0= '('
             {
             lv_leftParenthesis_0_0=(Token)input.LT(1);
-            match(input,50,FOLLOW_50_in_ruleLeftParenthesis11439); if (failed) return current;
+            match(input,50,FOLLOW_50_in_ruleLeftParenthesis11476); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getLeftParenthesisAccess().getLeftParenthesisLeftParenthesisKeyword_0(), "leftParenthesis"); 
@@ -18407,7 +19052,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleRightParenthesis
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7287:1: entryRuleRightParenthesis returns [EObject current=null] : iv_ruleRightParenthesis= ruleRightParenthesis EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7314:1: entryRuleRightParenthesis returns [EObject current=null] : iv_ruleRightParenthesis= ruleRightParenthesis EOF ;
     public final EObject entryRuleRightParenthesis() throws RecognitionException {
         EObject current = null;
 
@@ -18415,20 +19060,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7288:2: (iv_ruleRightParenthesis= ruleRightParenthesis EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7289:2: iv_ruleRightParenthesis= ruleRightParenthesis EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7315:2: (iv_ruleRightParenthesis= ruleRightParenthesis EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7316:2: iv_ruleRightParenthesis= ruleRightParenthesis EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getRightParenthesisRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis11487);
+            pushFollow(FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis11524);
             iv_ruleRightParenthesis=ruleRightParenthesis();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleRightParenthesis; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRightParenthesis11497); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRightParenthesis11534); if (failed) return current;
 
             }
 
@@ -18446,7 +19091,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRightParenthesis
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7296:1: ruleRightParenthesis returns [EObject current=null] : ( (lv_rightParenthesis_0_0= ')' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7323:1: ruleRightParenthesis returns [EObject current=null] : ( (lv_rightParenthesis_0_0= ')' ) ) ;
     public final EObject ruleRightParenthesis() throws RecognitionException {
         EObject current = null;
 
@@ -18455,17 +19100,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7301:6: ( ( (lv_rightParenthesis_0_0= ')' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7302:1: ( (lv_rightParenthesis_0_0= ')' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7328:6: ( ( (lv_rightParenthesis_0_0= ')' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7329:1: ( (lv_rightParenthesis_0_0= ')' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7302:1: ( (lv_rightParenthesis_0_0= ')' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7303:1: (lv_rightParenthesis_0_0= ')' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7329:1: ( (lv_rightParenthesis_0_0= ')' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7330:1: (lv_rightParenthesis_0_0= ')' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7303:1: (lv_rightParenthesis_0_0= ')' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7304:3: lv_rightParenthesis_0_0= ')'
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7330:1: (lv_rightParenthesis_0_0= ')' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7331:3: lv_rightParenthesis_0_0= ')'
             {
             lv_rightParenthesis_0_0=(Token)input.LT(1);
-            match(input,51,FOLLOW_51_in_ruleRightParenthesis11539); if (failed) return current;
+            match(input,51,FOLLOW_51_in_ruleRightParenthesis11576); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getRightParenthesisAccess().getRightParenthesisRightParenthesisKeyword_0(), "rightParenthesis"); 
@@ -18513,7 +19158,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLeftSquareBracketKeyword
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7331:1: entryRuleLeftSquareBracketKeyword returns [EObject current=null] : iv_ruleLeftSquareBracketKeyword= ruleLeftSquareBracketKeyword EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7358:1: entryRuleLeftSquareBracketKeyword returns [EObject current=null] : iv_ruleLeftSquareBracketKeyword= ruleLeftSquareBracketKeyword EOF ;
     public final EObject entryRuleLeftSquareBracketKeyword() throws RecognitionException {
         EObject current = null;
 
@@ -18521,20 +19166,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7332:2: (iv_ruleLeftSquareBracketKeyword= ruleLeftSquareBracketKeyword EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7333:2: iv_ruleLeftSquareBracketKeyword= ruleLeftSquareBracketKeyword EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7359:2: (iv_ruleLeftSquareBracketKeyword= ruleLeftSquareBracketKeyword EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7360:2: iv_ruleLeftSquareBracketKeyword= ruleLeftSquareBracketKeyword EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLeftSquareBracketKeywordRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleLeftSquareBracketKeyword_in_entryRuleLeftSquareBracketKeyword11587);
+            pushFollow(FOLLOW_ruleLeftSquareBracketKeyword_in_entryRuleLeftSquareBracketKeyword11624);
             iv_ruleLeftSquareBracketKeyword=ruleLeftSquareBracketKeyword();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleLeftSquareBracketKeyword; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftSquareBracketKeyword11597); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftSquareBracketKeyword11634); if (failed) return current;
 
             }
 
@@ -18552,7 +19197,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLeftSquareBracketKeyword
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7340:1: ruleLeftSquareBracketKeyword returns [EObject current=null] : ( (lv_leftSquareBracketKeyword_0_0= '[' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7367:1: ruleLeftSquareBracketKeyword returns [EObject current=null] : ( (lv_leftSquareBracketKeyword_0_0= '[' ) ) ;
     public final EObject ruleLeftSquareBracketKeyword() throws RecognitionException {
         EObject current = null;
 
@@ -18561,17 +19206,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7345:6: ( ( (lv_leftSquareBracketKeyword_0_0= '[' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7346:1: ( (lv_leftSquareBracketKeyword_0_0= '[' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7372:6: ( ( (lv_leftSquareBracketKeyword_0_0= '[' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7373:1: ( (lv_leftSquareBracketKeyword_0_0= '[' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7346:1: ( (lv_leftSquareBracketKeyword_0_0= '[' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7347:1: (lv_leftSquareBracketKeyword_0_0= '[' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7373:1: ( (lv_leftSquareBracketKeyword_0_0= '[' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7374:1: (lv_leftSquareBracketKeyword_0_0= '[' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7347:1: (lv_leftSquareBracketKeyword_0_0= '[' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7348:3: lv_leftSquareBracketKeyword_0_0= '['
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7374:1: (lv_leftSquareBracketKeyword_0_0= '[' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7375:3: lv_leftSquareBracketKeyword_0_0= '['
             {
             lv_leftSquareBracketKeyword_0_0=(Token)input.LT(1);
-            match(input,89,FOLLOW_89_in_ruleLeftSquareBracketKeyword11639); if (failed) return current;
+            match(input,89,FOLLOW_89_in_ruleLeftSquareBracketKeyword11676); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getLeftSquareBracketKeywordAccess().getLeftSquareBracketKeywordLeftSquareBracketKeyword_0(), "leftSquareBracketKeyword"); 
@@ -18619,7 +19264,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleRightSquareBracketKeyword
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7375:1: entryRuleRightSquareBracketKeyword returns [EObject current=null] : iv_ruleRightSquareBracketKeyword= ruleRightSquareBracketKeyword EOF ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7402:1: entryRuleRightSquareBracketKeyword returns [EObject current=null] : iv_ruleRightSquareBracketKeyword= ruleRightSquareBracketKeyword EOF ;
     public final EObject entryRuleRightSquareBracketKeyword() throws RecognitionException {
         EObject current = null;
 
@@ -18627,20 +19272,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7376:2: (iv_ruleRightSquareBracketKeyword= ruleRightSquareBracketKeyword EOF )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7377:2: iv_ruleRightSquareBracketKeyword= ruleRightSquareBracketKeyword EOF
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7403:2: (iv_ruleRightSquareBracketKeyword= ruleRightSquareBracketKeyword EOF )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7404:2: iv_ruleRightSquareBracketKeyword= ruleRightSquareBracketKeyword EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getRightSquareBracketKeywordRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleRightSquareBracketKeyword_in_entryRuleRightSquareBracketKeyword11687);
+            pushFollow(FOLLOW_ruleRightSquareBracketKeyword_in_entryRuleRightSquareBracketKeyword11724);
             iv_ruleRightSquareBracketKeyword=ruleRightSquareBracketKeyword();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleRightSquareBracketKeyword; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRightSquareBracketKeyword11697); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRightSquareBracketKeyword11734); if (failed) return current;
 
             }
 
@@ -18658,7 +19303,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRightSquareBracketKeyword
-    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7384:1: ruleRightSquareBracketKeyword returns [EObject current=null] : ( (lv_rightSquareBracketKeyword_0_0= ']' ) ) ;
+    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7411:1: ruleRightSquareBracketKeyword returns [EObject current=null] : ( (lv_rightSquareBracketKeyword_0_0= ']' ) ) ;
     public final EObject ruleRightSquareBracketKeyword() throws RecognitionException {
         EObject current = null;
 
@@ -18667,17 +19312,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7389:6: ( ( (lv_rightSquareBracketKeyword_0_0= ']' ) ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7390:1: ( (lv_rightSquareBracketKeyword_0_0= ']' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7416:6: ( ( (lv_rightSquareBracketKeyword_0_0= ']' ) ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7417:1: ( (lv_rightSquareBracketKeyword_0_0= ']' ) )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7390:1: ( (lv_rightSquareBracketKeyword_0_0= ']' ) )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7391:1: (lv_rightSquareBracketKeyword_0_0= ']' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7417:1: ( (lv_rightSquareBracketKeyword_0_0= ']' ) )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7418:1: (lv_rightSquareBracketKeyword_0_0= ']' )
             {
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7391:1: (lv_rightSquareBracketKeyword_0_0= ']' )
-            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7392:3: lv_rightSquareBracketKeyword_0_0= ']'
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7418:1: (lv_rightSquareBracketKeyword_0_0= ']' )
+            // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:7419:3: lv_rightSquareBracketKeyword_0_0= ']'
             {
             lv_rightSquareBracketKeyword_0_0=(Token)input.LT(1);
-            match(input,90,FOLLOW_90_in_ruleRightSquareBracketKeyword11739); if (failed) return current;
+            match(input,90,FOLLOW_90_in_ruleRightSquareBracketKeyword11776); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getRightSquareBracketKeywordAccess().getRightSquareBracketKeywordRightSquareBracketKeyword_0(), "rightSquareBracketKeyword"); 
@@ -18973,13 +19618,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3615:7: ( '!' | 'not' )? ( ( ruleCompareOp ) ) ( ( ruleExpression ) )
         {
         // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3615:7: ( '!' | 'not' )?
-        int alt126=2;
-        int LA126_0 = input.LA(1);
+        int alt129=2;
+        int LA129_0 = input.LA(1);
 
-        if ( ((LA126_0>=39 && LA126_0<=40)) ) {
-            alt126=1;
+        if ( ((LA129_0>=39 && LA129_0<=40)) ) {
+            alt129=1;
         }
-        switch (alt126) {
+        switch (alt129) {
             case 1 :
                 // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:
                 {
@@ -19123,13 +19768,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         }
 
         // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3706:2: ( 'else' ( ( ruleExpression ) ) )?
-        int alt127=2;
-        int LA127_0 = input.LA(1);
+        int alt130=2;
+        int LA130_0 = input.LA(1);
 
-        if ( (LA127_0==43) ) {
-            alt127=1;
+        if ( (LA130_0==43) ) {
+            alt130=1;
         }
-        switch (alt127) {
+        switch (alt130) {
             case 1 :
                 // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3706:4: 'else' ( ( ruleExpression ) )
                 {
@@ -19199,13 +19844,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         }
 
         // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3759:2: ( ( ( ruleExpression ) ) ( ( ( ruleComma ) ) ( ( ruleExpression ) ) )* )?
-        int alt130=2;
-        int LA130_0 = input.LA(1);
+        int alt133=2;
+        int LA133_0 = input.LA(1);
 
-        if ( ((LA130_0>=RULE_INT && LA130_0<=RULE_NEGATIVE_INTEGER)||(LA130_0>=17 && LA130_0<=18)||(LA130_0>=25 && LA130_0<=26)||LA130_0==29||(LA130_0>=33 && LA130_0<=35)||(LA130_0>=39 && LA130_0<=40)||(LA130_0>=44 && LA130_0<=50)||(LA130_0>=52 && LA130_0<=53)||(LA130_0>=55 && LA130_0<=56)||(LA130_0>=71 && LA130_0<=76)) ) {
-            alt130=1;
+        if ( ((LA133_0>=RULE_INT && LA133_0<=RULE_NEGATIVE_INTEGER)||(LA133_0>=17 && LA133_0<=18)||(LA133_0>=25 && LA133_0<=26)||LA133_0==29||(LA133_0>=33 && LA133_0<=35)||(LA133_0>=39 && LA133_0<=40)||(LA133_0>=44 && LA133_0<=50)||(LA133_0>=52 && LA133_0<=53)||(LA133_0>=55 && LA133_0<=56)||(LA133_0>=71 && LA133_0<=76)) ) {
+            alt133=1;
         }
-        switch (alt130) {
+        switch (alt133) {
             case 1 :
                 // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3759:3: ( ( ruleExpression ) ) ( ( ( ruleComma ) ) ( ( ruleExpression ) ) )*
                 {
@@ -19231,17 +19876,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 }
 
                 // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3783:2: ( ( ( ruleComma ) ) ( ( ruleExpression ) ) )*
-                loop129:
+                loop132:
                 do {
-                    int alt129=2;
-                    int LA129_0 = input.LA(1);
+                    int alt132=2;
+                    int LA132_0 = input.LA(1);
 
-                    if ( (LA129_0==30) ) {
-                        alt129=1;
+                    if ( (LA132_0==30) ) {
+                        alt132=1;
                     }
 
 
-                    switch (alt129) {
+                    switch (alt132) {
                 	case 1 :
                 	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:3783:3: ( ( ruleComma ) ) ( ( ruleExpression ) )
                 	    {
@@ -19292,7 +19937,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 	    break;
 
                 	default :
-                	    break loop129;
+                	    break loop132;
                     }
                 } while (true);
 
@@ -19331,26 +19976,44 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end synpred89
 
-    // $ANTLR start synpred96
-    public final void synpred96_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:3: ( ( ( ( ruleDecl ) ) ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )* ( ( ruleBlockOrBar ) ) ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:3: ( ( ( ruleDecl ) ) ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )* ( ( ruleBlockOrBar ) ) )
+    // $ANTLR start synpred92
+    public final void synpred92_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:3: ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:3: ( ( ruleComma ) ) ( ( ruleDecl ) )
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:3: ( ( ( ruleDecl ) ) ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )* ( ( ruleBlockOrBar ) ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:4: ( ( ruleDecl ) ) ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )* ( ( ruleBlockOrBar ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:3: ( ( ruleComma ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4073:1: ( ruleComma )
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4246:4: ( ( ruleDecl ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4247:1: ( ruleDecl )
-        {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4247:1: ( ruleDecl )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4248:3: ruleDecl
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4073:1: ( ruleComma )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4074:3: ruleComma
         {
         if ( backtracking==0 ) {
            
-          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_3_2_0_0_0(), currentNode); 
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_1_2_1_0_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleDecl_in_synpred965729);
+        pushFollow(FOLLOW_ruleComma_in_synpred925560);
+        ruleComma();
+        _fsp--;
+        if (failed) return ;
+
+        }
+
+
+        }
+
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4096:2: ( ( ruleDecl ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4097:1: ( ruleDecl )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4097:1: ( ruleDecl )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4098:3: ruleDecl
+        {
+        if ( backtracking==0 ) {
+           
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_1_2_1_1_0(), currentNode); 
+          	    
+        }
+        pushFollow(FOLLOW_ruleDecl_in_synpred925581);
         ruleDecl();
         _fsp--;
         if (failed) return ;
@@ -19360,33 +20023,64 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
         }
 
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4270:2: ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )*
-        loop133:
-        do {
-            int alt133=2;
-            int LA133_0 = input.LA(1);
 
-            if ( (LA133_0==30) ) {
-                alt133=1;
+        }
+    }
+    // $ANTLR end synpred92
+
+    // $ANTLR start synpred93
+    public final void synpred93_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4048:3: ( ( ( ruleDecl ) ) ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )* )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4048:3: ( ( ruleDecl ) ) ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )*
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4048:3: ( ( ruleDecl ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4049:1: ( ruleDecl )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4049:1: ( ruleDecl )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4050:3: ruleDecl
+        {
+        if ( backtracking==0 ) {
+           
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_1_2_0_0(), currentNode); 
+          	    
+        }
+        pushFollow(FOLLOW_ruleDecl_in_synpred935538);
+        ruleDecl();
+        _fsp--;
+        if (failed) return ;
+
+        }
+
+
+        }
+
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:2: ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )*
+        loop135:
+        do {
+            int alt135=2;
+            int LA135_0 = input.LA(1);
+
+            if ( (LA135_0==30) ) {
+                alt135=1;
             }
 
 
-            switch (alt133) {
+            switch (alt135) {
         	case 1 :
-        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4270:3: ( ( ruleComma ) ) ( ( ruleDecl ) )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:3: ( ( ruleComma ) ) ( ( ruleDecl ) )
         	    {
-        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4270:3: ( ( ruleComma ) )
-        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:1: ( ruleComma )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4072:3: ( ( ruleComma ) )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4073:1: ( ruleComma )
         	    {
-        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:1: ( ruleComma )
-        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4272:3: ruleComma
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4073:1: ( ruleComma )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4074:3: ruleComma
         	    {
         	    if ( backtracking==0 ) {
         	       
-        	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_3_2_0_1_0_0(), currentNode); 
+        	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_1_2_1_0_0(), currentNode); 
         	      	    
         	    }
-        	    pushFollow(FOLLOW_ruleComma_in_synpred965751);
+        	    pushFollow(FOLLOW_ruleComma_in_synpred935560);
         	    ruleComma();
         	    _fsp--;
         	    if (failed) return ;
@@ -19396,18 +20090,18 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
         	    }
 
-        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4294:2: ( ( ruleDecl ) )
-        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:1: ( ruleDecl )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4096:2: ( ( ruleDecl ) )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4097:1: ( ruleDecl )
         	    {
-        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:1: ( ruleDecl )
-        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4296:3: ruleDecl
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4097:1: ( ruleDecl )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4098:3: ruleDecl
         	    {
         	    if ( backtracking==0 ) {
         	       
-        	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_3_2_0_1_1_0(), currentNode); 
+        	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_1_2_1_1_0(), currentNode); 
         	      	    
         	    }
-        	    pushFollow(FOLLOW_ruleDecl_in_synpred965772);
+        	    pushFollow(FOLLOW_ruleDecl_in_synpred935581);
         	    ruleDecl();
         	    _fsp--;
         	    if (failed) return ;
@@ -19422,22 +20116,32 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         	    break;
 
         	default :
-        	    break loop133;
+        	    break loop135;
             }
         } while (true);
 
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4318:4: ( ( ruleBlockOrBar ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4319:1: ( ruleBlockOrBar )
+
+        }
+    }
+    // $ANTLR end synpred93
+
+    // $ANTLR start synpred94
+    public final void synpred94_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4120:7: ( ( ( ruleBlockOrBar ) ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4120:7: ( ( ruleBlockOrBar ) )
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4319:1: ( ruleBlockOrBar )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4320:3: ruleBlockOrBar
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4120:7: ( ( ruleBlockOrBar ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4121:1: ( ruleBlockOrBar )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4121:1: ( ruleBlockOrBar )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4122:3: ruleBlockOrBar
         {
         if ( backtracking==0 ) {
            
-          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_3_2_0_2_0(), currentNode); 
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_1_3_0_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleBlockOrBar_in_synpred965795);
+        pushFollow(FOLLOW_ruleBlockOrBar_in_synpred945607);
         ruleBlockOrBar();
         _fsp--;
         if (failed) return ;
@@ -19449,44 +20153,283 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
         }
+    }
+    // $ANTLR end synpred94
+
+    // $ANTLR start synpred95
+    public final void synpred95_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4145:6: ( ( ( ruleExpression ) ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4145:6: ( ( ruleExpression ) )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4145:6: ( ( ruleExpression ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4146:1: ( ruleExpression )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4146:1: ( ruleExpression )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4147:3: ruleExpression
+        {
+        if ( backtracking==0 ) {
+           
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_1_3_1_0(), currentNode); 
+          	    
+        }
+        pushFollow(FOLLOW_ruleExpression_in_synpred955634);
+        ruleExpression();
+        _fsp--;
+        if (failed) return ;
+
+        }
+
+
+        }
 
 
         }
     }
-    // $ANTLR end synpred96
+    // $ANTLR end synpred95
 
-    // $ANTLR start synpred103
-    public final void synpred103_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4550:1: ( ( RULE_ID ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4550:1: ( RULE_ID )
+    // $ANTLR start synpred98
+    public final void synpred98_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:3: ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:3: ( ( ruleComma ) ) ( ( ruleDecl ) )
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4550:1: ( RULE_ID )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4551:3: RULE_ID
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:3: ( ( ruleComma ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4296:1: ( ruleComma )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4296:1: ( ruleComma )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4297:3: ruleComma
+        {
+        if ( backtracking==0 ) {
+           
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_3_2_1_0_0(), currentNode); 
+          	    
+        }
+        pushFollow(FOLLOW_ruleComma_in_synpred985783);
+        ruleComma();
+        _fsp--;
+        if (failed) return ;
+
+        }
+
+
+        }
+
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4319:2: ( ( ruleDecl ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4320:1: ( ruleDecl )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4320:1: ( ruleDecl )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4321:3: ruleDecl
+        {
+        if ( backtracking==0 ) {
+           
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_3_2_1_1_0(), currentNode); 
+          	    
+        }
+        pushFollow(FOLLOW_ruleDecl_in_synpred985804);
+        ruleDecl();
+        _fsp--;
+        if (failed) return ;
+
+        }
+
+
+        }
+
+
+        }
+    }
+    // $ANTLR end synpred98
+
+    // $ANTLR start synpred99
+    public final void synpred99_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:3: ( ( ( ruleDecl ) ) ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )* )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:3: ( ( ruleDecl ) ) ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )*
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4271:3: ( ( ruleDecl ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4272:1: ( ruleDecl )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4272:1: ( ruleDecl )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4273:3: ruleDecl
+        {
+        if ( backtracking==0 ) {
+           
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_3_2_0_0(), currentNode); 
+          	    
+        }
+        pushFollow(FOLLOW_ruleDecl_in_synpred995761);
+        ruleDecl();
+        _fsp--;
+        if (failed) return ;
+
+        }
+
+
+        }
+
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:2: ( ( ( ruleComma ) ) ( ( ruleDecl ) ) )*
+        loop139:
+        do {
+            int alt139=2;
+            int LA139_0 = input.LA(1);
+
+            if ( (LA139_0==30) ) {
+                alt139=1;
+            }
+
+
+            switch (alt139) {
+        	case 1 :
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:3: ( ( ruleComma ) ) ( ( ruleDecl ) )
+        	    {
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4295:3: ( ( ruleComma ) )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4296:1: ( ruleComma )
+        	    {
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4296:1: ( ruleComma )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4297:3: ruleComma
+        	    {
+        	    if ( backtracking==0 ) {
+        	       
+        	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_3_2_1_0_0(), currentNode); 
+        	      	    
+        	    }
+        	    pushFollow(FOLLOW_ruleComma_in_synpred995783);
+        	    ruleComma();
+        	    _fsp--;
+        	    if (failed) return ;
+
+        	    }
+
+
+        	    }
+
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4319:2: ( ( ruleDecl ) )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4320:1: ( ruleDecl )
+        	    {
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4320:1: ( ruleDecl )
+        	    // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4321:3: ruleDecl
+        	    {
+        	    if ( backtracking==0 ) {
+        	       
+        	      	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_3_2_1_1_0(), currentNode); 
+        	      	    
+        	    }
+        	    pushFollow(FOLLOW_ruleDecl_in_synpred995804);
+        	    ruleDecl();
+        	    _fsp--;
+        	    if (failed) return ;
+
+        	    }
+
+
+        	    }
+
+
+        	    }
+        	    break;
+
+        	default :
+        	    break loop139;
+            }
+        } while (true);
+
+
+        }
+    }
+    // $ANTLR end synpred99
+
+    // $ANTLR start synpred100
+    public final void synpred100_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4343:7: ( ( ( ruleBlockOrBar ) ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4343:7: ( ( ruleBlockOrBar ) )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4343:7: ( ( ruleBlockOrBar ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4344:1: ( ruleBlockOrBar )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4344:1: ( ruleBlockOrBar )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4345:3: ruleBlockOrBar
+        {
+        if ( backtracking==0 ) {
+           
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_3_3_0_0(), currentNode); 
+          	    
+        }
+        pushFollow(FOLLOW_ruleBlockOrBar_in_synpred1005830);
+        ruleBlockOrBar();
+        _fsp--;
+        if (failed) return ;
+
+        }
+
+
+        }
+
+
+        }
+    }
+    // $ANTLR end synpred100
+
+    // $ANTLR start synpred101
+    public final void synpred101_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4368:6: ( ( ( ruleExpression ) ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4368:6: ( ( ruleExpression ) )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4368:6: ( ( ruleExpression ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4369:1: ( ruleExpression )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4369:1: ( ruleExpression )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4370:3: ruleExpression
+        {
+        if ( backtracking==0 ) {
+           
+          	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_3_3_1_0(), currentNode); 
+          	    
+        }
+        pushFollow(FOLLOW_ruleExpression_in_synpred1015857);
+        ruleExpression();
+        _fsp--;
+        if (failed) return ;
+
+        }
+
+
+        }
+
+
+        }
+    }
+    // $ANTLR end synpred101
+
+    // $ANTLR start synpred108
+    public final void synpred108_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4575:1: ( ( RULE_ID ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4575:1: ( RULE_ID )
+        {
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4575:1: ( RULE_ID )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4576:3: RULE_ID
         {
         if ( backtracking==0 ) {
            
           		  /* */ 
           		
         }
-        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred1036107); if (failed) return ;
+        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred1086142); if (failed) return ;
 
         }
 
 
         }
     }
-    // $ANTLR end synpred103
+    // $ANTLR end synpred108
 
-    // $ANTLR start synpred104
-    public final void synpred104_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4514:6: ( ( () ( ( ( 'int' ) ) ( ( RULE_ID ) )? ) ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4514:6: ( () ( ( ( 'int' ) ) ( ( RULE_ID ) )? ) )
+    // $ANTLR start synpred109
+    public final void synpred109_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4539:6: ( ( () ( ( ( 'int' ) ) ( ( RULE_ID ) )? ) ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4539:6: ( () ( ( ( 'int' ) ) ( ( RULE_ID ) )? ) )
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4514:6: ( () ( ( ( 'int' ) ) ( ( RULE_ID ) )? ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4514:7: () ( ( ( 'int' ) ) ( ( RULE_ID ) )? )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4539:6: ( () ( ( ( 'int' ) ) ( ( RULE_ID ) )? ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4539:7: () ( ( ( 'int' ) ) ( ( RULE_ID ) )? )
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4514:7: ()
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4515:2: 
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4539:7: ()
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4540:2: 
         {
         if ( backtracking==0 ) {
            
@@ -19496,42 +20439,42 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
         }
 
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4528:2: ( ( ( 'int' ) ) ( ( RULE_ID ) )? )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4528:3: ( ( 'int' ) ) ( ( RULE_ID ) )?
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4553:2: ( ( ( 'int' ) ) ( ( RULE_ID ) )? )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4553:3: ( ( 'int' ) ) ( ( RULE_ID ) )?
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4528:3: ( ( 'int' ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4529:1: ( 'int' )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4553:3: ( ( 'int' ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4554:1: ( 'int' )
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4529:1: ( 'int' )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4530:3: 'int'
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4554:1: ( 'int' )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4555:3: 'int'
         {
-        match(input,25,FOLLOW_25_in_synpred1046072); if (failed) return ;
+        match(input,25,FOLLOW_25_in_synpred1096107); if (failed) return ;
 
         }
 
 
         }
 
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4549:2: ( ( RULE_ID ) )?
-        int alt136=2;
-        int LA136_0 = input.LA(1);
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4574:2: ( ( RULE_ID ) )?
+        int alt143=2;
+        int LA143_0 = input.LA(1);
 
-        if ( (LA136_0==RULE_ID) ) {
-            alt136=1;
+        if ( (LA143_0==RULE_ID) ) {
+            alt143=1;
         }
-        switch (alt136) {
+        switch (alt143) {
             case 1 :
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4550:1: ( RULE_ID )
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4575:1: ( RULE_ID )
                 {
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4550:1: ( RULE_ID )
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4551:3: RULE_ID
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4575:1: ( RULE_ID )
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4576:3: RULE_ID
                 {
                 if ( backtracking==0 ) {
                    
                   		  /* */ 
                   		
                 }
-                match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred1046107); if (failed) return ;
+                match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred1096142); if (failed) return ;
 
                 }
 
@@ -19550,18 +20493,18 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred104
+    // $ANTLR end synpred109
 
-    // $ANTLR start synpred115
-    public final void synpred115_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4706:6: ( ( () ( '@' )? ( 'int' )? ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4706:6: ( () ( '@' )? ( 'int' )? ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) )
+    // $ANTLR start synpred120
+    public final void synpred120_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4731:6: ( ( () ( '@' )? ( 'int' )? ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4731:6: ( () ( '@' )? ( 'int' )? ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) )
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4706:6: ( () ( '@' )? ( 'int' )? ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4706:7: () ( '@' )? ( 'int' )? ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4731:6: ( () ( '@' )? ( 'int' )? ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' ) )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4731:7: () ( '@' )? ( 'int' )? ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )? ( ( ( RULE_ID ) ) | 'this' )
         {
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4706:7: ()
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4707:2: 
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4731:7: ()
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4732:2: 
         {
         if ( backtracking==0 ) {
            
@@ -19571,122 +20514,122 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
         }
 
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4720:2: ( '@' )?
-        int alt138=2;
-        int LA138_0 = input.LA(1);
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4745:2: ( '@' )?
+        int alt145=2;
+        int LA145_0 = input.LA(1);
 
-        if ( (LA138_0==52) ) {
-            alt138=1;
+        if ( (LA145_0==52) ) {
+            alt145=1;
         }
-        switch (alt138) {
+        switch (alt145) {
             case 1 :
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4720:4: '@'
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4745:4: '@'
                 {
-                match(input,52,FOLLOW_52_in_synpred1156331); if (failed) return ;
+                match(input,52,FOLLOW_52_in_synpred1206366); if (failed) return ;
 
                 }
                 break;
 
         }
 
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4724:3: ( 'int' )?
-        int alt139=2;
-        int LA139_0 = input.LA(1);
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4749:3: ( 'int' )?
+        int alt146=2;
+        int LA146_0 = input.LA(1);
 
-        if ( (LA139_0==25) ) {
-            alt139=1;
+        if ( (LA146_0==25) ) {
+            alt146=1;
         }
-        switch (alt139) {
+        switch (alt146) {
             case 1 :
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4724:5: 'int'
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4749:5: 'int'
                 {
-                match(input,25,FOLLOW_25_in_synpred1156344); if (failed) return ;
+                match(input,25,FOLLOW_25_in_synpred1206379); if (failed) return ;
 
                 }
                 break;
 
         }
 
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:3: ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )?
-        int alt141=2;
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:3: ( ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/' )?
+        int alt148=2;
         switch ( input.LA(1) ) {
             case RULE_ID:
                 {
-                int LA141_1 = input.LA(2);
+                int LA148_1 = input.LA(2);
 
-                if ( (LA141_1==15) ) {
-                    alt141=1;
+                if ( (LA148_1==15) ) {
+                    alt148=1;
                 }
                 }
                 break;
             case 17:
             case 18:
                 {
-                alt141=1;
+                alt148=1;
                 }
                 break;
             case 53:
                 {
-                int LA141_3 = input.LA(2);
+                int LA148_3 = input.LA(2);
 
-                if ( (LA141_3==15) ) {
-                    alt141=1;
+                if ( (LA148_3==15) ) {
+                    alt148=1;
                 }
                 }
                 break;
         }
 
-        switch (alt141) {
+        switch (alt148) {
             case 1 :
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:4: ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/'
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:4: ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' ) '/'
                 {
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:4: ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' )
-                int alt140=4;
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:4: ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' )
+                int alt147=4;
                 switch ( input.LA(1) ) {
                 case RULE_ID:
                     {
-                    alt140=1;
+                    alt147=1;
                     }
                     break;
                 case 17:
                     {
-                    alt140=2;
+                    alt147=2;
                     }
                     break;
                 case 18:
                     {
-                    alt140=3;
+                    alt147=3;
                     }
                     break;
                 case 53:
                     {
-                    alt140=4;
+                    alt147=4;
                     }
                     break;
                 default:
                     if (backtracking>0) {failed=true; return ;}
                     NoViableAltException nvae =
-                        new NoViableAltException("4728:4: ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' )", 140, 0, input);
+                        new NoViableAltException("4753:4: ( ( ( ruleAsName ) ) | 'fun' | 'pred' | 'this' )", 147, 0, input);
 
                     throw nvae;
                 }
 
-                switch (alt140) {
+                switch (alt147) {
                     case 1 :
-                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:5: ( ( ruleAsName ) )
+                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:5: ( ( ruleAsName ) )
                         {
-                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4728:5: ( ( ruleAsName ) )
-                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4729:1: ( ruleAsName )
+                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:5: ( ( ruleAsName ) )
+                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4754:1: ( ruleAsName )
                         {
-                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4729:1: ( ruleAsName )
-                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4730:3: ruleAsName
+                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4754:1: ( ruleAsName )
+                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4755:3: ruleAsName
                         {
                         if ( backtracking==0 ) {
                            
                           	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getAsnameAsNameParserRuleCall_13_3_0_0_0(), currentNode); 
                           	    
                         }
-                        pushFollow(FOLLOW_ruleAsName_in_synpred1156369);
+                        pushFollow(FOLLOW_ruleAsName_in_synpred1206404);
                         ruleAsName();
                         _fsp--;
                         if (failed) return ;
@@ -19700,69 +20643,69 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         }
                         break;
                     case 2 :
-                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4753:7: 'fun'
+                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4778:7: 'fun'
                         {
-                        match(input,17,FOLLOW_17_in_synpred1156385); if (failed) return ;
+                        match(input,17,FOLLOW_17_in_synpred1206420); if (failed) return ;
 
                         }
                         break;
                     case 3 :
-                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4758:7: 'pred'
+                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4783:7: 'pred'
                         {
-                        match(input,18,FOLLOW_18_in_synpred1156401); if (failed) return ;
+                        match(input,18,FOLLOW_18_in_synpred1206436); if (failed) return ;
 
                         }
                         break;
                     case 4 :
-                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4763:7: 'this'
+                        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4788:7: 'this'
                         {
-                        match(input,53,FOLLOW_53_in_synpred1156417); if (failed) return ;
+                        match(input,53,FOLLOW_53_in_synpred1206452); if (failed) return ;
 
                         }
                         break;
 
                 }
 
-                match(input,15,FOLLOW_15_in_synpred1156428); if (failed) return ;
+                match(input,15,FOLLOW_15_in_synpred1206463); if (failed) return ;
 
                 }
                 break;
 
         }
 
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4771:3: ( ( ( RULE_ID ) ) | 'this' )
-        int alt142=2;
-        int LA142_0 = input.LA(1);
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4796:3: ( ( ( RULE_ID ) ) | 'this' )
+        int alt149=2;
+        int LA149_0 = input.LA(1);
 
-        if ( (LA142_0==RULE_ID) ) {
-            alt142=1;
+        if ( (LA149_0==RULE_ID) ) {
+            alt149=1;
         }
-        else if ( (LA142_0==53) ) {
-            alt142=2;
+        else if ( (LA149_0==53) ) {
+            alt149=2;
         }
         else {
             if (backtracking>0) {failed=true; return ;}
             NoViableAltException nvae =
-                new NoViableAltException("4771:3: ( ( ( RULE_ID ) ) | 'this' )", 142, 0, input);
+                new NoViableAltException("4796:3: ( ( ( RULE_ID ) ) | 'this' )", 149, 0, input);
 
             throw nvae;
         }
-        switch (alt142) {
+        switch (alt149) {
             case 1 :
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4771:4: ( ( RULE_ID ) )
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4796:4: ( ( RULE_ID ) )
                 {
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4771:4: ( ( RULE_ID ) )
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4772:1: ( RULE_ID )
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4796:4: ( ( RULE_ID ) )
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4797:1: ( RULE_ID )
                 {
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4772:1: ( RULE_ID )
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4773:3: RULE_ID
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4797:1: ( RULE_ID )
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4798:3: RULE_ID
                 {
                 if ( backtracking==0 ) {
                    
                   		  /* */ 
                   		
                 }
-                match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred1156453); if (failed) return ;
+                match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred1206488); if (failed) return ;
 
                 }
 
@@ -19773,9 +20716,9 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 2 :
-                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4789:7: 'this'
+                // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:4814:7: 'this'
                 {
-                match(input,53,FOLLOW_53_in_synpred1156469); if (failed) return ;
+                match(input,53,FOLLOW_53_in_synpred1206504); if (failed) return ;
 
                 }
                 break;
@@ -19788,96 +20731,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred115
-
-    // $ANTLR start synpred166
-    public final void synpred166_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6738:2: ( ruleFunctionName )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6738:2: ruleFunctionName
-        {
-        if ( backtracking==0 ) {
-           
-          	  /* */ 
-          	
-        }
-        pushFollow(FOLLOW_ruleFunctionName_in_synpred16610278);
-        ruleFunctionName();
-        _fsp--;
-        if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred166
-
-    // $ANTLR start synpred167
-    public final void synpred167_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6751:2: ( ruleFunctionNamewParam )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6751:2: ruleFunctionNamewParam
-        {
-        if ( backtracking==0 ) {
-           
-          	  /* */ 
-          	
-        }
-        pushFollow(FOLLOW_ruleFunctionNamewParam_in_synpred16710308);
-        ruleFunctionNamewParam();
-        _fsp--;
-        if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred167
-
-    // $ANTLR start synpred169
-    public final void synpred169_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6777:2: ( ruleEnumPropertyName )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6777:2: ruleEnumPropertyName
-        {
-        if ( backtracking==0 ) {
-           
-          	  /* */ 
-          	
-        }
-        pushFollow(FOLLOW_ruleEnumPropertyName_in_synpred16910368);
-        ruleEnumPropertyName();
-        _fsp--;
-        if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred169
-
-    // $ANTLR start synpred170
-    public final void synpred170_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6790:2: ( ruleSignatureName )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6790:2: ruleSignatureName
-        {
-        if ( backtracking==0 ) {
-           
-          	  /* */ 
-          	
-        }
-        pushFollow(FOLLOW_ruleSignatureName_in_synpred17010398);
-        ruleSignatureName();
-        _fsp--;
-        if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred170
+    // $ANTLR end synpred120
 
     // $ANTLR start synpred171
     public final void synpred171_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6803:2: ( rulePropertyName )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6803:2: rulePropertyName
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6765:2: ( ruleFunctionName )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6765:2: ruleFunctionName
         {
         if ( backtracking==0 ) {
            
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_rulePropertyName_in_synpred17110428);
-        rulePropertyName();
+        pushFollow(FOLLOW_ruleFunctionName_in_synpred17110315);
+        ruleFunctionName();
         _fsp--;
         if (failed) return ;
 
@@ -19887,16 +20754,16 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred172
     public final void synpred172_fragment() throws RecognitionException {   
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6816:2: ( ruleExactlyName )
-        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6816:2: ruleExactlyName
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6778:2: ( ruleFunctionNamewParam )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6778:2: ruleFunctionNamewParam
         {
         if ( backtracking==0 ) {
            
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleExactlyName_in_synpred17210458);
-        ruleExactlyName();
+        pushFollow(FOLLOW_ruleFunctionNamewParam_in_synpred17210345);
+        ruleFunctionNamewParam();
         _fsp--;
         if (failed) return ;
 
@@ -19904,39 +20771,87 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end synpred172
 
-    public final boolean synpred96() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred96_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
+    // $ANTLR start synpred174
+    public final void synpred174_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6804:2: ( ruleEnumPropertyName )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6804:2: ruleEnumPropertyName
+        {
+        if ( backtracking==0 ) {
+           
+          	  /* */ 
+          	
         }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
+        pushFollow(FOLLOW_ruleEnumPropertyName_in_synpred17410405);
+        ruleEnumPropertyName();
+        _fsp--;
+        if (failed) return ;
+
+        }
     }
+    // $ANTLR end synpred174
+
+    // $ANTLR start synpred175
+    public final void synpred175_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6817:2: ( ruleSignatureName )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6817:2: ruleSignatureName
+        {
+        if ( backtracking==0 ) {
+           
+          	  /* */ 
+          	
+        }
+        pushFollow(FOLLOW_ruleSignatureName_in_synpred17510435);
+        ruleSignatureName();
+        _fsp--;
+        if (failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred175
+
+    // $ANTLR start synpred176
+    public final void synpred176_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6830:2: ( rulePropertyName )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6830:2: rulePropertyName
+        {
+        if ( backtracking==0 ) {
+           
+          	  /* */ 
+          	
+        }
+        pushFollow(FOLLOW_rulePropertyName_in_synpred17610465);
+        rulePropertyName();
+        _fsp--;
+        if (failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred176
+
+    // $ANTLR start synpred177
+    public final void synpred177_fragment() throws RecognitionException {   
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6843:2: ( ruleExactlyName )
+        // ../fr.univartois.cril.xtext.als/src-gen/fr/univartois/cril/xtext/parser/antlr/internal/InternalAls.g:6843:2: ruleExactlyName
+        {
+        if ( backtracking==0 ) {
+           
+          	  /* */ 
+          	
+        }
+        pushFollow(FOLLOW_ruleExactlyName_in_synpred17710495);
+        ruleExactlyName();
+        _fsp--;
+        if (failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred177
+
     public final boolean synpred80() {
         backtracking++;
         int start = input.mark();
         try {
             synpred80_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred115() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred115_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -19988,11 +20903,25 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
-    public final boolean synpred79() {
+    public final boolean synpred101() {
         backtracking++;
         int start = input.mark();
         try {
-            synpred79_fragment(); // can never throw exception
+            synpred101_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred100() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred100_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -20016,11 +20945,11 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
-    public final boolean synpred103() {
+    public final boolean synpred120() {
         backtracking++;
         int start = input.mark();
         try {
-            synpred103_fragment(); // can never throw exception
+            synpred120_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -20035,20 +20964,6 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         int start = input.mark();
         try {
             synpred40_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred104() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred104_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -20086,11 +21001,123 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
-    public final boolean synpred170() {
+    public final boolean synpred108() {
         backtracking++;
         int start = input.mark();
         try {
-            synpred170_fragment(); // can never throw exception
+            synpred108_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred109() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred109_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred94() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred94_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred95() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred95_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred92() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred92_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred93() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred93_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred79() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred79_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred98() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred98_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred99() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred99_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -20128,11 +21155,53 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
-    public final boolean synpred169() {
+    public final boolean synpred174() {
         backtracking++;
         int start = input.mark();
         try {
-            synpred169_fragment(); // can never throw exception
+            synpred174_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred176() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred176_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred175() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred175_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred177() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred177_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -20156,34 +21225,6 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
-    public final boolean synpred167() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred167_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred166() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred166_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
 
 
     protected DFA13 dfa13 = new DFA13(this);
@@ -20193,13 +21234,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         "\32\uffff";
     static final String DFA13_minS =
         "\1\5\2\uffff\1\16\1\5\1\uffff\1\17\5\uffff\1\17\3\130\1\17\1\5\1"+
-        "\24\2\5\2\uffff\3\17";
+        "\24\1\5\1\uffff\1\5\1\uffff\3\17";
     static final String DFA13_maxS =
         "\1\127\2\uffff\1\43\1\65\1\uffff\1\23\5\uffff\1\131\3\130\1\131"+
-        "\1\5\1\25\1\65\1\5\2\uffff\1\23\2\131";
+        "\1\5\1\25\1\5\1\uffff\1\65\1\uffff\1\23\2\131";
     static final String DFA13_acceptS =
-        "\1\uffff\1\1\1\2\2\uffff\1\4\1\uffff\1\5\1\7\1\10\1\11\1\12\11\uffff"+
-        "\1\3\1\6\3\uffff";
+        "\1\uffff\1\1\1\2\2\uffff\1\4\1\uffff\1\5\1\7\1\10\1\11\1\12\10\uffff"+
+        "\1\3\1\uffff\1\6\3\uffff";
     static final String DFA13_specialS =
         "\32\uffff}>";
     static final String[] DFA13_transitionS = {
@@ -20216,20 +21257,20 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\24\3\uffff\1\26\36\uffff\1\25\45\uffff\1\23\1\25",
-            "\1\23",
-            "\1\23",
-            "\1\23",
-            "\1\24\3\uffff\1\26\36\uffff\1\25\46\uffff\1\25",
+            "\1\23\3\uffff\1\26\36\uffff\1\24\45\uffff\1\25\1\24",
+            "\1\25",
+            "\1\25",
+            "\1\25",
+            "\1\23\3\uffff\1\26\36\uffff\1\24\46\uffff\1\24",
             "\1\27",
             "\1\7\1\10",
-            "\1\30\57\uffff\1\20",
-            "\1\31",
+            "\1\30",
             "",
+            "\1\31\57\uffff\1\20",
             "",
             "\1\21\3\uffff\1\22",
-            "\1\24\3\uffff\1\26\36\uffff\1\25\46\uffff\1\25",
-            "\1\24\3\uffff\1\26\36\uffff\1\25\46\uffff\1\25"
+            "\1\23\3\uffff\1\26\36\uffff\1\24\46\uffff\1\24",
+            "\1\23\3\uffff\1\26\36\uffff\1\24\46\uffff\1\24"
     };
 
     static final short[] DFA13_eot = DFA.unpackEncodedString(DFA13_eotS);
@@ -20491,236 +21532,237 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression5431 = new BitSet(new long[]{0x0020000000000020L});
     public static final BitSet FOLLOW_ruleLetDecl_in_ruleTerminalExpression5452 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
     public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression5475 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQuant_in_ruleTerminalExpression5516 = new BitSet(new long[]{0x0060000000004020L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression5537 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression5559 = new BitSet(new long[]{0x0060000000004020L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression5580 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression5603 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnOp_in_ruleTerminalExpression5644 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression5665 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommonQuantUnOp_in_ruleTerminalExpression5706 = new BitSet(new long[]{0x01F7F18E26064070L,0x0000000000001F80L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression5729 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression5751 = new BitSet(new long[]{0x0060000000004020L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression5772 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression5795 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression5823 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleTerminalExpression5853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NEGATIVE_INTEGER_in_ruleTerminalExpression5881 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleTerminalExpression5918 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleTerminalExpression5969 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleTerminalExpression6020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleTerminalExpression6072 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression6107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleTerminalExpression6134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleTerminalExpression6184 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleTerminalExpression6235 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression6269 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleTerminalExpression6287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleTerminalExpression6331 = new BitSet(new long[]{0x0020000002060020L});
-    public static final BitSet FOLLOW_25_in_ruleTerminalExpression6344 = new BitSet(new long[]{0x0020000000060020L});
-    public static final BitSet FOLLOW_ruleAsName_in_ruleTerminalExpression6369 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_17_in_ruleTerminalExpression6385 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_18_in_ruleTerminalExpression6401 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_53_in_ruleTerminalExpression6417 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleTerminalExpression6428 = new BitSet(new long[]{0x0020000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression6453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleTerminalExpression6469 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBlock_in_ruleTerminalExpression6511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleTerminalExpression6552 = new BitSet(new long[]{0x0060000000004020L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6573 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression6595 = new BitSet(new long[]{0x0060000000004020L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6616 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression6639 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_ruleRightCurlyBracket_in_ruleTerminalExpression6660 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_entryRuleDecl6697 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDecl6707 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_ruleDecl6743 = new BitSet(new long[]{0x0060000000000020L});
-    public static final BitSet FOLLOW_54_in_ruleDecl6756 = new BitSet(new long[]{0x0020000000000020L});
-    public static final BitSet FOLLOW_rulePropertyName_in_ruleDecl6779 = new BitSet(new long[]{0x0000000040080000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleDecl6801 = new BitSet(new long[]{0x0020000000000020L});
-    public static final BitSet FOLLOW_rulePropertyName_in_ruleDecl6822 = new BitSet(new long[]{0x0000000040080000L});
-    public static final BitSet FOLLOW_ruleColon_in_ruleDecl6845 = new BitSet(new long[]{0x01F7F18E26060070L,0x0000000000001F80L});
-    public static final BitSet FOLLOW_54_in_ruleDecl6856 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleDecl6879 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLetDecl_in_entryRuleLetDecl6915 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLetDecl6925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_ruleLetDecl6971 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27_in_ruleLetDecl6981 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleLetDecl7002 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQuant_in_entryRuleQuant7039 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQuant7050 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleQuant7088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleQuant7107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBinOp_in_entryRuleBinOp7147 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBinOp7157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleBinOp7205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleBinOp7221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleBinOp7237 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleBinOp7253 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleBinOp7269 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleBinOp7285 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleBinOp7301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleBinOp7317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_ruleBinOp7333 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleBinOp7349 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ruleBinOp7365 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_ruleBinOp7381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDot_in_ruleBinOp7408 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_ruleBinOp7424 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_69_in_ruleBinOp7440 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_ruleBinOp7456 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnOp_in_entryRuleUnOp7493 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnOp7503 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleUnOp7551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_ruleUnOp7567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleUnOp7583 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleUnOp7609 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_ruleUnOp7638 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_ruleUnOp7667 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_ruleUnOp7696 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_ruleUnOp7725 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommonQuantUnOp_in_entryRuleCommonQuantUnOp7778 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCommonQuantUnOp7788 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_ruleCommonQuantUnOp7836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleCommonQuantUnOp7852 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleCommonQuantUnOp7868 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleCommonQuantUnOp7884 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompareOp_in_entryRuleCompareOp7922 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompareOp7933 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleCompareOp7971 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleCompareOp7990 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_77_in_ruleCompareOp8009 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_78_in_ruleCompareOp8028 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_ruleCompareOp8047 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_80_in_ruleCompareOp8066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_81_in_ruleCompareOp8085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleArrowOp_in_entryRuleArrowOp8125 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleArrowOp8135 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleArrowOp8171 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
-    public static final BitSet FOLLOW_34_in_ruleArrowOp8187 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
-    public static final BitSet FOLLOW_33_in_ruleArrowOp8203 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
-    public static final BitSet FOLLOW_71_in_ruleArrowOp8219 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
-    public static final BitSet FOLLOW_82_in_ruleArrowOp8239 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBlock_in_entryRuleBlock8288 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBlock8298 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleBlock8344 = new BitSet(new long[]{0x01B7F18EA6060070L,0x0000000000001F80L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBlock8365 = new BitSet(new long[]{0x01B7F18EA6060070L,0x0000000000001F80L});
-    public static final BitSet FOLLOW_ruleRightCurlyBracket_in_ruleBlock8387 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBlockOrBar_in_entryRuleBlockOrBar8423 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBlockOrBar8433 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBlock_in_ruleBlockOrBar8479 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_83_in_ruleBlockOrBar8496 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBlockOrBar8517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpenName_in_entryRuleOpenName8554 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOpenName8564 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_ruleOpenName8599 = new BitSet(new long[]{0x0020000000000020L});
-    public static final BitSet FOLLOW_ruleName_in_ruleOpenName8620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFactName_in_entryRuleFactName8656 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFactName8666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_ruleFactName8713 = new BitSet(new long[]{0x0020000000000022L});
-    public static final BitSet FOLLOW_ruleName_in_ruleFactName8734 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssertionName_in_entryRuleAssertionName8771 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAssertionName8781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_86_in_ruleAssertionName8828 = new BitSet(new long[]{0x0020000000000022L});
-    public static final BitSet FOLLOW_ruleName_in_ruleAssertionName8849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunctionName_in_entryRuleFunctionName8886 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFunctionName8896 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleName_in_ruleFunctionName8941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunctionNamewParam_in_entryRuleFunctionNamewParam8976 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFunctionNamewParam8986 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleName_in_ruleFunctionNamewParam9031 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePredicateName_in_entryRulePredicateName9066 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePredicateName9076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleName_in_rulePredicateName9121 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAlias_in_entryRuleAlias9156 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAlias9166 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNameAlias_in_ruleAlias9211 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumName_in_entryRuleEnumName9246 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEnumName9256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_ruleEnumName9291 = new BitSet(new long[]{0x0020000000000020L});
-    public static final BitSet FOLLOW_ruleName_in_ruleEnumName9312 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumPropertyName_in_entryRuleEnumPropertyName9348 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEnumPropertyName9358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleName_in_ruleEnumPropertyName9403 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLetName_in_entryRuleLetName9438 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLetName9448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleLetName9483 = new BitSet(new long[]{0x0020000000000020L});
-    public static final BitSet FOLLOW_ruleName_in_ruleLetName9504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSignatureName_in_entryRuleSignatureName9540 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSignatureName9550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleName_in_ruleSignatureName9595 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_entryRulePropertyName9630 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePropertyName9640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleName_in_rulePropertyName9685 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExactlyName_in_entryRuleExactlyName9720 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExactlyName9730 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleName_in_ruleExactlyName9775 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAsName_in_entryRuleAsName9810 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAsName9820 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAsName9861 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNameAlias_in_entryRuleNameAlias9902 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNameAlias9913 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNameAlias9953 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_ruleNameAlias9972 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNameAlias9987 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_ruleName_in_entryRuleName10035 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleName10046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleName10085 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleName10106 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_ruleName10126 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleName10141 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_ruleReferencesName_in_entryRuleReferencesName10188 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleReferencesName10198 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFactName_in_ruleReferencesName10248 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunctionName_in_ruleReferencesName10278 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunctionNamewParam_in_ruleReferencesName10308 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumName_in_ruleReferencesName10338 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumPropertyName_in_ruleReferencesName10368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSignatureName_in_ruleReferencesName10398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_ruleReferencesName10428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExactlyName_in_ruleReferencesName10458 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLetName_in_ruleReferencesName10488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePredicateName_in_ruleReferencesName10518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleReferencesSig_in_entryRuleReferencesSig10553 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleReferencesSig10563 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAsName_in_ruleReferencesSig10623 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleReferencesSig10646 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleReferencesSig10663 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleReferencesSig10679 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleReferencesSig10695 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRef_in_entryRuleRef10732 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRef10742 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleRef10802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleRef10818 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleRef10834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleRef10850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_entryRuleLeftCurlyBracket10887 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLeftCurlyBracket10897 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleLeftCurlyBracket10939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRightCurlyBracket_in_entryRuleRightCurlyBracket10987 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRightCurlyBracket10997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleRightCurlyBracket11039 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDot_in_entryRuleDot11087 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDot11097 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_88_in_ruleDot11139 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComma_in_entryRuleComma11187 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleComma11197 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleComma11239 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleColon_in_entryRuleColon11287 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleColon11297 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleColon11339 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis11387 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLeftParenthesis11397 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleLeftParenthesis11439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis11487 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRightParenthesis11497 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleRightParenthesis11539 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_entryRuleLeftSquareBracketKeyword11587 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLeftSquareBracketKeyword11597 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_89_in_ruleLeftSquareBracketKeyword11639 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_entryRuleRightSquareBracketKeyword11687 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRightSquareBracketKeyword11697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_90_in_ruleRightSquareBracketKeyword11739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQuant_in_ruleTerminalExpression5516 = new BitSet(new long[]{0x01F7F18E26064072L,0x0000000000081F80L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression5538 = new BitSet(new long[]{0x01B7F18E66060072L,0x0000000000081F80L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression5560 = new BitSet(new long[]{0x0060000000004020L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression5581 = new BitSet(new long[]{0x01B7F18E66060072L,0x0000000000081F80L});
+    public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression5607 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression5634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnOp_in_ruleTerminalExpression5677 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression5698 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommonQuantUnOp_in_ruleTerminalExpression5739 = new BitSet(new long[]{0x01F7F18E26064072L,0x0000000000081F80L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression5761 = new BitSet(new long[]{0x01B7F18E66060072L,0x0000000000081F80L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression5783 = new BitSet(new long[]{0x0060000000004020L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression5804 = new BitSet(new long[]{0x01B7F18E66060072L,0x0000000000081F80L});
+    public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression5830 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression5857 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleTerminalExpression5888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NEGATIVE_INTEGER_in_ruleTerminalExpression5916 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleTerminalExpression5953 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleTerminalExpression6004 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleTerminalExpression6055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleTerminalExpression6107 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression6142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleTerminalExpression6169 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleTerminalExpression6219 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleTerminalExpression6270 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression6304 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_51_in_ruleTerminalExpression6322 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleTerminalExpression6366 = new BitSet(new long[]{0x0020000002060020L});
+    public static final BitSet FOLLOW_25_in_ruleTerminalExpression6379 = new BitSet(new long[]{0x0020000000060020L});
+    public static final BitSet FOLLOW_ruleAsName_in_ruleTerminalExpression6404 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_17_in_ruleTerminalExpression6420 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_18_in_ruleTerminalExpression6436 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_53_in_ruleTerminalExpression6452 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleTerminalExpression6463 = new BitSet(new long[]{0x0020000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression6488 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleTerminalExpression6504 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBlock_in_ruleTerminalExpression6546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleTerminalExpression6587 = new BitSet(new long[]{0x0060000000004020L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6608 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression6630 = new BitSet(new long[]{0x0060000000004020L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6651 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
+    public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression6674 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_ruleRightCurlyBracket_in_ruleTerminalExpression6695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDecl_in_entryRuleDecl6732 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDecl6742 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleDecl6778 = new BitSet(new long[]{0x0060000000000020L});
+    public static final BitSet FOLLOW_54_in_ruleDecl6791 = new BitSet(new long[]{0x0020000000000020L});
+    public static final BitSet FOLLOW_rulePropertyName_in_ruleDecl6814 = new BitSet(new long[]{0x0000000040080000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleDecl6836 = new BitSet(new long[]{0x0020000000000020L});
+    public static final BitSet FOLLOW_rulePropertyName_in_ruleDecl6857 = new BitSet(new long[]{0x0000000040080000L});
+    public static final BitSet FOLLOW_ruleColon_in_ruleDecl6880 = new BitSet(new long[]{0x01F7F18E26060070L,0x0000000000001F80L});
+    public static final BitSet FOLLOW_54_in_ruleDecl6891 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleDecl6914 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLetDecl_in_entryRuleLetDecl6950 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLetDecl6960 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyName_in_ruleLetDecl7006 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_ruleLetDecl7016 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleLetDecl7037 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQuant_in_entryRuleQuant7074 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQuant7085 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleQuant7123 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleQuant7142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBinOp_in_entryRuleBinOp7182 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBinOp7192 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleBinOp7240 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleBinOp7256 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleBinOp7272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleBinOp7288 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleBinOp7304 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleBinOp7320 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleBinOp7336 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleBinOp7352 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleBinOp7368 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleBinOp7384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ruleBinOp7400 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_ruleBinOp7416 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDot_in_ruleBinOp7443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_ruleBinOp7459 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_ruleBinOp7475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_ruleBinOp7491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnOp_in_entryRuleUnOp7528 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnOp7538 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleUnOp7586 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_ruleUnOp7602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleUnOp7618 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleUnOp7644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_ruleUnOp7673 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleUnOp7702 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_ruleUnOp7731 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_ruleUnOp7760 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommonQuantUnOp_in_entryRuleCommonQuantUnOp7813 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCommonQuantUnOp7823 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleCommonQuantUnOp7871 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleCommonQuantUnOp7887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleCommonQuantUnOp7903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleCommonQuantUnOp7919 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCompareOp_in_entryRuleCompareOp7957 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCompareOp7968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_ruleCompareOp8006 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleCompareOp8025 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_77_in_ruleCompareOp8044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleCompareOp8063 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_ruleCompareOp8082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_ruleCompareOp8101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_81_in_ruleCompareOp8120 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleArrowOp_in_entryRuleArrowOp8160 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleArrowOp8170 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleArrowOp8206 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_34_in_ruleArrowOp8222 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_33_in_ruleArrowOp8238 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_71_in_ruleArrowOp8254 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_82_in_ruleArrowOp8274 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBlock_in_entryRuleBlock8323 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBlock8333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleBlock8379 = new BitSet(new long[]{0x01B7F18EA6060070L,0x0000000000001F80L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBlock8400 = new BitSet(new long[]{0x01B7F18EA6060070L,0x0000000000001F80L});
+    public static final BitSet FOLLOW_ruleRightCurlyBracket_in_ruleBlock8422 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBlockOrBar_in_entryRuleBlockOrBar8458 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBlockOrBar8468 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBlock_in_ruleBlockOrBar8514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_ruleBlockOrBar8531 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBlockOrBar8552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpenName_in_entryRuleOpenName8591 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOpenName8601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_ruleOpenName8636 = new BitSet(new long[]{0x0020000000000020L});
+    public static final BitSet FOLLOW_ruleName_in_ruleOpenName8657 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFactName_in_entryRuleFactName8693 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFactName8703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_ruleFactName8750 = new BitSet(new long[]{0x0020000000000022L});
+    public static final BitSet FOLLOW_ruleName_in_ruleFactName8771 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssertionName_in_entryRuleAssertionName8808 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAssertionName8818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_86_in_ruleAssertionName8865 = new BitSet(new long[]{0x0020000000000022L});
+    public static final BitSet FOLLOW_ruleName_in_ruleAssertionName8886 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunctionName_in_entryRuleFunctionName8923 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFunctionName8933 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleName_in_ruleFunctionName8978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunctionNamewParam_in_entryRuleFunctionNamewParam9013 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFunctionNamewParam9023 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleName_in_ruleFunctionNamewParam9068 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePredicateName_in_entryRulePredicateName9103 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePredicateName9113 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleName_in_rulePredicateName9158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAlias_in_entryRuleAlias9193 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAlias9203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNameAlias_in_ruleAlias9248 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumName_in_entryRuleEnumName9283 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEnumName9293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_ruleEnumName9328 = new BitSet(new long[]{0x0020000000000020L});
+    public static final BitSet FOLLOW_ruleName_in_ruleEnumName9349 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumPropertyName_in_entryRuleEnumPropertyName9385 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEnumPropertyName9395 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleName_in_ruleEnumPropertyName9440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLetName_in_entryRuleLetName9475 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLetName9485 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleLetName9520 = new BitSet(new long[]{0x0020000000000020L});
+    public static final BitSet FOLLOW_ruleName_in_ruleLetName9541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSignatureName_in_entryRuleSignatureName9577 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSignatureName9587 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleName_in_ruleSignatureName9632 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyName_in_entryRulePropertyName9667 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePropertyName9677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleName_in_rulePropertyName9722 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExactlyName_in_entryRuleExactlyName9757 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExactlyName9767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleName_in_ruleExactlyName9812 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAsName_in_entryRuleAsName9847 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAsName9857 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAsName9898 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNameAlias_in_entryRuleNameAlias9939 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNameAlias9950 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNameAlias9990 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_15_in_ruleNameAlias10009 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNameAlias10024 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_ruleName_in_entryRuleName10072 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleName10083 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleName10122 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleName10143 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_15_in_ruleName10163 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleName10178 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_ruleReferencesName_in_entryRuleReferencesName10225 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleReferencesName10235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFactName_in_ruleReferencesName10285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunctionName_in_ruleReferencesName10315 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunctionNamewParam_in_ruleReferencesName10345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumName_in_ruleReferencesName10375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumPropertyName_in_ruleReferencesName10405 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSignatureName_in_ruleReferencesName10435 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyName_in_ruleReferencesName10465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExactlyName_in_ruleReferencesName10495 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLetName_in_ruleReferencesName10525 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePredicateName_in_ruleReferencesName10555 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleReferencesSig_in_entryRuleReferencesSig10590 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleReferencesSig10600 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAsName_in_ruleReferencesSig10660 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleReferencesSig10683 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleReferencesSig10700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleReferencesSig10716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleReferencesSig10732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRef_in_entryRuleRef10769 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRef10779 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRef10839 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleRef10855 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleRef10871 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleRef10887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_entryRuleLeftCurlyBracket10924 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLeftCurlyBracket10934 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleLeftCurlyBracket10976 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRightCurlyBracket_in_entryRuleRightCurlyBracket11024 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRightCurlyBracket11034 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleRightCurlyBracket11076 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDot_in_entryRuleDot11124 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDot11134 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_ruleDot11176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComma_in_entryRuleComma11224 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleComma11234 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleComma11276 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleColon_in_entryRuleColon11324 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleColon11334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleColon11376 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis11424 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLeftParenthesis11434 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleLeftParenthesis11476 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis11524 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRightParenthesis11534 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleRightParenthesis11576 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_entryRuleLeftSquareBracketKeyword11624 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLeftSquareBracketKeyword11634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_89_in_ruleLeftSquareBracketKeyword11676 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_entryRuleRightSquareBracketKeyword11724 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRightSquareBracketKeyword11734 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_90_in_ruleRightSquareBracketKeyword11776 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAsName_in_synpred10640 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_synpred10650 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFunctionNamewParam_in_synpred402554 = new BitSet(new long[]{0x0000000000000002L});
@@ -20744,27 +21786,37 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleComma_in_synpred895224 = new BitSet(new long[]{0x01B7F18E26060070L,0x0000000000001F80L});
     public static final BitSet FOLLOW_ruleExpression_in_synpred895245 = new BitSet(new long[]{0x0000000040000000L,0x0000000004000000L});
     public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_synpred895270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_synpred965729 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_ruleComma_in_synpred965751 = new BitSet(new long[]{0x0060000000004020L});
-    public static final BitSet FOLLOW_ruleDecl_in_synpred965772 = new BitSet(new long[]{0x0000000060000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_ruleBlockOrBar_in_synpred965795 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_synpred1036107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_synpred1046072 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_RULE_ID_in_synpred1046107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_synpred1156331 = new BitSet(new long[]{0x0020000002060020L});
-    public static final BitSet FOLLOW_25_in_synpred1156344 = new BitSet(new long[]{0x0020000000060020L});
-    public static final BitSet FOLLOW_ruleAsName_in_synpred1156369 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_17_in_synpred1156385 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_18_in_synpred1156401 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_53_in_synpred1156417 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_synpred1156428 = new BitSet(new long[]{0x0020000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_synpred1156453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_synpred1156469 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunctionName_in_synpred16610278 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunctionNamewParam_in_synpred16710308 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumPropertyName_in_synpred16910368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSignatureName_in_synpred17010398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_synpred17110428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExactlyName_in_synpred17210458 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComma_in_synpred925560 = new BitSet(new long[]{0x0060000000004020L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred925581 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred935538 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_ruleComma_in_synpred935560 = new BitSet(new long[]{0x0060000000004020L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred935581 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_ruleBlockOrBar_in_synpred945607 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_synpred955634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComma_in_synpred985783 = new BitSet(new long[]{0x0060000000004020L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred985804 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred995761 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_ruleComma_in_synpred995783 = new BitSet(new long[]{0x0060000000004020L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred995804 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_ruleBlockOrBar_in_synpred1005830 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_synpred1015857 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_synpred1086142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_synpred1096107 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_RULE_ID_in_synpred1096142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_synpred1206366 = new BitSet(new long[]{0x0020000002060020L});
+    public static final BitSet FOLLOW_25_in_synpred1206379 = new BitSet(new long[]{0x0020000000060020L});
+    public static final BitSet FOLLOW_ruleAsName_in_synpred1206404 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_17_in_synpred1206420 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_18_in_synpred1206436 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_53_in_synpred1206452 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_synpred1206463 = new BitSet(new long[]{0x0020000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_synpred1206488 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_synpred1206504 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunctionName_in_synpred17110315 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunctionNamewParam_in_synpred17210345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumPropertyName_in_synpred17410405 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSignatureName_in_synpred17510435 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyName_in_synpred17610465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExactlyName_in_synpred17710495 = new BitSet(new long[]{0x0000000000000002L});
 
 }

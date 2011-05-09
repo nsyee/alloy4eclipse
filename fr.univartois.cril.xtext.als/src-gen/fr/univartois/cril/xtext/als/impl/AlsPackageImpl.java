@@ -15,6 +15,7 @@ import fr.univartois.cril.xtext.als.AssertionName;
 import fr.univartois.cril.xtext.als.BinOp;
 import fr.univartois.cril.xtext.als.Block;
 import fr.univartois.cril.xtext.als.BlockOrBar;
+import fr.univartois.cril.xtext.als.BlockOrPossibleBar;
 import fr.univartois.cril.xtext.als.CheckCommand;
 import fr.univartois.cril.xtext.als.Colon;
 import fr.univartois.cril.xtext.als.Comma;
@@ -264,6 +265,13 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * @generated
    */
   private EClass blockOrBarEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass blockOrPossibleBarEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1955,6 +1963,36 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBlockOrPossibleBar()
+  {
+    return blockOrPossibleBarEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBlockOrPossibleBar_Block()
+  {
+    return (EReference)blockOrPossibleBarEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBlockOrPossibleBar_Expr()
+  {
+    return (EReference)blockOrPossibleBarEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getOpenName()
   {
     return openNameEClass;
@@ -2581,6 +2619,10 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEReference(blockOrBarEClass, BLOCK_OR_BAR__BLOCK);
     createEReference(blockOrBarEClass, BLOCK_OR_BAR__EXPR);
 
+    blockOrPossibleBarEClass = createEClass(BLOCK_OR_POSSIBLE_BAR);
+    createEReference(blockOrPossibleBarEClass, BLOCK_OR_POSSIBLE_BAR__BLOCK);
+    createEReference(blockOrPossibleBarEClass, BLOCK_OR_POSSIBLE_BAR__EXPR);
+
     openNameEClass = createEClass(OPEN_NAME);
     createEAttribute(openNameEClass, OPEN_NAME__IMPORT_URI);
 
@@ -2872,6 +2914,10 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEClass(blockOrBarEClass, BlockOrBar.class, "BlockOrBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBlockOrBar_Block(), this.getBlock(), null, "block", null, 0, 1, BlockOrBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBlockOrBar_Expr(), this.getExpression(), null, "expr", null, 0, 1, BlockOrBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(blockOrPossibleBarEClass, BlockOrPossibleBar.class, "BlockOrPossibleBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBlockOrPossibleBar_Block(), this.getBlock(), null, "block", null, 0, 1, BlockOrPossibleBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBlockOrPossibleBar_Expr(), this.getExpression(), null, "expr", null, 0, 1, BlockOrPossibleBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(openNameEClass, OpenName.class, "OpenName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOpenName_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, OpenName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
