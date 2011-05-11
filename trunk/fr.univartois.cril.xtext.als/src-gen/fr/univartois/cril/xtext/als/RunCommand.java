@@ -15,7 +15,7 @@ package fr.univartois.cril.xtext.als;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getRunName <em>Run Name</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getName2 <em>Name2</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.RunCommand#getScope <em>Scope</em>}</li>
  * </ul>
@@ -54,30 +54,30 @@ public interface RunCommand extends Paragraph
   void setRunName(Alias value);
 
   /**
-   * Returns the value of the '<em><b>Name2</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name2</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name2</em>' containment reference.
-   * @see #setName2(ReferencesName)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getRunCommand_Name2()
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(ReferencesName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getRunCommand_Name()
    * @model containment="true"
    * @generated
    */
-  ReferencesName getName2();
+  ReferencesName getName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.RunCommand#getName2 <em>Name2</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.RunCommand#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name2</em>' containment reference.
-   * @see #getName2()
+   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @see #getName()
    * @generated
    */
-  void setName2(ReferencesName value);
+  void setName(ReferencesName value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.

@@ -84,7 +84,7 @@ PredDecl returns Predicate:
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
 RunDecl returns RunCommand:
-  (runName=Alias ":")? "run" (name2=FunctionNamewParam|name2=FunctionName |name2=PredicateName |block=Block) scope=Scope	; 
+  (runName=Alias ":")? "run" (name=FunctionNamewParam|name=FunctionName |name=PredicateName |block=Block) scope=Scope	; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
@@ -166,28 +166,31 @@ SigExt:
        | "{" decl,+ blockOrBar "}"							19./
 	
 */
+
+
 Expression:
+		
 	TerminalExpression  ( binOp+=BinOp expr+=Expression									|//4./
-						arrowOp+=ArrowOp  expr+=Expression							|//5./
-						("!"|"not")? cmp+=CompareOp expr+=Expression 		|//6./
-						("=>"|"implies") expr+=Expression ("else" expr+=Expression)?	|//7./
+						("!"|"not")? cmp+=CompareOp  expr+=Expression					|//6./
+						  arrowOp+=ArrowOp  expr+=Expression 							|//5./						
+						("=>"|"implies") (par+=ParanthesisandExpression|expr+=Expression)? ("else" expr+=Expression)?	|//7./
 						left+=LeftSquareBracketKeyword (expr+=Expression (comma+=Comma expr+=Expression)* )? right+=RightSquareBracketKeyword									 //8./						
 						)*	;
 TerminalExpression returns Expression:
+	{Expression} parO="(" (expr+=Expression)+ parF=")"	|		
 	{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar							|//1./
 	{Expression} quant=Quant  (decl+=Decl (comma+=Comma  decl+=Decl)*)? (blockOrBar+=BlockOrBar|expr+=Expression)? 									|//2./
 	{Expression} unOp=UnOp expr+=Expression		|
 	{Expression} common+=CommonQuantUnOp   (decl+=Decl (comma+=Comma  decl+=Decl)*)? (blockOrBar+=BlockOrBar|expr+=Expression)? 	|//2./ and 3./	
-	{Expression} INT																									|//9./
+	{Expression} INT 																									|//9./
 	{Expression} NEGATIVE_INTEGER																					|//10./
-	{Expression} none="none"																							|//11./
+	{Expression} none="none"	 																							|//11./
     {Expression} iden="iden"																							|//12./
     {Expression} univ="univ"																							|//13./
     {Expression} (int="int" (nameRef=[ReferencesName])? )|int="Int"																							|//14./
-    {Expression} seq="seq/Int"																						|//15./
-    {Expression} parO="(" expr+=Expression parF=")"																	|//16./
+    {Expression} seq="seq/Int"		|
     {Expression} "@"? "int"? ((asname=AsName|"fun"|"pred"|"this") "/")?  (nameRef=[ReferencesName]|"this")					|//17./
-    {Expression} block+=Block																						|//18./
+    {Expression} block+=Block 																				|//18./
     {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket											;//19./
 
 /*
@@ -202,8 +205,8 @@ Decl:
 LetDecl:
   nameExpression=PropertyName "=" expr=Expression	; 
 
- 
-  
+ParanthesisandExpression:
+ "(" expr+=Expression ")";
 /*
 	quant ::= "all" | "no" | "some" | "" | "one" | "sum"
 */
@@ -326,7 +329,7 @@ ReferencesName	:
 	PredicateName	;
 
 ReferencesSig	:
-  {ReferencesSig}(	(asName=AsName)? nameRef=[SignatureName]|"univ"|"Int"|"seq/Int")	;
+  {ReferencesSig}(	((asname=AsName|"fun"|"pred"|"this") "/")? nameRef=[SignatureName]|"univ"|"Int"|"seq/Int")	;
 
  	
 Ref:

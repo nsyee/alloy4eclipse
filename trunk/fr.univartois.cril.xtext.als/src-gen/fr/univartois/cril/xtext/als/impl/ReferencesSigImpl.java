@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.ReferencesSigImpl#getAsName <em>As Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.ReferencesSigImpl#getAsname <em>Asname</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ReferencesSigImpl#getNameRef <em>Name Ref</em>}</li>
  * </ul>
  * </p>
@@ -36,14 +36,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements ReferencesSig
 {
   /**
-   * The cached value of the '{@link #getAsName() <em>As Name</em>}' containment reference.
+   * The cached value of the '{@link #getAsname() <em>Asname</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAsName()
+   * @see #getAsname()
    * @generated
    * @ordered
    */
-  protected AsName asName;
+  protected AsName asname;
 
   /**
    * The cached value of the '{@link #getNameRef() <em>Name Ref</em>}' reference.
@@ -81,9 +81,9 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
    * <!-- end-user-doc -->
    * @generated
    */
-  public AsName getAsName()
+  public AsName getAsname()
   {
-    return asName;
+    return asname;
   }
 
   /**
@@ -91,13 +91,13 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAsName(AsName newAsName, NotificationChain msgs)
+  public NotificationChain basicSetAsname(AsName newAsname, NotificationChain msgs)
   {
-    AsName oldAsName = asName;
-    asName = newAsName;
+    AsName oldAsname = asname;
+    asname = newAsname;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.REFERENCES_SIG__AS_NAME, oldAsName, newAsName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.REFERENCES_SIG__ASNAME, oldAsname, newAsname);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -108,20 +108,20 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAsName(AsName newAsName)
+  public void setAsname(AsName newAsname)
   {
-    if (newAsName != asName)
+    if (newAsname != asname)
     {
       NotificationChain msgs = null;
-      if (asName != null)
-        msgs = ((InternalEObject)asName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.REFERENCES_SIG__AS_NAME, null, msgs);
-      if (newAsName != null)
-        msgs = ((InternalEObject)newAsName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.REFERENCES_SIG__AS_NAME, null, msgs);
-      msgs = basicSetAsName(newAsName, msgs);
+      if (asname != null)
+        msgs = ((InternalEObject)asname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.REFERENCES_SIG__ASNAME, null, msgs);
+      if (newAsname != null)
+        msgs = ((InternalEObject)newAsname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.REFERENCES_SIG__ASNAME, null, msgs);
+      msgs = basicSetAsname(newAsname, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.REFERENCES_SIG__AS_NAME, newAsName, newAsName));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.REFERENCES_SIG__ASNAME, newAsname, newAsname));
   }
 
   /**
@@ -177,8 +177,8 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
   {
     switch (featureID)
     {
-      case AlsPackage.REFERENCES_SIG__AS_NAME:
-        return basicSetAsName(null, msgs);
+      case AlsPackage.REFERENCES_SIG__ASNAME:
+        return basicSetAsname(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -193,8 +193,8 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
   {
     switch (featureID)
     {
-      case AlsPackage.REFERENCES_SIG__AS_NAME:
-        return getAsName();
+      case AlsPackage.REFERENCES_SIG__ASNAME:
+        return getAsname();
       case AlsPackage.REFERENCES_SIG__NAME_REF:
         if (resolve) return getNameRef();
         return basicGetNameRef();
@@ -212,8 +212,8 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
   {
     switch (featureID)
     {
-      case AlsPackage.REFERENCES_SIG__AS_NAME:
-        setAsName((AsName)newValue);
+      case AlsPackage.REFERENCES_SIG__ASNAME:
+        setAsname((AsName)newValue);
         return;
       case AlsPackage.REFERENCES_SIG__NAME_REF:
         setNameRef((SignatureName)newValue);
@@ -232,8 +232,8 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
   {
     switch (featureID)
     {
-      case AlsPackage.REFERENCES_SIG__AS_NAME:
-        setAsName((AsName)null);
+      case AlsPackage.REFERENCES_SIG__ASNAME:
+        setAsname((AsName)null);
         return;
       case AlsPackage.REFERENCES_SIG__NAME_REF:
         setNameRef((SignatureName)null);
@@ -252,8 +252,8 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
   {
     switch (featureID)
     {
-      case AlsPackage.REFERENCES_SIG__AS_NAME:
-        return asName != null;
+      case AlsPackage.REFERENCES_SIG__ASNAME:
+        return asname != null;
       case AlsPackage.REFERENCES_SIG__NAME_REF:
         return nameRef != null;
     }

@@ -19,11 +19,14 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getBinOp <em>Bin Op</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getExpr <em>Expr</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Expression#getArrowOp <em>Arrow Op</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getCmp <em>Cmp</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Expression#getArrowOp <em>Arrow Op</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Expression#getPar <em>Par</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getLeft <em>Left</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getComma <em>Comma</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getRight <em>Right</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Expression#getParO <em>Par O</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Expression#getParF <em>Par F</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getLet <em>Let</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getLetdecl <em>Letdecl</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getBlockOrBar <em>Block Or Bar</em>}</li>
@@ -37,8 +40,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getInt <em>Int</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getSeq <em>Seq</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Expression#getParO <em>Par O</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Expression#getParF <em>Par F</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getAsname <em>Asname</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getLeftCurlyBracket <em>Left Curly Bracket</em>}</li>
@@ -85,6 +86,22 @@ public interface Expression extends EObject
   EList<Expression> getExpr();
 
   /**
+   * Returns the value of the '<em><b>Cmp</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Cmp</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Cmp</em>' attribute list.
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_Cmp()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getCmp();
+
+  /**
    * Returns the value of the '<em><b>Arrow Op</b></em>' containment reference list.
    * The list contents are of type {@link fr.univartois.cril.xtext.als.ArrowOp}.
    * <!-- begin-user-doc -->
@@ -101,20 +118,20 @@ public interface Expression extends EObject
   EList<ArrowOp> getArrowOp();
 
   /**
-   * Returns the value of the '<em><b>Cmp</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Par</b></em>' containment reference list.
+   * The list contents are of type {@link fr.univartois.cril.xtext.als.ParanthesisandExpression}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Cmp</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Par</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Cmp</em>' attribute list.
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_Cmp()
-   * @model unique="false"
+   * @return the value of the '<em>Par</em>' containment reference list.
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_Par()
+   * @model containment="true"
    * @generated
    */
-  EList<String> getCmp();
+  EList<ParanthesisandExpression> getPar();
 
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference list.
@@ -163,6 +180,58 @@ public interface Expression extends EObject
    * @generated
    */
   EList<RightSquareBracketKeyword> getRight();
+
+  /**
+   * Returns the value of the '<em><b>Par O</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Par O</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Par O</em>' attribute.
+   * @see #setParO(String)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_ParO()
+   * @model
+   * @generated
+   */
+  String getParO();
+
+  /**
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Expression#getParO <em>Par O</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Par O</em>' attribute.
+   * @see #getParO()
+   * @generated
+   */
+  void setParO(String value);
+
+  /**
+   * Returns the value of the '<em><b>Par F</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Par F</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Par F</em>' attribute.
+   * @see #setParF(String)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_ParF()
+   * @model
+   * @generated
+   */
+  String getParF();
+
+  /**
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Expression#getParF <em>Par F</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Par F</em>' attribute.
+   * @see #getParF()
+   * @generated
+   */
+  void setParF(String value);
 
   /**
    * Returns the value of the '<em><b>Let</b></em>' attribute.
@@ -461,58 +530,6 @@ public interface Expression extends EObject
    * @generated
    */
   void setSeq(String value);
-
-  /**
-   * Returns the value of the '<em><b>Par O</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Par O</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Par O</em>' attribute.
-   * @see #setParO(String)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_ParO()
-   * @model
-   * @generated
-   */
-  String getParO();
-
-  /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Expression#getParO <em>Par O</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Par O</em>' attribute.
-   * @see #getParO()
-   * @generated
-   */
-  void setParO(String value);
-
-  /**
-   * Returns the value of the '<em><b>Par F</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Par F</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Par F</em>' attribute.
-   * @see #setParF(String)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_ParF()
-   * @model
-   * @generated
-   */
-  String getParF();
-
-  /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Expression#getParF <em>Par F</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Par F</em>' attribute.
-   * @see #getParF()
-   * @generated
-   */
-  void setParF(String value);
 
   /**
    * Returns the value of the '<em><b>Asname</b></em>' containment reference.

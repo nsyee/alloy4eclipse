@@ -102,7 +102,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="RunCommand" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="runName" eType="#//Alias"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name2" eType="#//ReferencesName"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ReferencesName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Block"
         containment="true"/>
@@ -188,16 +188,20 @@
         eType="#//BinOp" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" upperBound="-1" eType="#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arrowOp" upperBound="-1"
-        eType="#//ArrowOp" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cmp" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arrowOp" upperBound="-1"
+        eType="#//ArrowOp" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="par" upperBound="-1" eType="#//ParanthesisandExpression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" upperBound="-1" eType="#//LeftSquareBracketKeyword"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comma" upperBound="-1"
         eType="#//Comma" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
         eType="#//RightSquareBracketKeyword" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parO" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parF" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="let" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="letdecl" upperBound="-1"
         eType="#//LetDecl" containment="true"/>
@@ -215,8 +219,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="int" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nameRef" eType="#//ReferencesName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="seq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parO" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parF" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asname" eType="#//AsName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
@@ -240,6 +242,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nameExpression" eType="#//PropertyName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParanthesisandExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" upperBound="-1" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinOp">
@@ -298,7 +304,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReferencesSig">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="asName" eType="#//AsName"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asname" eType="#//AsName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nameRef" eType="#//SignatureName"/>
   </eClassifiers>

@@ -18,6 +18,7 @@ import fr.univartois.cril.xtext.als.Expression;
 import fr.univartois.cril.xtext.als.LeftCurlyBracket;
 import fr.univartois.cril.xtext.als.LeftSquareBracketKeyword;
 import fr.univartois.cril.xtext.als.LetDecl;
+import fr.univartois.cril.xtext.als.ParanthesisandExpression;
 import fr.univartois.cril.xtext.als.ReferencesName;
 import fr.univartois.cril.xtext.als.RightCurlyBracket;
 import fr.univartois.cril.xtext.als.RightSquareBracketKeyword;
@@ -49,11 +50,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getBinOp <em>Bin Op</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getExpr <em>Expr</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getArrowOp <em>Arrow Op</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getCmp <em>Cmp</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getArrowOp <em>Arrow Op</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getPar <em>Par</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getComma <em>Comma</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParO <em>Par O</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParF <em>Par F</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getLet <em>Let</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getLetdecl <em>Letdecl</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getBlockOrBar <em>Block Or Bar</em>}</li>
@@ -67,8 +71,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getInt <em>Int</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getSeq <em>Seq</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParO <em>Par O</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParF <em>Par F</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getAsname <em>Asname</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getLeftCurlyBracket <em>Left Curly Bracket</em>}</li>
@@ -101,6 +103,16 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   protected EList<Expression> expr;
 
   /**
+   * The cached value of the '{@link #getCmp() <em>Cmp</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCmp()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> cmp;
+
+  /**
    * The cached value of the '{@link #getArrowOp() <em>Arrow Op</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -111,14 +123,14 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   protected EList<ArrowOp> arrowOp;
 
   /**
-   * The cached value of the '{@link #getCmp() <em>Cmp</em>}' attribute list.
+   * The cached value of the '{@link #getPar() <em>Par</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCmp()
+   * @see #getPar()
    * @generated
    * @ordered
    */
-  protected EList<String> cmp;
+  protected EList<ParanthesisandExpression> par;
 
   /**
    * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference list.
@@ -149,6 +161,46 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected EList<RightSquareBracketKeyword> right;
+
+  /**
+   * The default value of the '{@link #getParO() <em>Par O</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParO()
+   * @generated
+   * @ordered
+   */
+  protected static final String PAR_O_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getParO() <em>Par O</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParO()
+   * @generated
+   * @ordered
+   */
+  protected String parO = PAR_O_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getParF() <em>Par F</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParF()
+   * @generated
+   * @ordered
+   */
+  protected static final String PAR_F_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getParF() <em>Par F</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParF()
+   * @generated
+   * @ordered
+   */
+  protected String parF = PAR_F_EDEFAULT;
 
   /**
    * The default value of the '{@link #getLet() <em>Let</em>}' attribute.
@@ -351,46 +403,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   protected String seq = SEQ_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getParO() <em>Par O</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParO()
-   * @generated
-   * @ordered
-   */
-  protected static final String PAR_O_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getParO() <em>Par O</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParO()
-   * @generated
-   * @ordered
-   */
-  protected String parO = PAR_O_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getParF() <em>Par F</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParF()
-   * @generated
-   * @ordered
-   */
-  protected static final String PAR_F_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getParF() <em>Par F</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParF()
-   * @generated
-   * @ordered
-   */
-  protected String parF = PAR_F_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getAsname() <em>Asname</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -484,6 +496,20 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getCmp()
+  {
+    if (cmp == null)
+    {
+      cmp = new EDataTypeEList<String>(String.class, this, AlsPackage.EXPRESSION__CMP);
+    }
+    return cmp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<ArrowOp> getArrowOp()
   {
     if (arrowOp == null)
@@ -498,13 +524,13 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getCmp()
+  public EList<ParanthesisandExpression> getPar()
   {
-    if (cmp == null)
+    if (par == null)
     {
-      cmp = new EDataTypeEList<String>(String.class, this, AlsPackage.EXPRESSION__CMP);
+      par = new EObjectContainmentEList<ParanthesisandExpression>(ParanthesisandExpression.class, this, AlsPackage.EXPRESSION__PAR);
     }
-    return cmp;
+    return par;
   }
 
   /**
@@ -547,6 +573,52 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       right = new EObjectContainmentEList<RightSquareBracketKeyword>(RightSquareBracketKeyword.class, this, AlsPackage.EXPRESSION__RIGHT);
     }
     return right;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getParO()
+  {
+    return parO;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParO(String newParO)
+  {
+    String oldParO = parO;
+    parO = newParO;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__PAR_O, oldParO, parO));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getParF()
+  {
+    return parF;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParF(String newParF)
+  {
+    String oldParF = parF;
+    parF = newParF;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__PAR_F, oldParF, parF));
   }
 
   /**
@@ -862,52 +934,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getParO()
-  {
-    return parO;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParO(String newParO)
-  {
-    String oldParO = parO;
-    parO = newParO;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__PAR_O, oldParO, parO));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getParF()
-  {
-    return parF;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParF(String newParF)
-  {
-    String oldParF = parF;
-    parF = newParF;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__PAR_F, oldParF, parF));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public AsName getAsname()
   {
     return asname;
@@ -1077,6 +1103,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
       case AlsPackage.EXPRESSION__ARROW_OP:
         return ((InternalEList<?>)getArrowOp()).basicRemove(otherEnd, msgs);
+      case AlsPackage.EXPRESSION__PAR:
+        return ((InternalEList<?>)getPar()).basicRemove(otherEnd, msgs);
       case AlsPackage.EXPRESSION__LEFT:
         return ((InternalEList<?>)getLeft()).basicRemove(otherEnd, msgs);
       case AlsPackage.EXPRESSION__COMMA:
@@ -1119,16 +1147,22 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return getBinOp();
       case AlsPackage.EXPRESSION__EXPR:
         return getExpr();
-      case AlsPackage.EXPRESSION__ARROW_OP:
-        return getArrowOp();
       case AlsPackage.EXPRESSION__CMP:
         return getCmp();
+      case AlsPackage.EXPRESSION__ARROW_OP:
+        return getArrowOp();
+      case AlsPackage.EXPRESSION__PAR:
+        return getPar();
       case AlsPackage.EXPRESSION__LEFT:
         return getLeft();
       case AlsPackage.EXPRESSION__COMMA:
         return getComma();
       case AlsPackage.EXPRESSION__RIGHT:
         return getRight();
+      case AlsPackage.EXPRESSION__PAR_O:
+        return getParO();
+      case AlsPackage.EXPRESSION__PAR_F:
+        return getParF();
       case AlsPackage.EXPRESSION__LET:
         return getLet();
       case AlsPackage.EXPRESSION__LETDECL:
@@ -1156,10 +1190,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return basicGetNameRef();
       case AlsPackage.EXPRESSION__SEQ:
         return getSeq();
-      case AlsPackage.EXPRESSION__PAR_O:
-        return getParO();
-      case AlsPackage.EXPRESSION__PAR_F:
-        return getParF();
       case AlsPackage.EXPRESSION__ASNAME:
         return getAsname();
       case AlsPackage.EXPRESSION__BLOCK:
@@ -1191,13 +1221,17 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         getExpr().clear();
         getExpr().addAll((Collection<? extends Expression>)newValue);
         return;
+      case AlsPackage.EXPRESSION__CMP:
+        getCmp().clear();
+        getCmp().addAll((Collection<? extends String>)newValue);
+        return;
       case AlsPackage.EXPRESSION__ARROW_OP:
         getArrowOp().clear();
         getArrowOp().addAll((Collection<? extends ArrowOp>)newValue);
         return;
-      case AlsPackage.EXPRESSION__CMP:
-        getCmp().clear();
-        getCmp().addAll((Collection<? extends String>)newValue);
+      case AlsPackage.EXPRESSION__PAR:
+        getPar().clear();
+        getPar().addAll((Collection<? extends ParanthesisandExpression>)newValue);
         return;
       case AlsPackage.EXPRESSION__LEFT:
         getLeft().clear();
@@ -1210,6 +1244,12 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__RIGHT:
         getRight().clear();
         getRight().addAll((Collection<? extends RightSquareBracketKeyword>)newValue);
+        return;
+      case AlsPackage.EXPRESSION__PAR_O:
+        setParO((String)newValue);
+        return;
+      case AlsPackage.EXPRESSION__PAR_F:
+        setParF((String)newValue);
         return;
       case AlsPackage.EXPRESSION__LET:
         setLet((String)newValue);
@@ -1254,12 +1294,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__SEQ:
         setSeq((String)newValue);
         return;
-      case AlsPackage.EXPRESSION__PAR_O:
-        setParO((String)newValue);
-        return;
-      case AlsPackage.EXPRESSION__PAR_F:
-        setParF((String)newValue);
-        return;
       case AlsPackage.EXPRESSION__ASNAME:
         setAsname((AsName)newValue);
         return;
@@ -1293,11 +1327,14 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__EXPR:
         getExpr().clear();
         return;
+      case AlsPackage.EXPRESSION__CMP:
+        getCmp().clear();
+        return;
       case AlsPackage.EXPRESSION__ARROW_OP:
         getArrowOp().clear();
         return;
-      case AlsPackage.EXPRESSION__CMP:
-        getCmp().clear();
+      case AlsPackage.EXPRESSION__PAR:
+        getPar().clear();
         return;
       case AlsPackage.EXPRESSION__LEFT:
         getLeft().clear();
@@ -1307,6 +1344,12 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return;
       case AlsPackage.EXPRESSION__RIGHT:
         getRight().clear();
+        return;
+      case AlsPackage.EXPRESSION__PAR_O:
+        setParO(PAR_O_EDEFAULT);
+        return;
+      case AlsPackage.EXPRESSION__PAR_F:
+        setParF(PAR_F_EDEFAULT);
         return;
       case AlsPackage.EXPRESSION__LET:
         setLet(LET_EDEFAULT);
@@ -1347,12 +1390,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__SEQ:
         setSeq(SEQ_EDEFAULT);
         return;
-      case AlsPackage.EXPRESSION__PAR_O:
-        setParO(PAR_O_EDEFAULT);
-        return;
-      case AlsPackage.EXPRESSION__PAR_F:
-        setParF(PAR_F_EDEFAULT);
-        return;
       case AlsPackage.EXPRESSION__ASNAME:
         setAsname((AsName)null);
         return;
@@ -1383,16 +1420,22 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return binOp != null && !binOp.isEmpty();
       case AlsPackage.EXPRESSION__EXPR:
         return expr != null && !expr.isEmpty();
-      case AlsPackage.EXPRESSION__ARROW_OP:
-        return arrowOp != null && !arrowOp.isEmpty();
       case AlsPackage.EXPRESSION__CMP:
         return cmp != null && !cmp.isEmpty();
+      case AlsPackage.EXPRESSION__ARROW_OP:
+        return arrowOp != null && !arrowOp.isEmpty();
+      case AlsPackage.EXPRESSION__PAR:
+        return par != null && !par.isEmpty();
       case AlsPackage.EXPRESSION__LEFT:
         return left != null && !left.isEmpty();
       case AlsPackage.EXPRESSION__COMMA:
         return comma != null && !comma.isEmpty();
       case AlsPackage.EXPRESSION__RIGHT:
         return right != null && !right.isEmpty();
+      case AlsPackage.EXPRESSION__PAR_O:
+        return PAR_O_EDEFAULT == null ? parO != null : !PAR_O_EDEFAULT.equals(parO);
+      case AlsPackage.EXPRESSION__PAR_F:
+        return PAR_F_EDEFAULT == null ? parF != null : !PAR_F_EDEFAULT.equals(parF);
       case AlsPackage.EXPRESSION__LET:
         return LET_EDEFAULT == null ? let != null : !LET_EDEFAULT.equals(let);
       case AlsPackage.EXPRESSION__LETDECL:
@@ -1419,10 +1462,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return nameRef != null;
       case AlsPackage.EXPRESSION__SEQ:
         return SEQ_EDEFAULT == null ? seq != null : !SEQ_EDEFAULT.equals(seq);
-      case AlsPackage.EXPRESSION__PAR_O:
-        return PAR_O_EDEFAULT == null ? parO != null : !PAR_O_EDEFAULT.equals(parO);
-      case AlsPackage.EXPRESSION__PAR_F:
-        return PAR_F_EDEFAULT == null ? parF != null : !PAR_F_EDEFAULT.equals(parF);
       case AlsPackage.EXPRESSION__ASNAME:
         return asname != null;
       case AlsPackage.EXPRESSION__BLOCK:
@@ -1448,6 +1487,10 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (cmp: ");
     result.append(cmp);
+    result.append(", parO: ");
+    result.append(parO);
+    result.append(", parF: ");
+    result.append(parF);
     result.append(", let: ");
     result.append(let);
     result.append(", quant: ");
@@ -1462,10 +1505,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     result.append(int_);
     result.append(", seq: ");
     result.append(seq);
-    result.append(", parO: ");
-    result.append(parO);
-    result.append(", parF: ");
-    result.append(parF);
     result.append(')');
     return result.toString();
   }

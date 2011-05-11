@@ -88,6 +88,7 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.EXPRESSION: return createExpression();
       case AlsPackage.DECL: return createDecl();
       case AlsPackage.LET_DECL: return createLetDecl();
+      case AlsPackage.PARANTHESISAND_EXPRESSION: return createParanthesisandExpression();
       case AlsPackage.BIN_OP: return createBinOp();
       case AlsPackage.UN_OP: return createUnOp();
       case AlsPackage.COMMON_QUANT_UN_OP: return createCommonQuantUnOp();
@@ -355,6 +356,17 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     LetDeclImpl letDecl = new LetDeclImpl();
     return letDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParanthesisandExpression createParanthesisandExpression()
+  {
+    ParanthesisandExpressionImpl paranthesisandExpression = new ParanthesisandExpressionImpl();
+    return paranthesisandExpression;
   }
 
   /**

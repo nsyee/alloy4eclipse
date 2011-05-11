@@ -253,6 +253,13 @@ public class AlsSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AlsPackage.PARANTHESISAND_EXPRESSION:
+      {
+        ParanthesisandExpression paranthesisandExpression = (ParanthesisandExpression)theEObject;
+        T result = caseParanthesisandExpression(paranthesisandExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AlsPackage.BIN_OP:
       {
         BinOp binOp = (BinOp)theEObject;
@@ -830,6 +837,22 @@ public class AlsSwitch<T>
    * @generated
    */
   public T caseLetDecl(LetDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Paranthesisand Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Paranthesisand Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParanthesisandExpression(ParanthesisandExpression object)
   {
     return null;
   }
