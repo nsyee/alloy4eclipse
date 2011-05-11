@@ -55,7 +55,6 @@ public class AlsActivator extends AbstractUIPlugin {
 		super();
 		INSTANCE = this;
 		copyFromJAR();
-		System.out.println("Créé!!!");
 	}
 	
 	public Injector getInjector(String languageName) {

@@ -41,7 +41,6 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(0,0, 0));
 		textStyle.setColor(new RGB(0, 128, 127));
-		System.out.println("ASNAME");
 		textStyle.setStyle(SWT.ITALIC);
 		return textStyle; 
 	}
