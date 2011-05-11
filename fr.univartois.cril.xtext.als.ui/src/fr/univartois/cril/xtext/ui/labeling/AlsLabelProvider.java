@@ -119,11 +119,11 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 
 	String text(RunCommand run) {
 		if (run.getRunName()==null){			
-			if(run.getName2()==null){
+			if(run.getName()==null){
 				return "Block Run";
 			}
 			else{
-				return run.getName2().getName();
+				return run.getName().getName();
 			}		
 		}
 		//System.out.println("Nom du run:"+run.getRunName().getName()+"!!");
