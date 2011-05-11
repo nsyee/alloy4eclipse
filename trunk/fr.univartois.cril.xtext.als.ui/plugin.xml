@@ -514,21 +514,23 @@
              menubarPath="additions"/>
   </viewerContribution>
 </extension><!--voila-->
-- <!-- <extension
+ <extension
       point="org.eclipse.ui.bindings">
    <key
-         commandId="fr.univartois.cril.xtext.alloyplugin.RenameAls"
+         commandId="fr.univartois.cril.xtext.ui.editor.outline.SampleOutlineCommand"
          contextId="org.eclipse.ui.textEditorScope"
-         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-         sequence="Ctrl+Alt+R">
+         schemeId="org.eclipse.ui."
+         sequence="Ctrl+Alt+T">
    </key>
+</extension>
+  <!--
    <key
          commandId="fr.univartois.cril.xtext.alloyplugin.ui.OpenLibraryModelAction"
          contextId="org.eclipse.ui.contexts.window"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="Ctrl+Alt+O">
    </key>
-</extension>
+
   --> 
 	<extension point="org.eclipse.ui.navigator.navigatorContent">
 		<commonWizard 

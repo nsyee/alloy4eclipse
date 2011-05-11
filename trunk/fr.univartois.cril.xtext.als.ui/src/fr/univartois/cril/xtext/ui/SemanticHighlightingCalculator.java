@@ -66,7 +66,7 @@ public class SemanticHighlightingCalculator implements
 			if (current instanceof RunCommand) {
 				
 				simpleTreatment(current, acceptor,
-						AlsPackage.Literals.RUN_COMMAND__NAME2.getName(),
+						AlsPackage.Literals.RUN_COMMAND__NAME.getName(),
 						HighlightingConfiguration.predicateName);
 			}
 			if (current instanceof Signature) {
@@ -107,12 +107,12 @@ public class SemanticHighlightingCalculator implements
 				}
 			}
 			if (current instanceof RunCommand) {
-				if (((RunCommand) current).getName2() != null) {
+				if (((RunCommand) current).getName() != null) {
 
-					if (((RunCommand) current).getName2().getName() != null) {
+					if (((RunCommand) current).getName().getName() != null) {
 						//System.out.println(((RunCommand) current).getName2()
 							//	.getName());
-						result.add(((RunCommand) current).getName2().getName());
+						result.add(((RunCommand) current).getName().getName());
 					}
 				}
 			}
