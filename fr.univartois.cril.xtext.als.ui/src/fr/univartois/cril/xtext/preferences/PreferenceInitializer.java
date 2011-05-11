@@ -24,7 +24,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	 */
 	@Override
 	public void initializeDefaultPreferences() {
-		 System.out.println("init pref xtext");
 		
 		IPreferenceStore store = AlsActivator.getInstance().getPreferenceStore();
 		store.setDefault(PreferenceConstants.P_BOOLEAN_EXECUTE_TASKS_LOCALLY,
