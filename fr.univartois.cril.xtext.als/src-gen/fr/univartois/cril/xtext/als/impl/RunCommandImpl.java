@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getRunName <em>Run Name</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getName2 <em>Name2</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.RunCommandImpl#getScope <em>Scope</em>}</li>
  * </ul>
@@ -49,14 +49,14 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
   protected Alias runName;
 
   /**
-   * The cached value of the '{@link #getName2() <em>Name2</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName2()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected ReferencesName name2;
+  protected ReferencesName name;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -152,9 +152,9 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public ReferencesName getName2()
+  public ReferencesName getName()
   {
-    return name2;
+    return name;
   }
 
   /**
@@ -162,13 +162,13 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetName2(ReferencesName newName2, NotificationChain msgs)
+  public NotificationChain basicSetName(ReferencesName newName, NotificationChain msgs)
   {
-    ReferencesName oldName2 = name2;
-    name2 = newName2;
+    ReferencesName oldName = name;
+    name = newName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__NAME2, oldName2, newName2);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -179,20 +179,20 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName2(ReferencesName newName2)
+  public void setName(ReferencesName newName)
   {
-    if (newName2 != name2)
+    if (newName != name)
     {
       NotificationChain msgs = null;
-      if (name2 != null)
-        msgs = ((InternalEObject)name2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.RUN_COMMAND__NAME2, null, msgs);
-      if (newName2 != null)
-        msgs = ((InternalEObject)newName2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.RUN_COMMAND__NAME2, null, msgs);
-      msgs = basicSetName2(newName2, msgs);
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.RUN_COMMAND__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.RUN_COMMAND__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__NAME2, newName2, newName2));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.RUN_COMMAND__NAME, newName, newName));
   }
 
   /**
@@ -303,8 +303,8 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
     {
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         return basicSetRunName(null, msgs);
-      case AlsPackage.RUN_COMMAND__NAME2:
-        return basicSetName2(null, msgs);
+      case AlsPackage.RUN_COMMAND__NAME:
+        return basicSetName(null, msgs);
       case AlsPackage.RUN_COMMAND__BLOCK:
         return basicSetBlock(null, msgs);
       case AlsPackage.RUN_COMMAND__SCOPE:
@@ -325,8 +325,8 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
     {
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         return getRunName();
-      case AlsPackage.RUN_COMMAND__NAME2:
-        return getName2();
+      case AlsPackage.RUN_COMMAND__NAME:
+        return getName();
       case AlsPackage.RUN_COMMAND__BLOCK:
         return getBlock();
       case AlsPackage.RUN_COMMAND__SCOPE:
@@ -348,8 +348,8 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         setRunName((Alias)newValue);
         return;
-      case AlsPackage.RUN_COMMAND__NAME2:
-        setName2((ReferencesName)newValue);
+      case AlsPackage.RUN_COMMAND__NAME:
+        setName((ReferencesName)newValue);
         return;
       case AlsPackage.RUN_COMMAND__BLOCK:
         setBlock((Block)newValue);
@@ -374,8 +374,8 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         setRunName((Alias)null);
         return;
-      case AlsPackage.RUN_COMMAND__NAME2:
-        setName2((ReferencesName)null);
+      case AlsPackage.RUN_COMMAND__NAME:
+        setName((ReferencesName)null);
         return;
       case AlsPackage.RUN_COMMAND__BLOCK:
         setBlock((Block)null);
@@ -399,8 +399,8 @@ public class RunCommandImpl extends ParagraphImpl implements RunCommand
     {
       case AlsPackage.RUN_COMMAND__RUN_NAME:
         return runName != null;
-      case AlsPackage.RUN_COMMAND__NAME2:
-        return name2 != null;
+      case AlsPackage.RUN_COMMAND__NAME:
+        return name != null;
       case AlsPackage.RUN_COMMAND__BLOCK:
         return block != null;
       case AlsPackage.RUN_COMMAND__SCOPE:

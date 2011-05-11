@@ -215,6 +215,15 @@ public interface AlsFactory extends EFactory
   LetDecl createLetDecl();
 
   /**
+   * Returns a new object of class '<em>Paranthesisand Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Paranthesisand Expression</em>'.
+   * @generated
+   */
+  ParanthesisandExpression createParanthesisandExpression();
+
+  /**
    * Returns a new object of class '<em>Bin Op</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -183,6 +183,11 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createLetDeclAdapter();
       }
       @Override
+      public Adapter caseParanthesisandExpression(ParanthesisandExpression object)
+      {
+        return createParanthesisandExpressionAdapter();
+      }
+      @Override
       public Adapter caseBinOp(BinOp object)
       {
         return createBinOpAdapter();
@@ -680,6 +685,21 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLetDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext.als.ParanthesisandExpression <em>Paranthesisand Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext.als.ParanthesisandExpression
+   * @generated
+   */
+  public Adapter createParanthesisandExpressionAdapter()
   {
     return null;
   }
