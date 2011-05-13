@@ -1211,9 +1211,19 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypescope_Name()
+  public EReference getTypescope_Asname()
   {
     return (EReference)typescopeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypescope_Name()
+  {
+    return (EReference)typescopeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2566,6 +2576,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEAttribute(expectationEClass, EXPECTATION__VALUE);
 
     typescopeEClass = createEClass(TYPESCOPE);
+    createEReference(typescopeEClass, TYPESCOPE__ASNAME);
     createEReference(typescopeEClass, TYPESCOPE__NAME);
 
     enumDeclEClass = createEClass(ENUM_DECL);
@@ -2866,6 +2877,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEAttribute(getExpectation_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Expectation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typescopeEClass, Typescope.class, "Typescope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypescope_Asname(), this.getAsName(), null, "asname", null, 0, 1, Typescope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypescope_Name(), this.getReferencesName(), null, "name", null, 0, 1, Typescope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumDeclEClass, EnumDecl.class, "EnumDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

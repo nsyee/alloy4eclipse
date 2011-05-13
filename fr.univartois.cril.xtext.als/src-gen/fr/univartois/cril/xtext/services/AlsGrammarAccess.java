@@ -1145,22 +1145,30 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cTypescopeAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cExactlyKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final CrossReference cNameReferencesNameCrossReference_3_0_0 = (CrossReference)cNameAssignment_3_0.eContents().get(0);
-		private final RuleCall cNameReferencesNameIDTerminalRuleCall_3_0_0_1 = (RuleCall)cNameReferencesNameCrossReference_3_0_0.eContents().get(1);
-		private final Alternatives cAlternatives_3_1 = (Alternatives)cAlternatives_3.eContents().get(1);
-		private final Keyword cIntKeyword_3_1_0 = (Keyword)cAlternatives_3_1.eContents().get(0);
-		private final Keyword cSeqKeyword_3_1_1 = (Keyword)cAlternatives_3_1.eContents().get(1);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
+		private final Assignment cAsnameAssignment_3_0_0 = (Assignment)cAlternatives_3_0.eContents().get(0);
+		private final RuleCall cAsnameAsNameParserRuleCall_3_0_0_0 = (RuleCall)cAsnameAssignment_3_0_0.eContents().get(0);
+		private final Keyword cFunKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
+		private final Keyword cPredKeyword_3_0_2 = (Keyword)cAlternatives_3_0.eContents().get(2);
+		private final Keyword cThisKeyword_3_0_3 = (Keyword)cAlternatives_3_0.eContents().get(3);
+		private final Keyword cSolidusKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cNameAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final CrossReference cNameReferencesNameCrossReference_4_0_0 = (CrossReference)cNameAssignment_4_0.eContents().get(0);
+		private final RuleCall cNameReferencesNameIDTerminalRuleCall_4_0_0_1 = (RuleCall)cNameReferencesNameCrossReference_4_0_0.eContents().get(1);
+		private final Alternatives cAlternatives_4_1 = (Alternatives)cAlternatives_4.eContents().get(1);
+		private final Keyword cIntKeyword_4_1_0 = (Keyword)cAlternatives_4_1.eContents().get(0);
+		private final Keyword cSeqKeyword_4_1_1 = (Keyword)cAlternatives_4_1.eContents().get(1);
 		
 		/// *
 		//	typescope ::= ["exactly"] number [name|"int"|"seq"]
 		// * ///A VOIR
 		//Typescope:
-		//	{Typescope} "exactly"? INT (name=[ReferencesName] | ("int" | "seq"));
+		//	{Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"));
 		public ParserRule getRule() { return rule; }
 
-		//{Typescope} "exactly"? INT (name=[ReferencesName] | ("int" | "seq"))
+		//{Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"))
 		public Group getGroup() { return cGroup; }
 
 		//{Typescope}
@@ -1172,26 +1180,50 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
 
+		//((asname=AsName | "fun" | "pred" | "this") "/")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//asname=AsName | "fun" | "pred" | "this"
+		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
+
+		//asname=AsName
+		public Assignment getAsnameAssignment_3_0_0() { return cAsnameAssignment_3_0_0; }
+
+		//AsName
+		public RuleCall getAsnameAsNameParserRuleCall_3_0_0_0() { return cAsnameAsNameParserRuleCall_3_0_0_0; }
+
+		//"fun"
+		public Keyword getFunKeyword_3_0_1() { return cFunKeyword_3_0_1; }
+
+		//"pred"
+		public Keyword getPredKeyword_3_0_2() { return cPredKeyword_3_0_2; }
+
+		//"this"
+		public Keyword getThisKeyword_3_0_3() { return cThisKeyword_3_0_3; }
+
+		//"/"
+		public Keyword getSolidusKeyword_3_1() { return cSolidusKeyword_3_1; }
+
 		//name=[ReferencesName] | ("int" | "seq")
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//name=[ReferencesName]
-		public Assignment getNameAssignment_3_0() { return cNameAssignment_3_0; }
+		public Assignment getNameAssignment_4_0() { return cNameAssignment_4_0; }
 
 		//[ReferencesName]
-		public CrossReference getNameReferencesNameCrossReference_3_0_0() { return cNameReferencesNameCrossReference_3_0_0; }
+		public CrossReference getNameReferencesNameCrossReference_4_0_0() { return cNameReferencesNameCrossReference_4_0_0; }
 
 		//ID
-		public RuleCall getNameReferencesNameIDTerminalRuleCall_3_0_0_1() { return cNameReferencesNameIDTerminalRuleCall_3_0_0_1; }
+		public RuleCall getNameReferencesNameIDTerminalRuleCall_4_0_0_1() { return cNameReferencesNameIDTerminalRuleCall_4_0_0_1; }
 
 		//"int" | "seq"
-		public Alternatives getAlternatives_3_1() { return cAlternatives_3_1; }
+		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
 
 		//"int"
-		public Keyword getIntKeyword_3_1_0() { return cIntKeyword_3_1_0; }
+		public Keyword getIntKeyword_4_1_0() { return cIntKeyword_4_1_0; }
 
 		//"seq"
-		public Keyword getSeqKeyword_3_1_1() { return cSeqKeyword_3_1_1; }
+		public Keyword getSeqKeyword_4_1_1() { return cSeqKeyword_4_1_1; }
 	}
 
 	public class EnumDeclElements extends AbstractParserRuleElementFinder {
@@ -3880,7 +3912,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	typescope ::= ["exactly"] number [name|"int"|"seq"]
 	// * ///A VOIR
 	//Typescope:
-	//	{Typescope} "exactly"? INT (name=[ReferencesName] | ("int" | "seq"));
+	//	{Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"));
 	public TypescopeElements getTypescopeAccess() {
 		return (pTypescope != null) ? pTypescope : (pTypescope = new TypescopeElements());
 	}

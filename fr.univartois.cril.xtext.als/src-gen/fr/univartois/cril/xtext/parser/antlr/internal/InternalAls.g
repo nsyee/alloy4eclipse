@@ -2578,7 +2578,50 @@ ruleTypescope returns [EObject current=null]
     { 
     createLeafNode(grammarAccess.getTypescopeAccess().getINTTerminalRuleCall_2(), null); 
     }
-((
+(((
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTypescopeAccess().getAsnameAsNameParserRuleCall_3_0_0_0(), currentNode); 
+	    }
+		lv_asname_3_0=ruleAsName		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTypescopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"asname",
+	        		lv_asname_3_0, 
+	        		"AsName", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)
+    |	'fun' 
+    {
+        createLeafNode(grammarAccess.getTypescopeAccess().getFunKeyword_3_0_1(), null); 
+    }
+
+    |	'pred' 
+    {
+        createLeafNode(grammarAccess.getTypescopeAccess().getPredKeyword_3_0_2(), null); 
+    }
+
+    |	'this' 
+    {
+        createLeafNode(grammarAccess.getTypescopeAccess().getThisKeyword_3_0_3(), null); 
+    }
+)	'/' 
+    {
+        createLeafNode(grammarAccess.getTypescopeAccess().getSolidusKeyword_3_1(), null); 
+    }
+)?((
 (
 		{ 
 		  /* */ 
@@ -2591,19 +2634,19 @@ ruleTypescope returns [EObject current=null]
         }
 	RULE_ID
 	{
-		createLeafNode(grammarAccess.getTypescopeAccess().getNameReferencesNameCrossReference_3_0_0(), "name"); 
+		createLeafNode(grammarAccess.getTypescopeAccess().getNameReferencesNameCrossReference_4_0_0(), "name"); 
 	}
 
 )
 )
     |(	'int' 
     {
-        createLeafNode(grammarAccess.getTypescopeAccess().getIntKeyword_3_1_0(), null); 
+        createLeafNode(grammarAccess.getTypescopeAccess().getIntKeyword_4_1_0(), null); 
     }
 
     |	'seq' 
     {
-        createLeafNode(grammarAccess.getTypescopeAccess().getSeqKeyword_3_1_1(), null); 
+        createLeafNode(grammarAccess.getTypescopeAccess().getSeqKeyword_4_1_1(), null); 
     }
 )))
 ;
