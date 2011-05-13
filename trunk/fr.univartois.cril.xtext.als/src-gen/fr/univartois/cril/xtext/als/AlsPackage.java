@@ -793,13 +793,22 @@ public interface AlsPackage extends EPackage
   int TYPESCOPE = 12;
 
   /**
+   * The feature id for the '<em><b>Asname</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPESCOPE__ASNAME = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPESCOPE__NAME = 0;
+  int TYPESCOPE__NAME = 1;
 
   /**
    * The number of structural features of the '<em>Typescope</em>' class.
@@ -808,7 +817,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPESCOPE_FEATURE_COUNT = 1;
+  int TYPESCOPE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
@@ -3227,6 +3236,17 @@ public interface AlsPackage extends EPackage
   EClass getTypescope();
 
   /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Typescope#getAsname <em>Asname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Asname</em>'.
+   * @see fr.univartois.cril.xtext.als.Typescope#getAsname()
+   * @see #getTypescope()
+   * @generated
+   */
+  EReference getTypescope_Asname();
+
+  /**
    * Returns the meta object for the reference '{@link fr.univartois.cril.xtext.als.Typescope#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5151,6 +5171,14 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EClass TYPESCOPE = eINSTANCE.getTypescope();
+
+    /**
+     * The meta object literal for the '<em><b>Asname</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPESCOPE__ASNAME = eINSTANCE.getTypescope_Asname();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' reference feature.

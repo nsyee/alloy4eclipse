@@ -5917,11 +5917,11 @@ protected class Expectation_ValueAssignment_1 extends AssignmentToken  {
  * 	typescope ::= ["exactly"] number [name|"int"|"seq"]
  * * ///A VOIR
  * Typescope:
- * 	{Typescope} "exactly"? INT (name=[ReferencesName] | ("int" | "seq"));
+ * 	{Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"));
  *
  **/
 
-// {Typescope} "exactly"? INT (name=[ReferencesName] | ("int" | "seq"))
+// {Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"))
 protected class Typescope_Group extends GroupToken {
 	
 	public Typescope_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5936,7 +5936,7 @@ protected class Typescope_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Typescope_Alternatives_3(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Typescope_Alternatives_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5998,23 +5998,137 @@ protected class Typescope_INTTerminalRuleCall_2 extends UnassignedTextToken {
 
 }
 
-// name=[ReferencesName] | ("int" | "seq")
-protected class Typescope_Alternatives_3 extends AlternativesToken {
-
-	public Typescope_Alternatives_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+// ((asname=AsName | "fun" | "pred" | "this") "/")?
+protected class Typescope_Group_3 extends GroupToken {
+	
+	public Typescope_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getTypescopeAccess().getAlternatives_3();
+	public Group getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getGroup_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Typescope_NameAssignment_3_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Typescope_Alternatives_3_1(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Typescope_SolidusKeyword_3_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// asname=AsName | "fun" | "pred" | "this"
+protected class Typescope_Alternatives_3_0 extends AlternativesToken {
+
+	public Typescope_Alternatives_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getAlternatives_3_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Typescope_AsnameAssignment_3_0_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// asname=AsName
+protected class Typescope_AsnameAssignment_3_0_0 extends AssignmentToken  {
+	
+	public Typescope_AsnameAssignment_3_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getAsnameAssignment_3_0_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new AsName_NameAssignment(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("asname",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("asname");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAsNameRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getTypescopeAccess().getAsnameAsNameParserRuleCall_3_0_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Typescope_INTTerminalRuleCall_2(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+// "/"
+protected class Typescope_SolidusKeyword_3_1 extends KeywordToken  {
+	
+	public Typescope_SolidusKeyword_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getSolidusKeyword_3_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Typescope_Alternatives_3_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+
+// name=[ReferencesName] | ("int" | "seq")
+protected class Typescope_Alternatives_4 extends AlternativesToken {
+
+	public Typescope_Alternatives_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getAlternatives_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Typescope_NameAssignment_4_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Typescope_Alternatives_4_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -6022,21 +6136,22 @@ protected class Typescope_Alternatives_3 extends AlternativesToken {
 }
 
 // name=[ReferencesName]
-protected class Typescope_NameAssignment_3_0 extends AssignmentToken  {
+protected class Typescope_NameAssignment_4_0 extends AssignmentToken  {
 	
-	public Typescope_NameAssignment_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Typescope_NameAssignment_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getTypescopeAccess().getNameAssignment_3_0();
+		return grammarAccess.getTypescopeAccess().getNameAssignment_4_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Typescope_INTTerminalRuleCall_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Typescope_Group_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Typescope_INTTerminalRuleCall_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -6047,9 +6162,9 @@ protected class Typescope_NameAssignment_3_0 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypescopeAccess().getNameReferencesNameCrossReference_3_0_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getTypescopeAccess().getNameReferencesNameCrossReference_4_0_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getTypescopeAccess().getNameReferencesNameCrossReference_3_0_0(); 
+				element = grammarAccess.getTypescopeAccess().getNameReferencesNameCrossReference_4_0_0(); 
 				return obj;
 			}
 		}
@@ -6059,21 +6174,21 @@ protected class Typescope_NameAssignment_3_0 extends AssignmentToken  {
 }
 
 // "int" | "seq"
-protected class Typescope_Alternatives_3_1 extends AlternativesToken {
+protected class Typescope_Alternatives_4_1 extends AlternativesToken {
 
-	public Typescope_Alternatives_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Typescope_Alternatives_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getTypescopeAccess().getAlternatives_3_1();
+		return grammarAccess.getTypescopeAccess().getAlternatives_4_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Typescope_IntKeyword_3_1_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Typescope_IntKeyword_4_1_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6081,21 +6196,22 @@ protected class Typescope_Alternatives_3_1 extends AlternativesToken {
 }
 
 // "int"
-protected class Typescope_IntKeyword_3_1_0 extends KeywordToken  {
+protected class Typescope_IntKeyword_4_1_0 extends KeywordToken  {
 	
-	public Typescope_IntKeyword_3_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Typescope_IntKeyword_4_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getTypescopeAccess().getIntKeyword_3_1_0();
+		return grammarAccess.getTypescopeAccess().getIntKeyword_4_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Typescope_INTTerminalRuleCall_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Typescope_Group_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Typescope_INTTerminalRuleCall_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}

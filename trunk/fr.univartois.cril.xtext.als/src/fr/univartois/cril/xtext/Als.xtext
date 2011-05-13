@@ -111,7 +111,7 @@ Expectation:
 	typescope ::= ["exactly"] number [name|"int"|"seq"]
 */
 Typescope:
-  {Typescope}"exactly"? INT (name=[ReferencesName]|("int"|"seq"))	; //A VOIR
+  {Typescope}"exactly"? INT ((asname=AsName|"fun"|"pred"|"this") "/")? (name=[ReferencesName]|("int"|"seq"))	; //A VOIR
   
 /*
 	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
