@@ -44,8 +44,9 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRunDeclAccess().getAlternatives_2(), "rule__RunDecl__Alternatives_2");
 					put(grammarAccess.getCheckDeclAccess().getAlternatives_2(), "rule__CheckDecl__Alternatives_2");
 					put(grammarAccess.getScopeAccess().getAlternatives(), "rule__Scope__Alternatives");
-					put(grammarAccess.getTypescopeAccess().getAlternatives_3(), "rule__Typescope__Alternatives_3");
-					put(grammarAccess.getTypescopeAccess().getAlternatives_3_1(), "rule__Typescope__Alternatives_3_1");
+					put(grammarAccess.getTypescopeAccess().getAlternatives_3_0(), "rule__Typescope__Alternatives_3_0");
+					put(grammarAccess.getTypescopeAccess().getAlternatives_4(), "rule__Typescope__Alternatives_4");
+					put(grammarAccess.getTypescopeAccess().getAlternatives_4_1(), "rule__Typescope__Alternatives_4_1");
 					put(grammarAccess.getLetOutDeclAccess().getAlternatives_2(), "rule__LetOutDecl__Alternatives_2");
 					put(grammarAccess.getSigQualAccess().getSigqAlternatives_0_0(), "rule__SigQual__SigqAlternatives_0_0");
 					put(grammarAccess.getSigQualAccess().getAlternatives_1(), "rule__SigQual__Alternatives_1");
@@ -114,6 +115,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScopeAccess().getGroup_3(), "rule__Scope__Group_3__0");
 					put(grammarAccess.getExpectationAccess().getGroup(), "rule__Expectation__Group__0");
 					put(grammarAccess.getTypescopeAccess().getGroup(), "rule__Typescope__Group__0");
+					put(grammarAccess.getTypescopeAccess().getGroup_3(), "rule__Typescope__Group_3__0");
 					put(grammarAccess.getEnumDeclAccess().getGroup(), "rule__EnumDecl__Group__0");
 					put(grammarAccess.getEnumDeclAccess().getGroup_3(), "rule__EnumDecl__Group_3__0");
 					put(grammarAccess.getLetOutDeclAccess().getGroup(), "rule__LetOutDecl__Group__0");
@@ -264,7 +266,8 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScopeAccess().getExpectAssignment_2_4(), "rule__Scope__ExpectAssignment_2_4");
 					put(grammarAccess.getScopeAccess().getExpectAssignment_3_1(), "rule__Scope__ExpectAssignment_3_1");
 					put(grammarAccess.getExpectationAccess().getValueAssignment_1(), "rule__Expectation__ValueAssignment_1");
-					put(grammarAccess.getTypescopeAccess().getNameAssignment_3_0(), "rule__Typescope__NameAssignment_3_0");
+					put(grammarAccess.getTypescopeAccess().getAsnameAssignment_3_0_0(), "rule__Typescope__AsnameAssignment_3_0_0");
+					put(grammarAccess.getTypescopeAccess().getNameAssignment_4_0(), "rule__Typescope__NameAssignment_4_0");
 					put(grammarAccess.getEnumDeclAccess().getEnumNameAssignment_0(), "rule__EnumDecl__EnumNameAssignment_0");
 					put(grammarAccess.getEnumDeclAccess().getLeftCAssignment_1(), "rule__EnumDecl__LeftCAssignment_1");
 					put(grammarAccess.getEnumDeclAccess().getPropertyEnumAssignment_2(), "rule__EnumDecl__PropertyEnumAssignment_2");

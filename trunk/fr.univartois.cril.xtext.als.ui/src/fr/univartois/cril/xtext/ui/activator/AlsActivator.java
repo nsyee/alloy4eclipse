@@ -185,7 +185,7 @@ public class AlsActivator extends AbstractUIPlugin {
            "models/examples/algorithms/messaging.als", "models/examples/algorithms/messaging.thm",
            "models/examples/algorithms/opt_spantree.als", "models/examples/algorithms/opt_spantree.thm",
            "models/examples/algorithms/peterson.als",
-           "models/examples/algorithms/ringlead.als", "models/examples/algorithms/ringlead.thm",
+           /*"models/examples/algorithms/ringlead.als",*/ "models/examples/algorithms/ringlead.thm",
            "models/examples/algorithms/s_ringlead.als",
            "models/examples/algorithms/stable_mutex_ring.als", "models/examples/algorithms/stable_mutex_ring.thm",
            "models/examples/algorithms/stable_orient_ring.als", "models/examples/algorithms/stable_orient_ring.thm",

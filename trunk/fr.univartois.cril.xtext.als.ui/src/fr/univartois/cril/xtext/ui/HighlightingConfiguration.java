@@ -19,7 +19,6 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 	public final static String enumPropertyName = "enumPropertyName";
 	public final static String opName = "opName";
 	public final static String quantifier="quantifier";
-	public final static String asName="asName";		
 	
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
         super.configure(acceptor);	
@@ -34,17 +33,10 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 		acceptor.acceptDefaultHighlighting(enumPropertyName, "Enum Property Name", enumPropertyNameStyle());
 		acceptor.acceptDefaultHighlighting(opName, "Operation Name", opNameStyle());
 		acceptor.acceptDefaultHighlighting(quantifier, "Quantifier", quantifierStyle());
-		acceptor.acceptDefaultHighlighting(asName, "As Name", asNameStyle());
+
 	}
 	
-	public TextStyle asNameStyle() {
-		TextStyle textStyle = new TextStyle();
-		textStyle.setBackgroundColor(new RGB(0,0, 0));
-		textStyle.setColor(new RGB(0, 128, 127));
-		textStyle.setStyle(SWT.ITALIC);
-		return textStyle; 
-	}
-	
+
 	public TextStyle quantifierStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
