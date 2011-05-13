@@ -3,16 +3,15 @@
 */
 package fr.univartois.cril.xtext.ui.outline;
 
-import java.awt.Color;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.StyledString.Styler;
-import org.eclipse.swt.graphics.*;
 import org.eclipse.swt.graphics.TextStyle;
 import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
-import org.eclipse.xtext.ui.editor.outline.actions.IActionBarContributor;
 import org.eclipse.xtext.ui.editor.outline.transformer.AbstractDeclarativeSemanticModelTransformer;
+
 import fr.univartois.cril.xtext.als.Assertion;
 import fr.univartois.cril.xtext.als.CheckCommand;
 import fr.univartois.cril.xtext.als.Fact;
@@ -24,13 +23,15 @@ import fr.univartois.cril.xtext.als.Predicate;
 import fr.univartois.cril.xtext.als.RunCommand;
 import fr.univartois.cril.xtext.als.Signature;
 import fr.univartois.cril.xtext.als.Specification;
+import fr.univartois.cril.xtext.ui.editor.outline.CommandOutlineNodeHandler;
 
 /**
  * customization of the default outline structure
  * 
  */
 public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer {
-	
+	private CommandOutlineNodeHandler no=new CommandOutlineNodeHandler();
+	private static List<CommandOutlineNode> nodes=new LinkedList<CommandOutlineNode>();
 	@Override
 	protected List<EObject> getChildren(EObject semanticNode) {
 		if(semanticNode instanceof Specification)
@@ -87,27 +88,45 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 	public ContentOutlineNode createNode(RunCommand fNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
 		    node.setLabel("Run : " + node.getLabel());
+
 		    node.setImage(node.getImage());
 		    return node;
 		
 	}
 	public ContentOutlineNode createNode(CheckCommand fNode, ContentOutlineNode parentNode) {	    
-		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
-		    node.setLabel("Check : " + node.getLabel());
-		    node.setImage(node.getImage());
+			/*ContentOutlineNode nodetmp = super.newOutlineNode(fNode, parentNode);
+			final CommandOutlineNode node=new CommandOutlineNode(nodetmp);
+		 	node.setCommand(no.getExecutableCommand(node.getCt()));*/
+		 	 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
+		   /* node.getCt().setLabel("Check : " + node.getCt().getLabel());
+		    node.getCt().setImage(node.getCt().getImage());
+		    no.addNode(node);*/
+		 	 node.setLabel("Check : "+node.getLabel());
+		 	 node.setImage(node.getImage());
+		 	 
 		    Styler styler=new Styler() {
 				
 				@Override
 				public void applyStyles(TextStyle textStyle) {
-					org.eclipse.swt.graphics.Color i=new org.eclipse.swt.graphics.Color(null,0,0,0);
+					org.eclipse.swt.graphics.Color i;
+					//if(node.getCommand().toString().endsWith("[SAT]")){
+					//	 i=new org.eclipse.swt.graphics.Color(null,0,255,0);
+					//}
+					//else if (node.getCommand().toString().endsWith("[UNSAT]")){
+					//	i=new org.eclipse.swt.graphics.Color(null,255,0,0);
+					//}
+					//else {
+					//	System.out.println("FINIT PAS!!");
+						 i=new org.eclipse.swt.graphics.Color(null,0,0,0);
+					//}
 					textStyle.foreground=i;
 					
 				}
 			};
 			
-		    node.setStyler(styler);
-		    return node;
-		
+		    /*node.getCt().setStyler(styler);
+		    return node.getCt();*/
+			return node;
 	}
 	public ContentOutlineNode createNode(Fact fNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
@@ -124,6 +143,8 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 		
 	}
 	
-	
+	public static List<CommandOutlineNode> getNodes(){
+		return nodes;
+	}
 	
 }

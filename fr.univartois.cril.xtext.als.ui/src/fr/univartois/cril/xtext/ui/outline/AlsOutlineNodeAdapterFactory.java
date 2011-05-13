@@ -13,6 +13,7 @@ public class AlsOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapt
 	private static final Class<?>[] types = { 
 		// provide list of classes to adapt to, e.g.:
 		RunCommand.class,
+		
 		CheckCommand.class
 	};
 

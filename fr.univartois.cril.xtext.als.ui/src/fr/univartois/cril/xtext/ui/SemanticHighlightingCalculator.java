@@ -41,8 +41,8 @@ public class SemanticHighlightingCalculator implements
 			EObject current = iter.next();
 			if (current instanceof Expression) {
 				treatment(current, ((Expression) current).getNameRef(),
-						acceptor, AlsPackage.Literals.EXPRESSION__NAME_REF
-								.getName());
+						acceptor,
+						AlsPackage.Literals.EXPRESSION__NAME_REF.getName());
 			}
 			if (current instanceof Ref) {
 				treatment(current, ((Ref) current).getNameRef(), acceptor,
@@ -64,7 +64,7 @@ public class SemanticHighlightingCalculator implements
 						AlsPackage.Literals.TYPESCOPE__NAME.getName());
 			}
 			if (current instanceof RunCommand) {
-				
+
 				simpleTreatment(current, acceptor,
 						AlsPackage.Literals.RUN_COMMAND__NAME.getName(),
 						HighlightingConfiguration.predicateName);
@@ -89,7 +89,7 @@ public class SemanticHighlightingCalculator implements
 	}
 
 	private Collection<String> getUsedSimpleTypes(XtextResource resource) {
-		
+
 		Collection<String> result = new HashSet<String>();
 		Iterator<EObject> iter = EcoreUtil.getAllContents(resource, true);
 		// compteur2 = 0;
@@ -99,8 +99,9 @@ public class SemanticHighlightingCalculator implements
 				if (((Expression) current).getNameRef() != null) {
 
 					if (((Expression) current).getNameRef().getName() != null) {
-//						System.out.println(((Expression) current).getNameRef()
-//								.getName());
+						// System.out.println(((Expression)
+						// current).getNameRef()
+						// .getName());
 						result.add(((Expression) current).getNameRef()
 								.getName());
 					}
@@ -110,8 +111,8 @@ public class SemanticHighlightingCalculator implements
 				if (((RunCommand) current).getName() != null) {
 
 					if (((RunCommand) current).getName().getName() != null) {
-						//System.out.println(((RunCommand) current).getName2()
-							//	.getName());
+						// System.out.println(((RunCommand) current).getName2()
+						// .getName());
 						result.add(((RunCommand) current).getName().getName());
 					}
 				}
@@ -120,11 +121,9 @@ public class SemanticHighlightingCalculator implements
 				if (((CheckCommand) current).getName() != null) {
 
 					if (((CheckCommand) current).getName().getName() != null) {
-						//System.out.println(((CheckCommand) current).getName()
-						//		.getName());
-						result
-								.add(((CheckCommand) current).getName()
-										.getName());
+						// System.out.println(((CheckCommand) current).getName()
+						// .getName());
+						result.add(((CheckCommand) current).getName().getName());
 					}
 				}
 			}
@@ -132,8 +131,8 @@ public class SemanticHighlightingCalculator implements
 				if (((Typescope) current).getName() != null) {
 
 					if (((Typescope) current).getName().getName() != null) {
-						//System.out.println(((Typescope) current).getName()
-						//		.getName());
+						// System.out.println(((Typescope) current).getName()
+						// .getName());
 						result.add(((Typescope) current).getName().getName());
 					}
 				}
@@ -142,8 +141,8 @@ public class SemanticHighlightingCalculator implements
 				if (((ReferencesSig) current).getNameRef() != null) {
 
 					if (((ReferencesSig) current).getNameRef().getName() != null) {
-						//System.out.println(((ReferencesSig) current)
-						//		.getNameRef().getName());
+						// System.out.println(((ReferencesSig) current)
+						// .getNameRef().getName());
 						result.add(((ReferencesSig) current).getNameRef()
 								.getName());
 					}
@@ -153,8 +152,8 @@ public class SemanticHighlightingCalculator implements
 				if (((Ref) current).getNameRef() != null) {
 
 					if (((Ref) current).getNameRef().getName() != null) {
-						//System.out.println(((Ref) current).getNameRef()
-						//		.getName());
+						// System.out.println(((Ref) current).getNameRef()
+						// .getName());
 						result.add(((Ref) current).getNameRef().getName());
 					}
 				}
@@ -172,8 +171,7 @@ public class SemanticHighlightingCalculator implements
 		} else {
 			for (LeafNode leaf : node.getLeafNodes()) {
 				if (!leaf.isHidden()) {
-					acceptor
-							.addPosition(leaf.getOffset(), leaf.getLength(), id);
+					acceptor.addPosition(leaf.getOffset(), leaf.getLength(), id);
 				}
 			}
 		}
@@ -195,8 +193,8 @@ public class SemanticHighlightingCalculator implements
 			for (AbstractNode child : node.getChildren()) {
 				if (child instanceof LeafNode) {
 					if (feature.equals(((LeafNode) child).getFeature())
-							|| nodeExists(collection, ((LeafNode) child)
-									.getText())) {
+							|| nodeExists(collection,
+									((LeafNode) child).getText())) {
 
 						return child;
 					}
@@ -235,15 +233,16 @@ public class SemanticHighlightingCalculator implements
 			IHighlightedPositionAcceptor acceptor, String string) {
 		if (refname != null) {
 			if (refname.eContainingFeature() != null) {
-				if (refname.eContainingFeature().getName().equals(
-						"signatureName")) {
+
+				if (refname.eContainingFeature().getName()
+						.equals("signatureName")) {
 					AbstractNode node = this.getFirstFeatureNode(current,
 							string);
 					highlightNode(node,
 							HighlightingConfiguration.signatureName, acceptor);
 				}
-				if (refname.eContainingFeature().getName().equals(
-						"predicateName")) {
+				if (refname.eContainingFeature().getName()
+						.equals("predicateName")) {
 					AbstractNode node = this.getFirstFeatureNode(current,
 							string);
 					highlightNode(node,
@@ -255,18 +254,18 @@ public class SemanticHighlightingCalculator implements
 					highlightNode(node, HighlightingConfiguration.factName,
 							acceptor);
 				}
-				if (refname.eContainingFeature().getName().equals(
-						"functionName")) {
+				if (refname.eContainingFeature().getName()
+						.equals("functionName")) {
 					AbstractNode node = this.getFirstFeatureNode(current,
 							string);
 					highlightNode(node, HighlightingConfiguration.functionName,
 							acceptor);
 				}
 
-				if (refname.eContainingFeature().getName().equals(
-						"propertyName")
-						|| refname.eContainingFeature().getName().equals(
-								"VariableName")) {
+				if (refname.eContainingFeature().getName()
+						.equals("propertyName")
+						|| refname.eContainingFeature().getName()
+								.equals("VariableName")) {
 					AbstractNode node = this.getFirstFeatureNode(current,
 							string);
 					highlightNode(node, HighlightingConfiguration.propertyName,
@@ -278,8 +277,8 @@ public class SemanticHighlightingCalculator implements
 					highlightNode(node, HighlightingConfiguration.enumName,
 							acceptor);
 				}
-				if (refname.eContainingFeature().getName().equals(
-						"enumPropertyName")) {
+				if (refname.eContainingFeature().getName()
+						.equals("enumPropertyName")) {
 					AbstractNode node = this.getFirstFeatureNode(current,
 							string);
 					highlightNode(node,
