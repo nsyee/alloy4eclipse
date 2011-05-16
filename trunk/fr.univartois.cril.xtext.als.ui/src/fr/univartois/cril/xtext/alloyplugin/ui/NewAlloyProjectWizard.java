@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.core.commands.Command;
+import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -24,8 +26,8 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
-
-import fr.univartois.cril.xtext.alloyplugin.ProjectNature;
+import org.eclipse.xtext.builder.impl.XtextBuilder;
+import org.eclipse.xtext.ui.XtextProjectHelper;
 
 import fr.univartois.cril.xtext.preferences.AlloyPreferencePage;
 
@@ -104,10 +106,21 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 		IProject project = root.getProject(projectName);
 		IProjectDescription description = ResourcesPlugin.getWorkspace()
 				.newProjectDescription(project.getName());
-		description.setNatureIds(new String[] { ProjectNature.NATURE_ID });
-		project.create(monitor);// description,monitor);
+		//description.setNatureIds(new String[] {  });
+		 description.setNatureIds(new String[] { /*ProjectNature.NATURE_ID,*/ XtextProjectHelper.NATURE_ID,XtextBuilder.BUILDER_ID});
+		// description.setBuildSpec(new IComand[] {XtextBuilder.BUILDER_ID});
+		 ICommand[] commands = description.getBuildSpec();
+		// Add builder to project
+		ICommand command = description.newCommand();
+		command.setBuilderName(XtextProjectHelper.BUILDER_ID);
+		ICommand[] newCommands = new ICommand[commands.length + 1];
+		// Add it before other builders.
+		System.arraycopy(commands, 0, newCommands, 1, commands.length);
+		newCommands[0] = command;
+		description.setBuildSpec(newCommands);
+
+		project.create(description,monitor);
 		project.open(monitor);
-		
 		IPath to=new Path(AlloyPreferencePage
 				.getA4SampleModelsPath());
 		
@@ -120,13 +133,13 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 				
 				file.createLink(Path.fromOSString(f.getCanonicalPath()),IResource.NONE,monitor);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}
 		
-		 project.setDescription(description, monitor);
-
+		 //project.setDescription(description, monitor);
+		
 		
 		
 	}
