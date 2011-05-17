@@ -301,7 +301,7 @@ PropertyName:
 	name=Name;
 	
 ExactlyName:
-	 name=Name;
+	 QualifiedName=Name;
 
 AsName:
 	name=ID;

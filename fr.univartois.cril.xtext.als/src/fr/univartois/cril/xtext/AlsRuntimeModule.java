@@ -4,9 +4,12 @@
 package fr.univartois.cril.xtext;
 
 import org.eclipse.xtext.conversion.IValueConverterService;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 
 import fr.univartois.cril.xtext.als.uri.AlsConverters;
+import fr.univartois.cril.xtext.scoping.AlsScopeProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -22,5 +25,10 @@ public class AlsRuntimeModule extends fr.univartois.cril.xtext.AbstractAlsRuntim
 	
 	public Class<? extends ImportUriResolver> bindImportUriResolver(){
 		return fr.univartois.cril.xtext.als.uri.AlsImportUriResolver.class;
+	}
+	@Override
+	public Class<? extends IScopeProvider> bindIScopeProvider() {
+		
+		return AlsScopeProvider.class;
 	}
 }
