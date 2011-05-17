@@ -3,14 +3,14 @@
 <repository name='Update Site' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1305564039614'/>
+    <property name='p2.timestamp' value='1305664077377'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='211'>
+  <artifacts size='215'>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.help' version='1.0.0'>
       <properties size='3'>
         <property name='artifact.size' value='997706'/>
@@ -99,23 +99,17 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloy4feature.source' version='0.1.12'>
-      <properties size='3'>
-        <property name='artifact.size' value='71045'/>
-        <property name='download.size' value='71045'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.0.4'>
       <properties size='2'>
         <property name='artifact.size' value='9506'/>
         <property name='download.size' value='9506'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.1.5'>
-      <properties size='2'>
-        <property name='artifact.size' value='9512'/>
-        <property name='download.size' value='9512'/>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloy4feature.source' version='0.1.12'>
+      <properties size='3'>
+        <property name='artifact.size' value='71045'/>
+        <property name='download.size' value='71045'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='alloy4xtext' version='0.3.0.201104191135'>
@@ -124,16 +118,16 @@
         <property name='download.size' value='524'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.1.5'>
+      <properties size='2'>
+        <property name='artifact.size' value='9512'/>
+        <property name='download.size' value='9512'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature.source' version='0.1.12'>
       <properties size='2'>
         <property name='artifact.size' value='9681'/>
         <property name='download.size' value='9681'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.8'>
-      <properties size='2'>
-        <property name='artifact.size' value='9859'/>
-        <property name='download.size' value='9859'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='0.2.2'>
@@ -143,23 +137,35 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.8'>
+      <properties size='2'>
+        <property name='artifact.size' value='9859'/>
+        <property name='download.size' value='9859'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.36'>
       <properties size='2'>
         <property name='artifact.size' value='9862'/>
         <property name='download.size' value='9862'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.1.4'>
-      <properties size='3'>
-        <property name='artifact.size' value='169474'/>
-        <property name='download.size' value='169474'/>
-        <property name='download.contentType' value='application/zip'/>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='4.2.0.201105172227'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='3001729'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.1.13'>
       <properties size='3'>
         <property name='artifact.size' value='189786'/>
         <property name='download.size' value='189786'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.1.4'>
+      <properties size='3'>
+        <property name='artifact.size' value='169474'/>
+        <property name='download.size' value='169474'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -350,10 +356,10 @@
         <property name='download.size' value='9857'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.0.6'>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='0.0.5'>
       <properties size='3'>
-        <property name='artifact.size' value='153884'/>
-        <property name='download.size' value='153884'/>
+        <property name='artifact.size' value='5309723'/>
+        <property name='download.size' value='5309723'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -363,10 +369,10 @@
         <property name='download.size' value='294160'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='0.0.5'>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.0.6'>
       <properties size='3'>
-        <property name='artifact.size' value='5309723'/>
-        <property name='download.size' value='5309723'/>
+        <property name='artifact.size' value='153884'/>
+        <property name='download.size' value='153884'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -402,10 +408,11 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.1.6'>
-      <properties size='2'>
-        <property name='artifact.size' value='9510'/>
-        <property name='download.size' value='9510'/>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.1.14'>
+      <properties size='3'>
+        <property name='artifact.size' value='194249'/>
+        <property name='download.size' value='194249'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.2.14'>
@@ -415,17 +422,10 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.1.14'>
-      <properties size='3'>
-        <property name='artifact.size' value='194249'/>
-        <property name='download.size' value='194249'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.30'>
+    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.1.6'>
       <properties size='2'>
-        <property name='artifact.size' value='9865'/>
-        <property name='download.size' value='9865'/>
+        <property name='artifact.size' value='9510'/>
+        <property name='download.size' value='9510'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.1.0'>
@@ -433,6 +433,12 @@
         <property name='artifact.size' value='156491'/>
         <property name='download.size' value='156491'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.30'>
+      <properties size='2'>
+        <property name='artifact.size' value='9865'/>
+        <property name='download.size' value='9865'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='alloy4xtext' version='0.3.0.preview1'>
@@ -473,17 +479,17 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.1.15'>
-      <properties size='2'>
-        <property name='artifact.size' value='9844'/>
-        <property name='download.size' value='9844'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='swingintegration.example' version='0.0.9'>
       <properties size='3'>
         <property name='artifact.size' value='74098'/>
         <property name='download.size' value='74098'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.1.15'>
+      <properties size='2'>
+        <property name='artifact.size' value='9844'/>
+        <property name='download.size' value='9844'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als.ui' version='0.3.0.201104151933'>
@@ -505,35 +511,22 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='4.2.0.201104191147'>
-      <properties size='2'>
-        <property name='artifact.size' value='714'/>
-        <property name='download.size' value='4014221'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.20'>
       <properties size='2'>
         <property name='artifact.size' value='9860'/>
         <property name='download.size' value='9860'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='4.2.0.201104191147'>
+      <properties size='2'>
+        <property name='artifact.size' value='714'/>
+        <property name='download.size' value='4014221'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='alloy4xtext' version='0.3.0.201104152011'>
       <properties size='2'>
         <property name='download.contentType' value='application/zip'/>
         <property name='download.size' value='522'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.23'>
-      <properties size='2'>
-        <property name='artifact.size' value='9861'/>
-        <property name='download.size' value='9861'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='0.2.20'>
-      <properties size='3'>
-        <property name='artifact.size' value='3183728'/>
-        <property name='download.size' value='3183728'/>
-        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='4.1.7'>
@@ -543,17 +536,30 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.1.3'>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='0.2.20'>
       <properties size='3'>
-        <property name='artifact.size' value='169291'/>
-        <property name='download.size' value='169291'/>
+        <property name='artifact.size' value='3183728'/>
+        <property name='download.size' value='3183728'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.23'>
+      <properties size='2'>
+        <property name='artifact.size' value='9861'/>
+        <property name='download.size' value='9861'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.14'>
       <properties size='2'>
         <property name='artifact.size' value='9849'/>
         <property name='download.size' value='9849'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.1.3'>
+      <properties size='3'>
+        <property name='artifact.size' value='169291'/>
+        <property name='download.size' value='169291'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.alloyplugin' version='0.3.0.201104152043'>
@@ -594,10 +600,10 @@
         <property name='download.size' value='9859'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.17'>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als.ui' version='0.3.0.201105161005'>
       <properties size='2'>
-        <property name='artifact.size' value='9860'/>
-        <property name='download.size' value='9860'/>
+        <property name='artifact.size' value='748'/>
+        <property name='download.size' value='539959'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='4.2.0.201104152042'>
@@ -606,10 +612,10 @@
         <property name='download.size' value='4014220'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als.ui' version='0.3.0.201105161005'>
+    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.17'>
       <properties size='2'>
-        <property name='artifact.size' value='748'/>
-        <property name='download.size' value='539959'/>
+        <property name='artifact.size' value='9860'/>
+        <property name='download.size' value='9860'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.alloyplugin' version='0.3.0.201104152018'>
@@ -712,6 +718,12 @@
         <property name='artifact.size' value='2924711'/>
         <property name='download.size' value='2924711'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='alloy4xtext' version='0.3.0.preview3'>
+      <properties size='2'>
+        <property name='download.contentType' value='application/zip'/>
+        <property name='download.size' value='526'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als' version='0.3.0.201104151933'>
@@ -922,6 +934,12 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als.ui' version='0.3.0.201105172227'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='539541'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.2'>
       <properties size='2'>
         <property name='artifact.size' value='9839'/>
@@ -1127,6 +1145,12 @@
         <property name='download.size' value='1013120'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als' version='0.3.0.201105172227'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='1115700'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.2.24'>
       <properties size='3'>
         <property name='artifact.size' value='276825'/>
@@ -1241,6 +1265,12 @@
         <property name='download.size' value='222351'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.13'>
+      <properties size='2'>
+        <property name='artifact.size' value='9846'/>
+        <property name='download.size' value='9846'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin' version='0.2.5'>
       <properties size='3'>
         <property name='artifact.size' value='226075'/>
@@ -1252,12 +1282,6 @@
       <properties size='2'>
         <property name='artifact.size' value='9506'/>
         <property name='download.size' value='9506'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.2.13'>
-      <properties size='2'>
-        <property name='artifact.size' value='9846'/>
-        <property name='download.size' value='9846'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.alloyplugin.launch' version='4.2.0.201104152011'>
@@ -1342,28 +1366,28 @@
         <property name='download.size' value='9865'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als.ui' version='0.3.0.201105161840'>
-      <properties size='2'>
-        <property name='artifact.size' value='4096'/>
-        <property name='download.size' value='540221'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='fr.univartois.cril.alloy4feature' version='0.0.5'>
       <properties size='2'>
         <property name='artifact.size' value='9506'/>
         <property name='download.size' value='9506'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als.ui' version='0.3.0'>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als.ui' version='0.3.0.201105161840'>
       <properties size='2'>
         <property name='artifact.size' value='4096'/>
-        <property name='download.size' value='211215'/>
+        <property name='download.size' value='540221'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als' version='0.3.0.201104152042'>
       <properties size='2'>
         <property name='artifact.size' value='4096'/>
         <property name='download.size' value='965202'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='fr.univartois.cril.xtext.als.ui' version='0.3.0'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='211215'/>
       </properties>
     </artifact>
   </artifacts>
