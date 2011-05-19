@@ -21,13 +21,12 @@ public class TokenToIdMapper extends DefaultAntlrTokenToAttributeIdMapper {
 			if ("'seq/Int'".equals(tokenName) || "'Int'".equals(tokenName)
 					|| "'iden'".equals(tokenName) || "'univ'".equals(tokenName)
 					|| "'sum'".equals(tokenName) || "'or'".equals(tokenName)
-					|| "'set'".equals(tokenName) || "'in'".equals(tokenName)
-					|| "'no'".equals(tokenName)) {
+					|| "'set'".equals(tokenName) || "'in'".equals(tokenName)) {
 				return HighlightingConfiguration.opName;
 			}
 			if ("'lone'".equals(tokenName) || "'none'".equals(tokenName)
 					|| "'all'".equals(tokenName) || "'some'".equals(tokenName)
-					|| "'one'".equals(tokenName)) {
+					|| "'one'".equals(tokenName) || "'no'".equals(tokenName)) {
 				return HighlightingConfiguration.quantifier;
 			}
 			return DefaultHighlightingConfiguration.KEYWORD_ID;

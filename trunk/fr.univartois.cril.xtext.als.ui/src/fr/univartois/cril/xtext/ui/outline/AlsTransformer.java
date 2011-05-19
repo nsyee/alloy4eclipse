@@ -116,7 +116,6 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 					//	i=new org.eclipse.swt.graphics.Color(null,255,0,0);
 					//}
 					//else {
-					//	System.out.println("FINIT PAS!!");
 						 i=new org.eclipse.swt.graphics.Color(null,0,0,0);
 					//}
 					textStyle.foreground=i;

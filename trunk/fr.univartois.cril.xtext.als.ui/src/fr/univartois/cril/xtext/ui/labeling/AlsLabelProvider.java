@@ -126,9 +126,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 				return run.getName().getName();
 			}		
 		}
-		//System.out.println("Nom du run:"+run.getRunName().getName()+"!!");
-		//if(run.getRunName().getName()==null){			
-		//}
+
 		return run.getRunName().getName();
 	}
 

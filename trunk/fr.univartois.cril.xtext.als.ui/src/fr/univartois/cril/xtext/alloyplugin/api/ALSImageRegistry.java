@@ -26,7 +26,6 @@ public class ALSImageRegistry {
 	}
 
 	private static void initializeImageRegistry(ImageRegistry reg) {
-		// System.out.println("initIR");
 		addImage(COMMAND_ID, reg);
 		addImage(CHECK_ID, reg);
 		addImage(RED_CHECK_ID, reg);
@@ -60,7 +59,6 @@ public class ALSImageRegistry {
 	}
 
 	private static ImageRegistry createImageRegistry() {
-		// System.out.println("createIR");
 		ImageRegistry reg = new ImageRegistry();
 		initializeImageRegistry(reg);
 		return reg;

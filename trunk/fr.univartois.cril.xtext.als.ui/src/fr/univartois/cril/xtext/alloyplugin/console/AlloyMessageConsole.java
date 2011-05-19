@@ -86,8 +86,12 @@ public class AlloyMessageConsole extends MessageConsole {
 		print(message,new Color(null,0,0,0),SWT.DEFAULT);		
 	}
 	
-	
-	
+	/**
+	 * Print a command in the console
+	 */
+	public void printCommand (final String command){
+		print(command,new Color(null,0,0,0),SWT.BOLD);
+	}
 	/**
 	 * Print message in the console.
 	 */

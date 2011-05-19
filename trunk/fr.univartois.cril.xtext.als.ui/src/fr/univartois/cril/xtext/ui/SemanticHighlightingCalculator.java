@@ -99,9 +99,7 @@ public class SemanticHighlightingCalculator implements
 				if (((Expression) current).getNameRef() != null) {
 
 					if (((Expression) current).getNameRef().getName() != null) {
-						// System.out.println(((Expression)
-						// current).getNameRef()
-						// .getName());
+
 						result.add(((Expression) current).getNameRef()
 								.getName());
 					}
@@ -111,8 +109,7 @@ public class SemanticHighlightingCalculator implements
 				if (((RunCommand) current).getName() != null) {
 
 					if (((RunCommand) current).getName().getName() != null) {
-						// System.out.println(((RunCommand) current).getName2()
-						// .getName());
+
 						result.add(((RunCommand) current).getName().getName());
 					}
 				}

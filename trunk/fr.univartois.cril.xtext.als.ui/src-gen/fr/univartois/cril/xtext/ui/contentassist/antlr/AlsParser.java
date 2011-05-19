@@ -303,11 +303,9 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpressionAccess().getParAssignment_1_3_1_0(), "rule__Expression__ParAssignment_1_3_1_0");
 					put(grammarAccess.getExpressionAccess().getExprAssignment_1_3_1_1(), "rule__Expression__ExprAssignment_1_3_1_1");
 					put(grammarAccess.getExpressionAccess().getExprAssignment_1_3_2_1(), "rule__Expression__ExprAssignment_1_3_2_1");
-					put(grammarAccess.getExpressionAccess().getLeftAssignment_1_4_0(), "rule__Expression__LeftAssignment_1_4_0");
 					put(grammarAccess.getExpressionAccess().getExprAssignment_1_4_1_0(), "rule__Expression__ExprAssignment_1_4_1_0");
 					put(grammarAccess.getExpressionAccess().getCommaAssignment_1_4_1_1_0(), "rule__Expression__CommaAssignment_1_4_1_1_0");
 					put(grammarAccess.getExpressionAccess().getExprAssignment_1_4_1_1_1(), "rule__Expression__ExprAssignment_1_4_1_1_1");
-					put(grammarAccess.getExpressionAccess().getRightAssignment_1_4_2(), "rule__Expression__RightAssignment_1_4_2");
 					put(grammarAccess.getTerminalExpressionAccess().getParOAssignment_0_1(), "rule__TerminalExpression__ParOAssignment_0_1");
 					put(grammarAccess.getTerminalExpressionAccess().getExprAssignment_0_2(), "rule__TerminalExpression__ExprAssignment_0_2");
 					put(grammarAccess.getTerminalExpressionAccess().getParFAssignment_0_3(), "rule__TerminalExpression__ParFAssignment_0_3");

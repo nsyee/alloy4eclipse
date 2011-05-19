@@ -81,7 +81,7 @@ public class HighlightingConfiguration extends DefaultHighlightingConfiguration 
 	public TextStyle predicateNameStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
-		textStyle.setColor(new RGB(6, 29, 66));
+		textStyle.setColor(new RGB(44, 83, 164));
 		textStyle.setStyle(SWT.ITALIC);
 		return textStyle; 
 	}

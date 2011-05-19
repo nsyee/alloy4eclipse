@@ -124,7 +124,6 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 	}
 
 	public void init(IWorkbench workbench) {
-		System.out.println("Initing");
 		setPreferenceStore(AlsActivator.getInstance().getPreferenceStore());
 	}
 

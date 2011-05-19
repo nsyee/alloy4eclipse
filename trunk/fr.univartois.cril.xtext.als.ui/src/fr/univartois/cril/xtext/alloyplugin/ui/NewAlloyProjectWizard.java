@@ -43,7 +43,7 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 	@Override
 	public boolean performFinish() {
 		// final String containerName = page.getContainerName();
-		
+
 		final String fileName = page.getProjectName();
 		IRunnableWithProgress op = new IRunnableWithProgress() {
 			public void run(IProgressMonitor monitor)
@@ -71,7 +71,7 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 		BasicNewProjectResourceWizard.updatePerspective(configElement);
 
 		// selectAndReveal(fSecondPage.getJavaProject().getProject());
-		
+
 		return true;
 	}
 
@@ -81,7 +81,7 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 
 	public void addPages() {
 		page = new NewAlloyProjectWizardPage(selection);
-		
+
 		addPage(page);
 	}
 
@@ -106,42 +106,36 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 		IProject project = root.getProject(projectName);
 		IProjectDescription description = ResourcesPlugin.getWorkspace()
 				.newProjectDescription(project.getName());
-		//description.setNatureIds(new String[] {  });
-		 description.setNatureIds(new String[] { /*ProjectNature.NATURE_ID,*/ XtextProjectHelper.NATURE_ID,XtextBuilder.BUILDER_ID});
-		// description.setBuildSpec(new IComand[] {XtextBuilder.BUILDER_ID});
-		 ICommand[] commands = description.getBuildSpec();
-		// Add builder to project
+
+		description
+				.setNatureIds(new String[] {XtextProjectHelper.NATURE_ID });
+		ICommand[] commands = description.getBuildSpec();
 		ICommand command = description.newCommand();
 		command.setBuilderName(XtextProjectHelper.BUILDER_ID);
 		ICommand[] newCommands = new ICommand[commands.length + 1];
-		// Add it before other builders.
 		System.arraycopy(commands, 0, newCommands, 1, commands.length);
 		newCommands[0] = command;
 		description.setBuildSpec(newCommands);
 
-		project.create(description,monitor);
+		project.create(description, monitor);
 		project.open(monitor);
-		IPath to=new Path(AlloyPreferencePage
-				.getA4SampleModelsPath());
-		
-		
-		File models=new File(to.toOSString());
-		for(File f :models.listFiles()){
+		IPath to = new Path(AlloyPreferencePage.getA4SampleModelsPath());
+
+		File models = new File(to.toOSString());
+		for (File f : models.listFiles()) {
 			IFolder file = project.getFolder(f.getName());
-			
+
 			try {
-				
-				file.createLink(Path.fromOSString(f.getCanonicalPath()),IResource.NONE,monitor);
+
+				file.createLink(Path.fromOSString(f.getCanonicalPath()),
+						IResource.NONE, monitor);
 			} catch (IOException e) {
-				
+
 				e.printStackTrace();
 			}
 		}
-		
-		 //project.setDescription(description, monitor);
-		
-		
-		
+
+
 	}
 
 }

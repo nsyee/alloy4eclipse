@@ -8957,9 +8957,11 @@ rule__Expression__Group_1_4__0__Impl
     }
 :
 (
-{ before(grammarAccess.getExpressionAccess().getLeftAssignment_1_4_0()); }
-(rule__Expression__LeftAssignment_1_4_0)
-{ after(grammarAccess.getExpressionAccess().getLeftAssignment_1_4_0()); }
+{ before(grammarAccess.getExpressionAccess().getLeftSquareBracketKeyword_1_4_0()); }
+
+	'[' 
+
+{ after(grammarAccess.getExpressionAccess().getLeftSquareBracketKeyword_1_4_0()); }
 )
 
 ;
@@ -9014,9 +9016,11 @@ rule__Expression__Group_1_4__2__Impl
     }
 :
 (
-{ before(grammarAccess.getExpressionAccess().getRightAssignment_1_4_2()); }
-(rule__Expression__RightAssignment_1_4_2)
-{ after(grammarAccess.getExpressionAccess().getRightAssignment_1_4_2()); }
+{ before(grammarAccess.getExpressionAccess().getRightSquareBracketKeyword_1_4_2()); }
+
+	']' 
+
+{ after(grammarAccess.getExpressionAccess().getRightSquareBracketKeyword_1_4_2()); }
 )
 
 ;
@@ -13792,8 +13796,12 @@ rule__RunDecl__NameAssignment_2_0
     }
 :
 (
-{ before(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamParserRuleCall_2_0_0()); }
-	ruleFunctionNamewParam{ after(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamParserRuleCall_2_0_0()); }
+{ before(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamCrossReference_2_0_0()); }
+(
+{ before(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamIDTerminalRuleCall_2_0_0_1()); }
+	RULE_ID{ after(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamIDTerminalRuleCall_2_0_0_1()); }
+)
+{ after(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamCrossReference_2_0_0()); }
 )
 
 ;
@@ -13807,8 +13815,12 @@ rule__RunDecl__NameAssignment_2_1
     }
 :
 (
-{ before(grammarAccess.getRunDeclAccess().getNameFunctionNameParserRuleCall_2_1_0()); }
-	ruleFunctionName{ after(grammarAccess.getRunDeclAccess().getNameFunctionNameParserRuleCall_2_1_0()); }
+{ before(grammarAccess.getRunDeclAccess().getNameFunctionNameCrossReference_2_1_0()); }
+(
+{ before(grammarAccess.getRunDeclAccess().getNameFunctionNameIDTerminalRuleCall_2_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getRunDeclAccess().getNameFunctionNameIDTerminalRuleCall_2_1_0_1()); }
+)
+{ after(grammarAccess.getRunDeclAccess().getNameFunctionNameCrossReference_2_1_0()); }
 )
 
 ;
@@ -13822,8 +13834,12 @@ rule__RunDecl__NameAssignment_2_2
     }
 :
 (
-{ before(grammarAccess.getRunDeclAccess().getNamePredicateNameParserRuleCall_2_2_0()); }
-	rulePredicateName{ after(grammarAccess.getRunDeclAccess().getNamePredicateNameParserRuleCall_2_2_0()); }
+{ before(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_2_0()); }
+(
+{ before(grammarAccess.getRunDeclAccess().getNamePredicateNameIDTerminalRuleCall_2_2_0_1()); }
+	RULE_ID{ after(grammarAccess.getRunDeclAccess().getNamePredicateNameIDTerminalRuleCall_2_2_0_1()); }
+)
+{ after(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_2_0()); }
 )
 
 ;
@@ -14658,21 +14674,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Expression__LeftAssignment_1_4_0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getExpressionAccess().getLeftLeftSquareBracketKeywordParserRuleCall_1_4_0_0()); }
-	ruleLeftSquareBracketKeyword{ after(grammarAccess.getExpressionAccess().getLeftLeftSquareBracketKeywordParserRuleCall_1_4_0_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__Expression__ExprAssignment_1_4_1_0
     @init {
 		int stackSize = keepStackSize();
@@ -14711,21 +14712,6 @@ rule__Expression__ExprAssignment_1_4_1_1_1
 (
 { before(grammarAccess.getExpressionAccess().getExprExpressionParserRuleCall_1_4_1_1_1_0()); }
 	ruleExpression{ after(grammarAccess.getExpressionAccess().getExprExpressionParserRuleCall_1_4_1_1_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Expression__RightAssignment_1_4_2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getExpressionAccess().getRightRightSquareBracketKeywordParserRuleCall_1_4_2_0()); }
-	ruleRightSquareBracketKeyword{ after(grammarAccess.getExpressionAccess().getRightRightSquareBracketKeywordParserRuleCall_1_4_2_0()); }
 )
 
 ;
