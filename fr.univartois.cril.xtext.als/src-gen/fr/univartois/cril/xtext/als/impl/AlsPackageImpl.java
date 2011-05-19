@@ -1151,9 +1151,39 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getScope_For()
+  {
+    return (EAttribute)scopeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getScope_Value()
+  {
+    return (EAttribute)scopeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getScope_Expect()
   {
-    return (EReference)scopeEClass.getEStructuralFeatures().get(0);
+    return (EReference)scopeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getScope_But()
+  {
+    return (EAttribute)scopeEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1163,7 +1193,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    */
   public EReference getScope_Typescope()
   {
-    return (EReference)scopeEClass.getEStructuralFeatures().get(1);
+    return (EReference)scopeEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1173,7 +1203,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    */
   public EReference getScope_Comma()
   {
-    return (EReference)scopeEClass.getEStructuralFeatures().get(2);
+    return (EReference)scopeEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1191,9 +1221,19 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExpectation_Value()
+  public EAttribute getExpectation_Expect()
   {
     return (EAttribute)expectationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExpectation_Value()
+  {
+    return (EAttribute)expectationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1211,9 +1251,49 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getTypescope_Exactly()
+  {
+    return (EAttribute)typescopeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypescope_Value()
+  {
+    return (EAttribute)typescopeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getTypescope_Asname()
   {
-    return (EReference)typescopeEClass.getEStructuralFeatures().get(0);
+    return (EReference)typescopeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypescope_Prev()
+  {
+    return (EAttribute)typescopeEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypescope_Sl()
+  {
+    return (EAttribute)typescopeEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1223,7 +1303,17 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    */
   public EReference getTypescope_Name()
   {
-    return (EReference)typescopeEClass.getEStructuralFeatures().get(1);
+    return (EReference)typescopeEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypescope_Post()
+  {
+    return (EAttribute)typescopeEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -2548,16 +2638,25 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEReference(checkCommandEClass, CHECK_COMMAND__SCOPE);
 
     scopeEClass = createEClass(SCOPE);
+    createEAttribute(scopeEClass, SCOPE__FOR);
+    createEAttribute(scopeEClass, SCOPE__VALUE);
     createEReference(scopeEClass, SCOPE__EXPECT);
+    createEAttribute(scopeEClass, SCOPE__BUT);
     createEReference(scopeEClass, SCOPE__TYPESCOPE);
     createEReference(scopeEClass, SCOPE__COMMA);
 
     expectationEClass = createEClass(EXPECTATION);
+    createEAttribute(expectationEClass, EXPECTATION__EXPECT);
     createEAttribute(expectationEClass, EXPECTATION__VALUE);
 
     typescopeEClass = createEClass(TYPESCOPE);
+    createEAttribute(typescopeEClass, TYPESCOPE__EXACTLY);
+    createEAttribute(typescopeEClass, TYPESCOPE__VALUE);
     createEReference(typescopeEClass, TYPESCOPE__ASNAME);
+    createEAttribute(typescopeEClass, TYPESCOPE__PREV);
+    createEAttribute(typescopeEClass, TYPESCOPE__SL);
     createEReference(typescopeEClass, TYPESCOPE__NAME);
+    createEAttribute(typescopeEClass, TYPESCOPE__POST);
 
     enumDeclEClass = createEClass(ENUM_DECL);
     createEReference(enumDeclEClass, ENUM_DECL__ENUM_NAME);
@@ -2847,16 +2946,25 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEReference(getCheckCommand_Scope(), this.getScope(), null, "scope", null, 0, 1, CheckCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getScope_For(), ecorePackage.getEString(), "for", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getScope_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScope_Expect(), this.getExpectation(), null, "expect", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getScope_But(), ecorePackage.getEString(), "but", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScope_Typescope(), this.getTypescope(), null, "typescope", null, 0, -1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScope_Comma(), this.getComma(), null, "comma", null, 0, -1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expectationEClass, Expectation.class, "Expectation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExpectation_Expect(), ecorePackage.getEString(), "expect", null, 0, 1, Expectation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpectation_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Expectation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typescopeEClass, Typescope.class, "Typescope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypescope_Exactly(), ecorePackage.getEString(), "exactly", null, 0, 1, Typescope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypescope_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Typescope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypescope_Asname(), this.getAsName(), null, "asname", null, 0, 1, Typescope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypescope_Prev(), ecorePackage.getEString(), "prev", null, 0, 1, Typescope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypescope_Sl(), ecorePackage.getEString(), "sl", null, 0, 1, Typescope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypescope_Name(), this.getReferencesName(), null, "name", null, 0, 1, Typescope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypescope_Post(), ecorePackage.getEString(), "post", null, 0, 1, Typescope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumDeclEClass, EnumDecl.class, "EnumDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnumDecl_EnumName(), this.getEnumName(), null, "enumName", null, 0, 1, EnumDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -18,9 +18,11 @@ import fr.univartois.cril.xtext.als.Module;
 import fr.univartois.cril.xtext.als.Open;
 import fr.univartois.cril.xtext.als.Predicate;
 import fr.univartois.cril.xtext.als.RunCommand;
+import fr.univartois.cril.xtext.als.Scope;
 import fr.univartois.cril.xtext.als.Signature;
 import fr.univartois.cril.xtext.als.SignatureName;
 import fr.univartois.cril.xtext.als.Specification;
+import fr.univartois.cril.xtext.als.Typescope;
 
 /**
  * Provides labels for a EObjects.
@@ -116,15 +118,41 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(RunCommand run) {
+		
 		if (run.getRunName()==null){			
 			if(run.getName()==null){
 				return "Block Run";
 			}
 			else{
-				return run.getName().getName();
+				StringBuffer sb=new StringBuffer();
+				sb.append(run.getName().getName()+" ");
+				Scope s=run.getScope();
+				if(s.getFor()!=null)sb.append(s.getFor()+" ");
+				if(s.getValue()!=0)sb.append(s.getValue()+" ");
+				if(s.getBut()!=null)sb.append(s.getBut()+" ");
+				
+				for(Typescope t: s.getTypescope()){
+					if(t.getExactly()!=null)sb.append(t.getExactly()+" ");
+					if(t.getValue()!=0)sb.append(t.getValue()+" ");
+					if(t.getAsname()!=null)sb.append(t.getAsname().getName()+" ");
+					if(t.getPrev()!=null) sb.append(t.getPrev()+" ");
+					if(t.getSl()!=null) sb.append(t.getSl()+" ");
+					if(t.getName()!=null)sb.append(t.getName().getName()+" ");
+					if(t.getPost()!=null)sb.append(t.getPost()+" ");
+					if(s.getTypescope().lastIndexOf(t)!=s.getTypescope().size()-1)
+						sb.append(", ");
+				}
+				if(s.getExpect()!=null){
+					sb.append(s.getExpect().getExpect()+" ");
+					sb.append(s.getExpect().getValue()+" ");
+				}
+					
+				
+				return sb.toString();
+				//return run.getName().getName()+run.getScope().getFor()+.run.getScope().g;
 			}		
+		
 		}
-
 		return run.getRunName().getName();
 	}
 
@@ -139,7 +167,31 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 				return "Block Check";
 			}
 			else{
-				return check.getName().getName();
+				StringBuffer sb=new StringBuffer();
+				sb.append(check.getName().getName()+" ");
+				Scope s=check.getScope();
+				if(s.getFor()!=null)sb.append(s.getFor()+" ");
+				if(s.getValue()!=0)sb.append(s.getValue()+" ");
+				if(s.getBut()!=null)sb.append(s.getBut()+" ");
+				
+				for(Typescope t: s.getTypescope()){
+					if(t.getExactly()!=null)sb.append(t.getExactly()+" ");
+					if(t.getValue()!=0)sb.append(t.getValue()+" ");
+					if(t.getAsname()!=null)sb.append(t.getAsname().getName()+" ");
+					if(t.getPrev()!=null) sb.append(t.getPrev()+" ");
+					if(t.getSl()!=null) sb.append(t.getSl()+" ");
+					if(t.getName()!=null)sb.append(t.getName().getName()+" ");
+					if(t.getPost()!=null)sb.append(t.getPost()+" ");
+					if(s.getTypescope().lastIndexOf(t)!=s.getTypescope().size()-1)
+						sb.append(", ");
+				}
+				if(s.getExpect()!=null){
+					sb.append(s.getExpect().getExpect()+" ");
+					sb.append(s.getExpect().getValue()+" ");
+				}
+					
+				
+				return sb.toString();
 			}
 		
 		}

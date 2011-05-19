@@ -968,15 +968,20 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cScopeAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Keyword cForKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
+		private final Assignment cForAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final Keyword cForForKeyword_0_1_0 = (Keyword)cForAssignment_0_1.eContents().get(0);
+		private final Assignment cValueAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cValueINTTerminalRuleCall_0_2_0 = (RuleCall)cValueAssignment_0_2.eContents().get(0);
 		private final Assignment cExpectAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
 		private final RuleCall cExpectExpectationParserRuleCall_0_3_0 = (RuleCall)cExpectAssignment_0_3.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cScopeAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cForKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
-		private final Keyword cButKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Assignment cForAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Keyword cForForKeyword_1_1_0 = (Keyword)cForAssignment_1_1.eContents().get(0);
+		private final Assignment cValueAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cValueINTTerminalRuleCall_1_2_0 = (RuleCall)cValueAssignment_1_2.eContents().get(0);
+		private final Assignment cButAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final Keyword cButButKeyword_1_3_0 = (Keyword)cButAssignment_1_3.eContents().get(0);
 		private final Assignment cTypescopeAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
 		private final RuleCall cTypescopeTypescopeParserRuleCall_1_4_0 = (RuleCall)cTypescopeAssignment_1_4.eContents().get(0);
 		private final Group cGroup_1_5 = (Group)cGroup_1.eContents().get(5);
@@ -988,7 +993,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpectExpectationParserRuleCall_1_6_0 = (RuleCall)cExpectAssignment_1_6.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cScopeAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final Keyword cForKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cForAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final Keyword cForForKeyword_2_1_0 = (Keyword)cForAssignment_2_1.eContents().get(0);
 		private final Assignment cTypescopeAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
 		private final RuleCall cTypescopeTypescopeParserRuleCall_2_2_0 = (RuleCall)cTypescopeAssignment_2_2.eContents().get(0);
 		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
@@ -1009,27 +1015,33 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	scope ::= "for"              typescope,+ ["expect" [0|1]]
 		//	scope ::=                                ["expect" [0|1]]	
 		// * /Scope:
-		//	{Scope} "for" INT expect=Expectation? | {Scope} "for" INT "but" typescope+=Typescope (comma+=Comma
-		//	typescope+=Typescope)* expect=Expectation? | {Scope} "for" typescope+=Typescope (comma+=Comma typescope+=Typescope)*
-		//	expect=Expectation? | {Scope} expect=Expectation?;
+		//	{Scope} for="for" value=INT expect=Expectation? | {Scope} for="for" value=INT but="but" typescope+=Typescope
+		//	(comma+=Comma typescope+=Typescope)* expect=Expectation? | {Scope} for="for" typescope+=Typescope (comma+=Comma
+		//	typescope+=Typescope)* expect=Expectation? | {Scope} expect=Expectation?;
 		public ParserRule getRule() { return rule; }
 
-		//{Scope} "for" INT expect=Expectation? | {Scope} "for" INT "but" typescope+=Typescope (comma+=Comma
-		//typescope+=Typescope)* expect=Expectation? | {Scope} "for" typescope+=Typescope (comma+=Comma typescope+=Typescope)*
-		//expect=Expectation? | {Scope} expect=Expectation?
+		//{Scope} for="for" value=INT expect=Expectation? | {Scope} for="for" value=INT but="but" typescope+=Typescope
+		//(comma+=Comma typescope+=Typescope)* expect=Expectation? | {Scope} for="for" typescope+=Typescope (comma+=Comma
+		//typescope+=Typescope)* expect=Expectation? | {Scope} expect=Expectation?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{Scope} "for" INT expect=Expectation?
+		//{Scope} for="for" value=INT expect=Expectation?
 		public Group getGroup_0() { return cGroup_0; }
 
 		//{Scope}
 		public Action getScopeAction_0_0() { return cScopeAction_0_0; }
 
+		//for="for"
+		public Assignment getForAssignment_0_1() { return cForAssignment_0_1; }
+
 		//"for"
-		public Keyword getForKeyword_0_1() { return cForKeyword_0_1; }
+		public Keyword getForForKeyword_0_1_0() { return cForForKeyword_0_1_0; }
+
+		//value=INT
+		public Assignment getValueAssignment_0_2() { return cValueAssignment_0_2; }
 
 		//INT
-		public RuleCall getINTTerminalRuleCall_0_2() { return cINTTerminalRuleCall_0_2; }
+		public RuleCall getValueINTTerminalRuleCall_0_2_0() { return cValueINTTerminalRuleCall_0_2_0; }
 
 		//expect=Expectation?
 		public Assignment getExpectAssignment_0_3() { return cExpectAssignment_0_3; }
@@ -1037,20 +1049,29 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Expectation
 		public RuleCall getExpectExpectationParserRuleCall_0_3_0() { return cExpectExpectationParserRuleCall_0_3_0; }
 
-		//{Scope} "for" INT "but" typescope+=Typescope (comma+=Comma typescope+=Typescope)* expect=Expectation?
+		//{Scope} for="for" value=INT but="but" typescope+=Typescope (comma+=Comma typescope+=Typescope)* expect=Expectation?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{Scope}
 		public Action getScopeAction_1_0() { return cScopeAction_1_0; }
 
+		//for="for"
+		public Assignment getForAssignment_1_1() { return cForAssignment_1_1; }
+
 		//"for"
-		public Keyword getForKeyword_1_1() { return cForKeyword_1_1; }
+		public Keyword getForForKeyword_1_1_0() { return cForForKeyword_1_1_0; }
+
+		//value=INT
+		public Assignment getValueAssignment_1_2() { return cValueAssignment_1_2; }
 
 		//INT
-		public RuleCall getINTTerminalRuleCall_1_2() { return cINTTerminalRuleCall_1_2; }
+		public RuleCall getValueINTTerminalRuleCall_1_2_0() { return cValueINTTerminalRuleCall_1_2_0; }
+
+		//but="but"
+		public Assignment getButAssignment_1_3() { return cButAssignment_1_3; }
 
 		//"but"
-		public Keyword getButKeyword_1_3() { return cButKeyword_1_3; }
+		public Keyword getButButKeyword_1_3_0() { return cButButKeyword_1_3_0; }
 
 		//typescope+=Typescope
 		public Assignment getTypescopeAssignment_1_4() { return cTypescopeAssignment_1_4; }
@@ -1079,14 +1100,17 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Expectation
 		public RuleCall getExpectExpectationParserRuleCall_1_6_0() { return cExpectExpectationParserRuleCall_1_6_0; }
 
-		//{Scope} "for" typescope+=Typescope (comma+=Comma typescope+=Typescope)* expect=Expectation?
+		//{Scope} for="for" typescope+=Typescope (comma+=Comma typescope+=Typescope)* expect=Expectation?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//{Scope}
 		public Action getScopeAction_2_0() { return cScopeAction_2_0; }
 
+		//for="for"
+		public Assignment getForAssignment_2_1() { return cForAssignment_2_1; }
+
 		//"for"
-		public Keyword getForKeyword_2_1() { return cForKeyword_2_1; }
+		public Keyword getForForKeyword_2_1_0() { return cForForKeyword_2_1_0; }
 
 		//typescope+=Typescope
 		public Assignment getTypescopeAssignment_2_2() { return cTypescopeAssignment_2_2; }
@@ -1131,19 +1155,23 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	public class ExpectationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expectation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cExpectKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cExpectAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cExpectExpectKeyword_0_0 = (Keyword)cExpectAssignment_0.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Expectation:
-		//	"expect" value=INT;
+		//	expect="expect" value=INT;
 		public ParserRule getRule() { return rule; }
 
-		//"expect" value=INT
+		//expect="expect" value=INT
 		public Group getGroup() { return cGroup; }
 
+		//expect="expect"
+		public Assignment getExpectAssignment_0() { return cExpectAssignment_0; }
+
 		//"expect"
-		public Keyword getExpectKeyword_0() { return cExpectKeyword_0; }
+		public Keyword getExpectExpectKeyword_0_0() { return cExpectExpectKeyword_0_0; }
 
 		//value=INT
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -1156,47 +1184,62 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Typescope");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTypescopeAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cExactlyKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cExactlyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cExactlyExactlyKeyword_1_0 = (Keyword)cExactlyAssignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
 		private final Assignment cAsnameAssignment_3_0_0 = (Assignment)cAlternatives_3_0.eContents().get(0);
 		private final RuleCall cAsnameAsNameParserRuleCall_3_0_0_0 = (RuleCall)cAsnameAssignment_3_0_0.eContents().get(0);
-		private final Keyword cFunKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
-		private final Keyword cPredKeyword_3_0_2 = (Keyword)cAlternatives_3_0.eContents().get(2);
-		private final Keyword cThisKeyword_3_0_3 = (Keyword)cAlternatives_3_0.eContents().get(3);
-		private final Keyword cSolidusKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cPrevAssignment_3_0_1 = (Assignment)cAlternatives_3_0.eContents().get(1);
+		private final Keyword cPrevFunKeyword_3_0_1_0 = (Keyword)cPrevAssignment_3_0_1.eContents().get(0);
+		private final Assignment cPrevAssignment_3_0_2 = (Assignment)cAlternatives_3_0.eContents().get(2);
+		private final Keyword cPrevPredKeyword_3_0_2_0 = (Keyword)cPrevAssignment_3_0_2.eContents().get(0);
+		private final Assignment cPrevAssignment_3_0_3 = (Assignment)cAlternatives_3_0.eContents().get(3);
+		private final Keyword cPrevThisKeyword_3_0_3_0 = (Keyword)cPrevAssignment_3_0_3.eContents().get(0);
+		private final Assignment cSlAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final Keyword cSlSolidusKeyword_3_1_0 = (Keyword)cSlAssignment_3_1.eContents().get(0);
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
 		private final Assignment cNameAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
 		private final CrossReference cNameReferencesNameCrossReference_4_0_0 = (CrossReference)cNameAssignment_4_0.eContents().get(0);
 		private final RuleCall cNameReferencesNameIDTerminalRuleCall_4_0_0_1 = (RuleCall)cNameReferencesNameCrossReference_4_0_0.eContents().get(1);
 		private final Alternatives cAlternatives_4_1 = (Alternatives)cAlternatives_4.eContents().get(1);
-		private final Keyword cIntKeyword_4_1_0 = (Keyword)cAlternatives_4_1.eContents().get(0);
-		private final Keyword cSeqKeyword_4_1_1 = (Keyword)cAlternatives_4_1.eContents().get(1);
+		private final Assignment cPostAssignment_4_1_0 = (Assignment)cAlternatives_4_1.eContents().get(0);
+		private final Keyword cPostIntKeyword_4_1_0_0 = (Keyword)cPostAssignment_4_1_0.eContents().get(0);
+		private final Assignment cPostAssignment_4_1_1 = (Assignment)cAlternatives_4_1.eContents().get(1);
+		private final Keyword cPostSeqKeyword_4_1_1_0 = (Keyword)cPostAssignment_4_1_1.eContents().get(0);
 		
 		/// *
 		//	typescope ::= ["exactly"] number [name|"int"|"seq"]
-		// * ///A VOIR
-		//Typescope:
-		//	{Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"));
+		// * /Typescope:
+		//	{Typescope} exactly="exactly"? value=INT ((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
+		//	(name=[ReferencesName] | (post="int" | post="seq"));
 		public ParserRule getRule() { return rule; }
 
-		//{Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"))
+		//{Typescope} exactly="exactly"? value=INT ((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
+		//(name=[ReferencesName] | (post="int" | post="seq"))
 		public Group getGroup() { return cGroup; }
 
 		//{Typescope}
 		public Action getTypescopeAction_0() { return cTypescopeAction_0; }
 
-		//"exactly"?
-		public Keyword getExactlyKeyword_1() { return cExactlyKeyword_1; }
+		//exactly="exactly"?
+		public Assignment getExactlyAssignment_1() { return cExactlyAssignment_1; }
+
+		//"exactly"
+		public Keyword getExactlyExactlyKeyword_1_0() { return cExactlyExactlyKeyword_1_0; }
+
+		//value=INT
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 
 		//INT
-		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
+		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 
-		//((asname=AsName | "fun" | "pred" | "this") "/")?
+		//((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//asname=AsName | "fun" | "pred" | "this"
+		//asname=AsName | prev="fun" | prev="pred" | prev="this"
 		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
 
 		//asname=AsName
@@ -1205,19 +1248,31 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//AsName
 		public RuleCall getAsnameAsNameParserRuleCall_3_0_0_0() { return cAsnameAsNameParserRuleCall_3_0_0_0; }
 
+		//prev="fun"
+		public Assignment getPrevAssignment_3_0_1() { return cPrevAssignment_3_0_1; }
+
 		//"fun"
-		public Keyword getFunKeyword_3_0_1() { return cFunKeyword_3_0_1; }
+		public Keyword getPrevFunKeyword_3_0_1_0() { return cPrevFunKeyword_3_0_1_0; }
+
+		//prev="pred"
+		public Assignment getPrevAssignment_3_0_2() { return cPrevAssignment_3_0_2; }
 
 		//"pred"
-		public Keyword getPredKeyword_3_0_2() { return cPredKeyword_3_0_2; }
+		public Keyword getPrevPredKeyword_3_0_2_0() { return cPrevPredKeyword_3_0_2_0; }
+
+		//prev="this"
+		public Assignment getPrevAssignment_3_0_3() { return cPrevAssignment_3_0_3; }
 
 		//"this"
-		public Keyword getThisKeyword_3_0_3() { return cThisKeyword_3_0_3; }
+		public Keyword getPrevThisKeyword_3_0_3_0() { return cPrevThisKeyword_3_0_3_0; }
+
+		//sl="/"
+		public Assignment getSlAssignment_3_1() { return cSlAssignment_3_1; }
 
 		//"/"
-		public Keyword getSolidusKeyword_3_1() { return cSolidusKeyword_3_1; }
+		public Keyword getSlSolidusKeyword_3_1_0() { return cSlSolidusKeyword_3_1_0; }
 
-		//name=[ReferencesName] | ("int" | "seq")
+		//name=[ReferencesName] | (post="int" | post="seq")
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//name=[ReferencesName]
@@ -1229,14 +1284,20 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameReferencesNameIDTerminalRuleCall_4_0_0_1() { return cNameReferencesNameIDTerminalRuleCall_4_0_0_1; }
 
-		//"int" | "seq"
+		//post="int" | post="seq"
 		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
 
+		//post="int"
+		public Assignment getPostAssignment_4_1_0() { return cPostAssignment_4_1_0; }
+
 		//"int"
-		public Keyword getIntKeyword_4_1_0() { return cIntKeyword_4_1_0; }
+		public Keyword getPostIntKeyword_4_1_0_0() { return cPostIntKeyword_4_1_0_0; }
+
+		//post="seq"
+		public Assignment getPostAssignment_4_1_1() { return cPostAssignment_4_1_1; }
 
 		//"seq"
-		public Keyword getSeqKeyword_4_1_1() { return cSeqKeyword_4_1_1; }
+		public Keyword getPostSeqKeyword_4_1_1_0() { return cPostSeqKeyword_4_1_1_0; }
 	}
 
 	public class EnumDeclElements extends AbstractParserRuleElementFinder {
@@ -3892,9 +3953,9 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	scope ::= "for"              typescope,+ ["expect" [0|1]]
 	//	scope ::=                                ["expect" [0|1]]	
 	// * /Scope:
-	//	{Scope} "for" INT expect=Expectation? | {Scope} "for" INT "but" typescope+=Typescope (comma+=Comma
-	//	typescope+=Typescope)* expect=Expectation? | {Scope} "for" typescope+=Typescope (comma+=Comma typescope+=Typescope)*
-	//	expect=Expectation? | {Scope} expect=Expectation?;
+	//	{Scope} for="for" value=INT expect=Expectation? | {Scope} for="for" value=INT but="but" typescope+=Typescope
+	//	(comma+=Comma typescope+=Typescope)* expect=Expectation? | {Scope} for="for" typescope+=Typescope (comma+=Comma
+	//	typescope+=Typescope)* expect=Expectation? | {Scope} expect=Expectation?;
 	public ScopeElements getScopeAccess() {
 		return (pScope != null) ? pScope : (pScope = new ScopeElements());
 	}
@@ -3904,7 +3965,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Expectation:
-	//	"expect" value=INT;
+	//	expect="expect" value=INT;
 	public ExpectationElements getExpectationAccess() {
 		return (pExpectation != null) ? pExpectation : (pExpectation = new ExpectationElements());
 	}
@@ -3915,9 +3976,9 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 
 	/// *
 	//	typescope ::= ["exactly"] number [name|"int"|"seq"]
-	// * ///A VOIR
-	//Typescope:
-	//	{Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"));
+	// * /Typescope:
+	//	{Typescope} exactly="exactly"? value=INT ((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
+	//	(name=[ReferencesName] | (post="int" | post="seq"));
 	public TypescopeElements getTypescopeAccess() {
 		return (pTypescope != null) ? pTypescope : (pTypescope = new TypescopeElements());
 	}

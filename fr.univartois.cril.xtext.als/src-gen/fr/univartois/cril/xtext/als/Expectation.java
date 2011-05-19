@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext.als.Expectation#getExpect <em>Expect</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expectation#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -25,6 +26,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Expectation extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Expect</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expect</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expect</em>' attribute.
+   * @see #setExpect(String)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpectation_Expect()
+   * @model
+   * @generated
+   */
+  String getExpect();
+
+  /**
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Expectation#getExpect <em>Expect</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expect</em>' attribute.
+   * @see #getExpect()
+   * @generated
+   */
+  void setExpect(String value);
+
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
