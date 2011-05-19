@@ -7,6 +7,8 @@ import org.eclipse.xtext.ui.editor.outline.actions.DeclarativeActionBarContribut
 
 public class AlsActionBarContributor extends DeclarativeActionBarContributor {
 
+	
+	
 	public Action addFilterParserRulesToolbarAction(XtextContentOutlinePage page) {
 		
 		page.setLinkingEnabled(true);

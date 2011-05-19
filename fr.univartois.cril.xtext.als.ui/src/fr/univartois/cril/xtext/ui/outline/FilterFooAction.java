@@ -7,15 +7,14 @@ import org.eclipse.xtext.ui.editor.outline.actions.AbstractFilterAction;
 public class FilterFooAction extends AbstractFilterAction  {
 
 	  public FilterFooAction(XtextContentOutlinePage outlinePage) {
-	    super("Filter Foo", outlinePage);
-	    setToolTipText("Show / hide foo");
-	    setDescription("Show / hide foo");
+	    super("", outlinePage);
+	    
 	   
 	  }
 
 	  @Override
 	  protected String getToggleId() {
-	    return "FilterFooAction.isChecked";
+	    return "";
 	  }
 
 	  @Override
