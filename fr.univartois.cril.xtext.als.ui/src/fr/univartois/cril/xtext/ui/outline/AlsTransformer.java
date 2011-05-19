@@ -43,7 +43,7 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 	public String createNode(Specification semanticNode, ContentOutlineNode parentNode) {	    
 	    return INVISIBLE_ROOT_NODE;
 	}
-	public ContentOutlineNode createNode(Module moduleNode, ContentOutlineNode parentNode) {	    
+	public ContentOutlineNode createNode(Module moduleNode, ContentOutlineNode parentNode) {
 		 ContentOutlineNode node = super.newOutlineNode(moduleNode, parentNode);
 		    node.setLabel(node.getLabel());
 		    node.setImage(node.getImage());
