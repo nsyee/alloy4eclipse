@@ -47,8 +47,7 @@ import fr.univartois.cril.xtext.alloyplugin.core.ALSFileFactory;
 
 public class ALSEditor extends TextEditor {
 
-	private AlloyContentOutlinePage fOutlinePage = null;
-	private ProjectionSupport projectionSupport;
+		private ProjectionSupport projectionSupport;
 	private ProjectionAnnotationModel annotationModel;
 
 	@Override
@@ -97,15 +96,7 @@ public class ALSEditor extends TextEditor {
 
 	@SuppressWarnings("unchecked")
     public Object getAdapter(Class required) {
-		if (IContentOutlinePage.class.equals(required)) {
 
-			if (fOutlinePage == null) {
-
-				fOutlinePage = new AlloyContentOutlinePage(this);
-			}
-
-			return fOutlinePage;
-		}
 		return super.getAdapter(required);
 	}
 
@@ -166,8 +157,7 @@ public class ALSEditor extends TextEditor {
 	@Override
 	protected void doSetInput(IEditorInput input) throws CoreException {
 		super.doSetInput(input);
-		if (fOutlinePage != null)
-			fOutlinePage.setViewerInput();
+;
 	}
 
 	private Annotation[] oldAnnotations;
