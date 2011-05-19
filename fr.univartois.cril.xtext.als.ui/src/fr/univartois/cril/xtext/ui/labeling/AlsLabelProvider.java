@@ -118,14 +118,14 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(RunCommand run) {
-		
+		StringBuffer sb=new StringBuffer();
 		if (run.getRunName()==null){			
 			if(run.getName()==null){
-				return "Block Run";
+				sb.append("{ Block } ");				
 			}
-			else{
-				StringBuffer sb=new StringBuffer();
+			else{				
 				sb.append(run.getName().getName()+" ");
+			}
 				Scope s=run.getScope();
 				if(s.getFor()!=null)sb.append(s.getFor()+" ");
 				if(s.getValue()!=0)sb.append(s.getValue()+" ");
@@ -133,7 +133,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 				
 				for(Typescope t: s.getTypescope()){
 					if(t.getExactly()!=null)sb.append(t.getExactly()+" ");
-					if(t.getValue()!=0)sb.append(t.getValue()+" ");
+					sb.append(t.getValue()+" ");
 					if(t.getAsname()!=null)sb.append(t.getAsname().getName()+" ");
 					if(t.getPrev()!=null) sb.append(t.getPrev()+" ");
 					if(t.getSl()!=null) sb.append(t.getSl()+" ");
@@ -149,10 +149,10 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 					
 				
 				return sb.toString();
-				//return run.getName().getName()+run.getScope().getFor()+.run.getScope().g;
+				
 			}		
 		
-		}
+		
 		return run.getRunName().getName();
 	}
 
@@ -162,13 +162,14 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(CheckCommand check) {
+		StringBuffer sb=new StringBuffer();
 		if (check.getCheckName()==null){
 			if(check.getName()==null){
-				return "Block Check";
+				sb.append("{ Block } ");				
 			}
-			else{
-				StringBuffer sb=new StringBuffer();
+			else{				
 				sb.append(check.getName().getName()+" ");
+			}
 				Scope s=check.getScope();
 				if(s.getFor()!=null)sb.append(s.getFor()+" ");
 				if(s.getValue()!=0)sb.append(s.getValue()+" ");
@@ -176,7 +177,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 				
 				for(Typescope t: s.getTypescope()){
 					if(t.getExactly()!=null)sb.append(t.getExactly()+" ");
-					if(t.getValue()!=0)sb.append(t.getValue()+" ");
+					sb.append(t.getValue()+" ");
 					if(t.getAsname()!=null)sb.append(t.getAsname().getName()+" ");
 					if(t.getPrev()!=null) sb.append(t.getPrev()+" ");
 					if(t.getSl()!=null) sb.append(t.getSl()+" ");
@@ -194,7 +195,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 				return sb.toString();
 			}
 		
-		}
+		
 		return check.getCheckName().getName();
 	}
 
