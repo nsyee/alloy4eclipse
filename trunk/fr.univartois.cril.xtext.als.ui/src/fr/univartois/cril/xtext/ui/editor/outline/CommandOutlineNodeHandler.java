@@ -37,7 +37,9 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 		editor = EditorUtils.getActiveXtextEditor(event);
 		if (editor == null)
 			return null;
+		
 		document = XtextDocumentUtil.get(editor);
+		
 		if(editor.isSaveOnCloseNeeded()) return null;
 		resource = editor.getResource();
 		
