@@ -102,8 +102,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="RunCommand" eSuperTypes="#//Paragraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="runName" eType="#//Alias"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ReferencesName"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ReferencesName"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Block"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scope" eType="#//Scope"
@@ -196,12 +195,8 @@
         eType="#//ArrowOp" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="par" upperBound="-1" eType="#//ParanthesisandExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" upperBound="-1" eType="#//LeftSquareBracketKeyword"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comma" upperBound="-1"
         eType="#//Comma" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
-        eType="#//RightSquareBracketKeyword" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parO" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parF" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="let" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

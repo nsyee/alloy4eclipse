@@ -16,12 +16,10 @@ import fr.univartois.cril.xtext.als.CommonQuantUnOp;
 import fr.univartois.cril.xtext.als.Decl;
 import fr.univartois.cril.xtext.als.Expression;
 import fr.univartois.cril.xtext.als.LeftCurlyBracket;
-import fr.univartois.cril.xtext.als.LeftSquareBracketKeyword;
 import fr.univartois.cril.xtext.als.LetDecl;
 import fr.univartois.cril.xtext.als.ParanthesisandExpression;
 import fr.univartois.cril.xtext.als.ReferencesName;
 import fr.univartois.cril.xtext.als.RightCurlyBracket;
-import fr.univartois.cril.xtext.als.RightSquareBracketKeyword;
 import fr.univartois.cril.xtext.als.UnOp;
 
 import java.util.Collection;
@@ -53,9 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getCmp <em>Cmp</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getArrowOp <em>Arrow Op</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getPar <em>Par</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getComma <em>Comma</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getRight <em>Right</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParO <em>Par O</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getParF <em>Par F</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpressionImpl#getLet <em>Let</em>}</li>
@@ -133,16 +129,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   protected EList<ParanthesisandExpression> par;
 
   /**
-   * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLeft()
-   * @generated
-   * @ordered
-   */
-  protected EList<LeftSquareBracketKeyword> left;
-
-  /**
    * The cached value of the '{@link #getComma() <em>Comma</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -151,16 +137,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected EList<Comma> comma;
-
-  /**
-   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRight()
-   * @generated
-   * @ordered
-   */
-  protected EList<RightSquareBracketKeyword> right;
 
   /**
    * The default value of the '{@link #getParO() <em>Par O</em>}' attribute.
@@ -538,20 +514,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<LeftSquareBracketKeyword> getLeft()
-  {
-    if (left == null)
-    {
-      left = new EObjectContainmentEList<LeftSquareBracketKeyword>(LeftSquareBracketKeyword.class, this, AlsPackage.EXPRESSION__LEFT);
-    }
-    return left;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Comma> getComma()
   {
     if (comma == null)
@@ -559,20 +521,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       comma = new EObjectContainmentEList<Comma>(Comma.class, this, AlsPackage.EXPRESSION__COMMA);
     }
     return comma;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<RightSquareBracketKeyword> getRight()
-  {
-    if (right == null)
-    {
-      right = new EObjectContainmentEList<RightSquareBracketKeyword>(RightSquareBracketKeyword.class, this, AlsPackage.EXPRESSION__RIGHT);
-    }
-    return right;
   }
 
   /**
@@ -1105,12 +1053,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return ((InternalEList<?>)getArrowOp()).basicRemove(otherEnd, msgs);
       case AlsPackage.EXPRESSION__PAR:
         return ((InternalEList<?>)getPar()).basicRemove(otherEnd, msgs);
-      case AlsPackage.EXPRESSION__LEFT:
-        return ((InternalEList<?>)getLeft()).basicRemove(otherEnd, msgs);
       case AlsPackage.EXPRESSION__COMMA:
         return ((InternalEList<?>)getComma()).basicRemove(otherEnd, msgs);
-      case AlsPackage.EXPRESSION__RIGHT:
-        return ((InternalEList<?>)getRight()).basicRemove(otherEnd, msgs);
       case AlsPackage.EXPRESSION__LETDECL:
         return ((InternalEList<?>)getLetdecl()).basicRemove(otherEnd, msgs);
       case AlsPackage.EXPRESSION__BLOCK_OR_BAR:
@@ -1153,12 +1097,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return getArrowOp();
       case AlsPackage.EXPRESSION__PAR:
         return getPar();
-      case AlsPackage.EXPRESSION__LEFT:
-        return getLeft();
       case AlsPackage.EXPRESSION__COMMA:
         return getComma();
-      case AlsPackage.EXPRESSION__RIGHT:
-        return getRight();
       case AlsPackage.EXPRESSION__PAR_O:
         return getParO();
       case AlsPackage.EXPRESSION__PAR_F:
@@ -1233,17 +1173,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         getPar().clear();
         getPar().addAll((Collection<? extends ParanthesisandExpression>)newValue);
         return;
-      case AlsPackage.EXPRESSION__LEFT:
-        getLeft().clear();
-        getLeft().addAll((Collection<? extends LeftSquareBracketKeyword>)newValue);
-        return;
       case AlsPackage.EXPRESSION__COMMA:
         getComma().clear();
         getComma().addAll((Collection<? extends Comma>)newValue);
-        return;
-      case AlsPackage.EXPRESSION__RIGHT:
-        getRight().clear();
-        getRight().addAll((Collection<? extends RightSquareBracketKeyword>)newValue);
         return;
       case AlsPackage.EXPRESSION__PAR_O:
         setParO((String)newValue);
@@ -1336,14 +1268,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__PAR:
         getPar().clear();
         return;
-      case AlsPackage.EXPRESSION__LEFT:
-        getLeft().clear();
-        return;
       case AlsPackage.EXPRESSION__COMMA:
         getComma().clear();
-        return;
-      case AlsPackage.EXPRESSION__RIGHT:
-        getRight().clear();
         return;
       case AlsPackage.EXPRESSION__PAR_O:
         setParO(PAR_O_EDEFAULT);
@@ -1426,12 +1352,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return arrowOp != null && !arrowOp.isEmpty();
       case AlsPackage.EXPRESSION__PAR:
         return par != null && !par.isEmpty();
-      case AlsPackage.EXPRESSION__LEFT:
-        return left != null && !left.isEmpty();
       case AlsPackage.EXPRESSION__COMMA:
         return comma != null && !comma.isEmpty();
-      case AlsPackage.EXPRESSION__RIGHT:
-        return right != null && !right.isEmpty();
       case AlsPackage.EXPRESSION__PAR_O:
         return PAR_O_EDEFAULT == null ? parO != null : !PAR_O_EDEFAULT.equals(parO);
       case AlsPackage.EXPRESSION__PAR_F:

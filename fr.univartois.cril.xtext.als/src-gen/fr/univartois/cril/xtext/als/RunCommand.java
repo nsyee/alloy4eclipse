@@ -54,26 +54,26 @@ public interface RunCommand extends Paragraph
   void setRunName(Alias value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' containment reference.
+   * @return the value of the '<em>Name</em>' reference.
    * @see #setName(ReferencesName)
    * @see fr.univartois.cril.xtext.als.AlsPackage#getRunCommand_Name()
-   * @model containment="true"
+   * @model
    * @generated
    */
   ReferencesName getName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.RunCommand#getName <em>Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.RunCommand#getName <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @param value the new value of the '<em>Name</em>' reference.
    * @see #getName()
    * @generated
    */
