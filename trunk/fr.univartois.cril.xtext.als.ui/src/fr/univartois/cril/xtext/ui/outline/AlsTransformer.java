@@ -45,49 +45,49 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 	}
 	public ContentOutlineNode createNode(Module moduleNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(moduleNode, parentNode);
-		    node.setLabel("Module : " + node.getLabel());
+		    node.setLabel(node.getLabel());
 		    node.setImage(node.getImage());
 		    return node;
 		
 	}
 	public ContentOutlineNode createNode(Open openNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(openNode, parentNode);
-		    node.setLabel("Open : " + node.getLabel());
+		    node.setLabel(node.getLabel());
 		    node.setImage(node.getImage());
 		    return node;
 		
 	}
 	public ContentOutlineNode createNode(Function fNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
-		    node.setLabel("Function : " + node.getLabel());
+		    node.setLabel(node.getLabel());
 		    node.setImage(node.getImage());
 		    return node;
 		
 	}
 	public ContentOutlineNode createNode(Signature fNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
-		    node.setLabel("Signature : " + node.getLabel());
+		    node.setLabel(node.getLabel());
 		    node.setImage(node.getImage());
 		    return node;
 		
 	}
 	public ContentOutlineNode createNode(Predicate fNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
-		    node.setLabel("Predicat : " + node.getLabel());
+		    node.setLabel(node.getLabel());
 		    node.setImage(node.getImage());
 		    return node;
 		
 	}
 	public ContentOutlineNode createNode(Assertion fNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
-		    node.setLabel("Assertion : " + node.getLabel());
+		    node.setLabel(node.getLabel());
 		    node.setImage(node.getImage());
 		    return node;
 		
 	}
 	public ContentOutlineNode createNode(RunCommand fNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
-		    node.setLabel("Run : " + node.getLabel());
+		    node.setLabel(node.getLabel());
 
 		    node.setImage(node.getImage());
 		    return node;
@@ -101,7 +101,7 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 		   /* node.getCt().setLabel("Check : " + node.getCt().getLabel());
 		    node.getCt().setImage(node.getCt().getImage());
 		    no.addNode(node);*/
-		 	 node.setLabel("Check : "+node.getLabel());
+		 	 node.setLabel(node.getLabel());
 		 	 node.setImage(node.getImage());
 		 	 
 		    Styler styler=new Styler() {
@@ -129,7 +129,7 @@ public class AlsTransformer extends AbstractDeclarativeSemanticModelTransformer 
 	}
 	public ContentOutlineNode createNode(Fact fNode, ContentOutlineNode parentNode) {	    
 		 ContentOutlineNode node = super.newOutlineNode(fNode, parentNode);
-		    node.setLabel("Fact : " + node.getLabel());
+		    node.setLabel(node.getLabel());
 		    node.setImage(node.getImage());
 		    return node;
 		
