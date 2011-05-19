@@ -173,7 +173,6 @@ public class ALSEditor extends TextEditor {
 	private Annotation[] oldAnnotations;
 
 	public void updateFoldingStructure(ArrayList<Position> positions) {
-		// System.out.println("Updating folding " + positions);
 		Annotation[] annotations = new Annotation[positions.size()];
 
 		// this will hold the new annotations along

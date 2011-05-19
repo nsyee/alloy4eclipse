@@ -237,7 +237,6 @@ public class AlloyLaunching {
 		}
 		file.setAssertions(assertions);
 		file.fireChange();
-		// System.out.println("ALSFile changed:" + file);
 	}
 
 	/**

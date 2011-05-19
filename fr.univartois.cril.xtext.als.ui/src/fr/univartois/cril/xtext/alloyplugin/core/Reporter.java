@@ -29,7 +29,7 @@ public final class Reporter extends IReporter implements Serializable {
 	}	@Override
 	public void translate
 	(String solver, int bitwidth,
-			int maxseq, int skolemDepth, int symmetry) {
+			int maxseq, int skolemDepth, int symmetry) {		printCommand("Launched Command : "+execCommand.toString()+"\n");
 		print("Solver="+solver
 				+" Bitwidth="+bitwidth
 				+" MaxSeq="+maxseq
@@ -37,7 +37,7 @@ public final class Reporter extends IReporter implements Serializable {
 				+" Symmetry="+(symmetry>0 ? (""+symmetry) : "OFF")
 				+"\nGenerating CNF...\n"
 		);		startTranslation = System.currentTimeMillis();
-	}	@Override
+	}	@Override
 	public void solve
 	(int primaryVars, int totalVars, int clauses) {	    startSolving = System.currentTimeMillis();	    print("CNF translation time:"+(startSolving-startTranslation)+" ms");
 		print("Var="+totalVars
@@ -48,7 +48,7 @@ public final class Reporter extends IReporter implements Serializable {
 	}	@Override
 	public void resultCNF(final String filename) {
 		printInfo("CNF file written to "+filename+"\n");
-	}	@Override	public void resultSAT(Object command, long solvingTime,Object solution) {		Command cmd = (Command)command;		resultSAT(cmd.expects,cmd.check,solvingTime);	}	
+	}	@Override	public void resultSAT(Object command, long solvingTime,Object solution) {		Command cmd = (Command)command;				resultSAT(cmd.expects,cmd.check,solvingTime);	}	
 	public void resultSAT
 	(int expects, boolean check,long solvingTime) {
 		StringBuilder sb = new StringBuilder("");
@@ -87,12 +87,10 @@ public final class Reporter extends IReporter implements Serializable {
 		}
 	}
 	private void printInfo(String string) {		
-		//System.out.println("reporting:"+string);
 		AlloyMessageConsole console = Console.findAlloyInfoConsole("");
 		console.print(string);
 	}
 	private void print(String string) {		
-		//System.out.println("reporting:"+string);
 		AlloyMessageConsole console = Console.findAlloyConsole(filename);
 		console.print(string);
 	}
@@ -131,5 +129,5 @@ public final class Reporter extends IReporter implements Serializable {
             	AlsActivator.getDefault().log(e);
             }                   
         return result;
-    }
+    }	/**	 * Method called when a command is launched to write the full command	 * 	 */	private void printCommand(String string) {		AlloyMessageConsole console = Console.findAlloyConsole(filename);		console.printCommand(string);			}
 }

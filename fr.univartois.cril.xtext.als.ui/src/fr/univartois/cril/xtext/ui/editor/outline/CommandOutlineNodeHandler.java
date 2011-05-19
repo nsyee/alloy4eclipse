@@ -18,6 +18,8 @@ import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import fr.univartois.cril.xtext.alloyplugin.api.IReporter;
+import fr.univartois.cril.xtext.alloyplugin.console.AlloyMessageConsole;
+import fr.univartois.cril.xtext.alloyplugin.console.Console;
 import fr.univartois.cril.xtext.alloyplugin.core.ALSFile;
 import fr.univartois.cril.xtext.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.xtext.alloyplugin.core.Reporter;
@@ -25,7 +27,6 @@ import fr.univartois.cril.xtext.alloyplugin.core.Reporter;
 public class CommandOutlineNodeHandler extends AbstractHandler {
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		System.out.println("TEST!!");
 		IXtextDocument document;
 		XtextEditor editor;
 		IResource resource;
@@ -49,8 +50,11 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 		file = new ALSFile(resource);
 		CompModule world;
 		String filename = file.getFilename();
+		//AlloyMessageConsole alloyConsole = Console.findAlloyConsole(resource.getLocation().toOSString());
+		//alloyConsole.print("Ceci est un test!");
 		IReporter reporter = new Reporter(resource);
 		world = getWorld(reporter, filename);
+
 		if (world == null)
 			return null;
 		int index = retrieveIndexOfCommand(world.getAllCommands(), command);

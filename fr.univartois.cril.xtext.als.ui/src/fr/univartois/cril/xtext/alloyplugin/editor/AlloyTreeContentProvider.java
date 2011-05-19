@@ -63,7 +63,6 @@ public class AlloyTreeContentProvider implements IAlloyTreeContentProvider,
 	}
 
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		// System.out.println("input changed: new Input" + newInput);
 		this.viewer = viewer;
 
 		if (oldInput != null) {
@@ -141,8 +140,6 @@ public class AlloyTreeContentProvider implements IAlloyTreeContentProvider,
 	}
 
 	public Object[] getElements(Object inputElement) {
-		// log.info("get elements for "+inputElement);
-		// System.out.println("get elements for :" + inputElement);
 		return new RootContent[] { SIGNATURES, FACTS, ASSERT, FUNCTIONS,
 				PREDICATES, COMMANDS };
 	}
@@ -161,14 +158,12 @@ public class AlloyTreeContentProvider implements IAlloyTreeContentProvider,
 			try {
 				int bol = ao.getBeginLine();
 				int eol = ao.getEndLine();
-				// System.out.println(ao.toString()+":"+bol+"<"+eol);
 				if (bol > 0 && eol - bol > 1) {
 					int offset = document.getLineOffset(bol - 1);
 					int endOffset = (eol == nol) ? document.getLength()
 							: document.getLineOffset(eol);
 					assert offset < endOffset : ao.toString() + ":" + offset
 							+ "<" + endOffset;
-					// System.out.println(ao.toString()+":"+offset+"<"+endOffset);
 					positions.add(new Position(offset, endOffset - offset));
 				}
 			} catch (BadLocationException e) {
