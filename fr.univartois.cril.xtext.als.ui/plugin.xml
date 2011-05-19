@@ -219,11 +219,11 @@
   			description="Open Alloy 4 Sample Models" 
   			id="fr.univartois.cril.xtext.alloyplugin.ui.OpenLibraryModelAction" 
   			name="Open Sample Models" /> 
-  		<command 
+  		<!--<command 
   			categoryId="fr.univartois.cril.xtext.alloyplugin.launch.category" 
   			description="Rename an Alloy 4 identifier" 
   			id="fr.univartois.cril.xtext.alloyplugin.RenameAls" 
-  			name="Rename A4 Identifier" /> 
+  			name="Rename A4 Identifier" /> -->
   	</extension>
   	
 	<extension 
@@ -503,7 +503,7 @@
   				id="fr.univartois.cril.xtext.alloyplugin.views.vizview" 
   				name="Graphical View" /> 
 	</extension>
-<extension point="org.eclipse.ui.popupMenus">
+<!--<extension point="org.eclipse.ui.popupMenus">
   <viewerContribution targetID="#TextEditorContext" 
                       id="fr.univartois.cril.xtext.alloyplugin.RenameAls">
        <action
@@ -513,7 +513,7 @@
              label="Rename..."
              menubarPath="additions"/>
   </viewerContribution>
-</extension><!--voila-->
+</extension><voila-->
  <extension
       point="org.eclipse.ui.bindings">
    <key
