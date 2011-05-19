@@ -22,9 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getCmp <em>Cmp</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getArrowOp <em>Arrow Op</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getPar <em>Par</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Expression#getLeft <em>Left</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getComma <em>Comma</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Expression#getRight <em>Right</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getParO <em>Par O</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getParF <em>Par F</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Expression#getLet <em>Let</em>}</li>
@@ -134,22 +132,6 @@ public interface Expression extends EObject
   EList<ParanthesisandExpression> getPar();
 
   /**
-   * Returns the value of the '<em><b>Left</b></em>' containment reference list.
-   * The list contents are of type {@link fr.univartois.cril.xtext.als.LeftSquareBracketKeyword}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Left</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Left</em>' containment reference list.
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_Left()
-   * @model containment="true"
-   * @generated
-   */
-  EList<LeftSquareBracketKeyword> getLeft();
-
-  /**
    * Returns the value of the '<em><b>Comma</b></em>' containment reference list.
    * The list contents are of type {@link fr.univartois.cril.xtext.als.Comma}.
    * <!-- begin-user-doc -->
@@ -164,22 +146,6 @@ public interface Expression extends EObject
    * @generated
    */
   EList<Comma> getComma();
-
-  /**
-   * Returns the value of the '<em><b>Right</b></em>' containment reference list.
-   * The list contents are of type {@link fr.univartois.cril.xtext.als.RightSquareBracketKeyword}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Right</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Right</em>' containment reference list.
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getExpression_Right()
-   * @model containment="true"
-   * @generated
-   */
-  EList<RightSquareBracketKeyword> getRight();
 
   /**
    * Returns the value of the '<em><b>Par O</b></em>' attribute.

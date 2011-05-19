@@ -84,7 +84,7 @@ PredDecl returns Predicate:
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 */
 RunDecl returns RunCommand:
-  (runName=Alias ":")? "run" (name=FunctionNamewParam|name=FunctionName |name=PredicateName |block=Block) scope=Scope	; 
+  (runName=Alias ":")? "run" (name=[FunctionNamewParam]|name=[FunctionName] |name=[PredicateName] |block=Block)  scope=Scope	; 
   
 /*
 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
@@ -174,7 +174,7 @@ Expression:
 						("!"|"not")? cmp+=CompareOp  expr+=Expression					|//6./
 						  arrowOp+=ArrowOp  expr+=Expression 							|//5./						
 						("=>"|"implies") (par+=ParanthesisandExpression|expr+=Expression)? ("else" expr+=Expression)?	|//7./
-						left+=LeftSquareBracketKeyword (expr+=Expression (comma+=Comma expr+=Expression)* )? right+=RightSquareBracketKeyword									 //8./						
+						"["(expr+=Expression (comma+=Comma expr+=Expression)* )? "]"								 //8./						
 						)*	;
 TerminalExpression returns Expression:
 	{Expression} parO="(" (expr+=Expression)+ parF=")"	|		
@@ -301,7 +301,8 @@ PropertyName:
 	name=Name;
 	
 ExactlyName:
-	 QualifiedName=Name;
+	 //QualifiedName=Name;
+	 name=Name;
 
 AsName:
 	name=ID;

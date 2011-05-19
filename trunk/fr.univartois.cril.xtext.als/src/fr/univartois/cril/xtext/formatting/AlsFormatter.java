@@ -45,8 +45,12 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 		this.setFormattingDote(c, f);// terminé
 		this.setFormattingColon(c, f);// terminé
 		this.setFormattingAssertionName(c, f);// terminé
+		this.setFormattingSLComments(c, f);
 
 	}
+
+
+
 
 	private void setFormattingAssertionName(FormattingConfig c,
 			AlsGrammarAccess f) {
@@ -68,7 +72,6 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 			AlsGrammarAccess f) {
 		c.setNoSpace().around(f.getLeftSquareBracketKeywordRule());
 		c.setNoSpace().before(f.getRightSquareBracketKeywordRule());
-
 	}
 
 	private void setFormattingCurlyBracket(FormattingConfig c,
@@ -137,10 +140,15 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 	}
 
 	private void setFormattingComments(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap().after(f.getSL_COMMENTRule());
-		c.setLinewrap().around(f.getML_COMMENTRule());
+		c.setLinewrap(2).before(f.getML_COMMENTRule());
+		c.setLinewrap().after(f.getML_COMMENTRule());
+		
 	}
 
+	private void setFormattingSLComments(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap().before(f.getSL_COMMENTRule());
+	}
+		
 	private void setFormattingSigQual(FormattingConfig c, AlsGrammarAccess f) {
 		c.setLinewrap(2).before(f.getSigQualRule());
 		c.setNoLinewrap().after(f.getSigQualRule());

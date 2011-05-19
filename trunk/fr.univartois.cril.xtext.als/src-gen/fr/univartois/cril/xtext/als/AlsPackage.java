@@ -618,7 +618,7 @@ public interface AlsPackage extends EPackage
   int RUN_COMMAND__RUN_NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1213,31 +1213,13 @@ public interface AlsPackage extends EPackage
   int EXPRESSION__PAR = 4;
 
   /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__LEFT = 5;
-
-  /**
    * The feature id for the '<em><b>Comma</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__COMMA = 6;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__RIGHT = 7;
+  int EXPRESSION__COMMA = 5;
 
   /**
    * The feature id for the '<em><b>Par O</b></em>' attribute.
@@ -1246,7 +1228,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__PAR_O = 8;
+  int EXPRESSION__PAR_O = 6;
 
   /**
    * The feature id for the '<em><b>Par F</b></em>' attribute.
@@ -1255,7 +1237,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__PAR_F = 9;
+  int EXPRESSION__PAR_F = 7;
 
   /**
    * The feature id for the '<em><b>Let</b></em>' attribute.
@@ -1264,7 +1246,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__LET = 10;
+  int EXPRESSION__LET = 8;
 
   /**
    * The feature id for the '<em><b>Letdecl</b></em>' containment reference list.
@@ -1273,7 +1255,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__LETDECL = 11;
+  int EXPRESSION__LETDECL = 9;
 
   /**
    * The feature id for the '<em><b>Block Or Bar</b></em>' containment reference list.
@@ -1282,7 +1264,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__BLOCK_OR_BAR = 12;
+  int EXPRESSION__BLOCK_OR_BAR = 10;
 
   /**
    * The feature id for the '<em><b>Quant</b></em>' attribute.
@@ -1291,7 +1273,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__QUANT = 13;
+  int EXPRESSION__QUANT = 11;
 
   /**
    * The feature id for the '<em><b>Decl</b></em>' containment reference list.
@@ -1300,7 +1282,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__DECL = 14;
+  int EXPRESSION__DECL = 12;
 
   /**
    * The feature id for the '<em><b>Un Op</b></em>' containment reference.
@@ -1309,7 +1291,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__UN_OP = 15;
+  int EXPRESSION__UN_OP = 13;
 
   /**
    * The feature id for the '<em><b>Common</b></em>' containment reference list.
@@ -1318,7 +1300,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__COMMON = 16;
+  int EXPRESSION__COMMON = 14;
 
   /**
    * The feature id for the '<em><b>None</b></em>' attribute.
@@ -1327,7 +1309,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__NONE = 17;
+  int EXPRESSION__NONE = 15;
 
   /**
    * The feature id for the '<em><b>Iden</b></em>' attribute.
@@ -1336,7 +1318,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__IDEN = 18;
+  int EXPRESSION__IDEN = 16;
 
   /**
    * The feature id for the '<em><b>Univ</b></em>' attribute.
@@ -1345,7 +1327,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__UNIV = 19;
+  int EXPRESSION__UNIV = 17;
 
   /**
    * The feature id for the '<em><b>Int</b></em>' attribute.
@@ -1354,7 +1336,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__INT = 20;
+  int EXPRESSION__INT = 18;
 
   /**
    * The feature id for the '<em><b>Name Ref</b></em>' reference.
@@ -1363,7 +1345,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__NAME_REF = 21;
+  int EXPRESSION__NAME_REF = 19;
 
   /**
    * The feature id for the '<em><b>Seq</b></em>' attribute.
@@ -1372,7 +1354,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__SEQ = 22;
+  int EXPRESSION__SEQ = 20;
 
   /**
    * The feature id for the '<em><b>Asname</b></em>' containment reference.
@@ -1381,7 +1363,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__ASNAME = 23;
+  int EXPRESSION__ASNAME = 21;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference list.
@@ -1390,7 +1372,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__BLOCK = 24;
+  int EXPRESSION__BLOCK = 22;
 
   /**
    * The feature id for the '<em><b>Left Curly Bracket</b></em>' containment reference.
@@ -1399,7 +1381,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__LEFT_CURLY_BRACKET = 25;
+  int EXPRESSION__LEFT_CURLY_BRACKET = 23;
 
   /**
    * The feature id for the '<em><b>Right Curly Bracket</b></em>' containment reference.
@@ -1408,7 +1390,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__RIGHT_CURLY_BRACKET = 26;
+  int EXPRESSION__RIGHT_CURLY_BRACKET = 24;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1417,7 +1399,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 27;
+  int EXPRESSION_FEATURE_COUNT = 25;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.DeclImpl <em>Decl</em>}' class.
@@ -3075,10 +3057,10 @@ public interface AlsPackage extends EPackage
   EReference getRunCommand_RunName();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.RunCommand#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link fr.univartois.cril.xtext.als.RunCommand#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @return the meta object for the reference '<em>Name</em>'.
    * @see fr.univartois.cril.xtext.als.RunCommand#getName()
    * @see #getRunCommand()
    * @generated
@@ -3604,17 +3586,6 @@ public interface AlsPackage extends EPackage
   EReference getExpression_Par();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext.als.Expression#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Left</em>'.
-   * @see fr.univartois.cril.xtext.als.Expression#getLeft()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Left();
-
-  /**
    * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext.als.Expression#getComma <em>Comma</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3624,17 +3595,6 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EReference getExpression_Comma();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext.als.Expression#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Right</em>'.
-   * @see fr.univartois.cril.xtext.als.Expression#getRight()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Right();
 
   /**
    * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Expression#getParO <em>Par O</em>}'.
@@ -5045,7 +5005,7 @@ public interface AlsPackage extends EPackage
     EReference RUN_COMMAND__RUN_NAME = eINSTANCE.getRunCommand_RunName();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5457,28 +5417,12 @@ public interface AlsPackage extends EPackage
     EReference EXPRESSION__PAR = eINSTANCE.getExpression_Par();
 
     /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__LEFT = eINSTANCE.getExpression_Left();
-
-    /**
      * The meta object literal for the '<em><b>Comma</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference EXPRESSION__COMMA = eINSTANCE.getExpression_Comma();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__RIGHT = eINSTANCE.getExpression_Right();
 
     /**
      * The meta object literal for the '<em><b>Par O</b></em>' attribute feature.
