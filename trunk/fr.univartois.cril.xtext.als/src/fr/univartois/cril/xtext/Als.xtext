@@ -99,19 +99,19 @@ CheckDecl returns CheckCommand:
 	scope ::=                                ["expect" [0|1]]	
 */
 Scope:
-	{Scope}"for" INT 														   expect=Expectation?	|
-	{Scope}"for" INT "but" typescope+=Typescope (comma+=Comma typescope+=Typescope)*   expect=Expectation?	|
-	{Scope}"for"           typescope+=Typescope (comma+=Comma typescope+=Typescope)*   expect=Expectation?	|
+	{Scope}for="for" value=INT 														   expect=Expectation?	|
+	{Scope}for="for" value=INT but="but" typescope+=Typescope (comma+=Comma typescope+=Typescope)*   expect=Expectation?	|
+	{Scope}for="for"           typescope+=Typescope (comma+=Comma typescope+=Typescope)*   expect=Expectation?	|
 	{Scope}																   expect=Expectation?	;	
 
 Expectation:
-    "expect" value=INT	;
+    expect="expect" value=INT	;
       
 /*
 	typescope ::= ["exactly"] number [name|"int"|"seq"]
 */
 Typescope:
-  {Typescope}"exactly"? INT ((asname=AsName|"fun"|"pred"|"this") "/")? (name=[ReferencesName]|("int"|"seq"))	; //A VOIR
+  {Typescope}exactly="exactly"? value=INT ((asname=AsName|prev="fun"|prev="pred"|prev="this") sl="/")? (name=[ReferencesName]|(post="int"|post="seq"))	; 
   
 /*
 	enumDecl ::= "enum" name "{" name  ("," name)*  "}"

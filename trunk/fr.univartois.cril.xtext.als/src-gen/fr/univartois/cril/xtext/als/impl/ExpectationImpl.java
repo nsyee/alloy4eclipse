@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpectationImpl#getExpect <em>Expect</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.ExpectationImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -30,6 +31,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ExpectationImpl extends MinimalEObjectImpl.Container implements Expectation
 {
+  /**
+   * The default value of the '{@link #getExpect() <em>Expect</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpect()
+   * @generated
+   * @ordered
+   */
+  protected static final String EXPECT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getExpect() <em>Expect</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpect()
+   * @generated
+   * @ordered
+   */
+  protected String expect = EXPECT_EDEFAULT;
+
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -76,6 +97,29 @@ public class ExpectationImpl extends MinimalEObjectImpl.Container implements Exp
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getExpect()
+  {
+    return expect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpect(String newExpect)
+  {
+    String oldExpect = expect;
+    expect = newExpect;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPECTATION__EXPECT, oldExpect, expect));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public int getValue()
   {
     return value;
@@ -104,6 +148,8 @@ public class ExpectationImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
+      case AlsPackage.EXPECTATION__EXPECT:
+        return getExpect();
       case AlsPackage.EXPECTATION__VALUE:
         return getValue();
     }
@@ -120,6 +166,9 @@ public class ExpectationImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
+      case AlsPackage.EXPECTATION__EXPECT:
+        setExpect((String)newValue);
+        return;
       case AlsPackage.EXPECTATION__VALUE:
         setValue((Integer)newValue);
         return;
@@ -137,6 +186,9 @@ public class ExpectationImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
+      case AlsPackage.EXPECTATION__EXPECT:
+        setExpect(EXPECT_EDEFAULT);
+        return;
       case AlsPackage.EXPECTATION__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
@@ -154,6 +206,8 @@ public class ExpectationImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
+      case AlsPackage.EXPECTATION__EXPECT:
+        return EXPECT_EDEFAULT == null ? expect != null : !EXPECT_EDEFAULT.equals(expect);
       case AlsPackage.EXPECTATION__VALUE:
         return value != VALUE_EDEFAULT;
     }
@@ -171,7 +225,9 @@ public class ExpectationImpl extends MinimalEObjectImpl.Container implements Exp
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
+    result.append(" (expect: ");
+    result.append(expect);
+    result.append(", value: ");
     result.append(value);
     result.append(')');
     return result.toString();

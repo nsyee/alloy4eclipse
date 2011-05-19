@@ -719,13 +719,40 @@ public interface AlsPackage extends EPackage
   int SCOPE = 10;
 
   /**
+   * The feature id for the '<em><b>For</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOPE__FOR = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOPE__VALUE = 1;
+
+  /**
    * The feature id for the '<em><b>Expect</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCOPE__EXPECT = 0;
+  int SCOPE__EXPECT = 2;
+
+  /**
+   * The feature id for the '<em><b>But</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOPE__BUT = 3;
 
   /**
    * The feature id for the '<em><b>Typescope</b></em>' containment reference list.
@@ -734,7 +761,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCOPE__TYPESCOPE = 1;
+  int SCOPE__TYPESCOPE = 4;
 
   /**
    * The feature id for the '<em><b>Comma</b></em>' containment reference list.
@@ -743,7 +770,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCOPE__COMMA = 2;
+  int SCOPE__COMMA = 5;
 
   /**
    * The number of structural features of the '<em>Scope</em>' class.
@@ -752,7 +779,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCOPE_FEATURE_COUNT = 3;
+  int SCOPE_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.ExpectationImpl <em>Expectation</em>}' class.
@@ -765,13 +792,22 @@ public interface AlsPackage extends EPackage
   int EXPECTATION = 11;
 
   /**
+   * The feature id for the '<em><b>Expect</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPECTATION__EXPECT = 0;
+
+  /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPECTATION__VALUE = 0;
+  int EXPECTATION__VALUE = 1;
 
   /**
    * The number of structural features of the '<em>Expectation</em>' class.
@@ -780,7 +816,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPECTATION_FEATURE_COUNT = 1;
+  int EXPECTATION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.TypescopeImpl <em>Typescope</em>}' class.
@@ -793,13 +829,49 @@ public interface AlsPackage extends EPackage
   int TYPESCOPE = 12;
 
   /**
+   * The feature id for the '<em><b>Exactly</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPESCOPE__EXACTLY = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPESCOPE__VALUE = 1;
+
+  /**
    * The feature id for the '<em><b>Asname</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPESCOPE__ASNAME = 0;
+  int TYPESCOPE__ASNAME = 2;
+
+  /**
+   * The feature id for the '<em><b>Prev</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPESCOPE__PREV = 3;
+
+  /**
+   * The feature id for the '<em><b>Sl</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPESCOPE__SL = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -808,7 +880,16 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPESCOPE__NAME = 1;
+  int TYPESCOPE__NAME = 5;
+
+  /**
+   * The feature id for the '<em><b>Post</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPESCOPE__POST = 6;
 
   /**
    * The number of structural features of the '<em>Typescope</em>' class.
@@ -817,7 +898,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPESCOPE_FEATURE_COUNT = 2;
+  int TYPESCOPE_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
@@ -3154,6 +3235,28 @@ public interface AlsPackage extends EPackage
   EClass getScope();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Scope#getFor <em>For</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>For</em>'.
+   * @see fr.univartois.cril.xtext.als.Scope#getFor()
+   * @see #getScope()
+   * @generated
+   */
+  EAttribute getScope_For();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Scope#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see fr.univartois.cril.xtext.als.Scope#getValue()
+   * @see #getScope()
+   * @generated
+   */
+  EAttribute getScope_Value();
+
+  /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Scope#getExpect <em>Expect</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3163,6 +3266,17 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EReference getScope_Expect();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Scope#getBut <em>But</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>But</em>'.
+   * @see fr.univartois.cril.xtext.als.Scope#getBut()
+   * @see #getScope()
+   * @generated
+   */
+  EAttribute getScope_But();
 
   /**
    * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext.als.Scope#getTypescope <em>Typescope</em>}'.
@@ -3197,6 +3311,17 @@ public interface AlsPackage extends EPackage
   EClass getExpectation();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Expectation#getExpect <em>Expect</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Expect</em>'.
+   * @see fr.univartois.cril.xtext.als.Expectation#getExpect()
+   * @see #getExpectation()
+   * @generated
+   */
+  EAttribute getExpectation_Expect();
+
+  /**
    * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Expectation#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3218,6 +3343,28 @@ public interface AlsPackage extends EPackage
   EClass getTypescope();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Typescope#getExactly <em>Exactly</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Exactly</em>'.
+   * @see fr.univartois.cril.xtext.als.Typescope#getExactly()
+   * @see #getTypescope()
+   * @generated
+   */
+  EAttribute getTypescope_Exactly();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Typescope#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see fr.univartois.cril.xtext.als.Typescope#getValue()
+   * @see #getTypescope()
+   * @generated
+   */
+  EAttribute getTypescope_Value();
+
+  /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Typescope#getAsname <em>Asname</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3229,6 +3376,28 @@ public interface AlsPackage extends EPackage
   EReference getTypescope_Asname();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Typescope#getPrev <em>Prev</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Prev</em>'.
+   * @see fr.univartois.cril.xtext.als.Typescope#getPrev()
+   * @see #getTypescope()
+   * @generated
+   */
+  EAttribute getTypescope_Prev();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Typescope#getSl <em>Sl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sl</em>'.
+   * @see fr.univartois.cril.xtext.als.Typescope#getSl()
+   * @see #getTypescope()
+   * @generated
+   */
+  EAttribute getTypescope_Sl();
+
+  /**
    * Returns the meta object for the reference '{@link fr.univartois.cril.xtext.als.Typescope#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3238,6 +3407,17 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EReference getTypescope_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.Typescope#getPost <em>Post</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Post</em>'.
+   * @see fr.univartois.cril.xtext.als.Typescope#getPost()
+   * @see #getTypescope()
+   * @generated
+   */
+  EAttribute getTypescope_Post();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext.als.EnumDecl <em>Enum Decl</em>}'.
@@ -5081,12 +5261,36 @@ public interface AlsPackage extends EPackage
     EClass SCOPE = eINSTANCE.getScope();
 
     /**
+     * The meta object literal for the '<em><b>For</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCOPE__FOR = eINSTANCE.getScope_For();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCOPE__VALUE = eINSTANCE.getScope_Value();
+
+    /**
      * The meta object literal for the '<em><b>Expect</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference SCOPE__EXPECT = eINSTANCE.getScope_Expect();
+
+    /**
+     * The meta object literal for the '<em><b>But</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCOPE__BUT = eINSTANCE.getScope_But();
 
     /**
      * The meta object literal for the '<em><b>Typescope</b></em>' containment reference list feature.
@@ -5115,6 +5319,14 @@ public interface AlsPackage extends EPackage
     EClass EXPECTATION = eINSTANCE.getExpectation();
 
     /**
+     * The meta object literal for the '<em><b>Expect</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPECTATION__EXPECT = eINSTANCE.getExpectation_Expect();
+
+    /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5133,6 +5345,22 @@ public interface AlsPackage extends EPackage
     EClass TYPESCOPE = eINSTANCE.getTypescope();
 
     /**
+     * The meta object literal for the '<em><b>Exactly</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPESCOPE__EXACTLY = eINSTANCE.getTypescope_Exactly();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPESCOPE__VALUE = eINSTANCE.getTypescope_Value();
+
+    /**
      * The meta object literal for the '<em><b>Asname</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5141,12 +5369,36 @@ public interface AlsPackage extends EPackage
     EReference TYPESCOPE__ASNAME = eINSTANCE.getTypescope_Asname();
 
     /**
+     * The meta object literal for the '<em><b>Prev</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPESCOPE__PREV = eINSTANCE.getTypescope_Prev();
+
+    /**
+     * The meta object literal for the '<em><b>Sl</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPESCOPE__SL = eINSTANCE.getTypescope_Sl();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference TYPESCOPE__NAME = eINSTANCE.getTypescope_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Post</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPESCOPE__POST = eINSTANCE.getTypescope_Post();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext.als.impl.EnumDeclImpl <em>Enum Decl</em>}' class.

@@ -80,16 +80,25 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//CheckCommand/scope"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Scope">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Scope/for"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Scope/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Scope/expect"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Scope/but"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Scope/typescope"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Scope/comma"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Expectation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expectation/expect"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Expectation/value"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Typescope">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Typescope/exactly"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Typescope/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Typescope/asname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Typescope/prev"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Typescope/sl"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//Typescope/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Typescope/post"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//EnumDecl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//EnumDecl/enumName"/>

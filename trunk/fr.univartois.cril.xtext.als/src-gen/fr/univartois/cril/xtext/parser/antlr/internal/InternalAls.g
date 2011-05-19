@@ -2152,15 +2152,52 @@ ruleScope returns [EObject current=null]
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)	'for' 
-    {
-        createLeafNode(grammarAccess.getScopeAccess().getForKeyword_0_1(), null); 
-    }
-RULE_INT
-    { 
-    createLeafNode(grammarAccess.getScopeAccess().getINTTerminalRuleCall_0_2(), null); 
-    }
+)(
 (
+		lv_for_1_0=	'for' 
+    {
+        createLeafNode(grammarAccess.getScopeAccess().getForForKeyword_0_1_0(), "for"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getScopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "for", lv_for_1_0, "for", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		lv_value_2_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getScopeAccess().getValueINTTerminalRuleCall_0_2_0(), "value"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getScopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"value",
+	        		lv_value_2_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
 (
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getScopeAccess().getExpectExpectationParserRuleCall_0_3_0(), currentNode); 
@@ -2199,19 +2236,73 @@ RULE_INT
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)	'for' 
-    {
-        createLeafNode(grammarAccess.getScopeAccess().getForKeyword_1_1(), null); 
-    }
-RULE_INT
-    { 
-    createLeafNode(grammarAccess.getScopeAccess().getINTTerminalRuleCall_1_2(), null); 
-    }
-	'but' 
-    {
-        createLeafNode(grammarAccess.getScopeAccess().getButKeyword_1_3(), null); 
-    }
+)(
 (
+		lv_for_5_0=	'for' 
+    {
+        createLeafNode(grammarAccess.getScopeAccess().getForForKeyword_1_1_0(), "for"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getScopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "for", lv_for_5_0, "for", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		lv_value_6_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getScopeAccess().getValueINTTerminalRuleCall_1_2_0(), "value"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getScopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"value",
+	        		lv_value_6_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		lv_but_7_0=	'but' 
+    {
+        createLeafNode(grammarAccess.getScopeAccess().getButButKeyword_1_3_0(), "but"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getScopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "but", lv_but_7_0, "but", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
 (
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getScopeAccess().getTypescopeTypescopeParserRuleCall_1_4_0(), currentNode); 
@@ -2322,11 +2413,28 @@ RULE_INT
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)	'for' 
-    {
-        createLeafNode(grammarAccess.getScopeAccess().getForKeyword_2_1(), null); 
-    }
+)(
 (
+		lv_for_13_0=	'for' 
+    {
+        createLeafNode(grammarAccess.getScopeAccess().getForForKeyword_2_1_0(), "for"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getScopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "for", lv_for_13_0, "for", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
 (
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getScopeAccess().getTypescopeTypescopeParserRuleCall_2_2_0(), currentNode); 
@@ -2484,11 +2592,28 @@ ruleExpectation returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(	'expect' 
-    {
-        createLeafNode(grammarAccess.getExpectationAccess().getExpectKeyword_0(), null); 
-    }
+((
 (
+		lv_expect_0_0=	'expect' 
+    {
+        createLeafNode(grammarAccess.getExpectationAccess().getExpectExpectKeyword_0_0(), "expect"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getExpectationRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "expect", lv_expect_0_0, "expect", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
 (
 		lv_value_1_0=RULE_INT
 		{
@@ -2549,15 +2674,52 @@ ruleTypescope returns [EObject current=null]
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)(	'exactly' 
+)(
+(
+		lv_exactly_1_0=	'exactly' 
     {
-        createLeafNode(grammarAccess.getTypescopeAccess().getExactlyKeyword_1(), null); 
+        createLeafNode(grammarAccess.getTypescopeAccess().getExactlyExactlyKeyword_1_0(), "exactly"); 
     }
-)?RULE_INT
-    { 
-    createLeafNode(grammarAccess.getTypescopeAccess().getINTTerminalRuleCall_2(), null); 
-    }
-(((
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTypescopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "exactly", lv_exactly_1_0, "exactly", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?(
+(
+		lv_value_2_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getTypescopeAccess().getValueINTTerminalRuleCall_2_0(), "value"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTypescopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"value",
+	        		lv_value_2_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(((
 (
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getTypescopeAccess().getAsnameAsNameParserRuleCall_3_0_0_0(), currentNode); 
@@ -2582,25 +2744,93 @@ ruleTypescope returns [EObject current=null]
 
 )
 )
-    |	'fun' 
+    |(
+(
+		lv_prev_4_0=	'fun' 
     {
-        createLeafNode(grammarAccess.getTypescopeAccess().getFunKeyword_3_0_1(), null); 
+        createLeafNode(grammarAccess.getTypescopeAccess().getPrevFunKeyword_3_0_1_0(), "prev"); 
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTypescopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "prev", lv_prev_4_0, "fun", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
 
-    |	'pred' 
+)
+)
+    |(
+(
+		lv_prev_5_0=	'pred' 
     {
-        createLeafNode(grammarAccess.getTypescopeAccess().getPredKeyword_3_0_2(), null); 
+        createLeafNode(grammarAccess.getTypescopeAccess().getPrevPredKeyword_3_0_2_0(), "prev"); 
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTypescopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "prev", lv_prev_5_0, "pred", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
 
-    |	'this' 
+)
+)
+    |(
+(
+		lv_prev_6_0=	'this' 
     {
-        createLeafNode(grammarAccess.getTypescopeAccess().getThisKeyword_3_0_3(), null); 
+        createLeafNode(grammarAccess.getTypescopeAccess().getPrevThisKeyword_3_0_3_0(), "prev"); 
     }
-)	'/' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTypescopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "prev", lv_prev_6_0, "this", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))(
+(
+		lv_sl_7_0=	'/' 
     {
-        createLeafNode(grammarAccess.getTypescopeAccess().getSolidusKeyword_3_1(), null); 
+        createLeafNode(grammarAccess.getTypescopeAccess().getSlSolidusKeyword_3_1_0(), "sl"); 
     }
-)?((
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTypescopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "sl", lv_sl_7_0, "/", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?((
 (
 		{ 
 		  /* */ 
@@ -2618,16 +2848,50 @@ ruleTypescope returns [EObject current=null]
 
 )
 )
-    |(	'int' 
+    |((
+(
+		lv_post_9_0=	'int' 
     {
-        createLeafNode(grammarAccess.getTypescopeAccess().getIntKeyword_4_1_0(), null); 
+        createLeafNode(grammarAccess.getTypescopeAccess().getPostIntKeyword_4_1_0_0(), "post"); 
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTypescopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "post", lv_post_9_0, "int", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
 
-    |	'seq' 
+)
+)
+    |(
+(
+		lv_post_10_0=	'seq' 
     {
-        createLeafNode(grammarAccess.getTypescopeAccess().getSeqKeyword_4_1_1(), null); 
+        createLeafNode(grammarAccess.getTypescopeAccess().getPostSeqKeyword_4_1_1_0(), "post"); 
     }
-)))
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTypescopeRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "post", lv_post_10_0, "seq", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))))
 ;
 
 

@@ -4902,15 +4902,15 @@ protected class CheckDecl_ScopeAssignment_3 extends AssignmentToken  {
  * 	scope ::= "for"              typescope,+ ["expect" [0|1]]
  * 	scope ::=                                ["expect" [0|1]]	
  * * /Scope:
- * 	{Scope} "for" INT expect=Expectation? | {Scope} "for" INT "but" typescope+=Typescope (comma+=Comma
- * 	typescope+=Typescope)* expect=Expectation? | {Scope} "for" typescope+=Typescope (comma+=Comma typescope+=Typescope)*
- * 	expect=Expectation? | {Scope} expect=Expectation?;
+ * 	{Scope} for="for" value=INT expect=Expectation? | {Scope} for="for" value=INT but="but" typescope+=Typescope
+ * 	(comma+=Comma typescope+=Typescope)* expect=Expectation? | {Scope} for="for" typescope+=Typescope (comma+=Comma
+ * 	typescope+=Typescope)* expect=Expectation? | {Scope} expect=Expectation?;
  *
  **/
 
-// {Scope} "for" INT expect=Expectation? | {Scope} "for" INT "but" typescope+=Typescope (comma+=Comma
-// typescope+=Typescope)* expect=Expectation? | {Scope} "for" typescope+=Typescope (comma+=Comma typescope+=Typescope)*
-// expect=Expectation? | {Scope} expect=Expectation?
+// {Scope} for="for" value=INT expect=Expectation? | {Scope} for="for" value=INT but="but" typescope+=Typescope
+// (comma+=Comma typescope+=Typescope)* expect=Expectation? | {Scope} for="for" typescope+=Typescope (comma+=Comma
+// typescope+=Typescope)* expect=Expectation? | {Scope} expect=Expectation?
 protected class Scope_Alternatives extends AlternativesToken {
 
 	public Scope_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4942,7 +4942,7 @@ protected class Scope_Alternatives extends AlternativesToken {
 
 }
 
-// {Scope} "for" INT expect=Expectation?
+// {Scope} for="for" value=INT expect=Expectation?
 protected class Scope_Group_0 extends GroupToken {
 	
 	public Scope_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4958,7 +4958,7 @@ protected class Scope_Group_0 extends GroupToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Scope_ExpectAssignment_0_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Scope_INTTerminalRuleCall_0_2(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new Scope_ValueAssignment_0_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -4991,16 +4991,16 @@ protected class Scope_ScopeAction_0_0 extends ActionToken  {
 	}
 }
 
-// "for"
-protected class Scope_ForKeyword_0_1 extends KeywordToken  {
+// for="for"
+protected class Scope_ForAssignment_0_1 extends AssignmentToken  {
 	
-	public Scope_ForKeyword_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Scope_ForAssignment_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getScopeAccess().getForKeyword_0_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getScopeAccess().getForAssignment_0_1();
 	}
 
     @Override
@@ -5011,26 +5011,50 @@ protected class Scope_ForKeyword_0_1 extends KeywordToken  {
 		}	
 	}
 
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("for",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("for");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getScopeAccess().getForForKeyword_0_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getScopeAccess().getForForKeyword_0_1_0();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
-// INT
-protected class Scope_INTTerminalRuleCall_0_2 extends UnassignedTextToken {
-
-	public Scope_INTTerminalRuleCall_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+// value=INT
+protected class Scope_ValueAssignment_0_2 extends AssignmentToken  {
+	
+	public Scope_ValueAssignment_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getScopeAccess().getINTTerminalRuleCall_0_2();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getScopeAccess().getValueAssignment_0_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Scope_ForKeyword_0_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Scope_ForAssignment_0_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getScopeAccess().getValueINTTerminalRuleCall_0_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getScopeAccess().getValueINTTerminalRuleCall_0_2_0();
+			return obj;
+		}
+		return null;
 	}
 
 }
@@ -5075,14 +5099,14 @@ protected class Scope_ExpectAssignment_0_3 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Scope_INTTerminalRuleCall_0_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Scope_ValueAssignment_0_2(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-// {Scope} "for" INT "but" typescope+=Typescope (comma+=Comma typescope+=Typescope)* expect=Expectation?
+// {Scope} for="for" value=INT but="but" typescope+=Typescope (comma+=Comma typescope+=Typescope)* expect=Expectation?
 protected class Scope_Group_1 extends GroupToken {
 	
 	public Scope_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5132,16 +5156,16 @@ protected class Scope_ScopeAction_1_0 extends ActionToken  {
 	}
 }
 
-// "for"
-protected class Scope_ForKeyword_1_1 extends KeywordToken  {
+// for="for"
+protected class Scope_ForAssignment_1_1 extends AssignmentToken  {
 	
-	public Scope_ForKeyword_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Scope_ForAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getScopeAccess().getForKeyword_1_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getScopeAccess().getForAssignment_1_1();
 	}
 
     @Override
@@ -5152,48 +5176,84 @@ protected class Scope_ForKeyword_1_1 extends KeywordToken  {
 		}	
 	}
 
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("for",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("for");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getScopeAccess().getForForKeyword_1_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getScopeAccess().getForForKeyword_1_1_0();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
-// INT
-protected class Scope_INTTerminalRuleCall_1_2 extends UnassignedTextToken {
-
-	public Scope_INTTerminalRuleCall_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+// value=INT
+protected class Scope_ValueAssignment_1_2 extends AssignmentToken  {
+	
+	public Scope_ValueAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getScopeAccess().getINTTerminalRuleCall_1_2();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getScopeAccess().getValueAssignment_1_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Scope_ForKeyword_1_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Scope_ForAssignment_1_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getScopeAccess().getValueINTTerminalRuleCall_1_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getScopeAccess().getValueINTTerminalRuleCall_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
-// "but"
-protected class Scope_ButKeyword_1_3 extends KeywordToken  {
+// but="but"
+protected class Scope_ButAssignment_1_3 extends AssignmentToken  {
 	
-	public Scope_ButKeyword_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Scope_ButAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getScopeAccess().getButKeyword_1_3();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getScopeAccess().getButAssignment_1_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Scope_INTTerminalRuleCall_1_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Scope_ValueAssignment_1_2(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("but",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("but");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getScopeAccess().getButButKeyword_1_3_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getScopeAccess().getButButKeyword_1_3_0();
+			return obj;
+		}
+		return null;
 	}
 
 }
@@ -5238,7 +5298,7 @@ protected class Scope_TypescopeAssignment_1_4 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Scope_ButKeyword_1_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Scope_ButAssignment_1_3(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -5408,7 +5468,7 @@ protected class Scope_ExpectAssignment_1_6 extends AssignmentToken  {
 }
 
 
-// {Scope} "for" typescope+=Typescope (comma+=Comma typescope+=Typescope)* expect=Expectation?
+// {Scope} for="for" typescope+=Typescope (comma+=Comma typescope+=Typescope)* expect=Expectation?
 protected class Scope_Group_2 extends GroupToken {
 	
 	public Scope_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5458,16 +5518,16 @@ protected class Scope_ScopeAction_2_0 extends ActionToken  {
 	}
 }
 
-// "for"
-protected class Scope_ForKeyword_2_1 extends KeywordToken  {
+// for="for"
+protected class Scope_ForAssignment_2_1 extends AssignmentToken  {
 	
-	public Scope_ForKeyword_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Scope_ForAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getScopeAccess().getForKeyword_2_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getScopeAccess().getForAssignment_2_1();
 	}
 
     @Override
@@ -5476,6 +5536,18 @@ protected class Scope_ForKeyword_2_1 extends KeywordToken  {
 			case 0: return new Scope_ScopeAction_2_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("for",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("for");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getScopeAccess().getForForKeyword_2_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getScopeAccess().getForForKeyword_2_1_0();
+			return obj;
+		}
+		return null;
 	}
 
 }
@@ -5520,7 +5592,7 @@ protected class Scope_TypescopeAssignment_2_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Scope_ForKeyword_2_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Scope_ForAssignment_2_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -5793,11 +5865,11 @@ protected class Scope_ExpectAssignment_3_1 extends AssignmentToken  {
 /************ begin Rule Expectation ****************
  *
  * Expectation:
- * 	"expect" value=INT;
+ * 	expect="expect" value=INT;
  *
  **/
 
-// "expect" value=INT
+// expect="expect" value=INT
 protected class Expectation_Group extends GroupToken {
 	
 	public Expectation_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5826,16 +5898,16 @@ protected class Expectation_Group extends GroupToken {
 
 }
 
-// "expect"
-protected class Expectation_ExpectKeyword_0 extends KeywordToken  {
+// expect="expect"
+protected class Expectation_ExpectAssignment_0 extends AssignmentToken  {
 	
-	public Expectation_ExpectKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Expectation_ExpectAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getExpectationAccess().getExpectKeyword_0();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getExpectationAccess().getExpectAssignment_0();
 	}
 
     @Override
@@ -5843,6 +5915,18 @@ protected class Expectation_ExpectKeyword_0 extends KeywordToken  {
 		switch(index) {
 			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
 		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("expect",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("expect");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getExpectationAccess().getExpectExpectKeyword_0_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getExpectationAccess().getExpectExpectKeyword_0_0();
+			return obj;
+		}
+		return null;
 	}
 
 }
@@ -5862,7 +5946,7 @@ protected class Expectation_ValueAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Expectation_ExpectKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Expectation_ExpectAssignment_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5889,13 +5973,14 @@ protected class Expectation_ValueAssignment_1 extends AssignmentToken  {
  *
  * / *
  * 	typescope ::= ["exactly"] number [name|"int"|"seq"]
- * * ///A VOIR
- * Typescope:
- * 	{Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"));
+ * * /Typescope:
+ * 	{Typescope} exactly="exactly"? value=INT ((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
+ * 	(name=[ReferencesName] | (post="int" | post="seq"));
  *
  **/
 
-// {Typescope} "exactly"? INT ((asname=AsName | "fun" | "pred" | "this") "/")? (name=[ReferencesName] | ("int" | "seq"))
+// {Typescope} exactly="exactly"? value=INT ((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
+// (name=[ReferencesName] | (post="int" | post="seq"))
 protected class Typescope_Group extends GroupToken {
 	
 	public Typescope_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5950,16 +6035,16 @@ protected class Typescope_TypescopeAction_0 extends ActionToken  {
 	}
 }
 
-// INT
-protected class Typescope_INTTerminalRuleCall_2 extends UnassignedTextToken {
-
-	public Typescope_INTTerminalRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+// exactly="exactly"?
+protected class Typescope_ExactlyAssignment_1 extends AssignmentToken  {
+	
+	public Typescope_ExactlyAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getTypescopeAccess().getINTTerminalRuleCall_2();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getExactlyAssignment_1();
 	}
 
     @Override
@@ -5970,9 +6055,56 @@ protected class Typescope_INTTerminalRuleCall_2 extends UnassignedTextToken {
 		}	
 	}
 
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("exactly",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("exactly");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTypescopeAccess().getExactlyExactlyKeyword_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getTypescopeAccess().getExactlyExactlyKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
-// ((asname=AsName | "fun" | "pred" | "this") "/")?
+// value=INT
+protected class Typescope_ValueAssignment_2 extends AssignmentToken  {
+	
+	public Typescope_ValueAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getValueAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Typescope_ExactlyAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Typescope_TypescopeAction_0(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTypescopeAccess().getValueINTTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTypescopeAccess().getValueINTTerminalRuleCall_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
 protected class Typescope_Group_3 extends GroupToken {
 	
 	public Typescope_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5987,14 +6119,14 @@ protected class Typescope_Group_3 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Typescope_SolidusKeyword_3_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Typescope_SlAssignment_3_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// asname=AsName | "fun" | "pred" | "this"
+// asname=AsName | prev="fun" | prev="pred" | prev="this"
 protected class Typescope_Alternatives_3_0 extends AlternativesToken {
 
 	public Typescope_Alternatives_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6010,6 +6142,9 @@ protected class Typescope_Alternatives_3_0 extends AlternativesToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Typescope_AsnameAssignment_3_0_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Typescope_PrevAssignment_3_0_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Typescope_PrevAssignment_3_0_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new Typescope_PrevAssignment_3_0_3(lastRuleCallOrigin, this, 3, inst);
 			default: return null;
 		}	
 	}
@@ -6056,23 +6191,125 @@ protected class Typescope_AsnameAssignment_3_0_0 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Typescope_INTTerminalRuleCall_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Typescope_ValueAssignment_2(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
-
-// "/"
-protected class Typescope_SolidusKeyword_3_1 extends KeywordToken  {
+// prev="fun"
+protected class Typescope_PrevAssignment_3_0_1 extends AssignmentToken  {
 	
-	public Typescope_SolidusKeyword_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Typescope_PrevAssignment_3_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getTypescopeAccess().getSolidusKeyword_3_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getPrevAssignment_3_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Typescope_ValueAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("prev",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("prev");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTypescopeAccess().getPrevFunKeyword_3_0_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getTypescopeAccess().getPrevFunKeyword_3_0_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// prev="pred"
+protected class Typescope_PrevAssignment_3_0_2 extends AssignmentToken  {
+	
+	public Typescope_PrevAssignment_3_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getPrevAssignment_3_0_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Typescope_ValueAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("prev",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("prev");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTypescopeAccess().getPrevPredKeyword_3_0_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getTypescopeAccess().getPrevPredKeyword_3_0_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// prev="this"
+protected class Typescope_PrevAssignment_3_0_3 extends AssignmentToken  {
+	
+	public Typescope_PrevAssignment_3_0_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getPrevAssignment_3_0_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Typescope_ValueAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("prev",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("prev");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTypescopeAccess().getPrevThisKeyword_3_0_3_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getTypescopeAccess().getPrevThisKeyword_3_0_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// sl="/"
+protected class Typescope_SlAssignment_3_1 extends AssignmentToken  {
+	
+	public Typescope_SlAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getSlAssignment_3_1();
 	}
 
     @Override
@@ -6083,10 +6320,22 @@ protected class Typescope_SolidusKeyword_3_1 extends KeywordToken  {
 		}	
 	}
 
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("sl",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("sl");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTypescopeAccess().getSlSolidusKeyword_3_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getTypescopeAccess().getSlSolidusKeyword_3_1_0();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
 
-// name=[ReferencesName] | ("int" | "seq")
+// name=[ReferencesName] | (post="int" | post="seq")
 protected class Typescope_Alternatives_4 extends AlternativesToken {
 
 	public Typescope_Alternatives_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6125,7 +6374,7 @@ protected class Typescope_NameAssignment_4_0 extends AssignmentToken  {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Typescope_Group_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Typescope_INTTerminalRuleCall_2(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new Typescope_ValueAssignment_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -6147,7 +6396,7 @@ protected class Typescope_NameAssignment_4_0 extends AssignmentToken  {
 
 }
 
-// "int" | "seq"
+// post="int" | post="seq"
 protected class Typescope_Alternatives_4_1 extends AlternativesToken {
 
 	public Typescope_Alternatives_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6162,32 +6411,80 @@ protected class Typescope_Alternatives_4_1 extends AlternativesToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Typescope_IntKeyword_4_1_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Typescope_PostAssignment_4_1_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Typescope_PostAssignment_4_1_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "int"
-protected class Typescope_IntKeyword_4_1_0 extends KeywordToken  {
+// post="int"
+protected class Typescope_PostAssignment_4_1_0 extends AssignmentToken  {
 	
-	public Typescope_IntKeyword_4_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Typescope_PostAssignment_4_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getTypescopeAccess().getIntKeyword_4_1_0();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getPostAssignment_4_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Typescope_Group_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Typescope_INTTerminalRuleCall_2(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new Typescope_ValueAssignment_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("post",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("post");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTypescopeAccess().getPostIntKeyword_4_1_0_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getTypescopeAccess().getPostIntKeyword_4_1_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// post="seq"
+protected class Typescope_PostAssignment_4_1_1 extends AssignmentToken  {
+	
+	public Typescope_PostAssignment_4_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTypescopeAccess().getPostAssignment_4_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Typescope_Group_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Typescope_ValueAssignment_2(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("post",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("post");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTypescopeAccess().getPostSeqKeyword_4_1_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getTypescopeAccess().getPostSeqKeyword_4_1_1_0();
+			return obj;
+		}
+		return null;
 	}
 
 }

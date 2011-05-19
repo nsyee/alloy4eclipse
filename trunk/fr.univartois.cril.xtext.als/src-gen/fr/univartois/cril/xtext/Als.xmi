@@ -399,8 +399,12 @@
               <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//Scope"/>
             </type>
           </elements>
-          <elements xsi:type="xtext:Keyword" value="for"/>
-          <elements xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+          <elements xsi:type="xtext:Assignment" feature="for" operator="=">
+            <terminal xsi:type="xtext:Keyword" value="for"/>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+          </elements>
           <elements xsi:type="xtext:Assignment" cardinality="?" feature="expect" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
           </elements>
@@ -411,9 +415,15 @@
               <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//Scope"/>
             </type>
           </elements>
-          <elements xsi:type="xtext:Keyword" value="for"/>
-          <elements xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
-          <elements xsi:type="xtext:Keyword" value="but"/>
+          <elements xsi:type="xtext:Assignment" feature="for" operator="=">
+            <terminal xsi:type="xtext:Keyword" value="for"/>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="but" operator="=">
+            <terminal xsi:type="xtext:Keyword" value="but"/>
+          </elements>
           <elements xsi:type="xtext:Assignment" feature="typescope" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
           </elements>
@@ -435,7 +445,9 @@
               <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//Scope"/>
             </type>
           </elements>
-          <elements xsi:type="xtext:Keyword" value="for"/>
+          <elements xsi:type="xtext:Assignment" feature="for" operator="=">
+            <terminal xsi:type="xtext:Keyword" value="for"/>
+          </elements>
           <elements xsi:type="xtext:Assignment" feature="typescope" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
           </elements>
@@ -468,7 +480,9 @@
         <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//Expectation"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="expect"/>
+        <elements xsi:type="xtext:Assignment" feature="expect" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="expect"/>
+        </elements>
         <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
         </elements>
@@ -484,18 +498,30 @@
             <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//Typescope"/>
           </type>
         </elements>
-        <elements xsi:type="xtext:Keyword" cardinality="?" value="exactly"/>
-        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="exactly" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="exactly"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+        </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Alternatives">
             <elements xsi:type="xtext:Assignment" feature="asname" operator="=">
               <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.46"/>
             </elements>
-            <elements xsi:type="xtext:Keyword" value="fun"/>
-            <elements xsi:type="xtext:Keyword" value="pred"/>
-            <elements xsi:type="xtext:Keyword" value="this"/>
+            <elements xsi:type="xtext:Assignment" feature="prev" operator="=">
+              <terminal xsi:type="xtext:Keyword" value="fun"/>
+            </elements>
+            <elements xsi:type="xtext:Assignment" feature="prev" operator="=">
+              <terminal xsi:type="xtext:Keyword" value="pred"/>
+            </elements>
+            <elements xsi:type="xtext:Assignment" feature="prev" operator="=">
+              <terminal xsi:type="xtext:Keyword" value="this"/>
+            </elements>
           </elements>
-          <elements xsi:type="xtext:Keyword" value="/"/>
+          <elements xsi:type="xtext:Assignment" feature="sl" operator="=">
+            <terminal xsi:type="xtext:Keyword" value="/"/>
+          </elements>
         </elements>
         <elements xsi:type="xtext:Alternatives">
           <elements xsi:type="xtext:Assignment" feature="name" operator="=">
@@ -507,8 +533,12 @@
             </terminal>
           </elements>
           <elements xsi:type="xtext:Alternatives">
-            <elements xsi:type="xtext:Keyword" value="int"/>
-            <elements xsi:type="xtext:Keyword" value="seq"/>
+            <elements xsi:type="xtext:Assignment" feature="post" operator="=">
+              <terminal xsi:type="xtext:Keyword" value="int"/>
+            </elements>
+            <elements xsi:type="xtext:Assignment" feature="post" operator="=">
+              <terminal xsi:type="xtext:Keyword" value="seq"/>
+            </elements>
           </elements>
         </elements>
       </alternatives>
