@@ -19,6 +19,7 @@ public class AlsOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapt
 
 	@Override
 	public Class<?>[] getAdapterList() {
+		
 		return types;
 	}
 
