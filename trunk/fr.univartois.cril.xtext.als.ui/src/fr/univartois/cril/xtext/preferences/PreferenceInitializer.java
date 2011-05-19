@@ -26,6 +26,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		
 		IPreferenceStore store = AlsActivator.getInstance().getPreferenceStore();
+	
 		store.setDefault(PreferenceConstants.P_BOOLEAN_EXECUTE_TASKS_LOCALLY,
 				true);
 		store
