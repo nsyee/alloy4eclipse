@@ -30,11 +30,11 @@ public class Platform {
         try {
             if (isGtk()||isLeopard()) {
                 UIManager.setLookAndFeel(new MetalLookAndFeel());
-                System.out.println("Using Java L&F");
+                // System.out.println("Using Java L&F");
             } else {
                 UIManager.setLookAndFeel(UIManager
                         .getSystemLookAndFeelClassName());
-                System.out.println("Using System L&F");
+                // System.out.println("Using System L&F");
             }
         } catch (ClassNotFoundException e) {
             // TODO Auto-generated catch block
