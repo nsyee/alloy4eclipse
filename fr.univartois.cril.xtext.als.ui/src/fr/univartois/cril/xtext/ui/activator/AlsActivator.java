@@ -66,6 +66,7 @@ public class AlsActivator extends AbstractUIPlugin {
 
 		contexte = context;
 		PreferenceInitializer init = new PreferenceInitializer();
+		
 		init.initializeDefaultPreferences();
 
 		try {

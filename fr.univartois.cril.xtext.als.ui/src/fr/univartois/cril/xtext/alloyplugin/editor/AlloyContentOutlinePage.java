@@ -52,6 +52,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
     private TreeViewer                 viewer;
 
     public AlloyContentOutlinePage(ALSEditor editor) {
+    
         this.editor = editor;
     }
 
@@ -59,6 +60,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
         super.createControl(parent);
         // log.info("Creating Outline Page");
         viewer = getTreeViewer();
+        
         // log.info("Adding label provider");
         viewer.setLabelProvider(new AlloyTreeLabelProvider());
         // log.info("Adding content provider");
@@ -109,6 +111,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
 
     private void contributeToActionBars() {
         IActionBars bars = getSite().getActionBars();
+        
         fillLocalPullDown(bars.getMenuManager());
         fillLocalToolBar(bars.getToolBarManager());
     }
@@ -123,6 +126,7 @@ public class AlloyContentOutlinePage extends ContentOutlinePage {
     }
 
     private void hookDoubleClickAction() {
+    	
     	 viewer.addDoubleClickListener(new IDoubleClickListener() {
         	
             public void doubleClick(DoubleClickEvent event) {
