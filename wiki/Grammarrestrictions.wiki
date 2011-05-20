@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#Grammar restrictions due to XText tools
 
 = Differences between Alloy grammar and our grammar =
 
