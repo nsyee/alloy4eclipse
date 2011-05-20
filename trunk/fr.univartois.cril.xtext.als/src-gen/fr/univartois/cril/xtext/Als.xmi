@@ -328,22 +328,6 @@
           <elements xsi:type="xtext:Assignment" feature="name" operator="=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//FunctionNamewParam"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.63"/>
-            </terminal>
-          </elements>
-          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//FunctionName"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.63"/>
-            </terminal>
-          </elements>
-          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
                 <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//PredicateName"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.63"/>

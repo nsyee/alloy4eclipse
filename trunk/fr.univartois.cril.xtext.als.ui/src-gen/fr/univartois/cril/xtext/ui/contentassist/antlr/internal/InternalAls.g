@@ -1889,21 +1889,9 @@ rule__RunDecl__Alternatives_2
 )
 
     |(
-{ before(grammarAccess.getRunDeclAccess().getNameAssignment_2_1()); }
-(rule__RunDecl__NameAssignment_2_1)
-{ after(grammarAccess.getRunDeclAccess().getNameAssignment_2_1()); }
-)
-
-    |(
-{ before(grammarAccess.getRunDeclAccess().getNameAssignment_2_2()); }
-(rule__RunDecl__NameAssignment_2_2)
-{ after(grammarAccess.getRunDeclAccess().getNameAssignment_2_2()); }
-)
-
-    |(
-{ before(grammarAccess.getRunDeclAccess().getBlockAssignment_2_3()); }
-(rule__RunDecl__BlockAssignment_2_3)
-{ after(grammarAccess.getRunDeclAccess().getBlockAssignment_2_3()); }
+{ before(grammarAccess.getRunDeclAccess().getBlockAssignment_2_1()); }
+(rule__RunDecl__BlockAssignment_2_1)
+{ after(grammarAccess.getRunDeclAccess().getBlockAssignment_2_1()); }
 )
 
 ;
@@ -13772,31 +13760,12 @@ rule__RunDecl__NameAssignment_2_0
     }
 :
 (
-{ before(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamCrossReference_2_0_0()); }
+{ before(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_0_0()); }
 (
-{ before(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamIDTerminalRuleCall_2_0_0_1()); }
-	RULE_ID{ after(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamIDTerminalRuleCall_2_0_0_1()); }
+{ before(grammarAccess.getRunDeclAccess().getNamePredicateNameIDTerminalRuleCall_2_0_0_1()); }
+	RULE_ID{ after(grammarAccess.getRunDeclAccess().getNamePredicateNameIDTerminalRuleCall_2_0_0_1()); }
 )
-{ after(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamCrossReference_2_0_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__RunDecl__NameAssignment_2_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getRunDeclAccess().getNameFunctionNameCrossReference_2_1_0()); }
-(
-{ before(grammarAccess.getRunDeclAccess().getNameFunctionNameIDTerminalRuleCall_2_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getRunDeclAccess().getNameFunctionNameIDTerminalRuleCall_2_1_0_1()); }
-)
-{ after(grammarAccess.getRunDeclAccess().getNameFunctionNameCrossReference_2_1_0()); }
+{ after(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_0_0()); }
 )
 
 ;
@@ -13804,33 +13773,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__RunDecl__NameAssignment_2_2
+rule__RunDecl__BlockAssignment_2_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_2_0()); }
-(
-{ before(grammarAccess.getRunDeclAccess().getNamePredicateNameIDTerminalRuleCall_2_2_0_1()); }
-	RULE_ID{ after(grammarAccess.getRunDeclAccess().getNamePredicateNameIDTerminalRuleCall_2_2_0_1()); }
-)
-{ after(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_2_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__RunDecl__BlockAssignment_2_3
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getRunDeclAccess().getBlockBlockParserRuleCall_2_3_0()); }
-	ruleBlock{ after(grammarAccess.getRunDeclAccess().getBlockBlockParserRuleCall_2_3_0()); }
+{ before(grammarAccess.getRunDeclAccess().getBlockBlockParserRuleCall_2_1_0()); }
+	ruleBlock{ after(grammarAccess.getRunDeclAccess().getBlockBlockParserRuleCall_2_1_0()); }
 )
 
 ;

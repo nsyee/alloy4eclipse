@@ -4207,12 +4207,12 @@ protected class PredDecl_BlockAssignment_5 extends AssignmentToken  {
  * / *
  * 	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
  * * /RunDecl returns RunCommand:
- * 	(runName=Alias ":")? "run" (name=[FunctionNamewParam] | name=[FunctionName] | name=[PredicateName] | block=Block)
+ * 	(runName=Alias ":")? "run" / *name=[FunctionNamewParam]|name=[FunctionName] |* / (name=[PredicateName] | block=Block)
  * 	scope=Scope;
  *
  **/
 
-// (runName=Alias ":")? "run" (name=[FunctionNamewParam] | name=[FunctionName] | name=[PredicateName] | block=Block)
+// (runName=Alias ":")? "run" / *name=[FunctionNamewParam]|name=[FunctionName] |* / (name=[PredicateName] | block=Block)
 // scope=Scope
 protected class RunDecl_Group extends GroupToken {
 	
@@ -4354,7 +4354,7 @@ protected class RunDecl_RunKeyword_1 extends KeywordToken  {
 
 }
 
-// name=[FunctionNamewParam] | name=[FunctionName] | name=[PredicateName] | block=Block
+// / *name=[FunctionNamewParam]|name=[FunctionName] |* / name=[PredicateName] | block=Block
 protected class RunDecl_Alternatives_2 extends AlternativesToken {
 
 	public RunDecl_Alternatives_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4370,16 +4370,14 @@ protected class RunDecl_Alternatives_2 extends AlternativesToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new RunDecl_NameAssignment_2_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new RunDecl_NameAssignment_2_1(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new RunDecl_NameAssignment_2_2(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new RunDecl_BlockAssignment_2_3(lastRuleCallOrigin, this, 3, inst);
+			case 1: return new RunDecl_BlockAssignment_2_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// name=[FunctionNamewParam]
+// / *name=[FunctionNamewParam]|name=[FunctionName] |* / name=[PredicateName]
 protected class RunDecl_NameAssignment_2_0 extends AssignmentToken  {
 	
 	public RunDecl_NameAssignment_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4405,83 +4403,9 @@ protected class RunDecl_NameAssignment_2_0 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamCrossReference_2_0_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_0_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getRunDeclAccess().getNameFunctionNamewParamCrossReference_2_0_0(); 
-				return obj;
-			}
-		}
-		return null;
-	}
-
-}
-
-// name=[FunctionName]
-protected class RunDecl_NameAssignment_2_1 extends AssignmentToken  {
-	
-	public RunDecl_NameAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getRunDeclAccess().getNameAssignment_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new RunDecl_RunKeyword_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("name",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getRunDeclAccess().getNameFunctionNameCrossReference_2_1_0().getType().getClassifier())) {
-				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getRunDeclAccess().getNameFunctionNameCrossReference_2_1_0(); 
-				return obj;
-			}
-		}
-		return null;
-	}
-
-}
-
-// name=[PredicateName]
-protected class RunDecl_NameAssignment_2_2 extends AssignmentToken  {
-	
-	public RunDecl_NameAssignment_2_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getRunDeclAccess().getNameAssignment_2_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new RunDecl_RunKeyword_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("name",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_2_0().getType().getClassifier())) {
-				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_2_0(); 
+				element = grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_0_0(); 
 				return obj;
 			}
 		}
@@ -4491,15 +4415,15 @@ protected class RunDecl_NameAssignment_2_2 extends AssignmentToken  {
 }
 
 // block=Block
-protected class RunDecl_BlockAssignment_2_3 extends AssignmentToken  {
+protected class RunDecl_BlockAssignment_2_1 extends AssignmentToken  {
 	
-	public RunDecl_BlockAssignment_2_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RunDecl_BlockAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRunDeclAccess().getBlockAssignment_2_3();
+		return grammarAccess.getRunDeclAccess().getBlockAssignment_2_1();
 	}
 
     @Override
@@ -4518,7 +4442,7 @@ protected class RunDecl_BlockAssignment_2_3 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBlockRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getRunDeclAccess().getBlockBlockParserRuleCall_2_3_0(); 
+				element = grammarAccess.getRunDeclAccess().getBlockBlockParserRuleCall_2_1_0(); 
 				consumed = obj;
 				return param;
 			}

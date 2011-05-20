@@ -815,27 +815,21 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRunKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final CrossReference cNameFunctionNamewParamCrossReference_2_0_0 = (CrossReference)cNameAssignment_2_0.eContents().get(0);
-		private final RuleCall cNameFunctionNamewParamIDTerminalRuleCall_2_0_0_1 = (RuleCall)cNameFunctionNamewParamCrossReference_2_0_0.eContents().get(1);
-		private final Assignment cNameAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final CrossReference cNameFunctionNameCrossReference_2_1_0 = (CrossReference)cNameAssignment_2_1.eContents().get(0);
-		private final RuleCall cNameFunctionNameIDTerminalRuleCall_2_1_0_1 = (RuleCall)cNameFunctionNameCrossReference_2_1_0.eContents().get(1);
-		private final Assignment cNameAssignment_2_2 = (Assignment)cAlternatives_2.eContents().get(2);
-		private final CrossReference cNamePredicateNameCrossReference_2_2_0 = (CrossReference)cNameAssignment_2_2.eContents().get(0);
-		private final RuleCall cNamePredicateNameIDTerminalRuleCall_2_2_0_1 = (RuleCall)cNamePredicateNameCrossReference_2_2_0.eContents().get(1);
-		private final Assignment cBlockAssignment_2_3 = (Assignment)cAlternatives_2.eContents().get(3);
-		private final RuleCall cBlockBlockParserRuleCall_2_3_0 = (RuleCall)cBlockAssignment_2_3.eContents().get(0);
+		private final CrossReference cNamePredicateNameCrossReference_2_0_0 = (CrossReference)cNameAssignment_2_0.eContents().get(0);
+		private final RuleCall cNamePredicateNameIDTerminalRuleCall_2_0_0_1 = (RuleCall)cNamePredicateNameCrossReference_2_0_0.eContents().get(1);
+		private final Assignment cBlockAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cBlockBlockParserRuleCall_2_1_0 = (RuleCall)cBlockAssignment_2_1.eContents().get(0);
 		private final Assignment cScopeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cScopeScopeParserRuleCall_3_0 = (RuleCall)cScopeAssignment_3.eContents().get(0);
 		
 		/// *
 		//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 		// * /RunDecl returns RunCommand:
-		//	(runName=Alias ":")? "run" (name=[FunctionNamewParam] | name=[FunctionName] | name=[PredicateName] | block=Block)
+		//	(runName=Alias ":")? "run" / *name=[FunctionNamewParam]|name=[FunctionName] |* / (name=[PredicateName] | block=Block)
 		//	scope=Scope;
 		public ParserRule getRule() { return rule; }
 
-		//(runName=Alias ":")? "run" (name=[FunctionNamewParam] | name=[FunctionName] | name=[PredicateName] | block=Block)
+		//(runName=Alias ":")? "run" / *name=[FunctionNamewParam]|name=[FunctionName] |* / (name=[PredicateName] | block=Block)
 		//scope=Scope
 		public Group getGroup() { return cGroup; }
 
@@ -854,41 +848,23 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//"run"
 		public Keyword getRunKeyword_1() { return cRunKeyword_1; }
 
-		//name=[FunctionNamewParam] | name=[FunctionName] | name=[PredicateName] | block=Block
+		/// *name=[FunctionNamewParam]|name=[FunctionName] |* / name=[PredicateName] | block=Block
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
-		//name=[FunctionNamewParam]
+		/// *name=[FunctionNamewParam]|name=[FunctionName] |* / name=[PredicateName]
 		public Assignment getNameAssignment_2_0() { return cNameAssignment_2_0; }
 
-		//[FunctionNamewParam]
-		public CrossReference getNameFunctionNamewParamCrossReference_2_0_0() { return cNameFunctionNamewParamCrossReference_2_0_0; }
-
-		//ID
-		public RuleCall getNameFunctionNamewParamIDTerminalRuleCall_2_0_0_1() { return cNameFunctionNamewParamIDTerminalRuleCall_2_0_0_1; }
-
-		//name=[FunctionName]
-		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
-
-		//[FunctionName]
-		public CrossReference getNameFunctionNameCrossReference_2_1_0() { return cNameFunctionNameCrossReference_2_1_0; }
-
-		//ID
-		public RuleCall getNameFunctionNameIDTerminalRuleCall_2_1_0_1() { return cNameFunctionNameIDTerminalRuleCall_2_1_0_1; }
-
-		//name=[PredicateName]
-		public Assignment getNameAssignment_2_2() { return cNameAssignment_2_2; }
-
 		//[PredicateName]
-		public CrossReference getNamePredicateNameCrossReference_2_2_0() { return cNamePredicateNameCrossReference_2_2_0; }
+		public CrossReference getNamePredicateNameCrossReference_2_0_0() { return cNamePredicateNameCrossReference_2_0_0; }
 
 		//ID
-		public RuleCall getNamePredicateNameIDTerminalRuleCall_2_2_0_1() { return cNamePredicateNameIDTerminalRuleCall_2_2_0_1; }
+		public RuleCall getNamePredicateNameIDTerminalRuleCall_2_0_0_1() { return cNamePredicateNameIDTerminalRuleCall_2_0_0_1; }
 
 		//block=Block
-		public Assignment getBlockAssignment_2_3() { return cBlockAssignment_2_3; }
+		public Assignment getBlockAssignment_2_1() { return cBlockAssignment_2_1; }
 
 		//Block
-		public RuleCall getBlockBlockParserRuleCall_2_3_0() { return cBlockBlockParserRuleCall_2_3_0; }
+		public RuleCall getBlockBlockParserRuleCall_2_1_0() { return cBlockBlockParserRuleCall_2_1_0; }
 
 		//scope=Scope
 		public Assignment getScopeAssignment_3() { return cScopeAssignment_3; }
@@ -3925,7 +3901,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
 	// * /RunDecl returns RunCommand:
-	//	(runName=Alias ":")? "run" (name=[FunctionNamewParam] | name=[FunctionName] | name=[PredicateName] | block=Block)
+	//	(runName=Alias ":")? "run" / *name=[FunctionNamewParam]|name=[FunctionName] |* / (name=[PredicateName] | block=Block)
 	//	scope=Scope;
 	public RunDeclElements getRunDeclAccess() {
 		return (pRunDecl != null) ? pRunDecl : (pRunDecl = new RunDeclElements());

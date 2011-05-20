@@ -1905,7 +1905,7 @@ ruleRunDecl returns [EObject current=null]
         }
 	RULE_ID
 	{
-		createLeafNode(grammarAccess.getRunDeclAccess().getNameFunctionNamewParamCrossReference_2_0_0(), "name"); 
+		createLeafNode(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_0_0(), "name"); 
 	}
 
 )
@@ -1913,45 +1913,9 @@ ruleRunDecl returns [EObject current=null]
     |(
 (
 		{ 
-		  /* */ 
-		}
-		{
-			if ($current==null) {
-	            $current = factory.create(grammarAccess.getRunDeclRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-        }
-	RULE_ID
-	{
-		createLeafNode(grammarAccess.getRunDeclAccess().getNameFunctionNameCrossReference_2_1_0(), "name"); 
-	}
-
-)
-)
-    |(
-(
-		{ 
-		  /* */ 
-		}
-		{
-			if ($current==null) {
-	            $current = factory.create(grammarAccess.getRunDeclRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-        }
-	RULE_ID
-	{
-		createLeafNode(grammarAccess.getRunDeclAccess().getNamePredicateNameCrossReference_2_2_0(), "name"); 
-	}
-
-)
-)
-    |(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getRunDeclAccess().getBlockBlockParserRuleCall_2_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getRunDeclAccess().getBlockBlockParserRuleCall_2_1_0(), currentNode); 
 	    }
-		lv_block_6_0=ruleBlock		{
+		lv_block_4_0=ruleBlock		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getRunDeclRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -1960,7 +1924,7 @@ ruleRunDecl returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"block",
-	        		lv_block_6_0, 
+	        		lv_block_4_0, 
 	        		"Block", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -1975,7 +1939,7 @@ ruleRunDecl returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getRunDeclAccess().getScopeScopeParserRuleCall_3_0(), currentNode); 
 	    }
-		lv_scope_7_0=ruleScope		{
+		lv_scope_5_0=ruleScope		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getRunDeclRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -1984,7 +1948,7 @@ ruleRunDecl returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"scope",
-	        		lv_scope_7_0, 
+	        		lv_scope_5_0, 
 	        		"Scope", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
