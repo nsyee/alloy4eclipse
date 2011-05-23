@@ -562,12 +562,28 @@
   			id="fr.univartois.cril.xtext.ui.editor.outline.SampleOutlineCommand" 
   			name="Sample Command" 
   			description="Just a sample command" /> 
+  		<command
+  			id="fr.univartois.cril.xtext.ui.editor.outline.PredicateCommand"
+  			name="Predicate Command"
+  			description="Command used to launch predicates" />
+  		<command
+  		  	id="fr.univartois.cril.xtext.ui.editor.outline.AssertionCommand"
+  			name="Assertion Command"
+  			description="Command used to launch assertions" />	
   	</extension>
-	<extension 
-		point="org.eclipse.ui.handlers">
+	<extension
+       point="org.eclipse.ui.handlers">
   		<handler 
   			class="fr.univartois.cril.xtext.ui.editor.outline.CommandOutlineNodeHandler" 
-  			commandId="fr.univartois.cril.xtext.ui.editor.outline.SampleOutlineCommand" /> 
+  			commandId="fr.univartois.cril.xtext.ui.editor.outline.SampleOutlineCommand" />
+   		<handler
+          class="fr.univartois.cril.xtext.ui.editor.outline.PredicateOutlineNodeHandler"
+          commandId="fr.univartois.cril.xtext.ui.editor.outline.PredicateCommand">
+        </handler>
+        <handler
+          class="fr.univartois.cril.xtext.ui.editor.outline.AssertionOutlineNodeHandler"
+          commandId="fr.univartois.cril.xtext.ui.editor.outline.AssertionCommand">
+   		</handler>
 	</extension>
 	<extension 
 		point="org.eclipse.ui.menus">
@@ -581,11 +597,36 @@
 						<or>
   						<adapt type="fr.univartois.cril.xtext.als.CheckCommand" />
   						<adapt type="fr.univartois.cril.xtext.als.RunCommand" /> 
+  						
+  						</or>
+  					</iterate>
+  				</visibleWhen>
+  			</command>
+  			<command 
+				commandId="fr.univartois.cril.xtext.ui.editor.outline.PredicateCommand" 
+				label="Execute predicate">
+				<visibleWhen checkEnabled="true">
+					<iterate>
+						<or>
+  						<adapt type="fr.univartois.cril.xtext.als.Predicate" />
+  						</or>
+  					</iterate>
+  				</visibleWhen>
+  			</command>
+  			  	<command 
+				commandId="fr.univartois.cril.xtext.ui.editor.outline.AssertionCommand" 
+				label="Execute assertion">
+				<visibleWhen checkEnabled="true">
+					<iterate>
+						<or>
+  						<adapt type="fr.univartois.cril.xtext.als.Assertion" />
   						</or>
   					</iterate>
   				</visibleWhen>
   			</command>
   		</menuContribution>
+
+  		
   	</extension>
  
   	

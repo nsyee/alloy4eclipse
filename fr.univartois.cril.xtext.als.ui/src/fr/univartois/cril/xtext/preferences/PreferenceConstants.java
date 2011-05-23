@@ -21,6 +21,7 @@ public class PreferenceConstants {
 	public static final String V_SOLVER_MiniSatProverJNI = "MiniSatProverJNI";
 	public static final String V_SOLVER_MiniSatProverUnsatCore = "MiniSatProverUnsatCore";
 	public static final String CLOSE_VIEW_UNSAT = "CloseVizViewWhenUnsat";
+	public static final String DEFAULT_LAUNCH_OPTION= "defaultOptionsWhenLaunchingPredsOrAsserts";
 	public static final String WIDTH__GRAPH = "width";
 	public static final String RESOLUTION__GRAPH = "resolution";
     public static final String MAX_HEAP_SIZE = "Xmx";

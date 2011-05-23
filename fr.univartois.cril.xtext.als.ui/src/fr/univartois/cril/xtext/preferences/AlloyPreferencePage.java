@@ -1,22 +1,21 @@
 package fr.univartois.cril.xtext.preferences;
 
-
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.jface.preference.RadioGroupFieldEditor;
+import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-
 
 import fr.univartois.cril.xtext.ui.activator.AlsActivator;
 
 /**
  * This class represents a preference page that is contributed to the
- * Preferences dialog. By subclassing <samp>FieldEditorPreferencePage</samp>,
- * we can use the field support built into JFace that allows us to create a page
+ * Preferences dialog. By subclassing <samp>FieldEditorPreferencePage</samp>, we
+ * can use the field support built into JFace that allows us to create a page
  * that is small and knows how to save, restore and apply itself.
  * <p>
  * This page is used to modify preferences only. They are stored in the
@@ -32,7 +31,7 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 
 	private IntegerFieldEditor widthGraph;
 	private IntegerFieldEditor resolutionGraph;
-		
+
 	public AlloyPreferencePage() {
 		super(GRID);
 		setPreferenceStore(AlsActivator.getInstance().getPreferenceStore());
@@ -89,9 +88,10 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 
 		addField(new RadioGroupFieldEditor(
 				PreferenceConstants.V_GRAPH_CONVERSION,
-				"Choose graph conversion:", 1, new String[][] { { "pdf", "pdf" }, { "png", "png" } },
+				"Choose graph conversion:", 1, new String[][] {
+						{ "pdf", "pdf" }, { "png", "png" } },
 				getFieldEditorParent()));
-				
+
 		widthGraph = new IntegerFieldEditor(PreferenceConstants.WIDTH__GRAPH,
 				"Choose the specific width:", getFieldEditorParent());
 		resolutionGraph = new IntegerFieldEditor(
@@ -110,17 +110,23 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 
 		// @author druelle romuald
 		addField(new DirectoryFieldEditor(PreferenceConstants.P_SOLVERS_PATH,
-				"Path to SAT solvers binaries and libraries:", getFieldEditorParent()));
+				"Path to SAT solvers binaries and libraries:",
+				getFieldEditorParent()));
 
 		// @author druelle romuald
 		addField(new DirectoryFieldEditor(
 				PreferenceConstants.P_A4_SAMPLE_MODELS_PATH,
 				"Path to Alloy 4 sample models:", getFieldEditorParent()));
-		
+		addField(new StringFieldEditor(
+				PreferenceConstants.DEFAULT_LAUNCH_OPTION,
+				"Default Options when launching a Predicate or an Assertion:",
+				getFieldEditorParent()));
 		addField(new IntegerFieldEditor(PreferenceConstants.MAX_HEAP_SIZE,
-				"Choose the maximum heap size for the external JVM (MB):", getFieldEditorParent()));
+				"Choose the maximum heap size for the external JVM (MB):",
+				getFieldEditorParent()));
 		addField(new IntegerFieldEditor(PreferenceConstants.MAX_STACK_SIZE,
-				"Choose the maximum stack size for the external JVM (KB):", getFieldEditorParent()));
+				"Choose the maximum stack size for the external JVM (KB):",
+				getFieldEditorParent()));
 	}
 
 	public void init(IWorkbench workbench) {
@@ -128,13 +134,13 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 	}
 
 	public static boolean getShowDebugMessagesPreference() {
-		return AlsActivator.getInstance().getPreferenceStore().getBoolean(
-				PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES);
+		return AlsActivator.getInstance().getPreferenceStore()
+				.getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES);
 	}
 
 	public static String getShowGraphConversionMessagesPreference() {
-		return AlsActivator.getInstance().getPreferenceStore().getString(
-				PreferenceConstants.V_GRAPH_CONVERSION);
+		return AlsActivator.getInstance().getPreferenceStore()
+				.getString(PreferenceConstants.V_GRAPH_CONVERSION);
 	}
 
 	/*
@@ -144,22 +150,25 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 	 */
 
 	public static boolean getClearConsoleForEachCommand() {
-		return AlsActivator.getInstance().getPreferenceStore().getBoolean(
-				PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND);
+		return AlsActivator
+				.getInstance()
+				.getPreferenceStore()
+				.getBoolean(
+						PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND);
 	}
 
 	public static String getA4SampleModelsPath() {
-		return AlsActivator.getInstance().getPluginPreferences().getString(
-				PreferenceConstants.P_A4_SAMPLE_MODELS_PATH);
+		return AlsActivator.getInstance().getPluginPreferences()
+				.getString(PreferenceConstants.P_A4_SAMPLE_MODELS_PATH);
 	}
 
 	public static int getResolutionGraph() {
-		return AlsActivator.getInstance().getPreferenceStore().getInt(
-				PreferenceConstants.RESOLUTION__GRAPH);
+		return AlsActivator.getInstance().getPreferenceStore()
+				.getInt(PreferenceConstants.RESOLUTION__GRAPH);
 	}
 
 	public static double getWidthGraph() {
-		return AlsActivator.getInstance().getPreferenceStore().getDouble(
-				PreferenceConstants.WIDTH__GRAPH);
+		return AlsActivator.getInstance().getPreferenceStore()
+				.getDouble(PreferenceConstants.WIDTH__GRAPH);
 	}
 }

@@ -15,6 +15,8 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 
+import com.google.common.base.Predicate;
+
 import fr.univartois.cril.xtext.als.AlsPackage;
 import fr.univartois.cril.xtext.als.CheckCommand;
 import fr.univartois.cril.xtext.als.Expression;
@@ -69,6 +71,8 @@ public class SemanticHighlightingCalculator implements
 						AlsPackage.Literals.RUN_COMMAND__NAME.getName(),
 						HighlightingConfiguration.predicateName);
 			}
+
+				
 			if (current instanceof Signature) {
 				simpleTreatment(
 						current,

@@ -32,7 +32,7 @@ Paragraph:
   FunDecl		|
   PredDecl		|
   RunDecl		|
-  FunDeclWParam |
+  FunDeclWParam	|
   CheckDecl		|
   EnumDecl		|
   LetOutDecl	|
