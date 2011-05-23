@@ -62,6 +62,10 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 		return open.getOpenName().getImportURI();
 	}
 
+	String image(Open open){
+		return "open.gif";
+	}
+	
 	String image(Module module) {
 		return "module.gif";
 	}
@@ -78,9 +82,16 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 		return "sig.gif";
 	}
 
+	
 	String text(Let l){
 		return l.getLetName().getName();
 	}
+	
+	String image(Let l){
+		return "let.gif";
+	}
+	
+
 	String text(Fact fact){
 		if(fact.getFactName().getName()==null){
 			return "Block Fact";

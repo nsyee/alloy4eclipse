@@ -5,7 +5,9 @@ package fr.univartois.cril.xtext.ui.outline;
 
 import org.eclipse.xtext.ui.editor.outline.actions.DefaultContentOutlineNodeAdapterFactory;
 
+import fr.univartois.cril.xtext.als.Assertion;
 import fr.univartois.cril.xtext.als.CheckCommand;
+import fr.univartois.cril.xtext.als.Predicate;
 import fr.univartois.cril.xtext.als.RunCommand;
 
 public class AlsOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapterFactory {
@@ -13,8 +15,10 @@ public class AlsOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapt
 	private static final Class<?>[] types = { 
 		// provide list of classes to adapt to, e.g.:
 		RunCommand.class,
+		Predicate.class,
+		CheckCommand.class,
+		Assertion.class
 		
-		CheckCommand.class
 	};
 
 	@Override

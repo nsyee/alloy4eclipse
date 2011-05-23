@@ -49,11 +49,10 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 			return null;
 		List<Command> list = getList(resource);
 		command = retrieveCommand(list, line);
+		
 		file = new ALSFile(resource);
 		CompModule world;
 		String filename = file.getFilename();
-		//AlloyMessageConsole alloyConsole = Console.findAlloyConsole(resource.getLocation().toOSString());
-		//alloyConsole.print("Ceci est un test!");
 		IReporter reporter = new Reporter(resource);
 		world = getWorld(reporter, filename);
 
