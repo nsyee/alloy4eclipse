@@ -3,8 +3,7 @@
       id="fr.univartois.cril.alloy4xtext"
       label="Alloy4Eclipse (xtext based)"
       version="0.3.0.preview6"
-      provider-name="CRIL CNRS Universite d&apos;Artois"
-      plugin="fr.univartois.cril.xtext.alloyplugin">
+      provider-name="CRIL CNRS Universite d&apos;Artois">
 
    <description url="http://code.google.com/p/alloy4eclipse/">
       The aim of this project is to allow the specification and analysis
