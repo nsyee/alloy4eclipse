@@ -28,7 +28,7 @@ public class MyTask implements WorkerTask {
 	private String inFile, outFile;
 	private String cmd = null;
 	private int command;
-
+	private int scope;
 	private A4Options opt;
 
 	public MyTask(String inputFilename, String outputFilename,
@@ -40,11 +40,12 @@ public class MyTask implements WorkerTask {
 	}
 
 	public MyTask(String filename, String outputfilename, String cmd,
-			A4Options options) {
+			A4Options options,int scope) {
 		inFile = filename;
 		outFile = outputfilename;
 		this.cmd = cmd;
 		this.opt = options;
+		this.scope=scope;
 
 	}
 
@@ -85,10 +86,6 @@ public class MyTask implements WorkerTask {
 					inFile);
 			out.callback("Commands");
 			Command c;
-			IPreferenceStore store = AlsActivator.getInstance()
-					.getPreferenceStore();
-			int scope = Integer.parseInt(store
-					.getString(PreferenceConstants.DEFAULT_LAUNCH_OPTION));
 			if (cmd == null) {
 				c = world.getAllCommands().get(command);
 			} else {

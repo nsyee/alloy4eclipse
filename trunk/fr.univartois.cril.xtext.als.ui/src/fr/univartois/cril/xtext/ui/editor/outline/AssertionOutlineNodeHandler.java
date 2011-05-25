@@ -94,7 +94,7 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 			return null;
 		cmd = "Check " + cmd;
 		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world,
-				cmd);
+				cmd,scope);
 		executeCommand(ex, reporter, null);
 		return null;
 	}

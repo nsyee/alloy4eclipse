@@ -62,7 +62,7 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 		if (index == -1)
 			return null;
 		ExecutableCommand ex = new ExecutableCommand(file, command, index,
-				world,null);
+				world,null,0);
 		executeCommand(ex, reporter, null);
 		return null;
 	}
