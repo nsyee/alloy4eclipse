@@ -109,7 +109,7 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 			e.printStackTrace();
 		}
 		String cmd1="Run "+predName;
-		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world,cmd1);
+		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world,cmd1,scope);
 		
 		executeCommand(ex, reporter, null);
 		return null;
