@@ -12,11 +12,14 @@ import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.XtextDocumentUtil;
 import org.eclipse.xtext.ui.editor.utils.EditorUtils;
 
-import com.google.inject.internal.Stopwatch;
 import com.ibm.icu.util.StringTokenizer;
 
+import edu.mit.csail.sdg.alloy4.ConstList;
 import edu.mit.csail.sdg.alloy4.Err;
+import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
+import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
+import edu.mit.csail.sdg.alloy4compiler.ast.Module;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import fr.univartois.cril.xtext.alloyplugin.api.IReporter;
@@ -34,13 +37,12 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		IResource resource;
 		ALSFile file;
 		int line, offset;
-		Command command;
-		String cmd,assertName,content=null;
-
+		Command command = null;
+		CompModule world;
+		String cmd, assertName, content = null;
 		editor = EditorUtils.getActiveXtextEditor(event);
 		if (editor == null)
 			return null;
-
 		document = XtextDocumentUtil.get(editor);
 
 		if (editor.isSaveOnCloseNeeded())
@@ -52,32 +54,48 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		if (line == -1)
 			return null;
 		try {
-			content=editor.getDocument().get(offset, editor.getDocument().getLineLength(line));
-			
+			content = editor.getDocument().get(offset,
+					editor.getDocument().getLineLength(line));
+
 		} catch (BadLocationException e) {
-			
+
 			e.printStackTrace();
 		}
-		
-		StringTokenizer tmp=new StringTokenizer(content);
-		assertName=tmp.nextToken();
-		if("assert".equals(assertName)){ 
-			assertName=tmp.nextToken();
+
+		StringTokenizer tmp = new StringTokenizer(content);
+		assertName = tmp.nextToken();
+		if ("assert".equals(assertName)) {
+			assertName = tmp.nextToken();
 		}
-		IPreferenceStore store=AlsActivator.getInstance().getPreferenceStore();
-		cmd="check "+assertName+" "+store.getString(PreferenceConstants.DEFAULT_LAUNCH_OPTION);
-		file = new ALSFile(resource);
-		CompModule world;
-		String filename = file.getFilename();
+		IPreferenceStore store = AlsActivator.getInstance()
+				.getPreferenceStore();
+		int scope = Integer.parseInt(store
+				.getString(PreferenceConstants.DEFAULT_LAUNCH_OPTION));
+		// cmd=assertName;
+		cmd = assertName;
 		IReporter reporter = new Reporter(resource);
+		file = new ALSFile(resource);
+		String filename = file.getFilename();
 		world = getWorld(reporter, filename);
 
 		if (world == null)
 			return null;
+		
 
-		// ExecutableCommand ex = new ExecutableCommand(file, command, index,
-		// world);
-		// executeCommand(ex, reporter, null);
+		try {
+			world.getAllAssertions();
+			Pair<String,Expr> p=findAssertion(world, assertName);
+			command = new Command(true, scope, -1, -1, p.b);
+		} catch (Err e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (command == null)
+			return null;
+		cmd = "Check " + cmd;
+		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world,
+				cmd);
+		executeCommand(ex, reporter, null);
 		return null;
 	}
 
@@ -108,5 +126,15 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		} catch (Err e) {
 			// TODO Auto-generated catch block
 		}
+	}
+	
+	public Pair<String,Expr> findAssertion(Module world,String assertion){
+		ConstList<Pair<String,Expr>> l=world.getAllAssertions();
+		for(Pair<String,Expr> c:l){
+			if(c.a.equals(assertion)){
+				return c;
+			}
+		}
+		return null;
 	}
 }

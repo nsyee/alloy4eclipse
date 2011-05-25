@@ -1,7 +1,5 @@
 package fr.univartois.cril.xtext.ui.editor.outline;
 
-import java.util.List;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -16,8 +14,16 @@ import org.eclipse.xtext.ui.editor.utils.EditorUtils;
 
 import com.ibm.icu.util.StringTokenizer;
 
+import edu.mit.csail.sdg.alloy4.ConstList;
 import edu.mit.csail.sdg.alloy4.Err;
+import edu.mit.csail.sdg.alloy4.Pair;
+import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
+import edu.mit.csail.sdg.alloy4compiler.ast.Decl;
+import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
+import edu.mit.csail.sdg.alloy4compiler.ast.ExprHasName;
+import edu.mit.csail.sdg.alloy4compiler.ast.Func;
+import edu.mit.csail.sdg.alloy4compiler.ast.Module;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import fr.univartois.cril.xtext.alloyplugin.api.IReporter;
@@ -27,7 +33,7 @@ import fr.univartois.cril.xtext.alloyplugin.core.Reporter;
 import fr.univartois.cril.xtext.preferences.PreferenceConstants;
 import fr.univartois.cril.xtext.ui.activator.AlsActivator;
 
-public class PredicateOutlineNodeHandler extends AbstractHandler{
+public class PredicateOutlineNodeHandler extends AbstractHandler {
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IXtextDocument document;
@@ -35,37 +41,39 @@ public class PredicateOutlineNodeHandler extends AbstractHandler{
 		IResource resource;
 		ALSFile file;
 		int line, offset;
-		String cmd,content=null,predName;
-		Command command;
-		
+		String cmd, content = null, predName;
+		Command command = null;
+
 		editor = EditorUtils.getActiveXtextEditor(event);
 		if (editor == null)
 			return null;
-		
+
 		document = XtextDocumentUtil.get(editor);
-		
-		if(editor.isSaveOnCloseNeeded()) return null;
+
+		if (editor.isSaveOnCloseNeeded())
+			return null;
 		resource = editor.getResource();
-		
+
 		offset = editor.getHighlightRange().getOffset();
 		line = getLine(document, offset) + 1;
 		if (line == -1)
 			return null;
 		try {
-			content=editor.getDocument().get(offset, editor.getDocument().getLineLength(line));
+			content = editor.getDocument().get(offset,
+					editor.getDocument().getLineLength(line));
 
 		} catch (BadLocationException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
+
+		StringTokenizer tmp = new StringTokenizer(content, " [{");
 		
-		StringTokenizer tmp=new StringTokenizer(content);
-		predName=tmp.nextToken();
-		while("pred".equals(predName)||"private".equals(predName)){ 
-			predName=tmp.nextToken();
+		predName = tmp.nextToken();
+		while ("pred".equals(predName) || "private".equals(predName)) {
+			predName = tmp.nextToken();
 		}
-		IPreferenceStore store=AlsActivator.getInstance().getPreferenceStore();
-		cmd="run "+predName+" "+store.getString(PreferenceConstants.DEFAULT_LAUNCH_OPTION);
+		if(predName.contains(".")) predName=predName.substring(predName.indexOf(".")+1);
 		file = new ALSFile(resource);
 		CompModule world;
 		String filename = file.getFilename();
@@ -74,10 +82,36 @@ public class PredicateOutlineNodeHandler extends AbstractHandler{
 
 		if (world == null)
 			return null;
+		IPreferenceStore store=AlsActivator.getInstance().getPreferenceStore();
+		int scope=Integer.parseInt(store.getString(PreferenceConstants.DEFAULT_LAUNCH_OPTION));
+		try {
 
-		//ExecutableCommand ex = new ExecutableCommand(file, command, index,
-		//		world);
-		//executeCommand(ex, reporter, null);
+			Func f=findPredicate(world, predName);
+			if (f.decls.isEmpty()) {
+				command = new Command(false, scope, -1, -1, f.call());
+			} else {
+				int lg=0;
+				for (Decl decl : f.decls) {					
+					lg+=decl.names.size();
+				}
+				Expr [] params = new Expr[lg];
+				int i=0;
+				for (Decl decl : f.decls) {
+					for(int j=0;j<decl.names.size();j++){
+						params[i++]=decl.expr;
+					}
+				}
+				command = new Command(false, scope, -1, -1, f.call(params));
+			}
+			
+			
+		} catch (Err e) {
+			e.printStackTrace();
+		}
+		String cmd1="Run "+predName;
+		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world,cmd1);
+		
+		executeCommand(ex, reporter, null);
 		return null;
 	}
 
@@ -90,7 +124,7 @@ public class PredicateOutlineNodeHandler extends AbstractHandler{
 		}
 		return line;
 	}
-	
+
 	private CompModule getWorld(IReporter reporter, String filename) {
 		CompModule world;
 		try {
@@ -100,7 +134,7 @@ public class PredicateOutlineNodeHandler extends AbstractHandler{
 		}
 		return world;
 	}
-	
+
 	private void executeCommand(ExecutableCommand executableCommand,
 			IReporter reporter, IProgressMonitor monitor) {
 		try {
@@ -108,5 +142,25 @@ public class PredicateOutlineNodeHandler extends AbstractHandler{
 		} catch (Err e) {
 			// TODO Auto-generated catch block
 		}
+	}
+	
+	public Func findPredicate(Module world,String predicate){
+		SafeList<Func> l=world.getAllFunc();
+		for(Func c:l){
+			if(c.toString().contains(predicate)){
+				return c;
+			}
+		}
+		return null;
+	}
+	public Pair<String,Expr> findAssertion(Module world,String assertion){
+		ConstList<Pair<String,Expr>> l=world.getAllAssertions();
+		for(Pair<String,Expr> c:l){
+			if(c.a.equals(assertion)){
+				return c;
+			}
+		}
+		
+		return null;
 	}
 }

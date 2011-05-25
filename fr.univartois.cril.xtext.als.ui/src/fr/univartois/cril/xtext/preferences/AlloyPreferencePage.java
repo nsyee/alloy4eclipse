@@ -119,7 +119,7 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 				"Path to Alloy 4 sample models:", getFieldEditorParent()));
 		addField(new StringFieldEditor(
 				PreferenceConstants.DEFAULT_LAUNCH_OPTION,
-				"Default Options when launching a Predicate or an Assertion:",
+				"Default Options when launching a Predicate or an Assertion: for",
 				getFieldEditorParent()));
 		addField(new IntegerFieldEditor(PreferenceConstants.MAX_HEAP_SIZE,
 				"Choose the maximum heap size for the external JVM (MB):",
