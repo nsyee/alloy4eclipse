@@ -198,7 +198,7 @@ public class AlloyLaunching {
 		// ExecutableCommand[list.size()];
 		int index = 0;
 		for (Command command : world.getAllCommands()) {			
-			exec_cmds.add(new ExecutableCommand(file, command,index++, world));
+			exec_cmds.add(new ExecutableCommand(file, command,index++, world,null));
 		}
 		exec_cmds.add(new MetamodelCommand(file, world));
 		file.setCommand(exec_cmds);
