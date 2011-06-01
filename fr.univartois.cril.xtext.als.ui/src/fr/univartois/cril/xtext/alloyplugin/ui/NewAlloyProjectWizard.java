@@ -123,11 +123,11 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 
 		IProject[] allProjects = root.getProjects();
 		for (IProject p : allProjects) {
-			if (p.getName().equals("Sample Models"))
+			if (p.getName().equals("A4 models library"))
 				return;
 		}
 
-		IProject projectModels = root.getProject("Sample Models");
+		IProject projectModels = root.getProject("A4 models library");
 		projectModels.create(monitor);
 		projectModels.open(monitor);
 		IPath to = new Path(AlloyPreferencePage.getA4SampleModelsPath());
