@@ -1,6 +1,6 @@
 package fr.univartois.cril.xtext.alloyplugin.core;
 
-import org.eclipse.jface.preference.IPreferenceStore;
+import java.util.List;
 
 import edu.mit.csail.sdg.alloy4.A4Reporter;
 import edu.mit.csail.sdg.alloy4.ConstList;
@@ -9,8 +9,8 @@ import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4.WorkerEngine.WorkerCallback;
 import edu.mit.csail.sdg.alloy4.WorkerEngine.WorkerTask;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
-import edu.mit.csail.sdg.alloy4compiler.ast.Decl;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
+import edu.mit.csail.sdg.alloy4compiler.ast.ExprVar;
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import edu.mit.csail.sdg.alloy4compiler.ast.Module;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
@@ -18,8 +18,6 @@ import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Options;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4compiler.translator.TranslateAlloyToKodkod;
-import fr.univartois.cril.xtext.preferences.PreferenceConstants;
-import fr.univartois.cril.xtext.ui.activator.AlsActivator;
 
 public class MyTask implements WorkerTask {
 
@@ -40,12 +38,12 @@ public class MyTask implements WorkerTask {
 	}
 
 	public MyTask(String filename, String outputfilename, String cmd,
-			A4Options options,int scope) {
+			A4Options options, int scope) {
 		inFile = filename;
 		outFile = outputfilename;
 		this.cmd = cmd;
 		this.opt = options;
-		this.scope=scope;
+		this.scope = scope;
 
 	}
 
@@ -95,23 +93,22 @@ public class MyTask implements WorkerTask {
 					c = new Command(true, scope, -1, -1, expr.not());
 				} else {
 					String[] str = cmd.split(" ");
-					
+
 					Func f = findPredicate(world, str[1]);
 					if (f.decls.isEmpty()) {
 						c = new Command(false, scope, -1, -1, f.call());
 					} else {
-						int lg=0;
-						for (Decl decl : f.decls) {					
-							lg+=decl.names.size();
+						List<ExprVar> params = f.params();
+						Expr body = f.getBody();
+						Expr lhs = null;
+						for (ExprVar param : params) {
+							if (null == lhs)
+								lhs = param.some();
+							else
+								lhs = lhs.and(param.some());
 						}
-						Expr [] params = new Expr[lg];
-						int i=0;
-						for (Decl decl : f.decls) {
-							for(int j=0;j<decl.names.size();j++){
-								params[i++]=decl.expr;
-							}
-						}
-						c = new Command(false, scope, -1, -1, f.call(params));
+						Expr all = lhs.and(body);
+						c = new Command(false, scope, -1, -1, all);
 					}
 				}
 			}
