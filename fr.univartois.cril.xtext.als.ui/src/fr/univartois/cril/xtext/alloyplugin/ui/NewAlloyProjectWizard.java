@@ -10,6 +10,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -103,12 +104,12 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 			throws CoreException {
 
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		
 		IProject project = root.getProject(projectName);
 		IProjectDescription description = ResourcesPlugin.getWorkspace()
 				.newProjectDescription(project.getName());
 
-		description
-				.setNatureIds(new String[] {XtextProjectHelper.NATURE_ID });
+		description.setNatureIds(new String[] { XtextProjectHelper.NATURE_ID });
 		ICommand[] commands = description.getBuildSpec();
 		ICommand command = description.newCommand();
 		command.setBuilderName(XtextProjectHelper.BUILDER_ID);
@@ -119,11 +120,21 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 
 		project.create(description, monitor);
 		project.open(monitor);
+
+		IProject[] allProjects = root.getProjects();
+		for (IProject p : allProjects) {
+			if (p.getName().equals("Sample Models"))
+				return;
+		}
+
+		IProject projectModels = root.getProject("Sample Models");
+		projectModels.create(monitor);
+		projectModels.open(monitor);
 		IPath to = new Path(AlloyPreferencePage.getA4SampleModelsPath());
 
 		File models = new File(to.toOSString());
 		for (File f : models.listFiles()) {
-			IFolder file = project.getFolder(f.getName());
+			IFolder file = projectModels.getFolder(f.getName());
 
 			try {
 
@@ -134,8 +145,6 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 				e.printStackTrace();
 			}
 		}
-
-
 	}
 
 }
