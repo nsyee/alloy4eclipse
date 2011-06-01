@@ -3,7 +3,8 @@
       id="fr.univartois.cril.alloy4xtext"
       label="Alloy4Eclipse (xtext based)"
       version="0.3.0.preview6"
-      provider-name="CRIL CNRS Universite d&apos;Artois">
+      provider-name="CRIL CNRS Universite d&apos;Artois"
+      plugin="fr.univartois.cril.xtext.als.ui">
 
    <description url="http://code.google.com/p/alloy4eclipse/">
       The aim of this project is to allow the specification and analysis
@@ -506,13 +507,6 @@ DAMAGES.
          download-size="0"
          install-size="0"
          version="0.0.0"/>
-
-   <plugin
-         id="fr.univartois.cril.xtext.als"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="fr.univartois.cril.xtext.als.ui"
