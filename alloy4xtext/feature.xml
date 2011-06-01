@@ -2,7 +2,7 @@
 <feature
       id="fr.univartois.cril.alloy4xtext"
       label="Alloy4Eclipse (xtext based)"
-      version="0.3.0.preview6"
+      version="0.3.0.preview97"
       provider-name="CRIL CNRS Universite d&apos;Artois"
       plugin="fr.univartois.cril.xtext.als.ui">
 
@@ -503,20 +503,20 @@ DAMAGES.
          unpack="false"/>
 
    <plugin
-         id="fr.univartois.cril.alloyplugin.launch"
+         id="fr.univartois.cril.xtext.als.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
 
    <plugin
-         id="fr.univartois.cril.xtext.als.ui"
+         id="swingintegration.example"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="swingintegration.example"
+         id="fr.univartois.cril.xtext.als"
          download-size="0"
          install-size="0"
          version="0.0.0"
