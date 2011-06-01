@@ -24,7 +24,7 @@ public class AlsImportUriResolver extends ImportUriResolver {
 				return location;
 			}
 			String location = "platform:/resource/"
-				+ "Sample Models" + "/"
+				+ "A4 models library" + "/"
 				+ super.resolve(object) + ".als";
 			
 			return location;
