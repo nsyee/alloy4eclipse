@@ -628,28 +628,4 @@
 
   		
   	</extension>
- 	<extension
-      point="org.eclipse.core.runtime.products"
-      id="Alloy4">
-      <product
-         name="Alloy4Eclipse"
-         application="org.eclipse.ui.examples.rcp.browser.app">
-         <property
-          name="windowImages" 
-          value="icons/a4e.gif"/>
-          <property
-          name="appName" 
-          value="Alloy4Eclipse"/>
-          <property
-          name="aboutImage" 
-          value="icons/a4e.gif"/>
-    	  <property
-          name="aboutText" 
-          value="Alloy4Eclipse Plugin  http://code.google.com/p/alloy4eclipse/w/list"/>
-          
-         </product>
-      
-      
- 	</extension>
-  	
 </plugin>

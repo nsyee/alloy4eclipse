@@ -18,12 +18,7 @@ Require-Bundle: org.antlr.runtime,
  org.eclipse.core.runtime,
  org.eclipse.xtend,
  org.eclipse.xpand
-Import-Package: edu.mit.csail.sdg.alloy4,
- edu.mit.csail.sdg.alloy4compiler.ast,
- edu.mit.csail.sdg.alloy4compiler.parser,
- edu.mit.csail.sdg.alloy4compiler.translator,
- edu.mit.csail.sdg.alloy4graph,
- edu.mit.csail.sdg.alloy4viz,
+Import-Package: 
  org.apache.log4j,
  org.eclipse.debug.core,
  org.eclipse.debug.core.model,
@@ -34,5 +29,58 @@ Import-Package: edu.mit.csail.sdg.alloy4,
  org.eclipse.ltk.ui.refactoring,
  org.eclipse.ui.console
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: fr.univartois.cril.xtext.ui.contentassist.antlr
+Export-Package: edu.mit.csail.sdg.alloy4;
+  uses:="javax.swing.text,
+   javax.swing.border,
+   javax.swing.tree,
+   javax.swing,
+   javax.swing.filechooser,
+   new new edu.mit.csail.sdg.alloy4,
+   com.apple.eawt,
+   javax.swing.event,
+   new edu.mit.csail.sdg.alloy4",
+ edu.mit.csail.sdg.alloy4compiler.ast;uses:="javax.swing,edu.mit.csail.sdg.alloy4,new edu.mit.csail.sdg.alloy4compiler.ast",
+ edu.mit.csail.sdg.alloy4compiler.parser;
+  uses:="java_cup.runtime,
+   edu.mit.csail.sdg.alloy4compiler.ast,
+   edu.mit.csail.sdg.alloy4,
+   new edu.mit.csail.sdg.alloy4compiler.parser",
+ edu.mit.csail.sdg.alloy4compiler.sim;uses:="edu.mit.csail.sdg.alloy4compiler.ast,new edu.mit.csail.sdg.alloy4compiler.sim",
+ edu.mit.csail.sdg.alloy4compiler.translator;
+  uses:="new edu.mit.csail.sdg.alloy4compiler.translator,
+   kodkod.ast.visitor,
+   kodkod.engine.satlab,
+   edu.mit.csail.sdg.alloy4,
+   kodkod.engine,
+   edu.mit.csail.sdg.alloy4compiler.ast,
+   kodkod.engine.config,
+   kodkod.ast,
+   kodkod.instance",
+ edu.mit.csail.sdg.alloy4graph;uses:="edu.mit.csail.sdg.alloy4,javax.swing,javax.swing.event",
+ edu.mit.csail.sdg.alloy4viz;
+  uses:="new edu.mit.csail.sdg.alloy4viz,
+   edu.mit.csail.sdg.alloy4,
+   edu.mit.csail.sdg.alloy4graph,
+   javax.swing,
+   edu.mit.csail.sdg.alloy4compiler.translator,
+   javax.swing.event",
+ edu.mit.csail.sdg.alloy4whole;
+  uses:="javax.swing.text,
+   edu.mit.csail.sdg.alloy4,
+   new new edu.mit.csail.sdg.alloy4whole,
+   edu.mit.csail.sdg.alloy4compiler.ast,
+   javax.swing,
+   new edu.mit.csail.sdg.alloy4whole,
+   edu.mit.csail.sdg.alloy4viz,
+   edu.mit.csail.sdg.alloy4compiler.sim,
+   edu.mit.csail.sdg.alloy4compiler.translator,
+   javax.swing.event",
+ fr.univartois.cril.xtext.ui.contentassist.antlr;
+  uses:="org.eclipse.xtext,
+   fr.univartois.cril.xtext.ui.contentassist.antlr.internal,
+   org.eclipse.xtext.ui.editor.contentassist.antlr.internal,
+   org.eclipse.xtext.ui.editor.contentassist.antlr,
+   fr.univartois.cril.xtext.services"
 Bundle-Activator: fr.univartois.cril.xtext.ui.activator.AlsActivator
+Bundle-ClassPath: alloy4.2-nosat4j.jar,
+ .
