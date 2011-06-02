@@ -63,15 +63,15 @@
   	
 	<extension 
 		point="org.eclipse.ui.preferencePages">
-		<page 
+		<!--<page 
 			class="fr.univartois.cril.xtext.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage" 
 			id="fr.univartois.cril.xtext.Als" 
 			name="Alloy">
   			<keywordReference 
   				id="fr.univartois.cril.xtext.ui.keyword_Als" /> 
-  		</page>
+  		</page>-->
 		<page 
-			category="fr.univartois.cril.xtext.Als" 
+			category="fr.univartois.cril.xtext.preferences.AlloyPreferencePage" 
 			class="fr.univartois.cril.xtext.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage" 
 			id="fr.univartois.cril.xtext.Als.coloring" 
 			name="Syntax Coloring">
@@ -79,7 +79,7 @@
   				id="fr.univartois.cril.xtext.ui.keyword_Als" /> 
   		</page>
 		<page 
-			category="fr.univartois.cril.xtext.Als" 
+			category="fr.univartois.cril.xtext.preferences.AlloyPreferencePage" 
 			class="fr.univartois.cril.xtext.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage" 
 			id="fr.univartois.cril.xtext.Als.templates" 
 			name="Templates">
