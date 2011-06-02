@@ -1,5 +1,6 @@
 package fr.univartois.cril.xtext.alloyplugin.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.mit.csail.sdg.alloy4.A4Reporter;
@@ -10,6 +11,8 @@ import edu.mit.csail.sdg.alloy4.WorkerEngine.WorkerCallback;
 import edu.mit.csail.sdg.alloy4.WorkerEngine.WorkerTask;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
+import edu.mit.csail.sdg.alloy4compiler.ast.ExprCall;
+import edu.mit.csail.sdg.alloy4compiler.ast.ExprQt;
 import edu.mit.csail.sdg.alloy4compiler.ast.ExprVar;
 import edu.mit.csail.sdg.alloy4compiler.ast.Func;
 import edu.mit.csail.sdg.alloy4compiler.ast.Module;
@@ -98,17 +101,14 @@ public class MyTask implements WorkerTask {
 					if (f.decls.isEmpty()) {
 						c = new Command(false, scope, -1, -1, f.call());
 					} else {
-						List<ExprVar> params = f.params();
-						Expr body = f.getBody();
-						Expr lhs = null;
-						for (ExprVar param : params) {
-							if (null == lhs)
-								lhs = param.some();
-							else
-								lhs = lhs.and(param.some());
-						}
-						Expr all = lhs.and(body);
-						c = new Command(false, scope, -1, -1, all);
+						List<ExprVar> paramVars = f.params();
+						List<Expr> paramExprs = new ArrayList<Expr>(paramVars.size());
+						paramExprs.addAll(paramVars);
+						
+						Expr callExpr = ExprCall.make(null, null, f, paramExprs, 0);
+						Expr quantifiedCallExpr = ExprQt.Op.SOME.make(null, null, f.decls, callExpr);
+						
+						c = new Command(false, scope, -1, -1, quantifiedCallExpr);
 					}
 				}
 			}
