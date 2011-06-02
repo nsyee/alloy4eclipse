@@ -164,8 +164,6 @@ public class NewAlloyFileWizard extends Wizard implements INewWizard {
                                         .length() - filename.getFileExtension()
                                         .length()) - 1));
         contents.append("\n\n");
-        contents.append("open util/integer");
-        contents.append("\n\n");
         return new ByteArrayInputStream(contents.toString().getBytes());
     }
 
