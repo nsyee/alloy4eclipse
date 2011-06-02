@@ -6,7 +6,7 @@
    <feature url="features/fr.univartois.cril.alloy4feature_0.2.37.jar" id="fr.univartois.cril.alloy4feature" version="0.2.37">
       <category name="Software_Engineering"/>
    </feature>
-   <feature url="features/fr.univartois.cril.alloy4xtext_0.3.0.preview98.jar" id="fr.univartois.cril.alloy4xtext" version="0.3.0.preview98">
+   <feature url="features/fr.univartois.cril.alloy4xtext_0.3.0.preview99.jar" id="fr.univartois.cril.alloy4xtext" version="0.3.0.preview99">
       <category name="Software_Engineering"/>
    </feature>
    <category-def name="Software_Engineering" label="Software Engineering"/>
