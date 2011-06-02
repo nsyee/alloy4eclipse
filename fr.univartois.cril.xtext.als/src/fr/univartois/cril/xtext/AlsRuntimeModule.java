@@ -9,6 +9,7 @@ import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 
 import fr.univartois.cril.xtext.als.uri.AlsConverters;
+import fr.univartois.cril.xtext.als.uri.AlsImportUriGlobalScopeProvider;
 import fr.univartois.cril.xtext.scoping.AlsScopeProvider;
 
 /**
@@ -31,4 +32,10 @@ public class AlsRuntimeModule extends fr.univartois.cril.xtext.AbstractAlsRuntim
 		
 		return AlsScopeProvider.class;
 	}
+	@Override
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return AlsImportUriGlobalScopeProvider.class;
+	}
+	
+	
 }
