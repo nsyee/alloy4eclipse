@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Alloy Tutorial Main Text</title>
+    <link   rel=stylesheet   href="style-maintext.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>File System Lesson III</h2>
+
+    <p> <a href="currentmodel-FS-II.html"
+    onClick="window.self.location='maintext-FS-II.html'"
+    target="currentmodel">back</a>
+
+    <a href="currentmodel-FS-IV.html"
+    onClick="window.self.location='maintext-FS-IV.html'"
+    target="currentmodel">next</a>
+
+<hr WIDTH="100%">
+
+<p> The model we developed in Lesson 2 still has some problems. For
+    instance, the following file system is desperately in need of
+    help:</p>
+
+<p>   <IMG SRC="file_system2-example.gif" BORDER=0></p>
+
+<p> The problem with this instance is that the bottom-right Dir is
+    reachable from the root which is not considered to be a object in
+    the file system (it is not labeled 'objects').  That directory is
+    reachable from teh file system, but is not part of it!  When we
+    wrote</p>
+
+<b><pre>
+  objects in root.*contents
+</b></pre>
+
+<p> we ensured that all objects in the file system are reachable from
+    the root, but failed to guarantee that all objects reachable from
+    the root are in the file system.  We should instead have written</p>
+
+<b><pre>
+  objects = root.*contents
+</pre></b>
+
+
+<hr WIDTH="50%">
+
+<p> The <b><tt>example</tt></b> functions still generates a
+    few unusual file structures, such as this one:</p>
+
+<p>    <IMG SRC="file_system2-example2.gif" BORDER=0></p>
+
+<p> Our previous problem is gone, but now there are stray
+    <a href="sidenote-relations-are-ordered-pairs.html"
+    target="sidenote"> tuples</a> in the <b><tt>contents</b></tt>
+    relation. That is, the <b><tt>contents</b></tt> relation is
+    defining relationships between file system objects which are not
+    in any file system.  We can fix this by constraining all the
+    tuples in the contents relation to be between objects that are in
+    its file system. Adding the following constraint to the appended
+    fact achieves this</p>
+
+<b><pre>
+  contents in objects->objects
+</pre></b>
+
+<p> Recall that <a href="sidenote-relations-are-ordered-pairs.html"
+    target="sidenote"> an Alloy relation is just a set of tuples</a>
+    and also that the "<b><tt>-></b></tt>" operator denotes <a
+    href="sidenote-format-arrow.html" target="sidenote"> relational
+    product</a>.  Thus <b><tt>objects->objects</tt></b> is a way of
+    saying "a relation from objects to objects" or "all the 2-element tuples
+    where both elements are objects".  This constraint says that the
+    <b><tt>contents</tt></b> relation of a file system only maps
+    between <b><tt>objects</tt></b> of that file system.</p>
+
+<p> The resulting bug-free model is shown in the upper-right frame.
+    In the next lesson, we look at a different way to solve these same
+    problems.</p>
+
+<p> We can view samples solutions to the model by executing the
+    <b><tt>run</tt></b> command. Since this is a <b><tt>run</b></tt>
+    command, not a <b><tt>check</tt></b> command, solutions it
+    generates are not counterexamples -- no claim has been made so
+    there's nothing to disprove! If you execute the
+    <b><tt>run</tt></b> command, you will probably get a trivial
+    solution such as this one:</p>
+
+<p>    <IMG SRC="trivial.png" BORDER=0>
+
+<p> We can enforce some degree of non-triviality by adding the
+    following line to the <b><tt>example</tt></b> function (uncomment
+    it). </p>
+
+<b><pre>
+  all f: FSObject | some fs: FileSystem | f in fs.objects
+</pre></b>
+
+<p> Now you'll get something that is pleasantly non-trivial.
+    Initially, you will get an ugly mess of lines and nodes. We can
+    clean this up by projecting the result to the FileSystem object.</p>
+    
+
+<p> Now we will see a nice non-trivial example such as this one: </p>
+
+<p>    <IMG SRC="nice-fs3.png" BORDER=0></p>
+
+<hr WIDTH="100%">
+<p> To backup to an earlier lesson, load the <a
+    href="currentmodel-FS-II.html"
+    onClick="window.self.location='maintext-FS-II.html'"
+    target="currentmodel"><< previous lesson</a> - file system II.</p>
+
+<p> When you are ready to procede, load the <a
+    href="currentmodel-FS-IV.html"
+    onClick="window.self.location='maintext-FS-IV.html'"
+    target="currentmodel">next lesson >></a> - file system IV.</p>
+
+<hr WIDTH="100%">
+<p> <a href="alloy-tutorial.html" target="_top">restart </a> the
+   tutorial from the beginning.</p>
+
+</body>
+</html>
