@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="622" key="passwordStores.size.y"/>
+	<item value="1032" key="passwordStores.size.x"/>
+	<item value="1" key="passwordStores.location.y"/>
+	<item value="203" key="passwordStores.location.x"/>
+	<section name="NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
+			<item value="https://alloy4eclipse.googlecode.com/svn/trunk/"/>
+			<item value="https://alloy4eclipse.googlecode.com/svn/"/>
+			<item value="https://alloy4eclipse.googlecode.com/"/>
+		</list>
+	</section>
+</section>
