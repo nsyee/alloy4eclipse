@@ -1,0 +1,25 @@
+#summary conventions used to pretty print Alloy spec files.
+#labels Featured
+
+= Signatures =
+
+They should start with an uppercase letter. 
+
+`sig File` is correct.
+
+`sig file` is not correct.
+
+= Functions =
+
+They should start with a lower case letter, and uppercase letter should be used to separate words.
+
+`fun myFunnyFunction` is correct.
+
+`sig MyFunnyFunction` is incorrect.
+
+= Predicates =
+
+Same as functions.
+
+
+

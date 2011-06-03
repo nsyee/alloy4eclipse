@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Syntax for appended facts</title>
+    <link   rel=stylesheet   href="style-sidenote.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>Syntax for <i>appended facts</i></h2>
+
+<p> An appended fact is written by placing constraints in curly braces
+    immediately after a <tt><b>sig</b></tt> statement.  They can make
+    a model clearer by logically grouping related constraints
+    together.
+
+<b><pre>
+  sig name {
+    //fields of the signature
+  }{
+   //appended fact constraints
+  }
+</b></pre>
+
+<p> Any sig mentioned in the appended fact has an implied "<b><tt>all
+    n:name |</b></tt>" at its beginning, and and implied
+    "<tt><b>n.</b></tt>" in front of it ( "<tt><b>name</b></tt>" is the
+    name of the sig the fact is appended to).  Thus
+
+<b><pre>
+  <b><tt>foo.bar</b></tt>
+</pre></b>
+
+<p> is really saying
+
+<b><pre>
+  all n:name | (n.foo).(n.bar)
+</pre></b>
+
+<p> Consequently, appended fact can be more concise (and thus clearer)
+    than the equivalent non-appended <a
+    href="sidenote-format-fact.html" target="sidenote">fact</a>.
+    However, there is also a danger in forgetting that <i>every
+    sig</i> mentioned in an appended fact is prepended with
+    "<b><tt>n.</b></tt>".
+
+<hr WIDTH="100%">
+<p> <a href="sidenote-all.html" target="sidenote"> list all sidenotes</a>
+<p> <a href="sidenote-default.html">clear this sidenote</a>
+
+  </body>
+</html>
