@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Alloy Tutorial Main Text</title>
+    <link   rel=stylesheet   href="style-maintext.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>File System Lesson II</h2>
+
+    <p> <a href="currentmodel-walkthrough.html"
+    onClick="window.self.location='maintext-walkthrough.html'"
+    target="currentmodel">back</a>
+
+    <a href="currentmodel-FS-III.html"
+    onClick="window.self.location='maintext-FS-III.html'"
+    target="currentmodel">next</a>
+
+<hr WIDTH="100%">
+
+<p> In <a href="currentmodel-walkthrough.html"
+    onClick="window.self.location='maintext-walkthrough.html'"
+    target="currentmodel">Lesson I</a>, we successfully modeled a
+    simple file system. It had file system objects (which were divided
+    into files and directories), a single root directory, and parent
+    and child relationships between the file system objects. We
+    verified through Alloy assertions that the system obeyed certain
+    correctness properties.</p>
+
+<p> However, our model is static: It has a set of file system objects
+    and relations between them, but that set and those relations
+    cannot change in any way. Thus, the model is inadequate if we'd
+    like to model dynamic aspects of file systems, such as <tt>move</tt> and
+    <tt>delete</tt> operations. To do so, we will create a model that
+    allows for multiple file systems, and we will express
+    "<tt>move</tt>" and "<tt>delete</tt>" as transitions between these
+    file systems. That is, each file system can be thought of as a
+    different version of the same file system after a mutating
+    operation has been performed.</p>
+
+<hr WIDTH="50%">
+
+
+<p> Like all Alloy models, we begin with a <b><tt>module</tt></b>
+    statement.  Our first signature declaration declares a set of file
+    system objects called <b><tt>FSObject</b></tt>, just like it did
+    in the previous version.  However, this time the body is empty --
+    it does not contain a <b><tt>parent</tt></b> relation field.
+    Since this model will allow for multiple file systems, the parent
+    relation is not a single entity that exists between all file
+    system objects; there is a different one for each file system, so
+    it belongs with the <b><tt>FileSystem</tt></b> signature
+    (discussed below)</p>
+
+<b><pre>
+  module tutorial/file_system
+
+  </b><i>// A file system object in the file system</i><b>
+  sig FSObject {}
+</pre></b>
+
+<hr WIDTH="50%">
+
+<p> Next we see a single <a href="sidenote-format-sig.html"
+    target="sidenote"> signature</a> being used to declare both
+    <b><tt>File</b></tt> and <b><tt>Dir</b></tt> simultaneously.  As
+    before, they are disjoint subsets of <b><tt>FSObject</b></tt>.
+    However, this time theirs bodies are identical (both are empty),
+    so we can define them more compactly in a single statement.</p>
+
+<hr WIDTH="50%">
+
+
+<p> The third and final signature in the model declares the set
+    <b><tt>FileSystem</b></tt>, representing the set of all file
+    systems.  The body of this signature declares four relations that
+    every file system needs: <b><tt>root</b></tt>,
+    <b><tt>objects</b></tt>, <b><tt>contents</b></tt>, and
+    <b><tt>parent</b></tt>. Note that when multiple fields are
+    declared within a single signature body, they are separated by
+    commas.
+</p>
+
+<b><pre>
+  </b><i>// A File System</i><b>
+  sig FileSystem {
+    root: Dir,
+    objects: set FSObject,
+    contents: Dir lone-> FSObject,
+    parent: FSObject ->lone Dir
+  }
+</pre></b>
+
+<p> The first signature relates each file system to exactly one
+    directory, its <b><tt>root</b></tt>.
+</p>
+
+<p> The <b><tt>objects</b></tt> relation relates each file system to
+    the set of file system objects it contains. The
+    <tt><b>set</tt></b> keyword allows the contents relation to relate
+    <b><tt>FileSystem</b></tt>s to any number of file system objects
+    (even zero).  Omitting the <tt><b>set</b></tt> keyword would
+    constrain the <b><tt>objects</tt></b> relation to map every file
+    system to exactly one file system object -- a mistake if you want
+    non-trivial file systems!  Actually, due to constraints later in
+    the model, every file system must have at least 1 file system
+    object.
+</p>
+
+<p> You'll notice that the syntax of the <b><tt>contents</tt></b> and
+    <b><tt>parent</tt></b> relations are markedly different from the
+    other fields.
+</p>
+
+<pre><b>  contents: Dir lone-> FSObject,
+  parent: FSObject ->lone Dir
+</b></pre>
+
+<p> These are <a href="sidenote-ternary.html" target="sidenote">
+    ternary relations</a>, defined using the <a
+    href="sidenote-format-arrow.html" target="sidenote"> relational
+    product</a> operator ("<b><tt>-></b></tt>").  Think of them as
+    fields which are themselves relations.  The
+    <b><tt>contents</tt></b> relation maps each file system to a
+    binary relation from directories to file system
+    objects. Similarly, <b><tt>parent</tt></b> relates each file
+    system to file system objects to directories.
+</p>
+
+<p> When declaring a ternary relation, <a
+    href="sidenote-multiplicity.html" target="sidenote"> multiplicity
+    markings</a> may be placed on either side of the arrow.  In this
+    model, we've used the "<b><tt>lone</b></tt>" multiplicity marking on
+    the left side of the arrow in the <b><tt>contents</tt></b>
+    relation and on the right side of the arrow in the
+    <b><tt>parent</tt></b> relation. The "<b><tt>lone</b></tt>"
+    marking means "<i>zero or one</i>" just like when it is used as a
+    quantifier. In the <b><tt>contents</tt></b> relation, the
+    "<b><tt>lone</b></tt>" constrains each <b><tt>FSObject</b></tt> to
+    be in the contents of at most one directory in a given file
+    system. In the <b><tt>parent</b></tt> relation, it means every
+    file system object in a given file system has at most one
+    parent. </p>
+</p>
+
+<hr WIDTH="50%">
+
+
+<p> There are three constraints in <b><tt>FileSystem</b></tt>'s
+    appended fact. </p>
+</p>
+
+<pre><b>  {
+    </b><i>// root has no parent</i><b>
+    no root.parent
+    </b><i>// objects are those reachable from the root</i><b>
+    objects in root.*contents
+    </b><i>// parent is the inverse of contents</i><b>
+    parent = ~contents
+  }
+</b></pre>
+
+<p> Of course, this appended fact could have been written as a
+    separate <b><tt>fact</tt></b> statement, as follows:
+</p>
+
+<b><pre>
+1. fact {
+2.   all fs: FileSystem {
+3.     no fs.root.parent
+4.     fs.objects in fs.root.*(fs.contents)
+5.     fs.parent = ~fs.contents
+6.   }
+7. }
+</pre></b>
+
+<p> Line 3 says that the root directory of a file system has no
+    parent. Line 4 constrains the set of all objects in the file
+    system to be reachable from the root by following the
+    <b><tt>contents</tt></b> relation zero or more times.  Line 5
+    ensures the <b><tt>parent</tt></b> relation is always the inverse
+    of the contents relation.  That is, <b><tt>f in
+    d.contents</tt></b> if and only if <b><tt>d in
+    f.parent</tt></b>.
+</p>
+
+<p> Note that the constraints in the signature fact are defining what
+    the relations <i>mean</i> more than they are actually imposing
+    external constraints on the relations.  It is common practice to
+    using appended facts to further define the system with sanity
+    constraints, while reserving <b><tt>fact</tt></b> statements to
+    impose less trivial and more domain-specific constraints.
+</p>
+
+<p> Here we saw a slightly different way of writing a quantifier.
+    Rather than separating the quantification from the predicate with
+    a bar, "<b><tt>|</tt></b>", we surround the predicate in curly
+    braces, "<b><tt>{}</b></tt>".  Using curly braces can sometimes
+    make the quantified statement easier to read. </p>
+</p>
+
+<p> related sidenotes: </p>
+<ul>
+<li> You may wish to review the <a href="sidenote-quantifiers.html"
+     target="sidenote"> format for writing <i>quantifiers</i></a>,
+     including a list of all Alloy quantifiers.
+<li> Or get a reminder about what<a href="sidenote-rtc.html"
+     target="sidenote"> reflexive transitive closure</a> means.
+<li> Or review the <a href="sidenote-format-appended-fact.html"
+     target="sidenote"> format for writing <i>appended facts</i></a>
+</ul>
+
+<hr WIDTH="50%">
+
+<p> Let's now generate some example visualizations of our file
+    system. We will create an empty <a
+    href="sidenote-format-pred.html" target="sidenote"> predicate</a>
+    called <b><tt>example</b></tt> which we will run to generate such
+    instances.
+</p>
+
+<b><pre>
+  pred example() {}
+</pre></b>
+
+<p> The final statement of the model is an Alloy run command. When
+    executed, it will try to find a solution to the model in which
+    there is exactly 1 <b><tt>FileSystem</tt></b> and up to 4
+    <b><tt>FileSytemObjects</tt></b>.
+</p>
+
+<b><pre>
+  run example for exactly 1 FileSystem, 4 FSObject
+</pre></b>
+
+<p> There are several <a href="sidenote-alternative-run-example.html"
+    target="sidenote"> equivalent ways to specify the scope for this
+    command</a>. </p>
+</p>
+
+<!--
+<p> Browsing through some visualizations generated by the execution of
+    example, you may come across some strange-looking file
+    structures. This is to be expected - this model still generates
+    some illegal file structures, but we'll fix those in the next
+    lesson.  Discovering possibilities which you had not thought of
+    (or had thought were excluded by your constraints) is what
+    modeling is all about. </p>
+</p>
+-->
+
+<p> <a href="sidenote-format-run.html" target="sidenote"> format for
+    the <b><tt>run</b></tt> command</a> </p>
+</p>
+
+
+<hr WIDTH="100%">
+    <p> To backup to an earlier lesson, load the
+    <a href="currentmodel-walkthrough.html"
+    onClick="window.self.location='maintext-walkthrough.html'"
+    target="currentmodel"><< previous lesson</a> - an Alloy
+    walkthrough. </p>
+
+    <p> When you are ready to proceed, load the
+    <a href="currentmodel-FS-III.html"
+    onClick="window.self.location='maintext-FS-III.html'"
+    target="currentmodel">next lesson >></a> - file system III. </p>
+
+<hr WIDTH="100%">
+
+   <p> <a href="alloy-tutorial.html" target="_top">restart </a> the
+   tutorial from the beginning.
+
+</body>
+</html>
