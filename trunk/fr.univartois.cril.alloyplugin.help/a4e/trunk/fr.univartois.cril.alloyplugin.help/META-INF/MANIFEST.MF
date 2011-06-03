@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Help Plug-in
-Bundle-SymbolicName: fr.univartois.cril.alloyplugin.help; singleton:=true
-Bundle-Version: 1.0.1
-Bundle-Vendor: CRIL with material from SDG @ MIT
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
