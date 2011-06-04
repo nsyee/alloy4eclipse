@@ -1827,13 +1827,13 @@ public interface AlsPackage extends EPackage
   int OPEN_NAME = 29;
 
   /**
-   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
+   * The feature id for the '<em><b>Import URI</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPEN_NAME__IMPORTED_NAMESPACE = 0;
+  int OPEN_NAME__IMPORT_URI = 0;
 
   /**
    * The number of structural features of the '<em>Open Name</em>' class.
@@ -4263,15 +4263,15 @@ public interface AlsPackage extends EPackage
   EClass getOpenName();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.OpenName#getImportedNamespace <em>Imported Namespace</em>}'.
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.OpenName#getImportURI <em>Import URI</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Imported Namespace</em>'.
-   * @see fr.univartois.cril.xtext.als.OpenName#getImportedNamespace()
+   * @return the meta object for the attribute '<em>Import URI</em>'.
+   * @see fr.univartois.cril.xtext.als.OpenName#getImportURI()
    * @see #getOpenName()
    * @generated
    */
-  EAttribute getOpenName_ImportedNamespace();
+  EAttribute getOpenName_ImportURI();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext.als.FactName <em>Fact Name</em>}'.
@@ -6047,12 +6047,12 @@ public interface AlsPackage extends EPackage
     EClass OPEN_NAME = eINSTANCE.getOpenName();
 
     /**
-     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Import URI</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPEN_NAME__IMPORTED_NAMESPACE = eINSTANCE.getOpenName_ImportedNamespace();
+    EAttribute OPEN_NAME__IMPORT_URI = eINSTANCE.getOpenName_ImportURI();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext.als.impl.FactNameImpl <em>Fact Name</em>}' class.

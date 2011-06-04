@@ -1251,7 +1251,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="open"/>
-        <elements xsi:type="xtext:Assignment" feature="importedNamespace" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="importURI" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.48"/>
         </elements>
       </alternatives>

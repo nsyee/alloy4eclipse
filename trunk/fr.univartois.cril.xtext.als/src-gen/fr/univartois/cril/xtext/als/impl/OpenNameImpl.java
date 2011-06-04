@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenNameImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.OpenNameImpl#getImportURI <em>Import URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,24 +31,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class OpenNameImpl extends MinimalEObjectImpl.Container implements OpenName
 {
   /**
-   * The default value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
+   * The default value of the '{@link #getImportURI() <em>Import URI</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImportedNamespace()
+   * @see #getImportURI()
    * @generated
    * @ordered
    */
-  protected static final String IMPORTED_NAMESPACE_EDEFAULT = null;
+  protected static final String IMPORT_URI_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
+   * The cached value of the '{@link #getImportURI() <em>Import URI</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImportedNamespace()
+   * @see #getImportURI()
    * @generated
    * @ordered
    */
-  protected String importedNamespace = IMPORTED_NAMESPACE_EDEFAULT;
+  protected String importURI = IMPORT_URI_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,9 +76,9 @@ public class OpenNameImpl extends MinimalEObjectImpl.Container implements OpenNa
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getImportedNamespace()
+  public String getImportURI()
   {
-    return importedNamespace;
+    return importURI;
   }
 
   /**
@@ -86,12 +86,12 @@ public class OpenNameImpl extends MinimalEObjectImpl.Container implements OpenNa
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setImportedNamespace(String newImportedNamespace)
+  public void setImportURI(String newImportURI)
   {
-    String oldImportedNamespace = importedNamespace;
-    importedNamespace = newImportedNamespace;
+    String oldImportURI = importURI;
+    importURI = newImportURI;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.OPEN_NAME__IMPORTED_NAMESPACE, oldImportedNamespace, importedNamespace));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.OPEN_NAME__IMPORT_URI, oldImportURI, importURI));
   }
 
   /**
@@ -104,8 +104,8 @@ public class OpenNameImpl extends MinimalEObjectImpl.Container implements OpenNa
   {
     switch (featureID)
     {
-      case AlsPackage.OPEN_NAME__IMPORTED_NAMESPACE:
-        return getImportedNamespace();
+      case AlsPackage.OPEN_NAME__IMPORT_URI:
+        return getImportURI();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +120,8 @@ public class OpenNameImpl extends MinimalEObjectImpl.Container implements OpenNa
   {
     switch (featureID)
     {
-      case AlsPackage.OPEN_NAME__IMPORTED_NAMESPACE:
-        setImportedNamespace((String)newValue);
+      case AlsPackage.OPEN_NAME__IMPORT_URI:
+        setImportURI((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class OpenNameImpl extends MinimalEObjectImpl.Container implements OpenNa
   {
     switch (featureID)
     {
-      case AlsPackage.OPEN_NAME__IMPORTED_NAMESPACE:
-        setImportedNamespace(IMPORTED_NAMESPACE_EDEFAULT);
+      case AlsPackage.OPEN_NAME__IMPORT_URI:
+        setImportURI(IMPORT_URI_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +154,8 @@ public class OpenNameImpl extends MinimalEObjectImpl.Container implements OpenNa
   {
     switch (featureID)
     {
-      case AlsPackage.OPEN_NAME__IMPORTED_NAMESPACE:
-        return IMPORTED_NAMESPACE_EDEFAULT == null ? importedNamespace != null : !IMPORTED_NAMESPACE_EDEFAULT.equals(importedNamespace);
+      case AlsPackage.OPEN_NAME__IMPORT_URI:
+        return IMPORT_URI_EDEFAULT == null ? importURI != null : !IMPORT_URI_EDEFAULT.equals(importURI);
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +171,8 @@ public class OpenNameImpl extends MinimalEObjectImpl.Container implements OpenNa
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (importedNamespace: ");
-    result.append(importedNamespace);
+    result.append(" (importURI: ");
+    result.append(importURI);
     result.append(')');
     return result.toString();
   }

@@ -13771,11 +13771,11 @@ protected class BlockOrPossibleBar_ExprAssignment_1_1 extends AssignmentToken  {
  * / *
  * 	name ::= ["this" | ID] ["/" ID]*
  * * /OpenName:
- * 	"open" importedNamespace=Name;
+ * 	"open" importURI=Name;
  *
  **/
 
-// "open" importedNamespace=Name
+// "open" importURI=Name
 protected class OpenName_Group extends GroupToken {
 	
 	public OpenName_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13790,7 +13790,7 @@ protected class OpenName_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new OpenName_ImportedNamespaceAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new OpenName_ImportURIAssignment_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -13825,16 +13825,16 @@ protected class OpenName_OpenKeyword_0 extends KeywordToken  {
 
 }
 
-// importedNamespace=Name
-protected class OpenName_ImportedNamespaceAssignment_1 extends AssignmentToken  {
+// importURI=Name
+protected class OpenName_ImportURIAssignment_1 extends AssignmentToken  {
 	
-	public OpenName_ImportedNamespaceAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public OpenName_ImportURIAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getOpenNameAccess().getImportedNamespaceAssignment_1();
+		return grammarAccess.getOpenNameAccess().getImportURIAssignment_1();
 	}
 
     @Override
@@ -13847,11 +13847,11 @@ protected class OpenName_ImportedNamespaceAssignment_1 extends AssignmentToken  
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("importedNamespace",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("importedNamespace");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOpenNameAccess().getImportedNamespaceNameParserRuleCall_1_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("importURI",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("importURI");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getOpenNameAccess().getImportedNamespaceNameParserRuleCall_1_0();
+			element = grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0();
 			return obj;
 		}
 		return null;

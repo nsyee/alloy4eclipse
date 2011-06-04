@@ -6246,9 +6246,9 @@ ruleOpenName returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getOpenNameAccess().getImportedNamespaceNameParserRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_importedNamespace_1_0=ruleName		{
+		lv_importURI_1_0=ruleName		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getOpenNameRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6256,8 +6256,8 @@ ruleOpenName returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"importedNamespace",
-	        		lv_importedNamespace_1_0, 
+	       			"importURI",
+	        		lv_importURI_1_0, 
 	        		"Name", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {

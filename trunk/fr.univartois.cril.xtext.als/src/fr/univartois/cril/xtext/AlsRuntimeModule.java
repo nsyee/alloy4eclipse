@@ -5,8 +5,11 @@ package fr.univartois.cril.xtext;
 
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 
 import fr.univartois.cril.xtext.als.uri.AlsConverters;
+import fr.univartois.cril.xtext.als.uri.AlsImportUriGlobalScopeProvider;
 import fr.univartois.cril.xtext.scoping.AlsImportedNamespaceAwareLocalScopeProvider;
 import fr.univartois.cril.xtext.scoping.AlsQualifiedNameProvider;
 
@@ -23,6 +26,15 @@ public class AlsRuntimeModule extends fr.univartois.cril.xtext.AbstractAlsRuntim
 	@Override
 	public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
 		return AlsQualifiedNameProvider.class;
+	}
+		
+	public Class<? extends ImportUriResolver> bindImportUriResolver(){
+		return fr.univartois.cril.xtext.als.uri.AlsImportUriResolver.class;
+	}
+
+	@Override
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return AlsImportUriGlobalScopeProvider.class;
 	}
 	
 	public void configureIScopeProviderDelegate(com.google.inject.Binder binder) {
