@@ -59,7 +59,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	String text(Open open){
-		return open.getOpenName().getImportURI();
+		return open.getOpenName().getImportedNamespace();
 	}
 
 	String image(Open open){
@@ -84,7 +84,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 
 	
 	String text(Let l){
-		return l.getLetName().getName();
+		return l.getName().getName();
 	}
 	
 	String image(Let l){
@@ -93,11 +93,11 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	
 
 	String text(Fact fact){
-		if(fact.getFactName().getName()==null){
+		if(fact.getName().getName()==null){
 			return "Block Fact";
 			
 		}
-		return fact.getFactName().getName();
+		return fact.getName().getName();
 	}
 
 	String image(Fact fact) {
@@ -105,7 +105,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(Assertion assertD) {
-		return assertD.getAssertionName().getName();
+		return assertD.getName().getName();
 	}
 
 	String image(Assertion assertD) {
@@ -113,7 +113,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(Function fun) {
-		return fun.getFunctionName().getName();
+		return fun.getName().getName();
 	}
 
 	String image(Function fun) {
@@ -121,7 +121,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String text(Predicate pred) {
-		return pred.getPredicateName().getName();
+		return pred.getName().getName();
 	}
 
 	String image(Predicate fun) {

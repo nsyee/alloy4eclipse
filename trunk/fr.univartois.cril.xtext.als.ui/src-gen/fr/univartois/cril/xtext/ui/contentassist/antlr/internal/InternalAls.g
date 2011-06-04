@@ -4000,9 +4000,9 @@ rule__FactDecl__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getFactDeclAccess().getFactNameAssignment_0()); }
-(rule__FactDecl__FactNameAssignment_0)
-{ after(grammarAccess.getFactDeclAccess().getFactNameAssignment_0()); }
+{ before(grammarAccess.getFactDeclAccess().getNameAssignment_0()); }
+(rule__FactDecl__NameAssignment_0)
+{ after(grammarAccess.getFactDeclAccess().getNameAssignment_0()); }
 )
 
 ;
@@ -4061,9 +4061,9 @@ rule__AssertDecl__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getAssertDeclAccess().getAssertionNameAssignment_0()); }
-(rule__AssertDecl__AssertionNameAssignment_0)
-{ after(grammarAccess.getAssertDeclAccess().getAssertionNameAssignment_0()); }
+{ before(grammarAccess.getAssertDeclAccess().getNameAssignment_0()); }
+(rule__AssertDecl__NameAssignment_0)
+{ after(grammarAccess.getAssertDeclAccess().getNameAssignment_0()); }
 )
 
 ;
@@ -4213,9 +4213,9 @@ rule__FunDecl__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getFunDeclAccess().getFunctionNameAssignment_3()); }
-(rule__FunDecl__FunctionNameAssignment_3)
-{ after(grammarAccess.getFunDeclAccess().getFunctionNameAssignment_3()); }
+{ before(grammarAccess.getFunDeclAccess().getNameAssignment_3()); }
+(rule__FunDecl__NameAssignment_3)
+{ after(grammarAccess.getFunDeclAccess().getNameAssignment_3()); }
 )
 
 ;
@@ -4953,9 +4953,9 @@ rule__FunDeclWParam__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getFunDeclWParamAccess().getFunctionNamewParamAssignment_3()); }
-(rule__FunDeclWParam__FunctionNamewParamAssignment_3)
-{ after(grammarAccess.getFunDeclWParamAccess().getFunctionNamewParamAssignment_3()); }
+{ before(grammarAccess.getFunDeclWParamAccess().getNameAssignment_3()); }
+(rule__FunDeclWParam__NameAssignment_3)
+{ after(grammarAccess.getFunDeclWParamAccess().getNameAssignment_3()); }
 )
 
 ;
@@ -5234,9 +5234,9 @@ rule__PredDecl__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getPredDeclAccess().getPredicateNameAssignment_3()); }
-(rule__PredDecl__PredicateNameAssignment_3)
-{ after(grammarAccess.getPredDeclAccess().getPredicateNameAssignment_3()); }
+{ before(grammarAccess.getPredDeclAccess().getNameAssignment_3()); }
+(rule__PredDecl__NameAssignment_3)
+{ after(grammarAccess.getPredDeclAccess().getNameAssignment_3()); }
 )
 
 ;
@@ -7374,9 +7374,9 @@ rule__LetOutDecl__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getLetOutDeclAccess().getLetNameAssignment_0()); }
-(rule__LetOutDecl__LetNameAssignment_0)
-{ after(grammarAccess.getLetOutDeclAccess().getLetNameAssignment_0()); }
+{ before(grammarAccess.getLetOutDeclAccess().getNameAssignment_0()); }
+(rule__LetOutDecl__NameAssignment_0)
+{ after(grammarAccess.getLetOutDeclAccess().getNameAssignment_0()); }
 )
 
 ;
@@ -12021,9 +12021,9 @@ rule__OpenName__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getOpenNameAccess().getImportURIAssignment_1()); }
-(rule__OpenName__ImportURIAssignment_1)
-{ after(grammarAccess.getOpenNameAccess().getImportURIAssignment_1()); }
+{ before(grammarAccess.getOpenNameAccess().getImportedNamespaceAssignment_1()); }
+(rule__OpenName__ImportedNamespaceAssignment_1)
+{ after(grammarAccess.getOpenNameAccess().getImportedNamespaceAssignment_1()); }
 )
 
 ;
@@ -13139,14 +13139,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FactDecl__FactNameAssignment_0
+rule__FactDecl__NameAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFactDeclAccess().getFactNameFactNameParserRuleCall_0_0()); }
-	ruleFactName{ after(grammarAccess.getFactDeclAccess().getFactNameFactNameParserRuleCall_0_0()); }
+{ before(grammarAccess.getFactDeclAccess().getNameFactNameParserRuleCall_0_0()); }
+	ruleFactName{ after(grammarAccess.getFactDeclAccess().getNameFactNameParserRuleCall_0_0()); }
 )
 
 ;
@@ -13169,14 +13169,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AssertDecl__AssertionNameAssignment_0
+rule__AssertDecl__NameAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getAssertDeclAccess().getAssertionNameAssertionNameParserRuleCall_0_0()); }
-	ruleAssertionName{ after(grammarAccess.getAssertDeclAccess().getAssertionNameAssertionNameParserRuleCall_0_0()); }
+{ before(grammarAccess.getAssertDeclAccess().getNameAssertionNameParserRuleCall_0_0()); }
+	ruleAssertionName{ after(grammarAccess.getAssertDeclAccess().getNameAssertionNameParserRuleCall_0_0()); }
 )
 
 ;
@@ -13229,14 +13229,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FunDecl__FunctionNameAssignment_3
+rule__FunDecl__NameAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFunDeclAccess().getFunctionNameFunctionNameParserRuleCall_3_0()); }
-	ruleFunctionName{ after(grammarAccess.getFunDeclAccess().getFunctionNameFunctionNameParserRuleCall_3_0()); }
+{ before(grammarAccess.getFunDeclAccess().getNameFunctionNameParserRuleCall_3_0()); }
+	ruleFunctionName{ after(grammarAccess.getFunDeclAccess().getNameFunctionNameParserRuleCall_3_0()); }
 )
 
 ;
@@ -13469,14 +13469,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FunDeclWParam__FunctionNamewParamAssignment_3
+rule__FunDeclWParam__NameAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFunDeclWParamAccess().getFunctionNamewParamFunctionNamewParamParserRuleCall_3_0()); }
-	ruleFunctionNamewParam{ after(grammarAccess.getFunDeclWParamAccess().getFunctionNamewParamFunctionNamewParamParserRuleCall_3_0()); }
+{ before(grammarAccess.getFunDeclWParamAccess().getNameFunctionNamewParamParserRuleCall_3_0()); }
+	ruleFunctionNamewParam{ after(grammarAccess.getFunDeclWParamAccess().getNameFunctionNamewParamParserRuleCall_3_0()); }
 )
 
 ;
@@ -13559,14 +13559,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PredDecl__PredicateNameAssignment_3
+rule__PredDecl__NameAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getPredDeclAccess().getPredicateNamePredicateNameParserRuleCall_3_0()); }
-	rulePredicateName{ after(grammarAccess.getPredDeclAccess().getPredicateNamePredicateNameParserRuleCall_3_0()); }
+{ before(grammarAccess.getPredDeclAccess().getNamePredicateNameParserRuleCall_3_0()); }
+	rulePredicateName{ after(grammarAccess.getPredDeclAccess().getNamePredicateNameParserRuleCall_3_0()); }
 )
 
 ;
@@ -14477,14 +14477,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LetOutDecl__LetNameAssignment_0
+rule__LetOutDecl__NameAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLetOutDeclAccess().getLetNameLetNameParserRuleCall_0_0()); }
-	ruleLetName{ after(grammarAccess.getLetOutDeclAccess().getLetNameLetNameParserRuleCall_0_0()); }
+{ before(grammarAccess.getLetOutDeclAccess().getNameLetNameParserRuleCall_0_0()); }
+	ruleLetName{ after(grammarAccess.getLetOutDeclAccess().getNameLetNameParserRuleCall_0_0()); }
 )
 
 ;
@@ -15867,14 +15867,14 @@ finally {
 
 
 
-rule__OpenName__ImportURIAssignment_1
+rule__OpenName__ImportedNamespaceAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0()); }
-	ruleName{ after(grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0()); }
+{ before(grammarAccess.getOpenNameAccess().getImportedNamespaceNameParserRuleCall_1_0()); }
+	ruleName{ after(grammarAccess.getOpenNameAccess().getImportedNamespaceNameParserRuleCall_1_0()); }
 )
 
 ;
