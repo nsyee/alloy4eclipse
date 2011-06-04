@@ -33,17 +33,17 @@
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Paragraph"/>
     <genClasses ecoreClass="Als.ecore#//Fact">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Fact/factName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Fact/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Fact/block"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Assertion">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Assertion/assertionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Assertion/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Assertion/block"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Function">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/ref"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/dot"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/functionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/leftS"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/decl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/comma"/>
@@ -53,12 +53,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/colon"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/block"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Function/functionNamewParam"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Predicate">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/ref"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/dot"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/predicateName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/leftS"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/decl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Predicate/comma"/>
@@ -108,7 +107,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//EnumDecl/rightC"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//Let">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/letName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/leftS"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/nameRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Let/comma"/>
@@ -195,7 +194,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//BlockOrPossibleBar/expr"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//OpenName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//OpenName/importURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//OpenName/importedNamespace"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//FactName"/>
     <genClasses ecoreClass="Als.ecore#//AssertionName">

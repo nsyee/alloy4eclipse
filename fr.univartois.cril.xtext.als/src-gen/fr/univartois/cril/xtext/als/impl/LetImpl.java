@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.LetImpl#getLetName <em>Let Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.LetImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.LetImpl#getLeftS <em>Left S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.LetImpl#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.LetImpl#getComma <em>Comma</em>}</li>
@@ -52,14 +52,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class LetImpl extends ParagraphImpl implements Let
 {
   /**
-   * The cached value of the '{@link #getLetName() <em>Let Name</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLetName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected LetName letName;
+  protected LetName name;
 
   /**
    * The cached value of the '{@link #getLeftS() <em>Left S</em>}' containment reference.
@@ -147,9 +147,9 @@ public class LetImpl extends ParagraphImpl implements Let
    * <!-- end-user-doc -->
    * @generated
    */
-  public LetName getLetName()
+  public LetName getName()
   {
-    return letName;
+    return name;
   }
 
   /**
@@ -157,13 +157,13 @@ public class LetImpl extends ParagraphImpl implements Let
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLetName(LetName newLetName, NotificationChain msgs)
+  public NotificationChain basicSetName(LetName newName, NotificationChain msgs)
   {
-    LetName oldLetName = letName;
-    letName = newLetName;
+    LetName oldName = name;
+    name = newName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.LET__LET_NAME, oldLetName, newLetName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.LET__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -174,20 +174,20 @@ public class LetImpl extends ParagraphImpl implements Let
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLetName(LetName newLetName)
+  public void setName(LetName newName)
   {
-    if (newLetName != letName)
+    if (newName != name)
     {
       NotificationChain msgs = null;
-      if (letName != null)
-        msgs = ((InternalEObject)letName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.LET__LET_NAME, null, msgs);
-      if (newLetName != null)
-        msgs = ((InternalEObject)newLetName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.LET__LET_NAME, null, msgs);
-      msgs = basicSetLetName(newLetName, msgs);
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.LET__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.LET__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.LET__LET_NAME, newLetName, newLetName));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.LET__NAME, newName, newName));
   }
 
   /**
@@ -420,8 +420,8 @@ public class LetImpl extends ParagraphImpl implements Let
   {
     switch (featureID)
     {
-      case AlsPackage.LET__LET_NAME:
-        return basicSetLetName(null, msgs);
+      case AlsPackage.LET__NAME:
+        return basicSetName(null, msgs);
       case AlsPackage.LET__LEFT_S:
         return basicSetLeftS(null, msgs);
       case AlsPackage.LET__NAME_REF:
@@ -448,8 +448,8 @@ public class LetImpl extends ParagraphImpl implements Let
   {
     switch (featureID)
     {
-      case AlsPackage.LET__LET_NAME:
-        return getLetName();
+      case AlsPackage.LET__NAME:
+        return getName();
       case AlsPackage.LET__LEFT_S:
         return getLeftS();
       case AlsPackage.LET__NAME_REF:
@@ -477,8 +477,8 @@ public class LetImpl extends ParagraphImpl implements Let
   {
     switch (featureID)
     {
-      case AlsPackage.LET__LET_NAME:
-        setLetName((LetName)newValue);
+      case AlsPackage.LET__NAME:
+        setName((LetName)newValue);
         return;
       case AlsPackage.LET__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)newValue);
@@ -514,8 +514,8 @@ public class LetImpl extends ParagraphImpl implements Let
   {
     switch (featureID)
     {
-      case AlsPackage.LET__LET_NAME:
-        setLetName((LetName)null);
+      case AlsPackage.LET__NAME:
+        setName((LetName)null);
         return;
       case AlsPackage.LET__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)null);
@@ -549,8 +549,8 @@ public class LetImpl extends ParagraphImpl implements Let
   {
     switch (featureID)
     {
-      case AlsPackage.LET__LET_NAME:
-        return letName != null;
+      case AlsPackage.LET__NAME:
+        return name != null;
       case AlsPackage.LET__LEFT_S:
         return leftS != null;
       case AlsPackage.LET__NAME_REF:

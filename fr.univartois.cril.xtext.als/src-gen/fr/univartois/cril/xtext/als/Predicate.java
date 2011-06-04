@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.Predicate#getRef <em>Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Predicate#getDot <em>Dot</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Predicate#getPredicateName <em>Predicate Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Predicate#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Predicate#getLeftS <em>Left S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Predicate#getDecl <em>Decl</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Predicate#getComma <em>Comma</em>}</li>
@@ -87,30 +87,30 @@ public interface Predicate extends Paragraph
   void setDot(Dot value);
 
   /**
-   * Returns the value of the '<em><b>Predicate Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Predicate Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Predicate Name</em>' containment reference.
-   * @see #setPredicateName(PredicateName)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getPredicate_PredicateName()
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(PredicateName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getPredicate_Name()
    * @model containment="true"
    * @generated
    */
-  PredicateName getPredicateName();
+  PredicateName getName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Predicate#getPredicateName <em>Predicate Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Predicate#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Predicate Name</em>' containment reference.
-   * @see #getPredicateName()
+   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @see #getName()
    * @generated
    */
-  void setPredicateName(PredicateName value);
+  void setName(PredicateName value);
 
   /**
    * Returns the value of the '<em><b>Left S</b></em>' containment reference.

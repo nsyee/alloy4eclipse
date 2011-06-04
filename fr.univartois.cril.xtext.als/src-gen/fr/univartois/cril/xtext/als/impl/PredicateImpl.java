@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.PredicateImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.PredicateImpl#getDot <em>Dot</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.PredicateImpl#getPredicateName <em>Predicate Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.PredicateImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.PredicateImpl#getLeftS <em>Left S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.PredicateImpl#getDecl <em>Decl</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.PredicateImpl#getComma <em>Comma</em>}</li>
@@ -78,14 +78,14 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
   protected Dot dot;
 
   /**
-   * The cached value of the '{@link #getPredicateName() <em>Predicate Name</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPredicateName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected PredicateName predicateName;
+  protected PredicateName name;
 
   /**
    * The cached value of the '{@link #getLeftS() <em>Left S</em>}' containment reference.
@@ -279,9 +279,9 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
    * <!-- end-user-doc -->
    * @generated
    */
-  public PredicateName getPredicateName()
+  public PredicateName getName()
   {
-    return predicateName;
+    return name;
   }
 
   /**
@@ -289,13 +289,13 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPredicateName(PredicateName newPredicateName, NotificationChain msgs)
+  public NotificationChain basicSetName(PredicateName newName, NotificationChain msgs)
   {
-    PredicateName oldPredicateName = predicateName;
-    predicateName = newPredicateName;
+    PredicateName oldName = name;
+    name = newName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.PREDICATE__PREDICATE_NAME, oldPredicateName, newPredicateName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.PREDICATE__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -306,20 +306,20 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPredicateName(PredicateName newPredicateName)
+  public void setName(PredicateName newName)
   {
-    if (newPredicateName != predicateName)
+    if (newName != name)
     {
       NotificationChain msgs = null;
-      if (predicateName != null)
-        msgs = ((InternalEObject)predicateName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.PREDICATE__PREDICATE_NAME, null, msgs);
-      if (newPredicateName != null)
-        msgs = ((InternalEObject)newPredicateName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.PREDICATE__PREDICATE_NAME, null, msgs);
-      msgs = basicSetPredicateName(newPredicateName, msgs);
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.PREDICATE__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.PREDICATE__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.PREDICATE__PREDICATE_NAME, newPredicateName, newPredicateName));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.PREDICATE__NAME, newName, newName));
   }
 
   /**
@@ -604,8 +604,8 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
         return basicSetRef(null, msgs);
       case AlsPackage.PREDICATE__DOT:
         return basicSetDot(null, msgs);
-      case AlsPackage.PREDICATE__PREDICATE_NAME:
-        return basicSetPredicateName(null, msgs);
+      case AlsPackage.PREDICATE__NAME:
+        return basicSetName(null, msgs);
       case AlsPackage.PREDICATE__LEFT_S:
         return basicSetLeftS(null, msgs);
       case AlsPackage.PREDICATE__DECL:
@@ -638,8 +638,8 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
         return getRef();
       case AlsPackage.PREDICATE__DOT:
         return getDot();
-      case AlsPackage.PREDICATE__PREDICATE_NAME:
-        return getPredicateName();
+      case AlsPackage.PREDICATE__NAME:
+        return getName();
       case AlsPackage.PREDICATE__LEFT_S:
         return getLeftS();
       case AlsPackage.PREDICATE__DECL:
@@ -675,8 +675,8 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
       case AlsPackage.PREDICATE__DOT:
         setDot((Dot)newValue);
         return;
-      case AlsPackage.PREDICATE__PREDICATE_NAME:
-        setPredicateName((PredicateName)newValue);
+      case AlsPackage.PREDICATE__NAME:
+        setName((PredicateName)newValue);
         return;
       case AlsPackage.PREDICATE__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)newValue);
@@ -721,8 +721,8 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
       case AlsPackage.PREDICATE__DOT:
         setDot((Dot)null);
         return;
-      case AlsPackage.PREDICATE__PREDICATE_NAME:
-        setPredicateName((PredicateName)null);
+      case AlsPackage.PREDICATE__NAME:
+        setName((PredicateName)null);
         return;
       case AlsPackage.PREDICATE__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)null);
@@ -763,8 +763,8 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
         return ref != null;
       case AlsPackage.PREDICATE__DOT:
         return dot != null;
-      case AlsPackage.PREDICATE__PREDICATE_NAME:
-        return predicateName != null;
+      case AlsPackage.PREDICATE__NAME:
+        return name != null;
       case AlsPackage.PREDICATE__LEFT_S:
         return leftS != null;
       case AlsPackage.PREDICATE__DECL:

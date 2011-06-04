@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.AssertionImpl#getAssertionName <em>Assertion Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.AssertionImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.AssertionImpl#getBlock <em>Block</em>}</li>
  * </ul>
  * </p>
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class AssertionImpl extends ParagraphImpl implements Assertion
 {
   /**
-   * The cached value of the '{@link #getAssertionName() <em>Assertion Name</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAssertionName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected AssertionName assertionName;
+  protected AssertionName name;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -80,9 +80,9 @@ public class AssertionImpl extends ParagraphImpl implements Assertion
    * <!-- end-user-doc -->
    * @generated
    */
-  public AssertionName getAssertionName()
+  public AssertionName getName()
   {
-    return assertionName;
+    return name;
   }
 
   /**
@@ -90,13 +90,13 @@ public class AssertionImpl extends ParagraphImpl implements Assertion
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAssertionName(AssertionName newAssertionName, NotificationChain msgs)
+  public NotificationChain basicSetName(AssertionName newName, NotificationChain msgs)
   {
-    AssertionName oldAssertionName = assertionName;
-    assertionName = newAssertionName;
+    AssertionName oldName = name;
+    name = newName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.ASSERTION__ASSERTION_NAME, oldAssertionName, newAssertionName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.ASSERTION__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -107,20 +107,20 @@ public class AssertionImpl extends ParagraphImpl implements Assertion
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAssertionName(AssertionName newAssertionName)
+  public void setName(AssertionName newName)
   {
-    if (newAssertionName != assertionName)
+    if (newName != name)
     {
       NotificationChain msgs = null;
-      if (assertionName != null)
-        msgs = ((InternalEObject)assertionName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.ASSERTION__ASSERTION_NAME, null, msgs);
-      if (newAssertionName != null)
-        msgs = ((InternalEObject)newAssertionName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.ASSERTION__ASSERTION_NAME, null, msgs);
-      msgs = basicSetAssertionName(newAssertionName, msgs);
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.ASSERTION__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.ASSERTION__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.ASSERTION__ASSERTION_NAME, newAssertionName, newAssertionName));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.ASSERTION__NAME, newName, newName));
   }
 
   /**
@@ -181,8 +181,8 @@ public class AssertionImpl extends ParagraphImpl implements Assertion
   {
     switch (featureID)
     {
-      case AlsPackage.ASSERTION__ASSERTION_NAME:
-        return basicSetAssertionName(null, msgs);
+      case AlsPackage.ASSERTION__NAME:
+        return basicSetName(null, msgs);
       case AlsPackage.ASSERTION__BLOCK:
         return basicSetBlock(null, msgs);
     }
@@ -199,8 +199,8 @@ public class AssertionImpl extends ParagraphImpl implements Assertion
   {
     switch (featureID)
     {
-      case AlsPackage.ASSERTION__ASSERTION_NAME:
-        return getAssertionName();
+      case AlsPackage.ASSERTION__NAME:
+        return getName();
       case AlsPackage.ASSERTION__BLOCK:
         return getBlock();
     }
@@ -217,8 +217,8 @@ public class AssertionImpl extends ParagraphImpl implements Assertion
   {
     switch (featureID)
     {
-      case AlsPackage.ASSERTION__ASSERTION_NAME:
-        setAssertionName((AssertionName)newValue);
+      case AlsPackage.ASSERTION__NAME:
+        setName((AssertionName)newValue);
         return;
       case AlsPackage.ASSERTION__BLOCK:
         setBlock((Block)newValue);
@@ -237,8 +237,8 @@ public class AssertionImpl extends ParagraphImpl implements Assertion
   {
     switch (featureID)
     {
-      case AlsPackage.ASSERTION__ASSERTION_NAME:
-        setAssertionName((AssertionName)null);
+      case AlsPackage.ASSERTION__NAME:
+        setName((AssertionName)null);
         return;
       case AlsPackage.ASSERTION__BLOCK:
         setBlock((Block)null);
@@ -257,8 +257,8 @@ public class AssertionImpl extends ParagraphImpl implements Assertion
   {
     switch (featureID)
     {
-      case AlsPackage.ASSERTION__ASSERTION_NAME:
-        return assertionName != null;
+      case AlsPackage.ASSERTION__NAME:
+        return name != null;
       case AlsPackage.ASSERTION__BLOCK:
         return block != null;
     }

@@ -14,7 +14,7 @@ package fr.univartois.cril.xtext.als;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.Fact#getFactName <em>Fact Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Fact#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Fact#getBlock <em>Block</em>}</li>
  * </ul>
  * </p>
@@ -26,30 +26,30 @@ package fr.univartois.cril.xtext.als;
 public interface Fact extends Paragraph
 {
   /**
-   * Returns the value of the '<em><b>Fact Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fact Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fact Name</em>' containment reference.
-   * @see #setFactName(FactName)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getFact_FactName()
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(FactName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getFact_Name()
    * @model containment="true"
    * @generated
    */
-  FactName getFactName();
+  FactName getName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Fact#getFactName <em>Fact Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Fact#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fact Name</em>' containment reference.
-   * @see #getFactName()
+   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @see #getName()
    * @generated
    */
-  void setFactName(FactName value);
+  void setName(FactName value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.

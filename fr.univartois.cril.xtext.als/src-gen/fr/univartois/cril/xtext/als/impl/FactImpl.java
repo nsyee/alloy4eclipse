@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.FactImpl#getFactName <em>Fact Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.FactImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.FactImpl#getBlock <em>Block</em>}</li>
  * </ul>
  * </p>
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class FactImpl extends ParagraphImpl implements Fact
 {
   /**
-   * The cached value of the '{@link #getFactName() <em>Fact Name</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFactName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected FactName factName;
+  protected FactName name;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -80,9 +80,9 @@ public class FactImpl extends ParagraphImpl implements Fact
    * <!-- end-user-doc -->
    * @generated
    */
-  public FactName getFactName()
+  public FactName getName()
   {
-    return factName;
+    return name;
   }
 
   /**
@@ -90,13 +90,13 @@ public class FactImpl extends ParagraphImpl implements Fact
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFactName(FactName newFactName, NotificationChain msgs)
+  public NotificationChain basicSetName(FactName newName, NotificationChain msgs)
   {
-    FactName oldFactName = factName;
-    factName = newFactName;
+    FactName oldName = name;
+    name = newName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.FACT__FACT_NAME, oldFactName, newFactName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.FACT__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -107,20 +107,20 @@ public class FactImpl extends ParagraphImpl implements Fact
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFactName(FactName newFactName)
+  public void setName(FactName newName)
   {
-    if (newFactName != factName)
+    if (newName != name)
     {
       NotificationChain msgs = null;
-      if (factName != null)
-        msgs = ((InternalEObject)factName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FACT__FACT_NAME, null, msgs);
-      if (newFactName != null)
-        msgs = ((InternalEObject)newFactName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FACT__FACT_NAME, null, msgs);
-      msgs = basicSetFactName(newFactName, msgs);
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FACT__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FACT__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.FACT__FACT_NAME, newFactName, newFactName));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.FACT__NAME, newName, newName));
   }
 
   /**
@@ -181,8 +181,8 @@ public class FactImpl extends ParagraphImpl implements Fact
   {
     switch (featureID)
     {
-      case AlsPackage.FACT__FACT_NAME:
-        return basicSetFactName(null, msgs);
+      case AlsPackage.FACT__NAME:
+        return basicSetName(null, msgs);
       case AlsPackage.FACT__BLOCK:
         return basicSetBlock(null, msgs);
     }
@@ -199,8 +199,8 @@ public class FactImpl extends ParagraphImpl implements Fact
   {
     switch (featureID)
     {
-      case AlsPackage.FACT__FACT_NAME:
-        return getFactName();
+      case AlsPackage.FACT__NAME:
+        return getName();
       case AlsPackage.FACT__BLOCK:
         return getBlock();
     }
@@ -217,8 +217,8 @@ public class FactImpl extends ParagraphImpl implements Fact
   {
     switch (featureID)
     {
-      case AlsPackage.FACT__FACT_NAME:
-        setFactName((FactName)newValue);
+      case AlsPackage.FACT__NAME:
+        setName((FactName)newValue);
         return;
       case AlsPackage.FACT__BLOCK:
         setBlock((Block)newValue);
@@ -237,8 +237,8 @@ public class FactImpl extends ParagraphImpl implements Fact
   {
     switch (featureID)
     {
-      case AlsPackage.FACT__FACT_NAME:
-        setFactName((FactName)null);
+      case AlsPackage.FACT__NAME:
+        setName((FactName)null);
         return;
       case AlsPackage.FACT__BLOCK:
         setBlock((Block)null);
@@ -257,8 +257,8 @@ public class FactImpl extends ParagraphImpl implements Fact
   {
     switch (featureID)
     {
-      case AlsPackage.FACT__FACT_NAME:
-        return factName != null;
+      case AlsPackage.FACT__NAME:
+        return name != null;
       case AlsPackage.FACT__BLOCK:
         return block != null;
     }

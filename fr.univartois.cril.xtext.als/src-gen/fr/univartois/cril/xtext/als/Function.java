@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getRef <em>Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getDot <em>Dot</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Function#getFunctionName <em>Function Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Function#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getLeftS <em>Left S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getDecl <em>Decl</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getComma <em>Comma</em>}</li>
@@ -27,7 +27,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getColon <em>Colon</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getExpr <em>Expr</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Function#getBlock <em>Block</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.Function#getFunctionNamewParam <em>Function Namew Param</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,30 +89,30 @@ public interface Function extends Paragraph
   void setDot(Dot value);
 
   /**
-   * Returns the value of the '<em><b>Function Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Function Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Function Name</em>' containment reference.
-   * @see #setFunctionName(FunctionName)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getFunction_FunctionName()
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(ReferencesName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getFunction_Name()
    * @model containment="true"
    * @generated
    */
-  FunctionName getFunctionName();
+  ReferencesName getName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Function#getFunctionName <em>Function Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Function#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Function Name</em>' containment reference.
-   * @see #getFunctionName()
+   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @see #getName()
    * @generated
    */
-  void setFunctionName(FunctionName value);
+  void setName(ReferencesName value);
 
   /**
    * Returns the value of the '<em><b>Left S</b></em>' containment reference.
@@ -328,31 +327,5 @@ public interface Function extends Paragraph
    * @generated
    */
   void setBlock(Block value);
-
-  /**
-   * Returns the value of the '<em><b>Function Namew Param</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Function Namew Param</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Function Namew Param</em>' containment reference.
-   * @see #setFunctionNamewParam(FunctionNamewParam)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getFunction_FunctionNamewParam()
-   * @model containment="true"
-   * @generated
-   */
-  FunctionNamewParam getFunctionNamewParam();
-
-  /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Function#getFunctionNamewParam <em>Function Namew Param</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Function Namew Param</em>' containment reference.
-   * @see #getFunctionNamewParam()
-   * @generated
-   */
-  void setFunctionNamewParam(FunctionNamewParam value);
 
 } // Function

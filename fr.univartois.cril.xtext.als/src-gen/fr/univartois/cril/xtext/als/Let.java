@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.Let#getLetName <em>Let Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Let#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Let#getLeftS <em>Left S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Let#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Let#getComma <em>Comma</em>}</li>
@@ -32,30 +32,30 @@ import org.eclipse.emf.common.util.EList;
 public interface Let extends Paragraph
 {
   /**
-   * Returns the value of the '<em><b>Let Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Let Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Let Name</em>' containment reference.
-   * @see #setLetName(LetName)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getLet_LetName()
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(LetName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getLet_Name()
    * @model containment="true"
    * @generated
    */
-  LetName getLetName();
+  LetName getName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Let#getLetName <em>Let Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Let#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Let Name</em>' containment reference.
-   * @see #getLetName()
+   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @see #getName()
    * @generated
    */
-  void setLetName(LetName value);
+  void setName(LetName value);
 
   /**
    * Returns the value of the '<em><b>Left S</b></em>' containment reference.

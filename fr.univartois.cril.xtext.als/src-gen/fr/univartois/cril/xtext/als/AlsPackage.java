@@ -290,13 +290,13 @@ public interface AlsPackage extends EPackage
   int FACT = 4;
 
   /**
-   * The feature id for the '<em><b>Fact Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FACT__FACT_NAME = PARAGRAPH_FEATURE_COUNT + 0;
+  int FACT__NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -327,13 +327,13 @@ public interface AlsPackage extends EPackage
   int ASSERTION = 5;
 
   /**
-   * The feature id for the '<em><b>Assertion Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSERTION__ASSERTION_NAME = PARAGRAPH_FEATURE_COUNT + 0;
+  int ASSERTION__NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -382,13 +382,13 @@ public interface AlsPackage extends EPackage
   int FUNCTION__DOT = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Function Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION__FUNCTION_NAME = PARAGRAPH_FEATURE_COUNT + 2;
+  int FUNCTION__NAME = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Left S</b></em>' containment reference.
@@ -472,22 +472,13 @@ public interface AlsPackage extends EPackage
   int FUNCTION__BLOCK = PARAGRAPH_FEATURE_COUNT + 11;
 
   /**
-   * The feature id for the '<em><b>Function Namew Param</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__FUNCTION_NAMEW_PARAM = PARAGRAPH_FEATURE_COUNT + 12;
-
-  /**
    * The number of structural features of the '<em>Function</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 13;
+  int FUNCTION_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 12;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext.als.impl.PredicateImpl <em>Predicate</em>}' class.
@@ -518,13 +509,13 @@ public interface AlsPackage extends EPackage
   int PREDICATE__DOT = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Predicate Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PREDICATE__PREDICATE_NAME = PARAGRAPH_FEATURE_COUNT + 2;
+  int PREDICATE__NAME = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Left S</b></em>' containment reference.
@@ -975,13 +966,13 @@ public interface AlsPackage extends EPackage
   int LET = 14;
 
   /**
-   * The feature id for the '<em><b>Let Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LET__LET_NAME = PARAGRAPH_FEATURE_COUNT + 0;
+  int LET__NAME = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Left S</b></em>' containment reference.
@@ -1836,13 +1827,13 @@ public interface AlsPackage extends EPackage
   int OPEN_NAME = 29;
 
   /**
-   * The feature id for the '<em><b>Import URI</b></em>' attribute.
+   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPEN_NAME__IMPORT_URI = 0;
+  int OPEN_NAME__IMPORTED_NAMESPACE = 0;
 
   /**
    * The number of structural features of the '<em>Open Name</em>' class.
@@ -2790,15 +2781,15 @@ public interface AlsPackage extends EPackage
   EClass getFact();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Fact#getFactName <em>Fact Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Fact#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Fact Name</em>'.
-   * @see fr.univartois.cril.xtext.als.Fact#getFactName()
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see fr.univartois.cril.xtext.als.Fact#getName()
    * @see #getFact()
    * @generated
    */
-  EReference getFact_FactName();
+  EReference getFact_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Fact#getBlock <em>Block</em>}'.
@@ -2822,15 +2813,15 @@ public interface AlsPackage extends EPackage
   EClass getAssertion();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Assertion#getAssertionName <em>Assertion Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Assertion#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Assertion Name</em>'.
-   * @see fr.univartois.cril.xtext.als.Assertion#getAssertionName()
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see fr.univartois.cril.xtext.als.Assertion#getName()
    * @see #getAssertion()
    * @generated
    */
-  EReference getAssertion_AssertionName();
+  EReference getAssertion_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Assertion#getBlock <em>Block</em>}'.
@@ -2876,15 +2867,15 @@ public interface AlsPackage extends EPackage
   EReference getFunction_Dot();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Function#getFunctionName <em>Function Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Function#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Function Name</em>'.
-   * @see fr.univartois.cril.xtext.als.Function#getFunctionName()
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see fr.univartois.cril.xtext.als.Function#getName()
    * @see #getFunction()
    * @generated
    */
-  EReference getFunction_FunctionName();
+  EReference getFunction_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Function#getLeftS <em>Left S</em>}'.
@@ -2986,17 +2977,6 @@ public interface AlsPackage extends EPackage
   EReference getFunction_Block();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Function#getFunctionNamewParam <em>Function Namew Param</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Function Namew Param</em>'.
-   * @see fr.univartois.cril.xtext.als.Function#getFunctionNamewParam()
-   * @see #getFunction()
-   * @generated
-   */
-  EReference getFunction_FunctionNamewParam();
-
-  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext.als.Predicate <em>Predicate</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3029,15 +3009,15 @@ public interface AlsPackage extends EPackage
   EReference getPredicate_Dot();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Predicate#getPredicateName <em>Predicate Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Predicate#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Predicate Name</em>'.
-   * @see fr.univartois.cril.xtext.als.Predicate#getPredicateName()
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see fr.univartois.cril.xtext.als.Predicate#getName()
    * @see #getPredicate()
    * @generated
    */
-  EReference getPredicate_PredicateName();
+  EReference getPredicate_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Predicate#getLeftS <em>Left S</em>}'.
@@ -3495,15 +3475,15 @@ public interface AlsPackage extends EPackage
   EClass getLet();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Let#getLetName <em>Let Name</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Let#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Let Name</em>'.
-   * @see fr.univartois.cril.xtext.als.Let#getLetName()
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see fr.univartois.cril.xtext.als.Let#getName()
    * @see #getLet()
    * @generated
    */
-  EReference getLet_LetName();
+  EReference getLet_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext.als.Let#getLeftS <em>Left S</em>}'.
@@ -4283,15 +4263,15 @@ public interface AlsPackage extends EPackage
   EClass getOpenName();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.OpenName#getImportURI <em>Import URI</em>}'.
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext.als.OpenName#getImportedNamespace <em>Imported Namespace</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Import URI</em>'.
-   * @see fr.univartois.cril.xtext.als.OpenName#getImportURI()
+   * @return the meta object for the attribute '<em>Imported Namespace</em>'.
+   * @see fr.univartois.cril.xtext.als.OpenName#getImportedNamespace()
    * @see #getOpenName()
    * @generated
    */
-  EAttribute getOpenName_ImportURI();
+  EAttribute getOpenName_ImportedNamespace();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext.als.FactName <em>Fact Name</em>}'.
@@ -4921,12 +4901,12 @@ public interface AlsPackage extends EPackage
     EClass FACT = eINSTANCE.getFact();
 
     /**
-     * The meta object literal for the '<em><b>Fact Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FACT__FACT_NAME = eINSTANCE.getFact_FactName();
+    EReference FACT__NAME = eINSTANCE.getFact_Name();
 
     /**
      * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
@@ -4947,12 +4927,12 @@ public interface AlsPackage extends EPackage
     EClass ASSERTION = eINSTANCE.getAssertion();
 
     /**
-     * The meta object literal for the '<em><b>Assertion Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSERTION__ASSERTION_NAME = eINSTANCE.getAssertion_AssertionName();
+    EReference ASSERTION__NAME = eINSTANCE.getAssertion_Name();
 
     /**
      * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
@@ -4989,12 +4969,12 @@ public interface AlsPackage extends EPackage
     EReference FUNCTION__DOT = eINSTANCE.getFunction_Dot();
 
     /**
-     * The meta object literal for the '<em><b>Function Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUNCTION__FUNCTION_NAME = eINSTANCE.getFunction_FunctionName();
+    EReference FUNCTION__NAME = eINSTANCE.getFunction_Name();
 
     /**
      * The meta object literal for the '<em><b>Left S</b></em>' containment reference feature.
@@ -5069,14 +5049,6 @@ public interface AlsPackage extends EPackage
     EReference FUNCTION__BLOCK = eINSTANCE.getFunction_Block();
 
     /**
-     * The meta object literal for the '<em><b>Function Namew Param</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FUNCTION__FUNCTION_NAMEW_PARAM = eINSTANCE.getFunction_FunctionNamewParam();
-
-    /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext.als.impl.PredicateImpl <em>Predicate</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5103,12 +5075,12 @@ public interface AlsPackage extends EPackage
     EReference PREDICATE__DOT = eINSTANCE.getPredicate_Dot();
 
     /**
-     * The meta object literal for the '<em><b>Predicate Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PREDICATE__PREDICATE_NAME = eINSTANCE.getPredicate_PredicateName();
+    EReference PREDICATE__NAME = eINSTANCE.getPredicate_Name();
 
     /**
      * The meta object literal for the '<em><b>Left S</b></em>' containment reference feature.
@@ -5461,12 +5433,12 @@ public interface AlsPackage extends EPackage
     EClass LET = eINSTANCE.getLet();
 
     /**
-     * The meta object literal for the '<em><b>Let Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LET__LET_NAME = eINSTANCE.getLet_LetName();
+    EReference LET__NAME = eINSTANCE.getLet_Name();
 
     /**
      * The meta object literal for the '<em><b>Left S</b></em>' containment reference feature.
@@ -6075,12 +6047,12 @@ public interface AlsPackage extends EPackage
     EClass OPEN_NAME = eINSTANCE.getOpenName();
 
     /**
-     * The meta object literal for the '<em><b>Import URI</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPEN_NAME__IMPORT_URI = eINSTANCE.getOpenName_ImportURI();
+    EAttribute OPEN_NAME__IMPORTED_NAMESPACE = eINSTANCE.getOpenName_ImportedNamespace();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext.als.impl.FactNameImpl <em>Fact Name</em>}' class.

@@ -14,7 +14,7 @@ package fr.univartois.cril.xtext.als;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.Assertion#getAssertionName <em>Assertion Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.Assertion#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.Assertion#getBlock <em>Block</em>}</li>
  * </ul>
  * </p>
@@ -26,30 +26,30 @@ package fr.univartois.cril.xtext.als;
 public interface Assertion extends Paragraph
 {
   /**
-   * Returns the value of the '<em><b>Assertion Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Assertion Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Assertion Name</em>' containment reference.
-   * @see #setAssertionName(AssertionName)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getAssertion_AssertionName()
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(AssertionName)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getAssertion_Name()
    * @model containment="true"
    * @generated
    */
-  AssertionName getAssertionName();
+  AssertionName getName();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Assertion#getAssertionName <em>Assertion Name</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.Assertion#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Assertion Name</em>' containment reference.
-   * @see #getAssertionName()
+   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @see #getName()
    * @generated
    */
-  void setAssertionName(AssertionName value);
+  void setName(AssertionName value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.
