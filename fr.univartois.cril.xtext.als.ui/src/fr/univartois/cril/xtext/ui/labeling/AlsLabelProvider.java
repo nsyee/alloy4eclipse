@@ -59,7 +59,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	String text(Open open){
-		return open.getOpenName().getImportedNamespace();
+		return open.getOpenName().getImportURI();
 	}
 
 	String image(Open open){

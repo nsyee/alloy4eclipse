@@ -37076,33 +37076,33 @@ public class InternalAlsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__OpenName__Group__1__Impl
-    // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12018:1: rule__OpenName__Group__1__Impl : ( ( rule__OpenName__ImportedNamespaceAssignment_1 ) ) ;
+    // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12018:1: rule__OpenName__Group__1__Impl : ( ( rule__OpenName__ImportURIAssignment_1 ) ) ;
     public final void rule__OpenName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12022:1: ( ( ( rule__OpenName__ImportedNamespaceAssignment_1 ) ) )
-            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12023:1: ( ( rule__OpenName__ImportedNamespaceAssignment_1 ) )
+            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12022:1: ( ( ( rule__OpenName__ImportURIAssignment_1 ) ) )
+            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12023:1: ( ( rule__OpenName__ImportURIAssignment_1 ) )
             {
-            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12023:1: ( ( rule__OpenName__ImportedNamespaceAssignment_1 ) )
-            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12024:1: ( rule__OpenName__ImportedNamespaceAssignment_1 )
+            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12023:1: ( ( rule__OpenName__ImportURIAssignment_1 ) )
+            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12024:1: ( rule__OpenName__ImportURIAssignment_1 )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getOpenNameAccess().getImportedNamespaceAssignment_1()); 
+               before(grammarAccess.getOpenNameAccess().getImportURIAssignment_1()); 
             }
-            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12025:1: ( rule__OpenName__ImportedNamespaceAssignment_1 )
-            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12025:2: rule__OpenName__ImportedNamespaceAssignment_1
+            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12025:1: ( rule__OpenName__ImportURIAssignment_1 )
+            // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:12025:2: rule__OpenName__ImportURIAssignment_1
             {
-            pushFollow(FOLLOW_rule__OpenName__ImportedNamespaceAssignment_1_in_rule__OpenName__Group__1__Impl24647);
-            rule__OpenName__ImportedNamespaceAssignment_1();
+            pushFollow(FOLLOW_rule__OpenName__ImportURIAssignment_1_in_rule__OpenName__Group__1__Impl24647);
+            rule__OpenName__ImportURIAssignment_1();
             _fsp--;
             if (failed) return ;
 
             }
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getOpenNameAccess().getImportedNamespaceAssignment_1()); 
+               after(grammarAccess.getOpenNameAccess().getImportURIAssignment_1()); 
             }
 
             }
@@ -47714,9 +47714,9 @@ public class InternalAlsParser extends AbstractInternalContentAssistParser {
     // $ANTLR end rule__BlockOrBar__ExprAssignment_1_1
 
 
-    // $ANTLR start rule__OpenName__ImportedNamespaceAssignment_1
-    // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:15870:1: rule__OpenName__ImportedNamespaceAssignment_1 : ( ruleName ) ;
-    public final void rule__OpenName__ImportedNamespaceAssignment_1() throws RecognitionException {
+    // $ANTLR start rule__OpenName__ImportURIAssignment_1
+    // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:15870:1: rule__OpenName__ImportURIAssignment_1 : ( ruleName ) ;
+    public final void rule__OpenName__ImportURIAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -47728,14 +47728,14 @@ public class InternalAlsParser extends AbstractInternalContentAssistParser {
             // ../fr.univartois.cril.xtext.als.ui/src-gen/fr/univartois/cril/xtext/ui/contentassist/antlr/internal/InternalAls.g:15876:1: ruleName
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getOpenNameAccess().getImportedNamespaceNameParserRuleCall_1_0()); 
+               before(grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleName_in_rule__OpenName__ImportedNamespaceAssignment_132419);
+            pushFollow(FOLLOW_ruleName_in_rule__OpenName__ImportURIAssignment_132419);
             ruleName();
             _fsp--;
             if (failed) return ;
             if ( backtracking==0 ) {
-               after(grammarAccess.getOpenNameAccess().getImportedNamespaceNameParserRuleCall_1_0()); 
+               after(grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0()); 
             }
 
             }
@@ -47755,7 +47755,7 @@ public class InternalAlsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__OpenName__ImportedNamespaceAssignment_1
+    // $ANTLR end rule__OpenName__ImportURIAssignment_1
 
 
     // $ANTLR start rule__FactName__NameAssignment_2
@@ -50847,7 +50847,7 @@ public class InternalAlsParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__OpenName__Group__1_in_rule__OpenName__Group__024561 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_77_in_rule__OpenName__Group__0__Impl24589 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OpenName__Group__1__Impl_in_rule__OpenName__Group__124620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__OpenName__ImportedNamespaceAssignment_1_in_rule__OpenName__Group__1__Impl24647 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__OpenName__ImportURIAssignment_1_in_rule__OpenName__Group__1__Impl24647 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FactName__Group__0__Impl_in_rule__FactName__Group__024681 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
     public static final BitSet FOLLOW_rule__FactName__Group__1_in_rule__FactName__Group__024684 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FactName__Group__1__Impl_in_rule__FactName__Group__124742 = new BitSet(new long[]{0x0000000000800012L});
@@ -51096,7 +51096,7 @@ public class InternalAlsParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleRightCurlyBracket_in_rule__Block__RightCAssignment_232324 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBlock_in_rule__BlockOrBar__BlockAssignment_032355 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_rule__BlockOrBar__ExprAssignment_1_132386 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleName_in_rule__OpenName__ImportedNamespaceAssignment_132419 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleName_in_rule__OpenName__ImportURIAssignment_132419 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleName_in_rule__FactName__NameAssignment_232450 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleName_in_rule__AssertionName__NameAssignment_232481 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleName_in_rule__FunctionName__NameAssignment32512 = new BitSet(new long[]{0x0000000000000002L});

@@ -375,7 +375,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBlockOrBarAccess().getExprAssignment_1_1(), "rule__BlockOrBar__ExprAssignment_1_1");
 					put(grammarAccess.getBlockOrPossibleBarAccess().getBlockAssignment_0(), "rule__BlockOrPossibleBar__BlockAssignment_0");
 					put(grammarAccess.getBlockOrPossibleBarAccess().getExprAssignment_1_1(), "rule__BlockOrPossibleBar__ExprAssignment_1_1");
-					put(grammarAccess.getOpenNameAccess().getImportedNamespaceAssignment_1(), "rule__OpenName__ImportedNamespaceAssignment_1");
+					put(grammarAccess.getOpenNameAccess().getImportURIAssignment_1(), "rule__OpenName__ImportURIAssignment_1");
 					put(grammarAccess.getFactNameAccess().getNameAssignment_2(), "rule__FactName__NameAssignment_2");
 					put(grammarAccess.getAssertionNameAccess().getNameAssignment_2(), "rule__AssertionName__NameAssignment_2");
 					put(grammarAccess.getFunctionNameAccess().getNameAssignment(), "rule__FunctionName__NameAssignment");
