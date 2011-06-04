@@ -1,6 +1,5 @@
 package fr.univartois.cril.xtext.scoping;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 
 import fr.univartois.cril.xtext.als.Assertion;
