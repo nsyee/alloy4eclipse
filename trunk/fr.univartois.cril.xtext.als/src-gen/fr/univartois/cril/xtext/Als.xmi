@@ -122,7 +122,7 @@
         <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//Fact"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Assignment" feature="factName" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="block" operator="=">
@@ -135,7 +135,7 @@
         <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//Assertion"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Assignment" feature="assertionName" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.35"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="block" operator="=">
@@ -158,7 +158,7 @@
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.54"/>
           </elements>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="functionName" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.36"/>
         </elements>
         <elements xsi:type="xtext:Alternatives">
@@ -231,7 +231,7 @@
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.54"/>
           </elements>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="functionNamewParam" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.37"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="colon" operator="=">
@@ -260,7 +260,7 @@
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.54"/>
           </elements>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="predicateName" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.38"/>
         </elements>
         <elements xsi:type="xtext:Alternatives" cardinality="?">
@@ -559,7 +559,7 @@
         <classifier xsi:type="ecore:EClass" href="http://www.univartois.fr/cril/xtext/Als#//Let"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Assignment" feature="letName" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.42"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
@@ -1251,7 +1251,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="open"/>
-        <elements xsi:type="xtext:Assignment" feature="importURI" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="importedNamespace" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.48"/>
         </elements>
       </alternatives>

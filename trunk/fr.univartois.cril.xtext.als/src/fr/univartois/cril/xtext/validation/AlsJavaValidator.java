@@ -19,6 +19,7 @@ import fr.univartois.cril.xtext.als.FunctionName;
 import fr.univartois.cril.xtext.als.Paragraph;
 import fr.univartois.cril.xtext.als.Predicate;
 import fr.univartois.cril.xtext.als.PredicateName;
+import fr.univartois.cril.xtext.als.ReferencesName;
 import fr.univartois.cril.xtext.als.RunCommand;
 import fr.univartois.cril.xtext.als.Signature;
 import fr.univartois.cril.xtext.als.SignatureName;
@@ -52,10 +53,10 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 			if(paragraph == null) continue;
 			if(paragraph instanceof Fact){
 				Fact factDecl =(Fact) paragraph;
-				FactName f = factDecl.getFactName();
+				FactName f = factDecl.getName();
 				if(f == null || f ==fact) continue;
 				if(f.getName().equals(fact.getName())){
-					error("Duplicate name : "+ fact.getName(), AlsPackage.FACT__FACT_NAME);
+					error("Duplicate name : "+ fact.getName(), AlsPackage.FACT__NAME);
 					return ;
 				}
 			}
@@ -73,10 +74,10 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 			if(paragraph == null) continue;
 			if(paragraph instanceof Assertion){
 				Assertion assertion =(Assertion) paragraph;
-				AssertionName a = assertion.getAssertionName();
+				AssertionName a = assertion.getName();
 				if(a == null || a ==assertD) continue;
 				if(a.getName().equals(assertD.getName())){
-					error("Duplicate name : "+ assertD.getName(), AlsPackage.ASSERTION_NAME__NAME);
+					error("Duplicate name : "+ assertD.getName(), AlsPackage.ASSERTION__NAME);
 					return ;
 				}
 			}
@@ -94,10 +95,10 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 			if(paragraph == null) continue;
 			if(paragraph instanceof Function){
 				Function fun =(Function) paragraph;
-				FunctionName f = fun.getFunctionName();
+				ReferencesName f = fun.getName();
 				if(f == null || f ==function) continue;
 				if(f.getName().equals(function.getName())){
-					error("Duplicate name : "+ function.getName(), AlsPackage.FUNCTION__FUNCTION_NAME);
+					error("Duplicate name : "+ function.getName(), AlsPackage.FUNCTION__NAME);
 					return ;
 				}
 			}
@@ -115,10 +116,10 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 			if(paragraph == null) continue;
 			if(paragraph instanceof Predicate){
 				Predicate predicate =(Predicate) paragraph;
-				PredicateName p = predicate.getPredicateName();
+				PredicateName p = predicate.getName();
 				if(p == null || p ==pred) continue;
 				if(p.getName().equals(pred.getName())){
-					error("Duplicate name : "+ pred.getName(), AlsPackage.PREDICATE__PREDICATE_NAME);
+					error("Duplicate name : "+ pred.getName(), AlsPackage.PREDICATE__NAME);
 					return ;
 				}
 			}

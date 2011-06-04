@@ -762,9 +762,9 @@ ruleFactDecl returns [EObject current=null]
 ((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getFactDeclAccess().getFactNameFactNameParserRuleCall_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getFactDeclAccess().getNameFactNameParserRuleCall_0_0(), currentNode); 
 	    }
-		lv_factName_0_0=ruleFactName		{
+		lv_name_0_0=ruleFactName		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getFactDeclRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -772,8 +772,8 @@ ruleFactDecl returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"factName",
-	        		lv_factName_0_0, 
+	       			"name",
+	        		lv_name_0_0, 
 	        		"FactName", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -833,9 +833,9 @@ ruleAssertDecl returns [EObject current=null]
 ((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getAssertDeclAccess().getAssertionNameAssertionNameParserRuleCall_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getAssertDeclAccess().getNameAssertionNameParserRuleCall_0_0(), currentNode); 
 	    }
-		lv_assertionName_0_0=ruleAssertionName		{
+		lv_name_0_0=ruleAssertionName		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getAssertDeclRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -843,8 +843,8 @@ ruleAssertDecl returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"assertionName",
-	        		lv_assertionName_0_0, 
+	       			"name",
+	        		lv_name_0_0, 
 	        		"AssertionName", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -960,9 +960,9 @@ ruleFunDecl returns [EObject current=null]
 ))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getFunDeclAccess().getFunctionNameFunctionNameParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getFunDeclAccess().getNameFunctionNameParserRuleCall_3_0(), currentNode); 
 	    }
-		lv_functionName_4_0=ruleFunctionName		{
+		lv_name_4_0=ruleFunctionName		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getFunDeclRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -970,8 +970,8 @@ ruleFunDecl returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"functionName",
-	        		lv_functionName_4_0, 
+	       			"name",
+	        		lv_name_4_0, 
 	        		"FunctionName", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -1376,9 +1376,9 @@ ruleFunDeclWParam returns [EObject current=null]
 ))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getFunDeclWParamAccess().getFunctionNamewParamFunctionNamewParamParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getFunDeclWParamAccess().getNameFunctionNamewParamParserRuleCall_3_0(), currentNode); 
 	    }
-		lv_functionNamewParam_4_0=ruleFunctionNamewParam		{
+		lv_name_4_0=ruleFunctionNamewParam		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getFunDeclWParamRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -1386,8 +1386,8 @@ ruleFunDeclWParam returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"functionNamewParam",
-	        		lv_functionNamewParam_4_0, 
+	       			"name",
+	        		lv_name_4_0, 
 	        		"FunctionNamewParam", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -1551,9 +1551,9 @@ rulePredDecl returns [EObject current=null]
 ))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getPredDeclAccess().getPredicateNamePredicateNameParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getPredDeclAccess().getNamePredicateNameParserRuleCall_3_0(), currentNode); 
 	    }
-		lv_predicateName_4_0=rulePredicateName		{
+		lv_name_4_0=rulePredicateName		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getPredDeclRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -1561,8 +1561,8 @@ rulePredDecl returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"predicateName",
-	        		lv_predicateName_4_0, 
+	       			"name",
+	        		lv_name_4_0, 
 	        		"PredicateName", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -3048,9 +3048,9 @@ ruleLetOutDecl returns [EObject current=null]
 ((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getLetOutDeclAccess().getLetNameLetNameParserRuleCall_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getLetOutDeclAccess().getNameLetNameParserRuleCall_0_0(), currentNode); 
 	    }
-		lv_letName_0_0=ruleLetName		{
+		lv_name_0_0=ruleLetName		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getLetOutDeclRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -3058,8 +3058,8 @@ ruleLetOutDecl returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"letName",
-	        		lv_letName_0_0, 
+	       			"name",
+	        		lv_name_0_0, 
 	        		"LetName", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -6246,9 +6246,9 @@ ruleOpenName returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getOpenNameAccess().getImportURINameParserRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getOpenNameAccess().getImportedNamespaceNameParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_importURI_1_0=ruleName		{
+		lv_importedNamespace_1_0=ruleName		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getOpenNameRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -6256,8 +6256,8 @@ ruleOpenName returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"importURI",
-	        		lv_importURI_1_0, 
+	       			"importedNamespace",
+	        		lv_importedNamespace_1_0, 
 	        		"Name", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {

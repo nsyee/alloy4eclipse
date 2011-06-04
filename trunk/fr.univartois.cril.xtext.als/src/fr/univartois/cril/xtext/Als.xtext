@@ -42,13 +42,13 @@ Paragraph:
 	factDecl ::= "fact" [name] block
 */
 FactDecl returns Fact:
-  factName=FactName block=Block	; 
+  name=FactName block=Block	; 
 
 /*
 	assertDecl ::= "assert" [name] block
 */
 AssertDecl returns Assertion:
-  assertionName=AssertionName block=Block	; 
+  name=AssertionName block=Block	; 
   
 /*
 	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
@@ -56,7 +56,7 @@ AssertDecl returns Assertion:
 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 */
 FunDecl returns Function:
-  "private"? "fun" (ref=Ref dot=Dot)? functionName=FunctionName (
+  "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (
   		leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
   		leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
   		) colon=Colon expr=Expression block=Block	; 
@@ -67,7 +67,7 @@ FunDecl returns Function:
 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 */
 FunDeclWParam returns Function: /* without parameters*/
-  "private"? "fun" (ref=Ref dot=Dot)? functionNamewParam=FunctionNamewParam  colon=Colon expr=Expression block=Block	; 
+  "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam  colon=Colon expr=Expression block=Block	; 
   
 /*
 	funDecl ::= ["private"] "pred" [ref "."] name "(" decl,* ")" block
@@ -75,7 +75,7 @@ FunDeclWParam returns Function: /* without parameters*/
 	funDecl ::= ["private"] "pred" [ref "."] name                block
 */
 PredDecl returns Predicate:
-  "private"? "pred" (ref=Ref dot=Dot)? predicateName=PredicateName (
+  "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (
   		leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
   		leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
   		)? block=Block	; 
@@ -121,7 +121,7 @@ EnumDecl:
 
   
 LetOutDecl returns Let:
-	letName=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName(comma+=Comma nameRef+=ReferencesName)*)? rightS=RightSquareBracketKeyword)? (block=Block |
+	name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName(comma+=Comma nameRef+=ReferencesName)*)? rightS=RightSquareBracketKeyword)? (block=Block |
 					"=" exprName=Expression);
 	
 
@@ -265,7 +265,7 @@ BlockOrPossibleBar:
 
 	
 OpenName	:
-	"open" importURI=Name;
+	"open" importedNamespace=Name;
 	
 FactName	:
 	{FactName} "fact" name=Name?	;

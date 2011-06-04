@@ -13,11 +13,10 @@ import fr.univartois.cril.xtext.als.Decl;
 import fr.univartois.cril.xtext.als.Dot;
 import fr.univartois.cril.xtext.als.Expression;
 import fr.univartois.cril.xtext.als.Function;
-import fr.univartois.cril.xtext.als.FunctionName;
-import fr.univartois.cril.xtext.als.FunctionNamewParam;
 import fr.univartois.cril.xtext.als.LeftParenthesis;
 import fr.univartois.cril.xtext.als.LeftSquareBracketKeyword;
 import fr.univartois.cril.xtext.als.Ref;
+import fr.univartois.cril.xtext.als.ReferencesName;
 import fr.univartois.cril.xtext.als.RightParenthesis;
 import fr.univartois.cril.xtext.als.RightSquareBracketKeyword;
 
@@ -45,7 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getDot <em>Dot</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getFunctionName <em>Function Name</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getLeftS <em>Left S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getDecl <em>Decl</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getComma <em>Comma</em>}</li>
@@ -55,7 +54,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getColon <em>Colon</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getBlock <em>Block</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext.als.impl.FunctionImpl#getFunctionNamewParam <em>Function Namew Param</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,14 +82,14 @@ public class FunctionImpl extends ParagraphImpl implements Function
   protected Dot dot;
 
   /**
-   * The cached value of the '{@link #getFunctionName() <em>Function Name</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFunctionName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected FunctionName functionName;
+  protected ReferencesName name;
 
   /**
    * The cached value of the '{@link #getLeftS() <em>Left S</em>}' containment reference.
@@ -182,16 +180,6 @@ public class FunctionImpl extends ParagraphImpl implements Function
    * @ordered
    */
   protected Block block;
-
-  /**
-   * The cached value of the '{@link #getFunctionNamewParam() <em>Function Namew Param</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFunctionNamewParam()
-   * @generated
-   * @ordered
-   */
-  protected FunctionNamewParam functionNamewParam;
 
   /**
    * <!-- begin-user-doc -->
@@ -315,9 +303,9 @@ public class FunctionImpl extends ParagraphImpl implements Function
    * <!-- end-user-doc -->
    * @generated
    */
-  public FunctionName getFunctionName()
+  public ReferencesName getName()
   {
-    return functionName;
+    return name;
   }
 
   /**
@@ -325,13 +313,13 @@ public class FunctionImpl extends ParagraphImpl implements Function
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFunctionName(FunctionName newFunctionName, NotificationChain msgs)
+  public NotificationChain basicSetName(ReferencesName newName, NotificationChain msgs)
   {
-    FunctionName oldFunctionName = functionName;
-    functionName = newFunctionName;
+    ReferencesName oldName = name;
+    name = newName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.FUNCTION__FUNCTION_NAME, oldFunctionName, newFunctionName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.FUNCTION__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -342,20 +330,20 @@ public class FunctionImpl extends ParagraphImpl implements Function
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFunctionName(FunctionName newFunctionName)
+  public void setName(ReferencesName newName)
   {
-    if (newFunctionName != functionName)
+    if (newName != name)
     {
       NotificationChain msgs = null;
-      if (functionName != null)
-        msgs = ((InternalEObject)functionName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FUNCTION__FUNCTION_NAME, null, msgs);
-      if (newFunctionName != null)
-        msgs = ((InternalEObject)newFunctionName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FUNCTION__FUNCTION_NAME, null, msgs);
-      msgs = basicSetFunctionName(newFunctionName, msgs);
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FUNCTION__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FUNCTION__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.FUNCTION__FUNCTION_NAME, newFunctionName, newFunctionName));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.FUNCTION__NAME, newName, newName));
   }
 
   /**
@@ -727,54 +715,6 @@ public class FunctionImpl extends ParagraphImpl implements Function
    * <!-- end-user-doc -->
    * @generated
    */
-  public FunctionNamewParam getFunctionNamewParam()
-  {
-    return functionNamewParam;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFunctionNamewParam(FunctionNamewParam newFunctionNamewParam, NotificationChain msgs)
-  {
-    FunctionNamewParam oldFunctionNamewParam = functionNamewParam;
-    functionNamewParam = newFunctionNamewParam;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.FUNCTION__FUNCTION_NAMEW_PARAM, oldFunctionNamewParam, newFunctionNamewParam);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFunctionNamewParam(FunctionNamewParam newFunctionNamewParam)
-  {
-    if (newFunctionNamewParam != functionNamewParam)
-    {
-      NotificationChain msgs = null;
-      if (functionNamewParam != null)
-        msgs = ((InternalEObject)functionNamewParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FUNCTION__FUNCTION_NAMEW_PARAM, null, msgs);
-      if (newFunctionNamewParam != null)
-        msgs = ((InternalEObject)newFunctionNamewParam).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.FUNCTION__FUNCTION_NAMEW_PARAM, null, msgs);
-      msgs = basicSetFunctionNamewParam(newFunctionNamewParam, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.FUNCTION__FUNCTION_NAMEW_PARAM, newFunctionNamewParam, newFunctionNamewParam));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -784,8 +724,8 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return basicSetRef(null, msgs);
       case AlsPackage.FUNCTION__DOT:
         return basicSetDot(null, msgs);
-      case AlsPackage.FUNCTION__FUNCTION_NAME:
-        return basicSetFunctionName(null, msgs);
+      case AlsPackage.FUNCTION__NAME:
+        return basicSetName(null, msgs);
       case AlsPackage.FUNCTION__LEFT_S:
         return basicSetLeftS(null, msgs);
       case AlsPackage.FUNCTION__DECL:
@@ -804,8 +744,6 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return basicSetExpr(null, msgs);
       case AlsPackage.FUNCTION__BLOCK:
         return basicSetBlock(null, msgs);
-      case AlsPackage.FUNCTION__FUNCTION_NAMEW_PARAM:
-        return basicSetFunctionNamewParam(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -824,8 +762,8 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return getRef();
       case AlsPackage.FUNCTION__DOT:
         return getDot();
-      case AlsPackage.FUNCTION__FUNCTION_NAME:
-        return getFunctionName();
+      case AlsPackage.FUNCTION__NAME:
+        return getName();
       case AlsPackage.FUNCTION__LEFT_S:
         return getLeftS();
       case AlsPackage.FUNCTION__DECL:
@@ -844,8 +782,6 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return getExpr();
       case AlsPackage.FUNCTION__BLOCK:
         return getBlock();
-      case AlsPackage.FUNCTION__FUNCTION_NAMEW_PARAM:
-        return getFunctionNamewParam();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -867,8 +803,8 @@ public class FunctionImpl extends ParagraphImpl implements Function
       case AlsPackage.FUNCTION__DOT:
         setDot((Dot)newValue);
         return;
-      case AlsPackage.FUNCTION__FUNCTION_NAME:
-        setFunctionName((FunctionName)newValue);
+      case AlsPackage.FUNCTION__NAME:
+        setName((ReferencesName)newValue);
         return;
       case AlsPackage.FUNCTION__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)newValue);
@@ -899,9 +835,6 @@ public class FunctionImpl extends ParagraphImpl implements Function
       case AlsPackage.FUNCTION__BLOCK:
         setBlock((Block)newValue);
         return;
-      case AlsPackage.FUNCTION__FUNCTION_NAMEW_PARAM:
-        setFunctionNamewParam((FunctionNamewParam)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -922,8 +855,8 @@ public class FunctionImpl extends ParagraphImpl implements Function
       case AlsPackage.FUNCTION__DOT:
         setDot((Dot)null);
         return;
-      case AlsPackage.FUNCTION__FUNCTION_NAME:
-        setFunctionName((FunctionName)null);
+      case AlsPackage.FUNCTION__NAME:
+        setName((ReferencesName)null);
         return;
       case AlsPackage.FUNCTION__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)null);
@@ -952,9 +885,6 @@ public class FunctionImpl extends ParagraphImpl implements Function
       case AlsPackage.FUNCTION__BLOCK:
         setBlock((Block)null);
         return;
-      case AlsPackage.FUNCTION__FUNCTION_NAMEW_PARAM:
-        setFunctionNamewParam((FunctionNamewParam)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -973,8 +903,8 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return ref != null;
       case AlsPackage.FUNCTION__DOT:
         return dot != null;
-      case AlsPackage.FUNCTION__FUNCTION_NAME:
-        return functionName != null;
+      case AlsPackage.FUNCTION__NAME:
+        return name != null;
       case AlsPackage.FUNCTION__LEFT_S:
         return leftS != null;
       case AlsPackage.FUNCTION__DECL:
@@ -993,8 +923,6 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return expr != null;
       case AlsPackage.FUNCTION__BLOCK:
         return block != null;
-      case AlsPackage.FUNCTION__FUNCTION_NAMEW_PARAM:
-        return functionNamewParam != null;
     }
     return super.eIsSet(featureID);
   }

@@ -310,25 +310,25 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	public class FactDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FactDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cFactNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cFactNameFactNameParserRuleCall_0_0 = (RuleCall)cFactNameAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameFactNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Assignment cBlockAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBlockBlockParserRuleCall_1_0 = (RuleCall)cBlockAssignment_1.eContents().get(0);
 		
 		/// *
 		//	factDecl ::= "fact" [name] block
 		// * /FactDecl returns Fact:
-		//	factName=FactName block=Block;
+		//	name=FactName block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//factName=FactName block=Block
+		//name=FactName block=Block
 		public Group getGroup() { return cGroup; }
 
-		//factName=FactName
-		public Assignment getFactNameAssignment_0() { return cFactNameAssignment_0; }
+		//name=FactName
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
 		//FactName
-		public RuleCall getFactNameFactNameParserRuleCall_0_0() { return cFactNameFactNameParserRuleCall_0_0; }
+		public RuleCall getNameFactNameParserRuleCall_0_0() { return cNameFactNameParserRuleCall_0_0; }
 
 		//block=Block
 		public Assignment getBlockAssignment_1() { return cBlockAssignment_1; }
@@ -340,25 +340,25 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	public class AssertDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AssertDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cAssertionNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cAssertionNameAssertionNameParserRuleCall_0_0 = (RuleCall)cAssertionNameAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameAssertionNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Assignment cBlockAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBlockBlockParserRuleCall_1_0 = (RuleCall)cBlockAssignment_1.eContents().get(0);
 		
 		/// *
 		//	assertDecl ::= "assert" [name] block
 		// * /AssertDecl returns Assertion:
-		//	assertionName=AssertionName block=Block;
+		//	name=AssertionName block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//assertionName=AssertionName block=Block
+		//name=AssertionName block=Block
 		public Group getGroup() { return cGroup; }
 
-		//assertionName=AssertionName
-		public Assignment getAssertionNameAssignment_0() { return cAssertionNameAssignment_0; }
+		//name=AssertionName
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
 		//AssertionName
-		public RuleCall getAssertionNameAssertionNameParserRuleCall_0_0() { return cAssertionNameAssertionNameParserRuleCall_0_0; }
+		public RuleCall getNameAssertionNameParserRuleCall_0_0() { return cNameAssertionNameParserRuleCall_0_0; }
 
 		//block=Block
 		public Assignment getBlockAssignment_1() { return cBlockAssignment_1; }
@@ -377,8 +377,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRefRefParserRuleCall_2_0_0 = (RuleCall)cRefAssignment_2_0.eContents().get(0);
 		private final Assignment cDotAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cDotDotParserRuleCall_2_1_0 = (RuleCall)cDotAssignment_2_1.eContents().get(0);
-		private final Assignment cFunctionNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFunctionNameFunctionNameParserRuleCall_3_0 = (RuleCall)cFunctionNameAssignment_3.eContents().get(0);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameFunctionNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
 		private final Group cGroup_4_0 = (Group)cAlternatives_4.eContents().get(0);
 		private final Assignment cLeftSAssignment_4_0_0 = (Assignment)cGroup_4_0.eContents().get(0);
@@ -418,12 +418,12 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 		//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 		// * /FunDecl returns Function:
-		//	"private"? "fun" (ref=Ref dot=Dot)? functionName=FunctionName (leftS=LeftSquareBracketKeyword (decl+=Decl
-		//	(comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma
-		//	decl+=Decl)*)? rightP=RightParenthesis) colon=Colon expr=Expression block=Block;
+		//	"private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
+		//	decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//	rightP=RightParenthesis) colon=Colon expr=Expression block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//"private"? "fun" (ref=Ref dot=Dot)? functionName=FunctionName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
+		//"private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
 		//decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
 		//rightP=RightParenthesis) colon=Colon expr=Expression block=Block
 		public Group getGroup() { return cGroup; }
@@ -449,11 +449,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Dot
 		public RuleCall getDotDotParserRuleCall_2_1_0() { return cDotDotParserRuleCall_2_1_0; }
 
-		//functionName=FunctionName
-		public Assignment getFunctionNameAssignment_3() { return cFunctionNameAssignment_3; }
+		//name=FunctionName
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
 		//FunctionName
-		public RuleCall getFunctionNameFunctionNameParserRuleCall_3_0() { return cFunctionNameFunctionNameParserRuleCall_3_0; }
+		public RuleCall getNameFunctionNameParserRuleCall_3_0() { return cNameFunctionNameParserRuleCall_3_0; }
 
 		//leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword |
 		//leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
@@ -566,8 +566,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRefRefParserRuleCall_2_0_0 = (RuleCall)cRefAssignment_2_0.eContents().get(0);
 		private final Assignment cDotAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cDotDotParserRuleCall_2_1_0 = (RuleCall)cDotAssignment_2_1.eContents().get(0);
-		private final Assignment cFunctionNamewParamAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFunctionNamewParamFunctionNamewParamParserRuleCall_3_0 = (RuleCall)cFunctionNamewParamAssignment_3.eContents().get(0);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameFunctionNamewParamParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Assignment cColonAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cColonColonParserRuleCall_4_0 = (RuleCall)cColonAssignment_4.eContents().get(0);
 		private final Assignment cExprAssignment_5 = (Assignment)cGroup.eContents().get(5);
@@ -580,10 +580,10 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 		//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 		// * // * without parameters* / FunDeclWParam returns Function:
-		//	"private"? "fun" (ref=Ref dot=Dot)? functionNamewParam=FunctionNamewParam colon=Colon expr=Expression block=Block;
+		//	"private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//"private"? "fun" (ref=Ref dot=Dot)? functionNamewParam=FunctionNamewParam colon=Colon expr=Expression block=Block
+		//"private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression block=Block
 		public Group getGroup() { return cGroup; }
 
 		//"private"?
@@ -607,11 +607,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Dot
 		public RuleCall getDotDotParserRuleCall_2_1_0() { return cDotDotParserRuleCall_2_1_0; }
 
-		//functionNamewParam=FunctionNamewParam
-		public Assignment getFunctionNamewParamAssignment_3() { return cFunctionNamewParamAssignment_3; }
+		//name=FunctionNamewParam
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
 		//FunctionNamewParam
-		public RuleCall getFunctionNamewParamFunctionNamewParamParserRuleCall_3_0() { return cFunctionNamewParamFunctionNamewParamParserRuleCall_3_0; }
+		public RuleCall getNameFunctionNamewParamParserRuleCall_3_0() { return cNameFunctionNamewParamParserRuleCall_3_0; }
 
 		//colon=Colon
 		public Assignment getColonAssignment_4() { return cColonAssignment_4; }
@@ -642,8 +642,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRefRefParserRuleCall_2_0_0 = (RuleCall)cRefAssignment_2_0.eContents().get(0);
 		private final Assignment cDotAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cDotDotParserRuleCall_2_1_0 = (RuleCall)cDotAssignment_2_1.eContents().get(0);
-		private final Assignment cPredicateNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPredicateNamePredicateNameParserRuleCall_3_0 = (RuleCall)cPredicateNameAssignment_3.eContents().get(0);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNamePredicateNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
 		private final Group cGroup_4_0 = (Group)cAlternatives_4.eContents().get(0);
 		private final Assignment cLeftSAssignment_4_0_0 = (Assignment)cGroup_4_0.eContents().get(0);
@@ -679,14 +679,14 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 		//	funDecl ::= ["private"] "pred" [ref "."] name                block
 		// * /PredDecl returns Predicate:
-		//	"private"? "pred" (ref=Ref dot=Dot)? predicateName=PredicateName (leftS=LeftSquareBracketKeyword (decl+=Decl
-		//	(comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma
-		//	decl+=Decl)*)? rightP=RightParenthesis)? block=Block;
+		//	"private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
+		//	decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//	rightP=RightParenthesis)? block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//"private"? "pred" (ref=Ref dot=Dot)? predicateName=PredicateName (leftS=LeftSquareBracketKeyword (decl+=Decl
-		//(comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma
-		//decl+=Decl)*)? rightP=RightParenthesis)? block=Block
+		//"private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
+		//decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//rightP=RightParenthesis)? block=Block
 		public Group getGroup() { return cGroup; }
 
 		//"private"?
@@ -710,11 +710,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Dot
 		public RuleCall getDotDotParserRuleCall_2_1_0() { return cDotDotParserRuleCall_2_1_0; }
 
-		//predicateName=PredicateName
-		public Assignment getPredicateNameAssignment_3() { return cPredicateNameAssignment_3; }
+		//name=PredicateName
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
 		//PredicateName
-		public RuleCall getPredicateNamePredicateNameParserRuleCall_3_0() { return cPredicateNamePredicateNameParserRuleCall_3_0; }
+		public RuleCall getNamePredicateNameParserRuleCall_3_0() { return cNamePredicateNameParserRuleCall_3_0; }
 
 		//(leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword |
 		//leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis)?
@@ -1347,8 +1347,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	public class LetOutDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LetOutDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cLetNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cLetNameLetNameParserRuleCall_0_0 = (RuleCall)cLetNameAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameLetNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Assignment cLeftSAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final RuleCall cLeftSLeftSquareBracketKeywordParserRuleCall_1_0_0 = (RuleCall)cLeftSAssignment_1_0.eContents().get(0);
@@ -1371,19 +1371,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprNameExpressionParserRuleCall_2_1_1_0 = (RuleCall)cExprNameAssignment_2_1_1.eContents().get(0);
 		
 		//LetOutDecl returns Let:
-		//	letName=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
+		//	name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
 		//	rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression);
 		public ParserRule getRule() { return rule; }
 
-		//letName=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
+		//name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
 		//rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression)
 		public Group getGroup() { return cGroup; }
 
-		//letName=LetName
-		public Assignment getLetNameAssignment_0() { return cLetNameAssignment_0; }
+		//name=LetName
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
 		//LetName
-		public RuleCall getLetNameLetNameParserRuleCall_0_0() { return cLetNameLetNameParserRuleCall_0_0; }
+		public RuleCall getNameLetNameParserRuleCall_0_0() { return cNameLetNameParserRuleCall_0_0; }
 
 		//(leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
 		//rightS=RightSquareBracketKeyword)?
@@ -3030,26 +3030,26 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OpenName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cOpenKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cImportURINameParserRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
+		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportedNamespaceNameParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
 		
 		/// *
 		//	name ::= ["this" | ID] ["/" ID]*
 		// * /OpenName:
-		//	"open" importURI=Name;
+		//	"open" importedNamespace=Name;
 		public ParserRule getRule() { return rule; }
 
-		//"open" importURI=Name
+		//"open" importedNamespace=Name
 		public Group getGroup() { return cGroup; }
 
 		//"open"
 		public Keyword getOpenKeyword_0() { return cOpenKeyword_0; }
 
-		//importURI=Name
-		public Assignment getImportURIAssignment_1() { return cImportURIAssignment_1; }
+		//importedNamespace=Name
+		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
 
 		//Name
-		public RuleCall getImportURINameParserRuleCall_1_0() { return cImportURINameParserRuleCall_1_0; }
+		public RuleCall getImportedNamespaceNameParserRuleCall_1_0() { return cImportedNamespaceNameParserRuleCall_1_0; }
 	}
 
 	public class FactNameElements extends AbstractParserRuleElementFinder {
@@ -3831,7 +3831,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	factDecl ::= "fact" [name] block
 	// * /FactDecl returns Fact:
-	//	factName=FactName block=Block;
+	//	name=FactName block=Block;
 	public FactDeclElements getFactDeclAccess() {
 		return (pFactDecl != null) ? pFactDecl : (pFactDecl = new FactDeclElements());
 	}
@@ -3843,7 +3843,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	assertDecl ::= "assert" [name] block
 	// * /AssertDecl returns Assertion:
-	//	assertionName=AssertionName block=Block;
+	//	name=AssertionName block=Block;
 	public AssertDeclElements getAssertDeclAccess() {
 		return (pAssertDecl != null) ? pAssertDecl : (pAssertDecl = new AssertDeclElements());
 	}
@@ -3857,9 +3857,9 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 	//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 	// * /FunDecl returns Function:
-	//	"private"? "fun" (ref=Ref dot=Dot)? functionName=FunctionName (leftS=LeftSquareBracketKeyword (decl+=Decl
-	//	(comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma
-	//	decl+=Decl)*)? rightP=RightParenthesis) colon=Colon expr=Expression block=Block;
+	//	"private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
+	//	decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+	//	rightP=RightParenthesis) colon=Colon expr=Expression block=Block;
 	public FunDeclElements getFunDeclAccess() {
 		return (pFunDecl != null) ? pFunDecl : (pFunDecl = new FunDeclElements());
 	}
@@ -3873,7 +3873,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 	//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 	// * // * without parameters* / FunDeclWParam returns Function:
-	//	"private"? "fun" (ref=Ref dot=Dot)? functionNamewParam=FunctionNamewParam colon=Colon expr=Expression block=Block;
+	//	"private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression block=Block;
 	public FunDeclWParamElements getFunDeclWParamAccess() {
 		return (pFunDeclWParam != null) ? pFunDeclWParam : (pFunDeclWParam = new FunDeclWParamElements());
 	}
@@ -3887,9 +3887,9 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 	//	funDecl ::= ["private"] "pred" [ref "."] name                block
 	// * /PredDecl returns Predicate:
-	//	"private"? "pred" (ref=Ref dot=Dot)? predicateName=PredicateName (leftS=LeftSquareBracketKeyword (decl+=Decl
-	//	(comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma
-	//	decl+=Decl)*)? rightP=RightParenthesis)? block=Block;
+	//	"private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
+	//	decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+	//	rightP=RightParenthesis)? block=Block;
 	public PredDeclElements getPredDeclAccess() {
 		return (pPredDecl != null) ? pPredDecl : (pPredDecl = new PredDeclElements());
 	}
@@ -3977,7 +3977,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LetOutDecl returns Let:
-	//	letName=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
+	//	name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
 	//	rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression);
 	public LetOutDeclElements getLetOutDeclAccess() {
 		return (pLetOutDecl != null) ? pLetOutDecl : (pLetOutDecl = new LetOutDeclElements());
@@ -4236,7 +4236,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	name ::= ["this" | ID] ["/" ID]*
 	// * /OpenName:
-	//	"open" importURI=Name;
+	//	"open" importedNamespace=Name;
 	public OpenNameElements getOpenNameAccess() {
 		return (pOpenName != null) ? pOpenName : (pOpenName = new OpenNameElements());
 	}

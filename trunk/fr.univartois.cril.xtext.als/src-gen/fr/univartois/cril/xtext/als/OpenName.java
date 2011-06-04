@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.univartois.cril.xtext.als.OpenName#getImportURI <em>Import URI</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext.als.OpenName#getImportedNamespace <em>Imported Namespace</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,29 +26,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface OpenName extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Import URI</b></em>' attribute.
+   * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Import URI</em>' attribute isn't clear,
+   * If the meaning of the '<em>Imported Namespace</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Import URI</em>' attribute.
-   * @see #setImportURI(String)
-   * @see fr.univartois.cril.xtext.als.AlsPackage#getOpenName_ImportURI()
+   * @return the value of the '<em>Imported Namespace</em>' attribute.
+   * @see #setImportedNamespace(String)
+   * @see fr.univartois.cril.xtext.als.AlsPackage#getOpenName_ImportedNamespace()
    * @model
    * @generated
    */
-  String getImportURI();
+  String getImportedNamespace();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext.als.OpenName#getImportURI <em>Import URI</em>}' attribute.
+   * Sets the value of the '{@link fr.univartois.cril.xtext.als.OpenName#getImportedNamespace <em>Imported Namespace</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Import URI</em>' attribute.
-   * @see #getImportURI()
+   * @param value the new value of the '<em>Imported Namespace</em>' attribute.
+   * @see #getImportedNamespace()
    * @generated
    */
-  void setImportURI(String value);
+  void setImportedNamespace(String value);
 
 } // OpenName
