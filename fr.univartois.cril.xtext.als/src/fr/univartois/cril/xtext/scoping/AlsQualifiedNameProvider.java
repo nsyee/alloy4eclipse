@@ -18,13 +18,6 @@ import fr.univartois.cril.xtext.als.Specification;
 public class AlsQualifiedNameProvider extends
 		DefaultDeclarativeQualifiedNameProvider {
 
-	@Override
-	public String getQualifiedName(EObject obj) {
-		String name =  super.getQualifiedName(obj);
-		System.out.println(obj.toString()+"="+name);
-		return name;
-	}
-	
 	public String qualifiedName(Specification s) {
 		return s.getModule().getModuleName();
 	}
