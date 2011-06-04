@@ -265,7 +265,7 @@ BlockOrPossibleBar:
 
 	
 OpenName	:
-	"open" importedNamespace=Name;
+	"open" importURI=Name;
 	
 FactName	:
 	{FactName} "fact" name=Name?	;

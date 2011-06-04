@@ -3030,26 +3030,26 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OpenName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cOpenKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cImportedNamespaceNameParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
+		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportURINameParserRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
 		
 		/// *
 		//	name ::= ["this" | ID] ["/" ID]*
 		// * /OpenName:
-		//	"open" importedNamespace=Name;
+		//	"open" importURI=Name;
 		public ParserRule getRule() { return rule; }
 
-		//"open" importedNamespace=Name
+		//"open" importURI=Name
 		public Group getGroup() { return cGroup; }
 
 		//"open"
 		public Keyword getOpenKeyword_0() { return cOpenKeyword_0; }
 
-		//importedNamespace=Name
-		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
+		//importURI=Name
+		public Assignment getImportURIAssignment_1() { return cImportURIAssignment_1; }
 
 		//Name
-		public RuleCall getImportedNamespaceNameParserRuleCall_1_0() { return cImportedNamespaceNameParserRuleCall_1_0; }
+		public RuleCall getImportURINameParserRuleCall_1_0() { return cImportURINameParserRuleCall_1_0; }
 	}
 
 	public class FactNameElements extends AbstractParserRuleElementFinder {
@@ -4236,7 +4236,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	name ::= ["this" | ID] ["/" ID]*
 	// * /OpenName:
-	//	"open" importedNamespace=Name;
+	//	"open" importURI=Name;
 	public OpenNameElements getOpenNameAccess() {
 		return (pOpenName != null) ? pOpenName : (pOpenName = new OpenNameElements());
 	}
