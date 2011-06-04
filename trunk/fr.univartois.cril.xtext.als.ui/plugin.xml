@@ -88,10 +88,9 @@
   		</page>
 		<!-- ADDED--> 
   		<page 
-  		    category="fr.univartois.cril.xtext.Als" 
   			class="fr.univartois.cril.xtext.preferences.AlloyPreferencePage" 
   			id="fr.univartois.cril.xtext.preferences.AlloyPreferencePage" 
-  			name="Alloy4 settings">
+  			name="Alloy4">
   			<keywordReference 
 				id="fr.univartois.cril.xtext.ui.keyword_Als" /> 
 		</page> 
