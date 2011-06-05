@@ -1,5 +1,6 @@
 package fr.univartois.cril.xtext.scoping;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 
 import fr.univartois.cril.xtext.als.Assertion;
@@ -11,12 +12,20 @@ import fr.univartois.cril.xtext.als.FunctionName;
 import fr.univartois.cril.xtext.als.Let;
 import fr.univartois.cril.xtext.als.Predicate;
 import fr.univartois.cril.xtext.als.PredicateName;
+import fr.univartois.cril.xtext.als.PropertyName;
 import fr.univartois.cril.xtext.als.ReferencesName;
 import fr.univartois.cril.xtext.als.Specification;
 
 public class AlsQualifiedNameProvider extends
 		DefaultDeclarativeQualifiedNameProvider {
 
+	@Override
+	public String getQualifiedName(EObject obj) {
+		String name =  super.getQualifiedName(obj);
+		System.out.println(obj.toString()+"="+name);
+		return name;
+	}
+	
 	public String qualifiedName(Specification s) {
 		return s.getModule().getModuleName();
 	}
@@ -58,6 +67,9 @@ public class AlsQualifiedNameProvider extends
 	}
 	
 	public String qualifiedName(ReferencesName r) {
-		return r.getName();
+		if (!(r instanceof PropertyName)) {
+			return r.getName();			
+		}
+		return null;
 	}
 }
