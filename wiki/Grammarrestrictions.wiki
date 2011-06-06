@@ -1,4 +1,5 @@
 #summary Grammar restrictions due to XText tools
+#labels Featured
 
 = Differences between Alloy grammar and our grammar =
 
