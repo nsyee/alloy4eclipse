@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Alloy Tutorial Model</title>
+    <link   rel=stylesheet   href="style-currentmodel.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>File System Model (III)</h2>
+
+<b><pre>
+module models/examples/tutorial/filesystem
+
+</b><i>// A file system object in the file system</i><b>
+abstract sig FSObject {}
+
+</b><i>// File system objects must be either directories or files.</i><b>
+sig File, Dir extends FSObject {}
+
+</b><i>// A File System</i><b>
+sig FileSystem {
+  root: Dir,
+  objects: set FSObject,
+  contents: Dir lone-> FSObject,
+  parent: FSObject ->lone Dir
+}{
+  </b><i>// root has no parent</i><b>
+  no root.parent
+  </b><i>// objects are those reachable from the root</i><b>
+  objects = root.*contents
+  </b><i>// contents only defined on objects</i><b>
+  contents in objects->objects
+  </b><i>// parent is the inverse of contents</i><b>
+  parent = ~contents
+}
+
+pred example() {
+	<i>// all f: FSObject | some fs: FileSystem | f in fs.objects</i>
+}
+
+run example for exactly 1 FileSystem, exactly 4 FSObject
+</pre></b>
+
+<hr WIDTH="100%">
+<p> The "main tutorial text" frame will provide you with links to go
+    to the next version of the model, when the time is right.  If you
+    wish to browse the different versions of the model on your own,
+    you may do so with the links below:
+<p> <a href="currentmodel-FS-II.html">previous model</a> file system
+    example version II.
+<p> <a href="currentmodel-FS-IV.html">next model</a> file system
+    example version IV.
+
+<hr WIDTH="100%">
+<p> <a href="alloy-tutorial.html" target="_top">restart </a> the
+    tutorial from the beginning.
+
+  </body>
+</html>

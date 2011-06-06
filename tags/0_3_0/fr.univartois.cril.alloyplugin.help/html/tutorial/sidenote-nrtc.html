@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>non-reflexive transitive closure</title>
+    <link   rel=stylesheet   href="style-sidenote.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>(non-reflexive) Transitive Closure (<b><tt>.^</b></tt>)</h2>
+
+<p> In Alloy, "<tt><b>foo.^bar</b></tt>" denoted the (non-reflexive)
+    <i>transitive closure</i> of <b><tt>foo</b></tt> with respect to
+    <tt><b>bar</b></tt>.  It produces the set of everything you could
+    produce by applying <tt><b>.bar"</b></tt> to <tt><b>foo</tt></b>
+    <i>one or more</i> times.  For example, the set includes
+<pre><b>
+  foo.bar
+  foo.bar.bar
+  foo.bar.bar.bar
+  foo.bar.bar.bar.bar
+  foo.bar.bar.bar.bar.bar
+  ...
+</b></pre>
+
+<hr WIDTH="50%">
+
+<p> related sidenotes:
+<lu>
+<li> A similar concept is <a href="sidenote-rtc.html"
+     target="sidenote"> reflexive transitive closure</a>
+<li> Other <a href="sidenote-relation-ops.html" target="sidenote"> relational
+     operations</a> in Alloy
+</lu>
+
+<hr WIDTH="100%">
+<p> <a href="sidenote-all.html" target="sidenote"> list all sidenotes</a>
+<p> <a href="sidenote-default.html">clear this sidenote</a>
+
+  </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Alloy Tutorial Main Text</title>
+    <link   rel=stylesheet   href="style-maintext.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>River Crossing Page II</h2>
+
+    <p> <a href="currentmodel-RC-I.html"
+    onClick="window.self.location='maintext-RC-I.html'"
+    target="currentmodel">back</a> 
+
+    <a href="currentmodel-RC-I.html"
+    onClick="window.self.location='maintext-RC-III.html'"
+    target="currentmodel">next</a>
+
+<p> <a href="sidenote-RC-puzzle.html" target="sidenote"> River
+    Crossing problem statement</a>
+
+<hr WIDTH="100%">
+
+<p> We would now like to say that all the <b><tt>Object</b></tt>s are
+    on the near side of the river in the first state. We would also
+    like to ask Alloy to find a solution in which all the objects are
+    on the far side of the river in the last state. The problem is we
+    do not yet have a way of talking about the first state, the last
+    state, or the fact that one may come before or after another. In
+    sum, we need a way to construct a linear ordering of states and
+    refer to properties of that ordering. Luckily, Alloy comes with a
+    polymorphic linear ordering module that can do that work for
+    us. We <a href="sidenote-combining-modules.html"
+    target="sidenote"> import this module</a> by adding the following
+    line to the beginning of our model.  We parametarize on
+    <b><tt>State</tt></b>, so now we can call order comparison
+    operations on elements of the <b><tt>State</tt></b> signature.
+</p>
+
+<b><pre>
+1. open util/ordering[State]
+</pre></b>
+
+<p> You may wish to take some time to familiarize yourself with the
+    linear ordering module.</p>
+
+<ul>
+<li> Load the <a href="currentmodel-Ord-simple.html" target="currentmodel">
+     Ord module</a> text
+<li> Reload the <a href="currentmodel-RC-I.html"
+     target="currentmodel"> River Crossing module</a> text
+</ul>
+
+<p> This is how we can use the <b><tt>Ord</b></tt> module to say all
+    the <b><tt>Object</b></tt>s are on the near side of the river and
+    none are on the far side in the initial state:
+</p>
+
+<b><pre>
+1. fact initialState {
+2.    let s0 = first() |
+3.      s0.near = Object && no s0.far
+4. }
+</pre></b>
+
+<p> If you're thinking about this problem in terms of a state machine,
+    this fact constrained the starting state of the state machine. Now
+    let's describe a transition function between states.
+</p>
+
+<p> At any state, we will call the side of the river the farmer is
+    currently on the '<b><tt>from</b></tt>' side and the other side
+    the '<b><tt>to</b></tt>' side. So our function will stipulate how
+    the set of objects on the '<b><tt>from</b></tt>' and
+    '<b><tt>to</b></tt>' sides change from state to state. Thus, we
+    have the following signature for our transition function:
+</p>
+
+<b><pre>
+1. pred crossRiver (from, from', to, to': set Object) { . . . }
+</pre></b>
+
+<p> Next, we know the farmer can take at most one object with him
+    across the river. In other words, the from side of the river will
+    lose the <b><tt>Farmer</b></tt> plus <i>at most</i> one other
+    <b><tt>Object</b></tt> (he can travel alone).
+</p>
+
+<b><pre>
+0. pred crossRiver (from, from', to, to': set Object) {
+1.   </b><i>// either the Farmer takes no items</i><b>
+2.   ( from' = from - Farmer && 
+3.     to' = to - to.eats + Farmer ) ||
+4.   </b><i>// or the Farmer takes one item</i><b>
+5.   some item: from - Farmer {
+6.     from' = from - Farmer - item
+7.     to' = to - to.eats + Farmer + item
+8.    }
+9. }
+</pre></b>
+
+<p> The <b><tt>some</b></tt> quantifier means '1 or more', but
+    actually there can't be more because of the way this constrain is
+    written.  Take a moment to think about why that is the case, then
+    load the <a href="sidenote-answer-other.html" target="sidenote">
+    answer</a> as a sidenote.
+</p>
+
+<!-- That is, if there were another, then that one's constraint would
+violate this one's constraint -- from' can't equal farmer - item1 AND
+farmer - item2] -->
+
+<p> The '<b><tt>to</b></tt>' side of the river isn't as straight
+    forward. Because the farmer isn't on that side, some of his
+    possessions may get eaten if left alone. If the
+    '<b><tt>to</b></tt>' side has just the <b><tt>Fox</b></tt> and
+    <b><tt>Chicken</b></tt>, for instance, then afterwards, it will
+    have the <b><tt>Fox</b></tt>, the <b><tt>Farmer</b></tt>, and the
+    <b><tt>item</b></tt> (if any) that the farmer brought with
+    him. If the '<b><tt>to</b></tt>' side has
+    the <b><tt>Fox</b></tt>, the <b><tt>Chicken</b></tt>, and the
+    <b><tt>Grain</b></tt>, we will assume both the
+    <b><tt>Chicken</b></tt> and the <b><tt>Grain</b></tt> are eaten
+    (You could also argue that only the chicken gets eaten, but it
+    doesn't matter since either way the farmer will have
+    failed).
+</p>
+
+<hr WIDTH="100%">
+    <p> To backup to an earlier lesson, load the
+    <a href="currentmodel-RC-I.html"
+    onClick="window.self.location='maintext-RC-I.html'"
+    target="currentmodel">previous lesson</a> - river crossing I.</p>
+
+    <p> When you are ready to proceed, load the
+    <a href="currentmodel-RC-I.html"
+    onClick="window.self.location='maintext-RC-III.html'"
+    target="currentmodel">next lesson</a> - river crossing III.</p>
+
+<hr WIDTH="100%">
+<p> <a href="alloy-tutorial.html" target="_top">restart </a> the
+tutorial from the beginning.
+
+</body>
+</html>

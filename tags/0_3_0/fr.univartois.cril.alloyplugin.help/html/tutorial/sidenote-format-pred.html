@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Syntax for predicates</title>
+    <link   rel=stylesheet   href="style-sidenote.css"   type="text/css">
+  </head>
+
+  <body>
+    <h2>Syntax for <b><tt>pred</b></tt> (predicate) statements</h2>
+
+<b><pre>
+pred name (parameter1, parameter2) {
+  [list of constraints -- each must evaluate to true or false]
+  [multiple constraints are implicitly conjoined]
+}
+</pre></b>
+
+<p> If the inputs satisfy all of the constraints listed in the body,
+    then the predicate evaluates to true. Otherwise it evaluates to
+    false.</p>
+
+<hr WIDTH="50%">
+
+<p> In an <a href="sidenote-operational-declarative.html"
+    target="sidenote"> imperative</a> model, you might ask yourself
+    "<i>how can I make X happen?</i>".  In a <a
+    href="sidenote-operational-declarative.html"
+    target="sidenote">declarative</a> model (like Alloy), you ask
+    yourself "<i>how would I recognize that X has been
+    accomplished?</i>".
+
+<p> One reflection of this is that predicates in Alloy only ever
+    evaluate to <i>true</i> or <i>false</i>, while function may
+    evaluate to relations.</p>
+
+<!-- In an imperative language, you might make
+    the <b><tt>move</tt></b> function take a file system, an object to
+    be moved, and a directory to move it to as arguments, and then
+    have it return a new file system where that object has been moved
+    to that directory.  What we do in Alloy is to make all those
+    things arguments to the function, including the 'output'.  The
+    function then returns true if the output parameter is valid given
+    the input parameters, and false if it is not.  If we later say
+    "make sure this function is always true", then you will only get
+    back examples where valid moves occur.  The output parameter is
+    always the second one.
+-->
+
+<hr WIDTH="50%">
+
+<p> A predicate returns true or false. A similar construct is a <a
+    href="sidenote-relation-functions.html" target="sidenote">
+    function</a> which returns a value.
+<p> Remind me what a <a href="sidenote-relation-function.html"
+    target="sidenote"> function</a>?".
+
+<hr WIDTH="100%">
+<p> <a href="sidenote-all.html" target="sidenote"> list all sidenotes</a>
+<p> <a href="sidenote-default.html">clear this sidenote</a>
+
+  </body>
+</html>
