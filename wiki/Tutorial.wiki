@@ -1,4 +1,4 @@
-#summary tutorial for use plugin
+#summary tutorial to use plugin
 #labels Featured
 
 
@@ -28,7 +28,7 @@ http://alloy4eclipse.googlecode.com/svn/wiki/cap5.png
 
  * Model Creation
 
-Like java project, in your alloy project you can create alloy model in order to implement your relational models and your constraints.
+Like java project,you can create in your alloy project an alloy model in order to implement your relational models and your constraints.
 
 http://alloy4eclipse.googlecode.com/svn/wiki/cap6.png 
 
@@ -45,14 +45,14 @@ http://alloy4eclipse.googlecode.com/svn/wiki/cap10.png
 
 * Command
 
-In alloy4 you can launch run and check commands. With the right click, you have the same behaviour. More we add a command on predicate and assertion which tries to check your code with default world.
+In alloy4 you can launch run and check commands. With the right click on outline elements, you have the same behaviour. More we add a command on predicate and assertion which tries to check your code with default world.
 
 http://alloy4eclipse.googlecode.com/svn/wiki/cap9.png 
 http://alloy4eclipse.googlecode.com/svn/wiki/cap11.png 
 
 * Util
 
-By default, lot of tools are imported. For example we can found arithmetics functions and other functions.
+By default, lot of tools are imported. For example we can find arithmetics functions and other functions.
 
  http://alloy4eclipse.googlecode.com/svn/wiki/cap12.png 
 
@@ -60,4 +60,4 @@ By default, lot of tools are imported. For example we can found arithmetics func
 
 = And... =
 
-For the implementation of your alloy 4 models, this plugin looks like alloy parser. There is the same tools as alloy parser in an eclipse plugin!
+For the implementation of your alloy 4 models, this plugin looks like alloy parser. There is the same tools as alloy parser in an eclipse environment!
