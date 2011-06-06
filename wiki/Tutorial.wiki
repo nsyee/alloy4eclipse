@@ -1,4 +1,5 @@
 #summary tutorial for use plugin
+#labels Featured
 
 
 = Introduction =
