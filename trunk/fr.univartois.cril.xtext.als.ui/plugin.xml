@@ -633,7 +633,7 @@
   			</command>
   			  <command
   			  commandId="fr.univartois.cril.xtext.ui.editor.outline.MetaModelCommand"
-  			  label="Show Metamodels">
+  			  label="Show Metamodel">
   			 <visibleWhen checkEnabled="true">
 					<iterate>						
   						<adapt type="fr.univartois.cril.xtext.als.Module" />  	
