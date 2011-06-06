@@ -9,7 +9,7 @@ How can you use Alloy 4 Eclipse ?
 
 = Installation by Eclipse =
 
-This plugin is developed for Eclipse Helios Version. You can download and install A4E by using the button _Eclipse-Marketplace_ on your eclipse.
+This plugin is developed for Eclipse Helios and later versions (3.6+). You can download and install A4E by using the button _Eclipse-Marketplace_  directly from eclipse.
 
 http://alloy4eclipse.googlecode.com/svn/wiki/cap1.png
 
@@ -22,7 +22,7 @@ http://alloy4eclipse.googlecode.com/svn/wiki/cap4.png
 
 = Discovery  =
 
-Automatically, when you create your first project alloy, you will see appear the Alloy 4 models library. It contains all the models, examples and utility tools.   
+Automatically, when you create your first project alloy, you will see appear the Alloy 4 models library. It contains all the examples and utility models.   
 
 http://alloy4eclipse.googlecode.com/svn/wiki/cap5.png 
 
@@ -60,4 +60,4 @@ By default, lot of tools are imported. For example we can find arithmetics funct
 
 = And... =
 
-For the implementation of your alloy 4 models, this plugin looks like alloy parser. There is the same tools as alloy parser in an eclipse environment!
+For the development of your Alloy 4 models, this plugin looks like alloy 4 standalone application (we integrate directly the visualization from A4). There are basically the same functionality as in A4 but in an eclipse environment with Eclipse-class editing capabilities!
