@@ -128,7 +128,7 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 		}
 
 		IProject projectModels = root.getProject("A4 models library");
-		projectModels.create(monitor);
+		projectModels.create(description,monitor);
 		projectModels.open(monitor);
 		IPath to = new Path(AlloyPreferencePage.getA4SampleModelsPath());
 
