@@ -7,7 +7,7 @@
 How can you use Alloy 4 Eclipse ?
 
 
-= Installation by Eclipse =
+= Installation within Eclipse =
 
 This plugin is developed for Eclipse Helios and later versions (3.6+). You can download and install A4E by using the button _Eclipse-Marketplace_  directly from eclipse.
 
