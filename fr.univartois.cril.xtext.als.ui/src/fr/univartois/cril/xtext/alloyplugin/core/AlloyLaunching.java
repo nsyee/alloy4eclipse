@@ -21,25 +21,18 @@ import edu.mit.csail.sdg.alloy4.Pos;
 import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
 import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
-import edu.mit.csail.sdg.alloy4compiler.ast.Func;
-import edu.mit.csail.sdg.alloy4compiler.ast.Sig;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
-import fr.univartois.cril.xtext.ui.activator.AlsActivator;
-import fr.univartois.cril.xtext.alloyplugin.api.IALSAssert;
 import fr.univartois.cril.xtext.alloyplugin.api.IALSCommand;
-import fr.univartois.cril.xtext.alloyplugin.api.IALSFact;
 import fr.univartois.cril.xtext.alloyplugin.api.IALSFile;
-import fr.univartois.cril.xtext.alloyplugin.api.IALSFunction;
-import fr.univartois.cril.xtext.alloyplugin.api.IALSPredicate;
-import fr.univartois.cril.xtext.alloyplugin.api.IALSSignature;
 import fr.univartois.cril.xtext.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext.alloyplugin.api.Util;
 import fr.univartois.cril.xtext.alloyplugin.console.AlloyMessageConsole;
 import fr.univartois.cril.xtext.alloyplugin.console.Console;
 import fr.univartois.cril.xtext.preferences.PreferenceConstants;
+import fr.univartois.cril.xtext.ui.activator.AlsActivator;
 
 /**
  * Static methods to launch Alloy parser or execute a command.
@@ -202,40 +195,7 @@ public class AlloyLaunching {
 		}
 		exec_cmds.add(new MetamodelCommand(file, world));
 		file.setCommand(exec_cmds);
-		SafeList<Pair<String, Expr>> factsList = world.getAllFacts();
-		List<IALSFact> facts = new ArrayList<IALSFact>(factsList.size());
-		for (Pair<String, Expr> fact : factsList) {
-			facts.add(new Fact(fact));
-		}
-		file.setFacts(facts);
-
-		SafeList<Func> funcList = world.getAllFunc();
-		List<IALSFunction> funcs = new ArrayList<IALSFunction>(funcList.size());
-		List<IALSPredicate> preds = new ArrayList<IALSPredicate>(funcList
-				.size());
-		for (Func fun : funcList) {
-			if (fun.isPred) {
-				preds.add(new Predicate(fun));
-			} else {
-				funcs.add(new Function(fun));
-			}
-		}
-		file.setFunctions(funcs);
-		file.setPredicates(preds);
-		SafeList<Sig> sigList = world.getAllSigs();
-		List<IALSSignature> sigs = new ArrayList<IALSSignature>(sigList.size());
-		for (Sig sig : sigList) {
-			sigs.add(new Signature(sig));
-		}
-		file.setSignatures(sigs);
-
-		ConstList<Pair<String, Expr>> assertList = world.getAllAssertions();
-		List<IALSAssert> assertions = new ArrayList<IALSAssert>(assertList
-				.size());
-		for (Pair<String, Expr> a : assertList) {
-			assertions.add(new Assert(a));
-		}
-		file.setAssertions(assertions);
+		
 		file.fireChange();
 	}
 
