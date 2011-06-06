@@ -51,15 +51,14 @@ import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4graph.GraphViewer;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
 import edu.mit.csail.sdg.alloy4viz.VizState;
-import fr.univartois.cril.xtext.ui.activator.AlsActivator;
 import fr.univartois.cril.xtext.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.xtext.alloyplugin.api.ICommandListener;
 import fr.univartois.cril.xtext.alloyplugin.api.Util;
 import fr.univartois.cril.xtext.alloyplugin.console.AlloyEvaluatorConsole;
 import fr.univartois.cril.xtext.alloyplugin.console.Console;
 import fr.univartois.cril.xtext.alloyplugin.core.INextable;
-import fr.univartois.cril.xtext.alloyplugin.editor.ALSEditor;
-import fr.univartois.cril.xtext.preferences.*;
+import fr.univartois.cril.xtext.preferences.AlloyPreferencePage;
+import fr.univartois.cril.xtext.ui.activator.AlsActivator;
 
 public class VizView extends ViewPart implements ICommandListener {
 
@@ -369,8 +368,7 @@ public class VizView extends ViewPart implements ICommandListener {
 				.getImageDescriptor(ALSImageRegistry.THEME_EXPORT_ICON_ID));
 	}
 
-	public static String A4E_MENU_ID = ALSEditor.class.getPackage().getName()
-			+ ".a4e.menu"; //$NON-NLS-1$
+	
 
 	public IToolBarManager getToolBarManager() {
 		IActionBars actionBar = getViewSite().getActionBars();
