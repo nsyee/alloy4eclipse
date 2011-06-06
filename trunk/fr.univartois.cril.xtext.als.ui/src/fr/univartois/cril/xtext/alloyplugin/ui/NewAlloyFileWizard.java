@@ -31,8 +31,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.texteditor.IDocumentProvider;
-
-import fr.univartois.cril.xtext.alloyplugin.editor.ALSEditor;
+import org.eclipse.xtext.ui.editor.XtextEditor;
 
 /**
  * This is a new wizard for Alloy model file. It creates one file with the
@@ -130,7 +129,7 @@ public class NewAlloyFileWizard extends Wizard implements INewWizard {
                 try {
                     IEditorPart editorpart = IDE.openEditor(page, file, true);
                     if (editorpart != null) {
-                        ALSEditor editor = (ALSEditor) editorpart;
+                        XtextEditor editor =  (XtextEditor) editorpart;
                         IDocumentProvider provider = editor
                                 .getDocumentProvider();
                         IDocument document = provider.getDocument(editor
