@@ -569,6 +569,10 @@
   		  	id="fr.univartois.cril.xtext.ui.editor.outline.AssertionCommand"
   			name="Assertion Command"
   			description="Command used to launch assertions" />	
+  		<command
+  			id="fr.univartois.cril.xtext.ui.editor.outline.MetaModelCommand"
+  			name="Meta Model Command"
+  			description="Command to show Meta Models" />
   	</extension>
 	<extension
        point="org.eclipse.ui.handlers">
@@ -582,6 +586,10 @@
         <handler
           class="fr.univartois.cril.xtext.ui.editor.outline.AssertionOutlineNodeHandler"
           commandId="fr.univartois.cril.xtext.ui.editor.outline.AssertionCommand">
+   		</handler>
+   		<handler
+   		 class="fr.univartois.cril.xtext.ui.editor.outline.ModuleOutlineNodeHandler"
+   		 commandId="fr.univartois.cril.xtext.ui.editor.outline.MetaModelCommand">
    		</handler>
 	</extension>
 	<extension 
@@ -620,6 +628,15 @@
 						<or>
   						<adapt type="fr.univartois.cril.xtext.als.Assertion" />
   						</or>
+  					</iterate>
+  				</visibleWhen>
+  			</command>
+  			  <command
+  			  commandId="fr.univartois.cril.xtext.ui.editor.outline.MetaModelCommand"
+  			  label="Show Metamodels">
+  			 <visibleWhen checkEnabled="true">
+					<iterate>						
+  						<adapt type="fr.univartois.cril.xtext.als.Module" />  	
   					</iterate>
   				</visibleWhen>
   			</command>
