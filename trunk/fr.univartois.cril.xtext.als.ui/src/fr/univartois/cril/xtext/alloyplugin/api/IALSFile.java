@@ -27,16 +27,7 @@ public interface IALSFile {
     
     public List<IALSCommand> getCommand();
 
-    public List<IALSPredicate> getPredicates();
-
-    public List<IALSFact> getFacts();
-
-    public List<IALSFunction> getFunctions();
-
-    public List<IALSSignature> getSignatures();
     
-    public List<IALSAssert> getAssertions();
-
     public void addListener(IALSFileListener listener);
 
     public void removeListener(IALSFileListener listener);
@@ -47,15 +38,8 @@ public interface IALSFile {
 
 	public void fireChange();
 
-	public void setFunctions(List<IALSFunction> func);
-
-	public void setFacts(List<IALSFact> fact);
-
-	public void setSignatures(List<IALSSignature> sig);
-
+	
 	public void setCommand(List <IALSCommand> cmds);
 
-	public void setPredicates(List<IALSPredicate> pred);
-
-	public void setAssertions(List<IALSAssert> assertions);
+	
 }
