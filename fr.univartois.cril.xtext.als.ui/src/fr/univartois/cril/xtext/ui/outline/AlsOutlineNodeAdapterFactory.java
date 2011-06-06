@@ -7,6 +7,7 @@ import org.eclipse.xtext.ui.editor.outline.actions.DefaultContentOutlineNodeAdap
 
 import fr.univartois.cril.xtext.als.Assertion;
 import fr.univartois.cril.xtext.als.CheckCommand;
+import fr.univartois.cril.xtext.als.Module;
 import fr.univartois.cril.xtext.als.Predicate;
 import fr.univartois.cril.xtext.als.RunCommand;
 
@@ -17,7 +18,8 @@ public class AlsOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapt
 		RunCommand.class,
 		Predicate.class,
 		CheckCommand.class,
-		Assertion.class
+		Assertion.class,
+		Module.class
 		
 	};
 
