@@ -10,8 +10,10 @@ import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 
 import fr.univartois.cril.xtext.als.uri.AlsConverters;
 import fr.univartois.cril.xtext.als.uri.AlsImportUriGlobalScopeProvider;
+import fr.univartois.cril.xtext.navigation.AlsHyperlinkHelper;
 import fr.univartois.cril.xtext.scoping.AlsImportedNamespaceAwareLocalScopeProvider;
 import fr.univartois.cril.xtext.scoping.AlsQualifiedNameProvider;
+import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -41,6 +43,9 @@ public class AlsRuntimeModule extends fr.univartois.cril.xtext.AbstractAlsRuntim
 		binder.bind(org.eclipse.xtext.scoping.IScopeProvider.class).annotatedWith(com.google.inject.name.Names.named("org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.delegate")).to(AlsImportedNamespaceAwareLocalScopeProvider.class);
 	}
 	
+	public Class<? extends IHyperlinkHelper> bindIHyperlinkHelper() {
+		return AlsHyperlinkHelper.class;
+	}
 	
 		
 }
