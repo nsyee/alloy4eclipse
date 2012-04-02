@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.univartois.cril.xtext2.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: fr.univartois.cril.xtext2.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: fr.univartois.cril.xtext2,
+ fr.univartois.cril.xtext2.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext.junit4,
+ org.junit4,
+ org.eclipse.ui.workbench;resolution:=optional
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

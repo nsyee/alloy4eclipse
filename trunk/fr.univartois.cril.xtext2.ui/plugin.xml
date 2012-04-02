@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="als"
+            id="fr.univartois.cril.xtext2.Als"
+            name="Als Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="fr.univartois.cril.xtext2.Als.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="fr.univartois.cril.xtext2.Als.validate">
+         <activeWhen>
+            <reference
+                    definitionId="fr.univartois.cril.xtext2.Als.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="fr.univartois.cril.xtext2.Als.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="fr.univartois.cril.xtext2.Als" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="fr.univartois.cril.xtext2.Als"
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="fr.univartois.cril.xtext2.Als.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="fr.univartois.cril.xtext2.ui.keyword_Als"/>
+        </page>
+        <page
+            category="fr.univartois.cril.xtext2.Als"
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="fr.univartois.cril.xtext2.Als.templates"
+            name="Templates">
+            <keywordReference id="fr.univartois.cril.xtext2.ui.keyword_Als"/>
+        </page>
+        <page 
+  			class="fr.univartois.cril.xtext2.preferences.AlloyPreferencePage" 
+  			id="fr.univartois.cril.xtext2.Als" 
+  			name="Alloy4">
+  			<keywordReference 
+				id="fr.univartois.cril.xtext2.ui.keyword_Als" /> 
+		</page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="fr.univartois.cril.xtext2.Als"
+            name="Als">
+            <keywordReference id="fr.univartois.cril.xtext2.ui.keyword_Als"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="fr.univartois.cril.xtext2.ui.keyword_Als"
+            label="Als"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="fr.univartois.cril.xtext2.Als.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+             <command
+                 commandId="fr.univartois.cril.xtext2.Als.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="fr.univartois.cril.xtext2.Als.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="fr.univartois.cril.xtext2.Als.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="fr.univartois.cril.xtext2.Als.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="als">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="als">
+        </resourceServiceProvider>
+    </extension>
+
+
+    <!-- marker definitions for fr.univartois.cril.xtext2.Als -->
+    <extension
+            id="als.check.fast"
+            name="Als Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.fast"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="als.check.normal"
+            name="Als Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.normal"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="als.check.expensive"
+            name="Als Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.expensive"/>
+        <persistent value="true"/>
+    </extension>
+
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+      </participant>
+   </extension>
+   <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="fr.univartois.cril.xtext2.Als"
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="fr.univartois.cril.xtext2.Als.compiler.preferencePage"
+            name="Compiler">
+            <keywordReference id="fr.univartois.cril.xtext2.ui.keyword_Als"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            category="fr.univartois.cril.xtext2.Als"
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="fr.univartois.cril.xtext2.Als.compiler.propertyPage"
+            name="Compiler">
+            <keywordReference id="fr.univartois.cril.xtext2.ui.keyword_Als"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="fr.univartois.cril.xtext2.Als.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.univartois.cril.xtext2.Als.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+    <!-- quickfix marker resolution generator for fr.univartois.cril.xtext2.Als -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="fr.univartois.cril.xtext2.ui.als.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="fr.univartois.cril.xtext2.ui.als.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="fr.univartois.cril.xtext2.ui.als.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
+   	<!-- Rename Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler 
+			class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler"
+			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+			<activeWhen>
+				<reference
+					definitionId="fr.univartois.cril.xtext2.Als.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+    <extension point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+         <command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <reference
+                     definitionId="fr.univartois.cril.xtext2.Als.Editor.opened">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+	    <page
+	        category="fr.univartois.cril.xtext2.Als"
+	        class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+	        id="fr.univartois.cril.xtext2.Als.refactoring"
+	        name="Refactoring">
+	        <keywordReference id="fr.univartois.cril.xtext2.ui.keyword_Als"/>
+	    </page>
+	</extension>
+
+  <extension point="org.eclipse.compare.contentViewers">
+    <viewer id="fr.univartois.cril.xtext2.Als.compare.contentViewers"
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="als">
+    </viewer>
+  </extension>
+  <extension point="org.eclipse.compare.contentMergeViewers">
+    <viewer id="fr.univartois.cril.xtext2.Als.compare.contentMergeViewers"
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="als" label="Als Compare">
+     </viewer>
+  </extension>
+  <extension point="org.eclipse.ui.editors.documentProviders">
+    <provider id="fr.univartois.cril.xtext2.Als.editors.documentProviders"
+            class="fr.univartois.cril.xtext2.ui.AlsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+            extensions="als">
+    </provider>
+  </extension>
+	<!-- YES -->
+	
+	<extension 
+		point="org.eclipse.ui.newWizards">
+		<category 
+			id="fr.univartois.cril.xtext2.alloyplugin" 
+			name="Alloy" /> 
+  		<wizard 
+  			category="fr.univartois.cril.xtext2.alloyplugin" 
+  			class="fr.univartois.cril.xtext2.alloyplugin.ui.NewAlloyFileWizard" 
+  			finalPerspective="fr.univartois.cril.xtext2.alloyplugin.alloyperspective" 
+  			icon="icons/AlloySpec.gif" 
+  			id="fr.univartois.cril.xtext2.alloyplugin.wizards.NewAlloyFileWizard" 
+  			name="Alloy 4 Model" 
+  			project="false" /> 
+  		<wizard 
+  			category="fr.univartois.cril.xtext2.alloyplugin" 
+  			class="fr.univartois.cril.xtext2.alloyplugin.ui.NewAlloyProjectWizard" 
+  			finalPerspective="fr.univartois.cril.xtext2.alloyplugin.alloyperspective" 
+  			hasPages="true" 
+  			icon="icons/AlloyProject.gif" 
+  			id="fr.univartois.cril.xtext2.alloyplugin.wizards.NewAlloyProject" 
+  			name="Alloy 4 Project" 
+  			preferredPerspectives="fr.univartois.cril.xtext2.alloyplugin.alloyperspective" 
+  			project="true" /> 
+	</extension>
+	
+	<!-- YES--> 
+	<extension 
+		point="org.eclipse.ui.perspectives">
+  		<perspective 
+  			class="fr.univartois.cril.xtext2.alloyplugin.ui.PerspectiveFactory" 
+  			icon="icons/AlloyProject.gif" 
+  			id="fr.univartois.cril.xtext2.alloyplugin.alloyperspective" 
+  			name="Alloy" /> 
+  	</extension>
+  	
+	<!-- YES--> 
+	<extension 
+		point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension 
+			targetID="fr.univartois.cril.xtext2.alloyplugin.alloyperspective">
+  			<newWizardShortcut 
+  				id="fr.univartois.cril.xtext2.alloyplugin.wizards.NewAlloyProject" /> 
+  			<newWizardShortcut 
+  				id="fr.univartois.cril.xtext2.alloyplugin.wizards.NewAlloyFileWizard" /> 
+  		</perspectiveExtension>
+	</extension>
+	
+	<!-- YES --> 
+	<extension 
+		id="AlloyProjectNature" 
+		name="Alloy Project Nature" 
+		point="org.eclipse.core.resources.natures">
+		<runtime>
+  			<run 
+  				class="fr.univartois.cril.xtext2.alloyplugin.ProjectNature" /> 
+  		</runtime>
+  	</extension>
+
+</plugin>
