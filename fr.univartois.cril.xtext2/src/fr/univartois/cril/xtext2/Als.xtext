@@ -1,0 +1,379 @@
+grammar fr.univartois.cril.xtext2.Als with org.eclipse.xtext.common.Terminals
+hidden (WS, ML_COMMENT, SL_COMMENT)
+
+generate als "http://www.univartois.fr/cril/xtext2/Als"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+/*
+	specification ::= [module] open* paragraph*
+*/
+Specification  :
+  module=Module? open+=Open* paragraph+=Paragraph*	; 
+
+/*
+	module ::= "module" name  [ "["  ["exactly"] name  ("," ["exactly"] num)*    "]" ]
+*/
+Module:
+  "module" moduleName=Name (left=LeftSquareBracketKeyword exactly+="exactly"? name+=ExactlyName (comma+=Comma (exactly+="exactly"? number+=INT|name+=ExactlyName))* right=RightSquareBracketKeyword)?	; 
+  
+/*
+	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
+*/
+
+
+Open:
+  "private"? openName=OpenName  (left=LeftSquareBracketKeyword /*ref+=Ref (comma+=Comma ref+=Ref)**/ (previousNameAs=AsName "/")? refname=ReferencesName right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?	; 
+  
+/*
+	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
+*/
+Paragraph:
+  FactDecl		|
+  AssertDecl	|
+  FunDecl		|
+  PredDecl		|
+  RunDecl		|
+  FunDeclWParam	|
+  CheckDecl		|
+  EnumDecl		|
+  LetOutDecl	|
+  SigDecl		; 
+
+/*
+	factDecl ::= "fact" [name] block
+*/
+FactDecl returns Fact:
+  name=FactName block=Block	; 
+
+/*
+	assertDecl ::= "assert" [name] block
+*/
+AssertDecl returns Assertion:
+  name=AssertionName block=Block	; 
+  
+/*
+	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
+	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
+	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
+*/
+FunDecl returns Function:
+  "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (
+  		leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
+  		leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
+  		) colon=Colon expr=Expression block=Block	; 
+  		
+  		/*
+	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
+	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
+	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
+*/
+FunDeclWParam returns Function: /* without parameters*/
+  "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam  colon=Colon expr=Expression block=Block	; 
+  
+/*
+	funDecl ::= ["private"] "pred" [ref "."] name "(" decl,* ")" block
+	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
+	funDecl ::= ["private"] "pred" [ref "."] name                block
+*/
+PredDecl returns Predicate:
+  "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (
+  		leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
+  		leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
+  		)? block=Block	; 
+  
+/*
+	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST RUN
+*/
+RunDecl returns RunCommand:
+  (runName=Alias ":")? "run" (/*name=[FunctionNamewParam]|name=[FunctionName] |*/name=[PredicateName] |block=Block)  scope=Scope	; 
+  
+/*
+	cmdDecl ::= [name ":"] ["run"|"check"] [name|block] scope //JUST CHECK
+*/
+CheckDecl returns CheckCommand:
+  (checkName=Alias ":")? "check" (name=[AssertionName]|block=Block) scope=Scope	; 
+  
+/*
+	scope ::= "for" number                   ["expect" [0|1]]
+	scope ::= "for" number "but" typescope,+ ["expect" [0|1]]
+	scope ::= "for"              typescope,+ ["expect" [0|1]]
+	scope ::=                                ["expect" [0|1]]	
+*/
+Scope:
+	{Scope}for="for" value=INT 														   expect=Expectation?	|
+	{Scope}for="for" value=INT but="but" typescope+=Typescope (comma+=Comma typescope+=Typescope)*   expect=Expectation?	|
+	{Scope}for="for"           typescope+=Typescope (comma+=Comma typescope+=Typescope)*   expect=Expectation?	|
+	{Scope}																   expect=Expectation?	;	
+
+Expectation:
+    expect="expect" value=INT	;
+      
+/*
+	typescope ::= ["exactly"] number [name|"int"|"seq"]
+*/
+Typescope:
+  {Typescope}exactly="exactly"? value=INT ((asname=AsName|prev="fun"|prev="pred"|prev="this") sl="/")? (name=[ReferencesName]|(post="int"|post="seq"))	; 
+  
+/*
+	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
+*/
+EnumDecl:
+  enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma propertyEnum+=EnumPropertyName)* rightC=RightCurlyBracket	; 
+
+  
+LetOutDecl returns Let:
+	name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName(comma+=Comma nameRef+=ReferencesName)*)? rightS=RightSquareBracketKeyword)? (block=Block |
+					"=" exprName=Expression);
+	
+
+/*
+	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
+*/
+SigDecl returns Signature:
+  SigQual? "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* (sigExt=SigExt)? "{" (decl+=Decl (comma2+="," decl+=Decl)*)? "}" (block=Block)?	; 
+  
+/*
+	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
+*/
+SigQual:
+  sigq=( "abstract" | "lone" | "one" | "some" | "private" ) ("abstract"|"lone"|"one"|"some"|"private")*	; 
+  
+/*
+	sigExt ::= "extends" ref
+	sigExt ::= "in" ref ["+" ref]*
+*/
+SigExt:
+  "extends" ref=ReferencesSig|"in" ref=ReferencesSig ("+" ref2+=ReferencesSig)*	;
+  
+/*
+	expr ::= "let" letDecl,+ blockOrBar						1./	
+       | quant decl,+    blockOrBar							2./
+       | unOp expr											3./
+       | expr binOp   expr									4./
+       | expr arrowOp expr									5./
+       | expr ["!"|"not"]? compareOp expr					6./
+       | expr ["=>"|"implies"] expr "else" expr 			7./
+       | expr "[" expr,* "]"								8./
+       |     number											9./
+       | "-" number											10./
+       | "none"												11./
+       | "iden"												12./
+       | "univ"												13./
+       | "Int"												14./
+       | "seq/Int"											15./
+       | "(" expr ")"										16./
+       | ["@"] Name											17./
+       | block												18./
+       | "{" decl,+ blockOrBar "}"							19./
+	
+*/
+
+
+Expression:
+		
+	TerminalExpression  ( binOp+=BinOp expr+=Expression									|//4./
+						("!"|"not")? cmp+=CompareOp  expr+=Expression					|//6./
+						  arrowOp+=ArrowOp  expr+=Expression 							|//5./						
+						("=>"|"implies") (par+=ParanthesisandExpression|expr+=Expression)? ("else" expr+=Expression)?	|//7./
+						"["(expr+=Expression (comma+=Comma expr+=Expression)* )? "]"								 //8./						
+						)*	;
+TerminalExpression returns Expression:
+	{Expression} parO="(" (expr+=Expression)+ parF=")"	|		
+	{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar							|//1./
+	{Expression} quant=Quant  (decl+=Decl (comma+=Comma  decl+=Decl)*)? (blockOrBar+=BlockOrBar|expr+=Expression)? 									|//2./
+	{Expression} unOp=UnOp expr+=Expression		|
+	{Expression} common+=CommonQuantUnOp   (decl+=Decl (comma+=Comma  decl+=Decl)*)? (blockOrBar+=BlockOrBar|expr+=Expression)? 	|//2./ and 3./	
+	{Expression} INT 																									|//9./
+	{Expression} NEGATIVE_INTEGER																					|//10./
+	{Expression} none="none"	 																							|//11./
+    {Expression} iden="iden"																							|//12./
+    {Expression} univ="univ"																							|//13./
+    {Expression} (int="int" (nameRef=[ReferencesName])? )|int="Int"																							|//14./
+    {Expression} seq="seq/Int"		|
+    {Expression} "@"? "int"? ((asname=AsName|"fun"|"pred"|"this") "/")?  (nameRef=[ReferencesName]|"this")					|//17./
+    {Expression} block+=Block 																				|//18./
+    {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket											;//19./
+
+/*
+	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
+*/
+Decl:
+  ("private")? ("disj")?  propertyName+=PropertyName  (comma+=Comma propertyName+=PropertyName)* colon=Colon ("disj")? expr=Expression	; 
+  
+/*
+	letDecl ::= name "=" expr
+*/
+LetDecl:
+  nameExpression=PropertyName "=" expr=Expression	; 
+
+ParanthesisandExpression:
+ "(" expr+=Expression ")";
+/*
+	quant ::= "all" | "no" | "some" | "" | "one" | "sum"
+*/
+Quant	:
+	"all" | "sum" 	;
+
+/*	
+	binOp ::= "||" | "or" | "&&" | "and" | "&" | "<=>" | "iff"| "=>" | "implies" | "+" | "-" | "++" | "<:" | ":>" | "." | "<<" | ">>" | ">>>"
+*/	
+BinOp : 
+	{BinOp}("||" | "or" | "&&" | "and" | "&" | "<=>" | "iff" 
+        |"+" | "-" | "++" | "<:" | ":>" | dot=Dot | "<<" | ">>" | ">>>");
+
+/*
+	unOp ::= "!" | "not" | "no" | "some" | "lone" | "one" | "set" | "seq" | "#" | "~" | "*" | "^"
+*/
+UnOp :
+	 {UnOp}("not" | "set" | "seq" | op=("!" | "#" | "~" | "*" | "^")	);
+	 
+CommonQuantUnOp	:
+	{CommonQuantUnOp}("no" | "some" | "lone" | "one")	;
+
+/*
+	compareOp ::= "=" | "in" | "<" | ">" | "=<" | ">="
+*/	
+CompareOp :
+	"=" | "in" | "<" | ">" | "=<" | "<=" /* UNDOCUMENTED */| ">="	;
+	
+/*
+	arrowOp ::= ["some"|"one"|"lone"|"set"]? "->" ["some"|"one"|"lone"|"set"]? 
+*/
+ArrowOp:
+  ("some"|"one"|"lone"|"set")? arrow="->"	; 
+  
+   
+/*
+	block ::= "{" expr* "}"
+*/
+Block:
+  leftC=LeftCurlyBracket (expr+=Expression)* rightC=RightCurlyBracket	; 
+
+/*
+	blockOrBar ::= block
+	blockOrBar ::= "|" expr
+*/
+BlockOrBar:
+  block=Block				|
+  "|" expr=Expression	; 
+  
+BlockOrPossibleBar:
+  block=Block				|
+  "|"? expr=Expression	;
+/*
+	name ::= ["this" | ID] ["/" ID]*
+*/
+
+	
+OpenName	:
+	"open" importURI=Name;
+	
+FactName	:
+	{FactName} "fact" name=Name?	;
+
+AssertionName :
+	{AssertionName} "assert" name=Name?	;
+	
+FunctionName	: 
+	name=Name	;
+	
+FunctionNamewParam :
+	name=Name;
+
+PredicateName :
+	name=Name	;
+			
+Alias:
+	name=NameAlias	;
+
+EnumName	:
+	"enum" name=Name	;
+	
+EnumPropertyName	:
+	name=Name	;
+	 
+LetName :
+	"let" name=Name;
+	
+SignatureName :
+	 name=Name  ;
+		
+PropertyName:
+	name=Name;
+	
+ExactlyName:
+	 //QualifiedName=Name;
+	 name=Name;
+
+AsName:
+	name=ID;
+	
+NameAlias:
+	ID ("/" ID)*;
+	
+Name:
+	("this"|ID) ("/" ID)*; 
+  
+
+/*
+	ref ::= name | "univ" | "Int" | "seq/Int"
+*/
+ReferencesName	:
+	FactName		|
+	FunctionName	|
+	FunctionNamewParam |
+	EnumName		|
+	EnumPropertyName|
+	SignatureName	|
+	PropertyName	|
+	ExactlyName		|
+	LetName			|
+	PredicateName	;
+
+ReferencesSig	:
+  {ReferencesSig}(	((asname=AsName|"fun"|"pred"|"this") "/")? nameRef=[SignatureName]|"univ"|"Int"|"seq/Int")	;
+
+ 	
+Ref:
+  {Ref}( nameRef=[ReferencesName]|"univ"|"Int"|"seq/Int")	;//A VOIR
+  
+
+
+
+LeftCurlyBracket:
+  leftCurlyBracket="{"	;
+
+RightCurlyBracket:
+  rightCurlyBracket="}"	;
+
+
+
+Dot:
+	dot="."	;
+  
+Comma :
+comma=","	;
+
+Colon :
+	colon=":"	;
+	
+LeftParenthesis:
+	leftParenthesis="("	;
+
+RightParenthesis:
+	rightParenthesis=")"	;
+	
+LeftSquareBracketKeyword:
+	leftSquareBracketKeyword="["	;
+
+RightSquareBracketKeyword:
+	rightSquareBracketKeyword="]"	;
+
+terminal NEGATIVE_INTEGER:
+  "-" INT	;
+
+terminal SL_COMMENT	:
+	('//' !('\n'|'\r')* ('\r'? '\n')?) | ('--'->'\n')	;
+
+terminal ID:
+  ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')* ("'"|'"')*	;
