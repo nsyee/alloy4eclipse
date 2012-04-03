@@ -79,6 +79,7 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 	
 	@Check
 	public void checkUniqueFunctionName(FunctionName function){
+		// TODO compare also signature, same name different signature authorized. 
 		Specification specification ;
 		EObject object = EcoreUtil.getRootContainer(function);
 		if(!(object instanceof Specification)) return;
@@ -91,7 +92,7 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 				ReferencesName f = fun.getName();
 				if(f == null || f ==function) continue;
 				if(f.getName().equals(function.getName())){
-					error("Duplicate name : "+ function.getName(), AlsPackage.Literals.FUNCTION__NAME);
+					error("Duplicate name : "+ function.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
 					return ;
 				}
 			}
