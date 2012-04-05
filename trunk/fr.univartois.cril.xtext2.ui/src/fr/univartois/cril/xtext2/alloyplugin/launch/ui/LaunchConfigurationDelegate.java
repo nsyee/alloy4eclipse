@@ -22,8 +22,6 @@ import fr.univartois.cril.xtext2.preferences.*;
 public class LaunchConfigurationDelegate implements
 ILaunchConfigurationDelegate {
 
-
-	@SuppressWarnings("unchecked")
     public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 

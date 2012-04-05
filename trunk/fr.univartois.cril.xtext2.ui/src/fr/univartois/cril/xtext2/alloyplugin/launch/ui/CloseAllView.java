@@ -51,7 +51,6 @@ public class CloseAllView extends SelectionProviderAction {
 		return this.file;
 	}
 
-	@SuppressWarnings("unchecked")
     public void selectionChanged(IStructuredSelection selection) {
 		commandRootSelected = false;
 		if (selection.isEmpty())

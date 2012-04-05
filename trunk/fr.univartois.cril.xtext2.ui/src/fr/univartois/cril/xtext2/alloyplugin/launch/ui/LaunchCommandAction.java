@@ -61,7 +61,6 @@ public class LaunchCommandAction extends SelectionProviderAction {
         setActionDefinitionId(ACTION_ID);
     }
 
-    @SuppressWarnings("unchecked")
     public void selectionChanged(IStructuredSelection selection) {
         commandRootSelected = false;
         this.selection = selection;
@@ -133,7 +132,6 @@ public class LaunchCommandAction extends SelectionProviderAction {
     /**
      * Return executable a list of command from selection. can be empty.
      */
-    @SuppressWarnings("unchecked")
     public List<IALSCommand> getIALSCommandFromSelection(
             IStructuredSelection selection) {
         ArrayList<IALSCommand> list = new ArrayList<IALSCommand>();

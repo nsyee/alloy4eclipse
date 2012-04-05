@@ -52,7 +52,6 @@ public class OpenLibraryModelAction implements IObjectActionDelegate {
 
     }
 
-    @SuppressWarnings("unchecked")
     private IProject getProject() {
         if (selection instanceof IStructuredSelection) {
             for (Iterator it = ((IStructuredSelection) selection).iterator(); it

@@ -3,19 +3,19 @@
  */
 package fr.univartois.cril.xtext2.ui.activator;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.log4j.Logger;
+//import java.util.HashMap;
+//import java.util.Map;
+//
+//import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.osgi.framework.BundleContext;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Module;
-import com.google.inject.util.Modules;
+// import com.google.inject.Guice;
+//import com.google.inject.Injector;
+//import com.google.inject.Module;
+//import com.google.inject.util.Modules;
 
 import edu.mit.csail.sdg.alloy4.Util;
 import fr.univartois.cril.xtext2.alloyplugin.Helper;
@@ -23,6 +23,10 @@ import fr.univartois.cril.xtext2.preferences.PreferenceInitializer;
 
 /**
  * Generated
+ */
+/**
+ * @author hetman
+ *
  */
 public class AlsActivator extends fr.univartois.cril.xtext2.ui.internal.AlsActivator {
 	/**

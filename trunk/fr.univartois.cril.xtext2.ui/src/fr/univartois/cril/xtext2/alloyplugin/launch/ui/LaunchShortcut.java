@@ -155,7 +155,6 @@ public class LaunchShortcut implements ILaunchShortcut {
 	 * launch configurations.  Return the chosen config, or <code>null</code> if the
 	 * user canceled the dialog.
 	 */
-	@SuppressWarnings("unchecked")
     protected ILaunchConfiguration chooseConfiguration(List configList) {
 		IDebugModelPresentation labelProvider = DebugUITools.newDebugModelPresentation();
 		ElementListSelectionDialog dialog= new ElementListSelectionDialog(getShell(), labelProvider);
