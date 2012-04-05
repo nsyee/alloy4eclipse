@@ -319,15 +319,15 @@ Name:
 	ref ::= name | "univ" | "Int" | "seq/Int"
 */
 ReferencesName	:
-	FactName		|
-	FunctionName	|
+	FactName		   |
+	FunctionName	   |
 	FunctionNamewParam |
-	EnumName		|
-	EnumPropertyName|
-	SignatureName	|
-	PropertyName	|
-	ExactlyName		|
-	LetName			|
+	EnumName		   |
+	EnumPropertyName   |
+	SignatureName  	   |
+	PropertyName	   |
+	ExactlyName		   |
+	LetName			   |
 	PredicateName	;
 
 ReferencesSig	:
