@@ -14,13 +14,13 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
-import edu.mit.csail.sdg.alloy4.ConstList;
+// import edu.mit.csail.sdg.alloy4.ConstList;
 import edu.mit.csail.sdg.alloy4.Err;
 import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4.Pos;
-import edu.mit.csail.sdg.alloy4.SafeList;
+// import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
-import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
+// import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
@@ -173,7 +173,7 @@ public class AlloyLaunching {
 		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \"" + filename
 				+ "\" =============");
-		CompModule world;
+		CompModule world ;
 		world = CompUtil.parseEverything_fromFile(rep, null, filename);
 		alloyParserConsole.printInfo("=========== End Parsing \"" + filename
 				+ "\" =============");

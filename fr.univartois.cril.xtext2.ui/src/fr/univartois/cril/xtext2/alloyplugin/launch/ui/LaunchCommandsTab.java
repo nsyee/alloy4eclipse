@@ -312,7 +312,6 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
         return null;
     }
 
-    @SuppressWarnings("unchecked")
     public List<IALSCommand> getIALSCommandFromSelection(
             IStructuredSelection selection) {
         ArrayList<IALSCommand> list = null;
