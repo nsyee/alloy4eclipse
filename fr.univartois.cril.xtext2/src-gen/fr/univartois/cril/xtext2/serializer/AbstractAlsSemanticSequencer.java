@@ -38,6 +38,7 @@ import fr.univartois.cril.xtext2.als.LetName;
 import fr.univartois.cril.xtext2.als.Module;
 import fr.univartois.cril.xtext2.als.Open;
 import fr.univartois.cril.xtext2.als.OpenName;
+import fr.univartois.cril.xtext2.als.Param;
 import fr.univartois.cril.xtext2.als.ParanthesisandExpression;
 import fr.univartois.cril.xtext2.als.Predicate;
 import fr.univartois.cril.xtext2.als.PredicateName;
@@ -328,6 +329,12 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 			case AlsPackage.OPEN_NAME:
 				if(context == grammarAccess.getOpenNameRule()) {
 					sequence_OpenName(context, (OpenName) semanticObject); 
+					return; 
+				}
+				else break;
+			case AlsPackage.PARAM:
+				if(context == grammarAccess.getParamRule()) {
+					sequence_Param(context, (Param) semanticObject); 
 					return; 
 				}
 				else break;
@@ -792,7 +799,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *         (ref=Ref dot=Dot)? 
 	 *         name=FunctionName 
 	 *         (
-	 *             (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword) | 
+	 *             (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword) | 
 	 *             (leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis)
 	 *         ) 
 	 *         colon=Colon 
@@ -987,7 +994,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *             (ref=Ref dot=Dot)? 
 	 *             name=FunctionName 
 	 *             (
-	 *                 (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword) | 
+	 *                 (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword) | 
 	 *                 (leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis)
 	 *             ) 
 	 *             colon=Colon 
@@ -998,6 +1005,15 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_Paragraph(EObject context, Function semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (propertyName+=PropertyName (comma+=Comma propertyName+=PropertyName)* colon=Colon expr=Expression)
+	 */
+	protected void sequence_Param(EObject context, Param semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1017,8 +1033,8 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *         (ref=Ref dot=Dot)? 
 	 *         name=PredicateName 
 	 *         (
-	 *             (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword) | 
-	 *             (leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis)
+	 *             (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword) | 
+	 *             (leftP=LeftParenthesis (param+=Param (comma+=Comma param+=Param)*)? rightP=RightParenthesis)
 	 *         )? 
 	 *         block=Block
 	 *     )

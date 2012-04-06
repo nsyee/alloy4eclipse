@@ -4,23 +4,14 @@
 
 package fr.univartois.cril.xtext2.services;
 
-import org.eclipse.xtext.Action;
-import org.eclipse.xtext.Alternatives;
-import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.CrossReference;
-import org.eclipse.xtext.Grammar;
-import org.eclipse.xtext.GrammarUtil;
-import org.eclipse.xtext.Group;
-import org.eclipse.xtext.Keyword;
-import org.eclipse.xtext.ParserRule;
-import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
-import org.eclipse.xtext.service.GrammarProvider;
-
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.Inject;
+
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.service.GrammarProvider;
+import org.eclipse.xtext.service.AbstractElementFinder.*;
+
+import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 
 @Singleton
 public class AlsGrammarAccess extends AbstractGrammarElementFinder {
@@ -393,13 +384,13 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLeftSAssignment_4_0_0 = (Assignment)cGroup_4_0.eContents().get(0);
 		private final RuleCall cLeftSLeftSquareBracketKeywordParserRuleCall_4_0_0_0 = (RuleCall)cLeftSAssignment_4_0_0.eContents().get(0);
 		private final Group cGroup_4_0_1 = (Group)cGroup_4_0.eContents().get(1);
-		private final Assignment cDeclAssignment_4_0_1_0 = (Assignment)cGroup_4_0_1.eContents().get(0);
-		private final RuleCall cDeclDeclParserRuleCall_4_0_1_0_0 = (RuleCall)cDeclAssignment_4_0_1_0.eContents().get(0);
+		private final Assignment cParamAssignment_4_0_1_0 = (Assignment)cGroup_4_0_1.eContents().get(0);
+		private final RuleCall cParamParamParserRuleCall_4_0_1_0_0 = (RuleCall)cParamAssignment_4_0_1_0.eContents().get(0);
 		private final Group cGroup_4_0_1_1 = (Group)cGroup_4_0_1.eContents().get(1);
 		private final Assignment cCommaAssignment_4_0_1_1_0 = (Assignment)cGroup_4_0_1_1.eContents().get(0);
 		private final RuleCall cCommaCommaParserRuleCall_4_0_1_1_0_0 = (RuleCall)cCommaAssignment_4_0_1_1_0.eContents().get(0);
-		private final Assignment cDeclAssignment_4_0_1_1_1 = (Assignment)cGroup_4_0_1_1.eContents().get(1);
-		private final RuleCall cDeclDeclParserRuleCall_4_0_1_1_1_0 = (RuleCall)cDeclAssignment_4_0_1_1_1.eContents().get(0);
+		private final Assignment cParamAssignment_4_0_1_1_1 = (Assignment)cGroup_4_0_1_1.eContents().get(1);
+		private final RuleCall cParamParamParserRuleCall_4_0_1_1_1_0 = (RuleCall)cParamAssignment_4_0_1_1_1.eContents().get(0);
 		private final Assignment cRightSAssignment_4_0_2 = (Assignment)cGroup_4_0.eContents().get(2);
 		private final RuleCall cRightSRightSquareBracketKeywordParserRuleCall_4_0_2_0 = (RuleCall)cRightSAssignment_4_0_2.eContents().get(0);
 		private final Group cGroup_4_1 = (Group)cAlternatives_4.eContents().get(1);
@@ -427,13 +418,13 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 		//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 		// * / FunDecl returns Function:
-		//	"private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
-		//	decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//	"private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
+		//	param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
 		//	rightP=RightParenthesis) colon=Colon expr=Expression block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//"private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
-		//decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//"private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
+		//param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
 		//rightP=RightParenthesis) colon=Colon expr=Expression block=Block
 		public Group getGroup() { return cGroup; }
 
@@ -464,11 +455,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//FunctionName
 		public RuleCall getNameFunctionNameParserRuleCall_3_0() { return cNameFunctionNameParserRuleCall_3_0; }
 
-		//leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword |
+		//leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword |
 		//leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
-		//leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword
+		//leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword
 		public Group getGroup_4_0() { return cGroup_4_0; }
 
 		//leftS=LeftSquareBracketKeyword
@@ -477,16 +468,16 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//LeftSquareBracketKeyword
 		public RuleCall getLeftSLeftSquareBracketKeywordParserRuleCall_4_0_0_0() { return cLeftSLeftSquareBracketKeywordParserRuleCall_4_0_0_0; }
 
-		//(decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//(param+=Param (comma+=Comma param+=Param)*)?
 		public Group getGroup_4_0_1() { return cGroup_4_0_1; }
 
-		//decl+=Decl
-		public Assignment getDeclAssignment_4_0_1_0() { return cDeclAssignment_4_0_1_0; }
+		//param+=Param
+		public Assignment getParamAssignment_4_0_1_0() { return cParamAssignment_4_0_1_0; }
 
-		//Decl
-		public RuleCall getDeclDeclParserRuleCall_4_0_1_0_0() { return cDeclDeclParserRuleCall_4_0_1_0_0; }
+		//Param
+		public RuleCall getParamParamParserRuleCall_4_0_1_0_0() { return cParamParamParserRuleCall_4_0_1_0_0; }
 
-		//(comma+=Comma decl+=Decl)*
+		//(comma+=Comma param+=Param)*
 		public Group getGroup_4_0_1_1() { return cGroup_4_0_1_1; }
 
 		//comma+=Comma
@@ -495,11 +486,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Comma
 		public RuleCall getCommaCommaParserRuleCall_4_0_1_1_0_0() { return cCommaCommaParserRuleCall_4_0_1_1_0_0; }
 
-		//decl+=Decl
-		public Assignment getDeclAssignment_4_0_1_1_1() { return cDeclAssignment_4_0_1_1_1; }
+		//param+=Param
+		public Assignment getParamAssignment_4_0_1_1_1() { return cParamAssignment_4_0_1_1_1; }
 
-		//Decl
-		public RuleCall getDeclDeclParserRuleCall_4_0_1_1_1_0() { return cDeclDeclParserRuleCall_4_0_1_1_1_0; }
+		//Param
+		public RuleCall getParamParamParserRuleCall_4_0_1_1_1_0() { return cParamParamParserRuleCall_4_0_1_1_1_0; }
 
 		//rightS=RightSquareBracketKeyword
 		public Assignment getRightSAssignment_4_0_2() { return cRightSAssignment_4_0_2; }
@@ -658,26 +649,26 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLeftSAssignment_4_0_0 = (Assignment)cGroup_4_0.eContents().get(0);
 		private final RuleCall cLeftSLeftSquareBracketKeywordParserRuleCall_4_0_0_0 = (RuleCall)cLeftSAssignment_4_0_0.eContents().get(0);
 		private final Group cGroup_4_0_1 = (Group)cGroup_4_0.eContents().get(1);
-		private final Assignment cDeclAssignment_4_0_1_0 = (Assignment)cGroup_4_0_1.eContents().get(0);
-		private final RuleCall cDeclDeclParserRuleCall_4_0_1_0_0 = (RuleCall)cDeclAssignment_4_0_1_0.eContents().get(0);
+		private final Assignment cParamAssignment_4_0_1_0 = (Assignment)cGroup_4_0_1.eContents().get(0);
+		private final RuleCall cParamParamParserRuleCall_4_0_1_0_0 = (RuleCall)cParamAssignment_4_0_1_0.eContents().get(0);
 		private final Group cGroup_4_0_1_1 = (Group)cGroup_4_0_1.eContents().get(1);
 		private final Assignment cCommaAssignment_4_0_1_1_0 = (Assignment)cGroup_4_0_1_1.eContents().get(0);
 		private final RuleCall cCommaCommaParserRuleCall_4_0_1_1_0_0 = (RuleCall)cCommaAssignment_4_0_1_1_0.eContents().get(0);
-		private final Assignment cDeclAssignment_4_0_1_1_1 = (Assignment)cGroup_4_0_1_1.eContents().get(1);
-		private final RuleCall cDeclDeclParserRuleCall_4_0_1_1_1_0 = (RuleCall)cDeclAssignment_4_0_1_1_1.eContents().get(0);
+		private final Assignment cParamAssignment_4_0_1_1_1 = (Assignment)cGroup_4_0_1_1.eContents().get(1);
+		private final RuleCall cParamParamParserRuleCall_4_0_1_1_1_0 = (RuleCall)cParamAssignment_4_0_1_1_1.eContents().get(0);
 		private final Assignment cRightSAssignment_4_0_2 = (Assignment)cGroup_4_0.eContents().get(2);
 		private final RuleCall cRightSRightSquareBracketKeywordParserRuleCall_4_0_2_0 = (RuleCall)cRightSAssignment_4_0_2.eContents().get(0);
 		private final Group cGroup_4_1 = (Group)cAlternatives_4.eContents().get(1);
 		private final Assignment cLeftPAssignment_4_1_0 = (Assignment)cGroup_4_1.eContents().get(0);
 		private final RuleCall cLeftPLeftParenthesisParserRuleCall_4_1_0_0 = (RuleCall)cLeftPAssignment_4_1_0.eContents().get(0);
 		private final Group cGroup_4_1_1 = (Group)cGroup_4_1.eContents().get(1);
-		private final Assignment cDeclAssignment_4_1_1_0 = (Assignment)cGroup_4_1_1.eContents().get(0);
-		private final RuleCall cDeclDeclParserRuleCall_4_1_1_0_0 = (RuleCall)cDeclAssignment_4_1_1_0.eContents().get(0);
+		private final Assignment cParamAssignment_4_1_1_0 = (Assignment)cGroup_4_1_1.eContents().get(0);
+		private final RuleCall cParamParamParserRuleCall_4_1_1_0_0 = (RuleCall)cParamAssignment_4_1_1_0.eContents().get(0);
 		private final Group cGroup_4_1_1_1 = (Group)cGroup_4_1_1.eContents().get(1);
 		private final Assignment cCommaAssignment_4_1_1_1_0 = (Assignment)cGroup_4_1_1_1.eContents().get(0);
 		private final RuleCall cCommaCommaParserRuleCall_4_1_1_1_0_0 = (RuleCall)cCommaAssignment_4_1_1_1_0.eContents().get(0);
-		private final Assignment cDeclAssignment_4_1_1_1_1 = (Assignment)cGroup_4_1_1_1.eContents().get(1);
-		private final RuleCall cDeclDeclParserRuleCall_4_1_1_1_1_0 = (RuleCall)cDeclAssignment_4_1_1_1_1.eContents().get(0);
+		private final Assignment cParamAssignment_4_1_1_1_1 = (Assignment)cGroup_4_1_1_1.eContents().get(1);
+		private final RuleCall cParamParamParserRuleCall_4_1_1_1_1_0 = (RuleCall)cParamAssignment_4_1_1_1_1.eContents().get(0);
 		private final Assignment cRightPAssignment_4_1_2 = (Assignment)cGroup_4_1.eContents().get(2);
 		private final RuleCall cRightPRightParenthesisParserRuleCall_4_1_2_0 = (RuleCall)cRightPAssignment_4_1_2.eContents().get(0);
 		private final Assignment cBlockAssignment_5 = (Assignment)cGroup.eContents().get(5);
@@ -688,13 +679,13 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 		//	funDecl ::= ["private"] "pred" [ref "."] name                block
 		// * / PredDecl returns Predicate:
-		//	"private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
-		//	decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//	"private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
+		//	param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (param+=Param (comma+=Comma param+=Param)*)?
 		//	rightP=RightParenthesis)? block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//"private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
-		//decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//"private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
+		//param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (param+=Param (comma+=Comma param+=Param)*)?
 		//rightP=RightParenthesis)? block=Block
 		public Group getGroup() { return cGroup; }
 
@@ -725,11 +716,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//PredicateName
 		public RuleCall getNamePredicateNameParserRuleCall_3_0() { return cNamePredicateNameParserRuleCall_3_0; }
 
-		//(leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword |
-		//leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis)?
+		//(leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword |
+		//leftP=LeftParenthesis (param+=Param (comma+=Comma param+=Param)*)? rightP=RightParenthesis)?
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
-		//leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword
+		//leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword
 		public Group getGroup_4_0() { return cGroup_4_0; }
 
 		//leftS=LeftSquareBracketKeyword
@@ -738,16 +729,16 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//LeftSquareBracketKeyword
 		public RuleCall getLeftSLeftSquareBracketKeywordParserRuleCall_4_0_0_0() { return cLeftSLeftSquareBracketKeywordParserRuleCall_4_0_0_0; }
 
-		//(decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//(param+=Param (comma+=Comma param+=Param)*)?
 		public Group getGroup_4_0_1() { return cGroup_4_0_1; }
 
-		//decl+=Decl
-		public Assignment getDeclAssignment_4_0_1_0() { return cDeclAssignment_4_0_1_0; }
+		//param+=Param
+		public Assignment getParamAssignment_4_0_1_0() { return cParamAssignment_4_0_1_0; }
 
-		//Decl
-		public RuleCall getDeclDeclParserRuleCall_4_0_1_0_0() { return cDeclDeclParserRuleCall_4_0_1_0_0; }
+		//Param
+		public RuleCall getParamParamParserRuleCall_4_0_1_0_0() { return cParamParamParserRuleCall_4_0_1_0_0; }
 
-		//(comma+=Comma decl+=Decl)*
+		//(comma+=Comma param+=Param)*
 		public Group getGroup_4_0_1_1() { return cGroup_4_0_1_1; }
 
 		//comma+=Comma
@@ -756,11 +747,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Comma
 		public RuleCall getCommaCommaParserRuleCall_4_0_1_1_0_0() { return cCommaCommaParserRuleCall_4_0_1_1_0_0; }
 
-		//decl+=Decl
-		public Assignment getDeclAssignment_4_0_1_1_1() { return cDeclAssignment_4_0_1_1_1; }
+		//param+=Param
+		public Assignment getParamAssignment_4_0_1_1_1() { return cParamAssignment_4_0_1_1_1; }
 
-		//Decl
-		public RuleCall getDeclDeclParserRuleCall_4_0_1_1_1_0() { return cDeclDeclParserRuleCall_4_0_1_1_1_0; }
+		//Param
+		public RuleCall getParamParamParserRuleCall_4_0_1_1_1_0() { return cParamParamParserRuleCall_4_0_1_1_1_0; }
 
 		//rightS=RightSquareBracketKeyword
 		public Assignment getRightSAssignment_4_0_2() { return cRightSAssignment_4_0_2; }
@@ -768,7 +759,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//RightSquareBracketKeyword
 		public RuleCall getRightSRightSquareBracketKeywordParserRuleCall_4_0_2_0() { return cRightSRightSquareBracketKeywordParserRuleCall_4_0_2_0; }
 
-		//leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
+		//leftP=LeftParenthesis (param+=Param (comma+=Comma param+=Param)*)? rightP=RightParenthesis
 		public Group getGroup_4_1() { return cGroup_4_1; }
 
 		//leftP=LeftParenthesis
@@ -777,16 +768,16 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//LeftParenthesis
 		public RuleCall getLeftPLeftParenthesisParserRuleCall_4_1_0_0() { return cLeftPLeftParenthesisParserRuleCall_4_1_0_0; }
 
-		//(decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//(param+=Param (comma+=Comma param+=Param)*)?
 		public Group getGroup_4_1_1() { return cGroup_4_1_1; }
 
-		//decl+=Decl
-		public Assignment getDeclAssignment_4_1_1_0() { return cDeclAssignment_4_1_1_0; }
+		//param+=Param
+		public Assignment getParamAssignment_4_1_1_0() { return cParamAssignment_4_1_1_0; }
 
-		//Decl
-		public RuleCall getDeclDeclParserRuleCall_4_1_1_0_0() { return cDeclDeclParserRuleCall_4_1_1_0_0; }
+		//Param
+		public RuleCall getParamParamParserRuleCall_4_1_1_0_0() { return cParamParamParserRuleCall_4_1_1_0_0; }
 
-		//(comma+=Comma decl+=Decl)*
+		//(comma+=Comma param+=Param)*
 		public Group getGroup_4_1_1_1() { return cGroup_4_1_1_1; }
 
 		//comma+=Comma
@@ -795,11 +786,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Comma
 		public RuleCall getCommaCommaParserRuleCall_4_1_1_1_0_0() { return cCommaCommaParserRuleCall_4_1_1_1_0_0; }
 
-		//decl+=Decl
-		public Assignment getDeclAssignment_4_1_1_1_1() { return cDeclAssignment_4_1_1_1_1; }
+		//param+=Param
+		public Assignment getParamAssignment_4_1_1_1_1() { return cParamAssignment_4_1_1_1_1; }
 
-		//Decl
-		public RuleCall getDeclDeclParserRuleCall_4_1_1_1_1_0() { return cDeclDeclParserRuleCall_4_1_1_1_1_0; }
+		//Param
+		public RuleCall getParamParamParserRuleCall_4_1_1_1_1_0() { return cParamParamParserRuleCall_4_1_1_1_1_0; }
 
 		//rightP=RightParenthesis
 		public Assignment getRightPAssignment_4_1_2() { return cRightPAssignment_4_1_2; }
@@ -2564,6 +2555,78 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getExprExpressionParserRuleCall_6_0() { return cExprExpressionParserRuleCall_6_0; }
 	}
 
+	public class ParamElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Param");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPrivateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cDisjKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cPropertyNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cPropertyNamePropertyNameParserRuleCall_2_0 = (RuleCall)cPropertyNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cCommaAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cCommaCommaParserRuleCall_3_0_0 = (RuleCall)cCommaAssignment_3_0.eContents().get(0);
+		private final Assignment cPropertyNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPropertyNamePropertyNameParserRuleCall_3_1_0 = (RuleCall)cPropertyNameAssignment_3_1.eContents().get(0);
+		private final Assignment cColonAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cColonColonParserRuleCall_4_0 = (RuleCall)cColonAssignment_4.eContents().get(0);
+		private final Keyword cDisjKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cExprAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cExprExpressionParserRuleCall_6_0 = (RuleCall)cExprAssignment_6.eContents().get(0);
+		
+		/// *
+		//	param ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
+		// * / Param:
+		//	"private"? "disj"? propertyName+=PropertyName (comma+=Comma propertyName+=PropertyName)* colon=Colon "disj"?
+		//	expr=Expression;
+		public ParserRule getRule() { return rule; }
+
+		//"private"? "disj"? propertyName+=PropertyName (comma+=Comma propertyName+=PropertyName)* colon=Colon "disj"?
+		//expr=Expression
+		public Group getGroup() { return cGroup; }
+
+		//"private"?
+		public Keyword getPrivateKeyword_0() { return cPrivateKeyword_0; }
+
+		//"disj"?
+		public Keyword getDisjKeyword_1() { return cDisjKeyword_1; }
+
+		//propertyName+=PropertyName
+		public Assignment getPropertyNameAssignment_2() { return cPropertyNameAssignment_2; }
+
+		//PropertyName
+		public RuleCall getPropertyNamePropertyNameParserRuleCall_2_0() { return cPropertyNamePropertyNameParserRuleCall_2_0; }
+
+		//(comma+=Comma propertyName+=PropertyName)*
+		public Group getGroup_3() { return cGroup_3; }
+
+		//comma+=Comma
+		public Assignment getCommaAssignment_3_0() { return cCommaAssignment_3_0; }
+
+		//Comma
+		public RuleCall getCommaCommaParserRuleCall_3_0_0() { return cCommaCommaParserRuleCall_3_0_0; }
+
+		//propertyName+=PropertyName
+		public Assignment getPropertyNameAssignment_3_1() { return cPropertyNameAssignment_3_1; }
+
+		//PropertyName
+		public RuleCall getPropertyNamePropertyNameParserRuleCall_3_1_0() { return cPropertyNamePropertyNameParserRuleCall_3_1_0; }
+
+		//colon=Colon
+		public Assignment getColonAssignment_4() { return cColonAssignment_4; }
+
+		//Colon
+		public RuleCall getColonColonParserRuleCall_4_0() { return cColonColonParserRuleCall_4_0; }
+
+		//"disj"?
+		public Keyword getDisjKeyword_5() { return cDisjKeyword_5; }
+
+		//expr=Expression
+		public Assignment getExprAssignment_6() { return cExprAssignment_6; }
+
+		//Expression
+		public RuleCall getExprExpressionParserRuleCall_6_0() { return cExprExpressionParserRuleCall_6_0; }
+	}
+
 	public class LetDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LetDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -3723,6 +3786,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	private ExpressionElements pExpression;
 	private TerminalExpressionElements pTerminalExpression;
 	private DeclElements pDecl;
+	private ParamElements pParam;
 	private LetDeclElements pLetDecl;
 	private ParanthesisandExpressionElements pParanthesisandExpression;
 	private QuantElements pQuant;
@@ -3866,8 +3930,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 	//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 	// * / FunDecl returns Function:
-	//	"private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
-	//	decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+	//	"private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
+	//	param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
 	//	rightP=RightParenthesis) colon=Colon expr=Expression block=Block;
 	public FunDeclElements getFunDeclAccess() {
 		return (pFunDecl != null) ? pFunDecl : (pFunDecl = new FunDeclElements());
@@ -3896,8 +3960,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 	//	funDecl ::= ["private"] "pred" [ref "."] name                block
 	// * / PredDecl returns Predicate:
-	//	"private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma
-	//	decl+=Decl)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)?
+	//	"private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
+	//	param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (param+=Param (comma+=Comma param+=Param)*)?
 	//	rightP=RightParenthesis)? block=Block;
 	public PredDeclElements getPredDeclAccess() {
 		return (pPredDecl != null) ? pPredDecl : (pPredDecl = new PredDeclElements());
@@ -4112,6 +4176,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDeclRule() {
 		return getDeclAccess().getRule();
+	}
+
+	/// *
+	//	param ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
+	// * / Param:
+	//	"private"? "disj"? propertyName+=PropertyName (comma+=Comma propertyName+=PropertyName)* colon=Colon "disj"?
+	//	expr=Expression;
+	public ParamElements getParamAccess() {
+		return (pParam != null) ? pParam : (pParam = new ParamElements());
+	}
+	
+	public ParserRule getParamRule() {
+		return getParamAccess().getRule();
 	}
 
 	/// *

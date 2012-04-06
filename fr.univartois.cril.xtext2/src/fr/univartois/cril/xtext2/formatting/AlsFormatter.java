@@ -3,6 +3,7 @@
  */
 package fr.univartois.cril.xtext2.formatting;
 
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
 
@@ -24,88 +25,75 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 
 		AlsGrammarAccess f = (AlsGrammarAccess) getGrammarAccess();
 		c.setAutoLinewrap(120);
-		this.setFormattingCurlyBracket(c, f);// terminé
-		this.setFormattingSquareBracketKeyword(c, f);// terminé
-		this.setFormattingComma(c, f);// terminé
-		this.setFormattingDote(c, f);// terminé
+		this.setFormattingAlias(c, f);// terminé
 		this.setFormattingColon(c, f);// terminé
-		this.setFormattingSLComments(c, f);		
-		this.setFormattingAssertDecl(c, f);
+		this.setFormattingComma(c, f);// terminé
+		this.setFormattingCurlyBracket(c, f);// terminé
+		this.setFormattingDecl(c, f);// terminé
+		this.setFormattingDote(c, f);// terminé
+		this.setFormattingExpr(c, f);// terminé
 		this.setFormattingOpen(c, f);// terminé
 		this.setFormattingUnOpen(c, f);// terminé
+		this.setFormattingSigQual(c, f);// terminé
+		this.setFormattingSquareBracketKeyword(c, f);// terminé
+		this.setFormattingComments(c, f);// terminé
+		this.setFormattingSLComments(c, f);
+		this.setFormattingAssertDecl(c, f);
+		this.setFormattingCheckDecl(c, f);// terminé
+		this.setFormattingEnumDecl(c, f);
 		this.setFormattingFactDecl(c, f);// terminé
 		this.setFormattingFunDecl(c, f);// terminé
 		this.setFormattingPredDecl(c, f);// terminé
-		this.setFormattingEnumDecl(c, f);
 		this.setFormattingSigDecl(c, f);// terminé
-		this.setFormattingSigQual(c, f);// terminé
-		this.setFormattingAlias(c, f);// terminé
-		this.setFormattingEnumName(c, f);// terminé
-		this.setFormattingNameFact(c, f);// terminé
-		this.setFormattingComments(c, f);// terminé
 		this.setFormattingRunDecl(c, f);// terminé
-		this.setFormattingCheckDecl(c, f);// terminé
 		this.setFormattingAssertionName(c, f);// terminé
+		this.setFormattingEnumName(c, f);// terminé
+		this.setFormattingFactName(c, f);// terminé
+		this.setFormattingLetName(c, f);// terminé
 	}
 
-	private void setFormattingAssertionName(FormattingConfig c,
-			AlsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getAssertionNameRule());
-		c.setNoLinewrap().after(f.getAssertionNameRule());
+	private void setFormattingAlias(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).before(f.getAliasRule());
+		c.setNoLinewrap().after(f.getAliasRule());
 	}
 
-	private void setFormattingAssertDecl(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap().around(f.getAssertDeclRule());
-
+	private void setFormattingColon(FormattingConfig c, AlsGrammarAccess f) {
+		c.setNoSpace().before(f.getColonAccess().getColonColonKeyword_0());// ICI
 	}
 
-	private void setFormattingUnOpen(FormattingConfig c, AlsGrammarAccess f) {
-		c.setNoSpace().after(f.getUnOpAccess().getOpAssignment_1_3());
-
+	private void setFormattingComma(FormattingConfig c, AlsGrammarAccess f) {
+		c.setNoSpace().before(f.getCommaAccess().getCommaCommaKeyword_0());// ici
 	}
 
-	private void setFormattingSquareBracketKeyword(FormattingConfig c, AlsGrammarAccess f) {
-		c.setNoSpace().around(f.getLeftSquareBracketKeywordRule());
-		c.setNoSpace().before(f.getRightSquareBracketKeywordRule());
-	}
-
-	private void setFormattingCurlyBracket(FormattingConfig c,
-			AlsGrammarAccess f) {
+	private void setFormattingCurlyBracket(FormattingConfig c, AlsGrammarAccess f) {
 		c.setIndentation(f.getLeftCurlyBracketAccess()
 				.getLeftCurlyBracketLeftCurlyBracketKeyword_0(), f
 				.getRightCurlyBracketAccess()
 				.getRightCurlyBracketRightCurlyBracketKeyword_0());
-		c.setLinewrap().after(
-				f.getLeftCurlyBracketAccess()
+		c.setLinewrap().after( f.getLeftCurlyBracketAccess()
 						.getLeftCurlyBracketLeftCurlyBracketKeyword_0());
-		c.setLinewrap().before(
-				f.getRightCurlyBracketAccess()
-						.getRightCurlyBracketRightCurlyBracketKeyword_0());
-		c.setNoLinewrap().before(
-				f.getLeftCurlyBracketAccess()
-						.getLeftCurlyBracketLeftCurlyBracketKeyword_0());
-		c.setLinewrap(2).after(
-				f.getRightCurlyBracketAccess()
+		c.setLinewrap().before( f.getRightCurlyBracketAccess()
 						.getRightCurlyBracketRightCurlyBracketKeyword_0());
 	}
-
-	private void setFormattingNameFact(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getFactNameRule());
-		c.setNoLinewrap().after(f.getFactNameRule());
+	
+	private void setFormattingDecl(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap().before(f.getDeclAccess().getPropertyNameAssignment_3_1()) ;
 	}
 
-	private void setFormattingFactDecl(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).around(f.getFactDeclRule());
+	private void setFormattingDote(FormattingConfig c, AlsGrammarAccess f) {
+		c.setNoSpace().after(f.getDotAccess().getDotFullStopKeyword_0());// ici
+		c.setNoSpace().before(f.getDotAccess().getDotFullStopKeyword_0());// ici
 	}
-
-	private void setFormattingFunDecl(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).around(f.getFunDeclRule());
-		c.setNoLinewrap().after(f.getFunDeclAccess().getCommaAssignment_4_0_1_1_0());
-	}
-
-	private void setFormattingPredDecl(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).around(f.getPredDeclRule());
-		c.setNoLinewrap().after(f.getPredDeclAccess().getCommaAssignment_4_0_1_1_0());
+	
+	private void setFormattingExpr(FormattingConfig c, AlsGrammarAccess f) {
+		c.setNoSpace().before(f.getExpressionAccess().getLeftSquareBracketKeyword_1_4_0()) ;
+		c.setNoSpace().after(f.getExpressionAccess().getLeftSquareBracketKeyword_1_4_0()) ;
+		c.setNoSpace().before(f.getExpressionAccess().getRightSquareBracketKeyword_1_4_2()) ;
+		
+		for(Keyword parO : f.getTerminalExpressionAccess().findKeywords("("))
+			c.setNoSpace().after(parO) ;
+		for(Keyword parF : f.getTerminalExpressionAccess().findKeywords(")"))
+			c.setNoSpace().before(parF) ;
 	}
 
 	private void setFormattingOpen(FormattingConfig c, AlsGrammarAccess f) {
@@ -114,21 +102,18 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(2).before(f.getOpenNameRule());// ICI
 	}
 
-	private void setFormattingEnumDecl(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).around(f.getEnumDeclRule());
+	private void setFormattingUnOpen(FormattingConfig c, AlsGrammarAccess f) {
+		c.setNoSpace().after(f.getUnOpAccess().getOpAssignment_1_3());
 	}
 
-	private void setFormattingEnumName(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getEnumNameRule());
-		c.setNoLinewrap().after(f.getEnumNameRule());
+	private void setFormattingSigQual(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).before(f.getSigQualRule());
+		c.setNoLinewrap().after(f.getSigQualRule());
 	}
 
-	private void setFormattingSigDecl(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getSigDeclAccess().getSigKeyword_1());
-		c.setLinewrap().before(f.getSigDeclAccess().getDeclAssignment_6_0());
-		c.setNoLinewrap().after(f.getSigDeclAccess().getCommaAssignment_3_0());		
-		c.setIndentation(f.getSigDeclAccess().getLeftCurlyBracketKeyword_5(), f.getSigDeclAccess().getRightCurlyBracketKeyword_7());
-		c.setLinewrap().before(f.getSigDeclAccess().getRightCurlyBracketKeyword_7());
+	private void setFormattingSquareBracketKeyword(FormattingConfig c, AlsGrammarAccess f) {
+		c.setNoSpace().around(f.getLeftSquareBracketKeywordRule());
+		c.setNoSpace().before(f.getRightSquareBracketKeywordRule());
 	}
 
 	private void setFormattingComments(FormattingConfig c, AlsGrammarAccess f) {
@@ -140,37 +125,60 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap().before(f.getSL_COMMENTRule());
 	}
 
-	private void setFormattingSigQual(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getSigQualRule());
-		c.setNoLinewrap().after(f.getSigQualRule());
-
-	}
-
-	private void setFormattingDote(FormattingConfig c, AlsGrammarAccess f) {
-		c.setNoSpace().after(f.getDotAccess().getDotFullStopKeyword_0());// ici
-		c.setNoSpace().before(f.getDotAccess().getDotFullStopKeyword_0());// ici
-	}
-
-	private void setFormattingAlias(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getAliasRule());
-		c.setNoLinewrap().after(f.getAliasRule());
-	}
-
-	private void setFormattingRunDecl(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).around(f.getRunDeclRule());
-	}
-
-	private void setFormattingComma(FormattingConfig c, AlsGrammarAccess f) {
-		c.setNoSpace().before(f.getCommaAccess().getCommaCommaKeyword_0());// ici
-		c.setLinewrap().after(f.getCommaAccess().getCommaCommaKeyword_0());
+	private void setFormattingAssertDecl(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap().around(f.getAssertDeclRule());
 	}
 
 	private void setFormattingCheckDecl(FormattingConfig c, AlsGrammarAccess f) {
 		c.setLinewrap(2).around(f.getCheckDeclRule());
 	}
 
-	private void setFormattingColon(FormattingConfig c, AlsGrammarAccess f) {
-		c.setNoSpace().before(f.getColonAccess().getColonColonKeyword_0());// ICI
+	private void setFormattingEnumDecl(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).around(f.getEnumDeclRule());
 	}
 
+	private void setFormattingFactDecl(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).around(f.getFactDeclRule());
+	}
+
+	private void setFormattingFunDecl(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).around(f.getFunDeclRule()); 
+	}
+
+	private void setFormattingPredDecl(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).around(f.getPredDeclRule());
+	}
+
+	private void setFormattingRunDecl(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).around(f.getRunDeclRule());
+	}
+
+	private void setFormattingSigDecl(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).before(f.getSigDeclAccess().getSigKeyword_1());
+		
+		for(Keyword leftCurly : f.getSigDeclAccess().findKeywords("{"))
+			c.setLinewrap().after(leftCurly) ;
+		
+		c.setIndentation(f.getSigDeclAccess().getLeftCurlyBracketKeyword_5(), f.getSigDeclAccess().getRightCurlyBracketKeyword_7());
+		c.setLinewrap().before(f.getSigDeclAccess().getRightCurlyBracketKeyword_7());
+	}
+
+	private void setFormattingAssertionName(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).before(f.getAssertionNameRule());
+		c.setNoLinewrap().after(f.getAssertionNameRule());
+	}
+
+	private void setFormattingFactName(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).before(f.getFactNameRule());
+		c.setNoLinewrap().after(f.getFactNameRule());
+	}
+
+	private void setFormattingEnumName(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).before(f.getEnumNameRule());
+		c.setNoLinewrap().after(f.getEnumNameRule());
+	}
+	
+	private void setFormattingLetName(FormattingConfig c, AlsGrammarAccess f) {
+		c.setLinewrap(2).before(f.getLetNameAccess().getLetKeyword_0());
+	}
 }
