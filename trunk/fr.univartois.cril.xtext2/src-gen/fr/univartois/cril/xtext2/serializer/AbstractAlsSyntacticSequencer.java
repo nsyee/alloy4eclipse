@@ -45,6 +45,9 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_FunDeclWParam_PrivateKeyword_0_q;
 	protected AbstractElementAlias match_FunDecl_PrivateKeyword_0_q;
 	protected AbstractElementAlias match_Open_PrivateKeyword_0_q;
+	protected AbstractElementAlias match_Param_DisjKeyword_1_q;
+	protected AbstractElementAlias match_Param_DisjKeyword_5_q;
+	protected AbstractElementAlias match_Param_PrivateKeyword_0_q;
 	protected AbstractElementAlias match_PredDecl_PrivateKeyword_0_q;
 	protected AbstractElementAlias match_Ref_IntKeyword_1_2_or_SeqIntKeyword_1_3_or_UnivKeyword_1_1;
 	protected AbstractElementAlias match_ReferencesSig_IntKeyword_1_2_or_SeqIntKeyword_1_3_or_UnivKeyword_1_1;
@@ -85,6 +88,9 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_FunDeclWParam_PrivateKeyword_0_q = new TokenAlias(false, true, grammarAccess.getFunDeclWParamAccess().getPrivateKeyword_0());
 		match_FunDecl_PrivateKeyword_0_q = new TokenAlias(false, true, grammarAccess.getFunDeclAccess().getPrivateKeyword_0());
 		match_Open_PrivateKeyword_0_q = new TokenAlias(false, true, grammarAccess.getOpenAccess().getPrivateKeyword_0());
+		match_Param_DisjKeyword_1_q = new TokenAlias(false, true, grammarAccess.getParamAccess().getDisjKeyword_1());
+		match_Param_DisjKeyword_5_q = new TokenAlias(false, true, grammarAccess.getParamAccess().getDisjKeyword_5());
+		match_Param_PrivateKeyword_0_q = new TokenAlias(false, true, grammarAccess.getParamAccess().getPrivateKeyword_0());
 		match_PredDecl_PrivateKeyword_0_q = new TokenAlias(false, true, grammarAccess.getPredDeclAccess().getPrivateKeyword_0());
 		match_Ref_IntKeyword_1_2_or_SeqIntKeyword_1_3_or_UnivKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getRefAccess().getIntKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getRefAccess().getSeqIntKeyword_1_3()), new TokenAlias(false, false, grammarAccess.getRefAccess().getUnivKeyword_1_1()));
 		match_ReferencesSig_IntKeyword_1_2_or_SeqIntKeyword_1_3_or_UnivKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getReferencesSigAccess().getIntKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getReferencesSigAccess().getSeqIntKeyword_1_3()), new TokenAlias(false, false, grammarAccess.getReferencesSigAccess().getUnivKeyword_1_1()));
@@ -175,6 +181,12 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_FunDecl_PrivateKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Open_PrivateKeyword_0_q.equals(syntax))
 				emit_Open_PrivateKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Param_DisjKeyword_1_q.equals(syntax))
+				emit_Param_DisjKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Param_DisjKeyword_5_q.equals(syntax))
+				emit_Param_DisjKeyword_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Param_PrivateKeyword_0_q.equals(syntax))
+				emit_Param_PrivateKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_PredDecl_PrivateKeyword_0_q.equals(syntax))
 				emit_PredDecl_PrivateKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Ref_IntKeyword_1_2_or_SeqIntKeyword_1_3_or_UnivKeyword_1_1.equals(syntax))
@@ -210,21 +222,21 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	/**
 	 * Syntax:
 	 *     (
+	     '>>>' | 
+	     '>>' | 
+	     '++' | 
 	     '&' | 
-	     'iff' | 
+	     '<:' | 
+	     '||' | 
 	     '<=>' | 
 	     '<<' | 
-	     '<:' | 
-	     '>>>' | 
-	     '||' | 
-	     'or' | 
-	     '>>' | 
-	     'and' | 
-	     '++' | 
-	     '-' | 
 	     '&&' | 
-	     '+' | 
-	     ':>'
+	     '-' | 
+	     ':>' | 
+	     'iff' | 
+	     'or' | 
+	     'and' | 
+	     '+'
 	 )
 	 */
 	protected void emit_BinOp_AmpersandAmpersandKeyword_1_2_or_AmpersandKeyword_1_4_or_AndKeyword_1_3_or_ColonGreaterThanSignKeyword_1_11_or_GreaterThanSignGreaterThanSignGreaterThanSignKeyword_1_15_or_GreaterThanSignGreaterThanSignKeyword_1_14_or_HyphenMinusKeyword_1_8_or_IffKeyword_1_6_or_LessThanSignColonKeyword_1_10_or_LessThanSignEqualsSignGreaterThanSignKeyword_1_5_or_LessThanSignLessThanSignKeyword_1_13_or_OrKeyword_1_1_or_PlusSignKeyword_1_7_or_PlusSignPlusSignKeyword_1_9_or_VerticalLineVerticalLineKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -241,7 +253,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'lone' | 'no' | 'some' | 'one'
+	 *     'no' | 'lone' | 'some' | 'one'
 	 */
 	protected void emit_CommonQuantUnOp_LoneKeyword_1_2_or_NoKeyword_1_0_or_OneKeyword_1_3_or_SomeKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -281,7 +293,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'not'? | '!'?
+	 *     '!'? | 'not'?
 	 */
 	protected void emit_Expression_ExclamationMarkKeyword_1_1_0_0_q_or_NotKeyword_1_1_0_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -297,7 +309,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('=>' | 'implies')*
+	 *     ('implies' | '=>')*
 	 */
 	protected void emit_Expression___EqualsSignGreaterThanSignKeyword_1_3_0_0_or_ImpliesKeyword_1_3_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -305,7 +317,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('=>' | 'implies')+
+	 *     ('implies' | '=>')+
 	 */
 	protected void emit_Expression___EqualsSignGreaterThanSignKeyword_1_3_0_0_or_ImpliesKeyword_1_3_0_1__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -313,7 +325,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('!' | 'not')?
+	 *     ('not' | '!')?
 	 */
 	protected void emit_Expression___ExclamationMarkKeyword_1_1_0_0_or_NotKeyword_1_1_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -321,7 +333,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('[' ']' ('=>' | 'implies')*)*
+	 *     ('[' ']' ('implies' | '=>')*)*
 	 */
 	protected void emit_Expression___LeftSquareBracketKeyword_1_4_0_RightSquareBracketKeyword_1_4_2___EqualsSignGreaterThanSignKeyword_1_3_0_0_or_ImpliesKeyword_1_3_0_1__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -329,7 +341,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('[' ']' ('[' ']')* ('=>' | 'implies')+)*
+	 *     ('[' ']' ('[' ']')* ('implies' | '=>')+)*
 	 */
 	protected void emit_Expression___LeftSquareBracketKeyword_1_4_0_RightSquareBracketKeyword_1_4_2___LeftSquareBracketKeyword_1_4_0_RightSquareBracketKeyword_1_4_2__a___EqualsSignGreaterThanSignKeyword_1_3_0_0_or_ImpliesKeyword_1_3_0_1__p__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -345,7 +357,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (']' ('=>' | 'implies')* '[')*
+	 *     (']' ('implies' | '=>')* '[')*
 	 */
 	protected void emit_Expression___RightSquareBracketKeyword_1_4_2___EqualsSignGreaterThanSignKeyword_1_3_0_0_or_ImpliesKeyword_1_3_0_1__a_LeftSquareBracketKeyword_1_4_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -353,7 +365,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (']' ('=>' | 'implies')* '[')+
+	 *     (']' ('implies' | '=>')* '[')+
 	 */
 	protected void emit_Expression___RightSquareBracketKeyword_1_4_2___EqualsSignGreaterThanSignKeyword_1_3_0_0_or_ImpliesKeyword_1_3_0_1__a_LeftSquareBracketKeyword_1_4_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -361,7 +373,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ((('[' ']') | '=>'?) 'implies'?)*
+	 *     (('=>'? | ('[' ']')) 'implies'?)*
 	 */
 	protected void emit_Expression_____EqualsSignGreaterThanSignKeyword_1_3_0_0_q_or___LeftSquareBracketKeyword_1_4_0_RightSquareBracketKeyword_1_4_2_____ImpliesKeyword_1_3_0_1_q__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -406,13 +418,9 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	             ('[' ']')+ 
 	             ('implies'* ('[' ']')+)*
 	         )* 
-	         (('implies'* '=>'+ ('implies'* '=>'+)* 'implies'*) | 'implies'*)
+	         ('implies'* | ('implies'* '=>'+ ('implies'* '=>'+)* 'implies'*))
 	     ) | 
 	     (
-	         (
-	             (('implies'* '=>'+ ('implies'* '=>'+)* 'implies'*) | 'implies'*) | 
-	             ('implies'* ('[' ']')+ ('implies'* ('[' ']')+)* (('implies'* '=>'+ ('implies'* '=>'+)* 'implies'*) | 'implies'*))
-	         ) | 
 	         (
 	             'implies'* 
 	             '=>'+ 
@@ -420,7 +428,11 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	             'implies'* 
 	             ('[' ']')+ 
 	             ('implies'* ('[' ']')+)* 
-	             (('implies'* '=>'+ ('implies'* '=>'+)* 'implies'*) | 'implies'*)
+	             ('implies'* | ('implies'* '=>'+ ('implies'* '=>'+)* 'implies'*))
+	         ) | 
+	         (
+	             ('implies'* | ('implies'* '=>'+ ('implies'* '=>'+)* 'implies'*)) | 
+	             ('implies'* ('[' ']')+ ('implies'* ('[' ']')+)* ('implies'* | ('implies'* '=>'+ ('implies'* '=>'+)* 'implies'*)))
 	         )
 	     )
 	 )
@@ -439,7 +451,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (('[' ']')* ('=>' | 'implies')+ (('[' ']')* ('=>' | 'implies')+)*)?
+	 *     (('[' ']')* ('implies' | '=>')+ (('[' ']')* ('implies' | '=>')+)*)?
 	 */
 	protected void emit_Expression_____LeftSquareBracketKeyword_1_4_0_RightSquareBracketKeyword_1_4_2__a___EqualsSignGreaterThanSignKeyword_1_3_0_0_or_ImpliesKeyword_1_3_0_1__p_____LeftSquareBracketKeyword_1_4_0_RightSquareBracketKeyword_1_4_2__a___EqualsSignGreaterThanSignKeyword_1_3_0_0_or_ImpliesKeyword_1_3_0_1__p__a__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -447,7 +459,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (('[' ']')* ('=>' | 'implies')+)*
+	 *     (('[' ']')* ('implies' | '=>')+)*
 	 */
 	protected void emit_Expression_____LeftSquareBracketKeyword_1_4_0_RightSquareBracketKeyword_1_4_2__a___EqualsSignGreaterThanSignKeyword_1_3_0_0_or_ImpliesKeyword_1_3_0_1__p__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -479,6 +491,30 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
+	 *     'disj'?
+	 */
+	protected void emit_Param_DisjKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     'disj'?
+	 */
+	protected void emit_Param_DisjKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     'private'?
+	 */
+	protected void emit_Param_PrivateKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
 	 *     'private'?
 	 */
 	protected void emit_PredDecl_PrivateKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -487,7 +523,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Int' | 'seq/Int' | 'univ'
+	 *     'univ' | 'seq/Int' | 'Int'
 	 */
 	protected void emit_Ref_IntKeyword_1_2_or_SeqIntKeyword_1_3_or_UnivKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -495,7 +531,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Int' | 'univ' | 'seq/Int'
+	 *     'univ' | 'seq/Int' | 'Int'
 	 */
 	protected void emit_ReferencesSig_IntKeyword_1_2_or_SeqIntKeyword_1_3_or_UnivKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -503,7 +539,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (('fun' | 'this' | 'pred') '/')?
+	 *     (('pred' | 'this' | 'fun') '/')?
 	 */
 	protected void emit_ReferencesSig_____FunKeyword_1_0_0_0_1_or_PredKeyword_1_0_0_0_2_or_ThisKeyword_1_0_0_0_3___SolidusKeyword_1_0_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -511,7 +547,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('lone' | 'some' | 'private' | 'one' | 'abstract')*
+	 *     ('one' | 'lone' | 'private' | 'some' | 'abstract')*
 	 */
 	protected void emit_SigQual___AbstractKeyword_1_0_or_LoneKeyword_1_1_or_OneKeyword_1_2_or_PrivateKeyword_1_4_or_SomeKeyword_1_3__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -551,7 +587,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'not' | 'seq' | 'set'
+	 *     'not' | 'set' | 'seq'
 	 */
 	protected void emit_UnOp_NotKeyword_1_0_or_SeqKeyword_1_2_or_SetKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

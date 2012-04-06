@@ -19,10 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getDot <em>Dot</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getLeftS <em>Left S</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext2.als.Function#getDecl <em>Decl</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext2.als.Function#getParam <em>Param</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getComma <em>Comma</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getRightS <em>Right S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getLeftP <em>Left P</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext2.als.Function#getDecl <em>Decl</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getRightP <em>Right P</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getColon <em>Colon</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getExpr <em>Expr</em>}</li>
@@ -141,20 +142,20 @@ public interface Function extends Paragraph
   void setLeftS(LeftSquareBracketKeyword value);
 
   /**
-   * Returns the value of the '<em><b>Decl</b></em>' containment reference list.
-   * The list contents are of type {@link fr.univartois.cril.xtext2.als.Decl}.
+   * Returns the value of the '<em><b>Param</b></em>' containment reference list.
+   * The list contents are of type {@link fr.univartois.cril.xtext2.als.Param}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Decl</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Param</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Decl</em>' containment reference list.
-   * @see fr.univartois.cril.xtext2.als.AlsPackage#getFunction_Decl()
+   * @return the value of the '<em>Param</em>' containment reference list.
+   * @see fr.univartois.cril.xtext2.als.AlsPackage#getFunction_Param()
    * @model containment="true"
    * @generated
    */
-  EList<Decl> getDecl();
+  EList<Param> getParam();
 
   /**
    * Returns the value of the '<em><b>Comma</b></em>' containment reference list.
@@ -223,6 +224,22 @@ public interface Function extends Paragraph
    * @generated
    */
   void setLeftP(LeftParenthesis value);
+
+  /**
+   * Returns the value of the '<em><b>Decl</b></em>' containment reference list.
+   * The list contents are of type {@link fr.univartois.cril.xtext2.als.Decl}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Decl</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Decl</em>' containment reference list.
+   * @see fr.univartois.cril.xtext2.als.AlsPackage#getFunction_Decl()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Decl> getDecl();
 
   /**
    * Returns the value of the '<em><b>Right P</b></em>' containment reference.

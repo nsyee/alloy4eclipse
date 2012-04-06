@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.univartois.cril.xtext2.als.Predicate#getDot <em>Dot</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Predicate#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Predicate#getLeftS <em>Left S</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext2.als.Predicate#getDecl <em>Decl</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext2.als.Predicate#getParam <em>Param</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Predicate#getComma <em>Comma</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Predicate#getRightS <em>Right S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Predicate#getLeftP <em>Left P</em>}</li>
@@ -139,20 +139,20 @@ public interface Predicate extends Paragraph
   void setLeftS(LeftSquareBracketKeyword value);
 
   /**
-   * Returns the value of the '<em><b>Decl</b></em>' containment reference list.
-   * The list contents are of type {@link fr.univartois.cril.xtext2.als.Decl}.
+   * Returns the value of the '<em><b>Param</b></em>' containment reference list.
+   * The list contents are of type {@link fr.univartois.cril.xtext2.als.Param}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Decl</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Param</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Decl</em>' containment reference list.
-   * @see fr.univartois.cril.xtext2.als.AlsPackage#getPredicate_Decl()
+   * @return the value of the '<em>Param</em>' containment reference list.
+   * @see fr.univartois.cril.xtext2.als.AlsPackage#getPredicate_Param()
    * @model containment="true"
    * @generated
    */
-  EList<Decl> getDecl();
+  EList<Param> getParam();
 
   /**
    * Returns the value of the '<em><b>Comma</b></em>' containment reference list.

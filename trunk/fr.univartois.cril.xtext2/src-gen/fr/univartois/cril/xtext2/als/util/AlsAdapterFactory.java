@@ -178,6 +178,11 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createDeclAdapter();
       }
       @Override
+      public Adapter caseParam(Param object)
+      {
+        return createParamAdapter();
+      }
+      @Override
       public Adapter caseLetDecl(LetDecl object)
       {
         return createLetDeclAdapter();
@@ -670,6 +675,21 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Param <em>Param</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext2.als.Param
+   * @generated
+   */
+  public Adapter createParamAdapter()
   {
     return null;
   }

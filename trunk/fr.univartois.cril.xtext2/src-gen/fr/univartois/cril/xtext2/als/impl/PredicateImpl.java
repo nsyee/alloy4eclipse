@@ -8,10 +8,10 @@ package fr.univartois.cril.xtext2.als.impl;
 import fr.univartois.cril.xtext2.als.AlsPackage;
 import fr.univartois.cril.xtext2.als.Block;
 import fr.univartois.cril.xtext2.als.Comma;
-import fr.univartois.cril.xtext2.als.Decl;
 import fr.univartois.cril.xtext2.als.Dot;
 import fr.univartois.cril.xtext2.als.LeftParenthesis;
 import fr.univartois.cril.xtext2.als.LeftSquareBracketKeyword;
+import fr.univartois.cril.xtext2.als.Param;
 import fr.univartois.cril.xtext2.als.Predicate;
 import fr.univartois.cril.xtext2.als.PredicateName;
 import fr.univartois.cril.xtext2.als.Ref;
@@ -44,7 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl#getDot <em>Dot</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl#getLeftS <em>Left S</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl#getDecl <em>Decl</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl#getParam <em>Param</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl#getComma <em>Comma</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl#getRightS <em>Right S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl#getLeftP <em>Left P</em>}</li>
@@ -98,14 +98,14 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
   protected LeftSquareBracketKeyword leftS;
 
   /**
-   * The cached value of the '{@link #getDecl() <em>Decl</em>}' containment reference list.
+   * The cached value of the '{@link #getParam() <em>Param</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDecl()
+   * @see #getParam()
    * @generated
    * @ordered
    */
-  protected EList<Decl> decl;
+  protected EList<Param> param;
 
   /**
    * The cached value of the '{@link #getComma() <em>Comma</em>}' containment reference list.
@@ -375,13 +375,13 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Decl> getDecl()
+  public EList<Param> getParam()
   {
-    if (decl == null)
+    if (param == null)
     {
-      decl = new EObjectContainmentEList<Decl>(Decl.class, this, AlsPackage.PREDICATE__DECL);
+      param = new EObjectContainmentEList<Param>(Param.class, this, AlsPackage.PREDICATE__PARAM);
     }
-    return decl;
+    return param;
   }
 
   /**
@@ -608,8 +608,8 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
         return basicSetName(null, msgs);
       case AlsPackage.PREDICATE__LEFT_S:
         return basicSetLeftS(null, msgs);
-      case AlsPackage.PREDICATE__DECL:
-        return ((InternalEList<?>)getDecl()).basicRemove(otherEnd, msgs);
+      case AlsPackage.PREDICATE__PARAM:
+        return ((InternalEList<?>)getParam()).basicRemove(otherEnd, msgs);
       case AlsPackage.PREDICATE__COMMA:
         return ((InternalEList<?>)getComma()).basicRemove(otherEnd, msgs);
       case AlsPackage.PREDICATE__RIGHT_S:
@@ -642,8 +642,8 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
         return getName();
       case AlsPackage.PREDICATE__LEFT_S:
         return getLeftS();
-      case AlsPackage.PREDICATE__DECL:
-        return getDecl();
+      case AlsPackage.PREDICATE__PARAM:
+        return getParam();
       case AlsPackage.PREDICATE__COMMA:
         return getComma();
       case AlsPackage.PREDICATE__RIGHT_S:
@@ -681,9 +681,9 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
       case AlsPackage.PREDICATE__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)newValue);
         return;
-      case AlsPackage.PREDICATE__DECL:
-        getDecl().clear();
-        getDecl().addAll((Collection<? extends Decl>)newValue);
+      case AlsPackage.PREDICATE__PARAM:
+        getParam().clear();
+        getParam().addAll((Collection<? extends Param>)newValue);
         return;
       case AlsPackage.PREDICATE__COMMA:
         getComma().clear();
@@ -727,8 +727,8 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
       case AlsPackage.PREDICATE__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)null);
         return;
-      case AlsPackage.PREDICATE__DECL:
-        getDecl().clear();
+      case AlsPackage.PREDICATE__PARAM:
+        getParam().clear();
         return;
       case AlsPackage.PREDICATE__COMMA:
         getComma().clear();
@@ -767,8 +767,8 @@ public class PredicateImpl extends ParagraphImpl implements Predicate
         return name != null;
       case AlsPackage.PREDICATE__LEFT_S:
         return leftS != null;
-      case AlsPackage.PREDICATE__DECL:
-        return decl != null && !decl.isEmpty();
+      case AlsPackage.PREDICATE__PARAM:
+        return param != null && !param.isEmpty();
       case AlsPackage.PREDICATE__COMMA:
         return comma != null && !comma.isEmpty();
       case AlsPackage.PREDICATE__RIGHT_S:

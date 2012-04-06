@@ -15,6 +15,7 @@ import fr.univartois.cril.xtext2.als.Expression;
 import fr.univartois.cril.xtext2.als.Function;
 import fr.univartois.cril.xtext2.als.LeftParenthesis;
 import fr.univartois.cril.xtext2.als.LeftSquareBracketKeyword;
+import fr.univartois.cril.xtext2.als.Param;
 import fr.univartois.cril.xtext2.als.Ref;
 import fr.univartois.cril.xtext2.als.ReferencesName;
 import fr.univartois.cril.xtext2.als.RightParenthesis;
@@ -46,10 +47,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getDot <em>Dot</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getLeftS <em>Left S</em>}</li>
- *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getDecl <em>Decl</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getParam <em>Param</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getComma <em>Comma</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getRightS <em>Right S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getLeftP <em>Left P</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getDecl <em>Decl</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getRightP <em>Right P</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getColon <em>Colon</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getExpr <em>Expr</em>}</li>
@@ -102,14 +104,14 @@ public class FunctionImpl extends ParagraphImpl implements Function
   protected LeftSquareBracketKeyword leftS;
 
   /**
-   * The cached value of the '{@link #getDecl() <em>Decl</em>}' containment reference list.
+   * The cached value of the '{@link #getParam() <em>Param</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDecl()
+   * @see #getParam()
    * @generated
    * @ordered
    */
-  protected EList<Decl> decl;
+  protected EList<Param> param;
 
   /**
    * The cached value of the '{@link #getComma() <em>Comma</em>}' containment reference list.
@@ -140,6 +142,16 @@ public class FunctionImpl extends ParagraphImpl implements Function
    * @ordered
    */
   protected LeftParenthesis leftP;
+
+  /**
+   * The cached value of the '{@link #getDecl() <em>Decl</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDecl()
+   * @generated
+   * @ordered
+   */
+  protected EList<Decl> decl;
 
   /**
    * The cached value of the '{@link #getRightP() <em>Right P</em>}' containment reference.
@@ -399,13 +411,13 @@ public class FunctionImpl extends ParagraphImpl implements Function
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Decl> getDecl()
+  public EList<Param> getParam()
   {
-    if (decl == null)
+    if (param == null)
     {
-      decl = new EObjectContainmentEList<Decl>(Decl.class, this, AlsPackage.FUNCTION__DECL);
+      param = new EObjectContainmentEList<Param>(Param.class, this, AlsPackage.FUNCTION__PARAM);
     }
-    return decl;
+    return param;
   }
 
   /**
@@ -516,6 +528,20 @@ public class FunctionImpl extends ParagraphImpl implements Function
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.FUNCTION__LEFT_P, newLeftP, newLeftP));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Decl> getDecl()
+  {
+    if (decl == null)
+    {
+      decl = new EObjectContainmentEList<Decl>(Decl.class, this, AlsPackage.FUNCTION__DECL);
+    }
+    return decl;
   }
 
   /**
@@ -728,14 +754,16 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return basicSetName(null, msgs);
       case AlsPackage.FUNCTION__LEFT_S:
         return basicSetLeftS(null, msgs);
-      case AlsPackage.FUNCTION__DECL:
-        return ((InternalEList<?>)getDecl()).basicRemove(otherEnd, msgs);
+      case AlsPackage.FUNCTION__PARAM:
+        return ((InternalEList<?>)getParam()).basicRemove(otherEnd, msgs);
       case AlsPackage.FUNCTION__COMMA:
         return ((InternalEList<?>)getComma()).basicRemove(otherEnd, msgs);
       case AlsPackage.FUNCTION__RIGHT_S:
         return basicSetRightS(null, msgs);
       case AlsPackage.FUNCTION__LEFT_P:
         return basicSetLeftP(null, msgs);
+      case AlsPackage.FUNCTION__DECL:
+        return ((InternalEList<?>)getDecl()).basicRemove(otherEnd, msgs);
       case AlsPackage.FUNCTION__RIGHT_P:
         return basicSetRightP(null, msgs);
       case AlsPackage.FUNCTION__COLON:
@@ -766,14 +794,16 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return getName();
       case AlsPackage.FUNCTION__LEFT_S:
         return getLeftS();
-      case AlsPackage.FUNCTION__DECL:
-        return getDecl();
+      case AlsPackage.FUNCTION__PARAM:
+        return getParam();
       case AlsPackage.FUNCTION__COMMA:
         return getComma();
       case AlsPackage.FUNCTION__RIGHT_S:
         return getRightS();
       case AlsPackage.FUNCTION__LEFT_P:
         return getLeftP();
+      case AlsPackage.FUNCTION__DECL:
+        return getDecl();
       case AlsPackage.FUNCTION__RIGHT_P:
         return getRightP();
       case AlsPackage.FUNCTION__COLON:
@@ -809,9 +839,9 @@ public class FunctionImpl extends ParagraphImpl implements Function
       case AlsPackage.FUNCTION__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)newValue);
         return;
-      case AlsPackage.FUNCTION__DECL:
-        getDecl().clear();
-        getDecl().addAll((Collection<? extends Decl>)newValue);
+      case AlsPackage.FUNCTION__PARAM:
+        getParam().clear();
+        getParam().addAll((Collection<? extends Param>)newValue);
         return;
       case AlsPackage.FUNCTION__COMMA:
         getComma().clear();
@@ -822,6 +852,10 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return;
       case AlsPackage.FUNCTION__LEFT_P:
         setLeftP((LeftParenthesis)newValue);
+        return;
+      case AlsPackage.FUNCTION__DECL:
+        getDecl().clear();
+        getDecl().addAll((Collection<? extends Decl>)newValue);
         return;
       case AlsPackage.FUNCTION__RIGHT_P:
         setRightP((RightParenthesis)newValue);
@@ -861,8 +895,8 @@ public class FunctionImpl extends ParagraphImpl implements Function
       case AlsPackage.FUNCTION__LEFT_S:
         setLeftS((LeftSquareBracketKeyword)null);
         return;
-      case AlsPackage.FUNCTION__DECL:
-        getDecl().clear();
+      case AlsPackage.FUNCTION__PARAM:
+        getParam().clear();
         return;
       case AlsPackage.FUNCTION__COMMA:
         getComma().clear();
@@ -872,6 +906,9 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return;
       case AlsPackage.FUNCTION__LEFT_P:
         setLeftP((LeftParenthesis)null);
+        return;
+      case AlsPackage.FUNCTION__DECL:
+        getDecl().clear();
         return;
       case AlsPackage.FUNCTION__RIGHT_P:
         setRightP((RightParenthesis)null);
@@ -907,14 +944,16 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return name != null;
       case AlsPackage.FUNCTION__LEFT_S:
         return leftS != null;
-      case AlsPackage.FUNCTION__DECL:
-        return decl != null && !decl.isEmpty();
+      case AlsPackage.FUNCTION__PARAM:
+        return param != null && !param.isEmpty();
       case AlsPackage.FUNCTION__COMMA:
         return comma != null && !comma.isEmpty();
       case AlsPackage.FUNCTION__RIGHT_S:
         return rightS != null;
       case AlsPackage.FUNCTION__LEFT_P:
         return leftP != null;
+      case AlsPackage.FUNCTION__DECL:
+        return decl != null && !decl.isEmpty();
       case AlsPackage.FUNCTION__RIGHT_P:
         return rightP != null;
       case AlsPackage.FUNCTION__COLON:

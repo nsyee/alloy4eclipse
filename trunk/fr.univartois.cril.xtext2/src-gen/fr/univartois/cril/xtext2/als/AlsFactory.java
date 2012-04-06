@@ -206,6 +206,15 @@ public interface AlsFactory extends EFactory
   Decl createDecl();
 
   /**
+   * Returns a new object of class '<em>Param</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Param</em>'.
+   * @generated
+   */
+  Param createParam();
+
+  /**
    * Returns a new object of class '<em>Let Decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -87,6 +87,7 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.SIG_EXT: return createSigExt();
       case AlsPackage.EXPRESSION: return createExpression();
       case AlsPackage.DECL: return createDecl();
+      case AlsPackage.PARAM: return createParam();
       case AlsPackage.LET_DECL: return createLetDecl();
       case AlsPackage.PARANTHESISAND_EXPRESSION: return createParanthesisandExpression();
       case AlsPackage.BIN_OP: return createBinOp();
@@ -345,6 +346,17 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     DeclImpl decl = new DeclImpl();
     return decl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Param createParam()
+  {
+    ParamImpl param = new ParamImpl();
+    return param;
   }
 
   /**

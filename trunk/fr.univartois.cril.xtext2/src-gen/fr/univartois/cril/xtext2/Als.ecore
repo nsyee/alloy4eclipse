@@ -60,13 +60,15 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftS" eType="#//LeftSquareBracketKeyword"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="decl" upperBound="-1" eType="#//Decl"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" upperBound="-1"
+        eType="#//Param" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comma" upperBound="-1"
         eType="#//Comma" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightS" eType="#//RightSquareBracketKeyword"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftP" eType="#//LeftParenthesis"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decl" upperBound="-1" eType="#//Decl"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightP" eType="#//RightParenthesis"
         containment="true"/>
@@ -84,8 +86,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftS" eType="#//LeftSquareBracketKeyword"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="decl" upperBound="-1" eType="#//Decl"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" upperBound="-1"
+        eType="#//Param" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comma" upperBound="-1"
         eType="#//Comma" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightS" eType="#//RightSquareBracketKeyword"
@@ -233,6 +235,16 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Decl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyName" upperBound="-1"
+        eType="#//PropertyName" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comma" upperBound="-1"
+        eType="#//Comma" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colon" eType="#//Colon"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Param">
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyName" upperBound="-1"
         eType="#//PropertyName" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comma" upperBound="-1"

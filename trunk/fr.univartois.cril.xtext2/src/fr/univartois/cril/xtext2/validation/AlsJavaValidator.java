@@ -1,5 +1,6 @@
 package fr.univartois.cril.xtext2.validation;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.validation.Check;
@@ -15,8 +16,8 @@ import fr.univartois.cril.xtext2.als.Expectation;
 import fr.univartois.cril.xtext2.als.Fact;
 import fr.univartois.cril.xtext2.als.FactName;
 import fr.univartois.cril.xtext2.als.Function;
-import fr.univartois.cril.xtext2.als.FunctionName;
 import fr.univartois.cril.xtext2.als.Paragraph;
+import fr.univartois.cril.xtext2.als.Param;
 import fr.univartois.cril.xtext2.als.Predicate;
 import fr.univartois.cril.xtext2.als.PredicateName;
 import fr.univartois.cril.xtext2.als.ReferencesName;
@@ -25,7 +26,6 @@ import fr.univartois.cril.xtext2.als.Signature;
 import fr.univartois.cril.xtext2.als.SignatureName;
 import fr.univartois.cril.xtext2.als.Specification;
  
-
 public class AlsJavaValidator extends AbstractAlsJavaValidator {
 
 	@Check
@@ -49,7 +49,7 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 				FactName f = factDecl.getName();
 				if(f == null || f ==fact) continue;
 				if(f.getName().equals(fact.getName())){
-					error("Duplicate name : "+ fact.getName(), AlsPackage.Literals.FACT__NAME);
+					error("Duplicate name : "+ fact.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
 					return ;
 				}
 			}
@@ -78,7 +78,7 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 	}
 	
 	@Check
-	public void checkUniqueFunctionName(FunctionName function){
+	public void checkUniqueFunction(Function function){
 		// TODO compare also signature, same name different signature authorized. 
 		Specification specification ;
 		EObject object = EcoreUtil.getRootContainer(function);
@@ -90,8 +90,10 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 			if(paragraph instanceof Function){
 				Function fun =(Function) paragraph;
 				ReferencesName f = fun.getName();
-				if(f == null || f ==function) continue;
-				if(f.getName().equals(function.getName())){
+				EList<Param> p = fun.getParam() ;
+				
+				if(f == null || f == function) continue;
+				if(f.equals(function.getName()) && p.equals(function.getParam())){
 					error("Duplicate name : "+ function.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
 					return ;
 				}
@@ -113,7 +115,7 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 				PredicateName p = predicate.getName();
 				if(p == null || p ==pred) continue;
 				if(p.getName().equals(pred.getName())){
-					error("Duplicate name : "+ pred.getName(), AlsPackage.Literals.PREDICATE__NAME);
+					error("Duplicate name : "+ pred.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
 					return ;
 				}
 			}
@@ -164,7 +166,7 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 				EnumName e = enumDecl.getEnumName();
 				if(e == null || e ==enumD) continue;
 				if(e.getName().equals(enumD.getName())){
-					error("Duplicate name : "+ enumD.getName(), AlsPackage.Literals.ENUM_DECL__ENUM_NAME);
+					error("Duplicate name : "+ enumD.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
 					return ;
 				}
 			}
@@ -185,7 +187,7 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 				for(SignatureName s : signature.getSignatureName() ){
 					if(s == null || s ==sig) continue;
 					if(s.getName().equals(sig.getName())){
-						error("Duplicate name : "+ sig.getName(), AlsPackage.Literals.SIGNATURE__SIGNATURE_NAME);
+						error("Duplicate name : "+ sig.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
 						return ;
 					}
 				}

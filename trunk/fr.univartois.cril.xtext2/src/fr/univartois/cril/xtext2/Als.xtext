@@ -58,7 +58,7 @@ AssertDecl returns Assertion:
 */
 FunDecl returns Function:
   "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (
-  		leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
+  		leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword	|
   		leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
   		) colon=Colon expr=Expression block=Block	; 
   		
@@ -77,8 +77,8 @@ FunDeclWParam returns Function: /* without parameters*/
 */
 PredDecl returns Predicate:
   "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (
-  		leftS=LeftSquareBracketKeyword (decl+=Decl (comma+=Comma decl+=Decl)*)? rightS=RightSquareBracketKeyword	|
-  		leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis
+  		leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword	|
+  		leftP=LeftParenthesis (param+=Param (comma+=Comma param+=Param)*)? rightP=RightParenthesis
   		)? block=Block	; 
   
 /*
@@ -199,7 +199,13 @@ TerminalExpression returns Expression:
 */
 Decl:
   ("private")? ("disj")?  propertyName+=PropertyName  (comma+=Comma propertyName+=PropertyName)* colon=Colon ("disj")? expr=Expression	; 
-  
+
+/*
+	param ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
+*/
+Param :
+	("private")? ("disj")?  propertyName+=PropertyName  (comma+=Comma propertyName+=PropertyName)* colon=Colon ("disj")? expr=Expression ;
+
 /*
 	letDecl ::= name "=" expr
 */
