@@ -26,7 +26,7 @@ public class AlsScopeProvider extends AbstractDeclarativeScopeProvider {
 		IScope scope = super.getScope(context, reference);
 		return new FilteringScope(scope, new Predicate<IEObjectDescription>() {
 			public boolean apply(IEObjectDescription input) {
-				return input != null && input.getName() != null /*&& input.getName().indexOf('.') == -1*/;
+				return input != null && input.getName() != null && input.getName().getSegmentCount() == 1;
 			};
 		});
 	}
