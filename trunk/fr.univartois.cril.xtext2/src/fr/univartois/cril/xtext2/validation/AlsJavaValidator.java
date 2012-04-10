@@ -79,7 +79,7 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 					continue;
 				if (a.getName().equals(assertD.getName())) {
 					error("Duplicate name : " + assertD.getName(),
-							AlsPackage.Literals.ASSERTION__NAME);
+							AlsPackage.Literals.ASSERTION_NAME__NAME);
 					return;
 				}
 			}
@@ -97,20 +97,15 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 		specification = (Specification) object;
 
 		for (Paragraph paragraph : specification.getParagraph()) {
-			if (paragraph == null)
-				continue;
+			if (paragraph == null)continue;
 			if (paragraph instanceof Function) {
 				Function fun = (Function) paragraph;
 				ReferencesName f = fun.getName();
-				EList<Param> p = fun.getParam();
+				EList<Param> param = fun.getParam();
 
-				if (f == null || f == function.getName()
-						|| function.eContainer() != specification)
-					continue;
-				if (f.getName().equals(function.getName().getName())
-						&& (p == null || p.size() == function.getParam().size())) {
-					error("Duplicate name : " + function.getName().getName(),
-							AlsPackage.Literals.FUNCTION__NAME);
+				if (f == null || f == function.getName() || function.eContainer() != specification)continue;
+				if (f.getName().equals(function.getName().getName())&& (param == null || param.size() == function.getParam().size())) {
+					error("Duplicate name : " + function.getName().getName(),AlsPackage.Literals.FUNCTION__NAME);
 					return;
 				}
 			}
@@ -118,7 +113,7 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 	}
 
 	@Check
-	public void checkUniquePredName(PredicateName pred) {
+	public void checkUniquePred(Predicate pred) {
 		Specification specification;
 		EObject object = EcoreUtil.getRootContainer(pred);
 		if (!(object instanceof Specification))
@@ -131,11 +126,11 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 			if (paragraph instanceof Predicate) {
 				Predicate predicate = (Predicate) paragraph;
 				PredicateName p = predicate.getName();
-				if (p == null || p == pred)
-					continue;
-				if (p.getName().equals(pred.getName())) {
-					error("Duplicate name : " + pred.getName(),
-							AlsPackage.Literals.REFERENCES_NAME__NAME);
+				EList<Param> param = predicate.getParam();
+				
+				if (p == null || p == pred.getName() || pred.eContainer() != specification )continue;
+				if (p.getName().equals(pred.getName().getName()) && (param == null || param.size() == pred.getParam().size())){
+					error("Duplicate name : " + pred.getName().getName(), AlsPackage.Literals.PREDICATE__NAME);
 					return;
 				}
 			}
