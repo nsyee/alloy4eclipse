@@ -1,6 +1,7 @@
 package fr.univartois.cril.xtext2.scoping;
 
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
 
 import fr.univartois.cril.xtext2.als.Assertion;
 import fr.univartois.cril.xtext2.als.AssertionName;
@@ -18,49 +19,49 @@ import fr.univartois.cril.xtext2.als.Specification;
 public class AlsQualifiedNameProvider extends
                 DefaultDeclarativeQualifiedNameProvider {
 
-        public String qualifiedName(Specification s) {
-                return s.getModule().getModuleName();
+        public QualifiedName qualifiedName(Specification s) {
+                return getConverter().toQualifiedName(s.getModule().getModuleName());
         }
         
-        public String qualifiedName(Let l) {
-                return l.getName().getName();
+        public QualifiedName qualifiedName(Let l) {
+                return getConverter().toQualifiedName(l.getName().getName());
         }
         
-        public String qualifiedName(Predicate p) {
-                return p.getName().getName();
+        public QualifiedName qualifiedName(Predicate p) {
+                return getConverter().toQualifiedName(p.getName().getName());
         }
         
-        public String qualifiedName(Function f) {
-                return f.getName().getName();
+        public QualifiedName qualifiedName(Function f) {
+                return getConverter().toQualifiedName(f.getName().getName());
         }
         
-        public String qualifiedName(Assertion a) {
-                return a.getName().getName();
+        public QualifiedName qualifiedName(Assertion a) {
+                return getConverter().toQualifiedName(a.getName().getName());
         }
         
-        public String qualifiedName(Fact f) {
-                return f.getName().getName();
+        public QualifiedName qualifiedName(Fact f) {
+                return getConverter().toQualifiedName(f.getName().getName());
         }
 
-        public String qualifiedName(PredicateName p) {
-                return p.getName();
+        public QualifiedName qualifiedName(PredicateName p) {
+                return getConverter().toQualifiedName(p.getName());
         }
         
-        public String qualifiedName(FunctionName f) {
-                return f.getName();
+        public QualifiedName qualifiedName(FunctionName f) {
+                return getConverter().toQualifiedName(f.getName());
         }
         
-        public String qualifiedName(AssertionName a) {
-                return a.getName();
+        public QualifiedName qualifiedName(AssertionName a) {
+                return getConverter().toQualifiedName(a.getName());
         }
         
-        public String qualifiedName(FactName f) {
-                return f.getName();
+        public QualifiedName qualifiedName(FactName f) {
+                return getConverter().toQualifiedName(f.getName());
         }
         
-        public String qualifiedName(ReferencesName r) {
+        public QualifiedName qualifiedName(ReferencesName r) {
                 if (!(r instanceof PropertyName)) {
-                        return r.getName();                     
+                        return getConverter().toQualifiedName(r.getName());                     
                 }
                 return null;
         }
