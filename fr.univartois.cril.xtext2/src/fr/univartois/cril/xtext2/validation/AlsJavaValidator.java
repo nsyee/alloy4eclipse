@@ -25,175 +25,208 @@ import fr.univartois.cril.xtext2.als.RunCommand;
 import fr.univartois.cril.xtext2.als.Signature;
 import fr.univartois.cril.xtext2.als.SignatureName;
 import fr.univartois.cril.xtext2.als.Specification;
- 
+
 public class AlsJavaValidator extends AbstractAlsJavaValidator {
 
 	@Check
 	public void checkTypeNameStartsWithCapital(Expectation exp) {
-		if (!(exp.getValue()==0)&&!(exp.getValue()==1)) {
-			error("expectation must be 0 or 1", AlsPackage.Literals.EXPECTATION__VALUE);
+		if (!(exp.getValue() == 0) && !(exp.getValue() == 1)) {
+			error("expectation must be 0 or 1",
+					AlsPackage.Literals.EXPECTATION__VALUE);
 		}
 	}
-	
+
 	@Check
-	public void checkUniqueFactName(FactName fact){
-		Specification specification ;
+	public void checkUniqueFactName(FactName fact) {
+		Specification specification;
 		EObject object = EcoreUtil.getRootContainer(fact);
-		if(!(object instanceof Specification)) return;
-		specification = (Specification)object;
-		
-		for(Paragraph paragraph : specification.getParagraph()){
-			if(paragraph == null) continue;
-			if(paragraph instanceof Fact){
-				Fact factDecl =(Fact) paragraph;
+		if (!(object instanceof Specification))
+			return;
+		specification = (Specification) object;
+
+		for (Paragraph paragraph : specification.getParagraph()) {
+			if (paragraph == null)
+				continue;
+			if (paragraph instanceof Fact) {
+				Fact factDecl = (Fact) paragraph;
 				FactName f = factDecl.getName();
-				if(f == null || f ==fact) continue;
-				if(f.getName().equals(fact.getName())){
-					error("Duplicate name : "+ fact.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
-					return ;
+				if (f == null || f == fact)
+					continue;
+				if (f.getName().equals(fact.getName())) {
+					error("Duplicate name : " + fact.getName(),
+							AlsPackage.Literals.REFERENCES_NAME__NAME);
+					return;
 				}
 			}
 		}
 	}
-	
+
 	@Check
-	public void checkUniqueAssertName(AssertionName assertD){
-		Specification specification ;
+	public void checkUniqueAssertName(AssertionName assertD) {
+		Specification specification;
 		EObject object = EcoreUtil.getRootContainer(assertD);
-		if(!(object instanceof Specification)) return;
-		specification = (Specification)object;
-		
-		for(Paragraph paragraph : specification.getParagraph()){
-			if(paragraph == null) continue;
-			if(paragraph instanceof Assertion){
-				Assertion assertion =(Assertion) paragraph;
+		if (!(object instanceof Specification))
+			return;
+		specification = (Specification) object;
+
+		for (Paragraph paragraph : specification.getParagraph()) {
+			if (paragraph == null)
+				continue;
+			if (paragraph instanceof Assertion) {
+				Assertion assertion = (Assertion) paragraph;
 				AssertionName a = assertion.getName();
-				if(a == null || a ==assertD) continue;
-				if(a.getName().equals(assertD.getName())){
-					error("Duplicate name : "+ assertD.getName(), AlsPackage.Literals.ASSERTION__NAME);
-					return ;
+				if (a == null || a == assertD)
+					continue;
+				if (a.getName().equals(assertD.getName())) {
+					error("Duplicate name : " + assertD.getName(),
+							AlsPackage.Literals.ASSERTION__NAME);
+					return;
 				}
 			}
 		}
 	}
-	
+
 	@Check
-	public void checkUniqueFunction(Function function){
-		// TODO compare also signature, same name different signature authorized. 
-		Specification specification ;
+	public void checkUniqueFunction(Function function) {
+		// TODO compare also signature, same name different signature
+		// authorized.
+		Specification specification;
 		EObject object = EcoreUtil.getRootContainer(function);
-		if(!(object instanceof Specification)) return;
-		specification = (Specification)object;
-		
-		for(Paragraph paragraph : specification.getParagraph()){
-			if(paragraph == null) continue;
-			if(paragraph instanceof Function){
-				Function fun =(Function) paragraph;
+		if (!(object instanceof Specification))
+			return;
+		specification = (Specification) object;
+
+		for (Paragraph paragraph : specification.getParagraph()) {
+			if (paragraph == null)
+				continue;
+			if (paragraph instanceof Function) {
+				Function fun = (Function) paragraph;
 				ReferencesName f = fun.getName();
-				EList<Param> p = fun.getParam() ;
-				
-				if(f == null || f == function) continue;
-				if(f.equals(function.getName()) && p.equals(function.getParam())){
-					error("Duplicate name : "+ function.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
-					return ;
+				EList<Param> p = fun.getParam();
+
+				if (f == null || f == function.getName()
+						|| function.eContainer() != specification)
+					continue;
+				if (f.getName().equals(function.getName().getName())
+						&& (p == null || p.size() == function.getParam().size())) {
+					error("Duplicate name : " + function.getName().getName(),
+							AlsPackage.Literals.FUNCTION__NAME);
+					return;
 				}
 			}
 		}
 	}
-	
+
 	@Check
-	public void checkUniquePredName(PredicateName pred){
-		Specification specification ;
+	public void checkUniquePredName(PredicateName pred) {
+		Specification specification;
 		EObject object = EcoreUtil.getRootContainer(pred);
-		if(!(object instanceof Specification)) return;
-		specification = (Specification)object;
-		
-		for(Paragraph paragraph : specification.getParagraph()){
-			if(paragraph == null) continue;
-			if(paragraph instanceof Predicate){
-				Predicate predicate =(Predicate) paragraph;
+		if (!(object instanceof Specification))
+			return;
+		specification = (Specification) object;
+
+		for (Paragraph paragraph : specification.getParagraph()) {
+			if (paragraph == null)
+				continue;
+			if (paragraph instanceof Predicate) {
+				Predicate predicate = (Predicate) paragraph;
 				PredicateName p = predicate.getName();
-				if(p == null || p ==pred) continue;
-				if(p.getName().equals(pred.getName())){
-					error("Duplicate name : "+ pred.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
-					return ;
+				if (p == null || p == pred)
+					continue;
+				if (p.getName().equals(pred.getName())) {
+					error("Duplicate name : " + pred.getName(),
+							AlsPackage.Literals.REFERENCES_NAME__NAME);
+					return;
 				}
 			}
 		}
 	}
-	
+
 	@Check
-	public void checkUniqueAliasName(Alias alias){
-		Specification specification ;
+	public void checkUniqueAliasName(Alias alias) {
+		Specification specification;
 		EObject object = EcoreUtil.getRootContainer(alias);
-		if(!(object instanceof Specification)) return;
-		specification = (Specification)object;
-		
-		for(Paragraph paragraph : specification.getParagraph()){
-			if(paragraph == null) continue;
-			if(paragraph instanceof RunCommand){
-				RunCommand run =(RunCommand) paragraph;
+		if (!(object instanceof Specification))
+			return;
+		specification = (Specification) object;
+
+		for (Paragraph paragraph : specification.getParagraph()) {
+			if (paragraph == null)
+				continue;
+			if (paragraph instanceof RunCommand) {
+				RunCommand run = (RunCommand) paragraph;
 				Alias a = run.getRunName();
-				if(a == null || a ==alias) continue;
-				if(a.getName().equals(alias.getName())){
-					error("Duplicate name : "+ alias.getName(), AlsPackage.Literals.RUN_COMMAND__RUN_NAME);
-					return ;
+				if (a == null || a == alias)
+					continue;
+				if (a.getName().equals(alias.getName())) {
+					error("Duplicate name : " + alias.getName(),
+							AlsPackage.Literals.RUN_COMMAND__RUN_NAME);
+					return;
 				}
-			}
-			else if(paragraph instanceof CheckCommand){
-				CheckCommand check =(CheckCommand) paragraph;
+			} else if (paragraph instanceof CheckCommand) {
+				CheckCommand check = (CheckCommand) paragraph;
 				Alias c = check.getCheckName();
-				if(c == null || c ==alias) continue;
-				if(c.getName().equals(alias.getName())){
-					error("Duplicate name : "+ alias.getName(), AlsPackage.Literals.CHECK_COMMAND__CHECK_NAME);
-					return ;
-				}
-			} 
-		}
-	}
-	
-	@Check
-	public void checkUniqueEnumName(EnumName enumD){
-		Specification specification ;
-		EObject object = EcoreUtil.getRootContainer(enumD);
-		if(!(object instanceof Specification)) return;
-		specification = (Specification)object;
-		
-		for(Paragraph paragraph : specification.getParagraph()){
-			if(paragraph == null) continue;
-			if(paragraph instanceof EnumDecl){
-				EnumDecl enumDecl =(EnumDecl) paragraph;
-				EnumName e = enumDecl.getEnumName();
-				if(e == null || e ==enumD) continue;
-				if(e.getName().equals(enumD.getName())){
-					error("Duplicate name : "+ enumD.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
-					return ;
+				if (c == null || c == alias)
+					continue;
+				if (c.getName().equals(alias.getName())) {
+					error("Duplicate name : " + alias.getName(),
+							AlsPackage.Literals.CHECK_COMMAND__CHECK_NAME);
+					return;
 				}
 			}
 		}
 	}
-	
+
 	@Check
-	public void checkUniqueSigName(SignatureName sig){
-		Specification specification ;
+	public void checkUniqueEnumName(EnumName enumD) {
+		Specification specification;
+		EObject object = EcoreUtil.getRootContainer(enumD);
+		if (!(object instanceof Specification))
+			return;
+		specification = (Specification) object;
+
+		for (Paragraph paragraph : specification.getParagraph()) {
+			if (paragraph == null)
+				continue;
+			if (paragraph instanceof EnumDecl) {
+				EnumDecl enumDecl = (EnumDecl) paragraph;
+				EnumName e = enumDecl.getEnumName();
+				if (e == null || e == enumD)
+					continue;
+				if (e.getName().equals(enumD.getName())) {
+					error("Duplicate name : " + enumD.getName(),
+							AlsPackage.Literals.REFERENCES_NAME__NAME);
+					return;
+				}
+			}
+		}
+	}
+
+	@Check
+	public void checkUniqueSigName(SignatureName sig) {
+		Specification specification;
 		EObject object = EcoreUtil.getRootContainer(sig);
-		if(!(object instanceof Specification)) return;
-		specification = (Specification)object;
-		
-		for(Paragraph paragraph : specification.getParagraph()){
-			if(paragraph == null) continue;
-			if(paragraph instanceof Signature){
-				Signature signature =(Signature) paragraph;
-				for(SignatureName s : signature.getSignatureName() ){
-					if(s == null || s ==sig) continue;
-					if(s.getName().equals(sig.getName())){
-						error("Duplicate name : "+ sig.getName(), AlsPackage.Literals.REFERENCES_NAME__NAME);
-						return ;
+		if (!(object instanceof Specification))
+			return;
+		specification = (Specification) object;
+
+		for (Paragraph paragraph : specification.getParagraph()) {
+			if (paragraph == null)
+				continue;
+			if (paragraph instanceof Signature) {
+				Signature signature = (Signature) paragraph;
+				for (SignatureName s : signature.getSignatureName()) {
+					if (s == null || s == sig)
+						continue;
+					if (s.getName().equals(sig.getName())) {
+						error("Duplicate name : " + sig.getName(),
+								AlsPackage.Literals.REFERENCES_NAME__NAME);
+						return;
 					}
 				}
 			}
 		}
-		
+
 	}
 
 }
