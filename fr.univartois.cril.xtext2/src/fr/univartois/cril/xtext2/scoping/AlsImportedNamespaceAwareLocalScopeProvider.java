@@ -9,10 +9,6 @@ public class AlsImportedNamespaceAwareLocalScopeProvider extends ImportedNamespa
 
         @Override
         public IScope getScope(EObject context, EReference reference) {
-        
-                IScope scope =  super.getScope(context, reference);
-                // System.out.println(scope.toString()+context+reference);
-                return scope;
+               return super.getScope(context, reference) ;
         }
-
 }

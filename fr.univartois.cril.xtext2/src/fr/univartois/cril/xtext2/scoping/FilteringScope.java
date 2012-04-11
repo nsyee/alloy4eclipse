@@ -16,12 +16,6 @@ public class FilteringScope implements IScope {
         this.delegate = delegate;
         this.filter = filter;
     }
-    
-    /*
-    public IScope getOuterScope() {
-        return new FilteringScope(delegate.getOuterScope(), filter);
-    }
-    */
 
 	@Override
 	public IEObjectDescription getSingleElement(QualifiedName name) {
