@@ -16,8 +16,7 @@ import fr.univartois.cril.xtext2.als.PropertyName;
 import fr.univartois.cril.xtext2.als.ReferencesName;
 import fr.univartois.cril.xtext2.als.Specification;
 
-public class AlsQualifiedNameProvider extends
-                DefaultDeclarativeQualifiedNameProvider {
+public class AlsQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 
         public QualifiedName qualifiedName(Specification s) {
                 return getConverter().toQualifiedName(s.getModule().getModuleName());
