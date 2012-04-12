@@ -109,30 +109,30 @@ public interface Open extends EObject
   void setPreviousNameAs(AsName value);
 
   /**
-   * Returns the value of the '<em><b>Refname</b></em>' containment reference.
+   * Returns the value of the '<em><b>Refname</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Refname</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Refname</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Refname</em>' containment reference.
-   * @see #setRefname(ReferencesName)
+   * @return the value of the '<em>Refname</em>' reference.
+   * @see #setRefname(SignatureName)
    * @see fr.univartois.cril.xtext2.als.AlsPackage#getOpen_Refname()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  ReferencesName getRefname();
+  SignatureName getRefname();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext2.als.Open#getRefname <em>Refname</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext2.als.Open#getRefname <em>Refname</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Refname</em>' containment reference.
+   * @param value the new value of the '<em>Refname</em>' reference.
    * @see #getRefname()
    * @generated
    */
-  void setRefname(ReferencesName value);
+  void setRefname(SignatureName value);
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference.

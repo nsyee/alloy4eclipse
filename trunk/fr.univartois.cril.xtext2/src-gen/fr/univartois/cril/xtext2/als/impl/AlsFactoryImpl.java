@@ -83,7 +83,6 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.ENUM_DECL: return createEnumDecl();
       case AlsPackage.LET: return createLet();
       case AlsPackage.SIGNATURE: return createSignature();
-      case AlsPackage.SIG_QUAL: return createSigQual();
       case AlsPackage.SIG_EXT: return createSigExt();
       case AlsPackage.EXPRESSION: return createExpression();
       case AlsPackage.DECL: return createDecl();
@@ -302,17 +301,6 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     SignatureImpl signature = new SignatureImpl();
     return signature;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SigQual createSigQual()
-  {
-    SigQualImpl sigQual = new SigQualImpl();
-    return sigQual;
   }
 
   /**

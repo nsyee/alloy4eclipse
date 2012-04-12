@@ -57,7 +57,6 @@ import fr.univartois.cril.xtext2.als.RightSquareBracketKeyword;
 import fr.univartois.cril.xtext2.als.RunCommand;
 import fr.univartois.cril.xtext2.als.Scope;
 import fr.univartois.cril.xtext2.als.SigExt;
-import fr.univartois.cril.xtext2.als.SigQual;
 import fr.univartois.cril.xtext2.als.Signature;
 import fr.univartois.cril.xtext2.als.SignatureName;
 import fr.univartois.cril.xtext2.als.Specification;
@@ -190,13 +189,6 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * @generated
    */
   private EClass signatureEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass sigQualEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1539,26 +1531,6 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSigQual()
-  {
-    return sigQualEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSigQual_Sigq()
-  {
-    return (EAttribute)sigQualEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getSigExt()
   {
     return sigExtEClass;
@@ -2740,9 +2712,6 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEAttribute(signatureEClass, SIGNATURE__COMMA2);
     createEReference(signatureEClass, SIGNATURE__BLOCK);
 
-    sigQualEClass = createEClass(SIG_QUAL);
-    createEAttribute(sigQualEClass, SIG_QUAL__SIGQ);
-
     sigExtEClass = createEClass(SIG_EXT);
     createEReference(sigExtEClass, SIG_EXT__REF);
     createEReference(sigExtEClass, SIG_EXT__REF2);
@@ -2925,7 +2894,6 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     enumDeclEClass.getESuperTypes().add(this.getParagraph());
     letEClass.getESuperTypes().add(this.getParagraph());
     signatureEClass.getESuperTypes().add(this.getParagraph());
-    sigQualEClass.getESuperTypes().add(this.getSignature());
     factNameEClass.getESuperTypes().add(this.getReferencesName());
     functionNameEClass.getESuperTypes().add(this.getReferencesName());
     functionNamewParamEClass.getESuperTypes().add(this.getReferencesName());
@@ -2956,7 +2924,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEReference(getOpen_OpenName(), this.getOpenName(), null, "openName", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOpen_Left(), this.getLeftSquareBracketKeyword(), null, "left", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOpen_PreviousNameAs(), this.getAsName(), null, "previousNameAs", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOpen_Refname(), this.getReferencesName(), null, "refname", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOpen_Refname(), this.getSignatureName(), null, "refname", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOpen_Right(), this.getRightSquareBracketKeyword(), null, "right", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOpen_NameAs(), this.getAsName(), null, "nameAs", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3053,9 +3021,6 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEReference(getSignature_Decl(), this.getDecl(), null, "decl", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSignature_Comma2(), ecorePackage.getEString(), "comma2", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSignature_Block(), this.getBlock(), null, "block", null, 0, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(sigQualEClass, SigQual.class, "SigQual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSigQual_Sigq(), ecorePackage.getEString(), "sigq", null, 0, 1, SigQual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sigExtEClass, SigExt.class, "SigExt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSigExt_Ref(), this.getReferencesSig(), null, "ref", null, 0, 1, SigExt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
