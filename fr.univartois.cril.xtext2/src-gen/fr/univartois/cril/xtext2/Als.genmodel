@@ -27,7 +27,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/openName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/previousNameAs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/refname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Als.ecore#//Open/refname"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/right"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Open/nameAs"/>
     </genClasses>
@@ -123,9 +123,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Signature/decl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//Signature/comma2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//Signature/block"/>
-    </genClasses>
-    <genClasses ecoreClass="Als.ecore#//SigQual">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Als.ecore#//SigQual/sigq"/>
     </genClasses>
     <genClasses ecoreClass="Als.ecore#//SigExt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Als.ecore#//SigExt/ref"/>

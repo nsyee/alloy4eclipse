@@ -10,8 +10,8 @@ import fr.univartois.cril.xtext2.als.AsName;
 import fr.univartois.cril.xtext2.als.LeftSquareBracketKeyword;
 import fr.univartois.cril.xtext2.als.Open;
 import fr.univartois.cril.xtext2.als.OpenName;
-import fr.univartois.cril.xtext2.als.ReferencesName;
 import fr.univartois.cril.xtext2.als.RightSquareBracketKeyword;
+import fr.univartois.cril.xtext2.als.SignatureName;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -73,14 +73,14 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
   protected AsName previousNameAs;
 
   /**
-   * The cached value of the '{@link #getRefname() <em>Refname</em>}' containment reference.
+   * The cached value of the '{@link #getRefname() <em>Refname</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRefname()
    * @generated
    * @ordered
    */
-  protected ReferencesName refname;
+  protected SignatureName refname;
 
   /**
    * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -272,7 +272,27 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
    * <!-- end-user-doc -->
    * @generated
    */
-  public ReferencesName getRefname()
+  public SignatureName getRefname()
+  {
+    if (refname != null && refname.eIsProxy())
+    {
+      InternalEObject oldRefname = (InternalEObject)refname;
+      refname = (SignatureName)eResolveProxy(oldRefname);
+      if (refname != oldRefname)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AlsPackage.OPEN__REFNAME, oldRefname, refname));
+      }
+    }
+    return refname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SignatureName basicGetRefname()
   {
     return refname;
   }
@@ -282,37 +302,12 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRefname(ReferencesName newRefname, NotificationChain msgs)
+  public void setRefname(SignatureName newRefname)
   {
-    ReferencesName oldRefname = refname;
+    SignatureName oldRefname = refname;
     refname = newRefname;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.OPEN__REFNAME, oldRefname, newRefname);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRefname(ReferencesName newRefname)
-  {
-    if (newRefname != refname)
-    {
-      NotificationChain msgs = null;
-      if (refname != null)
-        msgs = ((InternalEObject)refname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.OPEN__REFNAME, null, msgs);
-      if (newRefname != null)
-        msgs = ((InternalEObject)newRefname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.OPEN__REFNAME, null, msgs);
-      msgs = basicSetRefname(newRefname, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.OPEN__REFNAME, newRefname, newRefname));
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.OPEN__REFNAME, oldRefname, refname));
   }
 
   /**
@@ -427,8 +422,6 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
         return basicSetLeft(null, msgs);
       case AlsPackage.OPEN__PREVIOUS_NAME_AS:
         return basicSetPreviousNameAs(null, msgs);
-      case AlsPackage.OPEN__REFNAME:
-        return basicSetRefname(null, msgs);
       case AlsPackage.OPEN__RIGHT:
         return basicSetRight(null, msgs);
       case AlsPackage.OPEN__NAME_AS:
@@ -454,7 +447,8 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
       case AlsPackage.OPEN__PREVIOUS_NAME_AS:
         return getPreviousNameAs();
       case AlsPackage.OPEN__REFNAME:
-        return getRefname();
+        if (resolve) return getRefname();
+        return basicGetRefname();
       case AlsPackage.OPEN__RIGHT:
         return getRight();
       case AlsPackage.OPEN__NAME_AS:
@@ -483,7 +477,7 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
         setPreviousNameAs((AsName)newValue);
         return;
       case AlsPackage.OPEN__REFNAME:
-        setRefname((ReferencesName)newValue);
+        setRefname((SignatureName)newValue);
         return;
       case AlsPackage.OPEN__RIGHT:
         setRight((RightSquareBracketKeyword)newValue);
@@ -515,7 +509,7 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
         setPreviousNameAs((AsName)null);
         return;
       case AlsPackage.OPEN__REFNAME:
-        setRefname((ReferencesName)null);
+        setRefname((SignatureName)null);
         return;
       case AlsPackage.OPEN__RIGHT:
         setRight((RightSquareBracketKeyword)null);

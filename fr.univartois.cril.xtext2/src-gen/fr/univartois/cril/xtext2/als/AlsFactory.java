@@ -170,15 +170,6 @@ public interface AlsFactory extends EFactory
   Signature createSignature();
 
   /**
-   * Returns a new object of class '<em>Sig Qual</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sig Qual</em>'.
-   * @generated
-   */
-  SigQual createSigQual();
-
-  /**
    * Returns a new object of class '<em>Sig Ext</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -405,19 +405,17 @@ ruleOpen returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getOpenAccess().getRefnameReferencesNameParserRuleCall_2_2_0()); 
-	    }
-		lv_refname_5_0=ruleReferencesName		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getOpenRule());
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getOpenRule());
 	        }
-       		set(
-       			$current, 
-       			"refname",
-        		lv_refname_5_0, 
-        		"ReferencesName");
-	        afterParserOrEnumRuleCall();
-	    }
+        }
+	otherlv_5=RULE_ID
+	{
+		newLeafNode(otherlv_5, grammarAccess.getOpenAccess().getRefnameSignatureNameCrossReference_2_2_0()); 
+	}
 
 )
 )(
@@ -2570,12 +2568,11 @@ ruleSigDecl returns [EObject current=null]
     { 
         newCompositeNode(grammarAccess.getSigDeclAccess().getSigQualParserRuleCall_0()); 
     }
-    this_SigQual_0=ruleSigQual
+ruleSigQual
     { 
-        $current = $this_SigQual_0.current; 
         afterParserOrEnumRuleCall();
     }
-)?	otherlv_1='sig' 
+)*	otherlv_1='sig' 
     {
     	newLeafNode(otherlv_1, grammarAccess.getSigDeclAccess().getSigKeyword_1());
     }
@@ -2736,111 +2733,55 @@ ruleSigDecl returns [EObject current=null]
 
 
 // Entry rule entryRuleSigQual
-entryRuleSigQual returns [EObject current=null] 
+entryRuleSigQual returns [String current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getSigQualRule()); }
+	{ newCompositeNode(grammarAccess.getSigQualRule()); } 
 	 iv_ruleSigQual=ruleSigQual 
-	 { $current=$iv_ruleSigQual.current; } 
+	 { $current=$iv_ruleSigQual.current.getText(); }  
 	 EOF 
 ;
 
 // Rule SigQual
-ruleSigQual returns [EObject current=null] 
+ruleSigQual returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
 (
-(
-		lv_sigq_0_1=	'abstract' 
+	kw='abstract' 
     {
-        newLeafNode(lv_sigq_0_1, grammarAccess.getSigQualAccess().getSigqAbstractKeyword_0_0_0());
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getSigQualAccess().getAbstractKeyword_0()); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSigQualRule());
-	        }
-       		setWithLastConsumed($current, "sigq", lv_sigq_0_1, null);
-	    }
 
-    |		lv_sigq_0_2=	'lone' 
+    |
+	kw='lone' 
     {
-        newLeafNode(lv_sigq_0_2, grammarAccess.getSigQualAccess().getSigqLoneKeyword_0_0_1());
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getSigQualAccess().getLoneKeyword_1()); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSigQualRule());
-	        }
-       		setWithLastConsumed($current, "sigq", lv_sigq_0_2, null);
-	    }
 
-    |		lv_sigq_0_3=	'one' 
+    |
+	kw='one' 
     {
-        newLeafNode(lv_sigq_0_3, grammarAccess.getSigQualAccess().getSigqOneKeyword_0_0_2());
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getSigQualAccess().getOneKeyword_2()); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSigQualRule());
-	        }
-       		setWithLastConsumed($current, "sigq", lv_sigq_0_3, null);
-	    }
 
-    |		lv_sigq_0_4=	'some' 
+    |
+	kw='some' 
     {
-        newLeafNode(lv_sigq_0_4, grammarAccess.getSigQualAccess().getSigqSomeKeyword_0_0_3());
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getSigQualAccess().getSomeKeyword_3()); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSigQualRule());
-	        }
-       		setWithLastConsumed($current, "sigq", lv_sigq_0_4, null);
-	    }
 
-    |		lv_sigq_0_5=	'private' 
+    |
+	kw='private' 
     {
-        newLeafNode(lv_sigq_0_5, grammarAccess.getSigQualAccess().getSigqPrivateKeyword_0_0_4());
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getSigQualAccess().getPrivateKeyword_4()); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSigQualRule());
-	        }
-       		setWithLastConsumed($current, "sigq", lv_sigq_0_5, null);
-	    }
-
 )
-
-)
-)(	otherlv_1='abstract' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getSigQualAccess().getAbstractKeyword_1_0());
-    }
-
-    |	otherlv_2='lone' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getSigQualAccess().getLoneKeyword_1_1());
-    }
-
-    |	otherlv_3='one' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getSigQualAccess().getOneKeyword_1_2());
-    }
-
-    |	otherlv_4='some' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getSigQualAccess().getSomeKeyword_1_3());
-    }
-
-    |	otherlv_5='private' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getSigQualAccess().getPrivateKeyword_1_4());
-    }
-)*)
-;
+    ;
 
 
 

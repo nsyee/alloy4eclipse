@@ -196,15 +196,6 @@ public class AlsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AlsPackage.SIG_QUAL:
-      {
-        SigQual sigQual = (SigQual)theEObject;
-        T result = caseSigQual(sigQual);
-        if (result == null) result = caseSignature(sigQual);
-        if (result == null) result = caseParagraph(sigQual);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AlsPackage.SIG_EXT:
       {
         SigExt sigExt = (SigExt)theEObject;
@@ -744,22 +735,6 @@ public class AlsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSignature(Signature object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Sig Qual</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sig Qual</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSigQual(SigQual object)
   {
     return null;
   }

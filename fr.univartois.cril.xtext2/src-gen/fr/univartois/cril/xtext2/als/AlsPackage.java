@@ -225,7 +225,7 @@ public interface AlsPackage extends EPackage
   int OPEN__PREVIOUS_NAME_AS = 2;
 
   /**
-   * The feature id for the '<em><b>Refname</b></em>' containment reference.
+   * The feature id for the '<em><b>Refname</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1120,88 +1120,6 @@ public interface AlsPackage extends EPackage
   int SIGNATURE_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 6;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.SigQualImpl <em>Sig Qual</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.SigQualImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getSigQual()
-   * @generated
-   */
-  int SIG_QUAL = 16;
-
-  /**
-   * The feature id for the '<em><b>Signature Name</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIG_QUAL__SIGNATURE_NAME = SIGNATURE__SIGNATURE_NAME;
-
-  /**
-   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIG_QUAL__COMMA = SIGNATURE__COMMA;
-
-  /**
-   * The feature id for the '<em><b>Sig Ext</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIG_QUAL__SIG_EXT = SIGNATURE__SIG_EXT;
-
-  /**
-   * The feature id for the '<em><b>Decl</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIG_QUAL__DECL = SIGNATURE__DECL;
-
-  /**
-   * The feature id for the '<em><b>Comma2</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIG_QUAL__COMMA2 = SIGNATURE__COMMA2;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIG_QUAL__BLOCK = SIGNATURE__BLOCK;
-
-  /**
-   * The feature id for the '<em><b>Sigq</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIG_QUAL__SIGQ = SIGNATURE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Sig Qual</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIG_QUAL_FEATURE_COUNT = SIGNATURE_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.SigExtImpl <em>Sig Ext</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1209,7 +1127,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getSigExt()
    * @generated
    */
-  int SIG_EXT = 17;
+  int SIG_EXT = 16;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' containment reference.
@@ -1246,7 +1164,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 18;
+  int EXPRESSION = 17;
 
   /**
    * The feature id for the '<em><b>Bin Op</b></em>' containment reference list.
@@ -1490,7 +1408,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getDecl()
    * @generated
    */
-  int DECL = 19;
+  int DECL = 18;
 
   /**
    * The feature id for the '<em><b>Property Name</b></em>' containment reference list.
@@ -1545,7 +1463,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getParam()
    * @generated
    */
-  int PARAM = 20;
+  int PARAM = 19;
 
   /**
    * The feature id for the '<em><b>Property Name</b></em>' containment reference list.
@@ -1600,7 +1518,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLetDecl()
    * @generated
    */
-  int LET_DECL = 21;
+  int LET_DECL = 20;
 
   /**
    * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
@@ -1637,7 +1555,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getParanthesisandExpression()
    * @generated
    */
-  int PARANTHESISAND_EXPRESSION = 22;
+  int PARANTHESISAND_EXPRESSION = 21;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -1665,7 +1583,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBinOp()
    * @generated
    */
-  int BIN_OP = 23;
+  int BIN_OP = 22;
 
   /**
    * The feature id for the '<em><b>Dot</b></em>' containment reference.
@@ -1693,7 +1611,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getUnOp()
    * @generated
    */
-  int UN_OP = 24;
+  int UN_OP = 23;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1721,7 +1639,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getCommonQuantUnOp()
    * @generated
    */
-  int COMMON_QUANT_UN_OP = 25;
+  int COMMON_QUANT_UN_OP = 24;
 
   /**
    * The number of structural features of the '<em>Common Quant Un Op</em>' class.
@@ -1740,7 +1658,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getArrowOp()
    * @generated
    */
-  int ARROW_OP = 26;
+  int ARROW_OP = 25;
 
   /**
    * The feature id for the '<em><b>Arrow</b></em>' attribute.
@@ -1768,7 +1686,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBlock()
    * @generated
    */
-  int BLOCK = 27;
+  int BLOCK = 26;
 
   /**
    * The feature id for the '<em><b>Left C</b></em>' containment reference.
@@ -1814,7 +1732,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBlockOrBar()
    * @generated
    */
-  int BLOCK_OR_BAR = 28;
+  int BLOCK_OR_BAR = 27;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1851,7 +1769,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBlockOrPossibleBar()
    * @generated
    */
-  int BLOCK_OR_POSSIBLE_BAR = 29;
+  int BLOCK_OR_POSSIBLE_BAR = 28;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1888,7 +1806,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getOpenName()
    * @generated
    */
-  int OPEN_NAME = 30;
+  int OPEN_NAME = 29;
 
   /**
    * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -1916,7 +1834,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getReferencesName()
    * @generated
    */
-  int REFERENCES_NAME = 44;
+  int REFERENCES_NAME = 43;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1944,7 +1862,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getFactName()
    * @generated
    */
-  int FACT_NAME = 31;
+  int FACT_NAME = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1972,7 +1890,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getAssertionName()
    * @generated
    */
-  int ASSERTION_NAME = 32;
+  int ASSERTION_NAME = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2000,7 +1918,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getFunctionName()
    * @generated
    */
-  int FUNCTION_NAME = 33;
+  int FUNCTION_NAME = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2028,7 +1946,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getFunctionNamewParam()
    * @generated
    */
-  int FUNCTION_NAMEW_PARAM = 34;
+  int FUNCTION_NAMEW_PARAM = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2056,7 +1974,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getPredicateName()
    * @generated
    */
-  int PREDICATE_NAME = 35;
+  int PREDICATE_NAME = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2084,7 +2002,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getAlias()
    * @generated
    */
-  int ALIAS = 36;
+  int ALIAS = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2112,7 +2030,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getEnumName()
    * @generated
    */
-  int ENUM_NAME = 37;
+  int ENUM_NAME = 36;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2140,7 +2058,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getEnumPropertyName()
    * @generated
    */
-  int ENUM_PROPERTY_NAME = 38;
+  int ENUM_PROPERTY_NAME = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2168,7 +2086,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLetName()
    * @generated
    */
-  int LET_NAME = 39;
+  int LET_NAME = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2196,7 +2114,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getSignatureName()
    * @generated
    */
-  int SIGNATURE_NAME = 40;
+  int SIGNATURE_NAME = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2224,7 +2142,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getPropertyName()
    * @generated
    */
-  int PROPERTY_NAME = 41;
+  int PROPERTY_NAME = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2252,7 +2170,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getExactlyName()
    * @generated
    */
-  int EXACTLY_NAME = 42;
+  int EXACTLY_NAME = 41;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2280,7 +2198,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getAsName()
    * @generated
    */
-  int AS_NAME = 43;
+  int AS_NAME = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2308,7 +2226,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getReferencesSig()
    * @generated
    */
-  int REFERENCES_SIG = 45;
+  int REFERENCES_SIG = 44;
 
   /**
    * The feature id for the '<em><b>Asname</b></em>' containment reference.
@@ -2345,7 +2263,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getRef()
    * @generated
    */
-  int REF = 46;
+  int REF = 45;
 
   /**
    * The feature id for the '<em><b>Name Ref</b></em>' reference.
@@ -2373,7 +2291,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLeftCurlyBracket()
    * @generated
    */
-  int LEFT_CURLY_BRACKET = 47;
+  int LEFT_CURLY_BRACKET = 46;
 
   /**
    * The feature id for the '<em><b>Left Curly Bracket</b></em>' attribute.
@@ -2401,7 +2319,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getRightCurlyBracket()
    * @generated
    */
-  int RIGHT_CURLY_BRACKET = 48;
+  int RIGHT_CURLY_BRACKET = 47;
 
   /**
    * The feature id for the '<em><b>Right Curly Bracket</b></em>' attribute.
@@ -2429,7 +2347,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getDot()
    * @generated
    */
-  int DOT = 49;
+  int DOT = 48;
 
   /**
    * The feature id for the '<em><b>Dot</b></em>' attribute.
@@ -2457,7 +2375,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getComma()
    * @generated
    */
-  int COMMA = 50;
+  int COMMA = 49;
 
   /**
    * The feature id for the '<em><b>Comma</b></em>' attribute.
@@ -2485,7 +2403,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getColon()
    * @generated
    */
-  int COLON = 51;
+  int COLON = 50;
 
   /**
    * The feature id for the '<em><b>Colon</b></em>' attribute.
@@ -2513,7 +2431,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLeftParenthesis()
    * @generated
    */
-  int LEFT_PARENTHESIS = 52;
+  int LEFT_PARENTHESIS = 51;
 
   /**
    * The feature id for the '<em><b>Left Parenthesis</b></em>' attribute.
@@ -2541,7 +2459,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getRightParenthesis()
    * @generated
    */
-  int RIGHT_PARENTHESIS = 53;
+  int RIGHT_PARENTHESIS = 52;
 
   /**
    * The feature id for the '<em><b>Right Parenthesis</b></em>' attribute.
@@ -2569,7 +2487,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLeftSquareBracketKeyword()
    * @generated
    */
-  int LEFT_SQUARE_BRACKET_KEYWORD = 54;
+  int LEFT_SQUARE_BRACKET_KEYWORD = 53;
 
   /**
    * The feature id for the '<em><b>Left Square Bracket Keyword</b></em>' attribute.
@@ -2597,7 +2515,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getRightSquareBracketKeyword()
    * @generated
    */
-  int RIGHT_SQUARE_BRACKET_KEYWORD = 55;
+  int RIGHT_SQUARE_BRACKET_KEYWORD = 54;
 
   /**
    * The feature id for the '<em><b>Right Square Bracket Keyword</b></em>' attribute.
@@ -2792,10 +2710,10 @@ public interface AlsPackage extends EPackage
   EReference getOpen_PreviousNameAs();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Open#getRefname <em>Refname</em>}'.
+   * Returns the meta object for the reference '{@link fr.univartois.cril.xtext2.als.Open#getRefname <em>Refname</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Refname</em>'.
+   * @return the meta object for the reference '<em>Refname</em>'.
    * @see fr.univartois.cril.xtext2.als.Open#getRefname()
    * @see #getOpen()
    * @generated
@@ -3701,27 +3619,6 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EReference getSignature_Block();
-
-  /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.SigQual <em>Sig Qual</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Sig Qual</em>'.
-   * @see fr.univartois.cril.xtext2.als.SigQual
-   * @generated
-   */
-  EClass getSigQual();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext2.als.SigQual#getSigq <em>Sigq</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Sigq</em>'.
-   * @see fr.univartois.cril.xtext2.als.SigQual#getSigq()
-   * @see #getSigQual()
-   * @generated
-   */
-  EAttribute getSigQual_Sigq();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.SigExt <em>Sig Ext</em>}'.
@@ -4986,7 +4883,7 @@ public interface AlsPackage extends EPackage
     EReference OPEN__PREVIOUS_NAME_AS = eINSTANCE.getOpen_PreviousNameAs();
 
     /**
-     * The meta object literal for the '<em><b>Refname</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Refname</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5682,24 +5579,6 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EReference SIGNATURE__BLOCK = eINSTANCE.getSignature_Block();
-
-    /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.SigQualImpl <em>Sig Qual</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.SigQualImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getSigQual()
-     * @generated
-     */
-    EClass SIG_QUAL = eINSTANCE.getSigQual();
-
-    /**
-     * The meta object literal for the '<em><b>Sigq</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIG_QUAL__SIGQ = eINSTANCE.getSigQual_Sigq();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.SigExtImpl <em>Sig Ext</em>}' class.

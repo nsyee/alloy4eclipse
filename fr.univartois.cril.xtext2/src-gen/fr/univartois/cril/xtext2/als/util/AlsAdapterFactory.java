@@ -158,11 +158,6 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createSignatureAdapter();
       }
       @Override
-      public Adapter caseSigQual(SigQual object)
-      {
-        return createSigQualAdapter();
-      }
-      @Override
       public Adapter caseSigExt(SigExt object)
       {
         return createSigExtAdapter();
@@ -615,21 +610,6 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSignatureAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.SigQual <em>Sig Qual</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.SigQual
-   * @generated
-   */
-  public Adapter createSigQualAdapter()
   {
     return null;
   }

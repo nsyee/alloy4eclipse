@@ -94,6 +94,7 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 			c.setNoSpace().after(parO) ;
 		for(Keyword parF : f.getTerminalExpressionAccess().findKeywords(")"))
 			c.setNoSpace().before(parF) ;
+		c.setNoLinewrap().around(f.getFunDeclAccess().getGroup_4_0_1());
 	}
 
 	private void setFormattingOpen(FormattingConfig c, AlsGrammarAccess f) {

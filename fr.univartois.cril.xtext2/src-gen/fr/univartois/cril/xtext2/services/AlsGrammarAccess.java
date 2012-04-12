@@ -178,7 +178,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPreviousNameAsAsNameParserRuleCall_2_1_0_0 = (RuleCall)cPreviousNameAsAssignment_2_1_0.eContents().get(0);
 		private final Keyword cSolidusKeyword_2_1_1 = (Keyword)cGroup_2_1.eContents().get(1);
 		private final Assignment cRefnameAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cRefnameReferencesNameParserRuleCall_2_2_0 = (RuleCall)cRefnameAssignment_2_2.eContents().get(0);
+		private final CrossReference cRefnameSignatureNameCrossReference_2_2_0 = (CrossReference)cRefnameAssignment_2_2.eContents().get(0);
+		private final RuleCall cRefnameSignatureNameIDTerminalRuleCall_2_2_0_1 = (RuleCall)cRefnameSignatureNameCrossReference_2_2_0.eContents().get(1);
 		private final Assignment cRightAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
 		private final RuleCall cRightRightSquareBracketKeywordParserRuleCall_2_3_0 = (RuleCall)cRightAssignment_2_3.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -190,11 +191,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
 		// * / Open:
 		//	"private"? openName=OpenName (left=LeftSquareBracketKeyword / *ref+=Ref (comma+=Comma ref+=Ref)** /
-		//	(previousNameAs=AsName "/")? refname=ReferencesName right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?;
+		//	(previousNameAs=AsName "/")? refname=[SignatureName] right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?;
 		public ParserRule getRule() { return rule; }
 
 		//"private"? openName=OpenName (left=LeftSquareBracketKeyword / *ref+=Ref (comma+=Comma ref+=Ref)** / (previousNameAs=AsName
-		//"/")? refname=ReferencesName right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?
+		//"/")? refname=[SignatureName] right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?
 		public Group getGroup() { return cGroup; }
 
 		//"private"?
@@ -206,8 +207,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//OpenName
 		public RuleCall getOpenNameOpenNameParserRuleCall_1_0() { return cOpenNameOpenNameParserRuleCall_1_0; }
 
-		//(left=LeftSquareBracketKeyword / *ref+=Ref (comma+=Comma ref+=Ref)** / (previousNameAs=AsName "/")? refname=ReferencesName
-		//right=RightSquareBracketKeyword)?
+		//(left=LeftSquareBracketKeyword / *ref+=Ref (comma+=Comma ref+=Ref)** / (previousNameAs=AsName "/")?
+		//refname=[SignatureName] right=RightSquareBracketKeyword)?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//left=LeftSquareBracketKeyword
@@ -228,11 +229,14 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//"/"
 		public Keyword getSolidusKeyword_2_1_1() { return cSolidusKeyword_2_1_1; }
 
-		//refname=ReferencesName
+		//refname=[SignatureName]
 		public Assignment getRefnameAssignment_2_2() { return cRefnameAssignment_2_2; }
 
-		//ReferencesName
-		public RuleCall getRefnameReferencesNameParserRuleCall_2_2_0() { return cRefnameReferencesNameParserRuleCall_2_2_0; }
+		//[SignatureName]
+		public CrossReference getRefnameSignatureNameCrossReference_2_2_0() { return cRefnameSignatureNameCrossReference_2_2_0; }
+
+		//ID
+		public RuleCall getRefnameSignatureNameIDTerminalRuleCall_2_2_0_1() { return cRefnameSignatureNameIDTerminalRuleCall_2_2_0_1; }
 
 		//right=RightSquareBracketKeyword
 		public Assignment getRightAssignment_2_3() { return cRightAssignment_2_3; }
@@ -1477,15 +1481,15 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		/// *
 		//	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 		// * / SigDecl returns Signature:
-		//	SigQual? "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* sigExt=SigExt? "{"
+		//	SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* sigExt=SigExt? "{"
 		//	(decl+=Decl (comma2+="," decl+=Decl)*)? "}" block=Block?;
 		public ParserRule getRule() { return rule; }
 
-		//SigQual? "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* sigExt=SigExt? "{" (decl+=Decl
+		//SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* sigExt=SigExt? "{" (decl+=Decl
 		//(comma2+="," decl+=Decl)*)? "}" block=Block?
 		public Group getGroup() { return cGroup; }
 
-		//SigQual?
+		//SigQual*
 		public RuleCall getSigQualParserRuleCall_0() { return cSigQualParserRuleCall_0; }
 
 		//"sig"
@@ -1557,68 +1561,36 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class SigQualElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SigQual");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSigqAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cSigqAlternatives_0_0 = (Alternatives)cSigqAssignment_0.eContents().get(0);
-		private final Keyword cSigqAbstractKeyword_0_0_0 = (Keyword)cSigqAlternatives_0_0.eContents().get(0);
-		private final Keyword cSigqLoneKeyword_0_0_1 = (Keyword)cSigqAlternatives_0_0.eContents().get(1);
-		private final Keyword cSigqOneKeyword_0_0_2 = (Keyword)cSigqAlternatives_0_0.eContents().get(2);
-		private final Keyword cSigqSomeKeyword_0_0_3 = (Keyword)cSigqAlternatives_0_0.eContents().get(3);
-		private final Keyword cSigqPrivateKeyword_0_0_4 = (Keyword)cSigqAlternatives_0_0.eContents().get(4);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cAbstractKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cLoneKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		private final Keyword cOneKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
-		private final Keyword cSomeKeyword_1_3 = (Keyword)cAlternatives_1.eContents().get(3);
-		private final Keyword cPrivateKeyword_1_4 = (Keyword)cAlternatives_1.eContents().get(4);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cAbstractKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cLoneKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cOneKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cSomeKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cPrivateKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		
 		/// *
 		//	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
 		// * / SigQual:
-		//	sigq=("abstract" | "lone" | "one" | "some" | "private") ("abstract" | "lone" | "one" | "some" | "private")*;
+		//	"abstract" | "lone" | "one" | "some" | "private";
 		public ParserRule getRule() { return rule; }
 
-		//sigq=("abstract" | "lone" | "one" | "some" | "private") ("abstract" | "lone" | "one" | "some" | "private")*
-		public Group getGroup() { return cGroup; }
-
-		//sigq=("abstract" | "lone" | "one" | "some" | "private")
-		public Assignment getSigqAssignment_0() { return cSigqAssignment_0; }
-
 		//"abstract" | "lone" | "one" | "some" | "private"
-		public Alternatives getSigqAlternatives_0_0() { return cSigqAlternatives_0_0; }
+		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"abstract"
-		public Keyword getSigqAbstractKeyword_0_0_0() { return cSigqAbstractKeyword_0_0_0; }
+		public Keyword getAbstractKeyword_0() { return cAbstractKeyword_0; }
 
 		//"lone"
-		public Keyword getSigqLoneKeyword_0_0_1() { return cSigqLoneKeyword_0_0_1; }
+		public Keyword getLoneKeyword_1() { return cLoneKeyword_1; }
 
 		//"one"
-		public Keyword getSigqOneKeyword_0_0_2() { return cSigqOneKeyword_0_0_2; }
+		public Keyword getOneKeyword_2() { return cOneKeyword_2; }
 
 		//"some"
-		public Keyword getSigqSomeKeyword_0_0_3() { return cSigqSomeKeyword_0_0_3; }
+		public Keyword getSomeKeyword_3() { return cSomeKeyword_3; }
 
 		//"private"
-		public Keyword getSigqPrivateKeyword_0_0_4() { return cSigqPrivateKeyword_0_0_4; }
-
-		//("abstract" | "lone" | "one" | "some" | "private")*
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-
-		//"abstract"
-		public Keyword getAbstractKeyword_1_0() { return cAbstractKeyword_1_0; }
-
-		//"lone"
-		public Keyword getLoneKeyword_1_1() { return cLoneKeyword_1_1; }
-
-		//"one"
-		public Keyword getOneKeyword_1_2() { return cOneKeyword_1_2; }
-
-		//"some"
-		public Keyword getSomeKeyword_1_3() { return cSomeKeyword_1_3; }
-
-		//"private"
-		public Keyword getPrivateKeyword_1_4() { return cPrivateKeyword_1_4; }
+		public Keyword getPrivateKeyword_4() { return cPrivateKeyword_4; }
 	}
 
 	public class SigExtElements extends AbstractParserRuleElementFinder {
@@ -3880,7 +3852,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	open ::= ["private"]  "open"  name  [ "[" ref,+ "]" ]  [ "as" name ]
 	// * / Open:
 	//	"private"? openName=OpenName (left=LeftSquareBracketKeyword / *ref+=Ref (comma+=Comma ref+=Ref)** /
-	//	(previousNameAs=AsName "/")? refname=ReferencesName right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?;
+	//	(previousNameAs=AsName "/")? refname=[SignatureName] right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?;
 	public OpenElements getOpenAccess() {
 		return (pOpen != null) ? pOpen : (pOpen = new OpenElements());
 	}
@@ -4063,7 +4035,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 	// * / SigDecl returns Signature:
-	//	SigQual? "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* sigExt=SigExt? "{"
+	//	SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* sigExt=SigExt? "{"
 	//	(decl+=Decl (comma2+="," decl+=Decl)*)? "}" block=Block?;
 	public SigDeclElements getSigDeclAccess() {
 		return (pSigDecl != null) ? pSigDecl : (pSigDecl = new SigDeclElements());
@@ -4076,7 +4048,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
 	// * / SigQual:
-	//	sigq=("abstract" | "lone" | "one" | "some" | "private") ("abstract" | "lone" | "one" | "some" | "private")*;
+	//	"abstract" | "lone" | "one" | "some" | "private";
 	public SigQualElements getSigQualAccess() {
 		return (pSigQual != null) ? pSigQual : (pSigQual = new SigQualElements());
 	}

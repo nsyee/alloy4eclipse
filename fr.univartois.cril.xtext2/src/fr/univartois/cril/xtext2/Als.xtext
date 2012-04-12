@@ -22,7 +22,7 @@ Module:
 
 
 Open:
-  "private"? openName=OpenName  (left=LeftSquareBracketKeyword /*ref+=Ref (comma+=Comma ref+=Ref)**/ (previousNameAs=AsName "/")? refname=ReferencesName right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?	; 
+  "private"? openName=OpenName  (left=LeftSquareBracketKeyword /*ref+=Ref (comma+=Comma ref+=Ref)**/ (previousNameAs=AsName "/")? refname=[SignatureName] right=RightSquareBracketKeyword)? ("as" nameAs=AsName)?	; 
   
 /*
 	paragraph ::= factDecl | assertDecl | funDecl | cmdDecl | enumDecl | sigDecl
@@ -130,13 +130,13 @@ LetOutDecl returns Let:
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */
 SigDecl returns Signature:
-  SigQual? "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* (sigExt=SigExt)? "{" (decl+=Decl (comma2+="," decl+=Decl)*)? "}" (block=Block)?	; 
+  SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* (sigExt=SigExt)? "{" (decl+=Decl (comma2+="," decl+=Decl)*)? "}" (block=Block)?	; 
   
 /*
 	sigQual ::= "abstract" | "lone" | "one" | "some" | "private"	
 */
 SigQual:
-  sigq=( "abstract" | "lone" | "one" | "some" | "private" ) ("abstract"|"lone"|"one"|"some"|"private")*	; 
+  "abstract"|"lone"|"one"|"some"|"private"; 
   
 /*
 	sigExt ::= "extends" ref

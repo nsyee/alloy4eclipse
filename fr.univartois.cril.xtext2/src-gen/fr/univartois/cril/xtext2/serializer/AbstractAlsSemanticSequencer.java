@@ -51,7 +51,6 @@ import fr.univartois.cril.xtext2.als.RightSquareBracketKeyword;
 import fr.univartois.cril.xtext2.als.RunCommand;
 import fr.univartois.cril.xtext2.als.Scope;
 import fr.univartois.cril.xtext2.als.SigExt;
-import fr.univartois.cril.xtext2.als.SigQual;
 import fr.univartois.cril.xtext2.als.Signature;
 import fr.univartois.cril.xtext2.als.SignatureName;
 import fr.univartois.cril.xtext2.als.Specification;
@@ -411,17 +410,6 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 			case AlsPackage.SIG_EXT:
 				if(context == grammarAccess.getSigExtRule()) {
 					sequence_SigExt(context, (SigExt) semanticObject); 
-					return; 
-				}
-				else break;
-			case AlsPackage.SIG_QUAL:
-				if(context == grammarAccess.getParagraphRule() ||
-				   context == grammarAccess.getSigDeclRule()) {
-					sequence_SigDecl(context, (SigQual) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getSigQualRule()) {
-					sequence_SigQual(context, (SigQual) semanticObject); 
 					return; 
 				}
 				else break;
@@ -978,7 +966,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         openName=OpenName 
-	 *         (left=LeftSquareBracketKeyword previousNameAs=AsName? refname=ReferencesName right=RightSquareBracketKeyword)? 
+	 *         (left=LeftSquareBracketKeyword previousNameAs=AsName? refname=[SignatureName|ID] right=RightSquareBracketKeyword)? 
 	 *         nameAs=AsName?
 	 *     )
 	 */
@@ -1174,22 +1162,6 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         (sigq='abstract' | sigq='lone' | sigq='one' | sigq='some' | sigq='private') 
-	 *         signatureName+=SignatureName 
-	 *         (comma+=Comma signatureName+=SignatureName)* 
-	 *         sigExt=SigExt? 
-	 *         (decl+=Decl (comma2+=',' decl+=Decl)*)? 
-	 *         block=Block?
-	 *     )
-	 */
-	protected void sequence_SigDecl(EObject context, SigQual semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* sigExt=SigExt? (decl+=Decl (comma2+=',' decl+=Decl)*)? block=Block?)
 	 */
 	protected void sequence_SigDecl(EObject context, Signature semanticObject) {
@@ -1202,15 +1174,6 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *     (ref=ReferencesSig | (ref=ReferencesSig ref2+=ReferencesSig*))
 	 */
 	protected void sequence_SigExt(EObject context, SigExt semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (sigq='abstract' | sigq='lone' | sigq='one' | sigq='some' | sigq='private')
-	 */
-	protected void sequence_SigQual(EObject context, SigQual semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
