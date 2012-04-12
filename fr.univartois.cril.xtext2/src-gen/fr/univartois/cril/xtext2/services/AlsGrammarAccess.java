@@ -1171,7 +1171,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
 		private final Assignment cAsnameAssignment_3_0_0 = (Assignment)cAlternatives_3_0.eContents().get(0);
-		private final RuleCall cAsnameAsNameParserRuleCall_3_0_0_0 = (RuleCall)cAsnameAssignment_3_0_0.eContents().get(0);
+		private final CrossReference cAsnameAsNameCrossReference_3_0_0_0 = (CrossReference)cAsnameAssignment_3_0_0.eContents().get(0);
+		private final RuleCall cAsnameAsNameIDTerminalRuleCall_3_0_0_0_1 = (RuleCall)cAsnameAsNameCrossReference_3_0_0_0.eContents().get(1);
 		private final Assignment cPrevAssignment_3_0_1 = (Assignment)cAlternatives_3_0.eContents().get(1);
 		private final Keyword cPrevFunKeyword_3_0_1_0 = (Keyword)cPrevAssignment_3_0_1.eContents().get(0);
 		private final Assignment cPrevAssignment_3_0_2 = (Assignment)cAlternatives_3_0.eContents().get(2);
@@ -1193,11 +1194,11 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		/// *
 		//	typescope ::= ["exactly"] number [name|"int"|"seq"]
 		// * / Typescope:
-		//	{Typescope} exactly="exactly"? value=INT ((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
+		//	{Typescope} exactly="exactly"? value=INT ((asname=[AsName] | prev="fun" | prev="pred" | prev="this") sl="/")?
 		//	(name=[ReferencesName] | (post="int" | post="seq"));
 		public ParserRule getRule() { return rule; }
 
-		//{Typescope} exactly="exactly"? value=INT ((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
+		//{Typescope} exactly="exactly"? value=INT ((asname=[AsName] | prev="fun" | prev="pred" | prev="this") sl="/")?
 		//(name=[ReferencesName] | (post="int" | post="seq"))
 		public Group getGroup() { return cGroup; }
 
@@ -1216,17 +1217,20 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 
-		//((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
+		//((asname=[AsName] | prev="fun" | prev="pred" | prev="this") sl="/")?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//asname=AsName | prev="fun" | prev="pred" | prev="this"
+		//asname=[AsName] | prev="fun" | prev="pred" | prev="this"
 		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
 
-		//asname=AsName
+		//asname=[AsName]
 		public Assignment getAsnameAssignment_3_0_0() { return cAsnameAssignment_3_0_0; }
 
-		//AsName
-		public RuleCall getAsnameAsNameParserRuleCall_3_0_0_0() { return cAsnameAsNameParserRuleCall_3_0_0_0; }
+		//[AsName]
+		public CrossReference getAsnameAsNameCrossReference_3_0_0_0() { return cAsnameAsNameCrossReference_3_0_0_0; }
+
+		//ID
+		public RuleCall getAsnameAsNameIDTerminalRuleCall_3_0_0_0_1() { return cAsnameAsNameIDTerminalRuleCall_3_0_0_0_1; }
 
 		//prev="fun"
 		public Assignment getPrevAssignment_3_0_1() { return cPrevAssignment_3_0_1; }
@@ -1991,7 +1995,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_13_3 = (Group)cGroup_13.eContents().get(3);
 		private final Alternatives cAlternatives_13_3_0 = (Alternatives)cGroup_13_3.eContents().get(0);
 		private final Assignment cAsnameAssignment_13_3_0_0 = (Assignment)cAlternatives_13_3_0.eContents().get(0);
-		private final RuleCall cAsnameAsNameParserRuleCall_13_3_0_0_0 = (RuleCall)cAsnameAssignment_13_3_0_0.eContents().get(0);
+		private final CrossReference cAsnameAsNameCrossReference_13_3_0_0_0 = (CrossReference)cAsnameAssignment_13_3_0_0.eContents().get(0);
+		private final RuleCall cAsnameAsNameIDTerminalRuleCall_13_3_0_0_0_1 = (RuleCall)cAsnameAsNameCrossReference_13_3_0_0_0.eContents().get(1);
 		private final Keyword cFunKeyword_13_3_0_1 = (Keyword)cAlternatives_13_3_0.eContents().get(1);
 		private final Keyword cPredKeyword_13_3_0_2 = (Keyword)cAlternatives_13_3_0.eContents().get(2);
 		private final Keyword cThisKeyword_13_3_0_3 = (Keyword)cAlternatives_13_3_0.eContents().get(3);
@@ -2039,7 +2044,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)?
 		//	(blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
 		//	none="none" | {Expression} iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?)
-		//	| int="Int" | {Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=AsName | "fun" | "pred" | "this") "/")?
+		//	| int="Int" | {Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=[AsName] | "fun" | "pred" | "this") "/")?
 		//	(nameRef=[ReferencesName] | "this") | {Expression} block+=Block | {Expression} leftCurlyBracket=LeftCurlyBracket
 		//	decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket;
 		public ParserRule getRule() { return rule; }
@@ -2060,7 +2065,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)?
 		//(blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
 		//none="none" | {Expression} iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?)
-		//| int="Int" | {Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=AsName | "fun" | "pred" | "this") "/")?
+		//| int="Int" | {Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=[AsName] | "fun" | "pred" | "this") "/")?
 		//(nameRef=[ReferencesName] | "this") | {Expression} block+=Block | {Expression} leftCurlyBracket=LeftCurlyBracket
 		//decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -2345,7 +2350,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//"seq/Int"
 		public Keyword getSeqSeqIntKeyword_12_1_0() { return cSeqSeqIntKeyword_12_1_0; }
 
-		//{Expression} "@"? "int"? ((asname=AsName | "fun" | "pred" | "this") "/")? (nameRef=[ReferencesName] | "this")
+		//{Expression} "@"? "int"? ((asname=[AsName] | "fun" | "pred" | "this") "/")? (nameRef=[ReferencesName] | "this")
 		public Group getGroup_13() { return cGroup_13; }
 
 		//{Expression}
@@ -2357,17 +2362,20 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//"int"?
 		public Keyword getIntKeyword_13_2() { return cIntKeyword_13_2; }
 
-		//((asname=AsName | "fun" | "pred" | "this") "/")?
+		//((asname=[AsName] | "fun" | "pred" | "this") "/")?
 		public Group getGroup_13_3() { return cGroup_13_3; }
 
-		//asname=AsName | "fun" | "pred" | "this"
+		//asname=[AsName] | "fun" | "pred" | "this"
 		public Alternatives getAlternatives_13_3_0() { return cAlternatives_13_3_0; }
 
-		//asname=AsName
+		//asname=[AsName]
 		public Assignment getAsnameAssignment_13_3_0_0() { return cAsnameAssignment_13_3_0_0; }
 
-		//AsName
-		public RuleCall getAsnameAsNameParserRuleCall_13_3_0_0_0() { return cAsnameAsNameParserRuleCall_13_3_0_0_0; }
+		//[AsName]
+		public CrossReference getAsnameAsNameCrossReference_13_3_0_0_0() { return cAsnameAsNameCrossReference_13_3_0_0_0; }
+
+		//ID
+		public RuleCall getAsnameAsNameIDTerminalRuleCall_13_3_0_0_0_1() { return cAsnameAsNameIDTerminalRuleCall_13_3_0_0_0_1; }
 
 		//"fun"
 		public Keyword getFunKeyword_13_3_0_1() { return cFunKeyword_13_3_0_1; }
@@ -3474,7 +3482,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
 		private final Alternatives cAlternatives_1_0_0_0 = (Alternatives)cGroup_1_0_0.eContents().get(0);
 		private final Assignment cAsnameAssignment_1_0_0_0_0 = (Assignment)cAlternatives_1_0_0_0.eContents().get(0);
-		private final RuleCall cAsnameAsNameParserRuleCall_1_0_0_0_0_0 = (RuleCall)cAsnameAssignment_1_0_0_0_0.eContents().get(0);
+		private final CrossReference cAsnameAsNameCrossReference_1_0_0_0_0_0 = (CrossReference)cAsnameAssignment_1_0_0_0_0.eContents().get(0);
+		private final RuleCall cAsnameAsNameIDTerminalRuleCall_1_0_0_0_0_0_1 = (RuleCall)cAsnameAsNameCrossReference_1_0_0_0_0_0.eContents().get(1);
 		private final Keyword cFunKeyword_1_0_0_0_1 = (Keyword)cAlternatives_1_0_0_0.eContents().get(1);
 		private final Keyword cPredKeyword_1_0_0_0_2 = (Keyword)cAlternatives_1_0_0_0.eContents().get(2);
 		private final Keyword cThisKeyword_1_0_0_0_3 = (Keyword)cAlternatives_1_0_0_0.eContents().get(3);
@@ -3487,33 +3496,37 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSeqIntKeyword_1_3 = (Keyword)cAlternatives_1.eContents().get(3);
 		
 		//ReferencesSig:
-		//	{ReferencesSig} (((asname=AsName | "fun" | "pred" | "this") "/")? nameRef=[SignatureName] | "univ" | "Int" |
+		//	{ReferencesSig} (((asname=[AsName] | "fun" | "pred" | "this") "/")? nameRef=[SignatureName] | "univ" | "Int" |
 		//	"seq/Int");
 		public ParserRule getRule() { return rule; }
 
-		//{ReferencesSig} (((asname=AsName | "fun" | "pred" | "this") "/")? nameRef=[SignatureName] | "univ" | "Int" | "seq/Int")
+		//{ReferencesSig} (((asname=[AsName] | "fun" | "pred" | "this") "/")? nameRef=[SignatureName] | "univ" | "Int" |
+		//"seq/Int")
 		public Group getGroup() { return cGroup; }
 
 		//{ReferencesSig}
 		public Action getReferencesSigAction_0() { return cReferencesSigAction_0; }
 
-		//((asname=AsName | "fun" | "pred" | "this") "/")? nameRef=[SignatureName] | "univ" | "Int" | "seq/Int"
+		//((asname=[AsName] | "fun" | "pred" | "this") "/")? nameRef=[SignatureName] | "univ" | "Int" | "seq/Int"
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
-		//((asname=AsName | "fun" | "pred" | "this") "/")? nameRef=[SignatureName]
+		//((asname=[AsName] | "fun" | "pred" | "this") "/")? nameRef=[SignatureName]
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
-		//((asname=AsName | "fun" | "pred" | "this") "/")?
+		//((asname=[AsName] | "fun" | "pred" | "this") "/")?
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 
-		//asname=AsName | "fun" | "pred" | "this"
+		//asname=[AsName] | "fun" | "pred" | "this"
 		public Alternatives getAlternatives_1_0_0_0() { return cAlternatives_1_0_0_0; }
 
-		//asname=AsName
+		//asname=[AsName]
 		public Assignment getAsnameAssignment_1_0_0_0_0() { return cAsnameAssignment_1_0_0_0_0; }
 
-		//AsName
-		public RuleCall getAsnameAsNameParserRuleCall_1_0_0_0_0_0() { return cAsnameAsNameParserRuleCall_1_0_0_0_0_0; }
+		//[AsName]
+		public CrossReference getAsnameAsNameCrossReference_1_0_0_0_0_0() { return cAsnameAsNameCrossReference_1_0_0_0_0_0; }
+
+		//ID
+		public RuleCall getAsnameAsNameIDTerminalRuleCall_1_0_0_0_0_0_1() { return cAsnameAsNameIDTerminalRuleCall_1_0_0_0_0_0_1; }
 
 		//"fun"
 		public Keyword getFunKeyword_1_0_0_0_1() { return cFunKeyword_1_0_0_0_1; }
@@ -3998,7 +4011,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	typescope ::= ["exactly"] number [name|"int"|"seq"]
 	// * / Typescope:
-	//	{Typescope} exactly="exactly"? value=INT ((asname=AsName | prev="fun" | prev="pred" | prev="this") sl="/")?
+	//	{Typescope} exactly="exactly"? value=INT ((asname=[AsName] | prev="fun" | prev="pred" | prev="this") sl="/")?
 	//	(name=[ReferencesName] | (post="int" | post="seq"));
 	public TypescopeElements getTypescopeAccess() {
 		return (pTypescope != null) ? pTypescope : (pTypescope = new TypescopeElements());
@@ -4126,7 +4139,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)?
 	//	(blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
 	//	none="none" | {Expression} iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?)
-	//	| int="Int" | {Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=AsName | "fun" | "pred" | "this") "/")?
+	//	| int="Int" | {Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=[AsName] | "fun" | "pred" | "this") "/")?
 	//	(nameRef=[ReferencesName] | "this") | {Expression} block+=Block | {Expression} leftCurlyBracket=LeftCurlyBracket
 	//	decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket;
 	public TerminalExpressionElements getTerminalExpressionAccess() {
@@ -4467,7 +4480,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ReferencesSig:
-	//	{ReferencesSig} (((asname=AsName | "fun" | "pred" | "this") "/")? nameRef=[SignatureName] | "univ" | "Int" |
+	//	{ReferencesSig} (((asname=[AsName] | "fun" | "pred" | "this") "/")? nameRef=[SignatureName] | "univ" | "Int" |
 	//	"seq/Int");
 	public ReferencesSigElements getReferencesSigAccess() {
 		return (pReferencesSig != null) ? pReferencesSig : (pReferencesSig = new ReferencesSigElements());

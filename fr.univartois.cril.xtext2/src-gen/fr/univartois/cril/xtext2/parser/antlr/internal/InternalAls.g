@@ -2115,19 +2115,17 @@ ruleTypescope returns [EObject current=null]
 )(((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypescopeAccess().getAsnameAsNameParserRuleCall_3_0_0_0()); 
-	    }
-		lv_asname_3_0=ruleAsName		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTypescopeRule());
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypescopeRule());
 	        }
-       		set(
-       			$current, 
-       			"asname",
-        		lv_asname_3_0, 
-        		"AsName");
-	        afterParserOrEnumRuleCall();
-	    }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getTypescopeAccess().getAsnameAsNameCrossReference_3_0_0_0()); 
+	}
 
 )
 )
@@ -3817,19 +3815,17 @@ ruleTerminalExpression returns [EObject current=null]
 )?(((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getAsnameAsNameParserRuleCall_13_3_0_0_0()); 
-	    }
-		lv_asname_46_0=ruleAsName		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTerminalExpressionRule());
 	        }
-       		set(
-       			$current, 
-       			"asname",
-        		lv_asname_46_0, 
-        		"AsName");
-	        afterParserOrEnumRuleCall();
-	    }
+        }
+	otherlv_46=RULE_ID
+	{
+		newLeafNode(otherlv_46, grammarAccess.getTerminalExpressionAccess().getAsnameAsNameCrossReference_13_3_0_0_0()); 
+	}
 
 )
 )
@@ -5808,19 +5804,17 @@ ruleReferencesSig returns [EObject current=null]
 )(((((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getReferencesSigAccess().getAsnameAsNameParserRuleCall_1_0_0_0_0_0()); 
-	    }
-		lv_asname_1_0=ruleAsName		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getReferencesSigRule());
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReferencesSigRule());
 	        }
-       		set(
-       			$current, 
-       			"asname",
-        		lv_asname_1_0, 
-        		"AsName");
-	        afterParserOrEnumRuleCall();
-	    }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getReferencesSigAccess().getAsnameAsNameCrossReference_1_0_0_0_0_0()); 
+	}
 
 )
 )

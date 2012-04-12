@@ -11,7 +11,6 @@ import fr.univartois.cril.xtext2.als.ReferencesSig;
 import fr.univartois.cril.xtext2.als.SignatureName;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -36,7 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements ReferencesSig
 {
   /**
-   * The cached value of the '{@link #getAsname() <em>Asname</em>}' containment reference.
+   * The cached value of the '{@link #getAsname() <em>Asname</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAsname()
@@ -83,6 +82,16 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
    */
   public AsName getAsname()
   {
+    if (asname != null && asname.eIsProxy())
+    {
+      InternalEObject oldAsname = (InternalEObject)asname;
+      asname = (AsName)eResolveProxy(oldAsname);
+      if (asname != oldAsname)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AlsPackage.REFERENCES_SIG__ASNAME, oldAsname, asname));
+      }
+    }
     return asname;
   }
 
@@ -91,16 +100,9 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAsname(AsName newAsname, NotificationChain msgs)
+  public AsName basicGetAsname()
   {
-    AsName oldAsname = asname;
-    asname = newAsname;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.REFERENCES_SIG__ASNAME, oldAsname, newAsname);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return asname;
   }
 
   /**
@@ -110,18 +112,10 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
    */
   public void setAsname(AsName newAsname)
   {
-    if (newAsname != asname)
-    {
-      NotificationChain msgs = null;
-      if (asname != null)
-        msgs = ((InternalEObject)asname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.REFERENCES_SIG__ASNAME, null, msgs);
-      if (newAsname != null)
-        msgs = ((InternalEObject)newAsname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.REFERENCES_SIG__ASNAME, null, msgs);
-      msgs = basicSetAsname(newAsname, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.REFERENCES_SIG__ASNAME, newAsname, newAsname));
+    AsName oldAsname = asname;
+    asname = newAsname;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.REFERENCES_SIG__ASNAME, oldAsname, asname));
   }
 
   /**
@@ -173,28 +167,13 @@ public class ReferencesSigImpl extends MinimalEObjectImpl.Container implements R
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AlsPackage.REFERENCES_SIG__ASNAME:
-        return basicSetAsname(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case AlsPackage.REFERENCES_SIG__ASNAME:
-        return getAsname();
+        if (resolve) return getAsname();
+        return basicGetAsname();
       case AlsPackage.REFERENCES_SIG__NAME_REF:
         if (resolve) return getNameRef();
         return basicGetNameRef();

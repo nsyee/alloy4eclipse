@@ -847,7 +847,7 @@ public interface AlsPackage extends EPackage
   int TYPESCOPE__VALUE = 1;
 
   /**
-   * The feature id for the '<em><b>Asname</b></em>' containment reference.
+   * The feature id for the '<em><b>Asname</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1356,7 +1356,7 @@ public interface AlsPackage extends EPackage
   int EXPRESSION__SEQ = 20;
 
   /**
-   * The feature id for the '<em><b>Asname</b></em>' containment reference.
+   * The feature id for the '<em><b>Asname</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2229,7 +2229,7 @@ public interface AlsPackage extends EPackage
   int REFERENCES_SIG = 44;
 
   /**
-   * The feature id for the '<em><b>Asname</b></em>' containment reference.
+   * The feature id for the '<em><b>Asname</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3338,10 +3338,10 @@ public interface AlsPackage extends EPackage
   EAttribute getTypescope_Value();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Typescope#getAsname <em>Asname</em>}'.
+   * Returns the meta object for the reference '{@link fr.univartois.cril.xtext2.als.Typescope#getAsname <em>Asname</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Asname</em>'.
+   * @return the meta object for the reference '<em>Asname</em>'.
    * @see fr.univartois.cril.xtext2.als.Typescope#getAsname()
    * @see #getTypescope()
    * @generated
@@ -3894,10 +3894,10 @@ public interface AlsPackage extends EPackage
   EAttribute getExpression_Seq();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Expression#getAsname <em>Asname</em>}'.
+   * Returns the meta object for the reference '{@link fr.univartois.cril.xtext2.als.Expression#getAsname <em>Asname</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Asname</em>'.
+   * @return the meta object for the reference '<em>Asname</em>'.
    * @see fr.univartois.cril.xtext2.als.Expression#getAsname()
    * @see #getExpression()
    * @generated
@@ -4494,10 +4494,10 @@ public interface AlsPackage extends EPackage
   EClass getReferencesSig();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.ReferencesSig#getAsname <em>Asname</em>}'.
+   * Returns the meta object for the reference '{@link fr.univartois.cril.xtext2.als.ReferencesSig#getAsname <em>Asname</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Asname</em>'.
+   * @return the meta object for the reference '<em>Asname</em>'.
    * @see fr.univartois.cril.xtext2.als.ReferencesSig#getAsname()
    * @see #getReferencesSig()
    * @generated
@@ -5367,7 +5367,7 @@ public interface AlsPackage extends EPackage
     EAttribute TYPESCOPE__VALUE = eINSTANCE.getTypescope_Value();
 
     /**
-     * The meta object literal for the '<em><b>Asname</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Asname</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5785,7 +5785,7 @@ public interface AlsPackage extends EPackage
     EAttribute EXPRESSION__SEQ = eINSTANCE.getExpression_Seq();
 
     /**
-     * The meta object literal for the '<em><b>Asname</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Asname</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6295,7 +6295,7 @@ public interface AlsPackage extends EPackage
     EClass REFERENCES_SIG = eINSTANCE.getReferencesSig();
 
     /**
-     * The meta object literal for the '<em><b>Asname</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Asname</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

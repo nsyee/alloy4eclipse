@@ -220,7 +220,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     ('lone' | 'set' | 'some' | 'one')?
+	 *     ('some' | 'one' | 'lone' | 'set')?
 	 */
 	protected void emit_ArrowOp___LoneKeyword_0_2_or_OneKeyword_0_1_or_SetKeyword_0_3_or_SomeKeyword_0_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -229,21 +229,21 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	/**
 	 * Syntax:
 	 *     (
-	     '&' | 
-	     '<=>' | 
-	     '>>>' | 
-	     '>>' | 
-	     'or' | 
-	     'iff' | 
-	     '++' | 
-	     '+' | 
-	     ':>' | 
-	     '<:' | 
-	     '-' | 
-	     '&&' | 
-	     '<<' | 
+	     '||' | 
 	     'and' | 
-	     '||'
+	     '<<' | 
+	     '>>' | 
+	     ':>' | 
+	     '&' | 
+	     '>>>' | 
+	     'iff' | 
+	     '-' | 
+	     '<=>' | 
+	     '<:' | 
+	     '&&' | 
+	     '+' | 
+	     'or' | 
+	     '++'
 	 )
 	 */
 	protected void emit_BinOp_AmpersandAmpersandKeyword_1_2_or_AmpersandKeyword_1_4_or_AndKeyword_1_3_or_ColonGreaterThanSignKeyword_1_11_or_GreaterThanSignGreaterThanSignGreaterThanSignKeyword_1_15_or_GreaterThanSignGreaterThanSignKeyword_1_14_or_HyphenMinusKeyword_1_8_or_IffKeyword_1_6_or_LessThanSignColonKeyword_1_10_or_LessThanSignEqualsSignGreaterThanSignKeyword_1_5_or_LessThanSignLessThanSignKeyword_1_13_or_OrKeyword_1_1_or_PlusSignKeyword_1_7_or_PlusSignPlusSignKeyword_1_9_or_VerticalLineVerticalLineKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -260,7 +260,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'one' | 'no' | 'some' | 'lone'
+	 *     'no' | 'some' | 'one' | 'lone'
 	 */
 	protected void emit_CommonQuantUnOp_LoneKeyword_1_2_or_NoKeyword_1_0_or_OneKeyword_1_3_or_SomeKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -383,22 +383,10 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (
 	     (
 	         (
-	             ('=>'* ('[' ']')+ ('=>'* ('[' ']')+)* (('=>'* 'implies'+ ('=>'* 'implies'+)* '=>'*) | '=>'*)) | 
-	             (('=>'* 'implies'+ ('=>'* 'implies'+)* '=>'*) | '=>'*)
-	         ) | 
-	         (
-	             '=>'* 
-	             'implies'+ 
-	             ('=>'* 'implies'+)* 
-	             '=>'* 
-	             ('[' ']')+ 
-	             ('=>'* ('[' ']')+)* 
-	             (('=>'* 'implies'+ ('=>'* 'implies'+)* '=>'*) | '=>'*)
-	         )
-	     ) | 
-	     (
-	         (
 	             (
+	                 '=>'* 
+	                 'implies'+ 
+	                 ('=>'* 'implies'+)* 
 	                 '=>'* 
 	                 ('[' ']')+ 
 	                 ('=>'* ('[' ']')+)* 
@@ -410,9 +398,6 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	                 ('=>'* ('[' ']')+)*
 	             ) | 
 	             (
-	                 '=>'* 
-	                 'implies'+ 
-	                 ('=>'* 'implies'+)* 
 	                 '=>'* 
 	                 ('[' ']')+ 
 	                 ('=>'* ('[' ']')+)* 
@@ -433,6 +418,21 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	             ('=>'* ('[' ']')+)*
 	         )* 
 	         (('=>'* 'implies'+ ('=>'* 'implies'+)* '=>'*) | '=>'*)
+	     ) | 
+	     (
+	         (
+	             ('=>'* ('[' ']')+ ('=>'* ('[' ']')+)* (('=>'* 'implies'+ ('=>'* 'implies'+)* '=>'*) | '=>'*)) | 
+	             (('=>'* 'implies'+ ('=>'* 'implies'+)* '=>'*) | '=>'*)
+	         ) | 
+	         (
+	             '=>'* 
+	             'implies'+ 
+	             ('=>'* 'implies'+)* 
+	             '=>'* 
+	             ('[' ']')+ 
+	             ('=>'* ('[' ']')+)* 
+	             (('=>'* 'implies'+ ('=>'* 'implies'+)* '=>'*) | '=>'*)
+	         )
 	     )
 	 )
 	 */
@@ -450,7 +450,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ((('[' ']') | 'implies'?) '=>'?)*
+	 *     (('implies'? | ('[' ']')) '=>'?)*
 	 */
 	protected void emit_Expression_____ImpliesKeyword_1_3_0_1_q_or___LeftSquareBracketKeyword_1_4_0_RightSquareBracketKeyword_1_4_2_____EqualsSignGreaterThanSignKeyword_1_3_0_0_q__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -530,7 +530,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'Int' | 'univ' | 'seq/Int'
+	 *     'Int' | 'seq/Int' | 'univ'
 	 */
 	protected void emit_Ref_IntKeyword_1_2_or_SeqIntKeyword_1_3_or_UnivKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -538,7 +538,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'seq/Int' | 'univ' | 'Int'
+	 *     'univ' | 'seq/Int' | 'Int'
 	 */
 	protected void emit_ReferencesSig_IntKeyword_1_2_or_SeqIntKeyword_1_3_or_UnivKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -546,7 +546,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (('fun' | 'this' | 'pred') '/')?
+	 *     (('fun' | 'pred' | 'this') '/')?
 	 */
 	protected void emit_ReferencesSig_____FunKeyword_1_0_0_0_1_or_PredKeyword_1_0_0_0_2_or_ThisKeyword_1_0_0_0_3___SolidusKeyword_1_0_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -578,7 +578,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (NEGATIVE_INTEGER | INT) | ('@'? 'int'? (('fun' | 'this' | 'pred') '/')? 'this')
+	 *     ('@'? 'int'? (('fun' | 'this' | 'pred') '/')? 'this') | (NEGATIVE_INTEGER | INT)
 	 */
 	protected void emit_TerminalExpression___CommercialAtKeyword_13_1_q_IntKeyword_13_2_q_____FunKeyword_13_3_0_1_or_PredKeyword_13_3_0_2_or_ThisKeyword_13_3_0_3___SolidusKeyword_13_3_1__q_ThisKeyword_13_4_1___or___INTTerminalRuleCall_5_1_or_NEGATIVE_INTEGERTerminalRuleCall_6_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -594,7 +594,7 @@ public class AbstractAlsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'set' | 'seq' | 'not'
+	 *     'not' | 'set' | 'seq'
 	 */
 	protected void emit_UnOp_NotKeyword_1_0_or_SeqKeyword_1_2_or_SetKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

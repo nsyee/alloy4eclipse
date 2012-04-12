@@ -112,7 +112,7 @@ Expectation:
 	typescope ::= ["exactly"] number [name|"int"|"seq"]
 */
 Typescope:
-  {Typescope}exactly="exactly"? value=INT ((asname=AsName|prev="fun"|prev="pred"|prev="this") sl="/")? (name=[ReferencesName]|(post="int"|post="seq"))	; 
+  {Typescope}exactly="exactly"? value=INT ((asname=[AsName]|prev="fun"|prev="pred"|prev="this") sl="/")? (name=[ReferencesName]|(post="int"|post="seq"))	; 
   
 /*
 	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
@@ -190,7 +190,7 @@ TerminalExpression returns Expression:
     {Expression} univ="univ"																							|//13./
     {Expression} (int="int" (nameRef=[ReferencesName])? )|int="Int"																							|//14./
     {Expression} seq="seq/Int"		|
-    {Expression} "@"? "int"? ((asname=AsName|"fun"|"pred"|"this") "/")?  (nameRef=[ReferencesName]|"this")					|//17./
+    {Expression} "@"? "int"? ((asname=[AsName]|"fun"|"pred"|"this") "/")?  (nameRef=[ReferencesName]|"this")					|//17./
     {Expression} block+=Block 																				|//18./
     {Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket											;//19./
 
@@ -337,7 +337,7 @@ ReferencesName	:
 	PredicateName	;
 
 ReferencesSig	:
-  {ReferencesSig}(	((asname=AsName|"fun"|"pred"|"this") "/")? nameRef=[SignatureName]|"univ"|"Int"|"seq/Int")	;
+  {ReferencesSig}(	((asname=[AsName]|"fun"|"pred"|"this") "/")? nameRef=[SignatureName]|"univ"|"Int"|"seq/Int")	;
 
  	
 Ref:
