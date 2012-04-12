@@ -27,26 +27,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface ReferencesSig extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Asname</b></em>' containment reference.
+   * Returns the value of the '<em><b>Asname</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Asname</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Asname</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Asname</em>' containment reference.
+   * @return the value of the '<em>Asname</em>' reference.
    * @see #setAsname(AsName)
    * @see fr.univartois.cril.xtext2.als.AlsPackage#getReferencesSig_Asname()
-   * @model containment="true"
+   * @model
    * @generated
    */
   AsName getAsname();
 
   /**
-   * Sets the value of the '{@link fr.univartois.cril.xtext2.als.ReferencesSig#getAsname <em>Asname</em>}' containment reference.
+   * Sets the value of the '{@link fr.univartois.cril.xtext2.als.ReferencesSig#getAsname <em>Asname</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Asname</em>' containment reference.
+   * @param value the new value of the '<em>Asname</em>' reference.
    * @see #getAsname()
    * @generated
    */

@@ -379,7 +379,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   protected String seq = SEQ_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAsname() <em>Asname</em>}' containment reference.
+   * The cached value of the '{@link #getAsname() <em>Asname</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAsname()
@@ -884,6 +884,16 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    */
   public AsName getAsname()
   {
+    if (asname != null && asname.eIsProxy())
+    {
+      InternalEObject oldAsname = (InternalEObject)asname;
+      asname = (AsName)eResolveProxy(oldAsname);
+      if (asname != oldAsname)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AlsPackage.EXPRESSION__ASNAME, oldAsname, asname));
+      }
+    }
     return asname;
   }
 
@@ -892,16 +902,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAsname(AsName newAsname, NotificationChain msgs)
+  public AsName basicGetAsname()
   {
-    AsName oldAsname = asname;
-    asname = newAsname;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__ASNAME, oldAsname, newAsname);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return asname;
   }
 
   /**
@@ -911,18 +914,10 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    */
   public void setAsname(AsName newAsname)
   {
-    if (newAsname != asname)
-    {
-      NotificationChain msgs = null;
-      if (asname != null)
-        msgs = ((InternalEObject)asname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AlsPackage.EXPRESSION__ASNAME, null, msgs);
-      if (newAsname != null)
-        msgs = ((InternalEObject)newAsname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlsPackage.EXPRESSION__ASNAME, null, msgs);
-      msgs = basicSetAsname(newAsname, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__ASNAME, newAsname, newAsname));
+    AsName oldAsname = asname;
+    asname = newAsname;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__ASNAME, oldAsname, asname));
   }
 
   /**
@@ -1065,8 +1060,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return basicSetUnOp(null, msgs);
       case AlsPackage.EXPRESSION__COMMON:
         return ((InternalEList<?>)getCommon()).basicRemove(otherEnd, msgs);
-      case AlsPackage.EXPRESSION__ASNAME:
-        return basicSetAsname(null, msgs);
       case AlsPackage.EXPRESSION__BLOCK:
         return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
       case AlsPackage.EXPRESSION__LEFT_CURLY_BRACKET:
@@ -1131,7 +1124,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__SEQ:
         return getSeq();
       case AlsPackage.EXPRESSION__ASNAME:
-        return getAsname();
+        if (resolve) return getAsname();
+        return basicGetAsname();
       case AlsPackage.EXPRESSION__BLOCK:
         return getBlock();
       case AlsPackage.EXPRESSION__LEFT_CURLY_BRACKET:
