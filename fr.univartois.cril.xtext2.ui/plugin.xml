@@ -379,5 +379,27 @@
   				class="fr.univartois.cril.xtext2.alloyplugin.ProjectNature" /> 
   		</runtime>
   	</extension>
-
+  	
+  	<!-- Menu Outline -->
+  	<extension point="org.eclipse.ui.popupMenus">
+  		<objectContribution
+        	id="fr.univartois.cril.xtext2.outline"
+        	objectClass="org.eclipse.xtext.ui.editor.outline.IOutlineNode">
+        	<action id="fr.univartois.cril.xtext2.outline.action1"
+	       		label="Do it"
+	       		class="fr.univartois.cril.xtext2.ui.outline.MyAction"
+	       		definitionId="fr.univartois.cril.xtext2.outline.action1"
+	       		enablesFor="1">
+	       		<visibleWhen checkEnabled="true">
+	       			<iterate>
+	       				<or>
+	       					<adapt type="fr.univartois.cril.xtext2.als.CheckCommand" />
+	       					<adapt type="fr.univartois.cril.xtext2.als.RunCommand" />
+	       				</or>
+	       			</iterate>
+	       		</visibleWhen>
+	    	</action>
+	    </objectContribution>
+	</extension> 
+  	
 </plugin>

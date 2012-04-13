@@ -4,12 +4,22 @@
 package fr.univartois.cril.xtext2.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+
+import fr.univartois.cril.xtext2.ui.outline.AlloyOutlinePage;
 
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class AlsUiModule extends fr.univartois.cril.xtext2.ui.AbstractAlsUiModule {
+	
 	public AlsUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
+
+	@Override
+	public Class<? extends IContentOutlinePage> bindIContentOutlinePage() {
+		return AlloyOutlinePage.class ;
+	}
+
 }
