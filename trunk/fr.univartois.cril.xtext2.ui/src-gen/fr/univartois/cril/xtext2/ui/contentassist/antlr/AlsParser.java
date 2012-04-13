@@ -48,8 +48,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypescopeAccess().getAlternatives_4(), "rule__Typescope__Alternatives_4");
 					put(grammarAccess.getTypescopeAccess().getAlternatives_4_1(), "rule__Typescope__Alternatives_4_1");
 					put(grammarAccess.getLetOutDeclAccess().getAlternatives_2(), "rule__LetOutDecl__Alternatives_2");
-					put(grammarAccess.getSigQualAccess().getSigqAlternatives_0_0(), "rule__SigQual__SigqAlternatives_0_0");
-					put(grammarAccess.getSigQualAccess().getAlternatives_1(), "rule__SigQual__Alternatives_1");
+					put(grammarAccess.getSigQualAccess().getAlternatives(), "rule__SigQual__Alternatives");
 					put(grammarAccess.getSigExtAccess().getAlternatives(), "rule__SigExt__Alternatives");
 					put(grammarAccess.getExpressionAccess().getAlternatives_1(), "rule__Expression__Alternatives_1");
 					put(grammarAccess.getExpressionAccess().getAlternatives_1_1_0(), "rule__Expression__Alternatives_1_1_0");
@@ -127,7 +126,6 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSigDeclAccess().getGroup_3(), "rule__SigDecl__Group_3__0");
 					put(grammarAccess.getSigDeclAccess().getGroup_6(), "rule__SigDecl__Group_6__0");
 					put(grammarAccess.getSigDeclAccess().getGroup_6_1(), "rule__SigDecl__Group_6_1__0");
-					put(grammarAccess.getSigQualAccess().getGroup(), "rule__SigQual__Group__0");
 					put(grammarAccess.getSigExtAccess().getGroup_0(), "rule__SigExt__Group_0__0");
 					put(grammarAccess.getSigExtAccess().getGroup_1(), "rule__SigExt__Group_1__0");
 					put(grammarAccess.getSigExtAccess().getGroup_1_2(), "rule__SigExt__Group_1_2__0");
@@ -305,7 +303,6 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSigDeclAccess().getComma2Assignment_6_1_0(), "rule__SigDecl__Comma2Assignment_6_1_0");
 					put(grammarAccess.getSigDeclAccess().getDeclAssignment_6_1_1(), "rule__SigDecl__DeclAssignment_6_1_1");
 					put(grammarAccess.getSigDeclAccess().getBlockAssignment_8(), "rule__SigDecl__BlockAssignment_8");
-					put(grammarAccess.getSigQualAccess().getSigqAssignment_0(), "rule__SigQual__SigqAssignment_0");
 					put(grammarAccess.getSigExtAccess().getRefAssignment_0_1(), "rule__SigExt__RefAssignment_0_1");
 					put(grammarAccess.getSigExtAccess().getRefAssignment_1_1(), "rule__SigExt__RefAssignment_1_1");
 					put(grammarAccess.getSigExtAccess().getRef2Assignment_1_2_1(), "rule__SigExt__Ref2Assignment_1_2_1");
