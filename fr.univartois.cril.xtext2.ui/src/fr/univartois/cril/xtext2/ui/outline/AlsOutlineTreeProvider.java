@@ -3,6 +3,8 @@
  */
 package fr.univartois.cril.xtext2.ui.outline;
 
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
 import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode;
@@ -13,7 +15,7 @@ import fr.univartois.cril.xtext2.als.Specification;
  * customization of the default outline structure
  * 
  */
-public class AlsOutlineTreeProvider extends DefaultOutlineTreeProvider {
+public class AlsOutlineTreeProvider extends DefaultOutlineTreeProvider implements IAdaptable {
 
 	protected void _createChildren(DocumentRootNode parentNode,
 			Specification specification) {
@@ -24,5 +26,10 @@ public class AlsOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
 	protected boolean _isLeaf(EObject o) {
 		return true;
+	}
+	
+	public Object getAdapter(Class adapter) {
+		System.out.println("Adapting "+adapter);
+		return  Platform.getAdapterManager().getAdapter(this, adapter);
 	}
 }
