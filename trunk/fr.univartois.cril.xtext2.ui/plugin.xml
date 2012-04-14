@@ -379,27 +379,146 @@
   				class="fr.univartois.cril.xtext2.alloyplugin.ProjectNature" /> 
   		</runtime>
   	</extension>
-  	
-  	<!-- Menu Outline -->
-  	<extension point="org.eclipse.ui.popupMenus">
-  		<objectContribution
-        	id="fr.univartois.cril.xtext2.outline"
-        	objectClass="org.eclipse.xtext.ui.editor.outline.IOutlineNode">
-        	<action id="fr.univartois.cril.xtext2.outline.action1"
-	       		label="Do it"
-	       		class="fr.univartois.cril.xtext2.ui.outline.MyAction"
-	       		definitionId="fr.univartois.cril.xtext2.outline.action1"
-	       		enablesFor="1">
-	       		<visibleWhen checkEnabled="true">
-	       			<iterate>
-	       				<or>
-	       					<adapt type="fr.univartois.cril.xtext2.als.CheckCommand" />
-	       					<adapt type="fr.univartois.cril.xtext2.als.RunCommand" />
-	       				</or>
-	       			</iterate>
-	       		</visibleWhen>
-	    	</action>
-	    </objectContribution>
+  		<extension point="org.eclipse.ui.navigator.navigatorContent">
+		<commonWizard 
+			type="new" 
+			wizardId="fr.univartois.cril.xtext2.alloyplugin.wizards.NewAlloyProject">
+			<enablement>
+				<or>
+  					<adapt type="org.eclipse.core.resources.IProject" /> 
+  					<adapt type="org.eclipse.core.resources.IWorkspaceRoot" /> 
+  				</or>
+  			</enablement>
+  		</commonWizard>
+		<commonWizard 
+			type="new" 
+			wizardId="fr.univartois.cril.xtext2.alloyplugin.wizards.NewAlloyFileWizard">
+			<enablement>
+				<or>
+  					<adapt type="org.eclipse.core.resources.IFile" /> 
+  					<adapt type="org.eclipse.core.resources.IFolder" /> 
+  					<adapt type="org.eclipse.core.resources.IProject" /> 
+  				</or>
+  			</enablement>
+  		</commonWizard>
+	</extension>
+  		<!-- commande --> 
+	<extension 
+		point="org.eclipse.ui.commands">
+  		<command 
+  			id="fr.univartois.cril.xtext2.ui.editor.outline.SampleOutlineCommand" 
+  			name="Launch command" 
+  			description="Just a sample command" /> 
+  		<command
+  			id="fr.univartois.cril.xtext2.ui.editor.outline.PredicateCommand"
+  			name="Run predicate"
+  			description="Command used to launch predicates" />
+  		<command
+  		  	id="fr.univartois.cril.xtext2.ui.editor.outline.AssertionCommand"
+  			name="Check assertion"
+  			description="Command used to launch assertions" />	
+  		<command
+  			id="fr.univartois.cril.xtext2.ui.editor.outline.MetaModelCommand"
+  			name="Show Meta Model"
+  			description="Command to show Meta Models" />
+  	</extension>
+	<extension
+       point="org.eclipse.ui.handlers">
+  		<handler 
+  			class="fr.univartois.cril.xtext2.ui.editor.outline.CommandOutlineNodeHandler" 
+  			commandId="fr.univartois.cril.xtext2.ui.editor.outline.SampleOutlineCommand" />
+   		<handler
+          class="fr.univartois.cril.xtext2.ui.editor.outline.PredicateOutlineNodeHandler"
+          commandId="fr.univartois.cril.xtext2.ui.editor.outline.PredicateCommand">
+        </handler>
+        <handler
+          class="fr.univartois.cril.xtext2.ui.editor.outline.AssertionOutlineNodeHandler"
+          commandId="fr.univartois.cril.xtext2.ui.editor.outline.AssertionCommand">
+   		</handler>
+   		<handler
+   		 class="fr.univartois.cril.xtext2.ui.editor.outline.ModuleOutlineNodeHandler"
+   		 commandId="fr.univartois.cril.xtext2.ui.editor.outline.MetaModelCommand">
+   		</handler>
+	</extension>
+ 	    <extension point="org.eclipse.ui.menus">
+	    <menuContribution
+allPopups="false"
+locationURI="popup:fr.univartois.cril.xtext2.outline?after=additions ">
+<command
+commandId="fr.univartois.cril.xtext2.ui.editor.outline.SampleOutlineCommand"
+style="push">
+<visibleWhen
+checkEnabled="true">
+<iterate>
+<or>
+<adapt
+type="fr.univartois.cril.xtext2.als.CheckCommand">
+</adapt>
+<adapt
+type="fr.univartois.cril.xtext2.als.RunCommand">
+</adapt>
+</or>
+</iterate>
+</visibleWhen>
+</command>
+<command
+commandId="fr.univartois.cril.xtext2.ui.editor.outline.PredicateCommand"
+style="push">
+<visibleWhen
+checkEnabled="true">
+<iterate>
+<adapt
+type="fr.univartois.cril.xtext2.als.Predicate">
+</adapt>
+</iterate>
+</visibleWhen>
+</command>
+<command
+commandId="fr.univartois.cril.xtext2.ui.editor.outline.AssertionCommand"
+style="push">
+<visibleWhen
+checkEnabled="true">
+<iterate>
+<adapt
+type="fr.univartois.cril.xtext2.als.Assertion">
+</adapt>
+</iterate>
+</visibleWhen>
+</command>
+<command
+commandId="fr.univartois.cril.xtext2.ui.editor.outline.MetaModelCommand"
+style="push">
+<visibleWhen
+checkEnabled="true">
+<iterate>
+<adapt
+type="fr.univartois.cril.xtext2.als.Module">
+</adapt>
+</iterate>
+</visibleWhen>
+</command>
+</menuContribution>
 	</extension> 
-  	
+  	<extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.xtext.ui.editor.outline.IOutlineNode"
+            class="fr.univartois.cril.xtext2.ui.outline.AlsOutlineNodeAdapterFactory">
+         <adapter
+               type="fr.univartois.cril.xtext2.als.CheckCommand">
+         </adapter>
+         <adapter
+               type="fr.univartois.cril.xtext2.als.RunCommand">
+         </adapter>
+         <adapter
+               type="fr.univartois.cril.xtext2.als.Assertion">
+         </adapter>
+         <adapter
+               type="fr.univartois.cril.xtext2.als.Predicate">
+         </adapter>
+         <adapter
+               type="fr.univartois.cril.xtext2.als.Module">
+         </adapter>
+      </factory>
+   </extension>
 </plugin>
