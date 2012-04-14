@@ -34,7 +34,6 @@ public class AlsOutlineNodeAdapterFactory implements IAdapterFactory {
 	}
 
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
-		System.out.println("Adapting "+adaptableObject+" to "+adapterType);
 		EObjectNode node = (EObjectNode) adaptableObject;
 		Class nodeClass = node.getEClass().getInstanceClass();
 		if (adapterType==nodeClass) {
