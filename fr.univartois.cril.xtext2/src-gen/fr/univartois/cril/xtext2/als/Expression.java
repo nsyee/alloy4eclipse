@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.univartois.cril.xtext2.als.Expression#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Expression#getSeq <em>Seq</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Expression#getAsname <em>Asname</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext2.als.Expression#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Expression#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Expression#getLeftCurlyBracket <em>Left Curly Bracket</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Expression#getRightCurlyBracket <em>Right Curly Bracket</em>}</li>
@@ -522,6 +523,32 @@ public interface Expression extends EObject
    * @generated
    */
   void setAsname(AsName value);
+
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see fr.univartois.cril.xtext2.als.AlsPackage#getExpression_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link fr.univartois.cril.xtext2.als.Expression#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference list.

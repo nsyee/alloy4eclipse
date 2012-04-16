@@ -85,15 +85,14 @@ public class AlsJavaValidator extends AbstractAlsJavaValidator {
 			}
 		}
 	}
-
+	
 	@Check
 	public void checkUniqueFunction(Function function) {
 		// TODO compare also signature, same name different signature
 		// authorized.
 		Specification specification;
 		EObject object = EcoreUtil.getRootContainer(function);
-		if (!(object instanceof Specification))
-			return;
+		if (!(object instanceof Specification))return;
 		specification = (Specification) object;
 
 		for (Paragraph paragraph : specification.getParagraph()) {

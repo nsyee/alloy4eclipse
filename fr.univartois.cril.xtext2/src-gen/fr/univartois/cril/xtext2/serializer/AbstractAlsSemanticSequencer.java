@@ -726,7 +726,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *             univ='univ' | 
 	 *             (int='int' nameRef=[ReferencesName|ID]?) | 
 	 *             seq='seq/Int' | 
-	 *             (asname=[AsName|ID]? nameRef=[ReferencesName|ID]?) | 
+	 *             (asname=[AsName|ID]? (nameRef=[ReferencesName|ID] | name='pred/totalOrder')?) | 
 	 *             block+=Block | 
 	 *             (leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket)
 	 *         ) 
@@ -1216,7 +1216,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *         univ='univ' | 
 	 *         (int='int' nameRef=[ReferencesName|ID]?) | 
 	 *         seq='seq/Int' | 
-	 *         (asname=[AsName|ID]? nameRef=[ReferencesName|ID]?) | 
+	 *         (asname=[AsName|ID]? (nameRef=[ReferencesName|ID] | name='pred/totalOrder')?) | 
 	 *         block+=Block | 
 	 *         (leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket)
 	 *     )
@@ -1228,12 +1228,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         exactly='exactly'? 
-	 *         value=INT 
-	 *         ((asname=[AsName|ID] | prev='fun' | prev='pred' | prev='this') sl='/')? 
-	 *         (name=[ReferencesName|ID] | post='int' | post='seq')
-	 *     )
+	 *     (exactly='exactly'? value=INT ((asname=[AsName|ID] | prev='this') sl='/')? (name=[ReferencesName|ID] | post='int' | post='seq'))
 	 */
 	protected void sequence_Typescope(EObject context, Typescope semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
