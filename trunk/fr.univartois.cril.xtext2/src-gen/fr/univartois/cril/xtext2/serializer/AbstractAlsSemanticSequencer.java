@@ -726,7 +726,21 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *             univ='univ' | 
 	 *             (int='int' nameRef=[ReferencesName|ID]?) | 
 	 *             seq='seq/Int' | 
-	 *             (asname=[AsName|ID]? (nameRef=[ReferencesName|ID] | name='pred/totalOrder')?) | 
+	 *             (
+	 *                 asname=[AsName|ID]? 
+	 *                 (
+	 *                     nameRef=[ReferencesName|ID] | 
+	 *                     name='pred/totalOrder' | 
+	 *                     name='fun/add' | 
+	 *                     name='fun/sub' | 
+	 *                     name='fun/mul' | 
+	 *                     name='fun/div' | 
+	 *                     name='fun/rem' | 
+	 *                     name='fun/min' | 
+	 *                     name='fun/max' | 
+	 *                     name='fun/next'
+	 *                 )?
+	 *             ) | 
 	 *             block+=Block | 
 	 *             (leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket)
 	 *         ) 
@@ -1216,7 +1230,21 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *         univ='univ' | 
 	 *         (int='int' nameRef=[ReferencesName|ID]?) | 
 	 *         seq='seq/Int' | 
-	 *         (asname=[AsName|ID]? (nameRef=[ReferencesName|ID] | name='pred/totalOrder')?) | 
+	 *         (
+	 *             asname=[AsName|ID]? 
+	 *             (
+	 *                 nameRef=[ReferencesName|ID] | 
+	 *                 name='pred/totalOrder' | 
+	 *                 name='fun/add' | 
+	 *                 name='fun/sub' | 
+	 *                 name='fun/mul' | 
+	 *                 name='fun/div' | 
+	 *                 name='fun/rem' | 
+	 *                 name='fun/min' | 
+	 *                 name='fun/max' | 
+	 *                 name='fun/next'
+	 *             )?
+	 *         ) | 
 	 *         block+=Block | 
 	 *         (leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket)
 	 *     )
