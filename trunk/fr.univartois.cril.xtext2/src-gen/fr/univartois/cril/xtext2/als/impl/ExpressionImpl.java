@@ -68,6 +68,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.ExpressionImpl#getNameRef <em>Name Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.ExpressionImpl#getSeq <em>Seq</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.ExpressionImpl#getAsname <em>Asname</em>}</li>
+ *   <li>{@link fr.univartois.cril.xtext2.als.impl.ExpressionImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.ExpressionImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.ExpressionImpl#getLeftCurlyBracket <em>Left Curly Bracket</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.ExpressionImpl#getRightCurlyBracket <em>Right Curly Bracket</em>}</li>
@@ -387,6 +388,26 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected AsName asname;
+
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
@@ -925,6 +946,29 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AlsPackage.EXPRESSION__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Block> getBlock()
   {
     if (block == null)
@@ -1126,6 +1170,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__ASNAME:
         if (resolve) return getAsname();
         return basicGetAsname();
+      case AlsPackage.EXPRESSION__NAME:
+        return getName();
       case AlsPackage.EXPRESSION__BLOCK:
         return getBlock();
       case AlsPackage.EXPRESSION__LEFT_CURLY_BRACKET:
@@ -1223,6 +1269,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__ASNAME:
         setAsname((AsName)newValue);
         return;
+      case AlsPackage.EXPRESSION__NAME:
+        setName((String)newValue);
+        return;
       case AlsPackage.EXPRESSION__BLOCK:
         getBlock().clear();
         getBlock().addAll((Collection<? extends Block>)newValue);
@@ -1313,6 +1362,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case AlsPackage.EXPRESSION__ASNAME:
         setAsname((AsName)null);
         return;
+      case AlsPackage.EXPRESSION__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case AlsPackage.EXPRESSION__BLOCK:
         getBlock().clear();
         return;
@@ -1380,6 +1432,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return SEQ_EDEFAULT == null ? seq != null : !SEQ_EDEFAULT.equals(seq);
       case AlsPackage.EXPRESSION__ASNAME:
         return asname != null;
+      case AlsPackage.EXPRESSION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AlsPackage.EXPRESSION__BLOCK:
         return block != null && !block.isEmpty();
       case AlsPackage.EXPRESSION__LEFT_CURLY_BRACKET:
@@ -1421,6 +1475,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     result.append(int_);
     result.append(", seq: ");
     result.append(seq);
+    result.append(", name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

@@ -1791,9 +1791,9 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpression_Block()
+  public EAttribute getExpression_Name()
   {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(22);
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(22);
   }
 
   /**
@@ -1801,7 +1801,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpression_LeftCurlyBracket()
+  public EReference getExpression_Block()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(23);
   }
@@ -1811,9 +1811,19 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpression_RightCurlyBracket()
+  public EReference getExpression_LeftCurlyBracket()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(24);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_RightCurlyBracket()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(25);
   }
 
   /**
@@ -2739,6 +2749,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     createEReference(expressionEClass, EXPRESSION__NAME_REF);
     createEAttribute(expressionEClass, EXPRESSION__SEQ);
     createEReference(expressionEClass, EXPRESSION__ASNAME);
+    createEAttribute(expressionEClass, EXPRESSION__NAME);
     createEReference(expressionEClass, EXPRESSION__BLOCK);
     createEReference(expressionEClass, EXPRESSION__LEFT_CURLY_BRACKET);
     createEReference(expressionEClass, EXPRESSION__RIGHT_CURLY_BRACKET);
@@ -3049,6 +3060,7 @@ public class AlsPackageImpl extends EPackageImpl implements AlsPackage
     initEReference(getExpression_NameRef(), this.getReferencesName(), null, "nameRef", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_Seq(), ecorePackage.getEString(), "seq", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Asname(), this.getAsName(), null, "asname", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Block(), this.getBlock(), null, "block", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_LeftCurlyBracket(), this.getLeftCurlyBracket(), null, "leftCurlyBracket", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_RightCurlyBracket(), this.getRightCurlyBracket(), null, "rightCurlyBracket", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

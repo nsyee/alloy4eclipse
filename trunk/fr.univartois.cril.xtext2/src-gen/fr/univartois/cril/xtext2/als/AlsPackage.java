@@ -1365,13 +1365,22 @@ public interface AlsPackage extends EPackage
   int EXPRESSION__ASNAME = 21;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__NAME = 22;
+
+  /**
    * The feature id for the '<em><b>Block</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__BLOCK = 22;
+  int EXPRESSION__BLOCK = 23;
 
   /**
    * The feature id for the '<em><b>Left Curly Bracket</b></em>' containment reference.
@@ -1380,7 +1389,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__LEFT_CURLY_BRACKET = 23;
+  int EXPRESSION__LEFT_CURLY_BRACKET = 24;
 
   /**
    * The feature id for the '<em><b>Right Curly Bracket</b></em>' containment reference.
@@ -1389,7 +1398,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__RIGHT_CURLY_BRACKET = 24;
+  int EXPRESSION__RIGHT_CURLY_BRACKET = 25;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1398,7 +1407,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 25;
+  int EXPRESSION_FEATURE_COUNT = 26;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.DeclImpl <em>Decl</em>}' class.
@@ -3905,6 +3914,17 @@ public interface AlsPackage extends EPackage
   EReference getExpression_Asname();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext2.als.Expression#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see fr.univartois.cril.xtext2.als.Expression#getName()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_Name();
+
+  /**
    * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Expression#getBlock <em>Block</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5791,6 +5811,14 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EReference EXPRESSION__ASNAME = eINSTANCE.getExpression_Asname();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__NAME = eINSTANCE.getExpression_Name();
 
     /**
      * The meta object literal for the '<em><b>Block</b></em>' containment reference list feature.
