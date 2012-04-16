@@ -21,12 +21,15 @@ public class InternalAlsLexer extends Lexer {
     public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
-    public static final int T__21=21;
     public static final int RULE_ANY_OTHER=11;
+    public static final int T__21=21;
     public static final int T__20=20;
     public static final int EOF=-1;
+    public static final int T__93=93;
     public static final int T__19=19;
+    public static final int T__94=94;
     public static final int T__91=91;
+    public static final int T__92=92;
     public static final int T__16=16;
     public static final int T__90=90;
     public static final int T__15=15;
@@ -35,6 +38,11 @@ public class InternalAlsLexer extends Lexer {
     public static final int T__12=12;
     public static final int T__14=14;
     public static final int T__13=13;
+    public static final int T__99=99;
+    public static final int T__98=98;
+    public static final int T__97=97;
+    public static final int T__96=96;
+    public static final int T__95=95;
     public static final int T__80=80;
     public static final int T__81=81;
     public static final int T__82=82;
@@ -1052,10 +1060,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:56:7: ( 'disj' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:56:9: 'disj'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:56:7: ( 'fun/add' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:56:9: 'fun/add'
             {
-            match("disj"); 
+            match("fun/add"); 
 
 
             }
@@ -1073,10 +1081,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:57:7: ( 'all' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:57:9: 'all'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:57:7: ( 'fun/sub' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:57:9: 'fun/sub'
             {
-            match("all"); 
+            match("fun/sub"); 
 
 
             }
@@ -1094,10 +1102,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:58:7: ( 'sum' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:58:9: 'sum'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:58:7: ( 'fun/mul' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:58:9: 'fun/mul'
             {
-            match("sum"); 
+            match("fun/mul"); 
 
 
             }
@@ -1115,10 +1123,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:59:7: ( '||' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:59:9: '||'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:59:7: ( 'fun/div' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:59:9: 'fun/div'
             {
-            match("||"); 
+            match("fun/div"); 
 
 
             }
@@ -1136,10 +1144,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:60:7: ( 'or' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:60:9: 'or'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:60:7: ( 'fun/rem' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:60:9: 'fun/rem'
             {
-            match("or"); 
+            match("fun/rem"); 
 
 
             }
@@ -1157,10 +1165,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:61:7: ( '&&' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:61:9: '&&'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:61:7: ( 'fun/min' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:61:9: 'fun/min'
             {
-            match("&&"); 
+            match("fun/min"); 
 
 
             }
@@ -1178,10 +1186,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:62:7: ( 'and' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:62:9: 'and'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:62:7: ( 'fun/max' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:62:9: 'fun/max'
             {
-            match("and"); 
+            match("fun/max"); 
 
 
             }
@@ -1199,10 +1207,11 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:63:7: ( '&' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:63:9: '&'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:63:7: ( 'fun/next' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:63:9: 'fun/next'
             {
-            match('&'); 
+            match("fun/next"); 
+
 
             }
 
@@ -1219,10 +1228,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:64:7: ( '<=>' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:64:9: '<=>'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:64:7: ( 'disj' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:64:9: 'disj'
             {
-            match("<=>"); 
+            match("disj"); 
 
 
             }
@@ -1240,10 +1249,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:65:7: ( 'iff' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:65:9: 'iff'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:65:7: ( 'all' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:65:9: 'all'
             {
-            match("iff"); 
+            match("all"); 
 
 
             }
@@ -1261,10 +1270,11 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:66:7: ( '-' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:66:9: '-'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:66:7: ( 'sum' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:66:9: 'sum'
             {
-            match('-'); 
+            match("sum"); 
+
 
             }
 
@@ -1281,10 +1291,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:67:7: ( '++' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:67:9: '++'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:67:7: ( '||' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:67:9: '||'
             {
-            match("++"); 
+            match("||"); 
 
 
             }
@@ -1302,10 +1312,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:68:7: ( '<:' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:68:9: '<:'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:68:7: ( 'or' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:68:9: 'or'
             {
-            match("<:"); 
+            match("or"); 
 
 
             }
@@ -1323,10 +1333,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:69:7: ( ':>' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:69:9: ':>'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:69:7: ( '&&' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:69:9: '&&'
             {
-            match(":>"); 
+            match("&&"); 
 
 
             }
@@ -1344,10 +1354,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:70:7: ( '<<' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:70:9: '<<'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:70:7: ( 'and' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:70:9: 'and'
             {
-            match("<<"); 
+            match("and"); 
 
 
             }
@@ -1365,11 +1375,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:71:7: ( '>>' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:71:9: '>>'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:71:7: ( '&' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:71:9: '&'
             {
-            match(">>"); 
-
+            match('&'); 
 
             }
 
@@ -1386,10 +1395,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:72:7: ( '>>>' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:72:9: '>>>'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:72:7: ( '<=>' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:72:9: '<=>'
             {
-            match(">>>"); 
+            match("<=>"); 
 
 
             }
@@ -1407,10 +1416,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:73:7: ( 'set' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:73:9: 'set'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:73:7: ( 'iff' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:73:9: 'iff'
             {
-            match("set"); 
+            match("iff"); 
 
 
             }
@@ -1428,10 +1437,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:74:7: ( '#' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:74:9: '#'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:74:7: ( '-' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:74:9: '-'
             {
-            match('#'); 
+            match('-'); 
 
             }
 
@@ -1448,10 +1457,11 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:75:7: ( '~' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:75:9: '~'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:75:7: ( '++' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:75:9: '++'
             {
-            match('~'); 
+            match("++"); 
+
 
             }
 
@@ -1468,10 +1478,11 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:76:7: ( '*' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:76:9: '*'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:76:7: ( '<:' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:76:9: '<:'
             {
-            match('*'); 
+            match("<:"); 
+
 
             }
 
@@ -1488,10 +1499,11 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:77:7: ( '^' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:77:9: '^'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:77:7: ( ':>' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:77:9: ':>'
             {
-            match('^'); 
+            match(":>"); 
+
 
             }
 
@@ -1508,10 +1520,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:78:7: ( 'no' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:78:9: 'no'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:78:7: ( '<<' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:78:9: '<<'
             {
-            match("no"); 
+            match("<<"); 
 
 
             }
@@ -1529,10 +1541,11 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:79:7: ( '<' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:79:9: '<'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:79:7: ( '>>' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:79:9: '>>'
             {
-            match('<'); 
+            match(">>"); 
+
 
             }
 
@@ -1549,10 +1562,11 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:80:7: ( '>' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:80:9: '>'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:80:7: ( '>>>' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:80:9: '>>>'
             {
-            match('>'); 
+            match(">>>"); 
+
 
             }
 
@@ -1569,10 +1583,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:81:7: ( '=<' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:81:9: '=<'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:81:7: ( 'set' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:81:9: 'set'
             {
-            match("=<"); 
+            match("set"); 
 
 
             }
@@ -1590,11 +1604,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:82:7: ( '<=' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:82:9: '<='
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:82:7: ( '#' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:82:9: '#'
             {
-            match("<="); 
-
+            match('#'); 
 
             }
 
@@ -1611,11 +1624,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:83:7: ( '>=' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:83:9: '>='
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:83:7: ( '~' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:83:9: '~'
             {
-            match(">="); 
-
+            match('~'); 
 
             }
 
@@ -1632,11 +1644,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:84:7: ( '->' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:84:9: '->'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:84:7: ( '*' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:84:9: '*'
             {
-            match("->"); 
-
+            match('*'); 
 
             }
 
@@ -1653,10 +1664,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:85:7: ( '|' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:85:9: '|'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:85:7: ( '^' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:85:9: '^'
             {
-            match('|'); 
+            match('^'); 
 
             }
 
@@ -1673,10 +1684,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:86:7: ( 'open' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:86:9: 'open'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:86:7: ( 'no' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:86:9: 'no'
             {
-            match("open"); 
+            match("no"); 
 
 
             }
@@ -1694,11 +1705,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:87:7: ( 'fact' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:87:9: 'fact'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:87:7: ( '<' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:87:9: '<'
             {
-            match("fact"); 
-
+            match('<'); 
 
             }
 
@@ -1715,11 +1725,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:88:7: ( 'assert' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:88:9: 'assert'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:88:7: ( '>' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:88:9: '>'
             {
-            match("assert"); 
-
+            match('>'); 
 
             }
 
@@ -1736,10 +1745,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:89:7: ( 'enum' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:89:9: 'enum'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:89:7: ( '=<' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:89:9: '=<'
             {
-            match("enum"); 
+            match("=<"); 
 
 
             }
@@ -1757,10 +1766,11 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:90:7: ( '.' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:90:9: '.'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:90:7: ( '<=' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:90:9: '<='
             {
-            match('.'); 
+            match("<="); 
+
 
             }
 
@@ -1772,13 +1782,179 @@ public class InternalAlsLexer extends Lexer {
     }
     // $ANTLR end "T__91"
 
+    // $ANTLR start "T__92"
+    public final void mT__92() throws RecognitionException {
+        try {
+            int _type = T__92;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:91:7: ( '>=' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:91:9: '>='
+            {
+            match(">="); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__92"
+
+    // $ANTLR start "T__93"
+    public final void mT__93() throws RecognitionException {
+        try {
+            int _type = T__93;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:92:7: ( '->' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:92:9: '->'
+            {
+            match("->"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__93"
+
+    // $ANTLR start "T__94"
+    public final void mT__94() throws RecognitionException {
+        try {
+            int _type = T__94;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:93:7: ( '|' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:93:9: '|'
+            {
+            match('|'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__94"
+
+    // $ANTLR start "T__95"
+    public final void mT__95() throws RecognitionException {
+        try {
+            int _type = T__95;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:94:7: ( 'open' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:94:9: 'open'
+            {
+            match("open"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__95"
+
+    // $ANTLR start "T__96"
+    public final void mT__96() throws RecognitionException {
+        try {
+            int _type = T__96;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:95:7: ( 'fact' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:95:9: 'fact'
+            {
+            match("fact"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__96"
+
+    // $ANTLR start "T__97"
+    public final void mT__97() throws RecognitionException {
+        try {
+            int _type = T__97;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:96:7: ( 'assert' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:96:9: 'assert'
+            {
+            match("assert"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__97"
+
+    // $ANTLR start "T__98"
+    public final void mT__98() throws RecognitionException {
+        try {
+            int _type = T__98;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:97:7: ( 'enum' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:97:9: 'enum'
+            {
+            match("enum"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__98"
+
+    // $ANTLR start "T__99"
+    public final void mT__99() throws RecognitionException {
+        try {
+            int _type = T__99;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:98:7: ( '.' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:98:9: '.'
+            {
+            match('.'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__99"
+
     // $ANTLR start "RULE_NEGATIVE_INTEGER"
     public final void mRULE_NEGATIVE_INTEGER() throws RecognitionException {
         try {
             int _type = RULE_NEGATIVE_INTEGER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6226:23: ( '-' RULE_INT )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6226:25: '-' RULE_INT
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6329:23: ( '-' RULE_INT )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6329:25: '-' RULE_INT
             {
             match('-'); 
             mRULE_INT(); 
@@ -1798,10 +1974,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:17: ( ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:17: ( ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:19: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? | '--' ( options {greedy=false; } : . )* '\\n' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1819,11 +1995,11 @@ public class InternalAlsLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:20: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:20: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
                     {
                     match("//"); 
 
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:25: (~ ( ( '\\n' | '\\r' ) ) )*
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:25: (~ ( ( '\\n' | '\\r' ) ) )*
                     loop1:
                     do {
                         int alt1=2;
@@ -1836,7 +2012,7 @@ public class InternalAlsLexer extends Lexer {
 
                         switch (alt1) {
                     	case 1 :
-                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:25: ~ ( ( '\\n' | '\\r' ) )
+                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:25: ~ ( ( '\\n' | '\\r' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1856,7 +2032,7 @@ public class InternalAlsLexer extends Lexer {
                         }
                     } while (true);
 
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:41: ( ( '\\r' )? '\\n' )?
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:41: ( ( '\\r' )? '\\n' )?
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -1865,9 +2041,9 @@ public class InternalAlsLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:42: ( '\\r' )? '\\n'
+                            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:42: ( '\\r' )? '\\n'
                             {
-                            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:42: ( '\\r' )?
+                            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:42: ( '\\r' )?
                             int alt2=2;
                             int LA2_0 = input.LA(1);
 
@@ -1876,7 +2052,7 @@ public class InternalAlsLexer extends Lexer {
                             }
                             switch (alt2) {
                                 case 1 :
-                                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:42: '\\r'
+                                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:42: '\\r'
                                     {
                                     match('\r'); 
 
@@ -1896,11 +2072,11 @@ public class InternalAlsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:55: '--' ( options {greedy=false; } : . )* '\\n'
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:55: '--' ( options {greedy=false; } : . )* '\\n'
                     {
                     match("--"); 
 
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:60: ( options {greedy=false; } : . )*
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:60: ( options {greedy=false; } : . )*
                     loop4:
                     do {
                         int alt4=2;
@@ -1916,7 +2092,7 @@ public class InternalAlsLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6228:88: .
+                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6331:88: .
                     	    {
                     	    matchAny(); 
 
@@ -1951,8 +2127,8 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6230:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* ( '\\'' | '\"' )* )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6230:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* ( '\\'' | '\"' )*
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6333:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* ( '\\'' | '\"' )* )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6333:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* ( '\\'' | '\"' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1963,7 +2139,7 @@ public class InternalAlsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6230:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6333:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -1996,7 +2172,7 @@ public class InternalAlsLexer extends Lexer {
                 }
             } while (true);
 
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6230:69: ( '\\'' | '\"' )*
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6333:69: ( '\\'' | '\"' )*
             loop7:
             do {
                 int alt7=2;
@@ -2045,10 +2221,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6232:10: ( ( '0' .. '9' )+ )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6232:12: ( '0' .. '9' )+
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6335:10: ( ( '0' .. '9' )+ )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6335:12: ( '0' .. '9' )+
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6232:12: ( '0' .. '9' )+
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6335:12: ( '0' .. '9' )+
             int cnt8=0;
             loop8:
             do {
@@ -2062,7 +2238,7 @@ public class InternalAlsLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6232:13: '0' .. '9'
+            	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6335:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2094,10 +2270,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -2115,10 +2291,10 @@ public class InternalAlsLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -2134,7 +2310,7 @@ public class InternalAlsLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2150,7 +2326,7 @@ public class InternalAlsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2175,10 +2351,10 @@ public class InternalAlsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop10:
                     do {
                         int alt10=3;
@@ -2194,7 +2370,7 @@ public class InternalAlsLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2210,7 +2386,7 @@ public class InternalAlsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6234:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6337:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2253,12 +2429,12 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6236:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6236:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6339:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6339:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6236:24: ( options {greedy=false; } : . )*
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6339:24: ( options {greedy=false; } : . )*
             loop12:
             do {
                 int alt12=2;
@@ -2283,7 +2459,7 @@ public class InternalAlsLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6236:52: .
+            	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6339:52: .
             	    {
             	    matchAny(); 
 
@@ -2313,10 +2489,10 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6238:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6238:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6341:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6341:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6238:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6341:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -2370,8 +2546,8 @@ public class InternalAlsLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6240:16: ( . )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6240:18: .
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6343:16: ( . )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6343:18: .
             {
             matchAny(); 
 
@@ -2386,8 +2562,8 @@ public class InternalAlsLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | RULE_NEGATIVE_INTEGER | RULE_SL_COMMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt14=88;
+        // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | RULE_NEGATIVE_INTEGER | RULE_SL_COMMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt14=96;
         alt14 = dfa14.predict(input);
         switch (alt14) {
             case 1 :
@@ -2951,56 +3127,112 @@ public class InternalAlsLexer extends Lexer {
                 }
                 break;
             case 81 :
-                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:490: RULE_NEGATIVE_INTEGER
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:490: T__92
+                {
+                mT__92(); 
+
+                }
+                break;
+            case 82 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:496: T__93
+                {
+                mT__93(); 
+
+                }
+                break;
+            case 83 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:502: T__94
+                {
+                mT__94(); 
+
+                }
+                break;
+            case 84 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:508: T__95
+                {
+                mT__95(); 
+
+                }
+                break;
+            case 85 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:514: T__96
+                {
+                mT__96(); 
+
+                }
+                break;
+            case 86 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:520: T__97
+                {
+                mT__97(); 
+
+                }
+                break;
+            case 87 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:526: T__98
+                {
+                mT__98(); 
+
+                }
+                break;
+            case 88 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:532: T__99
+                {
+                mT__99(); 
+
+                }
+                break;
+            case 89 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:538: RULE_NEGATIVE_INTEGER
                 {
                 mRULE_NEGATIVE_INTEGER(); 
 
                 }
                 break;
-            case 82 :
-                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:512: RULE_SL_COMMENT
+            case 90 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:560: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 83 :
-                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:528: RULE_ID
+            case 91 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:576: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 84 :
-                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:536: RULE_INT
+            case 92 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:584: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 85 :
-                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:545: RULE_STRING
+            case 93 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:593: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 86 :
-                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:557: RULE_ML_COMMENT
+            case 94 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:605: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 87 :
-                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:573: RULE_WS
+            case 95 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:621: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 88 :
-                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:581: RULE_ANY_OTHER
+            case 96 :
+                // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1:629: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3015,22 +3247,22 @@ public class InternalAlsLexer extends Lexer {
     protected DFA14 dfa14 = new DFA14(this);
     static final String DFA14_eotS =
         "\1\uffff\3\60\1\67\2\60\1\100\6\60\1\117\3\uffff\2\60\1\131\1\uffff"+
-        "\1\60\4\uffff\2\60\1\uffff\1\60\1\145\1\147\1\153\1\156\1\161\7"+
+        "\1\60\4\uffff\2\60\1\uffff\1\60\1\145\1\147\1\153\1\155\1\161\7"+
         "\uffff\2\56\2\uffff\1\60\1\uffff\4\60\3\uffff\1\u0083\6\60\2\uffff"+
         "\4\60\1\u008f\7\60\6\uffff\3\60\1\u009b\1\60\3\uffff\1\u009f\4\uffff"+
         "\2\60\1\uffff\1\60\4\uffff\1\u00a4\6\uffff\1\u00a6\12\uffff\11\60"+
-        "\1\uffff\1\60\1\u00b1\1\u00b2\1\u00b3\1\u00b4\1\60\1\u00b6\1\60"+
-        "\1\u00b8\1\60\1\u00ba\1\uffff\2\60\1\u00bd\1\u00bf\1\u00c0\1\u00c1"+
-        "\1\60\1\u00c3\1\60\1\u00c5\1\u00c6\1\uffff\1\60\1\u00c8\1\60\1\uffff"+
-        "\1\60\1\u00cb\1\60\4\uffff\4\60\1\u00d1\1\u00d2\1\60\1\u00d5\2\60"+
-        "\4\uffff\1\u00d8\1\uffff\1\60\1\uffff\1\u00da\1\uffff\1\60\1\u00dc"+
-        "\5\uffff\1\u00dd\1\uffff\1\u00de\2\uffff\1\u00df\1\uffff\1\u00e0"+
-        "\1\u00e1\1\uffff\1\u00e2\4\60\2\uffff\1\60\2\uffff\2\60\1\uffff"+
-        "\1\u00ea\1\uffff\1\60\7\uffff\1\u00ec\1\60\1\u00ee\2\60\1\u00f1"+
-        "\1\60\1\uffff\1\60\1\uffff\1\u00f4\1\uffff\1\u00f5\1\u00f6\1\uffff"+
-        "\1\60\1\u00f8\3\uffff\1\u00f9\2\uffff";
+        "\1\uffff\1\60\1\u00b1\1\u00b2\1\u00b4\1\u00b5\1\60\1\u00b7\1\60"+
+        "\1\u00b9\1\60\1\u00bb\1\uffff\2\60\1\u00be\1\u00c0\1\u00c1\1\u00c2"+
+        "\1\60\1\u00c4\1\60\1\u00c6\1\u00c7\1\uffff\1\60\1\u00c9\1\60\1\uffff"+
+        "\1\60\1\u00cc\1\60\4\uffff\4\60\1\u00d2\1\u00d3\1\60\1\u00d6\2\60"+
+        "\5\uffff\1\u00df\1\uffff\1\60\1\uffff\1\u00e1\1\uffff\1\60\1\u00e3"+
+        "\5\uffff\1\u00e4\1\uffff\1\u00e5\2\uffff\1\u00e6\1\uffff\1\u00e7"+
+        "\1\u00e8\1\uffff\1\u00e9\4\60\2\uffff\1\60\2\uffff\2\60\7\uffff"+
+        "\1\u00f4\1\uffff\1\60\7\uffff\1\u00f6\1\60\1\u00f8\2\60\1\u00fb"+
+        "\1\60\4\uffff\1\60\1\uffff\1\u00fe\1\uffff\1\u00ff\1\u0100\1\uffff"+
+        "\1\60\1\u0102\3\uffff\1\u0103\2\uffff";
     static final String DFA14_eofS =
-        "\u00fa\uffff";
+        "\u0104\uffff";
     static final String DFA14_minS =
         "\1\0\1\157\1\154\1\162\1\52\1\142\1\141\1\76\1\165\1\150\1\165\1"+
         "\150\1\144\1\145\1\74\3\uffff\1\145\1\156\1\53\1\uffff\1\157\4\uffff"+
@@ -3043,12 +3275,12 @@ public class InternalAlsLexer extends Lexer {
         "\145\1\uffff\1\164\4\42\1\164\1\42\1\143\1\42\1\163\1\42\1\uffff"+
         "\1\154\1\156\4\42\1\145\1\42\1\145\2\42\1\uffff\1\156\1\42\1\145"+
         "\1\uffff\1\166\1\42\1\152\4\uffff\1\154\1\164\1\143\1\156\2\42\1"+
-        "\141\1\42\2\162\4\uffff\1\42\1\uffff\1\153\1\uffff\1\42\1\uffff"+
-        "\1\151\1\42\5\uffff\1\42\1\uffff\1\42\2\uffff\1\42\1\uffff\2\42"+
-        "\1\uffff\1\42\1\145\1\154\1\164\1\144\2\uffff\1\164\2\uffff\1\164"+
-        "\1\141\1\uffff\1\42\1\uffff\1\145\7\uffff\1\42\1\171\1\42\1\163"+
-        "\1\145\1\42\1\143\1\uffff\1\163\1\uffff\1\42\1\uffff\2\42\1\uffff"+
-        "\1\164\1\42\3\uffff\1\42\2\uffff";
+        "\141\1\42\2\162\2\uffff\1\141\2\uffff\1\42\1\uffff\1\153\1\uffff"+
+        "\1\42\1\uffff\1\151\1\42\5\uffff\1\42\1\uffff\1\42\2\uffff\1\42"+
+        "\1\uffff\2\42\1\uffff\1\42\1\145\1\154\1\164\1\144\2\uffff\1\164"+
+        "\2\uffff\1\164\1\141\2\uffff\1\141\4\uffff\1\42\1\uffff\1\145\7"+
+        "\uffff\1\42\1\171\1\42\1\163\1\145\1\42\1\143\4\uffff\1\163\1\uffff"+
+        "\1\42\1\uffff\2\42\1\uffff\1\164\1\42\3\uffff\1\42\2\uffff";
     static final String DFA14_maxS =
         "\1\uffff\1\157\1\170\1\162\1\57\1\163\1\165\1\76\1\165\1\150\1\165"+
         "\1\150\1\156\1\165\1\76\3\uffff\1\157\1\162\1\53\1\uffff\1\157\4"+
@@ -3061,29 +3293,31 @@ public class InternalAlsLexer extends Lexer {
         "\1\145\1\uffff\1\164\4\172\1\164\1\172\1\143\1\172\1\163\1\172\1"+
         "\uffff\1\154\1\156\4\172\1\145\1\172\1\145\2\172\1\uffff\1\156\1"+
         "\172\1\145\1\uffff\1\166\1\172\1\152\4\uffff\1\154\1\164\1\143\1"+
-        "\156\2\172\1\141\1\172\2\162\4\uffff\1\172\1\uffff\1\153\1\uffff"+
-        "\1\172\1\uffff\1\151\1\172\5\uffff\1\172\1\uffff\1\172\2\uffff\1"+
-        "\172\1\uffff\2\172\1\uffff\1\172\1\145\1\154\1\164\1\144\2\uffff"+
-        "\1\164\2\uffff\1\164\1\141\1\uffff\1\172\1\uffff\1\145\7\uffff\1"+
-        "\172\1\171\1\172\1\163\1\145\1\172\1\143\1\uffff\1\163\1\uffff\1"+
-        "\172\1\uffff\2\172\1\uffff\1\164\1\172\3\uffff\1\172\2\uffff";
+        "\156\2\172\1\141\1\172\2\162\2\uffff\1\163\2\uffff\1\172\1\uffff"+
+        "\1\153\1\uffff\1\172\1\uffff\1\151\1\172\5\uffff\1\172\1\uffff\1"+
+        "\172\2\uffff\1\172\1\uffff\2\172\1\uffff\1\172\1\145\1\154\1\164"+
+        "\1\144\2\uffff\1\164\2\uffff\1\164\1\141\2\uffff\1\165\4\uffff\1"+
+        "\172\1\uffff\1\145\7\uffff\1\172\1\171\1\172\1\163\1\145\1\172\1"+
+        "\143\4\uffff\1\163\1\uffff\1\172\1\uffff\2\172\1\uffff\1\164\1\172"+
+        "\3\uffff\1\172\2\uffff";
     static final String DFA14_acceptS =
         "\17\uffff\1\23\1\24\1\25\3\uffff\1\35\1\uffff\1\42\1\43\1\44\1\45"+
-        "\2\uffff\1\54\6\uffff\1\100\1\101\1\102\1\103\1\120\1\123\1\124"+
-        "\2\uffff\1\127\1\130\1\uffff\1\123\4\uffff\1\122\1\126\1\4\7\uffff"+
-        "\1\73\1\10\14\uffff\1\37\1\107\1\21\1\23\1\24\1\25\5\uffff\1\71"+
-        "\1\34\1\35\1\uffff\1\42\1\43\1\44\1\45\2\uffff\1\54\1\uffff\1\61"+
-        "\1\113\1\63\1\65\1\uffff\1\72\1\74\1\105\1\112\1\121\1\70\1\uffff"+
-        "\1\111\1\106\1\100\1\101\1\102\1\103\1\120\1\124\1\125\1\127\11"+
-        "\uffff\1\5\13\uffff\1\33\13\uffff\1\62\3\uffff\1\104\3\uffff\1\66"+
-        "\1\110\1\76\1\75\12\uffff\1\57\1\64\1\6\1\13\1\uffff\1\11\1\uffff"+
-        "\1\14\1\uffff\1\17\2\uffff\1\67\1\53\1\20\1\77\1\22\1\uffff\1\60"+
-        "\1\uffff\1\46\1\30\1\uffff\1\36\2\uffff\1\52\5\uffff\1\41\1\117"+
-        "\1\uffff\1\55\1\7\2\uffff\1\115\1\uffff\1\16\1\uffff\1\50\1\31\1"+
-        "\27\1\114\1\47\1\51\1\56\7\uffff\1\12\1\uffff\1\1\1\uffff\1\15\2"+
-        "\uffff\1\116\2\uffff\1\2\1\32\1\3\1\uffff\1\40\1\26";
+        "\2\uffff\1\54\6\uffff\1\110\1\111\1\112\1\113\1\130\1\133\1\134"+
+        "\2\uffff\1\137\1\140\1\uffff\1\133\4\uffff\1\132\1\136\1\4\7\uffff"+
+        "\1\103\1\10\14\uffff\1\37\1\117\1\21\1\23\1\24\1\25\5\uffff\1\101"+
+        "\1\34\1\35\1\uffff\1\42\1\43\1\44\1\45\2\uffff\1\54\1\uffff\1\71"+
+        "\1\123\1\73\1\75\1\uffff\1\102\1\104\1\115\1\122\1\100\1\131\1\uffff"+
+        "\1\121\1\116\1\110\1\111\1\112\1\113\1\130\1\134\1\135\1\137\11"+
+        "\uffff\1\5\13\uffff\1\33\13\uffff\1\72\3\uffff\1\114\3\uffff\1\76"+
+        "\1\120\1\106\1\105\12\uffff\1\67\1\74\1\uffff\1\6\1\13\1\uffff\1"+
+        "\11\1\uffff\1\14\1\uffff\1\17\2\uffff\1\77\1\53\1\20\1\107\1\22"+
+        "\1\uffff\1\70\1\uffff\1\46\1\30\1\uffff\1\36\2\uffff\1\52\5\uffff"+
+        "\1\41\1\127\1\uffff\1\55\1\7\2\uffff\1\56\1\57\1\uffff\1\61\1\62"+
+        "\1\65\1\125\1\uffff\1\16\1\uffff\1\50\1\31\1\27\1\124\1\47\1\51"+
+        "\1\66\7\uffff\1\60\1\63\1\64\1\12\1\uffff\1\1\1\uffff\1\15\2\uffff"+
+        "\1\126\2\uffff\1\2\1\32\1\3\1\uffff\1\40\1\26";
     static final String DFA14_specialS =
-        "\1\0\52\uffff\1\2\1\1\u00cd\uffff}>";
+        "\1\0\52\uffff\1\2\1\1\u00d7\uffff}>";
     static final String[] DFA14_transitionS = {
             "\11\56\2\55\2\56\1\55\22\56\1\55\1\25\1\53\1\44\2\56\1\40\1"+
             "\54\1\31\1\32\1\46\1\24\1\20\1\42\1\50\1\4\12\52\1\7\1\56\1"+
@@ -3124,7 +3358,7 @@ public class InternalAlsLexer extends Lexer {
             "\1\144",
             "\1\146",
             "\1\151\1\uffff\1\152\1\150",
-            "\1\65\2\uffff\12\155\4\uffff\1\154",
+            "\1\65\2\uffff\12\156\4\uffff\1\154",
             "\1\160\1\157",
             "",
             "",
@@ -3231,65 +3465,83 @@ public class InternalAlsLexer extends Lexer {
             "\1\uffff\32\60",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
+            "\1\60\4\uffff\1\60\7\uffff\1\u00b3\12\60\7\uffff\32\60\4\uffff"+
+            "\1\60\1\uffff\32\60",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
+            "\1\u00b6",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "\1\u00b5",
+            "\1\u00b8",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "\1\u00b7",
-            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
-            "\1\uffff\32\60",
-            "\1\u00b9",
+            "\1\u00ba",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
             "",
-            "\1\u00bb",
             "\1\u00bc",
+            "\1\u00bd",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "\1\60\4\uffff\1\60\7\uffff\1\u00be\12\60\7\uffff\32\60\4\uffff"+
+            "\1\60\4\uffff\1\60\7\uffff\1\u00bf\12\60\7\uffff\32\60\4\uffff"+
             "\1\60\1\uffff\32\60",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "\1\u00c2",
+            "\1\u00c3",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "\1\u00c4",
+            "\1\u00c5",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
             "",
-            "\1\u00c7",
+            "\1\u00c8",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "\1\u00c9",
-            "",
             "\1\u00ca",
+            "",
+            "\1\u00cb",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "\1\u00cc",
-            "",
-            "",
-            "",
-            "",
             "\1\u00cd",
+            "",
+            "",
+            "",
+            "",
             "\1\u00ce",
             "\1\u00cf",
             "\1\u00d0",
+            "\1\u00d1",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "\1\u00d3",
-            "\1\60\4\uffff\1\60\7\uffff\1\u00d4\12\60\7\uffff\32\60\4\uffff"+
+            "\1\u00d4",
+            "\1\60\4\uffff\1\60\7\uffff\1\u00d5\12\60\7\uffff\32\60\4\uffff"+
             "\1\60\1\uffff\32\60",
-            "\1\u00d6",
             "\1\u00d7",
+            "\1\u00d8",
+            "",
+            "",
+            "\1\u00d9\2\uffff\1\u00dc\10\uffff\1\u00db\1\u00de\3\uffff\1"+
+            "\u00dd\1\u00da",
+            "",
+            "",
+            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
+            "\1\uffff\32\60",
+            "",
+            "\1\u00e0",
+            "",
+            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
+            "\1\uffff\32\60",
+            "",
+            "\1\u00e2",
+            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
+            "\1\uffff\32\60",
+            "",
             "",
             "",
             "",
@@ -3297,22 +3549,6 @@ public class InternalAlsLexer extends Lexer {
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
             "",
-            "\1\u00d9",
-            "",
-            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
-            "\1\uffff\32\60",
-            "",
-            "\1\u00db",
-            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
-            "\1\uffff\32\60",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
-            "\1\uffff\32\60",
-            "",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
             "",
@@ -3327,51 +3563,60 @@ public class InternalAlsLexer extends Lexer {
             "",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "\1\u00e3",
-            "\1\u00e4",
-            "\1\u00e5",
-            "\1\u00e6",
-            "",
-            "",
-            "\1\u00e7",
-            "",
-            "",
-            "\1\u00e8",
-            "\1\u00e9",
-            "",
-            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
-            "\1\uffff\32\60",
-            "",
+            "\1\u00ea",
             "\1\u00eb",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
-            "\1\uffff\32\60",
+            "\1\u00ec",
             "\1\u00ed",
-            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
-            "\1\uffff\32\60",
+            "",
+            "",
+            "\1\u00ee",
+            "",
+            "",
             "\1\u00ef",
             "\1\u00f0",
-            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
-            "\1\uffff\32\60",
-            "\1\u00f2",
             "",
-            "\1\u00f3",
             "",
-            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
-            "\1\uffff\32\60",
+            "\1\u00f3\7\uffff\1\u00f2\13\uffff\1\u00f1",
+            "",
+            "",
+            "",
             "",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
+            "",
+            "\1\u00f5",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
-            "",
             "\1\u00f7",
+            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
+            "\1\uffff\32\60",
+            "\1\u00f9",
+            "\1\u00fa",
+            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
+            "\1\uffff\32\60",
+            "\1\u00fc",
+            "",
+            "",
+            "",
+            "",
+            "\1\u00fd",
+            "",
+            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
+            "\1\uffff\32\60",
+            "",
+            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
+            "\1\uffff\32\60",
+            "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
+            "\1\uffff\32\60",
+            "",
+            "\1\u0101",
             "\1\60\4\uffff\1\60\10\uffff\12\60\7\uffff\32\60\4\uffff\1\60"+
             "\1\uffff\32\60",
             "",
@@ -3413,7 +3658,7 @@ public class InternalAlsLexer extends Lexer {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | RULE_NEGATIVE_INTEGER | RULE_SL_COMMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | RULE_NEGATIVE_INTEGER | RULE_SL_COMMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
