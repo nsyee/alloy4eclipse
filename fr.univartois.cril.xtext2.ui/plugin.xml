@@ -521,4 +521,17 @@ type="fr.univartois.cril.xtext2.als.Module">
          </adapter>
       </factory>
    </extension>
+   <extension 
+		point="org.eclipse.ui.views">
+		<category 
+			id="fr.univartois.cril.xtext2.alloyplugin.views" 
+			name="Alloy4Eclipse" /> 
+  			<view 
+  				allowMultiple="true" 
+  				category="fr.univartois.cril.xtext2.alloyplugin.views" 
+  				class="fr.univartois.cril.xtext2.alloyplugin.views.VizView" 
+  				icon="icons/graph.gif" 
+  				id="fr.univartois.cril.xtext2.alloyplugin.views.vizview" 
+  				name="Graphical View" /> 
+	</extension>
 </plugin>
