@@ -134,12 +134,16 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 	}
 
 	public static boolean getShowDebugMessagesPreference() {
-		return AlsActivator.getInstance().getPreferenceStore()
+		return AlsActivator
+				.getInstance()
+				.getPreferenceStore()
 				.getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES);
 	}
 
 	public static String getShowGraphConversionMessagesPreference() {
-		return AlsActivator.getInstance().getPreferenceStore()
+		return AlsActivator
+				.getInstance()
+				.getPreferenceStore()
 				.getString(PreferenceConstants.V_GRAPH_CONVERSION);
 	}
 
@@ -153,22 +157,27 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 		return AlsActivator
 				.getInstance()
 				.getPreferenceStore()
-				.getBoolean(
-						PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND);
+				.getBoolean(PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND);
 	}
 
 	public static String getA4SampleModelsPath() {
-		return AlsActivator.getInstance().getPluginPreferences()
+		return AlsActivator
+				.getInstance()
+				.getPreferenceStore()
 				.getString(PreferenceConstants.P_A4_SAMPLE_MODELS_PATH);
 	}
 
 	public static int getResolutionGraph() {
-		return AlsActivator.getInstance().getPreferenceStore()
+		return AlsActivator
+				.getInstance()
+				.getPreferenceStore()
 				.getInt(PreferenceConstants.RESOLUTION__GRAPH);
 	}
 
 	public static double getWidthGraph() {
-		return AlsActivator.getInstance().getPreferenceStore()
+		return AlsActivator
+				.getInstance()
+				.getPreferenceStore()
 				.getDouble(PreferenceConstants.WIDTH__GRAPH);
 	}
 }

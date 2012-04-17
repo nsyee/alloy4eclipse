@@ -44,8 +44,7 @@ public class AlsActivator extends fr.univartois.cril.xtext2.ui.internal.AlsActiv
 	 * The system-specific file separator (forward-slash on UNIX, back-slash on
 	 * Windows, etc.)
 	 */
-	public static final String FILE_SEPARATOR = System
-			.getProperty("file.separator");
+	public static final String FILE_SEPARATOR = System.getProperty("file.separator");
 
 	private static AlsActivator INSTANCE;
 	private BundleContext contexte;

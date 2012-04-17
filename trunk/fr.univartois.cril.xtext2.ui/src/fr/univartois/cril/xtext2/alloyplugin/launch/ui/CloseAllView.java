@@ -56,7 +56,7 @@ public class CloseAllView extends SelectionProviderAction {
 		if (selection.isEmpty())
 			commandRootSelected = true;
 		else {
-			for (Iterator iter = selection.iterator(); iter.hasNext();) {
+			for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
 				Object o = iter.next();
 				IAlloyTreeContentProvider contentProvider = (IAlloyTreeContentProvider) viewer
 						.getContentProvider();

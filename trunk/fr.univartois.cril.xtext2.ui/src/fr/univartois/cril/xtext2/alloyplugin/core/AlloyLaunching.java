@@ -173,8 +173,8 @@ public class AlloyLaunching {
 		alloyParserConsole.clear();
 		alloyParserConsole.printInfo("=========== Parsing \"" + filename
 				+ "\" =============");
-		CompModule world ;
-		world = CompUtil.parseEverything_fromFile(rep, null, filename);
+		// CompModule world = ...
+		CompUtil.parseEverything_fromFile(rep, null, filename);
 		alloyParserConsole.printInfo("=========== End Parsing \"" + filename
 				+ "\" =============");
 		// if (world != null)
@@ -216,8 +216,10 @@ public class AlloyLaunching {
 			long endTime = System.currentTimeMillis();
 			alloyConsole.printInfo("============ Total time: "
 					+ (endTime - beginTime) + " (ms) ===========");
-			if (AlsActivator.getDefault().getPluginPreferences().getBoolean(
-					PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
+			if (AlsActivator
+					.getDefault()
+					.getPreferenceStore()
+					.getBoolean(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER))
 				showAnswer(command);
 
 		} catch (Err e) {
@@ -241,8 +243,10 @@ public class AlloyLaunching {
 			if (!AlloyLaunching.hasSuccessfulAnswer(ans)) {
 
 				// @author lionel desruelles
-				if (AlsActivator.getDefault().getPluginPreferences().getBoolean(
-						PreferenceConstants.CLOSE_VIEW_UNSAT))
+				if (AlsActivator
+						.getDefault()
+						.getPreferenceStore()
+						.getBoolean(PreferenceConstants.CLOSE_VIEW_UNSAT))
 					command.closeOldVizView();
 
 				alloyConsole

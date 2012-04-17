@@ -28,8 +28,8 @@ public class AlsOutlineTreeProvider extends DefaultOutlineTreeProvider implement
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Class adapter) {
-		System.out.println("Adapting "+adapter);
 		return  Platform.getAdapterManager().getAdapter(this, adapter);
 	}
 }

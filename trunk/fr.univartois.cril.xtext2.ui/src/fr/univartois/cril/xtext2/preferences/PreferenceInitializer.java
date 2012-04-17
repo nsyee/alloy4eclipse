@@ -27,22 +27,14 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		
 		IPreferenceStore store = AlsActivator.getInstance().getPreferenceStore();
 	
-		store.setDefault(PreferenceConstants.P_BOOLEAN_EXECUTE_TASKS_LOCALLY,
-				true);
-		store
-				.setDefault(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER,
-						true);
-		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES,
-				false);
-		store.setDefault(
-				PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND,
-				true);
-		store.setDefault(PreferenceConstants.P_SOLVER_CHOICE,
-				PreferenceConstants.V_SOLVER_SAT4J);
+		store.setDefault(PreferenceConstants.P_BOOLEAN_EXECUTE_TASKS_LOCALLY,true);
+		store.setDefault(PreferenceConstants.P_BOOLEAN_WRITE_SHOW_ANSWER,true);
+		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_DEBUG_MESSAGES,false);
+		store.setDefault(PreferenceConstants.P_BOOLEAN_CLEAR_CONSOLE_FOR_EACH_COMMAND,true);
+		store.setDefault(PreferenceConstants.P_SOLVER_CHOICE,PreferenceConstants.V_SOLVER_SAT4J);
 		store.setDefault(PreferenceConstants.P_STRING, "Default value");
 		store.setDefault(PreferenceConstants.V_GRAPH_CONVERSION, "ps");
-		String defaultDir = Helper.alloyHome() + AlsActivator.FILE_SEPARATOR
-				+ "binary";
+		String defaultDir = Helper.alloyHome() + AlsActivator.FILE_SEPARATOR+ "binary";
 		File dir = new File(defaultDir);
 		if (dir.exists()) {
 			store.setDefault(PreferenceConstants.P_SOLVERS_PATH, defaultDir);

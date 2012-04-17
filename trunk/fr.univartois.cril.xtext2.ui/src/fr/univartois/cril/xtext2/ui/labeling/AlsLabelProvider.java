@@ -216,6 +216,6 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String image(EnumDecl enumD) {
-		return "sig.gif";
+		return "enum.gif";
 	}
 }

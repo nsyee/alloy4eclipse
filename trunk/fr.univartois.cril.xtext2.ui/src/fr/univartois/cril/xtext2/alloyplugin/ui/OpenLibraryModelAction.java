@@ -54,7 +54,7 @@ public class OpenLibraryModelAction implements IObjectActionDelegate {
 
     private IProject getProject() {
         if (selection instanceof IStructuredSelection) {
-            for (Iterator it = ((IStructuredSelection) selection).iterator(); it
+            for (Iterator<?> it = ((IStructuredSelection) selection).iterator(); it
                     .hasNext();) {
                 Object element = it.next();
                
