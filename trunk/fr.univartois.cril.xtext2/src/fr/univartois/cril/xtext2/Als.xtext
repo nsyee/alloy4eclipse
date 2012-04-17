@@ -175,21 +175,21 @@ Expression:
 )*;
 
 TerminalExpression returns Expression:
-	{Expression} parO="(" (expr+=Expression)+ parF=")" | {Expression} let="let" letdecl+=LetDecl (comma+=Comma
-	letdecl+=LetDecl)* blockOrBar+=BlockOrBar | //1./
+	{Expression} parO="(" (expr+=Expression)+ parF=")" | 
+	{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar | //1./
 	{Expression} quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? | //2./
-	{Expression} unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)?
-	(blockOrBar+=BlockOrBar | expr+=Expression)? | //2./ and 3./	
+	{Expression} unOp=UnOp expr+=Expression | 
+	{Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? | //2./ and 3./	
 	{Expression} INT | //9./
 	{Expression} NEGATIVE_INTEGER | //10./
 	{Expression} none="none" | //11./
 	{Expression} iden="iden" | //12./
 	{Expression} univ="univ" | //13./
 	{Expression} (int="int" (nameRef=[ReferencesName])?) | int="Int" | //14./
-	{Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=[AsName] | "this") "/")? (nameRef=[ReferencesName] |"this" | name="pred/totalOrder" | name=("fun/add" | "fun/sub" | "fun/mul" | "fun/div" | "fun/rem" | "fun/min" | "fun/max" | "fun/next")) | //17./
+	{Expression} seq="seq/Int" | 
+	{Expression} "@"? "int"? ((asname=[AsName] | "this") "/")? (nameRef=[ReferencesName] |"this" | name="pred/totalOrder" | name=("fun/add" | "fun/sub" | "fun/mul" | "fun/div" | "fun/rem" | "fun/min" | "fun/max" | "fun/next")) | //17./
 	{Expression} block+=Block | //18./
-	{Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar
-	rightCurlyBracket=RightCurlyBracket; //19./
+	{Expression} leftCurlyBracket=LeftCurlyBracket decl+=Decl (comma+=Comma decl+=Decl)* blockOrBar+=BlockOrBar rightCurlyBracket=RightCurlyBracket; //19./
 
 /*
 	decl ::= ["private"] ["disj"] name,+ ":" ["disj"] expr
