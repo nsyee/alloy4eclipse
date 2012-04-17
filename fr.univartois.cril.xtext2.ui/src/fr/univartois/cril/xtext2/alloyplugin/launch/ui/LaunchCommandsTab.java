@@ -229,8 +229,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
             if (!cmds.isEmpty()) {
                 setdefaultsAttributes(cmds, configuration);
                 String name = DebugPlugin.getDefault().getLaunchManager()
-                        .generateUniqueLaunchConfigurationNameFrom(
-                                cmds.get(0).getResource().getName());
+                        .generateLaunchConfigurationName(cmds.get(0).getResource().getName());
                 configuration.rename(name);
                 return;
             }
@@ -238,8 +237,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
         IALSFile file = getALSFileFromContext();
         if (file != null) {
             String name = DebugPlugin.getDefault().getLaunchManager()
-                    .generateUniqueLaunchConfigurationNameFrom(
-                            file.getName());
+                    .generateLaunchConfigurationName(file.getName());
             configuration.rename(name);
             setdefaultsAttributes(file, configuration);
         }
@@ -316,7 +314,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
             IStructuredSelection selection) {
         ArrayList<IALSCommand> list = null;
         if (!selection.isEmpty()) {
-            for (Iterator iterator = selection.iterator(); iterator.hasNext();) {
+            for (Iterator<?> iterator = selection.iterator(); iterator.hasNext();) {
                 Object obj = iterator.next();
                 if (obj instanceof IALSCommand) {
                     // System.out.println("executable command selected");

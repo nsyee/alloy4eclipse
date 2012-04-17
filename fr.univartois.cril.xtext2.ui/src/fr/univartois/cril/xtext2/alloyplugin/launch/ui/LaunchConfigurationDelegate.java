@@ -40,7 +40,7 @@ ILaunchConfigurationDelegate {
 		}
 		if (file==null) return;
 		
-		List commandIdList=configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, (List)null);
+		List<?> commandIdList=configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, (List<?>)null);
 		
 		monitor.setTaskName("Running Alloy command");
 		AlloyMessageConsole console = Console.findAlloyConsole(file.getFilename());

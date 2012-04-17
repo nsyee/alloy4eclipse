@@ -40,7 +40,7 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 		IResource resource;
 		ALSFile file;
 		int line, offset;
-		String cmd, content = null, predName;
+		String content = null, predName;
 		Command command = null;
 
 		editor = EditorUtils.getActiveXtextEditor(event);
@@ -58,11 +58,8 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 		if (line == -1)
 			return null;
 		try {
-			content = editor.getDocument().get(offset,
-					editor.getDocument().getLineLength(line));
-
+			content = editor.getDocument().get(offset, editor.getDocument().getLineLength(line));
 		} catch (BadLocationException e) {
-
 			e.printStackTrace();
 		}
 
@@ -84,7 +81,6 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 		IPreferenceStore store=AlsActivator.getInstance().getPreferenceStore();
 		int scope=Integer.parseInt(store.getString(PreferenceConstants.DEFAULT_LAUNCH_OPTION));
 		try {
-
 			Func f=findPredicate(world, predName);
 			if (f.decls.isEmpty()) {
 				command = new Command(false, scope, -1, -1, f.call());
@@ -102,12 +98,14 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 				}
 				command = new Command(false, scope, -1, -1, f.call(params));
 			}
-			
-			
 		} catch (Err e) {
 			e.printStackTrace();
 		}
-		String cmd1="Run "+predName;
+		
+		String cmd1="Run "+ predName ;
+		
+		System.out.println("Nom predicat : " + cmd1) ;
+		
 		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world,cmd1,scope);
 		
 		executeCommand(ex, reporter, null);

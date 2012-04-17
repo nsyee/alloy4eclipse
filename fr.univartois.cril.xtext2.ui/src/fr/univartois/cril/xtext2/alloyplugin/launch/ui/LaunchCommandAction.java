@@ -67,7 +67,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
         if (selection.isEmpty())
             this.setEnabled(false);
         else {
-            for (Iterator iter = selection.iterator(); iter.hasNext();) {
+            for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
                 Object o = iter.next();
                 IAlloyTreeContentProvider contentProvider = (IAlloyTreeContentProvider) viewer
                         .getContentProvider();
@@ -136,7 +136,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
             IStructuredSelection selection) {
         ArrayList<IALSCommand> list = new ArrayList<IALSCommand>();
         if (!selection.isEmpty()) {
-            for (Iterator iterator = selection.iterator(); iterator.hasNext();) {
+            for (Iterator<?> iterator = selection.iterator(); iterator.hasNext();) {
                 Object obj = iterator.next();
                 if (obj instanceof IALSCommand) {
                     list.add((IALSCommand) obj);

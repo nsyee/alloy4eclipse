@@ -20,14 +20,14 @@ import fr.univartois.cril.xtext2.alloyplugin.core.AlloyLaunching;
  *  It does nothing for the moment.  
  *  Others builders can be added to the project nature with the fr.univartois.cril.alloyplugin.projectbuildercontribution extension. (temporary)
  * */
-public class ProjectBuilder extends
- IncrementalProjectBuilder {
+public class ProjectBuilder extends IncrementalProjectBuilder {
 	/**
 	 * Default project builder Id.  
 	 */
 	public static final String PROJECT_BUILDER_ID = "fr.univartois.cril.alloyplugin.builder";
 
-    @Override
+	@Override
+	@SuppressWarnings("rawtypes")
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 	throws CoreException {
 		

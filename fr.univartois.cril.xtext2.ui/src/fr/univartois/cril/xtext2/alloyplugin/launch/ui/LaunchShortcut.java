@@ -69,7 +69,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 			LaunchCommandsTab tab = new LaunchCommandsTab();
 			IALSFile file=ALSFileFactory.instance().getALSFile(resource);
 			if(file!=null){
-				wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom(file.getName()));				
+				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(file.getName()));				
 				tab.setdefaultsAttributes(file, wc);
 				config = wc.doSave();
 			}
@@ -155,7 +155,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 	 * launch configurations.  Return the chosen config, or <code>null</code> if the
 	 * user canceled the dialog.
 	 */
-    protected ILaunchConfiguration chooseConfiguration(List configList) {
+    protected ILaunchConfiguration chooseConfiguration(List<?> configList) {
 		IDebugModelPresentation labelProvider = DebugUITools.newDebugModelPresentation();
 		ElementListSelectionDialog dialog= new ElementListSelectionDialog(getShell(), labelProvider);
 		dialog.setElements(configList.toArray());

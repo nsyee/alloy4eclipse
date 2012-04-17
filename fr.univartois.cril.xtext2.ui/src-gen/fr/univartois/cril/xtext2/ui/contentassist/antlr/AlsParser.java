@@ -59,6 +59,7 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives_4_3(), "rule__TerminalExpression__Alternatives_4_3");
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives_13_3_0(), "rule__TerminalExpression__Alternatives_13_3_0");
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives_13_4(), "rule__TerminalExpression__Alternatives_13_4");
+					put(grammarAccess.getTerminalExpressionAccess().getNameAlternatives_13_4_3_0(), "rule__TerminalExpression__NameAlternatives_13_4_3_0");
 					put(grammarAccess.getQuantAccess().getAlternatives(), "rule__Quant__Alternatives");
 					put(grammarAccess.getBinOpAccess().getAlternatives_1(), "rule__BinOp__Alternatives_1");
 					put(grammarAccess.getUnOpAccess().getAlternatives_1(), "rule__UnOp__Alternatives_1");
@@ -275,8 +276,6 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypescopeAccess().getValueAssignment_2(), "rule__Typescope__ValueAssignment_2");
 					put(grammarAccess.getTypescopeAccess().getAsnameAssignment_3_0_0(), "rule__Typescope__AsnameAssignment_3_0_0");
 					put(grammarAccess.getTypescopeAccess().getPrevAssignment_3_0_1(), "rule__Typescope__PrevAssignment_3_0_1");
-					put(grammarAccess.getTypescopeAccess().getPrevAssignment_3_0_2(), "rule__Typescope__PrevAssignment_3_0_2");
-					put(grammarAccess.getTypescopeAccess().getPrevAssignment_3_0_3(), "rule__Typescope__PrevAssignment_3_0_3");
 					put(grammarAccess.getTypescopeAccess().getSlAssignment_3_1(), "rule__Typescope__SlAssignment_3_1");
 					put(grammarAccess.getTypescopeAccess().getNameAssignment_4_0(), "rule__Typescope__NameAssignment_4_0");
 					put(grammarAccess.getTypescopeAccess().getPostAssignment_4_1_0(), "rule__Typescope__PostAssignment_4_1_0");
@@ -349,6 +348,8 @@ public class AlsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getSeqAssignment_12_1(), "rule__TerminalExpression__SeqAssignment_12_1");
 					put(grammarAccess.getTerminalExpressionAccess().getAsnameAssignment_13_3_0_0(), "rule__TerminalExpression__AsnameAssignment_13_3_0_0");
 					put(grammarAccess.getTerminalExpressionAccess().getNameRefAssignment_13_4_0(), "rule__TerminalExpression__NameRefAssignment_13_4_0");
+					put(grammarAccess.getTerminalExpressionAccess().getNameAssignment_13_4_2(), "rule__TerminalExpression__NameAssignment_13_4_2");
+					put(grammarAccess.getTerminalExpressionAccess().getNameAssignment_13_4_3(), "rule__TerminalExpression__NameAssignment_13_4_3");
 					put(grammarAccess.getTerminalExpressionAccess().getBlockAssignment_14_1(), "rule__TerminalExpression__BlockAssignment_14_1");
 					put(grammarAccess.getTerminalExpressionAccess().getLeftCurlyBracketAssignment_15_1(), "rule__TerminalExpression__LeftCurlyBracketAssignment_15_1");
 					put(grammarAccess.getTerminalExpressionAccess().getDeclAssignment_15_2(), "rule__TerminalExpression__DeclAssignment_15_2");

@@ -59,8 +59,7 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 		int index = retrieveIndexOfCommand(world.getAllCommands(), command);
 		if (index == -1)
 			return null;
-		ExecutableCommand ex = new ExecutableCommand(file, command, index,
-				world,null,0);
+		ExecutableCommand ex = new ExecutableCommand(file, command, index, world,null,0);
 		executeCommand(ex, reporter, null);
 		return null;
 	}
@@ -78,8 +77,7 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 	private List<Command> getList(IResource resource) {
 		List<Command> list = null;
 		try {
-			list = CompUtil.parseOneModule_fromFile(resource.getLocation()
-					.toString());
+			list = CompUtil.parseOneModule_fromFile(resource.getLocation().toString());
 		} catch (Err e) {
 			// displayErrorInProblemView(resource, e);
 		}

@@ -81,20 +81,20 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		if (world == null)
 			return null;
 		
-
 		try {
 			world.getAllAssertions();
 			Pair<String,Expr> p=findAssertion(world, assertName);
 			command = new Command(true, scope, -1, -1, p.b);
 		} catch (Err e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if (command == null)
-			return null;
-		cmd = "Check " + cmd;
-		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world,
-				cmd,scope);
+		if (command == null) return null;
+		
+		cmd = "Check " + cmd ;
+		
+		System.out.println("Nom assertion : " + cmd) ;
+		
+		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world, cmd, scope);
 		executeCommand(ex, reporter, null);
 		return null;
 	}

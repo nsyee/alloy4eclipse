@@ -62,7 +62,7 @@ public class LaunchQuickConfigFactory  {
 			if (!commandsList.isEmpty())
 			{
 
-				wc = configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom("QuickConfig_"+commandsList.get(0).getResource().getName()));				
+				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName("QuickConfig_"+commandsList.get(0).getResource().getName()));				
 				tab.setdefaultsAttributes(commandsList, wc);
 				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,Util.getFileLocation(commandsList.get(0).getResource()));
 				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG,"true");

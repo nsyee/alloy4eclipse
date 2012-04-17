@@ -11,10 +11,6 @@ import fr.univartois.cril.xtext2.als.CheckCommand;
 import fr.univartois.cril.xtext2.als.Module;
 import fr.univartois.cril.xtext2.als.Predicate;
 import fr.univartois.cril.xtext2.als.RunCommand;
-import fr.univartois.cril.xtext2.ui.editor.outline.AssertionOutlineNodeHandler;
-import fr.univartois.cril.xtext2.ui.editor.outline.CommandOutlineNodeHandler;
-import fr.univartois.cril.xtext2.ui.editor.outline.ModuleOutlineNodeHandler;
-import fr.univartois.cril.xtext2.ui.editor.outline.PredicateOutlineNodeHandler;
 
 
 public class AlsOutlineNodeAdapterFactory implements IAdapterFactory {
@@ -33,9 +29,10 @@ public class AlsOutlineNodeAdapterFactory implements IAdapterFactory {
 		return types;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
 		EObjectNode node = (EObjectNode) adaptableObject;
-		Class nodeClass = node.getEClass().getInstanceClass();
+		Class<?> nodeClass = node.getEClass().getInstanceClass();
 		if (adapterType==nodeClass) {
 			return true;
 		}
