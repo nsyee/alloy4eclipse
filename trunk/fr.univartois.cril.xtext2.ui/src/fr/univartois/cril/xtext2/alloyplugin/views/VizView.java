@@ -439,7 +439,7 @@ public class VizView extends ViewPart implements ICommandListener {
 		return null;
 	}
 
-	public static final String VIZ_VIEW_ID = "fr.univartois.cril.xtext.alloyplugin.views.vizview";
+	public static final String VIZ_VIEW_ID = "fr.univartois.cril.xtext2.alloyplugin.views.vizview";
 
 	public static IViewPart createView(final INextable execCmd,
 			final IWorkbenchPage page, final IPath filepath,
