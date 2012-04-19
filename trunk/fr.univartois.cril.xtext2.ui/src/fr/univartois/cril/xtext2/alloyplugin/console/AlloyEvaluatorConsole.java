@@ -134,7 +134,7 @@ public class AlloyEvaluatorConsole extends IOConsole {
 					String currentInputLine;
 					showPrompt();
 					while (!pm.isCanceled()
-							&& ((currentInputLine = stream.readLine()) != null)
+							&& ((currentInputLine = stream.readLine().trim()) != null)
 							&& !("quit".compareToIgnoreCase(currentInputLine) == 0)) {
 						try {
 							Expr ex = CompUtil.parseOneExpression_fromString(
