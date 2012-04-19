@@ -41,7 +41,6 @@ public class DisplayCommandAnswerAction extends SelectionProviderAction {
 		setImageDescriptor(iconrun);			
 		setToolTipText("Display an answer");
 		setActionDefinitionId(ACTION_ID);
-		
 	}
 
 

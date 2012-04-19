@@ -52,7 +52,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		store.setDefault(PreferenceConstants.MAX_HEAP_SIZE, 1024);
 		store.setDefault(PreferenceConstants.MAX_STACK_SIZE, 65536);
 		store.setDefault(PreferenceConstants.DEFAULT_LAUNCH_OPTION,"10");
-		
+		store.setDefault(PreferenceConstants.P_BOOLEAN_LAUNCH_EXACTLY,false);
 	}
 
 }

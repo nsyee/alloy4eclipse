@@ -48,9 +48,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
     /**
      * Constructor.
      */
-    public LaunchCommandAction(
-            TreeViewer treeViewerWithAnAlloyTreeContentProvider) {
-
+    public LaunchCommandAction(TreeViewer treeViewerWithAnAlloyTreeContentProvider) {
         super(treeViewerWithAnAlloyTreeContentProvider, TEXT_DEFAULT);
         this.viewer = treeViewerWithAnAlloyTreeContentProvider;
         this.setEnabled(false);
