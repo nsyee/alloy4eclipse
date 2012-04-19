@@ -6,20 +6,32 @@ package fr.univartois.cril.xtext2.ui;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
+import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
+import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
+
+import fr.univartois.cril.xtext2.ui.javadoc.AlsEObjectDocumentationProvider;
+import fr.univartois.cril.xtext2.ui.javadoc.AlsEObjectHoverProvider;
 import fr.univartois.cril.xtext2.ui.outline.AlloyOutlinePage;
 
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class AlsUiModule extends fr.univartois.cril.xtext2.ui.AbstractAlsUiModule {
-	
+
 	public AlsUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
 
-	@Override
 	public Class<? extends IContentOutlinePage> bindIContentOutlinePage() {
-		return AlloyOutlinePage.class ;
+		return AlloyOutlinePage.class;
+	}
+
+	public Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
+		return AlsEObjectHoverProvider.class ;
+	}
+
+	public Class<? extends IEObjectDocumentationProvider> bindIEObjectDocumentationProvider() {
+		return AlsEObjectDocumentationProvider.class ;
 	}
 
 }

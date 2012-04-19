@@ -121,6 +121,10 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 				PreferenceConstants.DEFAULT_LAUNCH_OPTION,
 				"Default Options when launching a Predicate or an Assertion: for",
 				getFieldEditorParent()));
+		addField(new BooleanFieldEditor(
+				PreferenceConstants.P_BOOLEAN_LAUNCH_EXACTLY,
+				"Launch exactly",
+				getFieldEditorParent()));	
 		addField(new IntegerFieldEditor(PreferenceConstants.MAX_HEAP_SIZE,
 				"Choose the maximum heap size for the external JVM (MB):",
 				getFieldEditorParent()));

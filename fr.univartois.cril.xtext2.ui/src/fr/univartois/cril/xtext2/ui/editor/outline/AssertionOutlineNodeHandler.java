@@ -90,10 +90,7 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		}
 		if (command == null) return null;
 		
-		cmd = "Check " + cmd ;
-		
-		System.out.println("Nom assertion : " + cmd) ;
-		
+		cmd = "Check " + cmd ;		
 		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world, cmd, scope);
 		executeCommand(ex, reporter, null);
 		return null;

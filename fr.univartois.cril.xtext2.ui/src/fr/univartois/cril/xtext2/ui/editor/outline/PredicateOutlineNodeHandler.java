@@ -103,9 +103,6 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 		}
 		
 		String cmd1="Run "+ predName ;
-		
-		System.out.println("Nom predicat : " + cmd1) ;
-		
 		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world,cmd1,scope);
 		
 		executeCommand(ex, reporter, null);

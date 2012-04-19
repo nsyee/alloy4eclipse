@@ -32,30 +32,26 @@ public class MyTask implements WorkerTask {
 	private int scope;
 	private A4Options opt;
 
-	public MyTask(String inputFilename, String outputFilename,
-			int commandNumber, A4Options opt) {
+	public MyTask(String inputFilename, String outputFilename, int commandNumber, A4Options opt) {
 		inFile = inputFilename;
 		outFile = outputFilename;
 		command = commandNumber;
 		this.opt = opt;
 	}
 
-	public MyTask(String filename, String outputfilename, String cmd,
-			A4Options options, int scope) {
+	public MyTask(String filename, String outputfilename, String cmd, A4Options options, int scope) {
 		inFile = filename;
 		outFile = outputfilename;
 		this.cmd = cmd;
 		this.opt = options;
-		this.scope = scope;
-
+		this.scope = scope ;
 	}
 
 	public void run(final WorkerCallback out) throws Exception {
 		try {
 			A4Reporter rep = new A4Reporter() {
 				@Override
-				public void translate(String solver, int b, int m, int sk,
-						int sym) {
+				public void translate(String solver, int b, int m, int sk, int sym) {
 					out.callback("Translating...:" + solver + ":" + b + ":" + m
 							+ ":" + sk + ":" + sym);
 				}
