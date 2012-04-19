@@ -179,7 +179,7 @@ TerminalExpression returns Expression:
 	{Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar | //1./
 	{Expression} quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? | //2./
 	{Expression} unOp=UnOp expr+=Expression | 
-	{Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? | //2./ and 3./	
+	{Expression} common+=CommonQuantUnOp (expr+=Expression |decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar) | //2./ and 3./	
 	{Expression} INT | //9./
 	{Expression} NEGATIVE_INTEGER | //10./
 	{Expression} none="none" | //11./

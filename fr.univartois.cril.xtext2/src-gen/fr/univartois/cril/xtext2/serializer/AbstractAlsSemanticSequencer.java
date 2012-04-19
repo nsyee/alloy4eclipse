@@ -720,7 +720,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *             (let='let' letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar) | 
 	 *             (quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)?) | 
 	 *             (unOp=UnOp expr+=Expression) | 
-	 *             (common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)?) | 
+	 *             (common+=CommonQuantUnOp (expr+=Expression | (decl+=Decl (comma+=Comma decl+=Decl)*))? blockOrBar+=BlockOrBar) | 
 	 *             none='none' | 
 	 *             iden='iden' | 
 	 *             univ='univ' | 
@@ -1224,7 +1224,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *         (let='let' letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar) | 
 	 *         (quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)?) | 
 	 *         (unOp=UnOp expr+=Expression) | 
-	 *         (common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)?) | 
+	 *         (common+=CommonQuantUnOp (expr+=Expression | (decl+=Decl (comma+=Comma decl+=Decl)*))? blockOrBar+=BlockOrBar) | 
 	 *         none='none' | 
 	 *         iden='iden' | 
 	 *         univ='univ' | 
