@@ -3489,35 +3489,16 @@ ruleTerminalExpression returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_4_2_0_0()); 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_4_2_0_0()); 
 	    }
-		lv_expr_22_0=ruleExpression		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
-	        }
-       		add(
-       			$current, 
-       			"expr",
-        		lv_expr_22_0, 
-        		"Expression");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-    |((
-(
-		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_4_2_1_0_0()); 
-	    }
-		lv_decl_23_0=ruleDecl		{
+		lv_decl_22_0=ruleDecl		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
 	        }
        		add(
        			$current, 
        			"decl",
-        		lv_decl_23_0, 
+        		lv_decl_22_0, 
         		"Decl");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3526,16 +3507,16 @@ ruleTerminalExpression returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_4_2_1_1_0_0()); 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_4_2_1_0_0()); 
 	    }
-		lv_comma_24_0=ruleComma		{
+		lv_comma_23_0=ruleComma		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
 	        }
        		add(
        			$current, 
        			"comma",
-        		lv_comma_24_0, 
+        		lv_comma_23_0, 
         		"Comma");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3544,40 +3525,59 @@ ruleTerminalExpression returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_4_2_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_4_2_1_1_0()); 
 	    }
-		lv_decl_25_0=ruleDecl		{
+		lv_decl_24_0=ruleDecl		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
 	        }
        		add(
        			$current, 
        			"decl",
-        		lv_decl_25_0, 
+        		lv_decl_24_0, 
         		"Decl");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*))?(
+))*)?((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_4_3_0()); 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_4_3_0_0()); 
 	    }
-		lv_blockOrBar_26_0=ruleBlockOrBar		{
+		lv_blockOrBar_25_0=ruleBlockOrBar		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
 	        }
        		add(
        			$current, 
        			"blockOrBar",
-        		lv_blockOrBar_26_0, 
+        		lv_blockOrBar_25_0, 
         		"BlockOrBar");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_4_3_1_0()); 
+	    }
+		lv_expr_26_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
+	        }
+       		add(
+       			$current, 
+       			"expr",
+        		lv_expr_26_0, 
+        		"Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?)
     |((
 	{ 
 	  /* */ 

@@ -851,26 +851,26 @@
           <elements xsi:type="xtext:Assignment" feature="common" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
           </elements>
-          <elements xsi:type="xtext:Alternatives" cardinality="?">
-            <elements xsi:type="xtext:Assignment" feature="expr" operator="+=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
+          <elements xsi:type="xtext:Group" cardinality="?">
+            <elements xsi:type="xtext:Assignment" feature="decl" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
             </elements>
-            <elements xsi:type="xtext:Group">
+            <elements xsi:type="xtext:Group" cardinality="*">
+              <elements xsi:type="xtext:Assignment" feature="comma" operator="+=">
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.56"/>
+              </elements>
               <elements xsi:type="xtext:Assignment" feature="decl" operator="+=">
                 <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
               </elements>
-              <elements xsi:type="xtext:Group" cardinality="*">
-                <elements xsi:type="xtext:Assignment" feature="comma" operator="+=">
-                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.56"/>
-                </elements>
-                <elements xsi:type="xtext:Assignment" feature="decl" operator="+=">
-                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
-                </elements>
-              </elements>
             </elements>
           </elements>
-          <elements xsi:type="xtext:Assignment" feature="blockOrBar" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+          <elements xsi:type="xtext:Alternatives" cardinality="?">
+            <elements xsi:type="xtext:Assignment" feature="blockOrBar" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+            </elements>
+            <elements xsi:type="xtext:Assignment" feature="expr" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
+            </elements>
           </elements>
         </elements>
         <elements xsi:type="xtext:Group">
