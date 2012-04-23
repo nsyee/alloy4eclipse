@@ -71,29 +71,30 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.MODULE: return createModule();
       case AlsPackage.OPEN: return createOpen();
       case AlsPackage.PARAGRAPH: return createParagraph();
+      case AlsPackage.ENUM_DECL: return createEnumDecl();
       case AlsPackage.FACT: return createFact();
-      case AlsPackage.ASSERTION: return createAssertion();
       case AlsPackage.FUNCTION: return createFunction();
+      case AlsPackage.LET: return createLet();
       case AlsPackage.PREDICATE: return createPredicate();
+      case AlsPackage.SIGNATURE: return createSignature();
+      case AlsPackage.ASSERTION: return createAssertion();
       case AlsPackage.RUN_COMMAND: return createRunCommand();
       case AlsPackage.CHECK_COMMAND: return createCheckCommand();
       case AlsPackage.SCOPE: return createScope();
       case AlsPackage.EXPECTATION: return createExpectation();
       case AlsPackage.TYPESCOPE: return createTypescope();
-      case AlsPackage.ENUM_DECL: return createEnumDecl();
-      case AlsPackage.LET: return createLet();
-      case AlsPackage.SIGNATURE: return createSignature();
       case AlsPackage.SIG_EXT: return createSigExt();
+      case AlsPackage.REFERENCES_SIG: return createReferencesSig();
       case AlsPackage.EXPRESSION: return createExpression();
+      case AlsPackage.BLOCK: return createBlock();
       case AlsPackage.DECL: return createDecl();
       case AlsPackage.PARAM: return createParam();
-      case AlsPackage.LET_DECL: return createLetDecl();
       case AlsPackage.PARANTHESISAND_EXPRESSION: return createParanthesisandExpression();
       case AlsPackage.BIN_OP: return createBinOp();
       case AlsPackage.UN_OP: return createUnOp();
       case AlsPackage.COMMON_QUANT_UN_OP: return createCommonQuantUnOp();
       case AlsPackage.ARROW_OP: return createArrowOp();
-      case AlsPackage.BLOCK: return createBlock();
+      case AlsPackage.LET_DECL: return createLetDecl();
       case AlsPackage.BLOCK_OR_BAR: return createBlockOrBar();
       case AlsPackage.BLOCK_OR_POSSIBLE_BAR: return createBlockOrPossibleBar();
       case AlsPackage.OPEN_NAME: return createOpenName();
@@ -111,13 +112,12 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
       case AlsPackage.EXACTLY_NAME: return createExactlyName();
       case AlsPackage.AS_NAME: return createAsName();
       case AlsPackage.REFERENCES_NAME: return createReferencesName();
-      case AlsPackage.REFERENCES_SIG: return createReferencesSig();
       case AlsPackage.REF: return createRef();
-      case AlsPackage.LEFT_CURLY_BRACKET: return createLeftCurlyBracket();
-      case AlsPackage.RIGHT_CURLY_BRACKET: return createRightCurlyBracket();
       case AlsPackage.DOT: return createDot();
       case AlsPackage.COMMA: return createComma();
       case AlsPackage.COLON: return createColon();
+      case AlsPackage.LEFT_CURLY_BRACKET: return createLeftCurlyBracket();
+      case AlsPackage.RIGHT_CURLY_BRACKET: return createRightCurlyBracket();
       case AlsPackage.LEFT_PARENTHESIS: return createLeftParenthesis();
       case AlsPackage.RIGHT_PARENTHESIS: return createRightParenthesis();
       case AlsPackage.LEFT_SQUARE_BRACKET_KEYWORD: return createLeftSquareBracketKeyword();
@@ -176,10 +176,10 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Fact createFact()
+  public EnumDecl createEnumDecl()
   {
-    FactImpl fact = new FactImpl();
-    return fact;
+    EnumDeclImpl enumDecl = new EnumDeclImpl();
+    return enumDecl;
   }
 
   /**
@@ -187,10 +187,10 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Assertion createAssertion()
+  public Fact createFact()
   {
-    AssertionImpl assertion = new AssertionImpl();
-    return assertion;
+    FactImpl fact = new FactImpl();
+    return fact;
   }
 
   /**
@@ -209,10 +209,43 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Let createLet()
+  {
+    LetImpl let = new LetImpl();
+    return let;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Predicate createPredicate()
   {
     PredicateImpl predicate = new PredicateImpl();
     return predicate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Signature createSignature()
+  {
+    SignatureImpl signature = new SignatureImpl();
+    return signature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Assertion createAssertion()
+  {
+    AssertionImpl assertion = new AssertionImpl();
+    return assertion;
   }
 
   /**
@@ -275,39 +308,6 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public EnumDecl createEnumDecl()
-  {
-    EnumDeclImpl enumDecl = new EnumDeclImpl();
-    return enumDecl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Let createLet()
-  {
-    LetImpl let = new LetImpl();
-    return let;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Signature createSignature()
-  {
-    SignatureImpl signature = new SignatureImpl();
-    return signature;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public SigExt createSigExt()
   {
     SigExtImpl sigExt = new SigExtImpl();
@@ -319,10 +319,32 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ReferencesSig createReferencesSig()
+  {
+    ReferencesSigImpl referencesSig = new ReferencesSigImpl();
+    return referencesSig;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expression createExpression()
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Block createBlock()
+  {
+    BlockImpl block = new BlockImpl();
+    return block;
   }
 
   /**
@@ -345,17 +367,6 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     ParamImpl param = new ParamImpl();
     return param;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LetDecl createLetDecl()
-  {
-    LetDeclImpl letDecl = new LetDeclImpl();
-    return letDecl;
   }
 
   /**
@@ -418,10 +429,10 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Block createBlock()
+  public LetDecl createLetDecl()
   {
-    BlockImpl block = new BlockImpl();
-    return block;
+    LetDeclImpl letDecl = new LetDeclImpl();
+    return letDecl;
   }
 
   /**
@@ -616,43 +627,10 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ReferencesSig createReferencesSig()
-  {
-    ReferencesSigImpl referencesSig = new ReferencesSigImpl();
-    return referencesSig;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Ref createRef()
   {
     RefImpl ref = new RefImpl();
     return ref;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LeftCurlyBracket createLeftCurlyBracket()
-  {
-    LeftCurlyBracketImpl leftCurlyBracket = new LeftCurlyBracketImpl();
-    return leftCurlyBracket;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RightCurlyBracket createRightCurlyBracket()
-  {
-    RightCurlyBracketImpl rightCurlyBracket = new RightCurlyBracketImpl();
-    return rightCurlyBracket;
   }
 
   /**
@@ -686,6 +664,28 @@ public class AlsFactoryImpl extends EFactoryImpl implements AlsFactory
   {
     ColonImpl colon = new ColonImpl();
     return colon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LeftCurlyBracket createLeftCurlyBracket()
+  {
+    LeftCurlyBracketImpl leftCurlyBracket = new LeftCurlyBracketImpl();
+    return leftCurlyBracket;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RightCurlyBracket createRightCurlyBracket()
+  {
+    RightCurlyBracketImpl rightCurlyBracket = new RightCurlyBracketImpl();
+    return rightCurlyBracket;
   }
 
   /**

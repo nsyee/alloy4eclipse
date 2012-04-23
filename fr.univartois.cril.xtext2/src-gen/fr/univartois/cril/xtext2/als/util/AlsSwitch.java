@@ -103,19 +103,19 @@ public class AlsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AlsPackage.ENUM_DECL:
+      {
+        EnumDecl enumDecl = (EnumDecl)theEObject;
+        T result = caseEnumDecl(enumDecl);
+        if (result == null) result = caseParagraph(enumDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AlsPackage.FACT:
       {
         Fact fact = (Fact)theEObject;
         T result = caseFact(fact);
         if (result == null) result = caseParagraph(fact);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AlsPackage.ASSERTION:
-      {
-        Assertion assertion = (Assertion)theEObject;
-        T result = caseAssertion(assertion);
-        if (result == null) result = caseParagraph(assertion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -127,11 +127,35 @@ public class AlsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AlsPackage.LET:
+      {
+        Let let = (Let)theEObject;
+        T result = caseLet(let);
+        if (result == null) result = caseParagraph(let);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AlsPackage.PREDICATE:
       {
         Predicate predicate = (Predicate)theEObject;
         T result = casePredicate(predicate);
         if (result == null) result = caseParagraph(predicate);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AlsPackage.SIGNATURE:
+      {
+        Signature signature = (Signature)theEObject;
+        T result = caseSignature(signature);
+        if (result == null) result = caseParagraph(signature);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AlsPackage.ASSERTION:
+      {
+        Assertion assertion = (Assertion)theEObject;
+        T result = caseAssertion(assertion);
+        if (result == null) result = caseParagraph(assertion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -172,30 +196,6 @@ public class AlsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AlsPackage.ENUM_DECL:
-      {
-        EnumDecl enumDecl = (EnumDecl)theEObject;
-        T result = caseEnumDecl(enumDecl);
-        if (result == null) result = caseParagraph(enumDecl);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AlsPackage.LET:
-      {
-        Let let = (Let)theEObject;
-        T result = caseLet(let);
-        if (result == null) result = caseParagraph(let);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AlsPackage.SIGNATURE:
-      {
-        Signature signature = (Signature)theEObject;
-        T result = caseSignature(signature);
-        if (result == null) result = caseParagraph(signature);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AlsPackage.SIG_EXT:
       {
         SigExt sigExt = (SigExt)theEObject;
@@ -203,10 +203,24 @@ public class AlsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AlsPackage.REFERENCES_SIG:
+      {
+        ReferencesSig referencesSig = (ReferencesSig)theEObject;
+        T result = caseReferencesSig(referencesSig);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AlsPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AlsPackage.BLOCK:
+      {
+        Block block = (Block)theEObject;
+        T result = caseBlock(block);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -221,13 +235,6 @@ public class AlsSwitch<T> extends Switch<T>
       {
         Param param = (Param)theEObject;
         T result = caseParam(param);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AlsPackage.LET_DECL:
-      {
-        LetDecl letDecl = (LetDecl)theEObject;
-        T result = caseLetDecl(letDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -266,10 +273,10 @@ public class AlsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AlsPackage.BLOCK:
+      case AlsPackage.LET_DECL:
       {
-        Block block = (Block)theEObject;
-        T result = caseBlock(block);
+        LetDecl letDecl = (LetDecl)theEObject;
+        T result = caseLetDecl(letDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -402,31 +409,10 @@ public class AlsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AlsPackage.REFERENCES_SIG:
-      {
-        ReferencesSig referencesSig = (ReferencesSig)theEObject;
-        T result = caseReferencesSig(referencesSig);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AlsPackage.REF:
       {
         Ref ref = (Ref)theEObject;
         T result = caseRef(ref);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AlsPackage.LEFT_CURLY_BRACKET:
-      {
-        LeftCurlyBracket leftCurlyBracket = (LeftCurlyBracket)theEObject;
-        T result = caseLeftCurlyBracket(leftCurlyBracket);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AlsPackage.RIGHT_CURLY_BRACKET:
-      {
-        RightCurlyBracket rightCurlyBracket = (RightCurlyBracket)theEObject;
-        T result = caseRightCurlyBracket(rightCurlyBracket);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -448,6 +434,20 @@ public class AlsSwitch<T> extends Switch<T>
       {
         Colon colon = (Colon)theEObject;
         T result = caseColon(colon);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AlsPackage.LEFT_CURLY_BRACKET:
+      {
+        LeftCurlyBracket leftCurlyBracket = (LeftCurlyBracket)theEObject;
+        T result = caseLeftCurlyBracket(leftCurlyBracket);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AlsPackage.RIGHT_CURLY_BRACKET:
+      {
+        RightCurlyBracket rightCurlyBracket = (RightCurlyBracket)theEObject;
+        T result = caseRightCurlyBracket(rightCurlyBracket);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -548,6 +548,22 @@ public class AlsSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Enum Decl</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enum Decl</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumDecl(EnumDecl object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Fact</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -559,22 +575,6 @@ public class AlsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFact(Fact object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Assertion</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assertion</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAssertion(Assertion object)
   {
     return null;
   }
@@ -596,6 +596,22 @@ public class AlsSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Let</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Let</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLet(Let object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Predicate</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -607,6 +623,38 @@ public class AlsSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePredicate(Predicate object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Signature</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Signature</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSignature(Signature object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Assertion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Assertion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAssertion(Assertion object)
   {
     return null;
   }
@@ -692,54 +740,6 @@ public class AlsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Enum Decl</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Enum Decl</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEnumDecl(EnumDecl object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Let</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Let</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLet(Let object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Signature</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Signature</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSignature(Signature object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Sig Ext</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -756,6 +756,22 @@ public class AlsSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>References Sig</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>References Sig</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReferencesSig(ReferencesSig object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -767,6 +783,22 @@ public class AlsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBlock(Block object)
   {
     return null;
   }
@@ -799,22 +831,6 @@ public class AlsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseParam(Param object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Let Decl</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Let Decl</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLetDecl(LetDecl object)
   {
     return null;
   }
@@ -900,17 +916,17 @@ public class AlsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Let Decl</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Block</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Let Decl</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBlock(Block object)
+  public T caseLetDecl(LetDecl object)
   {
     return null;
   }
@@ -1188,22 +1204,6 @@ public class AlsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>References Sig</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>References Sig</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseReferencesSig(ReferencesSig object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Ref</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1215,38 +1215,6 @@ public class AlsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRef(Ref object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Left Curly Bracket</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Left Curly Bracket</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLeftCurlyBracket(LeftCurlyBracket object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Right Curly Bracket</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Right Curly Bracket</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRightCurlyBracket(RightCurlyBracket object)
   {
     return null;
   }
@@ -1295,6 +1263,38 @@ public class AlsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseColon(Colon object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Left Curly Bracket</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Left Curly Bracket</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLeftCurlyBracket(LeftCurlyBracket object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Right Curly Bracket</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Right Curly Bracket</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRightCurlyBracket(RightCurlyBracket object)
   {
     return null;
   }

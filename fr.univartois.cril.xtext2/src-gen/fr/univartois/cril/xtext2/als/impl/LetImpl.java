@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext2.als.impl.LetImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.LetImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.LetImpl#getLeftS <em>Left S</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.LetImpl#getNameRef <em>Name Ref</em>}</li>
@@ -51,6 +53,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class LetImpl extends ParagraphImpl implements Let
 {
+  /**
+   * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDocumentation()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> documentation;
+
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -140,6 +152,20 @@ public class LetImpl extends ParagraphImpl implements Let
   protected EClass eStaticClass()
   {
     return AlsPackage.Literals.LET;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getDocumentation()
+  {
+    if (documentation == null)
+    {
+      documentation = new EDataTypeEList<String>(String.class, this, AlsPackage.LET__DOCUMENTATION);
+    }
+    return documentation;
   }
 
   /**
@@ -448,6 +474,8 @@ public class LetImpl extends ParagraphImpl implements Let
   {
     switch (featureID)
     {
+      case AlsPackage.LET__DOCUMENTATION:
+        return getDocumentation();
       case AlsPackage.LET__NAME:
         return getName();
       case AlsPackage.LET__LEFT_S:
@@ -477,6 +505,10 @@ public class LetImpl extends ParagraphImpl implements Let
   {
     switch (featureID)
     {
+      case AlsPackage.LET__DOCUMENTATION:
+        getDocumentation().clear();
+        getDocumentation().addAll((Collection<? extends String>)newValue);
+        return;
       case AlsPackage.LET__NAME:
         setName((LetName)newValue);
         return;
@@ -514,6 +546,9 @@ public class LetImpl extends ParagraphImpl implements Let
   {
     switch (featureID)
     {
+      case AlsPackage.LET__DOCUMENTATION:
+        getDocumentation().clear();
+        return;
       case AlsPackage.LET__NAME:
         setName((LetName)null);
         return;
@@ -549,6 +584,8 @@ public class LetImpl extends ParagraphImpl implements Let
   {
     switch (featureID)
     {
+      case AlsPackage.LET__DOCUMENTATION:
+        return documentation != null && !documentation.isEmpty();
       case AlsPackage.LET__NAME:
         return name != null;
       case AlsPackage.LET__LEFT_S:
@@ -565,6 +602,23 @@ public class LetImpl extends ParagraphImpl implements Let
         return exprName != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (documentation: ");
+    result.append(documentation);
+    result.append(')');
+    return result.toString();
   }
 
 } //LetImpl

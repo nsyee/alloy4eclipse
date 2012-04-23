@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext2.als.impl.EnumDeclImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.EnumDeclImpl#getEnumName <em>Enum Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.EnumDeclImpl#getLeftC <em>Left C</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.EnumDeclImpl#getPropertyEnum <em>Property Enum</em>}</li>
@@ -47,6 +49,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EnumDeclImpl extends ParagraphImpl implements EnumDecl
 {
+  /**
+   * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDocumentation()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> documentation;
+
   /**
    * The cached value of the '{@link #getEnumName() <em>Enum Name</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -116,6 +128,20 @@ public class EnumDeclImpl extends ParagraphImpl implements EnumDecl
   protected EClass eStaticClass()
   {
     return AlsPackage.Literals.ENUM_DECL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getDocumentation()
+  {
+    if (documentation == null)
+    {
+      documentation = new EDataTypeEList<String>(String.class, this, AlsPackage.ENUM_DECL__DOCUMENTATION);
+    }
+    return documentation;
   }
 
   /**
@@ -324,6 +350,8 @@ public class EnumDeclImpl extends ParagraphImpl implements EnumDecl
   {
     switch (featureID)
     {
+      case AlsPackage.ENUM_DECL__DOCUMENTATION:
+        return getDocumentation();
       case AlsPackage.ENUM_DECL__ENUM_NAME:
         return getEnumName();
       case AlsPackage.ENUM_DECL__LEFT_C:
@@ -349,6 +377,10 @@ public class EnumDeclImpl extends ParagraphImpl implements EnumDecl
   {
     switch (featureID)
     {
+      case AlsPackage.ENUM_DECL__DOCUMENTATION:
+        getDocumentation().clear();
+        getDocumentation().addAll((Collection<? extends String>)newValue);
+        return;
       case AlsPackage.ENUM_DECL__ENUM_NAME:
         setEnumName((EnumName)newValue);
         return;
@@ -380,6 +412,9 @@ public class EnumDeclImpl extends ParagraphImpl implements EnumDecl
   {
     switch (featureID)
     {
+      case AlsPackage.ENUM_DECL__DOCUMENTATION:
+        getDocumentation().clear();
+        return;
       case AlsPackage.ENUM_DECL__ENUM_NAME:
         setEnumName((EnumName)null);
         return;
@@ -409,6 +444,8 @@ public class EnumDeclImpl extends ParagraphImpl implements EnumDecl
   {
     switch (featureID)
     {
+      case AlsPackage.ENUM_DECL__DOCUMENTATION:
+        return documentation != null && !documentation.isEmpty();
       case AlsPackage.ENUM_DECL__ENUM_NAME:
         return enumName != null;
       case AlsPackage.ENUM_DECL__LEFT_C:
@@ -421,6 +458,23 @@ public class EnumDeclImpl extends ParagraphImpl implements EnumDecl
         return rightC != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (documentation: ");
+    result.append(documentation);
+    result.append(')');
+    return result.toString();
   }
 
 } //EnumDeclImpl

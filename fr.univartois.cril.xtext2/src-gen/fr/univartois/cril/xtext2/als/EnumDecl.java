@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext2.als.EnumDecl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.EnumDecl#getEnumName <em>Enum Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.EnumDecl#getLeftC <em>Left C</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.EnumDecl#getPropertyEnum <em>Property Enum</em>}</li>
@@ -29,6 +30,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface EnumDecl extends Paragraph
 {
+  /**
+   * Returns the value of the '<em><b>Documentation</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Documentation</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Documentation</em>' attribute list.
+   * @see fr.univartois.cril.xtext2.als.AlsPackage#getEnumDecl_Documentation()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getDocumentation();
+
   /**
    * Returns the value of the '<em><b>Enum Name</b></em>' containment reference.
    * <!-- begin-user-doc -->

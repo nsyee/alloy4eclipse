@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext2.als.Function#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getRef <em>Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getDot <em>Dot</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.Function#getName <em>Name</em>}</li>
@@ -37,6 +38,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Function extends Paragraph
 {
+  /**
+   * Returns the value of the '<em><b>Documentation</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Documentation</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Documentation</em>' attribute list.
+   * @see fr.univartois.cril.xtext2.als.AlsPackage#getFunction_Documentation()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getDocumentation();
+
   /**
    * Returns the value of the '<em><b>Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->

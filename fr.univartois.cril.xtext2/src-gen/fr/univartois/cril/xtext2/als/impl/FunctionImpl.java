@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getDot <em>Dot</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl#getName <em>Name</em>}</li>
@@ -63,6 +65,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class FunctionImpl extends ParagraphImpl implements Function
 {
+  /**
+   * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDocumentation()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> documentation;
+
   /**
    * The cached value of the '{@link #getRef() <em>Ref</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -212,6 +224,20 @@ public class FunctionImpl extends ParagraphImpl implements Function
   protected EClass eStaticClass()
   {
     return AlsPackage.Literals.FUNCTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getDocumentation()
+  {
+    if (documentation == null)
+    {
+      documentation = new EDataTypeEList<String>(String.class, this, AlsPackage.FUNCTION__DOCUMENTATION);
+    }
+    return documentation;
   }
 
   /**
@@ -786,6 +812,8 @@ public class FunctionImpl extends ParagraphImpl implements Function
   {
     switch (featureID)
     {
+      case AlsPackage.FUNCTION__DOCUMENTATION:
+        return getDocumentation();
       case AlsPackage.FUNCTION__REF:
         return getRef();
       case AlsPackage.FUNCTION__DOT:
@@ -827,6 +855,10 @@ public class FunctionImpl extends ParagraphImpl implements Function
   {
     switch (featureID)
     {
+      case AlsPackage.FUNCTION__DOCUMENTATION:
+        getDocumentation().clear();
+        getDocumentation().addAll((Collection<? extends String>)newValue);
+        return;
       case AlsPackage.FUNCTION__REF:
         setRef((Ref)newValue);
         return;
@@ -883,6 +915,9 @@ public class FunctionImpl extends ParagraphImpl implements Function
   {
     switch (featureID)
     {
+      case AlsPackage.FUNCTION__DOCUMENTATION:
+        getDocumentation().clear();
+        return;
       case AlsPackage.FUNCTION__REF:
         setRef((Ref)null);
         return;
@@ -936,6 +971,8 @@ public class FunctionImpl extends ParagraphImpl implements Function
   {
     switch (featureID)
     {
+      case AlsPackage.FUNCTION__DOCUMENTATION:
+        return documentation != null && !documentation.isEmpty();
       case AlsPackage.FUNCTION__REF:
         return ref != null;
       case AlsPackage.FUNCTION__DOT:
@@ -964,6 +1001,23 @@ public class FunctionImpl extends ParagraphImpl implements Function
         return block != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (documentation: ");
+    result.append(documentation);
+    result.append(')');
+    return result.toString();
   }
 
 } //FunctionImpl

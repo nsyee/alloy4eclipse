@@ -62,6 +62,15 @@ public interface AlsFactory extends EFactory
   Paragraph createParagraph();
 
   /**
+   * Returns a new object of class '<em>Enum Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Decl</em>'.
+   * @generated
+   */
+  EnumDecl createEnumDecl();
+
+  /**
    * Returns a new object of class '<em>Fact</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,15 +78,6 @@ public interface AlsFactory extends EFactory
    * @generated
    */
   Fact createFact();
-
-  /**
-   * Returns a new object of class '<em>Assertion</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assertion</em>'.
-   * @generated
-   */
-  Assertion createAssertion();
 
   /**
    * Returns a new object of class '<em>Function</em>'.
@@ -89,6 +89,15 @@ public interface AlsFactory extends EFactory
   Function createFunction();
 
   /**
+   * Returns a new object of class '<em>Let</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let</em>'.
+   * @generated
+   */
+  Let createLet();
+
+  /**
    * Returns a new object of class '<em>Predicate</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -96,6 +105,24 @@ public interface AlsFactory extends EFactory
    * @generated
    */
   Predicate createPredicate();
+
+  /**
+   * Returns a new object of class '<em>Signature</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Signature</em>'.
+   * @generated
+   */
+  Signature createSignature();
+
+  /**
+   * Returns a new object of class '<em>Assertion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assertion</em>'.
+   * @generated
+   */
+  Assertion createAssertion();
 
   /**
    * Returns a new object of class '<em>Run Command</em>'.
@@ -143,33 +170,6 @@ public interface AlsFactory extends EFactory
   Typescope createTypescope();
 
   /**
-   * Returns a new object of class '<em>Enum Decl</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enum Decl</em>'.
-   * @generated
-   */
-  EnumDecl createEnumDecl();
-
-  /**
-   * Returns a new object of class '<em>Let</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Let</em>'.
-   * @generated
-   */
-  Let createLet();
-
-  /**
-   * Returns a new object of class '<em>Signature</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Signature</em>'.
-   * @generated
-   */
-  Signature createSignature();
-
-  /**
    * Returns a new object of class '<em>Sig Ext</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -179,6 +179,15 @@ public interface AlsFactory extends EFactory
   SigExt createSigExt();
 
   /**
+   * Returns a new object of class '<em>References Sig</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>References Sig</em>'.
+   * @generated
+   */
+  ReferencesSig createReferencesSig();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -186,6 +195,15 @@ public interface AlsFactory extends EFactory
    * @generated
    */
   Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block</em>'.
+   * @generated
+   */
+  Block createBlock();
 
   /**
    * Returns a new object of class '<em>Decl</em>'.
@@ -204,15 +222,6 @@ public interface AlsFactory extends EFactory
    * @generated
    */
   Param createParam();
-
-  /**
-   * Returns a new object of class '<em>Let Decl</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Let Decl</em>'.
-   * @generated
-   */
-  LetDecl createLetDecl();
 
   /**
    * Returns a new object of class '<em>Paranthesisand Expression</em>'.
@@ -260,13 +269,13 @@ public interface AlsFactory extends EFactory
   ArrowOp createArrowOp();
 
   /**
-   * Returns a new object of class '<em>Block</em>'.
+   * Returns a new object of class '<em>Let Decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Block</em>'.
+   * @return a new object of class '<em>Let Decl</em>'.
    * @generated
    */
-  Block createBlock();
+  LetDecl createLetDecl();
 
   /**
    * Returns a new object of class '<em>Block Or Bar</em>'.
@@ -422,15 +431,6 @@ public interface AlsFactory extends EFactory
   ReferencesName createReferencesName();
 
   /**
-   * Returns a new object of class '<em>References Sig</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>References Sig</em>'.
-   * @generated
-   */
-  ReferencesSig createReferencesSig();
-
-  /**
    * Returns a new object of class '<em>Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -438,24 +438,6 @@ public interface AlsFactory extends EFactory
    * @generated
    */
   Ref createRef();
-
-  /**
-   * Returns a new object of class '<em>Left Curly Bracket</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Left Curly Bracket</em>'.
-   * @generated
-   */
-  LeftCurlyBracket createLeftCurlyBracket();
-
-  /**
-   * Returns a new object of class '<em>Right Curly Bracket</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Right Curly Bracket</em>'.
-   * @generated
-   */
-  RightCurlyBracket createRightCurlyBracket();
 
   /**
    * Returns a new object of class '<em>Dot</em>'.
@@ -483,6 +465,24 @@ public interface AlsFactory extends EFactory
    * @generated
    */
   Colon createColon();
+
+  /**
+   * Returns a new object of class '<em>Left Curly Bracket</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Left Curly Bracket</em>'.
+   * @generated
+   */
+  LeftCurlyBracket createLeftCurlyBracket();
+
+  /**
+   * Returns a new object of class '<em>Right Curly Bracket</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Right Curly Bracket</em>'.
+   * @generated
+   */
+  RightCurlyBracket createRightCurlyBracket();
 
   /**
    * Returns a new object of class '<em>Left Parenthesis</em>'.

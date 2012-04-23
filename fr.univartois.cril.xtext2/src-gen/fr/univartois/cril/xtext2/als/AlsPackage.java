@@ -280,6 +280,79 @@ public interface AlsPackage extends EPackage
   int PARAGRAPH_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.EnumDeclImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getEnumDecl()
+   * @generated
+   */
+  int ENUM_DECL = 4;
+
+  /**
+   * The feature id for the '<em><b>Documentation</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_DECL__DOCUMENTATION = PARAGRAPH_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Enum Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_DECL__ENUM_NAME = PARAGRAPH_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Left C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_DECL__LEFT_C = PARAGRAPH_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Property Enum</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_DECL__PROPERTY_ENUM = PARAGRAPH_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_DECL__COMMA = PARAGRAPH_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Right C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_DECL__RIGHT_C = PARAGRAPH_FEATURE_COUNT + 5;
+
+  /**
+   * The number of structural features of the '<em>Enum Decl</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 6;
+
+  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.FactImpl <em>Fact</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -287,7 +360,16 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getFact()
    * @generated
    */
-  int FACT = 4;
+  int FACT = 5;
+
+  /**
+   * The feature id for the '<em><b>Documentation</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FACT__DOCUMENTATION = PARAGRAPH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -296,7 +378,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FACT__NAME = PARAGRAPH_FEATURE_COUNT + 0;
+  int FACT__NAME = PARAGRAPH_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -305,7 +387,7 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FACT__BLOCK = PARAGRAPH_FEATURE_COUNT + 1;
+  int FACT__BLOCK = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Fact</em>' class.
@@ -314,7 +396,443 @@ public interface AlsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FACT_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 2;
+  int FACT_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl <em>Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.FunctionImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getFunction()
+   * @generated
+   */
+  int FUNCTION = 6;
+
+  /**
+   * The feature id for the '<em><b>Documentation</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__DOCUMENTATION = PARAGRAPH_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__REF = PARAGRAPH_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Dot</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__DOT = PARAGRAPH_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__NAME = PARAGRAPH_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Left S</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__LEFT_S = PARAGRAPH_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Param</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__PARAM = PARAGRAPH_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__COMMA = PARAGRAPH_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Right S</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__RIGHT_S = PARAGRAPH_FEATURE_COUNT + 7;
+
+  /**
+   * The feature id for the '<em><b>Left P</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__LEFT_P = PARAGRAPH_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Decl</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__DECL = PARAGRAPH_FEATURE_COUNT + 9;
+
+  /**
+   * The feature id for the '<em><b>Right P</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__RIGHT_P = PARAGRAPH_FEATURE_COUNT + 10;
+
+  /**
+   * The feature id for the '<em><b>Colon</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__COLON = PARAGRAPH_FEATURE_COUNT + 11;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__EXPR = PARAGRAPH_FEATURE_COUNT + 12;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__BLOCK = PARAGRAPH_FEATURE_COUNT + 13;
+
+  /**
+   * The number of structural features of the '<em>Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 14;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.LetImpl <em>Let</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.LetImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLet()
+   * @generated
+   */
+  int LET = 7;
+
+  /**
+   * The feature id for the '<em><b>Documentation</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET__DOCUMENTATION = PARAGRAPH_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET__NAME = PARAGRAPH_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Left S</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET__LEFT_S = PARAGRAPH_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Name Ref</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET__NAME_REF = PARAGRAPH_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET__COMMA = PARAGRAPH_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Right S</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET__RIGHT_S = PARAGRAPH_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET__BLOCK = PARAGRAPH_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Expr Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET__EXPR_NAME = PARAGRAPH_FEATURE_COUNT + 7;
+
+  /**
+   * The number of structural features of the '<em>Let</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 8;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl <em>Predicate</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.PredicateImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getPredicate()
+   * @generated
+   */
+  int PREDICATE = 8;
+
+  /**
+   * The feature id for the '<em><b>Documentation</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__DOCUMENTATION = PARAGRAPH_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__REF = PARAGRAPH_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Dot</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__DOT = PARAGRAPH_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__NAME = PARAGRAPH_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Left S</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__LEFT_S = PARAGRAPH_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Param</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__PARAM = PARAGRAPH_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__COMMA = PARAGRAPH_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Right S</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__RIGHT_S = PARAGRAPH_FEATURE_COUNT + 7;
+
+  /**
+   * The feature id for the '<em><b>Left P</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__LEFT_P = PARAGRAPH_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Right P</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__RIGHT_P = PARAGRAPH_FEATURE_COUNT + 9;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE__BLOCK = PARAGRAPH_FEATURE_COUNT + 10;
+
+  /**
+   * The number of structural features of the '<em>Predicate</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 11;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.SignatureImpl <em>Signature</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.SignatureImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getSignature()
+   * @generated
+   */
+  int SIGNATURE = 9;
+
+  /**
+   * The feature id for the '<em><b>Documentation</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGNATURE__DOCUMENTATION = PARAGRAPH_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Signature Name</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGNATURE__SIGNATURE_NAME = PARAGRAPH_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGNATURE__COMMA = PARAGRAPH_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Sig Ext</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGNATURE__SIG_EXT = PARAGRAPH_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Decl</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGNATURE__DECL = PARAGRAPH_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Comma2</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGNATURE__COMMA2 = PARAGRAPH_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGNATURE__BLOCK = PARAGRAPH_FEATURE_COUNT + 6;
+
+  /**
+   * The number of structural features of the '<em>Signature</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIGNATURE_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.AssertionImpl <em>Assertion</em>}' class.
@@ -324,7 +842,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getAssertion()
    * @generated
    */
-  int ASSERTION = 5;
+  int ASSERTION = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -354,251 +872,6 @@ public interface AlsPackage extends EPackage
   int ASSERTION_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl <em>Function</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.FunctionImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getFunction()
-   * @generated
-   */
-  int FUNCTION = 6;
-
-  /**
-   * The feature id for the '<em><b>Ref</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__REF = PARAGRAPH_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Dot</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__DOT = PARAGRAPH_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__NAME = PARAGRAPH_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Left S</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__LEFT_S = PARAGRAPH_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Param</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__PARAM = PARAGRAPH_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__COMMA = PARAGRAPH_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Right S</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__RIGHT_S = PARAGRAPH_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Left P</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__LEFT_P = PARAGRAPH_FEATURE_COUNT + 7;
-
-  /**
-   * The feature id for the '<em><b>Decl</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__DECL = PARAGRAPH_FEATURE_COUNT + 8;
-
-  /**
-   * The feature id for the '<em><b>Right P</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__RIGHT_P = PARAGRAPH_FEATURE_COUNT + 9;
-
-  /**
-   * The feature id for the '<em><b>Colon</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__COLON = PARAGRAPH_FEATURE_COUNT + 10;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__EXPR = PARAGRAPH_FEATURE_COUNT + 11;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__BLOCK = PARAGRAPH_FEATURE_COUNT + 12;
-
-  /**
-   * The number of structural features of the '<em>Function</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 13;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl <em>Predicate</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.PredicateImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getPredicate()
-   * @generated
-   */
-  int PREDICATE = 7;
-
-  /**
-   * The feature id for the '<em><b>Ref</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__REF = PARAGRAPH_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Dot</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__DOT = PARAGRAPH_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__NAME = PARAGRAPH_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Left S</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__LEFT_S = PARAGRAPH_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Param</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__PARAM = PARAGRAPH_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__COMMA = PARAGRAPH_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Right S</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__RIGHT_S = PARAGRAPH_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Left P</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__LEFT_P = PARAGRAPH_FEATURE_COUNT + 7;
-
-  /**
-   * The feature id for the '<em><b>Right P</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__RIGHT_P = PARAGRAPH_FEATURE_COUNT + 8;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE__BLOCK = PARAGRAPH_FEATURE_COUNT + 9;
-
-  /**
-   * The number of structural features of the '<em>Predicate</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 10;
-
-  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.RunCommandImpl <em>Run Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -606,7 +879,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getRunCommand()
    * @generated
    */
-  int RUN_COMMAND = 8;
+  int RUN_COMMAND = 11;
 
   /**
    * The feature id for the '<em><b>Run Name</b></em>' containment reference.
@@ -661,7 +934,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getCheckCommand()
    * @generated
    */
-  int CHECK_COMMAND = 9;
+  int CHECK_COMMAND = 12;
 
   /**
    * The feature id for the '<em><b>Check Name</b></em>' containment reference.
@@ -716,7 +989,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getScope()
    * @generated
    */
-  int SCOPE = 10;
+  int SCOPE = 13;
 
   /**
    * The feature id for the '<em><b>For</b></em>' attribute.
@@ -789,7 +1062,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getExpectation()
    * @generated
    */
-  int EXPECTATION = 11;
+  int EXPECTATION = 14;
 
   /**
    * The feature id for the '<em><b>Expect</b></em>' attribute.
@@ -826,7 +1099,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getTypescope()
    * @generated
    */
-  int TYPESCOPE = 12;
+  int TYPESCOPE = 15;
 
   /**
    * The feature id for the '<em><b>Exactly</b></em>' attribute.
@@ -901,225 +1174,6 @@ public interface AlsPackage extends EPackage
   int TYPESCOPE_FEATURE_COUNT = 7;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.EnumDeclImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getEnumDecl()
-   * @generated
-   */
-  int ENUM_DECL = 13;
-
-  /**
-   * The feature id for the '<em><b>Enum Name</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUM_DECL__ENUM_NAME = PARAGRAPH_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Left C</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUM_DECL__LEFT_C = PARAGRAPH_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Property Enum</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUM_DECL__PROPERTY_ENUM = PARAGRAPH_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUM_DECL__COMMA = PARAGRAPH_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Right C</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUM_DECL__RIGHT_C = PARAGRAPH_FEATURE_COUNT + 4;
-
-  /**
-   * The number of structural features of the '<em>Enum Decl</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUM_DECL_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 5;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.LetImpl <em>Let</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.LetImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLet()
-   * @generated
-   */
-  int LET = 14;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET__NAME = PARAGRAPH_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Left S</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET__LEFT_S = PARAGRAPH_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Name Ref</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET__NAME_REF = PARAGRAPH_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET__COMMA = PARAGRAPH_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Right S</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET__RIGHT_S = PARAGRAPH_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET__BLOCK = PARAGRAPH_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Expr Name</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET__EXPR_NAME = PARAGRAPH_FEATURE_COUNT + 6;
-
-  /**
-   * The number of structural features of the '<em>Let</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 7;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.SignatureImpl <em>Signature</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.SignatureImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getSignature()
-   * @generated
-   */
-  int SIGNATURE = 15;
-
-  /**
-   * The feature id for the '<em><b>Signature Name</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGNATURE__SIGNATURE_NAME = PARAGRAPH_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Comma</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGNATURE__COMMA = PARAGRAPH_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Sig Ext</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGNATURE__SIG_EXT = PARAGRAPH_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Decl</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGNATURE__DECL = PARAGRAPH_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Comma2</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGNATURE__COMMA2 = PARAGRAPH_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGNATURE__BLOCK = PARAGRAPH_FEATURE_COUNT + 5;
-
-  /**
-   * The number of structural features of the '<em>Signature</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGNATURE_FEATURE_COUNT = PARAGRAPH_FEATURE_COUNT + 6;
-
-  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.SigExtImpl <em>Sig Ext</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1157,6 +1211,43 @@ public interface AlsPackage extends EPackage
   int SIG_EXT_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.ReferencesSigImpl <em>References Sig</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.ReferencesSigImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getReferencesSig()
+   * @generated
+   */
+  int REFERENCES_SIG = 17;
+
+  /**
+   * The feature id for the '<em><b>Asname</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCES_SIG__ASNAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCES_SIG__NAME_REF = 1;
+
+  /**
+   * The number of structural features of the '<em>References Sig</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCES_SIG_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1164,7 +1255,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 17;
+  int EXPRESSION = 18;
 
   /**
    * The feature id for the '<em><b>Bin Op</b></em>' containment reference list.
@@ -1410,6 +1501,52 @@ public interface AlsPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = 26;
 
   /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.BlockImpl <em>Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.BlockImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBlock()
+   * @generated
+   */
+  int BLOCK = 19;
+
+  /**
+   * The feature id for the '<em><b>Left C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__LEFT_C = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__EXPR = 1;
+
+  /**
+   * The feature id for the '<em><b>Right C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__RIGHT_C = 2;
+
+  /**
+   * The number of structural features of the '<em>Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.DeclImpl <em>Decl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1417,7 +1554,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getDecl()
    * @generated
    */
-  int DECL = 18;
+  int DECL = 20;
 
   /**
    * The feature id for the '<em><b>Property Name</b></em>' containment reference list.
@@ -1472,7 +1609,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getParam()
    * @generated
    */
-  int PARAM = 19;
+  int PARAM = 21;
 
   /**
    * The feature id for the '<em><b>Property Name</b></em>' containment reference list.
@@ -1520,6 +1657,137 @@ public interface AlsPackage extends EPackage
   int PARAM_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.ParanthesisandExpressionImpl <em>Paranthesisand Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.ParanthesisandExpressionImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getParanthesisandExpression()
+   * @generated
+   */
+  int PARANTHESISAND_EXPRESSION = 22;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARANTHESISAND_EXPRESSION__EXPR = 0;
+
+  /**
+   * The number of structural features of the '<em>Paranthesisand Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARANTHESISAND_EXPRESSION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.BinOpImpl <em>Bin Op</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.BinOpImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBinOp()
+   * @generated
+   */
+  int BIN_OP = 23;
+
+  /**
+   * The feature id for the '<em><b>Dot</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BIN_OP__DOT = 0;
+
+  /**
+   * The number of structural features of the '<em>Bin Op</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BIN_OP_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.UnOpImpl <em>Un Op</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.UnOpImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getUnOp()
+   * @generated
+   */
+  int UN_OP = 24;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UN_OP__OP = 0;
+
+  /**
+   * The number of structural features of the '<em>Un Op</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UN_OP_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.CommonQuantUnOpImpl <em>Common Quant Un Op</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.CommonQuantUnOpImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getCommonQuantUnOp()
+   * @generated
+   */
+  int COMMON_QUANT_UN_OP = 25;
+
+  /**
+   * The number of structural features of the '<em>Common Quant Un Op</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMON_QUANT_UN_OP_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.ArrowOpImpl <em>Arrow Op</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.ArrowOpImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getArrowOp()
+   * @generated
+   */
+  int ARROW_OP = 26;
+
+  /**
+   * The feature id for the '<em><b>Arrow</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARROW_OP__ARROW = 0;
+
+  /**
+   * The number of structural features of the '<em>Arrow Op</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARROW_OP_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.LetDeclImpl <em>Let Decl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1527,7 +1795,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLetDecl()
    * @generated
    */
-  int LET_DECL = 20;
+  int LET_DECL = 27;
 
   /**
    * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
@@ -1557,183 +1825,6 @@ public interface AlsPackage extends EPackage
   int LET_DECL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.ParanthesisandExpressionImpl <em>Paranthesisand Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.ParanthesisandExpressionImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getParanthesisandExpression()
-   * @generated
-   */
-  int PARANTHESISAND_EXPRESSION = 21;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARANTHESISAND_EXPRESSION__EXPR = 0;
-
-  /**
-   * The number of structural features of the '<em>Paranthesisand Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARANTHESISAND_EXPRESSION_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.BinOpImpl <em>Bin Op</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.BinOpImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBinOp()
-   * @generated
-   */
-  int BIN_OP = 22;
-
-  /**
-   * The feature id for the '<em><b>Dot</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BIN_OP__DOT = 0;
-
-  /**
-   * The number of structural features of the '<em>Bin Op</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BIN_OP_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.UnOpImpl <em>Un Op</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.UnOpImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getUnOp()
-   * @generated
-   */
-  int UN_OP = 23;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UN_OP__OP = 0;
-
-  /**
-   * The number of structural features of the '<em>Un Op</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UN_OP_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.CommonQuantUnOpImpl <em>Common Quant Un Op</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.CommonQuantUnOpImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getCommonQuantUnOp()
-   * @generated
-   */
-  int COMMON_QUANT_UN_OP = 24;
-
-  /**
-   * The number of structural features of the '<em>Common Quant Un Op</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMON_QUANT_UN_OP_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.ArrowOpImpl <em>Arrow Op</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.ArrowOpImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getArrowOp()
-   * @generated
-   */
-  int ARROW_OP = 25;
-
-  /**
-   * The feature id for the '<em><b>Arrow</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARROW_OP__ARROW = 0;
-
-  /**
-   * The number of structural features of the '<em>Arrow Op</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARROW_OP_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.BlockImpl <em>Block</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.BlockImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBlock()
-   * @generated
-   */
-  int BLOCK = 26;
-
-  /**
-   * The feature id for the '<em><b>Left C</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLOCK__LEFT_C = 0;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLOCK__EXPR = 1;
-
-  /**
-   * The feature id for the '<em><b>Right C</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLOCK__RIGHT_C = 2;
-
-  /**
-   * The number of structural features of the '<em>Block</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLOCK_FEATURE_COUNT = 3;
-
-  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.BlockOrBarImpl <em>Block Or Bar</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1741,7 +1832,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBlockOrBar()
    * @generated
    */
-  int BLOCK_OR_BAR = 27;
+  int BLOCK_OR_BAR = 28;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1778,7 +1869,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBlockOrPossibleBar()
    * @generated
    */
-  int BLOCK_OR_POSSIBLE_BAR = 28;
+  int BLOCK_OR_POSSIBLE_BAR = 29;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1815,7 +1906,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getOpenName()
    * @generated
    */
-  int OPEN_NAME = 29;
+  int OPEN_NAME = 30;
 
   /**
    * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -1843,7 +1934,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getReferencesName()
    * @generated
    */
-  int REFERENCES_NAME = 43;
+  int REFERENCES_NAME = 44;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1871,7 +1962,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getFactName()
    * @generated
    */
-  int FACT_NAME = 30;
+  int FACT_NAME = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1899,7 +1990,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getAssertionName()
    * @generated
    */
-  int ASSERTION_NAME = 31;
+  int ASSERTION_NAME = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1927,7 +2018,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getFunctionName()
    * @generated
    */
-  int FUNCTION_NAME = 32;
+  int FUNCTION_NAME = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1955,7 +2046,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getFunctionNamewParam()
    * @generated
    */
-  int FUNCTION_NAMEW_PARAM = 33;
+  int FUNCTION_NAMEW_PARAM = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1983,7 +2074,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getPredicateName()
    * @generated
    */
-  int PREDICATE_NAME = 34;
+  int PREDICATE_NAME = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2011,7 +2102,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getAlias()
    * @generated
    */
-  int ALIAS = 35;
+  int ALIAS = 36;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2039,7 +2130,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getEnumName()
    * @generated
    */
-  int ENUM_NAME = 36;
+  int ENUM_NAME = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2067,7 +2158,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getEnumPropertyName()
    * @generated
    */
-  int ENUM_PROPERTY_NAME = 37;
+  int ENUM_PROPERTY_NAME = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2095,7 +2186,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLetName()
    * @generated
    */
-  int LET_NAME = 38;
+  int LET_NAME = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2123,7 +2214,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getSignatureName()
    * @generated
    */
-  int SIGNATURE_NAME = 39;
+  int SIGNATURE_NAME = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2151,7 +2242,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getPropertyName()
    * @generated
    */
-  int PROPERTY_NAME = 40;
+  int PROPERTY_NAME = 41;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2179,7 +2270,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getExactlyName()
    * @generated
    */
-  int EXACTLY_NAME = 41;
+  int EXACTLY_NAME = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2207,7 +2298,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getAsName()
    * @generated
    */
-  int AS_NAME = 42;
+  int AS_NAME = 43;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2226,43 +2317,6 @@ public interface AlsPackage extends EPackage
    * @ordered
    */
   int AS_NAME_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.ReferencesSigImpl <em>References Sig</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.ReferencesSigImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getReferencesSig()
-   * @generated
-   */
-  int REFERENCES_SIG = 44;
-
-  /**
-   * The feature id for the '<em><b>Asname</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REFERENCES_SIG__ASNAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Name Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REFERENCES_SIG__NAME_REF = 1;
-
-  /**
-   * The number of structural features of the '<em>References Sig</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REFERENCES_SIG_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.RefImpl <em>Ref</em>}' class.
@@ -2293,62 +2347,6 @@ public interface AlsPackage extends EPackage
   int REF_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.LeftCurlyBracketImpl <em>Left Curly Bracket</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.LeftCurlyBracketImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLeftCurlyBracket()
-   * @generated
-   */
-  int LEFT_CURLY_BRACKET = 46;
-
-  /**
-   * The feature id for the '<em><b>Left Curly Bracket</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEFT_CURLY_BRACKET__LEFT_CURLY_BRACKET = 0;
-
-  /**
-   * The number of structural features of the '<em>Left Curly Bracket</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEFT_CURLY_BRACKET_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.RightCurlyBracketImpl <em>Right Curly Bracket</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.univartois.cril.xtext2.als.impl.RightCurlyBracketImpl
-   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getRightCurlyBracket()
-   * @generated
-   */
-  int RIGHT_CURLY_BRACKET = 47;
-
-  /**
-   * The feature id for the '<em><b>Right Curly Bracket</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RIGHT_CURLY_BRACKET__RIGHT_CURLY_BRACKET = 0;
-
-  /**
-   * The number of structural features of the '<em>Right Curly Bracket</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RIGHT_CURLY_BRACKET_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.DotImpl <em>Dot</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2356,7 +2354,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getDot()
    * @generated
    */
-  int DOT = 48;
+  int DOT = 46;
 
   /**
    * The feature id for the '<em><b>Dot</b></em>' attribute.
@@ -2384,7 +2382,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getComma()
    * @generated
    */
-  int COMMA = 49;
+  int COMMA = 47;
 
   /**
    * The feature id for the '<em><b>Comma</b></em>' attribute.
@@ -2412,7 +2410,7 @@ public interface AlsPackage extends EPackage
    * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getColon()
    * @generated
    */
-  int COLON = 50;
+  int COLON = 48;
 
   /**
    * The feature id for the '<em><b>Colon</b></em>' attribute.
@@ -2431,6 +2429,62 @@ public interface AlsPackage extends EPackage
    * @ordered
    */
   int COLON_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.LeftCurlyBracketImpl <em>Left Curly Bracket</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.LeftCurlyBracketImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLeftCurlyBracket()
+   * @generated
+   */
+  int LEFT_CURLY_BRACKET = 49;
+
+  /**
+   * The feature id for the '<em><b>Left Curly Bracket</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEFT_CURLY_BRACKET__LEFT_CURLY_BRACKET = 0;
+
+  /**
+   * The number of structural features of the '<em>Left Curly Bracket</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEFT_CURLY_BRACKET_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.RightCurlyBracketImpl <em>Right Curly Bracket</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.univartois.cril.xtext2.als.impl.RightCurlyBracketImpl
+   * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getRightCurlyBracket()
+   * @generated
+   */
+  int RIGHT_CURLY_BRACKET = 50;
+
+  /**
+   * The feature id for the '<em><b>Right Curly Bracket</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RIGHT_CURLY_BRACKET__RIGHT_CURLY_BRACKET = 0;
+
+  /**
+   * The number of structural features of the '<em>Right Curly Bracket</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RIGHT_CURLY_BRACKET_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link fr.univartois.cril.xtext2.als.impl.LeftParenthesisImpl <em>Left Parenthesis</em>}' class.
@@ -2762,6 +2816,82 @@ public interface AlsPackage extends EPackage
   EClass getParagraph();
 
   /**
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.EnumDecl <em>Enum Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enum Decl</em>'.
+   * @see fr.univartois.cril.xtext2.als.EnumDecl
+   * @generated
+   */
+  EClass getEnumDecl();
+
+  /**
+   * Returns the meta object for the attribute list '{@link fr.univartois.cril.xtext2.als.EnumDecl#getDocumentation <em>Documentation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Documentation</em>'.
+   * @see fr.univartois.cril.xtext2.als.EnumDecl#getDocumentation()
+   * @see #getEnumDecl()
+   * @generated
+   */
+  EAttribute getEnumDecl_Documentation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.EnumDecl#getEnumName <em>Enum Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Enum Name</em>'.
+   * @see fr.univartois.cril.xtext2.als.EnumDecl#getEnumName()
+   * @see #getEnumDecl()
+   * @generated
+   */
+  EReference getEnumDecl_EnumName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.EnumDecl#getLeftC <em>Left C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left C</em>'.
+   * @see fr.univartois.cril.xtext2.als.EnumDecl#getLeftC()
+   * @see #getEnumDecl()
+   * @generated
+   */
+  EReference getEnumDecl_LeftC();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.EnumDecl#getPropertyEnum <em>Property Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Property Enum</em>'.
+   * @see fr.univartois.cril.xtext2.als.EnumDecl#getPropertyEnum()
+   * @see #getEnumDecl()
+   * @generated
+   */
+  EReference getEnumDecl_PropertyEnum();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.EnumDecl#getComma <em>Comma</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Comma</em>'.
+   * @see fr.univartois.cril.xtext2.als.EnumDecl#getComma()
+   * @see #getEnumDecl()
+   * @generated
+   */
+  EReference getEnumDecl_Comma();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.EnumDecl#getRightC <em>Right C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right C</em>'.
+   * @see fr.univartois.cril.xtext2.als.EnumDecl#getRightC()
+   * @see #getEnumDecl()
+   * @generated
+   */
+  EReference getEnumDecl_RightC();
+
+  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Fact <em>Fact</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2770,6 +2900,17 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EClass getFact();
+
+  /**
+   * Returns the meta object for the attribute list '{@link fr.univartois.cril.xtext2.als.Fact#getDocumentation <em>Documentation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Documentation</em>'.
+   * @see fr.univartois.cril.xtext2.als.Fact#getDocumentation()
+   * @see #getFact()
+   * @generated
+   */
+  EAttribute getFact_Documentation();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Fact#getName <em>Name</em>}'.
@@ -2794,38 +2935,6 @@ public interface AlsPackage extends EPackage
   EReference getFact_Block();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Assertion <em>Assertion</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Assertion</em>'.
-   * @see fr.univartois.cril.xtext2.als.Assertion
-   * @generated
-   */
-  EClass getAssertion();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Assertion#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Name</em>'.
-   * @see fr.univartois.cril.xtext2.als.Assertion#getName()
-   * @see #getAssertion()
-   * @generated
-   */
-  EReference getAssertion_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Assertion#getBlock <em>Block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Block</em>'.
-   * @see fr.univartois.cril.xtext2.als.Assertion#getBlock()
-   * @see #getAssertion()
-   * @generated
-   */
-  EReference getAssertion_Block();
-
-  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Function <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2834,6 +2943,17 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EClass getFunction();
+
+  /**
+   * Returns the meta object for the attribute list '{@link fr.univartois.cril.xtext2.als.Function#getDocumentation <em>Documentation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Documentation</em>'.
+   * @see fr.univartois.cril.xtext2.als.Function#getDocumentation()
+   * @see #getFunction()
+   * @generated
+   */
+  EAttribute getFunction_Documentation();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Function#getRef <em>Ref</em>}'.
@@ -2979,6 +3099,104 @@ public interface AlsPackage extends EPackage
   EReference getFunction_Block();
 
   /**
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Let <em>Let</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Let</em>'.
+   * @see fr.univartois.cril.xtext2.als.Let
+   * @generated
+   */
+  EClass getLet();
+
+  /**
+   * Returns the meta object for the attribute list '{@link fr.univartois.cril.xtext2.als.Let#getDocumentation <em>Documentation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Documentation</em>'.
+   * @see fr.univartois.cril.xtext2.als.Let#getDocumentation()
+   * @see #getLet()
+   * @generated
+   */
+  EAttribute getLet_Documentation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see fr.univartois.cril.xtext2.als.Let#getName()
+   * @see #getLet()
+   * @generated
+   */
+  EReference getLet_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getLeftS <em>Left S</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left S</em>'.
+   * @see fr.univartois.cril.xtext2.als.Let#getLeftS()
+   * @see #getLet()
+   * @generated
+   */
+  EReference getLet_LeftS();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Let#getNameRef <em>Name Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Name Ref</em>'.
+   * @see fr.univartois.cril.xtext2.als.Let#getNameRef()
+   * @see #getLet()
+   * @generated
+   */
+  EReference getLet_NameRef();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Let#getComma <em>Comma</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Comma</em>'.
+   * @see fr.univartois.cril.xtext2.als.Let#getComma()
+   * @see #getLet()
+   * @generated
+   */
+  EReference getLet_Comma();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getRightS <em>Right S</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right S</em>'.
+   * @see fr.univartois.cril.xtext2.als.Let#getRightS()
+   * @see #getLet()
+   * @generated
+   */
+  EReference getLet_RightS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see fr.univartois.cril.xtext2.als.Let#getBlock()
+   * @see #getLet()
+   * @generated
+   */
+  EReference getLet_Block();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getExprName <em>Expr Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr Name</em>'.
+   * @see fr.univartois.cril.xtext2.als.Let#getExprName()
+   * @see #getLet()
+   * @generated
+   */
+  EReference getLet_ExprName();
+
+  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Predicate <em>Predicate</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2987,6 +3205,17 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EClass getPredicate();
+
+  /**
+   * Returns the meta object for the attribute list '{@link fr.univartois.cril.xtext2.als.Predicate#getDocumentation <em>Documentation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Documentation</em>'.
+   * @see fr.univartois.cril.xtext2.als.Predicate#getDocumentation()
+   * @see #getPredicate()
+   * @generated
+   */
+  EAttribute getPredicate_Documentation();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Predicate#getRef <em>Ref</em>}'.
@@ -3097,6 +3326,125 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EReference getPredicate_Block();
+
+  /**
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Signature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Signature</em>'.
+   * @see fr.univartois.cril.xtext2.als.Signature
+   * @generated
+   */
+  EClass getSignature();
+
+  /**
+   * Returns the meta object for the attribute list '{@link fr.univartois.cril.xtext2.als.Signature#getDocumentation <em>Documentation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Documentation</em>'.
+   * @see fr.univartois.cril.xtext2.als.Signature#getDocumentation()
+   * @see #getSignature()
+   * @generated
+   */
+  EAttribute getSignature_Documentation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Signature#getSignatureName <em>Signature Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Signature Name</em>'.
+   * @see fr.univartois.cril.xtext2.als.Signature#getSignatureName()
+   * @see #getSignature()
+   * @generated
+   */
+  EReference getSignature_SignatureName();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Signature#getComma <em>Comma</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Comma</em>'.
+   * @see fr.univartois.cril.xtext2.als.Signature#getComma()
+   * @see #getSignature()
+   * @generated
+   */
+  EReference getSignature_Comma();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Signature#getSigExt <em>Sig Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sig Ext</em>'.
+   * @see fr.univartois.cril.xtext2.als.Signature#getSigExt()
+   * @see #getSignature()
+   * @generated
+   */
+  EReference getSignature_SigExt();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Signature#getDecl <em>Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Decl</em>'.
+   * @see fr.univartois.cril.xtext2.als.Signature#getDecl()
+   * @see #getSignature()
+   * @generated
+   */
+  EReference getSignature_Decl();
+
+  /**
+   * Returns the meta object for the attribute list '{@link fr.univartois.cril.xtext2.als.Signature#getComma2 <em>Comma2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Comma2</em>'.
+   * @see fr.univartois.cril.xtext2.als.Signature#getComma2()
+   * @see #getSignature()
+   * @generated
+   */
+  EAttribute getSignature_Comma2();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Signature#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see fr.univartois.cril.xtext2.als.Signature#getBlock()
+   * @see #getSignature()
+   * @generated
+   */
+  EReference getSignature_Block();
+
+  /**
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Assertion <em>Assertion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Assertion</em>'.
+   * @see fr.univartois.cril.xtext2.als.Assertion
+   * @generated
+   */
+  EClass getAssertion();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Assertion#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see fr.univartois.cril.xtext2.als.Assertion#getName()
+   * @see #getAssertion()
+   * @generated
+   */
+  EReference getAssertion_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Assertion#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see fr.univartois.cril.xtext2.als.Assertion#getBlock()
+   * @see #getAssertion()
+   * @generated
+   */
+  EReference getAssertion_Block();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.RunCommand <em>Run Command</em>}'.
@@ -3402,234 +3750,6 @@ public interface AlsPackage extends EPackage
   EAttribute getTypescope_Post();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.EnumDecl <em>Enum Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Enum Decl</em>'.
-   * @see fr.univartois.cril.xtext2.als.EnumDecl
-   * @generated
-   */
-  EClass getEnumDecl();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.EnumDecl#getEnumName <em>Enum Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Enum Name</em>'.
-   * @see fr.univartois.cril.xtext2.als.EnumDecl#getEnumName()
-   * @see #getEnumDecl()
-   * @generated
-   */
-  EReference getEnumDecl_EnumName();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.EnumDecl#getLeftC <em>Left C</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left C</em>'.
-   * @see fr.univartois.cril.xtext2.als.EnumDecl#getLeftC()
-   * @see #getEnumDecl()
-   * @generated
-   */
-  EReference getEnumDecl_LeftC();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.EnumDecl#getPropertyEnum <em>Property Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Property Enum</em>'.
-   * @see fr.univartois.cril.xtext2.als.EnumDecl#getPropertyEnum()
-   * @see #getEnumDecl()
-   * @generated
-   */
-  EReference getEnumDecl_PropertyEnum();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.EnumDecl#getComma <em>Comma</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Comma</em>'.
-   * @see fr.univartois.cril.xtext2.als.EnumDecl#getComma()
-   * @see #getEnumDecl()
-   * @generated
-   */
-  EReference getEnumDecl_Comma();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.EnumDecl#getRightC <em>Right C</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right C</em>'.
-   * @see fr.univartois.cril.xtext2.als.EnumDecl#getRightC()
-   * @see #getEnumDecl()
-   * @generated
-   */
-  EReference getEnumDecl_RightC();
-
-  /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Let <em>Let</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Let</em>'.
-   * @see fr.univartois.cril.xtext2.als.Let
-   * @generated
-   */
-  EClass getLet();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Name</em>'.
-   * @see fr.univartois.cril.xtext2.als.Let#getName()
-   * @see #getLet()
-   * @generated
-   */
-  EReference getLet_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getLeftS <em>Left S</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left S</em>'.
-   * @see fr.univartois.cril.xtext2.als.Let#getLeftS()
-   * @see #getLet()
-   * @generated
-   */
-  EReference getLet_LeftS();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Let#getNameRef <em>Name Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Name Ref</em>'.
-   * @see fr.univartois.cril.xtext2.als.Let#getNameRef()
-   * @see #getLet()
-   * @generated
-   */
-  EReference getLet_NameRef();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Let#getComma <em>Comma</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Comma</em>'.
-   * @see fr.univartois.cril.xtext2.als.Let#getComma()
-   * @see #getLet()
-   * @generated
-   */
-  EReference getLet_Comma();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getRightS <em>Right S</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right S</em>'.
-   * @see fr.univartois.cril.xtext2.als.Let#getRightS()
-   * @see #getLet()
-   * @generated
-   */
-  EReference getLet_RightS();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getBlock <em>Block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Block</em>'.
-   * @see fr.univartois.cril.xtext2.als.Let#getBlock()
-   * @see #getLet()
-   * @generated
-   */
-  EReference getLet_Block();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Let#getExprName <em>Expr Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr Name</em>'.
-   * @see fr.univartois.cril.xtext2.als.Let#getExprName()
-   * @see #getLet()
-   * @generated
-   */
-  EReference getLet_ExprName();
-
-  /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Signature <em>Signature</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Signature</em>'.
-   * @see fr.univartois.cril.xtext2.als.Signature
-   * @generated
-   */
-  EClass getSignature();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Signature#getSignatureName <em>Signature Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Signature Name</em>'.
-   * @see fr.univartois.cril.xtext2.als.Signature#getSignatureName()
-   * @see #getSignature()
-   * @generated
-   */
-  EReference getSignature_SignatureName();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Signature#getComma <em>Comma</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Comma</em>'.
-   * @see fr.univartois.cril.xtext2.als.Signature#getComma()
-   * @see #getSignature()
-   * @generated
-   */
-  EReference getSignature_Comma();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Signature#getSigExt <em>Sig Ext</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Sig Ext</em>'.
-   * @see fr.univartois.cril.xtext2.als.Signature#getSigExt()
-   * @see #getSignature()
-   * @generated
-   */
-  EReference getSignature_SigExt();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Signature#getDecl <em>Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Decl</em>'.
-   * @see fr.univartois.cril.xtext2.als.Signature#getDecl()
-   * @see #getSignature()
-   * @generated
-   */
-  EReference getSignature_Decl();
-
-  /**
-   * Returns the meta object for the attribute list '{@link fr.univartois.cril.xtext2.als.Signature#getComma2 <em>Comma2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Comma2</em>'.
-   * @see fr.univartois.cril.xtext2.als.Signature#getComma2()
-   * @see #getSignature()
-   * @generated
-   */
-  EAttribute getSignature_Comma2();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Signature#getBlock <em>Block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Block</em>'.
-   * @see fr.univartois.cril.xtext2.als.Signature#getBlock()
-   * @see #getSignature()
-   * @generated
-   */
-  EReference getSignature_Block();
-
-  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.SigExt <em>Sig Ext</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3660,6 +3780,38 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EReference getSigExt_Ref2();
+
+  /**
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.ReferencesSig <em>References Sig</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>References Sig</em>'.
+   * @see fr.univartois.cril.xtext2.als.ReferencesSig
+   * @generated
+   */
+  EClass getReferencesSig();
+
+  /**
+   * Returns the meta object for the reference '{@link fr.univartois.cril.xtext2.als.ReferencesSig#getAsname <em>Asname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Asname</em>'.
+   * @see fr.univartois.cril.xtext2.als.ReferencesSig#getAsname()
+   * @see #getReferencesSig()
+   * @generated
+   */
+  EReference getReferencesSig_Asname();
+
+  /**
+   * Returns the meta object for the reference '{@link fr.univartois.cril.xtext2.als.ReferencesSig#getNameRef <em>Name Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Name Ref</em>'.
+   * @see fr.univartois.cril.xtext2.als.ReferencesSig#getNameRef()
+   * @see #getReferencesSig()
+   * @generated
+   */
+  EReference getReferencesSig_NameRef();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Expression <em>Expression</em>}'.
@@ -3958,6 +4110,49 @@ public interface AlsPackage extends EPackage
   EReference getExpression_RightCurlyBracket();
 
   /**
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Block</em>'.
+   * @see fr.univartois.cril.xtext2.als.Block
+   * @generated
+   */
+  EClass getBlock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Block#getLeftC <em>Left C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left C</em>'.
+   * @see fr.univartois.cril.xtext2.als.Block#getLeftC()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_LeftC();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Block#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expr</em>'.
+   * @see fr.univartois.cril.xtext2.als.Block#getExpr()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_Expr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Block#getRightC <em>Right C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right C</em>'.
+   * @see fr.univartois.cril.xtext2.als.Block#getRightC()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_RightC();
+
+  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Decl <em>Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4066,38 +4261,6 @@ public interface AlsPackage extends EPackage
   EReference getParam_Expr();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.LetDecl <em>Let Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Let Decl</em>'.
-   * @see fr.univartois.cril.xtext2.als.LetDecl
-   * @generated
-   */
-  EClass getLetDecl();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.LetDecl#getNameExpression <em>Name Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Name Expression</em>'.
-   * @see fr.univartois.cril.xtext2.als.LetDecl#getNameExpression()
-   * @see #getLetDecl()
-   * @generated
-   */
-  EReference getLetDecl_NameExpression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.LetDecl#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see fr.univartois.cril.xtext2.als.LetDecl#getExpr()
-   * @see #getLetDecl()
-   * @generated
-   */
-  EReference getLetDecl_Expr();
-
-  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.ParanthesisandExpression <em>Paranthesisand Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4192,47 +4355,36 @@ public interface AlsPackage extends EPackage
   EAttribute getArrowOp_Arrow();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Block <em>Block</em>}'.
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.LetDecl <em>Let Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Block</em>'.
-   * @see fr.univartois.cril.xtext2.als.Block
+   * @return the meta object for class '<em>Let Decl</em>'.
+   * @see fr.univartois.cril.xtext2.als.LetDecl
    * @generated
    */
-  EClass getBlock();
+  EClass getLetDecl();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Block#getLeftC <em>Left C</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.LetDecl#getNameExpression <em>Name Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left C</em>'.
-   * @see fr.univartois.cril.xtext2.als.Block#getLeftC()
-   * @see #getBlock()
+   * @return the meta object for the containment reference '<em>Name Expression</em>'.
+   * @see fr.univartois.cril.xtext2.als.LetDecl#getNameExpression()
+   * @see #getLetDecl()
    * @generated
    */
-  EReference getBlock_LeftC();
+  EReference getLetDecl_NameExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.univartois.cril.xtext2.als.Block#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.LetDecl#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see fr.univartois.cril.xtext2.als.Block#getExpr()
-   * @see #getBlock()
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see fr.univartois.cril.xtext2.als.LetDecl#getExpr()
+   * @see #getLetDecl()
    * @generated
    */
-  EReference getBlock_Expr();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.univartois.cril.xtext2.als.Block#getRightC <em>Right C</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right C</em>'.
-   * @see fr.univartois.cril.xtext2.als.Block#getRightC()
-   * @see #getBlock()
-   * @generated
-   */
-  EReference getBlock_RightC();
+  EReference getLetDecl_Expr();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.BlockOrBar <em>Block Or Bar</em>}'.
@@ -4504,38 +4656,6 @@ public interface AlsPackage extends EPackage
   EAttribute getReferencesName_Name();
 
   /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.ReferencesSig <em>References Sig</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>References Sig</em>'.
-   * @see fr.univartois.cril.xtext2.als.ReferencesSig
-   * @generated
-   */
-  EClass getReferencesSig();
-
-  /**
-   * Returns the meta object for the reference '{@link fr.univartois.cril.xtext2.als.ReferencesSig#getAsname <em>Asname</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Asname</em>'.
-   * @see fr.univartois.cril.xtext2.als.ReferencesSig#getAsname()
-   * @see #getReferencesSig()
-   * @generated
-   */
-  EReference getReferencesSig_Asname();
-
-  /**
-   * Returns the meta object for the reference '{@link fr.univartois.cril.xtext2.als.ReferencesSig#getNameRef <em>Name Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name Ref</em>'.
-   * @see fr.univartois.cril.xtext2.als.ReferencesSig#getNameRef()
-   * @see #getReferencesSig()
-   * @generated
-   */
-  EReference getReferencesSig_NameRef();
-
-  /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Ref <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4555,48 +4675,6 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EReference getRef_NameRef();
-
-  /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.LeftCurlyBracket <em>Left Curly Bracket</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Left Curly Bracket</em>'.
-   * @see fr.univartois.cril.xtext2.als.LeftCurlyBracket
-   * @generated
-   */
-  EClass getLeftCurlyBracket();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext2.als.LeftCurlyBracket#getLeftCurlyBracket <em>Left Curly Bracket</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Left Curly Bracket</em>'.
-   * @see fr.univartois.cril.xtext2.als.LeftCurlyBracket#getLeftCurlyBracket()
-   * @see #getLeftCurlyBracket()
-   * @generated
-   */
-  EAttribute getLeftCurlyBracket_LeftCurlyBracket();
-
-  /**
-   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.RightCurlyBracket <em>Right Curly Bracket</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Right Curly Bracket</em>'.
-   * @see fr.univartois.cril.xtext2.als.RightCurlyBracket
-   * @generated
-   */
-  EClass getRightCurlyBracket();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext2.als.RightCurlyBracket#getRightCurlyBracket <em>Right Curly Bracket</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Right Curly Bracket</em>'.
-   * @see fr.univartois.cril.xtext2.als.RightCurlyBracket#getRightCurlyBracket()
-   * @see #getRightCurlyBracket()
-   * @generated
-   */
-  EAttribute getRightCurlyBracket_RightCurlyBracket();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.Dot <em>Dot</em>}'.
@@ -4660,6 +4738,48 @@ public interface AlsPackage extends EPackage
    * @generated
    */
   EAttribute getColon_Colon();
+
+  /**
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.LeftCurlyBracket <em>Left Curly Bracket</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Left Curly Bracket</em>'.
+   * @see fr.univartois.cril.xtext2.als.LeftCurlyBracket
+   * @generated
+   */
+  EClass getLeftCurlyBracket();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext2.als.LeftCurlyBracket#getLeftCurlyBracket <em>Left Curly Bracket</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Left Curly Bracket</em>'.
+   * @see fr.univartois.cril.xtext2.als.LeftCurlyBracket#getLeftCurlyBracket()
+   * @see #getLeftCurlyBracket()
+   * @generated
+   */
+  EAttribute getLeftCurlyBracket_LeftCurlyBracket();
+
+  /**
+   * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.RightCurlyBracket <em>Right Curly Bracket</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Right Curly Bracket</em>'.
+   * @see fr.univartois.cril.xtext2.als.RightCurlyBracket
+   * @generated
+   */
+  EClass getRightCurlyBracket();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.univartois.cril.xtext2.als.RightCurlyBracket#getRightCurlyBracket <em>Right Curly Bracket</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Right Curly Bracket</em>'.
+   * @see fr.univartois.cril.xtext2.als.RightCurlyBracket#getRightCurlyBracket()
+   * @see #getRightCurlyBracket()
+   * @generated
+   */
+  EAttribute getRightCurlyBracket_RightCurlyBracket();
 
   /**
    * Returns the meta object for class '{@link fr.univartois.cril.xtext2.als.LeftParenthesis <em>Left Parenthesis</em>}'.
@@ -4937,6 +5057,64 @@ public interface AlsPackage extends EPackage
     EClass PARAGRAPH = eINSTANCE.getParagraph();
 
     /**
+     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.univartois.cril.xtext2.als.impl.EnumDeclImpl
+     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getEnumDecl()
+     * @generated
+     */
+    EClass ENUM_DECL = eINSTANCE.getEnumDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Documentation</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUM_DECL__DOCUMENTATION = eINSTANCE.getEnumDecl_Documentation();
+
+    /**
+     * The meta object literal for the '<em><b>Enum Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_DECL__ENUM_NAME = eINSTANCE.getEnumDecl_EnumName();
+
+    /**
+     * The meta object literal for the '<em><b>Left C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_DECL__LEFT_C = eINSTANCE.getEnumDecl_LeftC();
+
+    /**
+     * The meta object literal for the '<em><b>Property Enum</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_DECL__PROPERTY_ENUM = eINSTANCE.getEnumDecl_PropertyEnum();
+
+    /**
+     * The meta object literal for the '<em><b>Comma</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_DECL__COMMA = eINSTANCE.getEnumDecl_Comma();
+
+    /**
+     * The meta object literal for the '<em><b>Right C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_DECL__RIGHT_C = eINSTANCE.getEnumDecl_RightC();
+
+    /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.FactImpl <em>Fact</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4945,6 +5123,14 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EClass FACT = eINSTANCE.getFact();
+
+    /**
+     * The meta object literal for the '<em><b>Documentation</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FACT__DOCUMENTATION = eINSTANCE.getFact_Documentation();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
@@ -4963,32 +5149,6 @@ public interface AlsPackage extends EPackage
     EReference FACT__BLOCK = eINSTANCE.getFact_Block();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.AssertionImpl <em>Assertion</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.AssertionImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getAssertion()
-     * @generated
-     */
-    EClass ASSERTION = eINSTANCE.getAssertion();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ASSERTION__NAME = eINSTANCE.getAssertion_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ASSERTION__BLOCK = eINSTANCE.getAssertion_Block();
-
-    /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.FunctionImpl <em>Function</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4997,6 +5157,14 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EClass FUNCTION = eINSTANCE.getFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Documentation</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION__DOCUMENTATION = eINSTANCE.getFunction_Documentation();
 
     /**
      * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
@@ -5103,6 +5271,80 @@ public interface AlsPackage extends EPackage
     EReference FUNCTION__BLOCK = eINSTANCE.getFunction_Block();
 
     /**
+     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.LetImpl <em>Let</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.univartois.cril.xtext2.als.impl.LetImpl
+     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLet()
+     * @generated
+     */
+    EClass LET = eINSTANCE.getLet();
+
+    /**
+     * The meta object literal for the '<em><b>Documentation</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LET__DOCUMENTATION = eINSTANCE.getLet_Documentation();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET__NAME = eINSTANCE.getLet_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Left S</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET__LEFT_S = eINSTANCE.getLet_LeftS();
+
+    /**
+     * The meta object literal for the '<em><b>Name Ref</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET__NAME_REF = eINSTANCE.getLet_NameRef();
+
+    /**
+     * The meta object literal for the '<em><b>Comma</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET__COMMA = eINSTANCE.getLet_Comma();
+
+    /**
+     * The meta object literal for the '<em><b>Right S</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET__RIGHT_S = eINSTANCE.getLet_RightS();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET__BLOCK = eINSTANCE.getLet_Block();
+
+    /**
+     * The meta object literal for the '<em><b>Expr Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET__EXPR_NAME = eINSTANCE.getLet_ExprName();
+
+    /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.PredicateImpl <em>Predicate</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5111,6 +5353,14 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EClass PREDICATE = eINSTANCE.getPredicate();
+
+    /**
+     * The meta object literal for the '<em><b>Documentation</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PREDICATE__DOCUMENTATION = eINSTANCE.getPredicate_Documentation();
 
     /**
      * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
@@ -5191,6 +5441,98 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EReference PREDICATE__BLOCK = eINSTANCE.getPredicate_Block();
+
+    /**
+     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.SignatureImpl <em>Signature</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.univartois.cril.xtext2.als.impl.SignatureImpl
+     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getSignature()
+     * @generated
+     */
+    EClass SIGNATURE = eINSTANCE.getSignature();
+
+    /**
+     * The meta object literal for the '<em><b>Documentation</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIGNATURE__DOCUMENTATION = eINSTANCE.getSignature_Documentation();
+
+    /**
+     * The meta object literal for the '<em><b>Signature Name</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIGNATURE__SIGNATURE_NAME = eINSTANCE.getSignature_SignatureName();
+
+    /**
+     * The meta object literal for the '<em><b>Comma</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIGNATURE__COMMA = eINSTANCE.getSignature_Comma();
+
+    /**
+     * The meta object literal for the '<em><b>Sig Ext</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIGNATURE__SIG_EXT = eINSTANCE.getSignature_SigExt();
+
+    /**
+     * The meta object literal for the '<em><b>Decl</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIGNATURE__DECL = eINSTANCE.getSignature_Decl();
+
+    /**
+     * The meta object literal for the '<em><b>Comma2</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIGNATURE__COMMA2 = eINSTANCE.getSignature_Comma2();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIGNATURE__BLOCK = eINSTANCE.getSignature_Block();
+
+    /**
+     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.AssertionImpl <em>Assertion</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.univartois.cril.xtext2.als.impl.AssertionImpl
+     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getAssertion()
+     * @generated
+     */
+    EClass ASSERTION = eINSTANCE.getAssertion();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSERTION__NAME = eINSTANCE.getAssertion_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSERTION__BLOCK = eINSTANCE.getAssertion_Block();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.RunCommandImpl <em>Run Command</em>}' class.
@@ -5427,180 +5769,6 @@ public interface AlsPackage extends EPackage
     EAttribute TYPESCOPE__POST = eINSTANCE.getTypescope_Post();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.EnumDeclImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getEnumDecl()
-     * @generated
-     */
-    EClass ENUM_DECL = eINSTANCE.getEnumDecl();
-
-    /**
-     * The meta object literal for the '<em><b>Enum Name</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENUM_DECL__ENUM_NAME = eINSTANCE.getEnumDecl_EnumName();
-
-    /**
-     * The meta object literal for the '<em><b>Left C</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENUM_DECL__LEFT_C = eINSTANCE.getEnumDecl_LeftC();
-
-    /**
-     * The meta object literal for the '<em><b>Property Enum</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENUM_DECL__PROPERTY_ENUM = eINSTANCE.getEnumDecl_PropertyEnum();
-
-    /**
-     * The meta object literal for the '<em><b>Comma</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENUM_DECL__COMMA = eINSTANCE.getEnumDecl_Comma();
-
-    /**
-     * The meta object literal for the '<em><b>Right C</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENUM_DECL__RIGHT_C = eINSTANCE.getEnumDecl_RightC();
-
-    /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.LetImpl <em>Let</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.LetImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLet()
-     * @generated
-     */
-    EClass LET = eINSTANCE.getLet();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET__NAME = eINSTANCE.getLet_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Left S</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET__LEFT_S = eINSTANCE.getLet_LeftS();
-
-    /**
-     * The meta object literal for the '<em><b>Name Ref</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET__NAME_REF = eINSTANCE.getLet_NameRef();
-
-    /**
-     * The meta object literal for the '<em><b>Comma</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET__COMMA = eINSTANCE.getLet_Comma();
-
-    /**
-     * The meta object literal for the '<em><b>Right S</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET__RIGHT_S = eINSTANCE.getLet_RightS();
-
-    /**
-     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET__BLOCK = eINSTANCE.getLet_Block();
-
-    /**
-     * The meta object literal for the '<em><b>Expr Name</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET__EXPR_NAME = eINSTANCE.getLet_ExprName();
-
-    /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.SignatureImpl <em>Signature</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.SignatureImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getSignature()
-     * @generated
-     */
-    EClass SIGNATURE = eINSTANCE.getSignature();
-
-    /**
-     * The meta object literal for the '<em><b>Signature Name</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SIGNATURE__SIGNATURE_NAME = eINSTANCE.getSignature_SignatureName();
-
-    /**
-     * The meta object literal for the '<em><b>Comma</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SIGNATURE__COMMA = eINSTANCE.getSignature_Comma();
-
-    /**
-     * The meta object literal for the '<em><b>Sig Ext</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SIGNATURE__SIG_EXT = eINSTANCE.getSignature_SigExt();
-
-    /**
-     * The meta object literal for the '<em><b>Decl</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SIGNATURE__DECL = eINSTANCE.getSignature_Decl();
-
-    /**
-     * The meta object literal for the '<em><b>Comma2</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIGNATURE__COMMA2 = eINSTANCE.getSignature_Comma2();
-
-    /**
-     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SIGNATURE__BLOCK = eINSTANCE.getSignature_Block();
-
-    /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.SigExtImpl <em>Sig Ext</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5625,6 +5793,32 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EReference SIG_EXT__REF2 = eINSTANCE.getSigExt_Ref2();
+
+    /**
+     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.ReferencesSigImpl <em>References Sig</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.univartois.cril.xtext2.als.impl.ReferencesSigImpl
+     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getReferencesSig()
+     * @generated
+     */
+    EClass REFERENCES_SIG = eINSTANCE.getReferencesSig();
+
+    /**
+     * The meta object literal for the '<em><b>Asname</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REFERENCES_SIG__ASNAME = eINSTANCE.getReferencesSig_Asname();
+
+    /**
+     * The meta object literal for the '<em><b>Name Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REFERENCES_SIG__NAME_REF = eINSTANCE.getReferencesSig_NameRef();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -5845,6 +6039,40 @@ public interface AlsPackage extends EPackage
     EReference EXPRESSION__RIGHT_CURLY_BRACKET = eINSTANCE.getExpression_RightCurlyBracket();
 
     /**
+     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.BlockImpl <em>Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.univartois.cril.xtext2.als.impl.BlockImpl
+     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBlock()
+     * @generated
+     */
+    EClass BLOCK = eINSTANCE.getBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Left C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK__LEFT_C = eINSTANCE.getBlock_LeftC();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK__EXPR = eINSTANCE.getBlock_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Right C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK__RIGHT_C = eINSTANCE.getBlock_RightC();
+
+    /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.DeclImpl <em>Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5929,32 +6157,6 @@ public interface AlsPackage extends EPackage
     EReference PARAM__EXPR = eINSTANCE.getParam_Expr();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.LetDeclImpl <em>Let Decl</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.LetDeclImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLetDecl()
-     * @generated
-     */
-    EClass LET_DECL = eINSTANCE.getLetDecl();
-
-    /**
-     * The meta object literal for the '<em><b>Name Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET_DECL__NAME_EXPRESSION = eINSTANCE.getLetDecl_NameExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET_DECL__EXPR = eINSTANCE.getLetDecl_Expr();
-
-    /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.ParanthesisandExpressionImpl <em>Paranthesisand Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6037,38 +6239,30 @@ public interface AlsPackage extends EPackage
     EAttribute ARROW_OP__ARROW = eINSTANCE.getArrowOp_Arrow();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.BlockImpl <em>Block</em>}' class.
+     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.LetDeclImpl <em>Let Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.BlockImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getBlock()
+     * @see fr.univartois.cril.xtext2.als.impl.LetDeclImpl
+     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLetDecl()
      * @generated
      */
-    EClass BLOCK = eINSTANCE.getBlock();
+    EClass LET_DECL = eINSTANCE.getLetDecl();
 
     /**
-     * The meta object literal for the '<em><b>Left C</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BLOCK__LEFT_C = eINSTANCE.getBlock_LeftC();
+    EReference LET_DECL__NAME_EXPRESSION = eINSTANCE.getLetDecl_NameExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BLOCK__EXPR = eINSTANCE.getBlock_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Right C</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BLOCK__RIGHT_C = eINSTANCE.getBlock_RightC();
+    EReference LET_DECL__EXPR = eINSTANCE.getLetDecl_Expr();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.BlockOrBarImpl <em>Block Or Bar</em>}' class.
@@ -6313,32 +6507,6 @@ public interface AlsPackage extends EPackage
     EAttribute REFERENCES_NAME__NAME = eINSTANCE.getReferencesName_Name();
 
     /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.ReferencesSigImpl <em>References Sig</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.ReferencesSigImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getReferencesSig()
-     * @generated
-     */
-    EClass REFERENCES_SIG = eINSTANCE.getReferencesSig();
-
-    /**
-     * The meta object literal for the '<em><b>Asname</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REFERENCES_SIG__ASNAME = eINSTANCE.getReferencesSig_Asname();
-
-    /**
-     * The meta object literal for the '<em><b>Name Ref</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REFERENCES_SIG__NAME_REF = eINSTANCE.getReferencesSig_NameRef();
-
-    /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.RefImpl <em>Ref</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6355,42 +6523,6 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EReference REF__NAME_REF = eINSTANCE.getRef_NameRef();
-
-    /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.LeftCurlyBracketImpl <em>Left Curly Bracket</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.LeftCurlyBracketImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLeftCurlyBracket()
-     * @generated
-     */
-    EClass LEFT_CURLY_BRACKET = eINSTANCE.getLeftCurlyBracket();
-
-    /**
-     * The meta object literal for the '<em><b>Left Curly Bracket</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LEFT_CURLY_BRACKET__LEFT_CURLY_BRACKET = eINSTANCE.getLeftCurlyBracket_LeftCurlyBracket();
-
-    /**
-     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.RightCurlyBracketImpl <em>Right Curly Bracket</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.univartois.cril.xtext2.als.impl.RightCurlyBracketImpl
-     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getRightCurlyBracket()
-     * @generated
-     */
-    EClass RIGHT_CURLY_BRACKET = eINSTANCE.getRightCurlyBracket();
-
-    /**
-     * The meta object literal for the '<em><b>Right Curly Bracket</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute RIGHT_CURLY_BRACKET__RIGHT_CURLY_BRACKET = eINSTANCE.getRightCurlyBracket_RightCurlyBracket();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.DotImpl <em>Dot</em>}' class.
@@ -6445,6 +6577,42 @@ public interface AlsPackage extends EPackage
      * @generated
      */
     EAttribute COLON__COLON = eINSTANCE.getColon_Colon();
+
+    /**
+     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.LeftCurlyBracketImpl <em>Left Curly Bracket</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.univartois.cril.xtext2.als.impl.LeftCurlyBracketImpl
+     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getLeftCurlyBracket()
+     * @generated
+     */
+    EClass LEFT_CURLY_BRACKET = eINSTANCE.getLeftCurlyBracket();
+
+    /**
+     * The meta object literal for the '<em><b>Left Curly Bracket</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LEFT_CURLY_BRACKET__LEFT_CURLY_BRACKET = eINSTANCE.getLeftCurlyBracket_LeftCurlyBracket();
+
+    /**
+     * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.RightCurlyBracketImpl <em>Right Curly Bracket</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.univartois.cril.xtext2.als.impl.RightCurlyBracketImpl
+     * @see fr.univartois.cril.xtext2.als.impl.AlsPackageImpl#getRightCurlyBracket()
+     * @generated
+     */
+    EClass RIGHT_CURLY_BRACKET = eINSTANCE.getRightCurlyBracket();
+
+    /**
+     * The meta object literal for the '<em><b>Right Curly Bracket</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RIGHT_CURLY_BRACKET__RIGHT_CURLY_BRACKET = eINSTANCE.getRightCurlyBracket_RightCurlyBracket();
 
     /**
      * The meta object literal for the '{@link fr.univartois.cril.xtext2.als.impl.LeftParenthesisImpl <em>Left Parenthesis</em>}' class.
