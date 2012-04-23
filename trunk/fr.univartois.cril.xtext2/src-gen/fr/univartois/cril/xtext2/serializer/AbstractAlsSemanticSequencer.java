@@ -638,7 +638,14 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma propertyEnum+=EnumPropertyName)* rightC=RightCurlyBracket)
+	 *     (
+	 *         documentation+=ML_COMMENT? 
+	 *         enumName=EnumName 
+	 *         leftC=LeftCurlyBracket 
+	 *         propertyEnum+=EnumPropertyName 
+	 *         (comma+=Comma propertyEnum+=EnumPropertyName)* 
+	 *         rightC=RightCurlyBracket
+	 *     )
 	 */
 	protected void sequence_EnumDecl(EObject context, EnumDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -760,20 +767,10 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=FactName block=Block)
+	 *     (documentation+=ML_COMMENT? name=FactName block=Block)
 	 */
 	protected void sequence_FactDecl(EObject context, Fact semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AlsPackage.Literals.FACT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AlsPackage.Literals.FACT__NAME));
-			if(transientValues.isValueTransient(semanticObject, AlsPackage.Literals.FACT__BLOCK) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AlsPackage.Literals.FACT__BLOCK));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFactDeclAccess().getNameFactNameParserRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFactDeclAccess().getBlockBlockParserRuleCall_1_0(), semanticObject.getBlock());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -788,7 +785,14 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression block=Block)
+	 *     (
+	 *         documentation+=ML_COMMENT? 
+	 *         (ref=Ref dot=Dot)? 
+	 *         name=FunctionNamewParam 
+	 *         colon=Colon 
+	 *         expr=Expression 
+	 *         block=Block
+	 *     )
 	 */
 	protected void sequence_FunDeclWParam(EObject context, Function semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -798,6 +802,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
+	 *         documentation+=ML_COMMENT? 
 	 *         (ref=Ref dot=Dot)? 
 	 *         name=FunctionName 
 	 *         (
@@ -932,6 +937,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
+	 *         documentation+=ML_COMMENT? 
 	 *         name=LetName 
 	 *         (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)? rightS=RightSquareBracketKeyword)? 
 	 *         (block=Block | exprName=Expression)
@@ -993,6 +999,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (
+	 *             documentation+=ML_COMMENT? 
 	 *             (ref=Ref dot=Dot)? 
 	 *             name=FunctionName 
 	 *             (
@@ -1003,7 +1010,14 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *             expr=Expression 
 	 *             block=Block
 	 *         ) | 
-	 *         ((ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression block=Block)
+	 *         (
+	 *             documentation+=ML_COMMENT? 
+	 *             (ref=Ref dot=Dot)? 
+	 *             name=FunctionNamewParam 
+	 *             colon=Colon 
+	 *             expr=Expression 
+	 *             block=Block
+	 *         )
 	 *     )
 	 */
 	protected void sequence_Paragraph(EObject context, Function semanticObject) {
@@ -1032,6 +1046,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
+	 *         documentation+=ML_COMMENT? 
 	 *         (ref=Ref dot=Dot)? 
 	 *         name=PredicateName 
 	 *         (
@@ -1176,7 +1191,14 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* sigExt=SigExt? (decl+=Decl (comma2+=',' decl+=Decl)*)? block=Block?)
+	 *     (
+	 *         documentation+=ML_COMMENT? 
+	 *         signatureName+=SignatureName 
+	 *         (comma+=Comma signatureName+=SignatureName)* 
+	 *         sigExt=SigExt? 
+	 *         (decl+=Decl (comma2+=',' decl+=Decl)*)? 
+	 *         block=Block?
+	 *     )
 	 */
 	protected void sequence_SigDecl(EObject context, Signature semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

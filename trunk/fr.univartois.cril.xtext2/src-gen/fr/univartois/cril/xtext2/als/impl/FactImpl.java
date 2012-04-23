@@ -10,13 +10,19 @@ import fr.univartois.cril.xtext2.als.Block;
 import fr.univartois.cril.xtext2.als.Fact;
 import fr.univartois.cril.xtext2.als.FactName;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext2.als.impl.FactImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FactImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.FactImpl#getBlock <em>Block</em>}</li>
  * </ul>
@@ -34,6 +41,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class FactImpl extends ParagraphImpl implements Fact
 {
+  /**
+   * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDocumentation()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> documentation;
+
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -73,6 +90,20 @@ public class FactImpl extends ParagraphImpl implements Fact
   protected EClass eStaticClass()
   {
     return AlsPackage.Literals.FACT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getDocumentation()
+  {
+    if (documentation == null)
+    {
+      documentation = new EDataTypeEList<String>(String.class, this, AlsPackage.FACT__DOCUMENTATION);
+    }
+    return documentation;
   }
 
   /**
@@ -199,6 +230,8 @@ public class FactImpl extends ParagraphImpl implements Fact
   {
     switch (featureID)
     {
+      case AlsPackage.FACT__DOCUMENTATION:
+        return getDocumentation();
       case AlsPackage.FACT__NAME:
         return getName();
       case AlsPackage.FACT__BLOCK:
@@ -212,11 +245,16 @@ public class FactImpl extends ParagraphImpl implements Fact
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case AlsPackage.FACT__DOCUMENTATION:
+        getDocumentation().clear();
+        getDocumentation().addAll((Collection<? extends String>)newValue);
+        return;
       case AlsPackage.FACT__NAME:
         setName((FactName)newValue);
         return;
@@ -237,6 +275,9 @@ public class FactImpl extends ParagraphImpl implements Fact
   {
     switch (featureID)
     {
+      case AlsPackage.FACT__DOCUMENTATION:
+        getDocumentation().clear();
+        return;
       case AlsPackage.FACT__NAME:
         setName((FactName)null);
         return;
@@ -257,12 +298,31 @@ public class FactImpl extends ParagraphImpl implements Fact
   {
     switch (featureID)
     {
+      case AlsPackage.FACT__DOCUMENTATION:
+        return documentation != null && !documentation.isEmpty();
       case AlsPackage.FACT__NAME:
         return name != null;
       case AlsPackage.FACT__BLOCK:
         return block != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (documentation: ");
+    result.append(documentation);
+    result.append(')');
+    return result.toString();
   }
 
 } //FactImpl

@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link fr.univartois.cril.xtext2.als.impl.SignatureImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.SignatureImpl#getSignatureName <em>Signature Name</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.SignatureImpl#getComma <em>Comma</em>}</li>
  *   <li>{@link fr.univartois.cril.xtext2.als.impl.SignatureImpl#getSigExt <em>Sig Ext</em>}</li>
@@ -49,6 +50,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SignatureImpl extends ParagraphImpl implements Signature
 {
+  /**
+   * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDocumentation()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> documentation;
+
   /**
    * The cached value of the '{@link #getSignatureName() <em>Signature Name</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -128,6 +139,20 @@ public class SignatureImpl extends ParagraphImpl implements Signature
   protected EClass eStaticClass()
   {
     return AlsPackage.Literals.SIGNATURE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getDocumentation()
+  {
+    if (documentation == null)
+    {
+      documentation = new EDataTypeEList<String>(String.class, this, AlsPackage.SIGNATURE__DOCUMENTATION);
+    }
+    return documentation;
   }
 
   /**
@@ -316,6 +341,8 @@ public class SignatureImpl extends ParagraphImpl implements Signature
   {
     switch (featureID)
     {
+      case AlsPackage.SIGNATURE__DOCUMENTATION:
+        return getDocumentation();
       case AlsPackage.SIGNATURE__SIGNATURE_NAME:
         return getSignatureName();
       case AlsPackage.SIGNATURE__COMMA:
@@ -343,6 +370,10 @@ public class SignatureImpl extends ParagraphImpl implements Signature
   {
     switch (featureID)
     {
+      case AlsPackage.SIGNATURE__DOCUMENTATION:
+        getDocumentation().clear();
+        getDocumentation().addAll((Collection<? extends String>)newValue);
+        return;
       case AlsPackage.SIGNATURE__SIGNATURE_NAME:
         getSignatureName().clear();
         getSignatureName().addAll((Collection<? extends SignatureName>)newValue);
@@ -379,6 +410,9 @@ public class SignatureImpl extends ParagraphImpl implements Signature
   {
     switch (featureID)
     {
+      case AlsPackage.SIGNATURE__DOCUMENTATION:
+        getDocumentation().clear();
+        return;
       case AlsPackage.SIGNATURE__SIGNATURE_NAME:
         getSignatureName().clear();
         return;
@@ -411,6 +445,8 @@ public class SignatureImpl extends ParagraphImpl implements Signature
   {
     switch (featureID)
     {
+      case AlsPackage.SIGNATURE__DOCUMENTATION:
+        return documentation != null && !documentation.isEmpty();
       case AlsPackage.SIGNATURE__SIGNATURE_NAME:
         return signatureName != null && !signatureName.isEmpty();
       case AlsPackage.SIGNATURE__COMMA:
@@ -438,7 +474,9 @@ public class SignatureImpl extends ParagraphImpl implements Signature
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (comma2: ");
+    result.append(" (documentation: ");
+    result.append(documentation);
+    result.append(", comma2: ");
     result.append(comma2);
     result.append(')');
     return result.toString();

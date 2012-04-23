@@ -98,14 +98,14 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createParagraphAdapter();
       }
       @Override
+      public Adapter caseEnumDecl(EnumDecl object)
+      {
+        return createEnumDeclAdapter();
+      }
+      @Override
       public Adapter caseFact(Fact object)
       {
         return createFactAdapter();
-      }
-      @Override
-      public Adapter caseAssertion(Assertion object)
-      {
-        return createAssertionAdapter();
       }
       @Override
       public Adapter caseFunction(Function object)
@@ -113,9 +113,24 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createFunctionAdapter();
       }
       @Override
+      public Adapter caseLet(Let object)
+      {
+        return createLetAdapter();
+      }
+      @Override
       public Adapter casePredicate(Predicate object)
       {
         return createPredicateAdapter();
+      }
+      @Override
+      public Adapter caseSignature(Signature object)
+      {
+        return createSignatureAdapter();
+      }
+      @Override
+      public Adapter caseAssertion(Assertion object)
+      {
+        return createAssertionAdapter();
       }
       @Override
       public Adapter caseRunCommand(RunCommand object)
@@ -143,29 +158,24 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createTypescopeAdapter();
       }
       @Override
-      public Adapter caseEnumDecl(EnumDecl object)
-      {
-        return createEnumDeclAdapter();
-      }
-      @Override
-      public Adapter caseLet(Let object)
-      {
-        return createLetAdapter();
-      }
-      @Override
-      public Adapter caseSignature(Signature object)
-      {
-        return createSignatureAdapter();
-      }
-      @Override
       public Adapter caseSigExt(SigExt object)
       {
         return createSigExtAdapter();
       }
       @Override
+      public Adapter caseReferencesSig(ReferencesSig object)
+      {
+        return createReferencesSigAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseBlock(Block object)
+      {
+        return createBlockAdapter();
       }
       @Override
       public Adapter caseDecl(Decl object)
@@ -176,11 +186,6 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
       public Adapter caseParam(Param object)
       {
         return createParamAdapter();
-      }
-      @Override
-      public Adapter caseLetDecl(LetDecl object)
-      {
-        return createLetDeclAdapter();
       }
       @Override
       public Adapter caseParanthesisandExpression(ParanthesisandExpression object)
@@ -208,9 +213,9 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createArrowOpAdapter();
       }
       @Override
-      public Adapter caseBlock(Block object)
+      public Adapter caseLetDecl(LetDecl object)
       {
-        return createBlockAdapter();
+        return createLetDeclAdapter();
       }
       @Override
       public Adapter caseBlockOrBar(BlockOrBar object)
@@ -298,24 +303,9 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
         return createReferencesNameAdapter();
       }
       @Override
-      public Adapter caseReferencesSig(ReferencesSig object)
-      {
-        return createReferencesSigAdapter();
-      }
-      @Override
       public Adapter caseRef(Ref object)
       {
         return createRefAdapter();
-      }
-      @Override
-      public Adapter caseLeftCurlyBracket(LeftCurlyBracket object)
-      {
-        return createLeftCurlyBracketAdapter();
-      }
-      @Override
-      public Adapter caseRightCurlyBracket(RightCurlyBracket object)
-      {
-        return createRightCurlyBracketAdapter();
       }
       @Override
       public Adapter caseDot(Dot object)
@@ -331,6 +321,16 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
       public Adapter caseColon(Colon object)
       {
         return createColonAdapter();
+      }
+      @Override
+      public Adapter caseLeftCurlyBracket(LeftCurlyBracket object)
+      {
+        return createLeftCurlyBracketAdapter();
+      }
+      @Override
+      public Adapter caseRightCurlyBracket(RightCurlyBracket object)
+      {
+        return createRightCurlyBracketAdapter();
       }
       @Override
       public Adapter caseLeftParenthesis(LeftParenthesis object)
@@ -435,6 +435,21 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.EnumDecl <em>Enum Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext2.als.EnumDecl
+   * @generated
+   */
+  public Adapter createEnumDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Fact <em>Fact</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -445,21 +460,6 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFactAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Assertion <em>Assertion</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.Assertion
-   * @generated
-   */
-  public Adapter createAssertionAdapter()
   {
     return null;
   }
@@ -480,6 +480,21 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Let <em>Let</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext2.als.Let
+   * @generated
+   */
+  public Adapter createLetAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Predicate <em>Predicate</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -490,6 +505,36 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPredicateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Signature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext2.als.Signature
+   * @generated
+   */
+  public Adapter createSignatureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Assertion <em>Assertion</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext2.als.Assertion
+   * @generated
+   */
+  public Adapter createAssertionAdapter()
   {
     return null;
   }
@@ -570,51 +615,6 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.EnumDecl <em>Enum Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.EnumDecl
-   * @generated
-   */
-  public Adapter createEnumDeclAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Let <em>Let</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.Let
-   * @generated
-   */
-  public Adapter createLetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Signature <em>Signature</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.Signature
-   * @generated
-   */
-  public Adapter createSignatureAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.SigExt <em>Sig Ext</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -630,6 +630,21 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.ReferencesSig <em>References Sig</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext2.als.ReferencesSig
+   * @generated
+   */
+  public Adapter createReferencesSigAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -640,6 +655,21 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext2.als.Block
+   * @generated
+   */
+  public Adapter createBlockAdapter()
   {
     return null;
   }
@@ -670,21 +700,6 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParamAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.LetDecl <em>Let Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.LetDecl
-   * @generated
-   */
-  public Adapter createLetDeclAdapter()
   {
     return null;
   }
@@ -765,16 +780,16 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Block <em>Block</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.LetDecl <em>Let Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.Block
+   * @see fr.univartois.cril.xtext2.als.LetDecl
    * @generated
    */
-  public Adapter createBlockAdapter()
+  public Adapter createLetDeclAdapter()
   {
     return null;
   }
@@ -1035,21 +1050,6 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.ReferencesSig <em>References Sig</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.ReferencesSig
-   * @generated
-   */
-  public Adapter createReferencesSigAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.Ref <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1060,36 +1060,6 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.LeftCurlyBracket <em>Left Curly Bracket</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.LeftCurlyBracket
-   * @generated
-   */
-  public Adapter createLeftCurlyBracketAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.RightCurlyBracket <em>Right Curly Bracket</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.univartois.cril.xtext2.als.RightCurlyBracket
-   * @generated
-   */
-  public Adapter createRightCurlyBracketAdapter()
   {
     return null;
   }
@@ -1135,6 +1105,36 @@ public class AlsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createColonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.LeftCurlyBracket <em>Left Curly Bracket</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext2.als.LeftCurlyBracket
+   * @generated
+   */
+  public Adapter createLeftCurlyBracketAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.univartois.cril.xtext2.als.RightCurlyBracket <em>Right Curly Bracket</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.univartois.cril.xtext2.als.RightCurlyBracket
+   * @generated
+   */
+  public Adapter createRightCurlyBracketAdapter()
   {
     return null;
   }

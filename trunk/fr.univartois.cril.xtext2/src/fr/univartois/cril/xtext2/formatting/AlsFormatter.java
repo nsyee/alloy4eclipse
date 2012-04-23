@@ -94,7 +94,7 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 			c.setNoSpace().after(parO) ;
 		for(Keyword parF : f.getTerminalExpressionAccess().findKeywords(")"))
 			c.setNoSpace().before(parF) ;
-		c.setNoLinewrap().around(f.getFunDeclAccess().getGroup_4_0_1());
+		//c.setNoLinewrap().around(f.getFunDeclAccess().getGroup_4_0_1());
 	}
 
 	private void setFormattingOpen(FormattingConfig c, AlsGrammarAccess f) {
@@ -155,13 +155,13 @@ public class AlsFormatter extends AbstractDeclarativeFormatter {
 	}
 
 	private void setFormattingSigDecl(FormattingConfig c, AlsGrammarAccess f) {
-		c.setLinewrap(2).before(f.getSigDeclAccess().getSigKeyword_1());
+		//c.setLinewrap(2).before(f.getSigDeclAccess().getSigKeyword_1());
 		
 		for(Keyword leftCurly : f.getSigDeclAccess().findKeywords("{"))
 			c.setLinewrap().after(leftCurly) ;
 		
-		c.setIndentation(f.getSigDeclAccess().getLeftCurlyBracketKeyword_5(), f.getSigDeclAccess().getRightCurlyBracketKeyword_7());
-		c.setLinewrap().before(f.getSigDeclAccess().getRightCurlyBracketKeyword_7());
+		//c.setIndentation(f.getSigDeclAccess().getLeftCurlyBracketKeyword_5(), f.getSigDeclAccess().getRightCurlyBracketKeyword_7());
+		//c.setLinewrap().before(f.getSigDeclAccess().getRightCurlyBracketKeyword_7());
 	}
 
 	private void setFormattingAssertionName(FormattingConfig c, AlsGrammarAccess f) {
