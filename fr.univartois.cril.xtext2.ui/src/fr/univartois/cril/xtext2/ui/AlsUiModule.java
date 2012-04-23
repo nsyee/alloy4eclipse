@@ -9,8 +9,8 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 
-import fr.univartois.cril.xtext2.ui.javadoc.AlsEObjectDocumentationProvider;
-import fr.univartois.cril.xtext2.ui.javadoc.AlsEObjectHoverProvider;
+import fr.univartois.cril.xtext2.ui.documentation.AlsEObjectDocumentationProvider;
+import fr.univartois.cril.xtext2.ui.documentation.AlsEObjectHoverProvider;
 import fr.univartois.cril.xtext2.ui.outline.AlloyOutlinePage;
 
 /**
