@@ -22,34 +22,33 @@ public class AlsEObjectDocumentationProvider implements IEObjectDocumentationPro
 	    	if (o instanceof EnumName){
 	    		EnumDecl enu = (EnumDecl) o.eContainer() ;
 	    		if(!enu.getDocumentation().isEmpty())
-	    			return enu.getDocumentation().toString() ;
+	    			return enu.getDocumentation().get(0).toString() ;
 	    	}
 	        if (o instanceof FactName){
 	        	Fact fact = (Fact) o.eContainer() ;
 	    		if(!fact.getDocumentation().isEmpty())
-	    			return fact.getDocumentation().toString() ;
+	    			return fact.getDocumentation().get(0).toString() ;
 	        }
 	        if (o instanceof FunctionName){
 	        	Function fun = (Function) o.eContainer() ;
 	    		if(!fun.getDocumentation().isEmpty())
-	    			return fun.getDocumentation().toString() ;
+	    			return fun.getDocumentation().get(0).toString() ;
 	        }
 	        if (o instanceof LetName){ 
 	        	Let let = (Let) o.eContainer() ;
 	    		if(!let.getDocumentation().isEmpty())
-	    			return let.getDocumentation().toString() ;
+	    			return let.getDocumentation().get(0).toString() ;
 	        }
 	        if (o instanceof PredicateName) {
 	    		Predicate pred = (Predicate) o.eContainer() ;
 	    		if(!pred.getDocumentation().isEmpty())
-	    			return pred.getDocumentation().toString() ;
+	    			return pred.getDocumentation().get(0).toString() ;
 	        }
 	        if (o instanceof SignatureName) {
 	    		Signature sig = (Signature) o.eContainer() ;
 	    		
-	    		System.out.println(sig.getDocumentation().toString()) ;
 	    		if(!sig.getDocumentation().isEmpty())
-	    			return sig.getDocumentation().toString() ;
+	    			return sig.getDocumentation().get(0).toString() ;
 	        }
 	        
 	        return null;
