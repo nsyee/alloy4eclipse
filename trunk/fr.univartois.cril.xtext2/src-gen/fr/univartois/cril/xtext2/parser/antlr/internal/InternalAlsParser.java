@@ -22,7 +22,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_NEGATIVE_INTEGER", "RULE_SL_COMMENT", "RULE_STRING", "RULE_WS", "RULE_ANY_OTHER", "'module'", "'exactly'", "'private'", "'/'", "'as'", "'fun'", "'='", "'pred'", "'sig'", "'{'", "','", "'}'", "':'", "'run'", "'check'", "'for'", "'but'", "'expect'", "'this'", "'int'", "'seq'", "'abstract'", "'lone'", "'one'", "'some'", "'extends'", "'in'", "'+'", "'univ'", "'Int'", "'seq/Int'", "'!'", "'not'", "'=>'", "'implies'", "'else'", "'['", "']'", "'('", "')'", "'let'", "'none'", "'iden'", "'@'", "'pred/totalOrder'", "'fun/add'", "'fun/sub'", "'fun/mul'", "'fun/div'", "'fun/rem'", "'fun/min'", "'fun/max'", "'fun/next'", "'disj'", "'all'", "'sum'", "'||'", "'or'", "'&&'", "'and'", "'&'", "'<=>'", "'iff'", "'-'", "'++'", "'<:'", "':>'", "'<<'", "'>>'", "'>>>'", "'set'", "'#'", "'~'", "'*'", "'^'", "'no'", "'<'", "'>'", "'=<'", "'<='", "'>='", "'->'", "'|'", "'open'", "'fact'", "'assert'", "'enum'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_DOC_COMMENT", "RULE_NEGATIVE_INTEGER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_STRING", "RULE_ANY_OTHER", "'module'", "'exactly'", "'private'", "'/'", "'as'", "'fun'", "'='", "'pred'", "'sig'", "'{'", "','", "'}'", "':'", "'run'", "'check'", "'for'", "'but'", "'expect'", "'this'", "'int'", "'seq'", "'abstract'", "'lone'", "'one'", "'some'", "'extends'", "'in'", "'+'", "'univ'", "'Int'", "'seq/Int'", "'!'", "'not'", "'=>'", "'implies'", "'else'", "'['", "']'", "'('", "')'", "'let'", "'none'", "'iden'", "'@'", "'pred/totalOrder'", "'fun/add'", "'fun/sub'", "'fun/mul'", "'fun/div'", "'fun/rem'", "'fun/min'", "'fun/max'", "'fun/next'", "'disj'", "'all'", "'sum'", "'||'", "'or'", "'&&'", "'and'", "'&'", "'<=>'", "'iff'", "'-'", "'++'", "'<:'", "':>'", "'<<'", "'>>'", "'>>>'", "'set'", "'#'", "'~'", "'*'", "'^'", "'no'", "'<'", "'>'", "'=<'", "'<='", "'>='", "'->'", "'|'", "'open'", "'fact'", "'assert'", "'enum'", "'.'"
     };
     public static final int RULE_ID=5;
     public static final int T__29=29;
@@ -33,7 +33,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=11;
+    public static final int RULE_ANY_OTHER=12;
     public static final int T__21=21;
     public static final int T__20=20;
     public static final int EOF=-1;
@@ -47,7 +47,6 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final int T__90=90;
     public static final int T__18=18;
     public static final int T__17=17;
-    public static final int T__12=12;
     public static final int T__14=14;
     public static final int T__13=13;
     public static final int T__99=99;
@@ -65,8 +64,8 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final int T__86=86;
     public static final int T__89=89;
     public static final int T__88=88;
-    public static final int RULE_ML_COMMENT=6;
-    public static final int RULE_STRING=9;
+    public static final int RULE_ML_COMMENT=8;
+    public static final int RULE_STRING=11;
     public static final int T__71=71;
     public static final int T__72=72;
     public static final int T__70=70;
@@ -81,6 +80,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final int T__69=69;
     public static final int T__66=66;
     public static final int T__67=67;
+    public static final int RULE_DOC_COMMENT=6;
     public static final int T__64=64;
     public static final int T__65=65;
     public static final int T__62=62;
@@ -108,7 +108,8 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final int T__45=45;
     public static final int T__48=48;
     public static final int T__49=49;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int T__100=100;
+    public static final int RULE_SL_COMMENT=9;
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
@@ -230,7 +231,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==12) ) {
+            if ( (LA1_0==13) ) {
                 alt1=1;
             }
             switch (alt1) {
@@ -278,16 +279,16 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==14) ) {
+                if ( (LA2_0==15) ) {
                     int LA2_2 = input.LA(2);
 
-                    if ( (LA2_2==95) ) {
+                    if ( (LA2_2==96) ) {
                         alt2=1;
                     }
 
 
                 }
-                else if ( (LA2_0==95) ) {
+                else if ( (LA2_0==96) ) {
                     alt2=1;
                 }
 
@@ -340,7 +341,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( ((LA3_0>=RULE_ID && LA3_0<=RULE_ML_COMMENT)||LA3_0==14||LA3_0==17||(LA3_0>=19 && LA3_0<=20)||(LA3_0>=25 && LA3_0<=26)||(LA3_0>=33 && LA3_0<=36)||LA3_0==52||(LA3_0>=96 && LA3_0<=98)) ) {
+                if ( ((LA3_0>=RULE_ID && LA3_0<=RULE_DOC_COMMENT)||LA3_0==15||LA3_0==18||(LA3_0>=20 && LA3_0<=21)||(LA3_0>=26 && LA3_0<=27)||(LA3_0>=34 && LA3_0<=37)||LA3_0==53||(LA3_0>=97 && LA3_0<=99)) ) {
                     alt3=1;
                 }
 
@@ -480,7 +481,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:161:1: (otherlv_0= 'module' ( (lv_moduleName_1_0= ruleName ) ) ( ( (lv_left_2_0= ruleLeftSquareBracketKeyword ) ) ( (lv_exactly_3_0= 'exactly' ) )? ( (lv_name_4_0= ruleExactlyName ) ) ( ( (lv_comma_5_0= ruleComma ) ) ( ( ( (lv_exactly_6_0= 'exactly' ) )? ( (lv_number_7_0= RULE_INT ) ) ) | ( (lv_name_8_0= ruleExactlyName ) ) ) )* ( (lv_right_9_0= ruleRightSquareBracketKeyword ) ) )? )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:161:3: otherlv_0= 'module' ( (lv_moduleName_1_0= ruleName ) ) ( ( (lv_left_2_0= ruleLeftSquareBracketKeyword ) ) ( (lv_exactly_3_0= 'exactly' ) )? ( (lv_name_4_0= ruleExactlyName ) ) ( ( (lv_comma_5_0= ruleComma ) ) ( ( ( (lv_exactly_6_0= 'exactly' ) )? ( (lv_number_7_0= RULE_INT ) ) ) | ( (lv_name_8_0= ruleExactlyName ) ) ) )* ( (lv_right_9_0= ruleRightSquareBracketKeyword ) ) )?
             {
-            otherlv_0=(Token)match(input,12,FOLLOW_12_in_ruleModule265); if (state.failed) return current;
+            otherlv_0=(Token)match(input,13,FOLLOW_13_in_ruleModule265); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getModuleAccess().getModuleKeyword_0());
@@ -525,7 +526,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==48) ) {
+            if ( (LA8_0==49) ) {
                 alt8=1;
             }
             switch (alt8) {
@@ -571,7 +572,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
-                    if ( (LA4_0==13) ) {
+                    if ( (LA4_0==14) ) {
                         alt4=1;
                     }
                     switch (alt4) {
@@ -581,7 +582,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:202:1: (lv_exactly_3_0= 'exactly' )
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:203:3: lv_exactly_3_0= 'exactly'
                             {
-                            lv_exactly_3_0=(Token)match(input,13,FOLLOW_13_in_ruleModule326); if (state.failed) return current;
+                            lv_exactly_3_0=(Token)match(input,14,FOLLOW_14_in_ruleModule326); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_exactly_3_0, grammarAccess.getModuleAccess().getExactlyExactlyKeyword_2_1_0());
@@ -645,7 +646,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         int alt7=2;
                         int LA7_0 = input.LA(1);
 
-                        if ( (LA7_0==22) ) {
+                        if ( (LA7_0==23) ) {
                             alt7=1;
                         }
 
@@ -693,10 +694,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     	    int alt6=2;
                     	    int LA6_0 = input.LA(1);
 
-                    	    if ( (LA6_0==RULE_INT||LA6_0==13) ) {
+                    	    if ( (LA6_0==RULE_INT||LA6_0==14) ) {
                     	        alt6=1;
                     	    }
-                    	    else if ( (LA6_0==RULE_ID||LA6_0==30) ) {
+                    	    else if ( (LA6_0==RULE_ID||LA6_0==31) ) {
                     	        alt6=2;
                     	    }
                     	    else {
@@ -717,7 +718,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     	            int alt5=2;
                     	            int LA5_0 = input.LA(1);
 
-                    	            if ( (LA5_0==13) ) {
+                    	            if ( (LA5_0==14) ) {
                     	                alt5=1;
                     	            }
                     	            switch (alt5) {
@@ -727,7 +728,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     	                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:253:1: (lv_exactly_6_0= 'exactly' )
                     	                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:254:3: lv_exactly_6_0= 'exactly'
                     	                    {
-                    	                    lv_exactly_6_0=(Token)match(input,13,FOLLOW_13_in_ruleModule403); if (state.failed) return current;
+                    	                    lv_exactly_6_0=(Token)match(input,14,FOLLOW_14_in_ruleModule403); if (state.failed) return current;
                     	                    if ( state.backtracking==0 ) {
 
                     	                              newLeafNode(lv_exactly_6_0, grammarAccess.getModuleAccess().getExactlyExactlyKeyword_2_3_1_0_0_0());
@@ -975,14 +976,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==14) ) {
+            if ( (LA9_0==15) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:343:4: otherlv_0= 'private'
                     {
-                    otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleOpen577); if (state.failed) return current;
+                    otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleOpen577); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_0, grammarAccess.getOpenAccess().getPrivateKeyword_0());
@@ -1033,7 +1034,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==48) ) {
+            if ( (LA11_0==49) ) {
                 alt11=1;
             }
             switch (alt11) {
@@ -1082,7 +1083,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     if ( (LA10_0==RULE_ID) ) {
                         int LA10_1 = input.LA(2);
 
-                        if ( (LA10_1==15) ) {
+                        if ( (LA10_1==16) ) {
                             alt10=1;
                         }
                     }
@@ -1125,7 +1126,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_4=(Token)match(input,15,FOLLOW_15_in_ruleOpen656); if (state.failed) return current;
+                            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleOpen656); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_4, grammarAccess.getOpenAccess().getSolidusKeyword_2_1_1());
@@ -1212,14 +1213,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==16) ) {
+            if ( (LA12_0==17) ) {
                 alt12=1;
             }
             switch (alt12) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:439:6: otherlv_7= 'as' ( (lv_nameAs_8_0= ruleAsName ) )
                     {
-                    otherlv_7=(Token)match(input,16,FOLLOW_16_in_ruleOpen718); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,17,FOLLOW_17_in_ruleOpen718); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getOpenAccess().getAsKeyword_3_0());
@@ -1697,7 +1698,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEnumDecl"
-    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:628:1: ruleEnumDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) ) ) ;
+    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:628:1: ruleEnumDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) ) ) ;
     public final EObject ruleEnumDecl() throws RecognitionException {
         EObject current = null;
 
@@ -1718,30 +1719,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:631:28: ( ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:632:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:631:28: ( ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:632:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:632:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:632:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:632:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:632:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_enumName_1_0= ruleEnumName ) ) ( (lv_leftC_2_0= ruleLeftCurlyBracket ) ) ( (lv_propertyEnum_3_0= ruleEnumPropertyName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_propertyEnum_5_0= ruleEnumPropertyName ) ) )* ( (lv_rightC_6_0= ruleRightCurlyBracket ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:632:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )?
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:632:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_ML_COMMENT) ) {
+            if ( (LA14_0==RULE_DOC_COMMENT) ) {
                 alt14=1;
             }
             switch (alt14) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:633:1: (lv_documentation_0_0= RULE_ML_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:633:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
                     {
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:633:1: (lv_documentation_0_0= RULE_ML_COMMENT )
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:634:3: lv_documentation_0_0= RULE_ML_COMMENT
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:633:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:634:3: lv_documentation_0_0= RULE_DOC_COMMENT
                     {
-                    lv_documentation_0_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_RULE_ML_COMMENT_in_ruleEnumDecl1194); if (state.failed) return current;
+                    lv_documentation_0_0=(Token)match(input,RULE_DOC_COMMENT,FOLLOW_RULE_DOC_COMMENT_in_ruleEnumDecl1194); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			newLeafNode(lv_documentation_0_0, grammarAccess.getEnumDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+                      			newLeafNode(lv_documentation_0_0, grammarAccess.getEnumDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
                       		
                     }
                     if ( state.backtracking==0 ) {
@@ -1753,7 +1754,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                              			current, 
                              			"documentation",
                               		lv_documentation_0_0, 
-                              		"ML_COMMENT");
+                              		"DOC_COMMENT");
                       	    
                     }
 
@@ -1876,7 +1877,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt15=2;
                 int LA15_0 = input.LA(1);
 
-                if ( (LA15_0==22) ) {
+                if ( (LA15_0==23) ) {
                     alt15=1;
                 }
 
@@ -2062,7 +2063,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFactDecl"
-    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:775:1: ruleFactDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) ) ) ;
+    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:775:1: ruleFactDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) ) ) ;
     public final EObject ruleFactDecl() throws RecognitionException {
         EObject current = null;
 
@@ -2075,30 +2076,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:778:28: ( ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:779:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:778:28: ( ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:779:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:779:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:779:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:779:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:779:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleFactName ) ) ( (lv_block_2_0= ruleBlock ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:779:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )?
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:779:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==RULE_ML_COMMENT) ) {
+            if ( (LA16_0==RULE_DOC_COMMENT) ) {
                 alt16=1;
             }
             switch (alt16) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:780:1: (lv_documentation_0_0= RULE_ML_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:780:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
                     {
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:780:1: (lv_documentation_0_0= RULE_ML_COMMENT )
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:781:3: lv_documentation_0_0= RULE_ML_COMMENT
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:780:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:781:3: lv_documentation_0_0= RULE_DOC_COMMENT
                     {
-                    lv_documentation_0_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_RULE_ML_COMMENT_in_ruleFactDecl1417); if (state.failed) return current;
+                    lv_documentation_0_0=(Token)match(input,RULE_DOC_COMMENT,FOLLOW_RULE_DOC_COMMENT_in_ruleFactDecl1417); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			newLeafNode(lv_documentation_0_0, grammarAccess.getFactDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+                      			newLeafNode(lv_documentation_0_0, grammarAccess.getFactDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
                       		
                     }
                     if ( state.backtracking==0 ) {
@@ -2110,7 +2111,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                              			current, 
                              			"documentation",
                               		lv_documentation_0_0, 
-                              		"ML_COMMENT");
+                              		"DOC_COMMENT");
                       	    
                     }
 
@@ -2255,7 +2256,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunDecl"
-    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:850:1: ruleFunDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) ) ) ;
+    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:850:1: ruleFunDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) ) ) ;
     public final EObject ruleFunDecl() throws RecognitionException {
         EObject current = null;
 
@@ -2298,30 +2299,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:853:28: ( ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:854:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:853:28: ( ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:854:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:854:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:854:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:854:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:854:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_decl_12_0= ruleDecl ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_decl_14_0= ruleDecl ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) ) ( (lv_colon_16_0= ruleColon ) ) ( (lv_expr_17_0= ruleExpression ) ) ( (lv_block_18_0= ruleBlock ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:854:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )?
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:854:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( (LA17_0==RULE_ML_COMMENT) ) {
+            if ( (LA17_0==RULE_DOC_COMMENT) ) {
                 alt17=1;
             }
             switch (alt17) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:855:1: (lv_documentation_0_0= RULE_ML_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:855:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
                     {
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:855:1: (lv_documentation_0_0= RULE_ML_COMMENT )
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:856:3: lv_documentation_0_0= RULE_ML_COMMENT
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:855:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:856:3: lv_documentation_0_0= RULE_DOC_COMMENT
                     {
-                    lv_documentation_0_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_RULE_ML_COMMENT_in_ruleFunDecl1553); if (state.failed) return current;
+                    lv_documentation_0_0=(Token)match(input,RULE_DOC_COMMENT,FOLLOW_RULE_DOC_COMMENT_in_ruleFunDecl1553); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			newLeafNode(lv_documentation_0_0, grammarAccess.getFunDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+                      			newLeafNode(lv_documentation_0_0, grammarAccess.getFunDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
                       		
                     }
                     if ( state.backtracking==0 ) {
@@ -2333,7 +2334,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                              			current, 
                              			"documentation",
                               		lv_documentation_0_0, 
-                              		"ML_COMMENT");
+                              		"DOC_COMMENT");
                       	    
                     }
 
@@ -2349,14 +2350,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt18=2;
             int LA18_0 = input.LA(1);
 
-            if ( (LA18_0==14) ) {
+            if ( (LA18_0==15) ) {
                 alt18=1;
             }
             switch (alt18) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:872:5: otherlv_1= 'private'
                     {
-                    otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleFunDecl1572); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,15,FOLLOW_15_in_ruleFunDecl1572); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getFunDeclAccess().getPrivateKeyword_1());
@@ -2368,7 +2369,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,17,FOLLOW_17_in_ruleFunDecl1586); if (state.failed) return current;
+            otherlv_2=(Token)match(input,18,FOLLOW_18_in_ruleFunDecl1586); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getFunDeclAccess().getFunKeyword_2());
@@ -2381,11 +2382,11 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             if ( (LA19_0==RULE_ID) ) {
                 int LA19_1 = input.LA(2);
 
-                if ( (LA19_1==99) ) {
+                if ( (LA19_1==100) ) {
                     alt19=1;
                 }
             }
-            else if ( ((LA19_0>=40 && LA19_0<=42)) ) {
+            else if ( ((LA19_0>=41 && LA19_0<=43)) ) {
                 alt19=1;
             }
             switch (alt19) {
@@ -2507,10 +2508,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( (LA24_0==48) ) {
+            if ( (LA24_0==49) ) {
                 alt24=1;
             }
-            else if ( (LA24_0==50) ) {
+            else if ( (LA24_0==51) ) {
                 alt24=2;
             }
             else {
@@ -2566,7 +2567,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt21=2;
                     int LA21_0 = input.LA(1);
 
-                    if ( (LA21_0==RULE_ID||LA21_0==14||LA21_0==30||LA21_0==65) ) {
+                    if ( (LA21_0==RULE_ID||LA21_0==15||LA21_0==31||LA21_0==66) ) {
                         alt21=1;
                     }
                     switch (alt21) {
@@ -2614,7 +2615,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 int alt20=2;
                                 int LA20_0 = input.LA(1);
 
-                                if ( (LA20_0==22) ) {
+                                if ( (LA20_0==23) ) {
                                     alt20=1;
                                 }
 
@@ -2794,7 +2795,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt23=2;
                     int LA23_0 = input.LA(1);
 
-                    if ( (LA23_0==RULE_ID||LA23_0==14||LA23_0==30||LA23_0==65) ) {
+                    if ( (LA23_0==RULE_ID||LA23_0==15||LA23_0==31||LA23_0==66) ) {
                         alt23=1;
                     }
                     switch (alt23) {
@@ -2842,7 +2843,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 int alt22=2;
                                 int LA22_0 = input.LA(1);
 
-                                if ( (LA22_0==22) ) {
+                                if ( (LA22_0==23) ) {
                                     alt22=1;
                                 }
 
@@ -3148,7 +3149,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunDeclWParam"
-    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1186:1: ruleFunDeclWParam returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) ) ) ;
+    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1186:1: ruleFunDeclWParam returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) ) ) ;
     public final EObject ruleFunDeclWParam() throws RecognitionException {
         EObject current = null;
 
@@ -3171,30 +3172,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1189:28: ( ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1190:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1189:28: ( ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1190:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1190:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1190:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1190:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1190:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'fun' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= ruleFunctionNamewParam ) ) ( (lv_colon_6_0= ruleColon ) ) ( (lv_expr_7_0= ruleExpression ) ) ( (lv_block_8_0= ruleBlock ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1190:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )?
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1190:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )?
             int alt25=2;
             int LA25_0 = input.LA(1);
 
-            if ( (LA25_0==RULE_ML_COMMENT) ) {
+            if ( (LA25_0==RULE_DOC_COMMENT) ) {
                 alt25=1;
             }
             switch (alt25) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1191:1: (lv_documentation_0_0= RULE_ML_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1191:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
                     {
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1191:1: (lv_documentation_0_0= RULE_ML_COMMENT )
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1192:3: lv_documentation_0_0= RULE_ML_COMMENT
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1191:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1192:3: lv_documentation_0_0= RULE_DOC_COMMENT
                     {
-                    lv_documentation_0_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_RULE_ML_COMMENT_in_ruleFunDeclWParam2037); if (state.failed) return current;
+                    lv_documentation_0_0=(Token)match(input,RULE_DOC_COMMENT,FOLLOW_RULE_DOC_COMMENT_in_ruleFunDeclWParam2037); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			newLeafNode(lv_documentation_0_0, grammarAccess.getFunDeclWParamAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+                      			newLeafNode(lv_documentation_0_0, grammarAccess.getFunDeclWParamAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
                       		
                     }
                     if ( state.backtracking==0 ) {
@@ -3206,7 +3207,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                              			current, 
                              			"documentation",
                               		lv_documentation_0_0, 
-                              		"ML_COMMENT");
+                              		"DOC_COMMENT");
                       	    
                     }
 
@@ -3222,14 +3223,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt26=2;
             int LA26_0 = input.LA(1);
 
-            if ( (LA26_0==14) ) {
+            if ( (LA26_0==15) ) {
                 alt26=1;
             }
             switch (alt26) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1208:5: otherlv_1= 'private'
                     {
-                    otherlv_1=(Token)match(input,14,FOLLOW_14_in_ruleFunDeclWParam2056); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,15,FOLLOW_15_in_ruleFunDeclWParam2056); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getFunDeclWParamAccess().getPrivateKeyword_1());
@@ -3241,7 +3242,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,17,FOLLOW_17_in_ruleFunDeclWParam2070); if (state.failed) return current;
+            otherlv_2=(Token)match(input,18,FOLLOW_18_in_ruleFunDeclWParam2070); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getFunDeclWParamAccess().getFunKeyword_2());
@@ -3254,11 +3255,11 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             if ( (LA27_0==RULE_ID) ) {
                 int LA27_1 = input.LA(2);
 
-                if ( (LA27_1==99) ) {
+                if ( (LA27_1==100) ) {
                     alt27=1;
                 }
             }
-            else if ( ((LA27_0>=40 && LA27_0<=42)) ) {
+            else if ( ((LA27_0>=41 && LA27_0<=43)) ) {
                 alt27=1;
             }
             switch (alt27) {
@@ -3544,7 +3545,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLetOutDecl"
-    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1341:1: ruleLetOutDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) ) ) ;
+    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1341:1: ruleLetOutDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) ) ) ;
     public final EObject ruleLetOutDecl() throws RecognitionException {
         EObject current = null;
 
@@ -3570,30 +3571,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1344:28: ( ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1345:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1344:28: ( ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1345:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1345:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1345:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1345:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1345:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( (lv_name_1_0= ruleLetName ) ) ( ( (lv_leftS_2_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_nameRef_3_0= ruleReferencesName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_nameRef_5_0= ruleReferencesName ) ) )* )? ( (lv_rightS_6_0= ruleRightSquareBracketKeyword ) ) )? ( ( (lv_block_7_0= ruleBlock ) ) | (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1345:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )?
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1345:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
-            if ( (LA28_0==RULE_ML_COMMENT) ) {
+            if ( (LA28_0==RULE_DOC_COMMENT) ) {
                 alt28=1;
             }
             switch (alt28) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1346:1: (lv_documentation_0_0= RULE_ML_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1346:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
                     {
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1346:1: (lv_documentation_0_0= RULE_ML_COMMENT )
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1347:3: lv_documentation_0_0= RULE_ML_COMMENT
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1346:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1347:3: lv_documentation_0_0= RULE_DOC_COMMENT
                     {
-                    lv_documentation_0_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_RULE_ML_COMMENT_in_ruleLetOutDecl2287); if (state.failed) return current;
+                    lv_documentation_0_0=(Token)match(input,RULE_DOC_COMMENT,FOLLOW_RULE_DOC_COMMENT_in_ruleLetOutDecl2287); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			newLeafNode(lv_documentation_0_0, grammarAccess.getLetOutDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+                      			newLeafNode(lv_documentation_0_0, grammarAccess.getLetOutDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
                       		
                     }
                     if ( state.backtracking==0 ) {
@@ -3605,7 +3606,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                              			current, 
                              			"documentation",
                               		lv_documentation_0_0, 
-                              		"ML_COMMENT");
+                              		"DOC_COMMENT");
                       	    
                     }
 
@@ -3656,7 +3657,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt31=2;
             int LA31_0 = input.LA(1);
 
-            if ( (LA31_0==48) ) {
+            if ( (LA31_0==49) ) {
                 alt31=1;
             }
             switch (alt31) {
@@ -3702,7 +3703,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt30=2;
                     int LA30_0 = input.LA(1);
 
-                    if ( (LA30_0==RULE_ID||LA30_0==30||LA30_0==52||LA30_0==96||LA30_0==98) ) {
+                    if ( (LA30_0==RULE_ID||LA30_0==31||LA30_0==53||LA30_0==97||LA30_0==99) ) {
                         alt30=1;
                     }
                     switch (alt30) {
@@ -3750,7 +3751,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 int alt29=2;
                                 int LA29_0 = input.LA(1);
 
-                                if ( (LA29_0==22) ) {
+                                if ( (LA29_0==23) ) {
                                     alt29=1;
                                 }
 
@@ -3889,10 +3890,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt32=2;
             int LA32_0 = input.LA(1);
 
-            if ( (LA32_0==21) ) {
+            if ( (LA32_0==22) ) {
                 alt32=1;
             }
-            else if ( (LA32_0==18) ) {
+            else if ( (LA32_0==19) ) {
                 alt32=2;
             }
             else {
@@ -3950,7 +3951,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1490:6: (otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) ) )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1490:8: otherlv_8= '=' ( (lv_exprName_9_0= ruleExpression ) )
                     {
-                    otherlv_8=(Token)match(input,18,FOLLOW_18_in_ruleLetOutDecl2469); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,19,FOLLOW_19_in_ruleLetOutDecl2469); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_8, grammarAccess.getLetOutDeclAccess().getEqualsSignKeyword_3_1_0());
@@ -4063,7 +4064,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePredDecl"
-    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1529:1: rulePredDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) ) ) ;
+    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1529:1: rulePredDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) ) ) ;
     public final EObject rulePredDecl() throws RecognitionException {
         EObject current = null;
 
@@ -4102,30 +4103,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1532:28: ( ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1533:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1532:28: ( ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1533:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1533:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1533:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1533:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1533:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? (otherlv_1= 'private' )? otherlv_2= 'pred' ( ( (lv_ref_3_0= ruleRef ) ) ( (lv_dot_4_0= ruleDot ) ) )? ( (lv_name_5_0= rulePredicateName ) ) ( ( ( (lv_leftS_6_0= ruleLeftSquareBracketKeyword ) ) ( ( (lv_param_7_0= ruleParam ) ) ( ( (lv_comma_8_0= ruleComma ) ) ( (lv_param_9_0= ruleParam ) ) )* )? ( (lv_rightS_10_0= ruleRightSquareBracketKeyword ) ) ) | ( ( (lv_leftP_11_0= ruleLeftParenthesis ) ) ( ( (lv_param_12_0= ruleParam ) ) ( ( (lv_comma_13_0= ruleComma ) ) ( (lv_param_14_0= ruleParam ) ) )* )? ( (lv_rightP_15_0= ruleRightParenthesis ) ) ) )? ( (lv_block_16_0= ruleBlock ) )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1533:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )?
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1533:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )?
             int alt33=2;
             int LA33_0 = input.LA(1);
 
-            if ( (LA33_0==RULE_ML_COMMENT) ) {
+            if ( (LA33_0==RULE_DOC_COMMENT) ) {
                 alt33=1;
             }
             switch (alt33) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1534:1: (lv_documentation_0_0= RULE_ML_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1534:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
                     {
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1534:1: (lv_documentation_0_0= RULE_ML_COMMENT )
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1535:3: lv_documentation_0_0= RULE_ML_COMMENT
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1534:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1535:3: lv_documentation_0_0= RULE_DOC_COMMENT
                     {
-                    lv_documentation_0_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_RULE_ML_COMMENT_in_rulePredDecl2580); if (state.failed) return current;
+                    lv_documentation_0_0=(Token)match(input,RULE_DOC_COMMENT,FOLLOW_RULE_DOC_COMMENT_in_rulePredDecl2580); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			newLeafNode(lv_documentation_0_0, grammarAccess.getPredDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+                      			newLeafNode(lv_documentation_0_0, grammarAccess.getPredDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
                       		
                     }
                     if ( state.backtracking==0 ) {
@@ -4137,7 +4138,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                              			current, 
                              			"documentation",
                               		lv_documentation_0_0, 
-                              		"ML_COMMENT");
+                              		"DOC_COMMENT");
                       	    
                     }
 
@@ -4153,14 +4154,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( (LA34_0==14) ) {
+            if ( (LA34_0==15) ) {
                 alt34=1;
             }
             switch (alt34) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1551:5: otherlv_1= 'private'
                     {
-                    otherlv_1=(Token)match(input,14,FOLLOW_14_in_rulePredDecl2599); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,15,FOLLOW_15_in_rulePredDecl2599); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getPredDeclAccess().getPrivateKeyword_1());
@@ -4172,7 +4173,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,19,FOLLOW_19_in_rulePredDecl2613); if (state.failed) return current;
+            otherlv_2=(Token)match(input,20,FOLLOW_20_in_rulePredDecl2613); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getPredDeclAccess().getPredKeyword_2());
@@ -4185,11 +4186,11 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             if ( (LA35_0==RULE_ID) ) {
                 int LA35_1 = input.LA(2);
 
-                if ( (LA35_1==99) ) {
+                if ( (LA35_1==100) ) {
                     alt35=1;
                 }
             }
-            else if ( ((LA35_0>=40 && LA35_0<=42)) ) {
+            else if ( ((LA35_0>=41 && LA35_0<=43)) ) {
                 alt35=1;
             }
             switch (alt35) {
@@ -4311,10 +4312,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt40=3;
             int LA40_0 = input.LA(1);
 
-            if ( (LA40_0==48) ) {
+            if ( (LA40_0==49) ) {
                 alt40=1;
             }
-            else if ( (LA40_0==50) ) {
+            else if ( (LA40_0==51) ) {
                 alt40=2;
             }
             switch (alt40) {
@@ -4363,7 +4364,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt37=2;
                     int LA37_0 = input.LA(1);
 
-                    if ( (LA37_0==RULE_ID||LA37_0==14||LA37_0==30||LA37_0==65) ) {
+                    if ( (LA37_0==RULE_ID||LA37_0==15||LA37_0==31||LA37_0==66) ) {
                         alt37=1;
                     }
                     switch (alt37) {
@@ -4411,7 +4412,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 int alt36=2;
                                 int LA36_0 = input.LA(1);
 
-                                if ( (LA36_0==22) ) {
+                                if ( (LA36_0==23) ) {
                                     alt36=1;
                                 }
 
@@ -4591,7 +4592,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt39=2;
                     int LA39_0 = input.LA(1);
 
-                    if ( (LA39_0==RULE_ID||LA39_0==14||LA39_0==30||LA39_0==65) ) {
+                    if ( (LA39_0==RULE_ID||LA39_0==15||LA39_0==31||LA39_0==66) ) {
                         alt39=1;
                     }
                     switch (alt39) {
@@ -4639,7 +4640,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 int alt38=2;
                                 int LA38_0 = input.LA(1);
 
-                                if ( (LA38_0==22) ) {
+                                if ( (LA38_0==23) ) {
                                     alt38=1;
                                 }
 
@@ -4875,7 +4876,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSigDecl"
-    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1829:1: ruleSigDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )? ) ;
+    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1829:1: ruleSigDecl returns [EObject current=null] : ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )? ) ;
     public final EObject ruleSigDecl() throws RecognitionException {
         EObject current = null;
 
@@ -4902,30 +4903,30 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1832:28: ( ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )? ) )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1833:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )? )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1832:28: ( ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )? ) )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1833:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )? )
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1833:1: ( ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )? )
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1833:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )?
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1833:1: ( ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )? )
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1833:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )? ( ruleSigQual )* otherlv_2= 'sig' ( (lv_signatureName_3_0= ruleSignatureName ) ) ( ( (lv_comma_4_0= ruleComma ) ) ( (lv_signatureName_5_0= ruleSignatureName ) ) )* ( (lv_sigExt_6_0= ruleSigExt ) )? otherlv_7= '{' ( ( (lv_decl_8_0= ruleDecl ) ) ( ( (lv_comma2_9_0= ',' ) ) ( (lv_decl_10_0= ruleDecl ) ) )* )? otherlv_11= '}' ( (lv_block_12_0= ruleBlock ) )?
             {
-            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1833:2: ( (lv_documentation_0_0= RULE_ML_COMMENT ) )?
+            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1833:2: ( (lv_documentation_0_0= RULE_DOC_COMMENT ) )?
             int alt41=2;
             int LA41_0 = input.LA(1);
 
-            if ( (LA41_0==RULE_ML_COMMENT) ) {
+            if ( (LA41_0==RULE_DOC_COMMENT) ) {
                 alt41=1;
             }
             switch (alt41) {
                 case 1 :
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1834:1: (lv_documentation_0_0= RULE_ML_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1834:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
                     {
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1834:1: (lv_documentation_0_0= RULE_ML_COMMENT )
-                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1835:3: lv_documentation_0_0= RULE_ML_COMMENT
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1834:1: (lv_documentation_0_0= RULE_DOC_COMMENT )
+                    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1835:3: lv_documentation_0_0= RULE_DOC_COMMENT
                     {
-                    lv_documentation_0_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_RULE_ML_COMMENT_in_ruleSigDecl3023); if (state.failed) return current;
+                    lv_documentation_0_0=(Token)match(input,RULE_DOC_COMMENT,FOLLOW_RULE_DOC_COMMENT_in_ruleSigDecl3023); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			newLeafNode(lv_documentation_0_0, grammarAccess.getSigDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+                      			newLeafNode(lv_documentation_0_0, grammarAccess.getSigDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
                       		
                     }
                     if ( state.backtracking==0 ) {
@@ -4937,7 +4938,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                              			current, 
                              			"documentation",
                               		lv_documentation_0_0, 
-                              		"ML_COMMENT");
+                              		"DOC_COMMENT");
                       	    
                     }
 
@@ -4955,7 +4956,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt42=2;
                 int LA42_0 = input.LA(1);
 
-                if ( (LA42_0==14||(LA42_0>=33 && LA42_0<=36)) ) {
+                if ( (LA42_0==15||(LA42_0>=34 && LA42_0<=37)) ) {
                     alt42=1;
                 }
 
@@ -4993,7 +4994,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleSigDecl3062); if (state.failed) return current;
+            otherlv_2=(Token)match(input,21,FOLLOW_21_in_ruleSigDecl3062); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getSigDeclAccess().getSigKeyword_2());
@@ -5040,7 +5041,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt43=2;
                 int LA43_0 = input.LA(1);
 
-                if ( (LA43_0==22) ) {
+                if ( (LA43_0==23) ) {
                     alt43=1;
                 }
 
@@ -5132,7 +5133,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt44=2;
             int LA44_0 = input.LA(1);
 
-            if ( ((LA44_0>=37 && LA44_0<=38)) ) {
+            if ( ((LA44_0>=38 && LA44_0<=39)) ) {
                 alt44=1;
             }
             switch (alt44) {
@@ -5174,7 +5175,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,21,FOLLOW_21_in_ruleSigDecl3162); if (state.failed) return current;
+            otherlv_7=(Token)match(input,22,FOLLOW_22_in_ruleSigDecl3162); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_7, grammarAccess.getSigDeclAccess().getLeftCurlyBracketKeyword_6());
@@ -5184,7 +5185,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt46=2;
             int LA46_0 = input.LA(1);
 
-            if ( (LA46_0==RULE_ID||LA46_0==14||LA46_0==30||LA46_0==65) ) {
+            if ( (LA46_0==RULE_ID||LA46_0==15||LA46_0==31||LA46_0==66) ) {
                 alt46=1;
             }
             switch (alt46) {
@@ -5232,7 +5233,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         int alt45=2;
                         int LA45_0 = input.LA(1);
 
-                        if ( (LA45_0==22) ) {
+                        if ( (LA45_0==23) ) {
                             alt45=1;
                         }
 
@@ -5247,7 +5248,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1961:1: (lv_comma2_9_0= ',' )
                     	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:1962:3: lv_comma2_9_0= ','
                     	    {
-                    	    lv_comma2_9_0=(Token)match(input,22,FOLLOW_22_in_ruleSigDecl3203); if (state.failed) return current;
+                    	    lv_comma2_9_0=(Token)match(input,23,FOLLOW_23_in_ruleSigDecl3203); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	              newLeafNode(lv_comma2_9_0, grammarAccess.getSigDeclAccess().getComma2CommaKeyword_7_1_0_0());
@@ -5317,7 +5318,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_11=(Token)match(input,23,FOLLOW_23_in_ruleSigDecl3253); if (state.failed) return current;
+            otherlv_11=(Token)match(input,24,FOLLOW_24_in_ruleSigDecl3253); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_11, grammarAccess.getSigDeclAccess().getRightCurlyBracketKeyword_8());
@@ -5327,7 +5328,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt47=2;
             int LA47_0 = input.LA(1);
 
-            if ( (LA47_0==21) ) {
+            if ( (LA47_0==22) ) {
                 alt47=1;
             }
             switch (alt47) {
@@ -5652,7 +5653,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_1=(Token)match(input,24,FOLLOW_24_in_ruleRunDecl3493); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleRunDecl3493); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getRunDeclAccess().getColonKeyword_0_1());
@@ -5664,7 +5665,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,25,FOLLOW_25_in_ruleRunDecl3507); if (state.failed) return current;
+            otherlv_2=(Token)match(input,26,FOLLOW_26_in_ruleRunDecl3507); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getRunDeclAccess().getRunKeyword_1());
@@ -5677,7 +5678,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             if ( (LA49_0==RULE_ID) ) {
                 alt49=1;
             }
-            else if ( (LA49_0==21) ) {
+            else if ( (LA49_0==22) ) {
                 alt49=2;
             }
             else {
@@ -5935,7 +5936,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_1=(Token)match(input,24,FOLLOW_24_in_ruleCheckDecl3686); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleCheckDecl3686); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getCheckDeclAccess().getColonKeyword_0_1());
@@ -5947,7 +5948,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,26,FOLLOW_26_in_ruleCheckDecl3700); if (state.failed) return current;
+            otherlv_2=(Token)match(input,27,FOLLOW_27_in_ruleCheckDecl3700); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getCheckDeclAccess().getCheckKeyword_1());
@@ -5960,7 +5961,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             if ( (LA51_0==RULE_ID) ) {
                 alt51=1;
             }
-            else if ( (LA51_0==21) ) {
+            else if ( (LA51_0==22) ) {
                 alt51=2;
             }
             else {
@@ -6220,7 +6221,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2303:1: (lv_for_1_0= 'for' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2304:3: lv_for_1_0= 'for'
                     {
-                    lv_for_1_0=(Token)match(input,27,FOLLOW_27_in_ruleScope3876); if (state.failed) return current;
+                    lv_for_1_0=(Token)match(input,28,FOLLOW_28_in_ruleScope3876); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_for_1_0, grammarAccess.getScopeAccess().getForForKeyword_0_1_0());
@@ -6274,7 +6275,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt52=2;
                     int LA52_0 = input.LA(1);
 
-                    if ( (LA52_0==29) ) {
+                    if ( (LA52_0==30) ) {
                         alt52=1;
                     }
                     switch (alt52) {
@@ -6352,7 +6353,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2364:1: (lv_for_5_0= 'for' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2365:3: lv_for_5_0= 'for'
                     {
-                    lv_for_5_0=(Token)match(input,27,FOLLOW_27_in_ruleScope3971); if (state.failed) return current;
+                    lv_for_5_0=(Token)match(input,28,FOLLOW_28_in_ruleScope3971); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_for_5_0, grammarAccess.getScopeAccess().getForForKeyword_1_1_0());
@@ -6408,7 +6409,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2397:1: (lv_but_7_0= 'but' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2398:3: lv_but_7_0= 'but'
                     {
-                    lv_but_7_0=(Token)match(input,28,FOLLOW_28_in_ruleScope4024); if (state.failed) return current;
+                    lv_but_7_0=(Token)match(input,29,FOLLOW_29_in_ruleScope4024); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_but_7_0, grammarAccess.getScopeAccess().getButButKeyword_1_3_0());
@@ -6469,7 +6470,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         int alt53=2;
                         int LA53_0 = input.LA(1);
 
-                        if ( (LA53_0==22) ) {
+                        if ( (LA53_0==23) ) {
                             alt53=1;
                         }
 
@@ -6561,7 +6562,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt54=2;
                     int LA54_0 = input.LA(1);
 
-                    if ( (LA54_0==29) ) {
+                    if ( (LA54_0==30) ) {
                         alt54=1;
                     }
                     switch (alt54) {
@@ -6639,7 +6640,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2494:1: (lv_for_13_0= 'for' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2495:3: lv_for_13_0= 'for'
                     {
-                    lv_for_13_0=(Token)match(input,27,FOLLOW_27_in_ruleScope4163); if (state.failed) return current;
+                    lv_for_13_0=(Token)match(input,28,FOLLOW_28_in_ruleScope4163); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_for_13_0, grammarAccess.getScopeAccess().getForForKeyword_2_1_0());
@@ -6700,7 +6701,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         int alt55=2;
                         int LA55_0 = input.LA(1);
 
-                        if ( (LA55_0==22) ) {
+                        if ( (LA55_0==23) ) {
                             alt55=1;
                         }
 
@@ -6792,7 +6793,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt56=2;
                     int LA56_0 = input.LA(1);
 
-                    if ( (LA56_0==29) ) {
+                    if ( (LA56_0==30) ) {
                         alt56=1;
                     }
                     switch (alt56) {
@@ -6868,7 +6869,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt57=2;
                     int LA57_0 = input.LA(1);
 
-                    if ( (LA57_0==29) ) {
+                    if ( (LA57_0==30) ) {
                         alt57=1;
                     }
                     switch (alt57) {
@@ -7001,7 +7002,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2630:1: (lv_expect_0_0= 'expect' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2631:3: lv_expect_0_0= 'expect'
             {
-            lv_expect_0_0=(Token)match(input,29,FOLLOW_29_in_ruleExpectation4396); if (state.failed) return current;
+            lv_expect_0_0=(Token)match(input,30,FOLLOW_30_in_ruleExpectation4396); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_expect_0_0, grammarAccess.getExpectationAccess().getExpectExpectKeyword_0_0());
@@ -7158,7 +7159,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt59=2;
             int LA59_0 = input.LA(1);
 
-            if ( (LA59_0==13) ) {
+            if ( (LA59_0==14) ) {
                 alt59=1;
             }
             switch (alt59) {
@@ -7168,7 +7169,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2693:1: (lv_exactly_1_0= 'exactly' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2694:3: lv_exactly_1_0= 'exactly'
                     {
-                    lv_exactly_1_0=(Token)match(input,13,FOLLOW_13_in_ruleTypescope4532); if (state.failed) return current;
+                    lv_exactly_1_0=(Token)match(input,14,FOLLOW_14_in_ruleTypescope4532); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_exactly_1_0, grammarAccess.getTypescopeAccess().getExactlyExactlyKeyword_1_0());
@@ -7228,11 +7229,11 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             if ( (LA61_0==RULE_ID) ) {
                 int LA61_1 = input.LA(2);
 
-                if ( (LA61_1==15) ) {
+                if ( (LA61_1==16) ) {
                     alt61=1;
                 }
             }
-            else if ( (LA61_0==30) ) {
+            else if ( (LA61_0==31) ) {
                 alt61=1;
             }
             switch (alt61) {
@@ -7246,7 +7247,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     if ( (LA60_0==RULE_ID) ) {
                         alt60=1;
                     }
-                    else if ( (LA60_0==30) ) {
+                    else if ( (LA60_0==31) ) {
                         alt60=2;
                     }
                     else {
@@ -7302,7 +7303,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2743:1: (lv_prev_4_0= 'this' )
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2744:3: lv_prev_4_0= 'this'
                             {
-                            lv_prev_4_0=(Token)match(input,30,FOLLOW_30_in_ruleTypescope4618); if (state.failed) return current;
+                            lv_prev_4_0=(Token)match(input,31,FOLLOW_31_in_ruleTypescope4618); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_prev_4_0, grammarAccess.getTypescopeAccess().getPrevThisKeyword_3_0_1_0());
@@ -7334,7 +7335,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2758:1: (lv_sl_5_0= '/' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2759:3: lv_sl_5_0= '/'
                     {
-                    lv_sl_5_0=(Token)match(input,15,FOLLOW_15_in_ruleTypescope4650); if (state.failed) return current;
+                    lv_sl_5_0=(Token)match(input,16,FOLLOW_16_in_ruleTypescope4650); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_sl_5_0, grammarAccess.getTypescopeAccess().getSlSolidusKeyword_3_1_0());
@@ -7367,7 +7368,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             if ( (LA63_0==RULE_ID) ) {
                 alt63=1;
             }
-            else if ( ((LA63_0>=31 && LA63_0<=32)) ) {
+            else if ( ((LA63_0>=32 && LA63_0<=33)) ) {
                 alt63=2;
             }
             else {
@@ -7421,10 +7422,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt62=2;
                     int LA62_0 = input.LA(1);
 
-                    if ( (LA62_0==31) ) {
+                    if ( (LA62_0==32) ) {
                         alt62=1;
                     }
-                    else if ( (LA62_0==32) ) {
+                    else if ( (LA62_0==33) ) {
                         alt62=2;
                     }
                     else {
@@ -7444,7 +7445,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2790:1: (lv_post_7_0= 'int' )
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2791:3: lv_post_7_0= 'int'
                             {
-                            lv_post_7_0=(Token)match(input,31,FOLLOW_31_in_ruleTypescope4715); if (state.failed) return current;
+                            lv_post_7_0=(Token)match(input,32,FOLLOW_32_in_ruleTypescope4715); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_post_7_0, grammarAccess.getTypescopeAccess().getPostIntKeyword_4_1_0_0());
@@ -7476,7 +7477,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2806:1: (lv_post_8_0= 'seq' )
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2807:3: lv_post_8_0= 'seq'
                             {
-                            lv_post_8_0=(Token)match(input,32,FOLLOW_32_in_ruleTypescope4752); if (state.failed) return current;
+                            lv_post_8_0=(Token)match(input,33,FOLLOW_33_in_ruleTypescope4752); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_post_8_0, grammarAccess.getTypescopeAccess().getPostSeqKeyword_4_1_1_0());
@@ -7586,27 +7587,27 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2841:1: (kw= 'abstract' | kw= 'lone' | kw= 'one' | kw= 'some' | kw= 'private' )
             int alt64=5;
             switch ( input.LA(1) ) {
-            case 33:
+            case 34:
                 {
                 alt64=1;
                 }
                 break;
-            case 34:
+            case 35:
                 {
                 alt64=2;
                 }
                 break;
-            case 35:
+            case 36:
                 {
                 alt64=3;
                 }
                 break;
-            case 36:
+            case 37:
                 {
                 alt64=4;
                 }
                 break;
-            case 14:
+            case 15:
                 {
                 alt64=5;
                 }
@@ -7623,7 +7624,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2842:2: kw= 'abstract'
                     {
-                    kw=(Token)match(input,33,FOLLOW_33_in_ruleSigQual4853); if (state.failed) return current;
+                    kw=(Token)match(input,34,FOLLOW_34_in_ruleSigQual4853); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7636,7 +7637,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2849:2: kw= 'lone'
                     {
-                    kw=(Token)match(input,34,FOLLOW_34_in_ruleSigQual4872); if (state.failed) return current;
+                    kw=(Token)match(input,35,FOLLOW_35_in_ruleSigQual4872); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7649,7 +7650,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2856:2: kw= 'one'
                     {
-                    kw=(Token)match(input,35,FOLLOW_35_in_ruleSigQual4891); if (state.failed) return current;
+                    kw=(Token)match(input,36,FOLLOW_36_in_ruleSigQual4891); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7662,7 +7663,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2863:2: kw= 'some'
                     {
-                    kw=(Token)match(input,36,FOLLOW_36_in_ruleSigQual4910); if (state.failed) return current;
+                    kw=(Token)match(input,37,FOLLOW_37_in_ruleSigQual4910); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7675,7 +7676,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2870:2: kw= 'private'
                     {
-                    kw=(Token)match(input,14,FOLLOW_14_in_ruleSigQual4929); if (state.failed) return current;
+                    kw=(Token)match(input,15,FOLLOW_15_in_ruleSigQual4929); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -7772,10 +7773,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt66=2;
             int LA66_0 = input.LA(1);
 
-            if ( (LA66_0==37) ) {
+            if ( (LA66_0==38) ) {
                 alt66=1;
             }
-            else if ( (LA66_0==38) ) {
+            else if ( (LA66_0==39) ) {
                 alt66=2;
             }
             else {
@@ -7792,7 +7793,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2896:2: (otherlv_0= 'extends' ( (lv_ref_1_0= ruleReferencesSig ) ) )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2896:4: otherlv_0= 'extends' ( (lv_ref_1_0= ruleReferencesSig ) )
                     {
-                    otherlv_0=(Token)match(input,37,FOLLOW_37_in_ruleSigExt5017); if (state.failed) return current;
+                    otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleSigExt5017); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_0, grammarAccess.getSigExtAccess().getExtendsKeyword_0_0());
@@ -7845,7 +7846,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2919:6: (otherlv_2= 'in' ( (lv_ref_3_0= ruleReferencesSig ) ) (otherlv_4= '+' ( (lv_ref2_5_0= ruleReferencesSig ) ) )* )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2919:8: otherlv_2= 'in' ( (lv_ref_3_0= ruleReferencesSig ) ) (otherlv_4= '+' ( (lv_ref2_5_0= ruleReferencesSig ) ) )*
                     {
-                    otherlv_2=(Token)match(input,38,FOLLOW_38_in_ruleSigExt5058); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,39,FOLLOW_39_in_ruleSigExt5058); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getSigExtAccess().getInKeyword_1_0());
@@ -7892,7 +7893,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         int alt65=2;
                         int LA65_0 = input.LA(1);
 
-                        if ( (LA65_0==39) ) {
+                        if ( (LA65_0==40) ) {
                             alt65=1;
                         }
 
@@ -7901,7 +7902,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:2941:4: otherlv_4= '+' ( (lv_ref2_5_0= ruleReferencesSig ) )
                     	    {
-                    	    otherlv_4=(Token)match(input,39,FOLLOW_39_in_ruleSigExt5092); if (state.failed) return current;
+                    	    otherlv_4=(Token)match(input,40,FOLLOW_40_in_ruleSigExt5092); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_4, grammarAccess.getSigExtAccess().getPlusSignKeyword_1_2_0());
@@ -8063,22 +8064,22 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt69=4;
             switch ( input.LA(1) ) {
             case RULE_ID:
-            case 30:
+            case 31:
                 {
                 alt69=1;
                 }
                 break;
-            case 40:
+            case 41:
                 {
                 alt69=2;
                 }
                 break;
-            case 41:
+            case 42:
                 {
                 alt69=3;
                 }
                 break;
-            case 42:
+            case 43:
                 {
                 alt69=4;
                 }
@@ -8105,11 +8106,11 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     if ( (LA68_0==RULE_ID) ) {
                         int LA68_1 = input.LA(2);
 
-                        if ( (LA68_1==15) ) {
+                        if ( (LA68_1==16) ) {
                             alt68=1;
                         }
                     }
-                    else if ( (LA68_0==30) ) {
+                    else if ( (LA68_0==31) ) {
                         alt68=1;
                     }
                     switch (alt68) {
@@ -8123,7 +8124,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             if ( (LA67_0==RULE_ID) ) {
                                 alt67=1;
                             }
-                            else if ( (LA67_0==30) ) {
+                            else if ( (LA67_0==31) ) {
                                 alt67=2;
                             }
                             else {
@@ -8173,7 +8174,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 2 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3010:7: otherlv_2= 'this'
                                     {
-                                    otherlv_2=(Token)match(input,30,FOLLOW_30_in_ruleReferencesSig5245); if (state.failed) return current;
+                                    otherlv_2=(Token)match(input,31,FOLLOW_31_in_ruleReferencesSig5245); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                           	newLeafNode(otherlv_2, grammarAccess.getReferencesSigAccess().getThisKeyword_1_0_0_0_1());
@@ -8185,7 +8186,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_3=(Token)match(input,15,FOLLOW_15_in_ruleReferencesSig5258); if (state.failed) return current;
+                            otherlv_3=(Token)match(input,16,FOLLOW_16_in_ruleReferencesSig5258); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_3, grammarAccess.getReferencesSigAccess().getSolidusKeyword_1_0_0_1());
@@ -8236,7 +8237,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3035:7: otherlv_5= 'univ'
                     {
-                    otherlv_5=(Token)match(input,40,FOLLOW_40_in_ruleReferencesSig5303); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,41,FOLLOW_41_in_ruleReferencesSig5303); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getReferencesSigAccess().getUnivKeyword_1_1());
@@ -8248,7 +8249,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3040:7: otherlv_6= 'Int'
                     {
-                    otherlv_6=(Token)match(input,41,FOLLOW_41_in_ruleReferencesSig5321); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,42,FOLLOW_42_in_ruleReferencesSig5321); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getReferencesSigAccess().getIntKeyword_1_2());
@@ -8260,7 +8261,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3045:7: otherlv_7= 'seq/Int'
                     {
-                    otherlv_7=(Token)match(input,42,FOLLOW_42_in_ruleReferencesSig5339); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,43,FOLLOW_43_in_ruleReferencesSig5339); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getReferencesSigAccess().getSeqIntKeyword_1_3());
@@ -8501,17 +8502,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	    int alt70=3;
             	    int LA70_0 = input.LA(1);
 
-            	    if ( (LA70_0==43) ) {
+            	    if ( (LA70_0==44) ) {
             	        alt70=1;
             	    }
-            	    else if ( (LA70_0==44) ) {
+            	    else if ( (LA70_0==45) ) {
             	        alt70=2;
             	    }
             	    switch (alt70) {
             	        case 1 :
             	            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3119:9: otherlv_3= '!'
             	            {
-            	            otherlv_3=(Token)match(input,43,FOLLOW_43_in_ruleExpression5500); if (state.failed) return current;
+            	            otherlv_3=(Token)match(input,44,FOLLOW_44_in_ruleExpression5500); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_3, grammarAccess.getExpressionAccess().getExclamationMarkKeyword_1_1_0_0());
@@ -8523,7 +8524,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	        case 2 :
             	            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3124:7: otherlv_4= 'not'
             	            {
-            	            otherlv_4=(Token)match(input,44,FOLLOW_44_in_ruleExpression5518); if (state.failed) return current;
+            	            otherlv_4=(Token)match(input,45,FOLLOW_45_in_ruleExpression5518); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_4, grammarAccess.getExpressionAccess().getNotKeyword_1_1_0_1());
@@ -8703,10 +8704,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	    int alt71=2;
             	    int LA71_0 = input.LA(1);
 
-            	    if ( (LA71_0==45) ) {
+            	    if ( (LA71_0==46) ) {
             	        alt71=1;
             	    }
-            	    else if ( (LA71_0==46) ) {
+            	    else if ( (LA71_0==47) ) {
             	        alt71=2;
             	    }
             	    else {
@@ -8720,7 +8721,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	        case 1 :
             	            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3202:9: otherlv_9= '=>'
             	            {
-            	            otherlv_9=(Token)match(input,45,FOLLOW_45_in_ruleExpression5633); if (state.failed) return current;
+            	            otherlv_9=(Token)match(input,46,FOLLOW_46_in_ruleExpression5633); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_9, grammarAccess.getExpressionAccess().getEqualsSignGreaterThanSignKeyword_1_3_0_0());
@@ -8732,7 +8733,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	        case 2 :
             	            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3207:7: otherlv_10= 'implies'
             	            {
-            	            otherlv_10=(Token)match(input,46,FOLLOW_46_in_ruleExpression5651); if (state.failed) return current;
+            	            otherlv_10=(Token)match(input,47,FOLLOW_47_in_ruleExpression5651); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_10, grammarAccess.getExpressionAccess().getImpliesKeyword_1_3_0_1());
@@ -8837,7 +8838,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	    int alt73=2;
             	    int LA73_0 = input.LA(1);
 
-            	    if ( (LA73_0==47) ) {
+            	    if ( (LA73_0==48) ) {
             	        int LA73_1 = input.LA(2);
 
             	        if ( (synpred94_InternalAls()) ) {
@@ -8848,7 +8849,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	        case 1 :
             	            // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3248:6: otherlv_13= 'else' ( (lv_expr_14_0= ruleExpression ) )
             	            {
-            	            otherlv_13=(Token)match(input,47,FOLLOW_47_in_ruleExpression5716); if (state.failed) return current;
+            	            otherlv_13=(Token)match(input,48,FOLLOW_48_in_ruleExpression5716); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_13, grammarAccess.getExpressionAccess().getElseKeyword_1_3_2_0());
@@ -8907,7 +8908,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3271:6: (otherlv_15= '[' ( ( (lv_expr_16_0= ruleExpression ) ) ( ( (lv_comma_17_0= ruleComma ) ) ( (lv_expr_18_0= ruleExpression ) ) )* )? otherlv_19= ']' )
             	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3271:8: otherlv_15= '[' ( ( (lv_expr_16_0= ruleExpression ) ) ( ( (lv_comma_17_0= ruleComma ) ) ( (lv_expr_18_0= ruleExpression ) ) )* )? otherlv_19= ']'
             	    {
-            	    otherlv_15=(Token)match(input,48,FOLLOW_48_in_ruleExpression5759); if (state.failed) return current;
+            	    otherlv_15=(Token)match(input,49,FOLLOW_49_in_ruleExpression5759); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_15, grammarAccess.getExpressionAccess().getLeftSquareBracketKeyword_1_4_0());
@@ -8917,7 +8918,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	    int alt75=2;
             	    int LA75_0 = input.LA(1);
 
-            	    if ( ((LA75_0>=RULE_INT && LA75_0<=RULE_ID)||LA75_0==RULE_NEGATIVE_INTEGER||LA75_0==21||(LA75_0>=30 && LA75_0<=32)||(LA75_0>=34 && LA75_0<=36)||(LA75_0>=40 && LA75_0<=44)||LA75_0==50||(LA75_0>=52 && LA75_0<=64)||(LA75_0>=66 && LA75_0<=67)||(LA75_0>=82 && LA75_0<=87)) ) {
+            	    if ( ((LA75_0>=RULE_INT && LA75_0<=RULE_ID)||LA75_0==RULE_NEGATIVE_INTEGER||LA75_0==22||(LA75_0>=31 && LA75_0<=33)||(LA75_0>=35 && LA75_0<=37)||(LA75_0>=41 && LA75_0<=45)||LA75_0==51||(LA75_0>=53 && LA75_0<=65)||(LA75_0>=67 && LA75_0<=68)||(LA75_0>=83 && LA75_0<=88)) ) {
             	        alt75=1;
             	    }
             	    switch (alt75) {
@@ -8965,7 +8966,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	                int alt74=2;
             	                int LA74_0 = input.LA(1);
 
-            	                if ( (LA74_0==22) ) {
+            	                if ( (LA74_0==23) ) {
             	                    alt74=1;
             	                }
 
@@ -9059,7 +9060,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_19=(Token)match(input,49,FOLLOW_49_in_ruleExpression5840); if (state.failed) return current;
+            	    otherlv_19=(Token)match(input,50,FOLLOW_50_in_ruleExpression5840); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_19, grammarAccess.getExpressionAccess().getRightSquareBracketKeyword_1_4_2());
@@ -9265,7 +9266,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3364:1: (lv_parO_1_0= '(' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3365:3: lv_parO_1_0= '('
                     {
-                    lv_parO_1_0=(Token)match(input,50,FOLLOW_50_in_ruleTerminalExpression5945); if (state.failed) return current;
+                    lv_parO_1_0=(Token)match(input,51,FOLLOW_51_in_ruleTerminalExpression5945); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_parO_1_0, grammarAccess.getTerminalExpressionAccess().getParOLeftParenthesisKeyword_0_1_0());
@@ -9292,7 +9293,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         int alt77=2;
                         int LA77_0 = input.LA(1);
 
-                        if ( ((LA77_0>=RULE_INT && LA77_0<=RULE_ID)||LA77_0==RULE_NEGATIVE_INTEGER||LA77_0==21||(LA77_0>=30 && LA77_0<=32)||(LA77_0>=34 && LA77_0<=36)||(LA77_0>=40 && LA77_0<=44)||LA77_0==50||(LA77_0>=52 && LA77_0<=64)||(LA77_0>=66 && LA77_0<=67)||(LA77_0>=82 && LA77_0<=87)) ) {
+                        if ( ((LA77_0>=RULE_INT && LA77_0<=RULE_ID)||LA77_0==RULE_NEGATIVE_INTEGER||LA77_0==22||(LA77_0>=31 && LA77_0<=33)||(LA77_0>=35 && LA77_0<=37)||(LA77_0>=41 && LA77_0<=45)||LA77_0==51||(LA77_0>=53 && LA77_0<=65)||(LA77_0>=67 && LA77_0<=68)||(LA77_0>=83 && LA77_0<=88)) ) {
                             alt77=1;
                         }
 
@@ -9350,7 +9351,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3397:1: (lv_parF_3_0= ')' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3398:3: lv_parF_3_0= ')'
                     {
-                    lv_parF_3_0=(Token)match(input,51,FOLLOW_51_in_ruleTerminalExpression5998); if (state.failed) return current;
+                    lv_parF_3_0=(Token)match(input,52,FOLLOW_52_in_ruleTerminalExpression5998); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_parF_3_0, grammarAccess.getTerminalExpressionAccess().getParFRightParenthesisKeyword_0_3_0());
@@ -9406,7 +9407,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3422:1: (lv_let_5_0= 'let' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3423:3: lv_let_5_0= 'let'
                     {
-                    lv_let_5_0=(Token)match(input,52,FOLLOW_52_in_ruleTerminalExpression6049); if (state.failed) return current;
+                    lv_let_5_0=(Token)match(input,53,FOLLOW_53_in_ruleTerminalExpression6049); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_let_5_0, grammarAccess.getTerminalExpressionAccess().getLetLetKeyword_1_1_0());
@@ -9467,7 +9468,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         int alt78=2;
                         int LA78_0 = input.LA(1);
 
-                        if ( (LA78_0==22) ) {
+                        if ( (LA78_0==23) ) {
                             alt78=1;
                         }
 
@@ -9703,7 +9704,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 int alt79=2;
                                 int LA79_0 = input.LA(1);
 
-                                if ( (LA79_0==22) ) {
+                                if ( (LA79_0==23) ) {
                                     int LA79_2 = input.LA(2);
 
                                     if ( (synpred103_InternalAls()) ) {
@@ -10105,7 +10106,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 int alt82=2;
                                 int LA82_0 = input.LA(1);
 
-                                if ( (LA82_0==22) ) {
+                                if ( (LA82_0==23) ) {
                                     int LA82_2 = input.LA(2);
 
                                     if ( (synpred109_InternalAls()) ) {
@@ -10402,7 +10403,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3831:1: (lv_none_32_0= 'none' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3832:3: lv_none_32_0= 'none'
                     {
-                    lv_none_32_0=(Token)match(input,53,FOLLOW_53_in_ruleTerminalExpression6631); if (state.failed) return current;
+                    lv_none_32_0=(Token)match(input,54,FOLLOW_54_in_ruleTerminalExpression6631); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_none_32_0, grammarAccess.getTerminalExpressionAccess().getNoneNoneKeyword_7_1_0());
@@ -10458,7 +10459,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3856:1: (lv_iden_34_0= 'iden' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3857:3: lv_iden_34_0= 'iden'
                     {
-                    lv_iden_34_0=(Token)match(input,54,FOLLOW_54_in_ruleTerminalExpression6682); if (state.failed) return current;
+                    lv_iden_34_0=(Token)match(input,55,FOLLOW_55_in_ruleTerminalExpression6682); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_iden_34_0, grammarAccess.getTerminalExpressionAccess().getIdenIdenKeyword_8_1_0());
@@ -10514,7 +10515,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3881:1: (lv_univ_36_0= 'univ' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3882:3: lv_univ_36_0= 'univ'
                     {
-                    lv_univ_36_0=(Token)match(input,40,FOLLOW_40_in_ruleTerminalExpression6733); if (state.failed) return current;
+                    lv_univ_36_0=(Token)match(input,41,FOLLOW_41_in_ruleTerminalExpression6733); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_univ_36_0, grammarAccess.getTerminalExpressionAccess().getUnivUnivKeyword_9_1_0());
@@ -10573,7 +10574,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3906:1: (lv_int_38_0= 'int' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3907:3: lv_int_38_0= 'int'
                     {
-                    lv_int_38_0=(Token)match(input,31,FOLLOW_31_in_ruleTerminalExpression6785); if (state.failed) return current;
+                    lv_int_38_0=(Token)match(input,32,FOLLOW_32_in_ruleTerminalExpression6785); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_int_38_0, grammarAccess.getTerminalExpressionAccess().getIntIntKeyword_10_1_0_0());
@@ -10656,7 +10657,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3938:1: (lv_int_40_0= 'Int' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3939:3: lv_int_40_0= 'Int'
                     {
-                    lv_int_40_0=(Token)match(input,41,FOLLOW_41_in_ruleTerminalExpression6849); if (state.failed) return current;
+                    lv_int_40_0=(Token)match(input,42,FOLLOW_42_in_ruleTerminalExpression6849); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_int_40_0, grammarAccess.getTerminalExpressionAccess().getIntIntKeyword_11_0());
@@ -10709,7 +10710,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3963:1: (lv_seq_42_0= 'seq/Int' )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3964:3: lv_seq_42_0= 'seq/Int'
                     {
-                    lv_seq_42_0=(Token)match(input,42,FOLLOW_42_in_ruleTerminalExpression6899); if (state.failed) return current;
+                    lv_seq_42_0=(Token)match(input,43,FOLLOW_43_in_ruleTerminalExpression6899); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_seq_42_0, grammarAccess.getTerminalExpressionAccess().getSeqSeqIntKeyword_12_1_0());
@@ -10763,14 +10764,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt86=2;
                     int LA86_0 = input.LA(1);
 
-                    if ( (LA86_0==55) ) {
+                    if ( (LA86_0==56) ) {
                         alt86=1;
                     }
                     switch (alt86) {
                         case 1 :
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3987:4: otherlv_44= '@'
                             {
-                            otherlv_44=(Token)match(input,55,FOLLOW_55_in_ruleTerminalExpression6945); if (state.failed) return current;
+                            otherlv_44=(Token)match(input,56,FOLLOW_56_in_ruleTerminalExpression6945); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_44, grammarAccess.getTerminalExpressionAccess().getCommercialAtKeyword_13_1());
@@ -10786,14 +10787,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt87=2;
                     int LA87_0 = input.LA(1);
 
-                    if ( (LA87_0==31) ) {
+                    if ( (LA87_0==32) ) {
                         alt87=1;
                     }
                     switch (alt87) {
                         case 1 :
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3991:5: otherlv_45= 'int'
                             {
-                            otherlv_45=(Token)match(input,31,FOLLOW_31_in_ruleTerminalExpression6960); if (state.failed) return current;
+                            otherlv_45=(Token)match(input,32,FOLLOW_32_in_ruleTerminalExpression6960); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_45, grammarAccess.getTerminalExpressionAccess().getIntKeyword_13_2());
@@ -10812,14 +10813,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     if ( (LA89_0==RULE_ID) ) {
                         int LA89_1 = input.LA(2);
 
-                        if ( (LA89_1==15) ) {
+                        if ( (LA89_1==16) ) {
                             alt89=1;
                         }
                     }
-                    else if ( (LA89_0==30) ) {
+                    else if ( (LA89_0==31) ) {
                         int LA89_2 = input.LA(2);
 
-                        if ( (LA89_2==15) ) {
+                        if ( (LA89_2==16) ) {
                             alt89=1;
                         }
                     }
@@ -10834,7 +10835,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             if ( (LA88_0==RULE_ID) ) {
                                 alt88=1;
                             }
-                            else if ( (LA88_0==30) ) {
+                            else if ( (LA88_0==31) ) {
                                 alt88=2;
                             }
                             else {
@@ -10884,7 +10885,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 2 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4012:7: otherlv_47= 'this'
                                     {
-                                    otherlv_47=(Token)match(input,30,FOLLOW_30_in_ruleTerminalExpression7006); if (state.failed) return current;
+                                    otherlv_47=(Token)match(input,31,FOLLOW_31_in_ruleTerminalExpression7006); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                           	newLeafNode(otherlv_47, grammarAccess.getTerminalExpressionAccess().getThisKeyword_13_3_0_1());
@@ -10896,7 +10897,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_48=(Token)match(input,15,FOLLOW_15_in_ruleTerminalExpression7019); if (state.failed) return current;
+                            otherlv_48=(Token)match(input,16,FOLLOW_16_in_ruleTerminalExpression7019); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_48, grammarAccess.getTerminalExpressionAccess().getSolidusKeyword_13_3_1());
@@ -10916,17 +10917,16 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         alt91=1;
                         }
                         break;
-                    case 30:
+                    case 31:
                         {
                         alt91=2;
                         }
                         break;
-                    case 56:
+                    case 57:
                         {
                         alt91=3;
                         }
                         break;
-                    case 57:
                     case 58:
                     case 59:
                     case 60:
@@ -10934,6 +10934,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     case 62:
                     case 63:
                     case 64:
+                    case 65:
                         {
                         alt91=4;
                         }
@@ -10986,7 +10987,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4037:7: otherlv_50= 'this'
                             {
-                            otherlv_50=(Token)match(input,30,FOLLOW_30_in_ruleTerminalExpression7064); if (state.failed) return current;
+                            otherlv_50=(Token)match(input,31,FOLLOW_31_in_ruleTerminalExpression7064); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_50, grammarAccess.getTerminalExpressionAccess().getThisKeyword_13_4_1());
@@ -11004,7 +11005,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4043:1: (lv_name_51_0= 'pred/totalOrder' )
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4044:3: lv_name_51_0= 'pred/totalOrder'
                             {
-                            lv_name_51_0=(Token)match(input,56,FOLLOW_56_in_ruleTerminalExpression7088); if (state.failed) return current;
+                            lv_name_51_0=(Token)match(input,57,FOLLOW_57_in_ruleTerminalExpression7088); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_name_51_0, grammarAccess.getTerminalExpressionAccess().getNamePredTotalOrderKeyword_13_4_2_0());
@@ -11039,42 +11040,42 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4060:1: (lv_name_52_1= 'fun/add' | lv_name_52_2= 'fun/sub' | lv_name_52_3= 'fun/mul' | lv_name_52_4= 'fun/div' | lv_name_52_5= 'fun/rem' | lv_name_52_6= 'fun/min' | lv_name_52_7= 'fun/max' | lv_name_52_8= 'fun/next' )
                             int alt90=8;
                             switch ( input.LA(1) ) {
-                            case 57:
+                            case 58:
                                 {
                                 alt90=1;
                                 }
                                 break;
-                            case 58:
+                            case 59:
                                 {
                                 alt90=2;
                                 }
                                 break;
-                            case 59:
+                            case 60:
                                 {
                                 alt90=3;
                                 }
                                 break;
-                            case 60:
+                            case 61:
                                 {
                                 alt90=4;
                                 }
                                 break;
-                            case 61:
+                            case 62:
                                 {
                                 alt90=5;
                                 }
                                 break;
-                            case 62:
+                            case 63:
                                 {
                                 alt90=6;
                                 }
                                 break;
-                            case 63:
+                            case 64:
                                 {
                                 alt90=7;
                                 }
                                 break;
-                            case 64:
+                            case 65:
                                 {
                                 alt90=8;
                                 }
@@ -11091,7 +11092,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 1 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4061:3: lv_name_52_1= 'fun/add'
                                     {
-                                    lv_name_52_1=(Token)match(input,57,FOLLOW_57_in_ruleTerminalExpression7127); if (state.failed) return current;
+                                    lv_name_52_1=(Token)match(input,58,FOLLOW_58_in_ruleTerminalExpression7127); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                               newLeafNode(lv_name_52_1, grammarAccess.getTerminalExpressionAccess().getNameFunAddKeyword_13_4_3_0_0());
@@ -11111,7 +11112,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 2 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4073:8: lv_name_52_2= 'fun/sub'
                                     {
-                                    lv_name_52_2=(Token)match(input,58,FOLLOW_58_in_ruleTerminalExpression7156); if (state.failed) return current;
+                                    lv_name_52_2=(Token)match(input,59,FOLLOW_59_in_ruleTerminalExpression7156); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                               newLeafNode(lv_name_52_2, grammarAccess.getTerminalExpressionAccess().getNameFunSubKeyword_13_4_3_0_1());
@@ -11131,7 +11132,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 3 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4085:8: lv_name_52_3= 'fun/mul'
                                     {
-                                    lv_name_52_3=(Token)match(input,59,FOLLOW_59_in_ruleTerminalExpression7185); if (state.failed) return current;
+                                    lv_name_52_3=(Token)match(input,60,FOLLOW_60_in_ruleTerminalExpression7185); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                               newLeafNode(lv_name_52_3, grammarAccess.getTerminalExpressionAccess().getNameFunMulKeyword_13_4_3_0_2());
@@ -11151,7 +11152,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 4 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4097:8: lv_name_52_4= 'fun/div'
                                     {
-                                    lv_name_52_4=(Token)match(input,60,FOLLOW_60_in_ruleTerminalExpression7214); if (state.failed) return current;
+                                    lv_name_52_4=(Token)match(input,61,FOLLOW_61_in_ruleTerminalExpression7214); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                               newLeafNode(lv_name_52_4, grammarAccess.getTerminalExpressionAccess().getNameFunDivKeyword_13_4_3_0_3());
@@ -11171,7 +11172,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 5 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4109:8: lv_name_52_5= 'fun/rem'
                                     {
-                                    lv_name_52_5=(Token)match(input,61,FOLLOW_61_in_ruleTerminalExpression7243); if (state.failed) return current;
+                                    lv_name_52_5=(Token)match(input,62,FOLLOW_62_in_ruleTerminalExpression7243); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                               newLeafNode(lv_name_52_5, grammarAccess.getTerminalExpressionAccess().getNameFunRemKeyword_13_4_3_0_4());
@@ -11191,7 +11192,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 6 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4121:8: lv_name_52_6= 'fun/min'
                                     {
-                                    lv_name_52_6=(Token)match(input,62,FOLLOW_62_in_ruleTerminalExpression7272); if (state.failed) return current;
+                                    lv_name_52_6=(Token)match(input,63,FOLLOW_63_in_ruleTerminalExpression7272); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                               newLeafNode(lv_name_52_6, grammarAccess.getTerminalExpressionAccess().getNameFunMinKeyword_13_4_3_0_5());
@@ -11211,7 +11212,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 7 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4133:8: lv_name_52_7= 'fun/max'
                                     {
-                                    lv_name_52_7=(Token)match(input,63,FOLLOW_63_in_ruleTerminalExpression7301); if (state.failed) return current;
+                                    lv_name_52_7=(Token)match(input,64,FOLLOW_64_in_ruleTerminalExpression7301); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                               newLeafNode(lv_name_52_7, grammarAccess.getTerminalExpressionAccess().getNameFunMaxKeyword_13_4_3_0_6());
@@ -11231,7 +11232,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                                 case 8 :
                                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4145:8: lv_name_52_8= 'fun/next'
                                     {
-                                    lv_name_52_8=(Token)match(input,64,FOLLOW_64_in_ruleTerminalExpression7330); if (state.failed) return current;
+                                    lv_name_52_8=(Token)match(input,65,FOLLOW_65_in_ruleTerminalExpression7330); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                               newLeafNode(lv_name_52_8, grammarAccess.getTerminalExpressionAccess().getNameFunNextKeyword_13_4_3_0_7());
@@ -11434,7 +11435,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         int alt92=2;
                         int LA92_0 = input.LA(1);
 
-                        if ( (LA92_0==22) ) {
+                        if ( (LA92_0==23) ) {
                             alt92=1;
                         }
 
@@ -11722,7 +11723,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt94=2;
                 int LA94_0 = input.LA(1);
 
-                if ( ((LA94_0>=RULE_INT && LA94_0<=RULE_ID)||LA94_0==RULE_NEGATIVE_INTEGER||LA94_0==21||(LA94_0>=30 && LA94_0<=32)||(LA94_0>=34 && LA94_0<=36)||(LA94_0>=40 && LA94_0<=44)||LA94_0==50||(LA94_0>=52 && LA94_0<=64)||(LA94_0>=66 && LA94_0<=67)||(LA94_0>=82 && LA94_0<=87)) ) {
+                if ( ((LA94_0>=RULE_INT && LA94_0<=RULE_ID)||LA94_0==RULE_NEGATIVE_INTEGER||LA94_0==22||(LA94_0>=31 && LA94_0<=33)||(LA94_0>=35 && LA94_0<=37)||(LA94_0>=41 && LA94_0<=45)||LA94_0==51||(LA94_0>=53 && LA94_0<=65)||(LA94_0>=67 && LA94_0<=68)||(LA94_0>=83 && LA94_0<=88)) ) {
                     alt94=1;
                 }
 
@@ -11898,14 +11899,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt95=2;
             int LA95_0 = input.LA(1);
 
-            if ( (LA95_0==14) ) {
+            if ( (LA95_0==15) ) {
                 alt95=1;
             }
             switch (alt95) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4402:4: otherlv_0= 'private'
                     {
-                    otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleDecl7757); if (state.failed) return current;
+                    otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleDecl7757); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_0, grammarAccess.getDeclAccess().getPrivateKeyword_0());
@@ -11921,14 +11922,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt96=2;
             int LA96_0 = input.LA(1);
 
-            if ( (LA96_0==65) ) {
+            if ( (LA96_0==66) ) {
                 alt96=1;
             }
             switch (alt96) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4406:5: otherlv_1= 'disj'
                     {
-                    otherlv_1=(Token)match(input,65,FOLLOW_65_in_ruleDecl7772); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,66,FOLLOW_66_in_ruleDecl7772); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getDeclAccess().getDisjKeyword_1());
@@ -11981,7 +11982,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt97=2;
                 int LA97_0 = input.LA(1);
 
-                if ( (LA97_0==22) ) {
+                if ( (LA97_0==23) ) {
                     alt97=1;
                 }
 
@@ -12108,14 +12109,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt98=2;
             int LA98_0 = input.LA(1);
 
-            if ( (LA98_0==65) ) {
+            if ( (LA98_0==66) ) {
                 alt98=1;
             }
             switch (alt98) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4482:4: otherlv_6= 'disj'
                     {
-                    otherlv_6=(Token)match(input,65,FOLLOW_65_in_ruleDecl7874); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,66,FOLLOW_66_in_ruleDecl7874); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getDeclAccess().getDisjKeyword_5());
@@ -12256,14 +12257,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt99=2;
             int LA99_0 = input.LA(1);
 
-            if ( (LA99_0==14) ) {
+            if ( (LA99_0==15) ) {
                 alt99=1;
             }
             switch (alt99) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4525:4: otherlv_0= 'private'
                     {
-                    otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleParam7981); if (state.failed) return current;
+                    otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleParam7981); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_0, grammarAccess.getParamAccess().getPrivateKeyword_0());
@@ -12279,14 +12280,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt100=2;
             int LA100_0 = input.LA(1);
 
-            if ( (LA100_0==65) ) {
+            if ( (LA100_0==66) ) {
                 alt100=1;
             }
             switch (alt100) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4529:5: otherlv_1= 'disj'
                     {
-                    otherlv_1=(Token)match(input,65,FOLLOW_65_in_ruleParam7996); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,66,FOLLOW_66_in_ruleParam7996); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getParamAccess().getDisjKeyword_1());
@@ -12339,7 +12340,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt101=2;
                 int LA101_0 = input.LA(1);
 
-                if ( (LA101_0==22) ) {
+                if ( (LA101_0==23) ) {
                     alt101=1;
                 }
 
@@ -12466,14 +12467,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt102=2;
             int LA102_0 = input.LA(1);
 
-            if ( (LA102_0==65) ) {
+            if ( (LA102_0==66) ) {
                 alt102=1;
             }
             switch (alt102) {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4605:4: otherlv_6= 'disj'
                     {
-                    otherlv_6=(Token)match(input,65,FOLLOW_65_in_ruleParam8098); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,66,FOLLOW_66_in_ruleParam8098); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getParamAccess().getDisjKeyword_5());
@@ -12601,7 +12602,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4648:1: (otherlv_0= '(' ( (lv_expr_1_0= ruleExpression ) ) otherlv_2= ')' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4648:3: otherlv_0= '(' ( (lv_expr_1_0= ruleExpression ) ) otherlv_2= ')'
             {
-            otherlv_0=(Token)match(input,50,FOLLOW_50_in_ruleParanthesisandExpression8204); if (state.failed) return current;
+            otherlv_0=(Token)match(input,51,FOLLOW_51_in_ruleParanthesisandExpression8204); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getParanthesisandExpressionAccess().getLeftParenthesisKeyword_0());
@@ -12642,7 +12643,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,51,FOLLOW_51_in_ruleParanthesisandExpression8237); if (state.failed) return current;
+            otherlv_2=(Token)match(input,52,FOLLOW_52_in_ruleParanthesisandExpression8237); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getParanthesisandExpressionAccess().getRightParenthesisKeyword_2());
@@ -12727,10 +12728,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt103=2;
             int LA103_0 = input.LA(1);
 
-            if ( (LA103_0==66) ) {
+            if ( (LA103_0==67) ) {
                 alt103=1;
             }
-            else if ( (LA103_0==67) ) {
+            else if ( (LA103_0==68) ) {
                 alt103=2;
             }
             else {
@@ -12744,7 +12745,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4696:2: kw= 'all'
                     {
-                    kw=(Token)match(input,66,FOLLOW_66_in_ruleQuant8323); if (state.failed) return current;
+                    kw=(Token)match(input,67,FOLLOW_67_in_ruleQuant8323); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -12757,7 +12758,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4703:2: kw= 'sum'
                     {
-                    kw=(Token)match(input,67,FOLLOW_67_in_ruleQuant8342); if (state.failed) return current;
+                    kw=(Token)match(input,68,FOLLOW_68_in_ruleQuant8342); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -12882,82 +12883,82 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4738:2: (otherlv_1= '||' | otherlv_2= 'or' | otherlv_3= '&&' | otherlv_4= 'and' | otherlv_5= '&' | otherlv_6= '<=>' | otherlv_7= 'iff' | otherlv_8= '+' | otherlv_9= '-' | otherlv_10= '++' | otherlv_11= '<:' | otherlv_12= ':>' | ( (lv_dot_13_0= ruleDot ) ) | otherlv_14= '<<' | otherlv_15= '>>' | otherlv_16= '>>>' )
             int alt104=16;
             switch ( input.LA(1) ) {
-            case 68:
+            case 69:
                 {
                 alt104=1;
                 }
                 break;
-            case 69:
+            case 70:
                 {
                 alt104=2;
                 }
                 break;
-            case 70:
+            case 71:
                 {
                 alt104=3;
                 }
                 break;
-            case 71:
+            case 72:
                 {
                 alt104=4;
                 }
                 break;
-            case 72:
+            case 73:
                 {
                 alt104=5;
                 }
                 break;
-            case 73:
+            case 74:
                 {
                 alt104=6;
                 }
                 break;
-            case 74:
+            case 75:
                 {
                 alt104=7;
                 }
                 break;
-            case 39:
+            case 40:
                 {
                 alt104=8;
                 }
                 break;
-            case 75:
+            case 76:
                 {
                 alt104=9;
                 }
                 break;
-            case 76:
+            case 77:
                 {
                 alt104=10;
                 }
                 break;
-            case 77:
+            case 78:
                 {
                 alt104=11;
                 }
                 break;
-            case 78:
+            case 79:
                 {
                 alt104=12;
                 }
                 break;
-            case 99:
+            case 100:
                 {
                 alt104=13;
                 }
                 break;
-            case 79:
+            case 80:
                 {
                 alt104=14;
                 }
                 break;
-            case 80:
+            case 81:
                 {
                 alt104=15;
                 }
                 break;
-            case 81:
+            case 82:
                 {
                 alt104=16;
                 }
@@ -12974,7 +12975,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4738:4: otherlv_1= '||'
                     {
-                    otherlv_1=(Token)match(input,68,FOLLOW_68_in_ruleBinOp8442); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,69,FOLLOW_69_in_ruleBinOp8442); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getBinOpAccess().getVerticalLineVerticalLineKeyword_1_0());
@@ -12986,7 +12987,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4743:7: otherlv_2= 'or'
                     {
-                    otherlv_2=(Token)match(input,69,FOLLOW_69_in_ruleBinOp8460); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,70,FOLLOW_70_in_ruleBinOp8460); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getBinOpAccess().getOrKeyword_1_1());
@@ -12998,7 +12999,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4748:7: otherlv_3= '&&'
                     {
-                    otherlv_3=(Token)match(input,70,FOLLOW_70_in_ruleBinOp8478); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,71,FOLLOW_71_in_ruleBinOp8478); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getBinOpAccess().getAmpersandAmpersandKeyword_1_2());
@@ -13010,7 +13011,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4753:7: otherlv_4= 'and'
                     {
-                    otherlv_4=(Token)match(input,71,FOLLOW_71_in_ruleBinOp8496); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,72,FOLLOW_72_in_ruleBinOp8496); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getBinOpAccess().getAndKeyword_1_3());
@@ -13022,7 +13023,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4758:7: otherlv_5= '&'
                     {
-                    otherlv_5=(Token)match(input,72,FOLLOW_72_in_ruleBinOp8514); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,73,FOLLOW_73_in_ruleBinOp8514); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getBinOpAccess().getAmpersandKeyword_1_4());
@@ -13034,7 +13035,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 6 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4763:7: otherlv_6= '<=>'
                     {
-                    otherlv_6=(Token)match(input,73,FOLLOW_73_in_ruleBinOp8532); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,74,FOLLOW_74_in_ruleBinOp8532); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getBinOpAccess().getLessThanSignEqualsSignGreaterThanSignKeyword_1_5());
@@ -13046,7 +13047,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 7 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4768:7: otherlv_7= 'iff'
                     {
-                    otherlv_7=(Token)match(input,74,FOLLOW_74_in_ruleBinOp8550); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,75,FOLLOW_75_in_ruleBinOp8550); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getBinOpAccess().getIffKeyword_1_6());
@@ -13058,7 +13059,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 8 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4773:7: otherlv_8= '+'
                     {
-                    otherlv_8=(Token)match(input,39,FOLLOW_39_in_ruleBinOp8568); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,40,FOLLOW_40_in_ruleBinOp8568); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_8, grammarAccess.getBinOpAccess().getPlusSignKeyword_1_7());
@@ -13070,7 +13071,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 9 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4778:7: otherlv_9= '-'
                     {
-                    otherlv_9=(Token)match(input,75,FOLLOW_75_in_ruleBinOp8586); if (state.failed) return current;
+                    otherlv_9=(Token)match(input,76,FOLLOW_76_in_ruleBinOp8586); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_9, grammarAccess.getBinOpAccess().getHyphenMinusKeyword_1_8());
@@ -13082,7 +13083,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 10 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4783:7: otherlv_10= '++'
                     {
-                    otherlv_10=(Token)match(input,76,FOLLOW_76_in_ruleBinOp8604); if (state.failed) return current;
+                    otherlv_10=(Token)match(input,77,FOLLOW_77_in_ruleBinOp8604); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_10, grammarAccess.getBinOpAccess().getPlusSignPlusSignKeyword_1_9());
@@ -13094,7 +13095,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 11 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4788:7: otherlv_11= '<:'
                     {
-                    otherlv_11=(Token)match(input,77,FOLLOW_77_in_ruleBinOp8622); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,78,FOLLOW_78_in_ruleBinOp8622); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_11, grammarAccess.getBinOpAccess().getLessThanSignColonKeyword_1_10());
@@ -13106,7 +13107,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 12 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4793:7: otherlv_12= ':>'
                     {
-                    otherlv_12=(Token)match(input,78,FOLLOW_78_in_ruleBinOp8640); if (state.failed) return current;
+                    otherlv_12=(Token)match(input,79,FOLLOW_79_in_ruleBinOp8640); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_12, grammarAccess.getBinOpAccess().getColonGreaterThanSignKeyword_1_11());
@@ -13159,7 +13160,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 14 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4817:7: otherlv_14= '<<'
                     {
-                    otherlv_14=(Token)match(input,79,FOLLOW_79_in_ruleBinOp8685); if (state.failed) return current;
+                    otherlv_14=(Token)match(input,80,FOLLOW_80_in_ruleBinOp8685); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_14, grammarAccess.getBinOpAccess().getLessThanSignLessThanSignKeyword_1_13());
@@ -13171,7 +13172,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 15 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4822:7: otherlv_15= '>>'
                     {
-                    otherlv_15=(Token)match(input,80,FOLLOW_80_in_ruleBinOp8703); if (state.failed) return current;
+                    otherlv_15=(Token)match(input,81,FOLLOW_81_in_ruleBinOp8703); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_15, grammarAccess.getBinOpAccess().getGreaterThanSignGreaterThanSignKeyword_1_14());
@@ -13183,7 +13184,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 16 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4827:7: otherlv_16= '>>>'
                     {
-                    otherlv_16=(Token)match(input,81,FOLLOW_81_in_ruleBinOp8721); if (state.failed) return current;
+                    otherlv_16=(Token)match(input,82,FOLLOW_82_in_ruleBinOp8721); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_16, grammarAccess.getBinOpAccess().getGreaterThanSignGreaterThanSignGreaterThanSignKeyword_1_15());
@@ -13301,26 +13302,26 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4861:2: (otherlv_1= 'not' | otherlv_2= 'set' | otherlv_3= 'seq' | ( ( (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' ) ) ) )
             int alt106=4;
             switch ( input.LA(1) ) {
-            case 44:
+            case 45:
                 {
                 alt106=1;
                 }
                 break;
-            case 82:
+            case 83:
                 {
                 alt106=2;
                 }
                 break;
-            case 32:
+            case 33:
                 {
                 alt106=3;
                 }
                 break;
-            case 43:
-            case 83:
+            case 44:
             case 84:
             case 85:
             case 86:
+            case 87:
                 {
                 alt106=4;
                 }
@@ -13337,7 +13338,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4861:4: otherlv_1= 'not'
                     {
-                    otherlv_1=(Token)match(input,44,FOLLOW_44_in_ruleUnOp8818); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,45,FOLLOW_45_in_ruleUnOp8818); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getUnOpAccess().getNotKeyword_1_0());
@@ -13349,7 +13350,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4866:7: otherlv_2= 'set'
                     {
-                    otherlv_2=(Token)match(input,82,FOLLOW_82_in_ruleUnOp8836); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,83,FOLLOW_83_in_ruleUnOp8836); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getUnOpAccess().getSetKeyword_1_1());
@@ -13361,7 +13362,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4871:7: otherlv_3= 'seq'
                     {
-                    otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleUnOp8854); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,33,FOLLOW_33_in_ruleUnOp8854); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getUnOpAccess().getSeqKeyword_1_2());
@@ -13382,27 +13383,27 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4878:1: (lv_op_4_1= '!' | lv_op_4_2= '#' | lv_op_4_3= '~' | lv_op_4_4= '*' | lv_op_4_5= '^' )
                     int alt105=5;
                     switch ( input.LA(1) ) {
-                    case 43:
+                    case 44:
                         {
                         alt105=1;
                         }
                         break;
-                    case 83:
+                    case 84:
                         {
                         alt105=2;
                         }
                         break;
-                    case 84:
+                    case 85:
                         {
                         alt105=3;
                         }
                         break;
-                    case 85:
+                    case 86:
                         {
                         alt105=4;
                         }
                         break;
-                    case 86:
+                    case 87:
                         {
                         alt105=5;
                         }
@@ -13419,7 +13420,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4879:3: lv_op_4_1= '!'
                             {
-                            lv_op_4_1=(Token)match(input,43,FOLLOW_43_in_ruleUnOp8880); if (state.failed) return current;
+                            lv_op_4_1=(Token)match(input,44,FOLLOW_44_in_ruleUnOp8880); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_op_4_1, grammarAccess.getUnOpAccess().getOpExclamationMarkKeyword_1_3_0_0());
@@ -13439,7 +13440,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4891:8: lv_op_4_2= '#'
                             {
-                            lv_op_4_2=(Token)match(input,83,FOLLOW_83_in_ruleUnOp8909); if (state.failed) return current;
+                            lv_op_4_2=(Token)match(input,84,FOLLOW_84_in_ruleUnOp8909); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_op_4_2, grammarAccess.getUnOpAccess().getOpNumberSignKeyword_1_3_0_1());
@@ -13459,7 +13460,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         case 3 :
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4903:8: lv_op_4_3= '~'
                             {
-                            lv_op_4_3=(Token)match(input,84,FOLLOW_84_in_ruleUnOp8938); if (state.failed) return current;
+                            lv_op_4_3=(Token)match(input,85,FOLLOW_85_in_ruleUnOp8938); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_op_4_3, grammarAccess.getUnOpAccess().getOpTildeKeyword_1_3_0_2());
@@ -13479,7 +13480,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         case 4 :
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4915:8: lv_op_4_4= '*'
                             {
-                            lv_op_4_4=(Token)match(input,85,FOLLOW_85_in_ruleUnOp8967); if (state.failed) return current;
+                            lv_op_4_4=(Token)match(input,86,FOLLOW_86_in_ruleUnOp8967); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_op_4_4, grammarAccess.getUnOpAccess().getOpAsteriskKeyword_1_3_0_3());
@@ -13499,7 +13500,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                         case 5 :
                             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4927:8: lv_op_4_5= '^'
                             {
-                            lv_op_4_5=(Token)match(input,86,FOLLOW_86_in_ruleUnOp8996); if (state.failed) return current;
+                            lv_op_4_5=(Token)match(input,87,FOLLOW_87_in_ruleUnOp8996); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_op_4_5, grammarAccess.getUnOpAccess().getOpCircumflexAccentKeyword_1_3_0_4());
@@ -13633,22 +13634,22 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4972:2: (otherlv_1= 'no' | otherlv_2= 'some' | otherlv_3= 'lone' | otherlv_4= 'one' )
             int alt107=4;
             switch ( input.LA(1) ) {
-            case 87:
+            case 88:
                 {
                 alt107=1;
                 }
                 break;
-            case 36:
+            case 37:
                 {
                 alt107=2;
                 }
                 break;
-            case 34:
+            case 35:
                 {
                 alt107=3;
                 }
                 break;
-            case 35:
+            case 36:
                 {
                 alt107=4;
                 }
@@ -13665,7 +13666,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4972:4: otherlv_1= 'no'
                     {
-                    otherlv_1=(Token)match(input,87,FOLLOW_87_in_ruleCommonQuantUnOp9109); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,88,FOLLOW_88_in_ruleCommonQuantUnOp9109); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getCommonQuantUnOpAccess().getNoKeyword_1_0());
@@ -13677,7 +13678,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4977:7: otherlv_2= 'some'
                     {
-                    otherlv_2=(Token)match(input,36,FOLLOW_36_in_ruleCommonQuantUnOp9127); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,37,FOLLOW_37_in_ruleCommonQuantUnOp9127); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getCommonQuantUnOpAccess().getSomeKeyword_1_1());
@@ -13689,7 +13690,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4982:7: otherlv_3= 'lone'
                     {
-                    otherlv_3=(Token)match(input,34,FOLLOW_34_in_ruleCommonQuantUnOp9145); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,35,FOLLOW_35_in_ruleCommonQuantUnOp9145); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getCommonQuantUnOpAccess().getLoneKeyword_1_2());
@@ -13701,7 +13702,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4987:7: otherlv_4= 'one'
                     {
-                    otherlv_4=(Token)match(input,35,FOLLOW_35_in_ruleCommonQuantUnOp9163); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,36,FOLLOW_36_in_ruleCommonQuantUnOp9163); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getCommonQuantUnOpAccess().getOneKeyword_1_3());
@@ -13791,37 +13792,37 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5012:1: (kw= '=' | kw= 'in' | kw= '<' | kw= '>' | kw= '=<' | kw= '<=' | kw= '>=' )
             int alt108=7;
             switch ( input.LA(1) ) {
-            case 18:
+            case 19:
                 {
                 alt108=1;
                 }
                 break;
-            case 38:
+            case 39:
                 {
                 alt108=2;
                 }
                 break;
-            case 88:
+            case 89:
                 {
                 alt108=3;
                 }
                 break;
-            case 89:
+            case 90:
                 {
                 alt108=4;
                 }
                 break;
-            case 90:
+            case 91:
                 {
                 alt108=5;
                 }
                 break;
-            case 91:
+            case 92:
                 {
                 alt108=6;
                 }
                 break;
-            case 92:
+            case 93:
                 {
                 alt108=7;
                 }
@@ -13838,7 +13839,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5013:2: kw= '='
                     {
-                    kw=(Token)match(input,18,FOLLOW_18_in_ruleCompareOp9250); if (state.failed) return current;
+                    kw=(Token)match(input,19,FOLLOW_19_in_ruleCompareOp9250); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -13851,7 +13852,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5020:2: kw= 'in'
                     {
-                    kw=(Token)match(input,38,FOLLOW_38_in_ruleCompareOp9269); if (state.failed) return current;
+                    kw=(Token)match(input,39,FOLLOW_39_in_ruleCompareOp9269); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -13864,7 +13865,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5027:2: kw= '<'
                     {
-                    kw=(Token)match(input,88,FOLLOW_88_in_ruleCompareOp9288); if (state.failed) return current;
+                    kw=(Token)match(input,89,FOLLOW_89_in_ruleCompareOp9288); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -13877,7 +13878,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5034:2: kw= '>'
                     {
-                    kw=(Token)match(input,89,FOLLOW_89_in_ruleCompareOp9307); if (state.failed) return current;
+                    kw=(Token)match(input,90,FOLLOW_90_in_ruleCompareOp9307); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -13890,7 +13891,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5041:2: kw= '=<'
                     {
-                    kw=(Token)match(input,90,FOLLOW_90_in_ruleCompareOp9326); if (state.failed) return current;
+                    kw=(Token)match(input,91,FOLLOW_91_in_ruleCompareOp9326); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -13903,7 +13904,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 6 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5048:2: kw= '<='
                     {
-                    kw=(Token)match(input,91,FOLLOW_91_in_ruleCompareOp9345); if (state.failed) return current;
+                    kw=(Token)match(input,92,FOLLOW_92_in_ruleCompareOp9345); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -13916,7 +13917,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 7 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5055:2: kw= '>='
                     {
-                    kw=(Token)match(input,92,FOLLOW_92_in_ruleCompareOp9364); if (state.failed) return current;
+                    kw=(Token)match(input,93,FOLLOW_93_in_ruleCompareOp9364); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -14011,22 +14012,22 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5081:2: (otherlv_0= 'some' | otherlv_1= 'one' | otherlv_2= 'lone' | otherlv_3= 'set' )?
             int alt109=5;
             switch ( input.LA(1) ) {
-                case 36:
+                case 37:
                     {
                     alt109=1;
                     }
                     break;
-                case 35:
+                case 36:
                     {
                     alt109=2;
                     }
                     break;
-                case 34:
+                case 35:
                     {
                     alt109=3;
                     }
                     break;
-                case 82:
+                case 83:
                     {
                     alt109=4;
                     }
@@ -14037,7 +14038,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5081:4: otherlv_0= 'some'
                     {
-                    otherlv_0=(Token)match(input,36,FOLLOW_36_in_ruleArrowOp9452); if (state.failed) return current;
+                    otherlv_0=(Token)match(input,37,FOLLOW_37_in_ruleArrowOp9452); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_0, grammarAccess.getArrowOpAccess().getSomeKeyword_0_0());
@@ -14049,7 +14050,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5086:7: otherlv_1= 'one'
                     {
-                    otherlv_1=(Token)match(input,35,FOLLOW_35_in_ruleArrowOp9470); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,36,FOLLOW_36_in_ruleArrowOp9470); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getArrowOpAccess().getOneKeyword_0_1());
@@ -14061,7 +14062,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5091:7: otherlv_2= 'lone'
                     {
-                    otherlv_2=(Token)match(input,34,FOLLOW_34_in_ruleArrowOp9488); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,35,FOLLOW_35_in_ruleArrowOp9488); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getArrowOpAccess().getLoneKeyword_0_2());
@@ -14073,7 +14074,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5096:7: otherlv_3= 'set'
                     {
-                    otherlv_3=(Token)match(input,82,FOLLOW_82_in_ruleArrowOp9506); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,83,FOLLOW_83_in_ruleArrowOp9506); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getArrowOpAccess().getSetKeyword_0_3());
@@ -14091,7 +14092,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5101:1: (lv_arrow_4_0= '->' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5102:3: lv_arrow_4_0= '->'
             {
-            lv_arrow_4_0=(Token)match(input,93,FOLLOW_93_in_ruleArrowOp9526); if (state.failed) return current;
+            lv_arrow_4_0=(Token)match(input,94,FOLLOW_94_in_ruleArrowOp9526); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_arrow_4_0, grammarAccess.getArrowOpAccess().getArrowHyphenMinusGreaterThanSignKeyword_1_0());
@@ -14228,7 +14229,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,18,FOLLOW_18_in_ruleLetDecl9643); if (state.failed) return current;
+            otherlv_1=(Token)match(input,19,FOLLOW_19_in_ruleLetDecl9643); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getLetDeclAccess().getEqualsSignKeyword_1());
@@ -14352,10 +14353,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt110=2;
             int LA110_0 = input.LA(1);
 
-            if ( (LA110_0==21) ) {
+            if ( (LA110_0==22) ) {
                 alt110=1;
             }
-            else if ( (LA110_0==94) ) {
+            else if ( (LA110_0==95) ) {
                 alt110=2;
             }
             else {
@@ -14413,7 +14414,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5216:6: (otherlv_1= '|' ( (lv_expr_2_0= ruleExpression ) ) )
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5216:8: otherlv_1= '|' ( (lv_expr_2_0= ruleExpression ) )
                     {
-                    otherlv_1=(Token)match(input,94,FOLLOW_94_in_ruleBlockOrBar9775); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,95,FOLLOW_95_in_ruleBlockOrBar9775); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getBlockOrBarAccess().getVerticalLineKeyword_1_0());
@@ -14540,7 +14541,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5261:1: (otherlv_0= 'open' ( (lv_importURI_1_0= ruleName ) ) )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5261:3: otherlv_0= 'open' ( (lv_importURI_1_0= ruleName ) )
             {
-            otherlv_0=(Token)match(input,95,FOLLOW_95_in_ruleOpenName9882); if (state.failed) return current;
+            otherlv_0=(Token)match(input,96,FOLLOW_96_in_ruleOpenName9882); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getOpenNameAccess().getOpenKeyword_0());
@@ -14679,7 +14680,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,96,FOLLOW_96_in_ruleFactName9998); if (state.failed) return current;
+            otherlv_1=(Token)match(input,97,FOLLOW_97_in_ruleFactName9998); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getFactNameAccess().getFactKeyword_1());
@@ -14689,7 +14690,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt111=2;
             int LA111_0 = input.LA(1);
 
-            if ( (LA111_0==RULE_ID||LA111_0==30) ) {
+            if ( (LA111_0==RULE_ID||LA111_0==31) ) {
                 alt111=1;
             }
             switch (alt111) {
@@ -14829,7 +14830,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,97,FOLLOW_97_in_ruleAssertionName10115); if (state.failed) return current;
+            otherlv_1=(Token)match(input,98,FOLLOW_98_in_ruleAssertionName10115); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAssertionNameAccess().getAssertKeyword_1());
@@ -14839,7 +14840,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt112=2;
             int LA112_0 = input.LA(1);
 
-            if ( (LA112_0==RULE_ID||LA112_0==30) ) {
+            if ( (LA112_0==RULE_ID||LA112_0==31) ) {
                 alt112=1;
             }
             switch (alt112) {
@@ -15393,7 +15394,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5564:1: (otherlv_0= 'enum' ( (lv_name_1_0= ruleName ) ) )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5564:3: otherlv_0= 'enum' ( (lv_name_1_0= ruleName ) )
             {
-            otherlv_0=(Token)match(input,98,FOLLOW_98_in_ruleEnumName10580); if (state.failed) return current;
+            otherlv_0=(Token)match(input,99,FOLLOW_99_in_ruleEnumName10580); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getEnumNameAccess().getEnumKeyword_0());
@@ -15622,7 +15623,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5646:1: (otherlv_0= 'let' ( (lv_name_1_0= ruleName ) ) )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5646:3: otherlv_0= 'let' ( (lv_name_1_0= ruleName ) )
             {
-            otherlv_0=(Token)match(input,52,FOLLOW_52_in_ruleLetName10774); if (state.failed) return current;
+            otherlv_0=(Token)match(input,53,FOLLOW_53_in_ruleLetName10774); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getLetNameAccess().getLetKeyword_0());
@@ -16186,7 +16187,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt113=2;
                 int LA113_0 = input.LA(1);
 
-                if ( (LA113_0==15) ) {
+                if ( (LA113_0==16) ) {
                     alt113=1;
                 }
 
@@ -16195,7 +16196,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5853:2: kw= '/' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,15,FOLLOW_15_in_ruleNameAlias11263); if (state.failed) return current;
+            	    kw=(Token)match(input,16,FOLLOW_16_in_ruleNameAlias11263); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -16306,7 +16307,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt114=2;
             int LA114_0 = input.LA(1);
 
-            if ( (LA114_0==30) ) {
+            if ( (LA114_0==31) ) {
                 alt114=1;
             }
             else if ( (LA114_0==RULE_ID) ) {
@@ -16323,7 +16324,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5887:2: kw= 'this'
                     {
-                    kw=(Token)match(input,30,FOLLOW_30_in_ruleName11376); if (state.failed) return current;
+                    kw=(Token)match(input,31,FOLLOW_31_in_ruleName11376); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -16359,7 +16360,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 int alt115=2;
                 int LA115_0 = input.LA(1);
 
-                if ( (LA115_0==15) ) {
+                if ( (LA115_0==16) ) {
                     alt115=1;
                 }
 
@@ -16368,7 +16369,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:5901:2: kw= '/' this_ID_3= RULE_ID
             	    {
-            	    kw=(Token)match(input,15,FOLLOW_15_in_ruleName11417); if (state.failed) return current;
+            	    kw=(Token)match(input,16,FOLLOW_16_in_ruleName11417); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -16870,17 +16871,17 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 alt117=1;
                 }
                 break;
-            case 40:
+            case 41:
                 {
                 alt117=2;
                 }
                 break;
-            case 41:
+            case 42:
                 {
                 alt117=3;
                 }
                 break;
-            case 42:
+            case 43:
                 {
                 alt117=4;
                 }
@@ -16933,7 +16934,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6110:7: otherlv_2= 'univ'
                     {
-                    otherlv_2=(Token)match(input,40,FOLLOW_40_in_ruleRef11934); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,41,FOLLOW_41_in_ruleRef11934); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getRefAccess().getUnivKeyword_1_1());
@@ -16945,7 +16946,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6115:7: otherlv_3= 'Int'
                     {
-                    otherlv_3=(Token)match(input,41,FOLLOW_41_in_ruleRef11952); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,42,FOLLOW_42_in_ruleRef11952); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getRefAccess().getIntKeyword_1_2());
@@ -16957,7 +16958,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6120:7: otherlv_4= 'seq/Int'
                     {
-                    otherlv_4=(Token)match(input,42,FOLLOW_42_in_ruleRef11970); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,43,FOLLOW_43_in_ruleRef11970); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getRefAccess().getSeqIntKeyword_1_3());
@@ -17050,7 +17051,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6146:1: (lv_dot_0_0= '.' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6147:3: lv_dot_0_0= '.'
             {
-            lv_dot_0_0=(Token)match(input,99,FOLLOW_99_in_ruleDot12059); if (state.failed) return current;
+            lv_dot_0_0=(Token)match(input,100,FOLLOW_100_in_ruleDot12059); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_dot_0_0, grammarAccess.getDotAccess().getDotFullStopKeyword_0());
@@ -17148,7 +17149,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6182:1: (lv_comma_0_0= ',' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6183:3: lv_comma_0_0= ','
             {
-            lv_comma_0_0=(Token)match(input,22,FOLLOW_22_in_ruleComma12159); if (state.failed) return current;
+            lv_comma_0_0=(Token)match(input,23,FOLLOW_23_in_ruleComma12159); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_comma_0_0, grammarAccess.getCommaAccess().getCommaCommaKeyword_0());
@@ -17246,7 +17247,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6218:1: (lv_colon_0_0= ':' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6219:3: lv_colon_0_0= ':'
             {
-            lv_colon_0_0=(Token)match(input,24,FOLLOW_24_in_ruleColon12259); if (state.failed) return current;
+            lv_colon_0_0=(Token)match(input,25,FOLLOW_25_in_ruleColon12259); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_colon_0_0, grammarAccess.getColonAccess().getColonColonKeyword_0());
@@ -17344,7 +17345,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6254:1: (lv_leftCurlyBracket_0_0= '{' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6255:3: lv_leftCurlyBracket_0_0= '{'
             {
-            lv_leftCurlyBracket_0_0=(Token)match(input,21,FOLLOW_21_in_ruleLeftCurlyBracket12359); if (state.failed) return current;
+            lv_leftCurlyBracket_0_0=(Token)match(input,22,FOLLOW_22_in_ruleLeftCurlyBracket12359); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_leftCurlyBracket_0_0, grammarAccess.getLeftCurlyBracketAccess().getLeftCurlyBracketLeftCurlyBracketKeyword_0());
@@ -17442,7 +17443,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6290:1: (lv_rightCurlyBracket_0_0= '}' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6291:3: lv_rightCurlyBracket_0_0= '}'
             {
-            lv_rightCurlyBracket_0_0=(Token)match(input,23,FOLLOW_23_in_ruleRightCurlyBracket12459); if (state.failed) return current;
+            lv_rightCurlyBracket_0_0=(Token)match(input,24,FOLLOW_24_in_ruleRightCurlyBracket12459); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_rightCurlyBracket_0_0, grammarAccess.getRightCurlyBracketAccess().getRightCurlyBracketRightCurlyBracketKeyword_0());
@@ -17540,7 +17541,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6326:1: (lv_leftParenthesis_0_0= '(' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6327:3: lv_leftParenthesis_0_0= '('
             {
-            lv_leftParenthesis_0_0=(Token)match(input,50,FOLLOW_50_in_ruleLeftParenthesis12559); if (state.failed) return current;
+            lv_leftParenthesis_0_0=(Token)match(input,51,FOLLOW_51_in_ruleLeftParenthesis12559); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_leftParenthesis_0_0, grammarAccess.getLeftParenthesisAccess().getLeftParenthesisLeftParenthesisKeyword_0());
@@ -17638,7 +17639,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6362:1: (lv_rightParenthesis_0_0= ')' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6363:3: lv_rightParenthesis_0_0= ')'
             {
-            lv_rightParenthesis_0_0=(Token)match(input,51,FOLLOW_51_in_ruleRightParenthesis12659); if (state.failed) return current;
+            lv_rightParenthesis_0_0=(Token)match(input,52,FOLLOW_52_in_ruleRightParenthesis12659); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_rightParenthesis_0_0, grammarAccess.getRightParenthesisAccess().getRightParenthesisRightParenthesisKeyword_0());
@@ -17736,7 +17737,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6398:1: (lv_leftSquareBracketKeyword_0_0= '[' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6399:3: lv_leftSquareBracketKeyword_0_0= '['
             {
-            lv_leftSquareBracketKeyword_0_0=(Token)match(input,48,FOLLOW_48_in_ruleLeftSquareBracketKeyword12759); if (state.failed) return current;
+            lv_leftSquareBracketKeyword_0_0=(Token)match(input,49,FOLLOW_49_in_ruleLeftSquareBracketKeyword12759); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_leftSquareBracketKeyword_0_0, grammarAccess.getLeftSquareBracketKeywordAccess().getLeftSquareBracketKeywordLeftSquareBracketKeyword_0());
@@ -17834,7 +17835,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6434:1: (lv_rightSquareBracketKeyword_0_0= ']' )
             // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:6435:3: lv_rightSquareBracketKeyword_0_0= ']'
             {
-            lv_rightSquareBracketKeyword_0_0=(Token)match(input,49,FOLLOW_49_in_ruleRightSquareBracketKeyword12859); if (state.failed) return current;
+            lv_rightSquareBracketKeyword_0_0=(Token)match(input,50,FOLLOW_50_in_ruleRightSquareBracketKeyword12859); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_rightSquareBracketKeyword_0_0, grammarAccess.getRightSquareBracketKeywordAccess().getRightSquareBracketKeywordRightSquareBracketKeyword_0());
@@ -17956,24 +17957,24 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         int alt149=3;
         int LA149_0 = input.LA(1);
 
-        if ( (LA149_0==43) ) {
+        if ( (LA149_0==44) ) {
             alt149=1;
         }
-        else if ( (LA149_0==44) ) {
+        else if ( (LA149_0==45) ) {
             alt149=2;
         }
         switch (alt149) {
             case 1 :
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3119:9: otherlv_3= '!'
                 {
-                otherlv_3=(Token)match(input,43,FOLLOW_43_in_synpred89_InternalAls5500); if (state.failed) return ;
+                otherlv_3=(Token)match(input,44,FOLLOW_44_in_synpred89_InternalAls5500); if (state.failed) return ;
 
                 }
                 break;
             case 2 :
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3124:7: otherlv_4= 'not'
                 {
-                otherlv_4=(Token)match(input,44,FOLLOW_44_in_synpred89_InternalAls5518); if (state.failed) return ;
+                otherlv_4=(Token)match(input,45,FOLLOW_45_in_synpred89_InternalAls5518); if (state.failed) return ;
 
                 }
                 break;
@@ -18176,7 +18177,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3248:6: (otherlv_13= 'else' ( (lv_expr_14_0= ruleExpression ) ) )
         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3248:6: otherlv_13= 'else' ( (lv_expr_14_0= ruleExpression ) )
         {
-        otherlv_13=(Token)match(input,47,FOLLOW_47_in_synpred94_InternalAls5716); if (state.failed) return ;
+        otherlv_13=(Token)match(input,48,FOLLOW_48_in_synpred94_InternalAls5716); if (state.failed) return ;
         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3252:1: ( (lv_expr_14_0= ruleExpression ) )
         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3253:1: (lv_expr_14_0= ruleExpression )
         {
@@ -18226,10 +18227,10 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         int alt150=2;
         int LA150_0 = input.LA(1);
 
-        if ( (LA150_0==45) ) {
+        if ( (LA150_0==46) ) {
             alt150=1;
         }
-        else if ( (LA150_0==46) ) {
+        else if ( (LA150_0==47) ) {
             alt150=2;
         }
         else {
@@ -18243,14 +18244,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             case 1 :
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3202:9: otherlv_9= '=>'
                 {
-                otherlv_9=(Token)match(input,45,FOLLOW_45_in_synpred95_InternalAls5633); if (state.failed) return ;
+                otherlv_9=(Token)match(input,46,FOLLOW_46_in_synpred95_InternalAls5633); if (state.failed) return ;
 
                 }
                 break;
             case 2 :
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3207:7: otherlv_10= 'implies'
                 {
-                otherlv_10=(Token)match(input,46,FOLLOW_46_in_synpred95_InternalAls5651); if (state.failed) return ;
+                otherlv_10=(Token)match(input,47,FOLLOW_47_in_synpred95_InternalAls5651); if (state.failed) return ;
 
                 }
                 break;
@@ -18324,14 +18325,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         int alt152=2;
         int LA152_0 = input.LA(1);
 
-        if ( (LA152_0==47) ) {
+        if ( (LA152_0==48) ) {
             alt152=1;
         }
         switch (alt152) {
             case 1 :
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3248:6: otherlv_13= 'else' ( (lv_expr_14_0= ruleExpression ) )
                 {
-                otherlv_13=(Token)match(input,47,FOLLOW_47_in_synpred95_InternalAls5716); if (state.failed) return ;
+                otherlv_13=(Token)match(input,48,FOLLOW_48_in_synpred95_InternalAls5716); if (state.failed) return ;
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3252:1: ( (lv_expr_14_0= ruleExpression ) )
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3253:1: (lv_expr_14_0= ruleExpression )
                 {
@@ -18385,12 +18386,12 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3271:6: (otherlv_15= '[' ( ( (lv_expr_16_0= ruleExpression ) ) ( ( (lv_comma_17_0= ruleComma ) ) ( (lv_expr_18_0= ruleExpression ) ) )* )? otherlv_19= ']' )
         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3271:8: otherlv_15= '[' ( ( (lv_expr_16_0= ruleExpression ) ) ( ( (lv_comma_17_0= ruleComma ) ) ( (lv_expr_18_0= ruleExpression ) ) )* )? otherlv_19= ']'
         {
-        otherlv_15=(Token)match(input,48,FOLLOW_48_in_synpred98_InternalAls5759); if (state.failed) return ;
+        otherlv_15=(Token)match(input,49,FOLLOW_49_in_synpred98_InternalAls5759); if (state.failed) return ;
         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3275:1: ( ( (lv_expr_16_0= ruleExpression ) ) ( ( (lv_comma_17_0= ruleComma ) ) ( (lv_expr_18_0= ruleExpression ) ) )* )?
         int alt155=2;
         int LA155_0 = input.LA(1);
 
-        if ( ((LA155_0>=RULE_INT && LA155_0<=RULE_ID)||LA155_0==RULE_NEGATIVE_INTEGER||LA155_0==21||(LA155_0>=30 && LA155_0<=32)||(LA155_0>=34 && LA155_0<=36)||(LA155_0>=40 && LA155_0<=44)||LA155_0==50||(LA155_0>=52 && LA155_0<=64)||(LA155_0>=66 && LA155_0<=67)||(LA155_0>=82 && LA155_0<=87)) ) {
+        if ( ((LA155_0>=RULE_INT && LA155_0<=RULE_ID)||LA155_0==RULE_NEGATIVE_INTEGER||LA155_0==22||(LA155_0>=31 && LA155_0<=33)||(LA155_0>=35 && LA155_0<=37)||(LA155_0>=41 && LA155_0<=45)||LA155_0==51||(LA155_0>=53 && LA155_0<=65)||(LA155_0>=67 && LA155_0<=68)||(LA155_0>=83 && LA155_0<=88)) ) {
             alt155=1;
         }
         switch (alt155) {
@@ -18425,7 +18426,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     int alt154=2;
                     int LA154_0 = input.LA(1);
 
-                    if ( (LA154_0==22) ) {
+                    if ( (LA154_0==23) ) {
                         alt154=1;
                     }
 
@@ -18493,7 +18494,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
         }
 
-        otherlv_19=(Token)match(input,49,FOLLOW_49_in_synpred98_InternalAls5840); if (state.failed) return ;
+        otherlv_19=(Token)match(input,50,FOLLOW_50_in_synpred98_InternalAls5840); if (state.failed) return ;
 
         }
 
@@ -18601,7 +18602,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt158=2;
             int LA158_0 = input.LA(1);
 
-            if ( (LA158_0==22) ) {
+            if ( (LA158_0==23) ) {
                 alt158=1;
             }
 
@@ -18837,7 +18838,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             int alt162=2;
             int LA162_0 = input.LA(1);
 
-            if ( (LA162_0==22) ) {
+            if ( (LA162_0==23) ) {
                 alt162=1;
             }
 
@@ -19029,7 +19030,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3906:1: (lv_int_38_0= 'int' )
         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3907:3: lv_int_38_0= 'int'
         {
-        lv_int_38_0=(Token)match(input,31,FOLLOW_31_in_synpred120_InternalAls6785); if (state.failed) return ;
+        lv_int_38_0=(Token)match(input,32,FOLLOW_32_in_synpred120_InternalAls6785); if (state.failed) return ;
 
         }
 
@@ -19116,14 +19117,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         int alt168=2;
         int LA168_0 = input.LA(1);
 
-        if ( (LA168_0==55) ) {
+        if ( (LA168_0==56) ) {
             alt168=1;
         }
         switch (alt168) {
             case 1 :
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3987:4: otherlv_44= '@'
                 {
-                otherlv_44=(Token)match(input,55,FOLLOW_55_in_synpred137_InternalAls6945); if (state.failed) return ;
+                otherlv_44=(Token)match(input,56,FOLLOW_56_in_synpred137_InternalAls6945); if (state.failed) return ;
 
                 }
                 break;
@@ -19134,14 +19135,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         int alt169=2;
         int LA169_0 = input.LA(1);
 
-        if ( (LA169_0==31) ) {
+        if ( (LA169_0==32) ) {
             alt169=1;
         }
         switch (alt169) {
             case 1 :
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:3991:5: otherlv_45= 'int'
                 {
-                otherlv_45=(Token)match(input,31,FOLLOW_31_in_synpred137_InternalAls6960); if (state.failed) return ;
+                otherlv_45=(Token)match(input,32,FOLLOW_32_in_synpred137_InternalAls6960); if (state.failed) return ;
 
                 }
                 break;
@@ -19155,14 +19156,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         if ( (LA171_0==RULE_ID) ) {
             int LA171_1 = input.LA(2);
 
-            if ( (LA171_1==15) ) {
+            if ( (LA171_1==16) ) {
                 alt171=1;
             }
         }
-        else if ( (LA171_0==30) ) {
+        else if ( (LA171_0==31) ) {
             int LA171_2 = input.LA(2);
 
-            if ( (LA171_2==15) ) {
+            if ( (LA171_2==16) ) {
                 alt171=1;
             }
         }
@@ -19177,7 +19178,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 if ( (LA170_0==RULE_ID) ) {
                     alt170=1;
                 }
-                else if ( (LA170_0==30) ) {
+                else if ( (LA170_0==31) ) {
                     alt170=2;
                 }
                 else {
@@ -19215,14 +19216,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     case 2 :
                         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4012:7: otherlv_47= 'this'
                         {
-                        otherlv_47=(Token)match(input,30,FOLLOW_30_in_synpred137_InternalAls7006); if (state.failed) return ;
+                        otherlv_47=(Token)match(input,31,FOLLOW_31_in_synpred137_InternalAls7006); if (state.failed) return ;
 
                         }
                         break;
 
                 }
 
-                otherlv_48=(Token)match(input,15,FOLLOW_15_in_synpred137_InternalAls7019); if (state.failed) return ;
+                otherlv_48=(Token)match(input,16,FOLLOW_16_in_synpred137_InternalAls7019); if (state.failed) return ;
 
                 }
                 break;
@@ -19237,17 +19238,16 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             alt173=1;
             }
             break;
-        case 30:
+        case 31:
             {
             alt173=2;
             }
             break;
-        case 56:
+        case 57:
             {
             alt173=3;
             }
             break;
-        case 57:
         case 58:
         case 59:
         case 60:
@@ -19255,6 +19255,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         case 62:
         case 63:
         case 64:
+        case 65:
             {
             alt173=4;
             }
@@ -19295,7 +19296,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             case 2 :
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4037:7: otherlv_50= 'this'
                 {
-                otherlv_50=(Token)match(input,30,FOLLOW_30_in_synpred137_InternalAls7064); if (state.failed) return ;
+                otherlv_50=(Token)match(input,31,FOLLOW_31_in_synpred137_InternalAls7064); if (state.failed) return ;
 
                 }
                 break;
@@ -19308,7 +19309,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4043:1: (lv_name_51_0= 'pred/totalOrder' )
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4044:3: lv_name_51_0= 'pred/totalOrder'
                 {
-                lv_name_51_0=(Token)match(input,56,FOLLOW_56_in_synpred137_InternalAls7088); if (state.failed) return ;
+                lv_name_51_0=(Token)match(input,57,FOLLOW_57_in_synpred137_InternalAls7088); if (state.failed) return ;
 
                 }
 
@@ -19330,42 +19331,42 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                 // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4060:1: (lv_name_52_1= 'fun/add' | lv_name_52_2= 'fun/sub' | lv_name_52_3= 'fun/mul' | lv_name_52_4= 'fun/div' | lv_name_52_5= 'fun/rem' | lv_name_52_6= 'fun/min' | lv_name_52_7= 'fun/max' | lv_name_52_8= 'fun/next' )
                 int alt172=8;
                 switch ( input.LA(1) ) {
-                case 57:
+                case 58:
                     {
                     alt172=1;
                     }
                     break;
-                case 58:
+                case 59:
                     {
                     alt172=2;
                     }
                     break;
-                case 59:
+                case 60:
                     {
                     alt172=3;
                     }
                     break;
-                case 60:
+                case 61:
                     {
                     alt172=4;
                     }
                     break;
-                case 61:
+                case 62:
                     {
                     alt172=5;
                     }
                     break;
-                case 62:
+                case 63:
                     {
                     alt172=6;
                     }
                     break;
-                case 63:
+                case 64:
                     {
                     alt172=7;
                     }
                     break;
-                case 64:
+                case 65:
                     {
                     alt172=8;
                     }
@@ -19382,56 +19383,56 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
                     case 1 :
                         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4061:3: lv_name_52_1= 'fun/add'
                         {
-                        lv_name_52_1=(Token)match(input,57,FOLLOW_57_in_synpred137_InternalAls7127); if (state.failed) return ;
+                        lv_name_52_1=(Token)match(input,58,FOLLOW_58_in_synpred137_InternalAls7127); if (state.failed) return ;
 
                         }
                         break;
                     case 2 :
                         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4073:8: lv_name_52_2= 'fun/sub'
                         {
-                        lv_name_52_2=(Token)match(input,58,FOLLOW_58_in_synpred137_InternalAls7156); if (state.failed) return ;
+                        lv_name_52_2=(Token)match(input,59,FOLLOW_59_in_synpred137_InternalAls7156); if (state.failed) return ;
 
                         }
                         break;
                     case 3 :
                         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4085:8: lv_name_52_3= 'fun/mul'
                         {
-                        lv_name_52_3=(Token)match(input,59,FOLLOW_59_in_synpred137_InternalAls7185); if (state.failed) return ;
+                        lv_name_52_3=(Token)match(input,60,FOLLOW_60_in_synpred137_InternalAls7185); if (state.failed) return ;
 
                         }
                         break;
                     case 4 :
                         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4097:8: lv_name_52_4= 'fun/div'
                         {
-                        lv_name_52_4=(Token)match(input,60,FOLLOW_60_in_synpred137_InternalAls7214); if (state.failed) return ;
+                        lv_name_52_4=(Token)match(input,61,FOLLOW_61_in_synpred137_InternalAls7214); if (state.failed) return ;
 
                         }
                         break;
                     case 5 :
                         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4109:8: lv_name_52_5= 'fun/rem'
                         {
-                        lv_name_52_5=(Token)match(input,61,FOLLOW_61_in_synpred137_InternalAls7243); if (state.failed) return ;
+                        lv_name_52_5=(Token)match(input,62,FOLLOW_62_in_synpred137_InternalAls7243); if (state.failed) return ;
 
                         }
                         break;
                     case 6 :
                         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4121:8: lv_name_52_6= 'fun/min'
                         {
-                        lv_name_52_6=(Token)match(input,62,FOLLOW_62_in_synpred137_InternalAls7272); if (state.failed) return ;
+                        lv_name_52_6=(Token)match(input,63,FOLLOW_63_in_synpred137_InternalAls7272); if (state.failed) return ;
 
                         }
                         break;
                     case 7 :
                         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4133:8: lv_name_52_7= 'fun/max'
                         {
-                        lv_name_52_7=(Token)match(input,63,FOLLOW_63_in_synpred137_InternalAls7301); if (state.failed) return ;
+                        lv_name_52_7=(Token)match(input,64,FOLLOW_64_in_synpred137_InternalAls7301); if (state.failed) return ;
 
                         }
                         break;
                     case 8 :
                         // ../fr.univartois.cril.xtext2/src-gen/fr/univartois/cril/xtext2/parser/antlr/internal/InternalAls.g:4145:8: lv_name_52_8= 'fun/next'
                         {
-                        lv_name_52_8=(Token)match(input,64,FOLLOW_64_in_synpred137_InternalAls7330); if (state.failed) return ;
+                        lv_name_52_8=(Token)match(input,65,FOLLOW_65_in_synpred137_InternalAls7330); if (state.failed) return ;
 
                         }
                         break;
@@ -19966,25 +19967,25 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA13_eofS =
         "\33\uffff";
     static final String DFA13_minS =
-        "\1\5\1\16\2\uffff\1\16\1\5\4\uffff\1\17\2\uffff\1\17\3\143\1\17"+
-        "\1\5\1\31\1\5\1\uffff\1\5\1\uffff\3\17";
+        "\1\5\1\17\2\uffff\1\17\1\5\4\uffff\1\20\2\uffff\1\20\3\144\1\20"+
+        "\1\5\1\32\1\5\1\uffff\1\5\1\uffff\3\20";
     static final String DFA13_maxS =
-        "\2\142\2\uffff\1\44\1\52\4\uffff\1\30\2\uffff\4\143\1\62\1\5\1\32"+
-        "\1\5\1\uffff\1\36\1\uffff\1\30\2\62";
+        "\2\143\2\uffff\1\45\1\53\4\uffff\1\31\2\uffff\4\144\1\63\1\5\1\33"+
+        "\1\5\1\uffff\1\37\1\uffff\1\31\2\63";
     static final String DFA13_acceptS =
         "\2\uffff\1\1\1\2\2\uffff\1\5\1\6\1\7\1\10\1\uffff\1\11\1\12\10\uffff"+
         "\1\3\1\uffff\1\4\3\uffff";
     static final String DFA13_specialS =
         "\33\uffff}>";
     static final String[] DFA13_transitionS = {
-            "\1\12\1\1\7\uffff\1\4\2\uffff\1\5\1\uffff\1\7\1\10\4\uffff\1"+
-            "\13\1\14\6\uffff\4\10\17\uffff\1\6\53\uffff\1\3\1\11\1\2",
+            "\1\12\1\1\10\uffff\1\4\2\uffff\1\5\1\uffff\1\7\1\10\4\uffff"+
+            "\1\13\1\14\6\uffff\4\10\17\uffff\1\6\53\uffff\1\3\1\11\1\2",
             "\1\4\2\uffff\1\5\1\uffff\1\7\1\10\14\uffff\4\10\17\uffff\1"+
             "\6\53\uffff\1\3\1\uffff\1\2",
             "",
             "",
             "\1\10\2\uffff\1\5\1\uffff\1\7\1\10\14\uffff\4\10",
-            "\1\15\30\uffff\1\21\11\uffff\1\16\1\17\1\20",
+            "\1\15\31\uffff\1\21\11\uffff\1\16\1\17\1\20",
             "",
             "",
             "",
@@ -20001,7 +20002,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             "\1\13\1\14",
             "\1\31",
             "",
-            "\1\32\30\uffff\1\21",
+            "\1\32\31\uffff\1\21",
             "",
             "\1\22\10\uffff\1\23",
             "\1\24\10\uffff\1\27\27\uffff\1\25\1\uffff\1\25",
@@ -20048,26 +20049,26 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA58_minS =
         "\1\5\1\4\1\uffff\1\5\1\uffff\1\5\2\uffff\2\5";
     static final String DFA58_maxS =
-        "\1\142\1\15\1\uffff\1\142\1\uffff\1\142\2\uffff\1\40\1\142";
+        "\1\143\1\16\1\uffff\1\143\1\uffff\1\143\2\uffff\1\41\1\143";
     static final String DFA58_acceptS =
         "\2\uffff\1\4\1\uffff\1\3\1\uffff\1\1\1\2\2\uffff";
     static final String DFA58_specialS =
         "\12\uffff}>";
     static final String[] DFA58_transitionS = {
-            "\2\2\7\uffff\1\2\2\uffff\1\2\1\uffff\2\2\4\uffff\2\2\1\1\1\uffff"+
-            "\1\2\3\uffff\4\2\17\uffff\1\2\53\uffff\3\2",
-            "\1\3\10\uffff\1\4",
+            "\2\2\10\uffff\1\2\2\uffff\1\2\1\uffff\2\2\4\uffff\2\2\1\1\1"+
+            "\uffff\1\2\3\uffff\4\2\17\uffff\1\2\53\uffff\3\2",
+            "\1\3\11\uffff\1\4",
             "",
-            "\1\5\1\6\7\uffff\1\6\2\uffff\1\6\1\uffff\2\6\4\uffff\2\6\1"+
+            "\1\5\1\6\10\uffff\1\6\2\uffff\1\6\1\uffff\2\6\4\uffff\2\6\1"+
             "\uffff\1\7\1\6\3\4\4\6\17\uffff\1\6\53\uffff\3\6",
             "",
-            "\2\4\7\uffff\1\4\1\10\1\uffff\1\4\1\uffff\2\4\1\uffff\1\4\1"+
-            "\uffff\1\6\2\4\2\uffff\1\4\3\uffff\4\4\17\uffff\1\4\53\uffff"+
+            "\2\4\10\uffff\1\4\1\10\1\uffff\1\4\1\uffff\2\4\1\uffff\1\4"+
+            "\1\uffff\1\6\2\4\2\uffff\1\4\3\uffff\4\4\17\uffff\1\4\53\uffff"+
             "\3\4",
             "",
             "",
-            "\1\11\31\uffff\2\4",
-            "\2\4\7\uffff\1\4\1\6\1\uffff\1\4\1\uffff\2\4\1\uffff\1\4\1"+
+            "\1\11\32\uffff\2\4",
+            "\2\4\10\uffff\1\4\1\6\1\uffff\1\4\1\uffff\2\4\1\uffff\1\4\1"+
             "\uffff\1\6\2\4\2\uffff\1\4\3\uffff\4\4\17\uffff\1\4\53\uffff"+
             "\3\4"
     };
@@ -20112,7 +20113,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA76_minS =
         "\1\4\1\uffff\41\0\5\uffff";
     static final String DFA76_maxS =
-        "\1\143\1\uffff\41\0\5\uffff";
+        "\1\144\1\uffff\41\0\5\uffff";
     static final String DFA76_acceptS =
         "\1\uffff\1\6\41\uffff\1\3\1\1\1\2\1\4\1\5";
     static final String DFA76_specialS =
@@ -20120,7 +20121,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         "\1\24\1\12\1\26\1\25\1\35\1\7\1\2\1\37\1\16\1\31\1\36\1\20\1\5\1"+
         "\33\1\15\1\6\1\13\1\23\1\17\1\27\1\22\5\uffff}>";
     static final String[] DFA76_transitionS = {
-            "\4\1\6\uffff\1\1\2\uffff\1\1\1\27\5\1\1\uffff\2\1\3\uffff\4"+
+            "\4\1\7\uffff\1\1\2\uffff\1\1\1\27\5\1\1\uffff\2\1\3\uffff\4"+
             "\1\1\2\1\3\1\4\1\uffff\1\30\1\14\3\1\1\25\1\26\1\40\1\41\1\1"+
             "\1\42\20\1\1\uffff\2\1\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\15"+
             "\1\16\1\17\1\20\1\22\1\23\1\24\1\36\5\1\1\31\1\32\1\33\1\34"+
@@ -20712,7 +20713,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA72_minS =
         "\1\4\45\0\57\uffff";
     static final String DFA72_maxS =
-        "\1\143\45\0\57\uffff";
+        "\1\144\45\0\57\uffff";
     static final String DFA72_acceptS =
         "\46\uffff\1\3\54\uffff\1\1\1\2";
     static final String DFA72_specialS =
@@ -20720,7 +20721,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
         "\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\57\uffff}>";
     static final String[] DFA72_transitionS = {
-            "\1\21\1\32\1\46\1\22\6\uffff\1\46\2\uffff\4\46\1\45\2\46\1\uffff"+
+            "\1\21\1\32\1\46\1\22\7\uffff\1\46\2\uffff\4\46\1\45\2\46\1\uffff"+
             "\2\46\3\uffff\1\33\1\26\1\7\1\46\1\17\1\20\1\16\1\uffff\2\46"+
             "\1\25\1\27\1\30\1\10\1\5\5\46\1\1\1\46\1\2\1\23\1\24\1\31\1"+
             "\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\uffff\1\3\1\4"+
@@ -21419,15 +21420,15 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA93_minS =
         "\1\4\12\uffff\1\0\3\uffff\1\4\2\uffff\2\4\1\uffff\1\5\1\4";
     static final String DFA93_maxS =
-        "\1\127\12\uffff\1\0\3\uffff\1\127\2\uffff\2\143\1\uffff\1\100\1"+
-        "\143";
+        "\1\130\12\uffff\1\0\3\uffff\1\130\2\uffff\2\144\1\uffff\1\101\1"+
+        "\144";
     static final String DFA93_acceptS =
         "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\uffff\1\14"+
         "\1\15\1\16\1\uffff\1\13\1\17\2\uffff\1\20\2\uffff";
     static final String DFA93_specialS =
         "\13\uffff\1\0\13\uffff}>";
     static final String[] DFA93_transitionS = {
-            "\1\6\1\16\1\uffff\1\7\15\uffff\1\17\10\uffff\1\16\1\13\1\4\1"+
+            "\1\6\1\16\1\uffff\1\7\16\uffff\1\17\10\uffff\1\16\1\13\1\4\1"+
             "\uffff\3\5\3\uffff\1\12\1\14\1\15\2\4\5\uffff\1\1\1\uffff\1"+
             "\2\1\10\1\11\12\16\1\uffff\2\3\16\uffff\5\4\1\5",
             "",
@@ -21444,21 +21445,21 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\21\1\22\1\uffff\1\21\6\uffff\1\24\6\uffff\1\21\1\uffff\1"+
+            "\1\21\1\22\1\uffff\1\21\7\uffff\1\24\6\uffff\1\21\1\uffff\1"+
             "\21\6\uffff\1\23\2\21\1\uffff\3\21\3\uffff\5\21\5\uffff\1\21"+
             "\1\uffff\15\21\1\24\2\21\16\uffff\6\21",
             "",
             "",
-            "\2\21\1\uffff\1\21\7\uffff\1\25\2\uffff\1\21\2\uffff\1\21\1"+
-            "\24\1\21\1\24\5\uffff\3\21\1\uffff\3\21\1\uffff\11\21\1\uffff"+
+            "\2\21\1\uffff\1\21\10\uffff\1\25\2\uffff\1\21\2\uffff\1\21"+
+            "\1\24\1\21\1\24\5\uffff\3\21\1\uffff\3\21\1\uffff\11\21\1\uffff"+
             "\1\21\1\uffff\1\21\1\uffff\15\21\1\uffff\34\21\5\uffff\1\21",
-            "\2\21\1\uffff\1\21\7\uffff\1\25\2\uffff\1\21\2\uffff\1\21\1"+
-            "\24\1\21\1\24\5\uffff\3\21\1\uffff\3\21\1\uffff\11\21\1\uffff"+
+            "\2\21\1\uffff\1\21\10\uffff\1\25\2\uffff\1\21\2\uffff\1\21"+
+            "\1\24\1\21\1\24\5\uffff\3\21\1\uffff\3\21\1\uffff\11\21\1\uffff"+
             "\1\21\1\uffff\1\21\1\uffff\15\21\1\uffff\34\21\5\uffff\1\21",
             "",
-            "\1\26\30\uffff\1\21\31\uffff\11\21",
-            "\2\21\1\uffff\1\21\7\uffff\1\24\2\uffff\1\21\2\uffff\1\21\1"+
-            "\24\1\21\1\24\5\uffff\3\21\1\uffff\3\21\1\uffff\11\21\1\uffff"+
+            "\1\26\31\uffff\1\21\31\uffff\11\21",
+            "\2\21\1\uffff\1\21\10\uffff\1\24\2\uffff\1\21\2\uffff\1\21"+
+            "\1\24\1\21\1\24\5\uffff\3\21\1\uffff\3\21\1\uffff\11\21\1\uffff"+
             "\1\21\1\uffff\1\21\1\uffff\15\21\1\uffff\34\21\5\uffff\1\21"
     };
 
@@ -21528,13 +21529,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA80_minS =
         "\1\4\1\0\1\uffff\2\0\117\uffff";
     static final String DFA80_maxS =
-        "\1\143\1\0\1\uffff\2\0\117\uffff";
+        "\1\144\1\0\1\uffff\2\0\117\uffff";
     static final String DFA80_acceptS =
         "\2\uffff\1\1\2\uffff\1\2\116\uffff";
     static final String DFA80_specialS =
         "\1\uffff\1\0\1\uffff\1\1\1\2\117\uffff}>";
     static final String[] DFA80_transitionS = {
-            "\1\5\1\4\2\5\6\uffff\1\1\2\uffff\7\5\1\uffff\2\5\3\uffff\1\3"+
+            "\1\5\1\4\2\5\7\uffff\1\1\2\uffff\7\5\1\uffff\2\5\3\uffff\1\3"+
             "\6\5\1\uffff\33\5\1\2\35\5\1\uffff\4\5",
             "\1\uffff",
             "",
@@ -21717,7 +21718,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA81_minS =
         "\1\4\46\0\56\uffff";
     static final String DFA81_maxS =
-        "\1\143\46\0\56\uffff";
+        "\1\144\46\0\56\uffff";
     static final String DFA81_acceptS =
         "\47\uffff\1\3\53\uffff\1\1\1\2";
     static final String DFA81_specialS =
@@ -21726,7 +21727,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         "\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\56"+
         "\uffff}>";
     static final String[] DFA81_transitionS = {
-            "\1\23\1\34\1\47\1\24\6\uffff\1\47\2\uffff\4\47\1\1\2\47\1\uffff"+
+            "\1\23\1\34\1\47\1\24\7\uffff\1\47\2\uffff\4\47\1\1\2\47\1\uffff"+
             "\2\47\3\uffff\1\35\1\30\1\11\1\47\1\21\1\22\1\20\1\uffff\2\47"+
             "\1\27\1\31\1\32\1\12\1\7\5\47\1\3\1\47\1\4\1\25\1\26\1\33\1"+
             "\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\46\1\uffff\1\5\1\6"+
@@ -22440,13 +22441,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA83_minS =
         "\1\4\1\0\1\uffff\2\0\117\uffff";
     static final String DFA83_maxS =
-        "\1\143\1\0\1\uffff\2\0\117\uffff";
+        "\1\144\1\0\1\uffff\2\0\117\uffff";
     static final String DFA83_acceptS =
         "\2\uffff\1\1\2\uffff\1\2\116\uffff";
     static final String DFA83_specialS =
         "\1\uffff\1\0\1\uffff\1\1\1\2\117\uffff}>";
     static final String[] DFA83_transitionS = {
-            "\1\5\1\4\2\5\6\uffff\1\1\2\uffff\7\5\1\uffff\2\5\3\uffff\1\3"+
+            "\1\5\1\4\2\5\7\uffff\1\1\2\uffff\7\5\1\uffff\2\5\3\uffff\1\3"+
             "\6\5\1\uffff\33\5\1\2\35\5\1\uffff\4\5",
             "\1\uffff",
             "",
@@ -22629,7 +22630,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA84_minS =
         "\1\4\46\0\56\uffff";
     static final String DFA84_maxS =
-        "\1\143\46\0\56\uffff";
+        "\1\144\46\0\56\uffff";
     static final String DFA84_acceptS =
         "\47\uffff\1\3\53\uffff\1\1\1\2";
     static final String DFA84_specialS =
@@ -22638,7 +22639,7 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
         "\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\56"+
         "\uffff}>";
     static final String[] DFA84_transitionS = {
-            "\1\23\1\34\1\47\1\24\6\uffff\1\47\2\uffff\4\47\1\1\2\47\1\uffff"+
+            "\1\23\1\34\1\47\1\24\7\uffff\1\47\2\uffff\4\47\1\1\2\47\1\uffff"+
             "\2\47\3\uffff\1\35\1\30\1\11\1\47\1\21\1\22\1\20\1\uffff\2\47"+
             "\1\27\1\31\1\32\1\12\1\7\5\47\1\3\1\47\1\4\1\25\1\26\1\33\1"+
             "\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\46\1\uffff\1\5\1\6"+
@@ -23352,13 +23353,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA116_minS =
         "\1\5\1\uffff\2\0\11\uffff";
     static final String DFA116_maxS =
-        "\1\142\1\uffff\2\0\11\uffff";
+        "\1\143\1\uffff\2\0\11\uffff";
     static final String DFA116_acceptS =
         "\1\uffff\1\1\2\uffff\1\4\1\11\1\2\1\3\1\5\1\6\1\7\1\10\1\12";
     static final String DFA116_specialS =
         "\2\uffff\1\0\1\1\11\uffff}>";
     static final String[] DFA116_transitionS = {
-            "\1\3\30\uffff\1\2\25\uffff\1\5\53\uffff\1\1\1\uffff\1\4",
+            "\1\3\31\uffff\1\2\25\uffff\1\5\53\uffff\1\1\1\uffff\1\4",
             "",
             "\1\uffff",
             "\1\uffff",
@@ -23474,13 +23475,13 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     static final String DFA151_minS =
         "\1\4\1\0\47\uffff";
     static final String DFA151_maxS =
-        "\1\127\1\0\47\uffff";
+        "\1\130\1\0\47\uffff";
     static final String DFA151_acceptS =
         "\2\uffff\1\2\43\uffff\1\3\1\uffff\1\1";
     static final String DFA151_specialS =
         "\1\uffff\1\0\47\uffff}>";
     static final String[] DFA151_transitionS = {
-            "\2\2\1\uffff\1\2\15\uffff\1\2\10\uffff\3\2\1\uffff\3\2\3\uffff"+
+            "\2\2\1\uffff\1\2\16\uffff\1\2\10\uffff\3\2\1\uffff\3\2\3\uffff"+
             "\5\2\2\uffff\1\46\2\uffff\1\1\1\uffff\15\2\1\uffff\2\2\16\uffff"+
             "\6\2",
             "\1\uffff",
@@ -23588,31 +23589,31 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_ruleSpecification_in_entryRuleSpecification81 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSpecification91 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModule_in_ruleSpecification137 = new BitSet(new long[]{0x0010001E061A4062L,0x0000000780000000L});
-    public static final BitSet FOLLOW_ruleOpen_in_ruleSpecification159 = new BitSet(new long[]{0x0010001E061A4062L,0x0000000780000000L});
-    public static final BitSet FOLLOW_ruleParagraph_in_ruleSpecification181 = new BitSet(new long[]{0x0010001E061A4062L,0x0000000700000000L});
+    public static final BitSet FOLLOW_ruleModule_in_ruleSpecification137 = new BitSet(new long[]{0x0020003C0C348062L,0x0000000F00000000L});
+    public static final BitSet FOLLOW_ruleOpen_in_ruleSpecification159 = new BitSet(new long[]{0x0020003C0C348062L,0x0000000F00000000L});
+    public static final BitSet FOLLOW_ruleParagraph_in_ruleSpecification181 = new BitSet(new long[]{0x0020003C0C348062L,0x0000000E00000000L});
     public static final BitSet FOLLOW_ruleModule_in_entryRuleModule218 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModule228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_ruleModule265 = new BitSet(new long[]{0x0000000040000020L});
-    public static final BitSet FOLLOW_ruleName_in_ruleModule286 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_ruleModule308 = new BitSet(new long[]{0x0000000040002020L});
-    public static final BitSet FOLLOW_13_in_ruleModule326 = new BitSet(new long[]{0x0000000040002020L});
-    public static final BitSet FOLLOW_ruleExactlyName_in_ruleModule361 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleModule383 = new BitSet(new long[]{0x0000000040002030L});
-    public static final BitSet FOLLOW_13_in_ruleModule403 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleModule434 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleExactlyName_in_ruleModule467 = new BitSet(new long[]{0x0002000000400000L});
+    public static final BitSet FOLLOW_13_in_ruleModule265 = new BitSet(new long[]{0x0000000080000020L});
+    public static final BitSet FOLLOW_ruleName_in_ruleModule286 = new BitSet(new long[]{0x0002000000000002L});
+    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_ruleModule308 = new BitSet(new long[]{0x0000000080004020L});
+    public static final BitSet FOLLOW_14_in_ruleModule326 = new BitSet(new long[]{0x0000000080004020L});
+    public static final BitSet FOLLOW_ruleExactlyName_in_ruleModule361 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleModule383 = new BitSet(new long[]{0x0000000080004030L});
+    public static final BitSet FOLLOW_14_in_ruleModule403 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleModule434 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleExactlyName_in_ruleModule467 = new BitSet(new long[]{0x0004000000800000L});
     public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_ruleModule491 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpen_in_entryRuleOpen529 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpen539 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_ruleOpen577 = new BitSet(new long[]{0x0000000000004000L,0x0000000080000000L});
-    public static final BitSet FOLLOW_ruleOpenName_in_ruleOpen600 = new BitSet(new long[]{0x0001000000010002L});
+    public static final BitSet FOLLOW_15_in_ruleOpen577 = new BitSet(new long[]{0x0000000000008000L,0x0000000100000000L});
+    public static final BitSet FOLLOW_ruleOpenName_in_ruleOpen600 = new BitSet(new long[]{0x0002000000020002L});
     public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_ruleOpen622 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleAsName_in_ruleOpen644 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleOpen656 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleOpen682 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_ruleOpen703 = new BitSet(new long[]{0x0000000000010002L});
-    public static final BitSet FOLLOW_16_in_ruleOpen718 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleAsName_in_ruleOpen644 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleOpen656 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleOpen682 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_ruleOpen703 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_17_in_ruleOpen718 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_ruleAsName_in_ruleOpen739 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParagraph_in_entryRuleParagraph777 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleParagraph787 = new BitSet(new long[]{0x0000000000000002L});
@@ -23628,355 +23629,355 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleCheckDecl_in_ruleParagraph1107 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEnumDecl_in_entryRuleEnumDecl1142 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleEnumDecl1152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ML_COMMENT_in_ruleEnumDecl1194 = new BitSet(new long[]{0x0000000000000040L,0x0000000400000000L});
-    public static final BitSet FOLLOW_ruleEnumName_in_ruleEnumDecl1221 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleEnumDecl1242 = new BitSet(new long[]{0x0000000040000020L});
-    public static final BitSet FOLLOW_ruleEnumPropertyName_in_ruleEnumDecl1263 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleEnumDecl1285 = new BitSet(new long[]{0x0000000040000020L});
-    public static final BitSet FOLLOW_ruleEnumPropertyName_in_ruleEnumDecl1306 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_RULE_DOC_COMMENT_in_ruleEnumDecl1194 = new BitSet(new long[]{0x0000000000000040L,0x0000000800000000L});
+    public static final BitSet FOLLOW_ruleEnumName_in_ruleEnumDecl1221 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleEnumDecl1242 = new BitSet(new long[]{0x0000000080000020L});
+    public static final BitSet FOLLOW_ruleEnumPropertyName_in_ruleEnumDecl1263 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleEnumDecl1285 = new BitSet(new long[]{0x0000000080000020L});
+    public static final BitSet FOLLOW_ruleEnumPropertyName_in_ruleEnumDecl1306 = new BitSet(new long[]{0x0000000001800000L});
     public static final BitSet FOLLOW_ruleRightCurlyBracket_in_ruleEnumDecl1329 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFactDecl_in_entryRuleFactDecl1365 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFactDecl1375 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ML_COMMENT_in_ruleFactDecl1417 = new BitSet(new long[]{0x0000000000000040L,0x0000000100000000L});
-    public static final BitSet FOLLOW_ruleFactName_in_ruleFactDecl1444 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_RULE_DOC_COMMENT_in_ruleFactDecl1417 = new BitSet(new long[]{0x0000000000000040L,0x0000000200000000L});
+    public static final BitSet FOLLOW_ruleFactName_in_ruleFactDecl1444 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_ruleBlock_in_ruleFactDecl1465 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFunDecl_in_entryRuleFunDecl1501 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFunDecl1511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ML_COMMENT_in_ruleFunDecl1553 = new BitSet(new long[]{0x0000000000024000L});
-    public static final BitSet FOLLOW_14_in_ruleFunDecl1572 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleFunDecl1586 = new BitSet(new long[]{0x0000070040000020L});
-    public static final BitSet FOLLOW_ruleRef_in_ruleFunDecl1608 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});
-    public static final BitSet FOLLOW_ruleDot_in_ruleFunDecl1629 = new BitSet(new long[]{0x0000070040000020L});
-    public static final BitSet FOLLOW_ruleFunctionName_in_ruleFunDecl1652 = new BitSet(new long[]{0x0005000000000000L});
-    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_ruleFunDecl1675 = new BitSet(new long[]{0x0002000040404020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParam_in_ruleFunDecl1697 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleFunDecl1719 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParam_in_ruleFunDecl1740 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_ruleFunDecl1765 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleLeftParenthesis_in_ruleFunDecl1794 = new BitSet(new long[]{0x0008000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleFunDecl1816 = new BitSet(new long[]{0x0008000040404020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleFunDecl1838 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleFunDecl1859 = new BitSet(new long[]{0x0008000040404020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRightParenthesis_in_ruleFunDecl1884 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleColon_in_ruleFunDecl1907 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleFunDecl1928 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_RULE_DOC_COMMENT_in_ruleFunDecl1553 = new BitSet(new long[]{0x0000000000048000L});
+    public static final BitSet FOLLOW_15_in_ruleFunDecl1572 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleFunDecl1586 = new BitSet(new long[]{0x00000E0080000020L});
+    public static final BitSet FOLLOW_ruleRef_in_ruleFunDecl1608 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_ruleDot_in_ruleFunDecl1629 = new BitSet(new long[]{0x00000E0080000020L});
+    public static final BitSet FOLLOW_ruleFunctionName_in_ruleFunDecl1652 = new BitSet(new long[]{0x000A000000000000L});
+    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_ruleFunDecl1675 = new BitSet(new long[]{0x0004000080808020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleParam_in_ruleFunDecl1697 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleFunDecl1719 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleParam_in_ruleFunDecl1740 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_ruleFunDecl1765 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_ruleLeftParenthesis_in_ruleFunDecl1794 = new BitSet(new long[]{0x0010000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleFunDecl1816 = new BitSet(new long[]{0x0010000080808020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleFunDecl1838 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleFunDecl1859 = new BitSet(new long[]{0x0010000080808020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleRightParenthesis_in_ruleFunDecl1884 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_ruleColon_in_ruleFunDecl1907 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleFunDecl1928 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_ruleBlock_in_ruleFunDecl1949 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFunDeclWParam_in_entryRuleFunDeclWParam1985 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFunDeclWParam1995 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ML_COMMENT_in_ruleFunDeclWParam2037 = new BitSet(new long[]{0x0000000000024000L});
-    public static final BitSet FOLLOW_14_in_ruleFunDeclWParam2056 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleFunDeclWParam2070 = new BitSet(new long[]{0x0000070040000020L});
-    public static final BitSet FOLLOW_ruleRef_in_ruleFunDeclWParam2092 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});
-    public static final BitSet FOLLOW_ruleDot_in_ruleFunDeclWParam2113 = new BitSet(new long[]{0x0000070040000020L});
-    public static final BitSet FOLLOW_ruleFunctionNamewParam_in_ruleFunDeclWParam2136 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleColon_in_ruleFunDeclWParam2157 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleFunDeclWParam2178 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_RULE_DOC_COMMENT_in_ruleFunDeclWParam2037 = new BitSet(new long[]{0x0000000000048000L});
+    public static final BitSet FOLLOW_15_in_ruleFunDeclWParam2056 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleFunDeclWParam2070 = new BitSet(new long[]{0x00000E0080000020L});
+    public static final BitSet FOLLOW_ruleRef_in_ruleFunDeclWParam2092 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_ruleDot_in_ruleFunDeclWParam2113 = new BitSet(new long[]{0x00000E0080000020L});
+    public static final BitSet FOLLOW_ruleFunctionNamewParam_in_ruleFunDeclWParam2136 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_ruleColon_in_ruleFunDeclWParam2157 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleFunDeclWParam2178 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_ruleBlock_in_ruleFunDeclWParam2199 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLetOutDecl_in_entryRuleLetOutDecl2235 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLetOutDecl2245 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ML_COMMENT_in_ruleLetOutDecl2287 = new BitSet(new long[]{0x0010000000000040L});
-    public static final BitSet FOLLOW_ruleLetName_in_ruleLetOutDecl2314 = new BitSet(new long[]{0x0001000000240000L});
-    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_ruleLetOutDecl2336 = new BitSet(new long[]{0x0012070040406060L,0x0000000500000002L});
-    public static final BitSet FOLLOW_ruleReferencesName_in_ruleLetOutDecl2358 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleLetOutDecl2380 = new BitSet(new long[]{0x0010070040006060L,0x0000000500000002L});
-    public static final BitSet FOLLOW_ruleReferencesName_in_ruleLetOutDecl2401 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_ruleLetOutDecl2426 = new BitSet(new long[]{0x0000000000240000L});
+    public static final BitSet FOLLOW_RULE_DOC_COMMENT_in_ruleLetOutDecl2287 = new BitSet(new long[]{0x0020000000000040L});
+    public static final BitSet FOLLOW_ruleLetName_in_ruleLetOutDecl2314 = new BitSet(new long[]{0x0002000000480000L});
+    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_ruleLetOutDecl2336 = new BitSet(new long[]{0x00240E008080C060L,0x0000000A00000004L});
+    public static final BitSet FOLLOW_ruleReferencesName_in_ruleLetOutDecl2358 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleLetOutDecl2380 = new BitSet(new long[]{0x00200E008000C060L,0x0000000A00000004L});
+    public static final BitSet FOLLOW_ruleReferencesName_in_ruleLetOutDecl2401 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_ruleLetOutDecl2426 = new BitSet(new long[]{0x0000000000480000L});
     public static final BitSet FOLLOW_ruleBlock_in_ruleLetOutDecl2450 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleLetOutDecl2469 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_19_in_ruleLetOutDecl2469 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_ruleLetOutDecl2490 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePredDecl_in_entryRulePredDecl2528 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulePredDecl2538 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ML_COMMENT_in_rulePredDecl2580 = new BitSet(new long[]{0x0000000000084000L});
-    public static final BitSet FOLLOW_14_in_rulePredDecl2599 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_rulePredDecl2613 = new BitSet(new long[]{0x0010070040006060L,0x0000000500000002L});
-    public static final BitSet FOLLOW_ruleRef_in_rulePredDecl2635 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});
-    public static final BitSet FOLLOW_ruleDot_in_rulePredDecl2656 = new BitSet(new long[]{0x0010070040006060L,0x0000000500000002L});
-    public static final BitSet FOLLOW_rulePredicateName_in_rulePredDecl2679 = new BitSet(new long[]{0x0005000000200000L});
-    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_rulePredDecl2702 = new BitSet(new long[]{0x0002000040404020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParam_in_rulePredDecl2724 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleComma_in_rulePredDecl2746 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParam_in_rulePredDecl2767 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_rulePredDecl2792 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_ruleLeftParenthesis_in_rulePredDecl2821 = new BitSet(new long[]{0x0008000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParam_in_rulePredDecl2843 = new BitSet(new long[]{0x0008000040404020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComma_in_rulePredDecl2865 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParam_in_rulePredDecl2886 = new BitSet(new long[]{0x0008000040404020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRightParenthesis_in_rulePredDecl2911 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_RULE_DOC_COMMENT_in_rulePredDecl2580 = new BitSet(new long[]{0x0000000000108000L});
+    public static final BitSet FOLLOW_15_in_rulePredDecl2599 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_rulePredDecl2613 = new BitSet(new long[]{0x00200E008000C060L,0x0000000A00000004L});
+    public static final BitSet FOLLOW_ruleRef_in_rulePredDecl2635 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_ruleDot_in_rulePredDecl2656 = new BitSet(new long[]{0x00200E008000C060L,0x0000000A00000004L});
+    public static final BitSet FOLLOW_rulePredicateName_in_rulePredDecl2679 = new BitSet(new long[]{0x000A000000400000L});
+    public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_rulePredDecl2702 = new BitSet(new long[]{0x0004000080808020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleParam_in_rulePredDecl2724 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleComma_in_rulePredDecl2746 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleParam_in_rulePredDecl2767 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_rulePredDecl2792 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleLeftParenthesis_in_rulePredDecl2821 = new BitSet(new long[]{0x0010000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleParam_in_rulePredDecl2843 = new BitSet(new long[]{0x0010000080808020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleComma_in_rulePredDecl2865 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleParam_in_rulePredDecl2886 = new BitSet(new long[]{0x0010000080808020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleRightParenthesis_in_rulePredDecl2911 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_ruleBlock_in_rulePredDecl2935 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSigDecl_in_entryRuleSigDecl2971 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSigDecl2981 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ML_COMMENT_in_ruleSigDecl3023 = new BitSet(new long[]{0x0000001E00104000L});
-    public static final BitSet FOLLOW_ruleSigQual_in_ruleSigDecl3049 = new BitSet(new long[]{0x0000001E00104000L});
-    public static final BitSet FOLLOW_20_in_ruleSigDecl3062 = new BitSet(new long[]{0x0000000040000020L});
-    public static final BitSet FOLLOW_ruleSignatureName_in_ruleSigDecl3083 = new BitSet(new long[]{0x0000006000600000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleSigDecl3105 = new BitSet(new long[]{0x0000000040000020L});
-    public static final BitSet FOLLOW_ruleSignatureName_in_ruleSigDecl3126 = new BitSet(new long[]{0x0000006000600000L});
-    public static final BitSet FOLLOW_ruleSigExt_in_ruleSigDecl3149 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleSigDecl3162 = new BitSet(new long[]{0x0000000040804020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleSigDecl3184 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_22_in_ruleSigDecl3203 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleSigDecl3237 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_23_in_ruleSigDecl3253 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_RULE_DOC_COMMENT_in_ruleSigDecl3023 = new BitSet(new long[]{0x0000003C00208000L});
+    public static final BitSet FOLLOW_ruleSigQual_in_ruleSigDecl3049 = new BitSet(new long[]{0x0000003C00208000L});
+    public static final BitSet FOLLOW_21_in_ruleSigDecl3062 = new BitSet(new long[]{0x0000000080000020L});
+    public static final BitSet FOLLOW_ruleSignatureName_in_ruleSigDecl3083 = new BitSet(new long[]{0x000000C000C00000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleSigDecl3105 = new BitSet(new long[]{0x0000000080000020L});
+    public static final BitSet FOLLOW_ruleSignatureName_in_ruleSigDecl3126 = new BitSet(new long[]{0x000000C000C00000L});
+    public static final BitSet FOLLOW_ruleSigExt_in_ruleSigDecl3149 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleSigDecl3162 = new BitSet(new long[]{0x0000000081008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleSigDecl3184 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_23_in_ruleSigDecl3203 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleSigDecl3237 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_24_in_ruleSigDecl3253 = new BitSet(new long[]{0x0000000000400002L});
     public static final BitSet FOLLOW_ruleBlock_in_ruleSigDecl3274 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAssertDecl_in_entryRuleAssertDecl3311 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAssertDecl3321 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssertionName_in_ruleAssertDecl3367 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_ruleAssertionName_in_ruleAssertDecl3367 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_ruleBlock_in_ruleAssertDecl3388 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRunDecl_in_entryRuleRunDecl3424 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRunDecl3434 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAlias_in_ruleRunDecl3481 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleRunDecl3493 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_ruleRunDecl3507 = new BitSet(new long[]{0x0000000000200020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleRunDecl3532 = new BitSet(new long[]{0x0000000028000000L});
-    public static final BitSet FOLLOW_ruleBlock_in_ruleRunDecl3559 = new BitSet(new long[]{0x0000000028000000L});
+    public static final BitSet FOLLOW_ruleAlias_in_ruleRunDecl3481 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ruleRunDecl3493 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_ruleRunDecl3507 = new BitSet(new long[]{0x0000000000400020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRunDecl3532 = new BitSet(new long[]{0x0000000050000000L});
+    public static final BitSet FOLLOW_ruleBlock_in_ruleRunDecl3559 = new BitSet(new long[]{0x0000000050000000L});
     public static final BitSet FOLLOW_ruleScope_in_ruleRunDecl3581 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCheckDecl_in_entryRuleCheckDecl3617 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCheckDecl3627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAlias_in_ruleCheckDecl3674 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleCheckDecl3686 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleCheckDecl3700 = new BitSet(new long[]{0x0000000000200020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCheckDecl3725 = new BitSet(new long[]{0x0000000028000000L});
-    public static final BitSet FOLLOW_ruleBlock_in_ruleCheckDecl3752 = new BitSet(new long[]{0x0000000028000000L});
+    public static final BitSet FOLLOW_ruleAlias_in_ruleCheckDecl3674 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ruleCheckDecl3686 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_ruleCheckDecl3700 = new BitSet(new long[]{0x0000000000400020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCheckDecl3725 = new BitSet(new long[]{0x0000000050000000L});
+    public static final BitSet FOLLOW_ruleBlock_in_ruleCheckDecl3752 = new BitSet(new long[]{0x0000000050000000L});
     public static final BitSet FOLLOW_ruleScope_in_ruleCheckDecl3774 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleScope_in_entryRuleScope3810 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleScope3820 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleScope3876 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleScope3906 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_28_in_ruleScope3876 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleScope3906 = new BitSet(new long[]{0x0000000040000002L});
     public static final BitSet FOLLOW_ruleExpectation_in_ruleScope3932 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleScope3971 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleScope4001 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleScope4024 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_ruleTypescope_in_ruleScope4058 = new BitSet(new long[]{0x0000000020400002L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleScope4080 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_ruleTypescope_in_ruleScope4101 = new BitSet(new long[]{0x0000000020400002L});
+    public static final BitSet FOLLOW_28_in_ruleScope3971 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleScope4001 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_29_in_ruleScope4024 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_ruleTypescope_in_ruleScope4058 = new BitSet(new long[]{0x0000000040800002L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleScope4080 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_ruleTypescope_in_ruleScope4101 = new BitSet(new long[]{0x0000000040800002L});
     public static final BitSet FOLLOW_ruleExpectation_in_ruleScope4124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleScope4163 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_ruleTypescope_in_ruleScope4197 = new BitSet(new long[]{0x0000000020400002L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleScope4219 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_ruleTypescope_in_ruleScope4240 = new BitSet(new long[]{0x0000000020400002L});
+    public static final BitSet FOLLOW_28_in_ruleScope4163 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_ruleTypescope_in_ruleScope4197 = new BitSet(new long[]{0x0000000040800002L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleScope4219 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_ruleTypescope_in_ruleScope4240 = new BitSet(new long[]{0x0000000040800002L});
     public static final BitSet FOLLOW_ruleExpectation_in_ruleScope4263 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpectation_in_ruleScope4305 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpectation_in_entryRuleExpectation4343 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleExpectation4353 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleExpectation4396 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_30_in_ruleExpectation4396 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_INT_in_ruleExpectation4426 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTypescope_in_entryRuleTypescope4467 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTypescope4477 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleTypescope4532 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleTypescope4563 = new BitSet(new long[]{0x00000001C0000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTypescope4594 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_30_in_ruleTypescope4618 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleTypescope4650 = new BitSet(new long[]{0x0000000180000020L});
+    public static final BitSet FOLLOW_14_in_ruleTypescope4532 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleTypescope4563 = new BitSet(new long[]{0x0000000380000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTypescope4594 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_31_in_ruleTypescope4618 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleTypescope4650 = new BitSet(new long[]{0x0000000300000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleTypescope4690 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleTypescope4715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleTypescope4752 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleTypescope4715 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleTypescope4752 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSigQual_in_entryRuleSigQual4804 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSigQual4815 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleSigQual4853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleSigQual4872 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleSigQual4891 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleSigQual4910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_ruleSigQual4929 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleSigQual4853 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleSigQual4872 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_ruleSigQual4891 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleSigQual4910 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_ruleSigQual4929 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSigExt_in_entryRuleSigExt4969 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSigExt4979 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleSigExt5017 = new BitSet(new long[]{0x0000070040000020L});
+    public static final BitSet FOLLOW_38_in_ruleSigExt5017 = new BitSet(new long[]{0x00000E0080000020L});
     public static final BitSet FOLLOW_ruleReferencesSig_in_ruleSigExt5038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleSigExt5058 = new BitSet(new long[]{0x0000070040000020L});
-    public static final BitSet FOLLOW_ruleReferencesSig_in_ruleSigExt5079 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_39_in_ruleSigExt5092 = new BitSet(new long[]{0x0000070040000020L});
-    public static final BitSet FOLLOW_ruleReferencesSig_in_ruleSigExt5113 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_39_in_ruleSigExt5058 = new BitSet(new long[]{0x00000E0080000020L});
+    public static final BitSet FOLLOW_ruleReferencesSig_in_ruleSigExt5079 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_40_in_ruleSigExt5092 = new BitSet(new long[]{0x00000E0080000020L});
+    public static final BitSet FOLLOW_ruleReferencesSig_in_ruleSigExt5113 = new BitSet(new long[]{0x0000010000000002L});
     public static final BitSet FOLLOW_ruleReferencesSig_in_entryRuleReferencesSig5152 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleReferencesSig5162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleReferencesSig5227 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_30_in_ruleReferencesSig5245 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleReferencesSig5258 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleReferencesSig5227 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_31_in_ruleReferencesSig5245 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleReferencesSig5258 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleReferencesSig5284 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleReferencesSig5303 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleReferencesSig5321 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleReferencesSig5339 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleReferencesSig5303 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleReferencesSig5321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleReferencesSig5339 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression5376 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleExpression5386 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTerminalExpression_in_ruleExpression5436 = new BitSet(new long[]{0x000178DC00040002L,0x000000083F07FFF0L});
-    public static final BitSet FOLLOW_ruleBinOp_in_ruleExpression5458 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5479 = new BitSet(new long[]{0x000178DC00040002L,0x000000083F07FFF0L});
-    public static final BitSet FOLLOW_43_in_ruleExpression5500 = new BitSet(new long[]{0x0000184000040000L,0x000000001F000000L});
-    public static final BitSet FOLLOW_44_in_ruleExpression5518 = new BitSet(new long[]{0x0000184000040000L,0x000000001F000000L});
-    public static final BitSet FOLLOW_ruleCompareOp_in_ruleExpression5541 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5562 = new BitSet(new long[]{0x000178DC00040002L,0x000000083F07FFF0L});
-    public static final BitSet FOLLOW_ruleArrowOp_in_ruleExpression5591 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5612 = new BitSet(new long[]{0x000178DC00040002L,0x000000083F07FFF0L});
-    public static final BitSet FOLLOW_45_in_ruleExpression5633 = new BitSet(new long[]{0xFFF5FFDDC02400B2L,0x000000083FFFFFFDL});
-    public static final BitSet FOLLOW_46_in_ruleExpression5651 = new BitSet(new long[]{0xFFF5FFDDC02400B2L,0x000000083FFFFFFDL});
-    public static final BitSet FOLLOW_ruleParanthesisandExpression_in_ruleExpression5674 = new BitSet(new long[]{0x0001F8DC00040002L,0x000000083F07FFF0L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5701 = new BitSet(new long[]{0x0001F8DC00040002L,0x000000083F07FFF0L});
-    public static final BitSet FOLLOW_47_in_ruleExpression5716 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5737 = new BitSet(new long[]{0x000178DC00040002L,0x000000083F07FFF0L});
-    public static final BitSet FOLLOW_48_in_ruleExpression5759 = new BitSet(new long[]{0xFFF61F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5781 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleExpression5803 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5824 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_49_in_ruleExpression5840 = new BitSet(new long[]{0x000178DC00040002L,0x000000083F07FFF0L});
+    public static final BitSet FOLLOW_ruleTerminalExpression_in_ruleExpression5436 = new BitSet(new long[]{0x0002F1B800080002L,0x000000107E0FFFE0L});
+    public static final BitSet FOLLOW_ruleBinOp_in_ruleExpression5458 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5479 = new BitSet(new long[]{0x0002F1B800080002L,0x000000107E0FFFE0L});
+    public static final BitSet FOLLOW_44_in_ruleExpression5500 = new BitSet(new long[]{0x0000308000080000L,0x000000003E000000L});
+    public static final BitSet FOLLOW_45_in_ruleExpression5518 = new BitSet(new long[]{0x0000308000080000L,0x000000003E000000L});
+    public static final BitSet FOLLOW_ruleCompareOp_in_ruleExpression5541 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5562 = new BitSet(new long[]{0x0002F1B800080002L,0x000000107E0FFFE0L});
+    public static final BitSet FOLLOW_ruleArrowOp_in_ruleExpression5591 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5612 = new BitSet(new long[]{0x0002F1B800080002L,0x000000107E0FFFE0L});
+    public static final BitSet FOLLOW_46_in_ruleExpression5633 = new BitSet(new long[]{0xFFEBFFBB804800B2L,0x000000107FFFFFFBL});
+    public static final BitSet FOLLOW_47_in_ruleExpression5651 = new BitSet(new long[]{0xFFEBFFBB804800B2L,0x000000107FFFFFFBL});
+    public static final BitSet FOLLOW_ruleParanthesisandExpression_in_ruleExpression5674 = new BitSet(new long[]{0x0003F1B800080002L,0x000000107E0FFFE0L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5701 = new BitSet(new long[]{0x0003F1B800080002L,0x000000107E0FFFE0L});
+    public static final BitSet FOLLOW_48_in_ruleExpression5716 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5737 = new BitSet(new long[]{0x0002F1B800080002L,0x000000107E0FFFE0L});
+    public static final BitSet FOLLOW_49_in_ruleExpression5759 = new BitSet(new long[]{0xFFEC3E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5781 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleExpression5803 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression5824 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_50_in_ruleExpression5840 = new BitSet(new long[]{0x0002F1B800080002L,0x000000107E0FFFE0L});
     public static final BitSet FOLLOW_ruleTerminalExpression_in_entryRuleTerminalExpression5879 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTerminalExpression5889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleTerminalExpression5945 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression5979 = new BitSet(new long[]{0xFFFC1F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_51_in_ruleTerminalExpression5998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleTerminalExpression6049 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLetDecl_in_ruleTerminalExpression6083 = new BitSet(new long[]{0x0000000000600000L,0x0000000040000000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression6105 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLetDecl_in_ruleTerminalExpression6126 = new BitSet(new long[]{0x0000000000600000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_51_in_ruleTerminalExpression5945 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression5979 = new BitSet(new long[]{0xFFF83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_52_in_ruleTerminalExpression5998 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleTerminalExpression6049 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleLetDecl_in_ruleTerminalExpression6083 = new BitSet(new long[]{0x0000000000C00000L,0x0000000080000000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression6105 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleLetDecl_in_ruleTerminalExpression6126 = new BitSet(new long[]{0x0000000000C00000L,0x0000000080000000L});
     public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression6149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQuant_in_ruleTerminalExpression6190 = new BitSet(new long[]{0xFFF41F1DC06040B2L,0x0000000040FC000FL});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6212 = new BitSet(new long[]{0xFFF41F1DC06000B2L,0x0000000040FC000DL});
-    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression6234 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6255 = new BitSet(new long[]{0xFFF41F1DC06000B2L,0x0000000040FC000DL});
+    public static final BitSet FOLLOW_ruleQuant_in_ruleTerminalExpression6190 = new BitSet(new long[]{0xFFE83E3B80C080B2L,0x0000000081F8001FL});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6212 = new BitSet(new long[]{0xFFE83E3B80C000B2L,0x0000000081F8001BL});
+    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression6234 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6255 = new BitSet(new long[]{0xFFE83E3B80C000B2L,0x0000000081F8001BL});
     public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression6281 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression6308 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnOp_in_ruleTerminalExpression6351 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_ruleUnOp_in_ruleTerminalExpression6351 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression6372 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommonQuantUnOp_in_ruleTerminalExpression6413 = new BitSet(new long[]{0xFFF41F1DC06040B2L,0x0000000040FC000FL});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6435 = new BitSet(new long[]{0xFFF41F1DC06000B2L,0x0000000040FC000DL});
-    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression6457 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6478 = new BitSet(new long[]{0xFFF41F1DC06000B2L,0x0000000040FC000DL});
+    public static final BitSet FOLLOW_ruleCommonQuantUnOp_in_ruleTerminalExpression6413 = new BitSet(new long[]{0xFFE83E3B80C080B2L,0x0000000081F8001FL});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6435 = new BitSet(new long[]{0xFFE83E3B80C000B2L,0x0000000081F8001BL});
+    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression6457 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression6478 = new BitSet(new long[]{0xFFE83E3B80C000B2L,0x0000000081F8001BL});
     public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression6504 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression6531 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_INT_in_ruleTerminalExpression6564 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_NEGATIVE_INTEGER_in_ruleTerminalExpression6594 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleTerminalExpression6631 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleTerminalExpression6682 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleTerminalExpression6733 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleTerminalExpression6785 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_54_in_ruleTerminalExpression6631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleTerminalExpression6682 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleTerminalExpression6733 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleTerminalExpression6785 = new BitSet(new long[]{0x0000000000000022L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression6822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleTerminalExpression6849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleTerminalExpression6899 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleTerminalExpression6945 = new BitSet(new long[]{0xFF000000C0000020L,0x0000000000000001L});
-    public static final BitSet FOLLOW_31_in_ruleTerminalExpression6960 = new BitSet(new long[]{0xFF00000040000020L,0x0000000000000001L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression6988 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_30_in_ruleTerminalExpression7006 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleTerminalExpression7019 = new BitSet(new long[]{0xFF00000040000020L,0x0000000000000001L});
+    public static final BitSet FOLLOW_42_in_ruleTerminalExpression6849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleTerminalExpression6899 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleTerminalExpression6945 = new BitSet(new long[]{0xFE00000180000020L,0x0000000000000003L});
+    public static final BitSet FOLLOW_32_in_ruleTerminalExpression6960 = new BitSet(new long[]{0xFE00000080000020L,0x0000000000000003L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression6988 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_31_in_ruleTerminalExpression7006 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleTerminalExpression7019 = new BitSet(new long[]{0xFE00000080000020L,0x0000000000000003L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression7046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleTerminalExpression7064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleTerminalExpression7088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleTerminalExpression7127 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleTerminalExpression7156 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleTerminalExpression7185 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleTerminalExpression7214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleTerminalExpression7243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleTerminalExpression7272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleTerminalExpression7301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_ruleTerminalExpression7330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleTerminalExpression7064 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleTerminalExpression7088 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleTerminalExpression7127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleTerminalExpression7156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleTerminalExpression7185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleTerminalExpression7214 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleTerminalExpression7243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleTerminalExpression7272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleTerminalExpression7301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleTerminalExpression7330 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBlock_in_ruleTerminalExpression7388 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleTerminalExpression7429 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression7450 = new BitSet(new long[]{0x0000000000600000L,0x0000000040000000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression7472 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression7493 = new BitSet(new long[]{0x0000000000600000L,0x0000000040000000L});
-    public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression7516 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleTerminalExpression7429 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression7450 = new BitSet(new long[]{0x0000000000C00000L,0x0000000080000000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleTerminalExpression7472 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_ruleTerminalExpression7493 = new BitSet(new long[]{0x0000000000C00000L,0x0000000080000000L});
+    public static final BitSet FOLLOW_ruleBlockOrBar_in_ruleTerminalExpression7516 = new BitSet(new long[]{0x0000000001800000L});
     public static final BitSet FOLLOW_ruleRightCurlyBracket_in_ruleTerminalExpression7537 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBlock_in_entryRuleBlock7574 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBlock7584 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleBlock7630 = new BitSet(new long[]{0xFFF41F1DC0E000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBlock7651 = new BitSet(new long[]{0xFFF41F1DC0E000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_ruleBlock7630 = new BitSet(new long[]{0xFFE83E3B81C000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBlock7651 = new BitSet(new long[]{0xFFE83E3B81C000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleRightCurlyBracket_in_ruleBlock7673 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDecl_in_entryRuleDecl7709 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleDecl7719 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_ruleDecl7757 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleDecl7772 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_ruleDecl7795 = new BitSet(new long[]{0x0000000001400000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleDecl7817 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_ruleDecl7838 = new BitSet(new long[]{0x0000000001400000L});
-    public static final BitSet FOLLOW_ruleColon_in_ruleDecl7861 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000FL});
-    public static final BitSet FOLLOW_65_in_ruleDecl7874 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_15_in_ruleDecl7757 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_66_in_ruleDecl7772 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_rulePropertyName_in_ruleDecl7795 = new BitSet(new long[]{0x0000000002800000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleDecl7817 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_rulePropertyName_in_ruleDecl7838 = new BitSet(new long[]{0x0000000002800000L});
+    public static final BitSet FOLLOW_ruleColon_in_ruleDecl7861 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001FL});
+    public static final BitSet FOLLOW_66_in_ruleDecl7874 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_ruleDecl7897 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParam_in_entryRuleParam7933 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleParam7943 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_ruleParam7981 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleParam7996 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_ruleParam8019 = new BitSet(new long[]{0x0000000001400000L});
-    public static final BitSet FOLLOW_ruleComma_in_ruleParam8041 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_ruleParam8062 = new BitSet(new long[]{0x0000000001400000L});
-    public static final BitSet FOLLOW_ruleColon_in_ruleParam8085 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000FL});
-    public static final BitSet FOLLOW_65_in_ruleParam8098 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_15_in_ruleParam7981 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_66_in_ruleParam7996 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_rulePropertyName_in_ruleParam8019 = new BitSet(new long[]{0x0000000002800000L});
+    public static final BitSet FOLLOW_ruleComma_in_ruleParam8041 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_rulePropertyName_in_ruleParam8062 = new BitSet(new long[]{0x0000000002800000L});
+    public static final BitSet FOLLOW_ruleColon_in_ruleParam8085 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001FL});
+    public static final BitSet FOLLOW_66_in_ruleParam8098 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_ruleParam8121 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParanthesisandExpression_in_entryRuleParanthesisandExpression8157 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleParanthesisandExpression8167 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleParanthesisandExpression8204 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleParanthesisandExpression8225 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleParanthesisandExpression8237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleParanthesisandExpression8204 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleParanthesisandExpression8225 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_52_in_ruleParanthesisandExpression8237 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQuant_in_entryRuleQuant8274 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleQuant8285 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ruleQuant8323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_ruleQuant8342 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_ruleQuant8323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_ruleQuant8342 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBinOp_in_entryRuleBinOp8382 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBinOp8392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_ruleBinOp8442 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_69_in_ruleBinOp8460 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_ruleBinOp8478 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_ruleBinOp8496 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_ruleBinOp8514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_ruleBinOp8532 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_ruleBinOp8550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleBinOp8568 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_ruleBinOp8586 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_ruleBinOp8604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_77_in_ruleBinOp8622 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_78_in_ruleBinOp8640 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_ruleBinOp8442 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_ruleBinOp8460 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_ruleBinOp8478 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_ruleBinOp8496 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleBinOp8514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_ruleBinOp8532 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_ruleBinOp8550 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleBinOp8568 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleBinOp8586 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_77_in_ruleBinOp8604 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleBinOp8622 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_ruleBinOp8640 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDot_in_ruleBinOp8667 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_ruleBinOp8685 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_80_in_ruleBinOp8703 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_81_in_ruleBinOp8721 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_ruleBinOp8685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_81_in_ruleBinOp8703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_82_in_ruleBinOp8721 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnOp_in_entryRuleUnOp8758 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUnOp8768 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleUnOp8818 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_82_in_ruleUnOp8836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleUnOp8854 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleUnOp8880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_83_in_ruleUnOp8909 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_ruleUnOp8938 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_ruleUnOp8967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_86_in_ruleUnOp8996 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleUnOp8818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_ruleUnOp8836 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleUnOp8854 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleUnOp8880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_ruleUnOp8909 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_ruleUnOp8938 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_86_in_ruleUnOp8967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_ruleUnOp8996 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCommonQuantUnOp_in_entryRuleCommonQuantUnOp9049 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCommonQuantUnOp9059 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_ruleCommonQuantUnOp9109 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleCommonQuantUnOp9127 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleCommonQuantUnOp9145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleCommonQuantUnOp9163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_ruleCommonQuantUnOp9109 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleCommonQuantUnOp9127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleCommonQuantUnOp9145 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_ruleCommonQuantUnOp9163 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCompareOp_in_entryRuleCompareOp9201 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCompareOp9212 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleCompareOp9250 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleCompareOp9269 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_88_in_ruleCompareOp9288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_89_in_ruleCompareOp9307 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_90_in_ruleCompareOp9326 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_91_in_ruleCompareOp9345 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_92_in_ruleCompareOp9364 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleCompareOp9250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleCompareOp9269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_89_in_ruleCompareOp9288 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_90_in_ruleCompareOp9307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_91_in_ruleCompareOp9326 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_92_in_ruleCompareOp9345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_93_in_ruleCompareOp9364 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleArrowOp_in_entryRuleArrowOp9404 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleArrowOp9414 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleArrowOp9452 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_35_in_ruleArrowOp9470 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_34_in_ruleArrowOp9488 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_82_in_ruleArrowOp9506 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_93_in_ruleArrowOp9526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleArrowOp9452 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_36_in_ruleArrowOp9470 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_35_in_ruleArrowOp9488 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_83_in_ruleArrowOp9506 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_94_in_ruleArrowOp9526 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLetDecl_in_entryRuleLetDecl9575 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLetDecl9585 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_ruleLetDecl9631 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleLetDecl9643 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_rulePropertyName_in_ruleLetDecl9631 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleLetDecl9643 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_ruleLetDecl9664 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBlockOrBar_in_entryRuleBlockOrBar9700 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBlockOrBar9710 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBlock_in_ruleBlockOrBar9756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_94_in_ruleBlockOrBar9775 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_95_in_ruleBlockOrBar9775 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_ruleBlockOrBar9796 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpenName_in_entryRuleOpenName9835 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpenName9845 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_95_in_ruleOpenName9882 = new BitSet(new long[]{0x0000000040000020L});
+    public static final BitSet FOLLOW_96_in_ruleOpenName9882 = new BitSet(new long[]{0x0000000080000020L});
     public static final BitSet FOLLOW_ruleName_in_ruleOpenName9903 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFactName_in_entryRuleFactName9939 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFactName9949 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_96_in_ruleFactName9998 = new BitSet(new long[]{0x0000000040000022L});
+    public static final BitSet FOLLOW_97_in_ruleFactName9998 = new BitSet(new long[]{0x0000000080000022L});
     public static final BitSet FOLLOW_ruleName_in_ruleFactName10019 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAssertionName_in_entryRuleAssertionName10056 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAssertionName10066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_97_in_ruleAssertionName10115 = new BitSet(new long[]{0x0000000040000022L});
+    public static final BitSet FOLLOW_98_in_ruleAssertionName10115 = new BitSet(new long[]{0x0000000080000022L});
     public static final BitSet FOLLOW_ruleName_in_ruleAssertionName10136 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFunctionName_in_entryRuleFunctionName10173 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFunctionName10183 = new BitSet(new long[]{0x0000000000000002L});
@@ -23992,14 +23993,14 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleNameAlias_in_ruleAlias10498 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEnumName_in_entryRuleEnumName10533 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleEnumName10543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_98_in_ruleEnumName10580 = new BitSet(new long[]{0x0000000040000020L});
+    public static final BitSet FOLLOW_99_in_ruleEnumName10580 = new BitSet(new long[]{0x0000000080000020L});
     public static final BitSet FOLLOW_ruleName_in_ruleEnumName10601 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEnumPropertyName_in_entryRuleEnumPropertyName10637 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleEnumPropertyName10647 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleName_in_ruleEnumPropertyName10692 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLetName_in_entryRuleLetName10727 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLetName10737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleLetName10774 = new BitSet(new long[]{0x0000000040000020L});
+    public static final BitSet FOLLOW_53_in_ruleLetName10774 = new BitSet(new long[]{0x0000000080000020L});
     public static final BitSet FOLLOW_ruleName_in_ruleLetName10795 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSignatureName_in_entryRuleSignatureName10831 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSignatureName10841 = new BitSet(new long[]{0x0000000000000002L});
@@ -24015,15 +24016,15 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleAsName11152 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNameAlias_in_entryRuleNameAlias11193 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleNameAlias11204 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNameAlias11244 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_ruleNameAlias11263 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNameAlias11278 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNameAlias11244 = new BitSet(new long[]{0x0000000000010002L});
+    public static final BitSet FOLLOW_16_in_ruleNameAlias11263 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNameAlias11278 = new BitSet(new long[]{0x0000000000010002L});
     public static final BitSet FOLLOW_ruleName_in_entryRuleName11326 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleName11337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleName11376 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleName11397 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_ruleName11417 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleName11432 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_31_in_ruleName11376 = new BitSet(new long[]{0x0000000000010002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleName11397 = new BitSet(new long[]{0x0000000000010002L});
+    public static final BitSet FOLLOW_16_in_ruleName11417 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleName11432 = new BitSet(new long[]{0x0000000000010002L});
     public static final BitSet FOLLOW_ruleReferencesName_in_entryRuleReferencesName11479 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleReferencesName11489 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFactName_in_ruleReferencesName11539 = new BitSet(new long[]{0x0000000000000002L});
@@ -24039,92 +24040,92 @@ public class InternalAlsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleRef_in_entryRuleRef11844 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRef11854 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleRef11916 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleRef11934 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleRef11952 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleRef11970 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleRef11934 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleRef11952 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleRef11970 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDot_in_entryRuleDot12007 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleDot12017 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_99_in_ruleDot12059 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_100_in_ruleDot12059 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleComma_in_entryRuleComma12107 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleComma12117 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleComma12159 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_ruleComma12159 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleColon_in_entryRuleColon12207 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleColon12217 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleColon12259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleColon12259 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLeftCurlyBracket_in_entryRuleLeftCurlyBracket12307 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLeftCurlyBracket12317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_ruleLeftCurlyBracket12359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleLeftCurlyBracket12359 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRightCurlyBracket_in_entryRuleRightCurlyBracket12407 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRightCurlyBracket12417 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_ruleRightCurlyBracket12459 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleRightCurlyBracket12459 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis12507 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLeftParenthesis12517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleLeftParenthesis12559 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleLeftParenthesis12559 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis12607 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRightParenthesis12617 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleRightParenthesis12659 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleRightParenthesis12659 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLeftSquareBracketKeyword_in_entryRuleLeftSquareBracketKeyword12707 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLeftSquareBracketKeyword12717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleLeftSquareBracketKeyword12759 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleLeftSquareBracketKeyword12759 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRightSquareBracketKeyword_in_entryRuleRightSquareBracketKeyword12807 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRightSquareBracketKeyword12817 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleRightSquareBracketKeyword12859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBinOp_in_synpred86_InternalAls5458 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_50_in_ruleRightSquareBracketKeyword12859 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBinOp_in_synpred86_InternalAls5458 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_synpred86_InternalAls5479 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_synpred89_InternalAls5500 = new BitSet(new long[]{0x0000184000040000L,0x000000001F000000L});
-    public static final BitSet FOLLOW_44_in_synpred89_InternalAls5518 = new BitSet(new long[]{0x0000184000040000L,0x000000001F000000L});
-    public static final BitSet FOLLOW_ruleCompareOp_in_synpred89_InternalAls5541 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_44_in_synpred89_InternalAls5500 = new BitSet(new long[]{0x0000308000080000L,0x000000003E000000L});
+    public static final BitSet FOLLOW_45_in_synpred89_InternalAls5518 = new BitSet(new long[]{0x0000308000080000L,0x000000003E000000L});
+    public static final BitSet FOLLOW_ruleCompareOp_in_synpred89_InternalAls5541 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_synpred89_InternalAls5562 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleArrowOp_in_synpred90_InternalAls5591 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_ruleArrowOp_in_synpred90_InternalAls5591 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_synpred90_InternalAls5612 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParanthesisandExpression_in_synpred92_InternalAls5674 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_synpred93_InternalAls5701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_synpred94_InternalAls5716 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_48_in_synpred94_InternalAls5716 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_synpred94_InternalAls5737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_synpred95_InternalAls5633 = new BitSet(new long[]{0xFFF49F1DC02000B2L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_46_in_synpred95_InternalAls5651 = new BitSet(new long[]{0xFFF49F1DC02000B2L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleParanthesisandExpression_in_synpred95_InternalAls5674 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_synpred95_InternalAls5701 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_47_in_synpred95_InternalAls5716 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
+    public static final BitSet FOLLOW_46_in_synpred95_InternalAls5633 = new BitSet(new long[]{0xFFE93E3B804000B2L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_47_in_synpred95_InternalAls5651 = new BitSet(new long[]{0xFFE93E3B804000B2L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleParanthesisandExpression_in_synpred95_InternalAls5674 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_synpred95_InternalAls5701 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_48_in_synpred95_InternalAls5716 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
     public static final BitSet FOLLOW_ruleExpression_in_synpred95_InternalAls5737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_synpred98_InternalAls5759 = new BitSet(new long[]{0xFFF61F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_synpred98_InternalAls5781 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_ruleComma_in_synpred98_InternalAls5803 = new BitSet(new long[]{0xFFF41F1DC02000B0L,0x0000000000FC000DL});
-    public static final BitSet FOLLOW_ruleExpression_in_synpred98_InternalAls5824 = new BitSet(new long[]{0x0002000000400000L});
-    public static final BitSet FOLLOW_49_in_synpred98_InternalAls5840 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComma_in_synpred103_InternalAls6234 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_synpred98_InternalAls5759 = new BitSet(new long[]{0xFFEC3E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_synpred98_InternalAls5781 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_ruleComma_in_synpred98_InternalAls5803 = new BitSet(new long[]{0xFFE83E3B804000B0L,0x0000000001F8001BL});
+    public static final BitSet FOLLOW_ruleExpression_in_synpred98_InternalAls5824 = new BitSet(new long[]{0x0004000000800000L});
+    public static final BitSet FOLLOW_50_in_synpred98_InternalAls5840 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComma_in_synpred103_InternalAls6234 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
     public static final BitSet FOLLOW_ruleDecl_in_synpred103_InternalAls6255 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_synpred104_InternalAls6212 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_ruleComma_in_synpred104_InternalAls6234 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_synpred104_InternalAls6255 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred104_InternalAls6212 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_ruleComma_in_synpred104_InternalAls6234 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred104_InternalAls6255 = new BitSet(new long[]{0x0000000000800002L});
     public static final BitSet FOLLOW_ruleBlockOrBar_in_synpred105_InternalAls6281 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_synpred106_InternalAls6308 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComma_in_synpred109_InternalAls6457 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComma_in_synpred109_InternalAls6457 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
     public static final BitSet FOLLOW_ruleDecl_in_synpred109_InternalAls6478 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_synpred110_InternalAls6435 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_ruleComma_in_synpred110_InternalAls6457 = new BitSet(new long[]{0x0000000040004020L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecl_in_synpred110_InternalAls6478 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred110_InternalAls6435 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_ruleComma_in_synpred110_InternalAls6457 = new BitSet(new long[]{0x0000000080008020L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ruleDecl_in_synpred110_InternalAls6478 = new BitSet(new long[]{0x0000000000800002L});
     public static final BitSet FOLLOW_ruleBlockOrBar_in_synpred111_InternalAls6504 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_synpred112_InternalAls6531 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_synpred119_InternalAls6822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_synpred120_InternalAls6785 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_32_in_synpred120_InternalAls6785 = new BitSet(new long[]{0x0000000000000022L});
     public static final BitSet FOLLOW_RULE_ID_in_synpred120_InternalAls6822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_synpred137_InternalAls6945 = new BitSet(new long[]{0xFF000000C0000020L,0x0000000000000001L});
-    public static final BitSet FOLLOW_31_in_synpred137_InternalAls6960 = new BitSet(new long[]{0xFF00000040000020L,0x0000000000000001L});
-    public static final BitSet FOLLOW_RULE_ID_in_synpred137_InternalAls6988 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_30_in_synpred137_InternalAls7006 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_synpred137_InternalAls7019 = new BitSet(new long[]{0xFF00000040000020L,0x0000000000000001L});
+    public static final BitSet FOLLOW_56_in_synpred137_InternalAls6945 = new BitSet(new long[]{0xFE00000180000020L,0x0000000000000003L});
+    public static final BitSet FOLLOW_32_in_synpred137_InternalAls6960 = new BitSet(new long[]{0xFE00000080000020L,0x0000000000000003L});
+    public static final BitSet FOLLOW_RULE_ID_in_synpred137_InternalAls6988 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_31_in_synpred137_InternalAls7006 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_synpred137_InternalAls7019 = new BitSet(new long[]{0xFE00000080000020L,0x0000000000000003L});
     public static final BitSet FOLLOW_RULE_ID_in_synpred137_InternalAls7046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_synpred137_InternalAls7064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_synpred137_InternalAls7088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_synpred137_InternalAls7127 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_synpred137_InternalAls7156 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_synpred137_InternalAls7185 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_synpred137_InternalAls7214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_synpred137_InternalAls7243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_synpred137_InternalAls7272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_synpred137_InternalAls7301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_synpred137_InternalAls7330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_synpred137_InternalAls7064 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_synpred137_InternalAls7088 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_synpred137_InternalAls7127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_synpred137_InternalAls7156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_synpred137_InternalAls7185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_synpred137_InternalAls7214 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_synpred137_InternalAls7243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_synpred137_InternalAls7272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_synpred137_InternalAls7301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_synpred137_InternalAls7330 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFunctionName_in_synpred192_InternalAls11569 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFunctionNamewParam_in_synpred193_InternalAls11599 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEnumPropertyName_in_synpred195_InternalAls11659 = new BitSet(new long[]{0x0000000000000002L});

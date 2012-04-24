@@ -46,5 +46,4 @@ public class AlsRuntimeModule extends fr.univartois.cril.xtext2.AbstractAlsRunti
         public Class<? extends IHyperlinkHelper> bindIHyperlinkHelper() {
                 return AlsHyperlinkHelper.class;
         }
-
 }
