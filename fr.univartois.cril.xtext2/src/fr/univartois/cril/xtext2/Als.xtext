@@ -1,4 +1,4 @@
-grammar fr.univartois.cril.xtext2.Als with org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)
+grammar fr.univartois.cril.xtext2.Als hidden(WS, ML_COMMENT,SL_COMMENT)
 
 generate als "http://www.univartois.fr/cril/xtext2/Als"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
@@ -42,14 +42,14 @@ Paragraph:
 	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
 */
 EnumDecl:
-	(documentation+=ML_COMMENT)? enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma propertyEnum+=EnumPropertyName)*
+	(documentation+=DOC_COMMENT)? enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma propertyEnum+=EnumPropertyName)*
 	rightC=RightCurlyBracket;
 
 /*
 	factDecl ::= "fact" [name] block
 */
 FactDecl returns Fact:
-	(documentation+=ML_COMMENT)? name=FactName block=Block;
+	(documentation+=DOC_COMMENT)? name=FactName block=Block;
 
 /*
 	funDecl ::= ["private"] "fun" [ref "."] name "(" decl,* ")" ":" expr block
@@ -57,7 +57,7 @@ FactDecl returns Fact:
 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 */
 FunDecl returns Function:
-	(documentation+=ML_COMMENT)? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
+	(documentation+=DOC_COMMENT)? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
 	param+=Param)*)? rightS=RightSquareBracketKeyword |
 	leftP=LeftParenthesis (decl+=Decl (comma+=Comma decl+=Decl)*)? rightP=RightParenthesis) colon=Colon expr=Expression
 	block=Block;
@@ -68,10 +68,10 @@ FunDecl returns Function:
 	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 */
 FunDeclWParam returns Function: /* without parameters*/
-	(documentation+=ML_COMMENT)? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression block=Block;
+	(documentation+=DOC_COMMENT)? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression block=Block;
 
 LetOutDecl returns Let:
-	(documentation+=ML_COMMENT)? name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
+	(documentation+=DOC_COMMENT)? name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)?
 	rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression);
 
 /*
@@ -80,7 +80,7 @@ LetOutDecl returns Let:
 	funDecl ::= ["private"] "pred" [ref "."] name                block
 */
 PredDecl returns Predicate:
-	(documentation+=ML_COMMENT)? "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
+	(documentation+=DOC_COMMENT)? "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword (param+=Param (comma+=Comma
 	param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (param+=Param (comma+=Comma param+=Param)*)?
 	rightP=RightParenthesis)? block=Block;
 	
@@ -88,7 +88,7 @@ PredDecl returns Predicate:
 	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 */
 SigDecl returns Signature:
-	(documentation+=ML_COMMENT)? SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* (sigExt=SigExt)? "{"
+	(documentation+=DOC_COMMENT)? SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)* (sigExt=SigExt)? "{"
 	(decl+=Decl (comma2+="," decl+=Decl)*)? "}" (block=Block)?;
 
 /*
@@ -369,9 +369,28 @@ RightSquareBracketKeyword:
 	
 terminal NEGATIVE_INTEGER:
 	"-" INT;
+	
+terminal DOC_COMMENT:
+	'/**' -> '*/';		
+	
+terminal ML_COMMENT: 
+	'/*' !('*') -> '*/';
 
 terminal SL_COMMENT:
 	('//' !('\n' | '\r')* ('\r'? '\n')?) | ('--'->'\n');
+	
+terminal WS	: 
+	(' '|'\t'|'\r'|'\n')+;
 
 terminal ID:
 	('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')* ("'" | '"')*;
+	
+terminal INT returns ecore::EInt: 
+	('0'..'9')+ ;
+
+terminal STRING	: 
+	'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+	"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
+		; 
+
+terminal ANY_OTHER: .;

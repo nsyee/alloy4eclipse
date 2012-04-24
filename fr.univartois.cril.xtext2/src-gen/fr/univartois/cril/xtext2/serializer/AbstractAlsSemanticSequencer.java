@@ -639,7 +639,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         documentation+=ML_COMMENT? 
+	 *         documentation+=DOC_COMMENT? 
 	 *         enumName=EnumName 
 	 *         leftC=LeftCurlyBracket 
 	 *         propertyEnum+=EnumPropertyName 
@@ -767,7 +767,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (documentation+=ML_COMMENT? name=FactName block=Block)
+	 *     (documentation+=DOC_COMMENT? name=FactName block=Block)
 	 */
 	protected void sequence_FactDecl(EObject context, Fact semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -786,7 +786,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         documentation+=ML_COMMENT? 
+	 *         documentation+=DOC_COMMENT? 
 	 *         (ref=Ref dot=Dot)? 
 	 *         name=FunctionNamewParam 
 	 *         colon=Colon 
@@ -802,7 +802,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         documentation+=ML_COMMENT? 
+	 *         documentation+=DOC_COMMENT? 
 	 *         (ref=Ref dot=Dot)? 
 	 *         name=FunctionName 
 	 *         (
@@ -937,7 +937,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         documentation+=ML_COMMENT? 
+	 *         documentation+=DOC_COMMENT? 
 	 *         name=LetName 
 	 *         (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma nameRef+=ReferencesName)*)? rightS=RightSquareBracketKeyword)? 
 	 *         (block=Block | exprName=Expression)
@@ -999,7 +999,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             documentation+=ML_COMMENT? 
+	 *             documentation+=DOC_COMMENT? 
 	 *             (ref=Ref dot=Dot)? 
 	 *             name=FunctionName 
 	 *             (
@@ -1011,7 +1011,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	 *             block=Block
 	 *         ) | 
 	 *         (
-	 *             documentation+=ML_COMMENT? 
+	 *             documentation+=DOC_COMMENT? 
 	 *             (ref=Ref dot=Dot)? 
 	 *             name=FunctionNamewParam 
 	 *             colon=Colon 
@@ -1046,7 +1046,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         documentation+=ML_COMMENT? 
+	 *         documentation+=DOC_COMMENT? 
 	 *         (ref=Ref dot=Dot)? 
 	 *         name=PredicateName 
 	 *         (
@@ -1192,7 +1192,7 @@ public class AbstractAlsSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         documentation+=ML_COMMENT? 
+	 *         documentation+=DOC_COMMENT? 
 	 *         signatureName+=SignatureName 
 	 *         (comma+=Comma signatureName+=SignatureName)* 
 	 *         sigExt=SigExt? 

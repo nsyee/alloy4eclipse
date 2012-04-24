@@ -11,7 +11,6 @@ import org.eclipse.xtext.*;
 import org.eclipse.xtext.service.GrammarProvider;
 import org.eclipse.xtext.service.AbstractElementFinder.*;
 
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 
 @Singleton
 public class AlsGrammarAccess extends AbstractGrammarElementFinder {
@@ -315,7 +314,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EnumDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDocumentationAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDocumentationML_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
+		private final RuleCall cDocumentationDOC_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
 		private final Assignment cEnumNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cEnumNameEnumNameParserRuleCall_1_0 = (RuleCall)cEnumNameAssignment_1.eContents().get(0);
 		private final Assignment cLeftCAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -333,19 +332,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		/// *
 		//	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
 		// * / EnumDecl:
-		//	documentation+=ML_COMMENT? enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma
+		//	documentation+=DOC_COMMENT? enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma
 		//	propertyEnum+=EnumPropertyName)* rightC=RightCurlyBracket;
 		public ParserRule getRule() { return rule; }
 
-		//documentation+=ML_COMMENT? enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma
+		//documentation+=DOC_COMMENT? enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma
 		//propertyEnum+=EnumPropertyName)* rightC=RightCurlyBracket
 		public Group getGroup() { return cGroup; }
 
-		//documentation+=ML_COMMENT?
+		//documentation+=DOC_COMMENT?
 		public Assignment getDocumentationAssignment_0() { return cDocumentationAssignment_0; }
 
-		//ML_COMMENT
-		public RuleCall getDocumentationML_COMMENTTerminalRuleCall_0_0() { return cDocumentationML_COMMENTTerminalRuleCall_0_0; }
+		//DOC_COMMENT
+		public RuleCall getDocumentationDOC_COMMENTTerminalRuleCall_0_0() { return cDocumentationDOC_COMMENTTerminalRuleCall_0_0; }
 
 		//enumName=EnumName
 		public Assignment getEnumNameAssignment_1() { return cEnumNameAssignment_1; }
@@ -391,7 +390,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FactDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDocumentationAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDocumentationML_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
+		private final RuleCall cDocumentationDOC_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameFactNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cBlockAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -400,17 +399,17 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		/// *
 		//	factDecl ::= "fact" [name] block
 		// * / FactDecl returns Fact:
-		//	documentation+=ML_COMMENT? name=FactName block=Block;
+		//	documentation+=DOC_COMMENT? name=FactName block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//documentation+=ML_COMMENT? name=FactName block=Block
+		//documentation+=DOC_COMMENT? name=FactName block=Block
 		public Group getGroup() { return cGroup; }
 
-		//documentation+=ML_COMMENT?
+		//documentation+=DOC_COMMENT?
 		public Assignment getDocumentationAssignment_0() { return cDocumentationAssignment_0; }
 
-		//ML_COMMENT
-		public RuleCall getDocumentationML_COMMENTTerminalRuleCall_0_0() { return cDocumentationML_COMMENTTerminalRuleCall_0_0; }
+		//DOC_COMMENT
+		public RuleCall getDocumentationDOC_COMMENTTerminalRuleCall_0_0() { return cDocumentationDOC_COMMENTTerminalRuleCall_0_0; }
 
 		//name=FactName
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -429,7 +428,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FunDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDocumentationAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDocumentationML_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
+		private final RuleCall cDocumentationDOC_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
 		private final Keyword cPrivateKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cFunKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -478,21 +477,21 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 		//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 		// * / FunDecl returns Function:
-		//	documentation+=ML_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword
+		//	documentation+=DOC_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword
 		//	(param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl
 		//	(comma+=Comma decl+=Decl)*)? rightP=RightParenthesis) colon=Colon expr=Expression block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//documentation+=ML_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword
+		//documentation+=DOC_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword
 		//(param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl
 		//(comma+=Comma decl+=Decl)*)? rightP=RightParenthesis) colon=Colon expr=Expression block=Block
 		public Group getGroup() { return cGroup; }
 
-		//documentation+=ML_COMMENT?
+		//documentation+=DOC_COMMENT?
 		public Assignment getDocumentationAssignment_0() { return cDocumentationAssignment_0; }
 
-		//ML_COMMENT
-		public RuleCall getDocumentationML_COMMENTTerminalRuleCall_0_0() { return cDocumentationML_COMMENTTerminalRuleCall_0_0; }
+		//DOC_COMMENT
+		public RuleCall getDocumentationDOC_COMMENTTerminalRuleCall_0_0() { return cDocumentationDOC_COMMENTTerminalRuleCall_0_0; }
 
 		//"private"?
 		public Keyword getPrivateKeyword_1() { return cPrivateKeyword_1; }
@@ -626,7 +625,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FunDeclWParam");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDocumentationAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDocumentationML_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
+		private final RuleCall cDocumentationDOC_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
 		private final Keyword cPrivateKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cFunKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -648,19 +647,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 		//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 		// * / / * without parameters* / FunDeclWParam returns Function:
-		//	documentation+=ML_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression
+		//	documentation+=DOC_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression
 		//	block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//documentation+=ML_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression
+		//documentation+=DOC_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression
 		//block=Block
 		public Group getGroup() { return cGroup; }
 
-		//documentation+=ML_COMMENT?
+		//documentation+=DOC_COMMENT?
 		public Assignment getDocumentationAssignment_0() { return cDocumentationAssignment_0; }
 
-		//ML_COMMENT
-		public RuleCall getDocumentationML_COMMENTTerminalRuleCall_0_0() { return cDocumentationML_COMMENTTerminalRuleCall_0_0; }
+		//DOC_COMMENT
+		public RuleCall getDocumentationDOC_COMMENTTerminalRuleCall_0_0() { return cDocumentationDOC_COMMENTTerminalRuleCall_0_0; }
 
 		//"private"?
 		public Keyword getPrivateKeyword_1() { return cPrivateKeyword_1; }
@@ -712,7 +711,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LetOutDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDocumentationAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDocumentationML_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
+		private final RuleCall cDocumentationDOC_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameLetNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -737,19 +736,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprNameExpressionParserRuleCall_3_1_1_0 = (RuleCall)cExprNameAssignment_3_1_1.eContents().get(0);
 		
 		//LetOutDecl returns Let:
-		//	documentation+=ML_COMMENT? name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma
+		//	documentation+=DOC_COMMENT? name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma
 		//	nameRef+=ReferencesName)*)? rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression);
 		public ParserRule getRule() { return rule; }
 
-		//documentation+=ML_COMMENT? name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma
+		//documentation+=DOC_COMMENT? name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma
 		//nameRef+=ReferencesName)*)? rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression)
 		public Group getGroup() { return cGroup; }
 
-		//documentation+=ML_COMMENT?
+		//documentation+=DOC_COMMENT?
 		public Assignment getDocumentationAssignment_0() { return cDocumentationAssignment_0; }
 
-		//ML_COMMENT
-		public RuleCall getDocumentationML_COMMENTTerminalRuleCall_0_0() { return cDocumentationML_COMMENTTerminalRuleCall_0_0; }
+		//DOC_COMMENT
+		public RuleCall getDocumentationDOC_COMMENTTerminalRuleCall_0_0() { return cDocumentationDOC_COMMENTTerminalRuleCall_0_0; }
 
 		//name=LetName
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -823,7 +822,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PredDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDocumentationAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDocumentationML_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
+		private final RuleCall cDocumentationDOC_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
 		private final Keyword cPrivateKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cPredKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -868,21 +867,21 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 		//	funDecl ::= ["private"] "pred" [ref "."] name                block
 		// * / PredDecl returns Predicate:
-		//	documentation+=ML_COMMENT? "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword
+		//	documentation+=DOC_COMMENT? "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword
 		//	(param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (param+=Param
 		//	(comma+=Comma param+=Param)*)? rightP=RightParenthesis)? block=Block;
 		public ParserRule getRule() { return rule; }
 
-		//documentation+=ML_COMMENT? "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword
+		//documentation+=DOC_COMMENT? "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword
 		//(param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (param+=Param
 		//(comma+=Comma param+=Param)*)? rightP=RightParenthesis)? block=Block
 		public Group getGroup() { return cGroup; }
 
-		//documentation+=ML_COMMENT?
+		//documentation+=DOC_COMMENT?
 		public Assignment getDocumentationAssignment_0() { return cDocumentationAssignment_0; }
 
-		//ML_COMMENT
-		public RuleCall getDocumentationML_COMMENTTerminalRuleCall_0_0() { return cDocumentationML_COMMENTTerminalRuleCall_0_0; }
+		//DOC_COMMENT
+		public RuleCall getDocumentationDOC_COMMENTTerminalRuleCall_0_0() { return cDocumentationDOC_COMMENTTerminalRuleCall_0_0; }
 
 		//"private"?
 		public Keyword getPrivateKeyword_1() { return cPrivateKeyword_1; }
@@ -1004,7 +1003,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SigDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDocumentationAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDocumentationML_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
+		private final RuleCall cDocumentationDOC_COMMENTTerminalRuleCall_0_0 = (RuleCall)cDocumentationAssignment_0.eContents().get(0);
 		private final RuleCall cSigQualParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Keyword cSigKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cSignatureNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
@@ -1032,19 +1031,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		/// *
 		//	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 		// * / SigDecl returns Signature:
-		//	documentation+=ML_COMMENT? SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)*
+		//	documentation+=DOC_COMMENT? SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)*
 		//	sigExt=SigExt? "{" (decl+=Decl (comma2+="," decl+=Decl)*)? "}" block=Block?;
 		public ParserRule getRule() { return rule; }
 
-		//documentation+=ML_COMMENT? SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)*
+		//documentation+=DOC_COMMENT? SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)*
 		//sigExt=SigExt? "{" (decl+=Decl (comma2+="," decl+=Decl)*)? "}" block=Block?
 		public Group getGroup() { return cGroup; }
 
-		//documentation+=ML_COMMENT?
+		//documentation+=DOC_COMMENT?
 		public Assignment getDocumentationAssignment_0() { return cDocumentationAssignment_0; }
 
-		//ML_COMMENT
-		public RuleCall getDocumentationML_COMMENTTerminalRuleCall_0_0() { return cDocumentationML_COMMENTTerminalRuleCall_0_0; }
+		//DOC_COMMENT
+		public RuleCall getDocumentationDOC_COMMENTTerminalRuleCall_0_0() { return cDocumentationDOC_COMMENTTerminalRuleCall_0_0; }
 
 		//SigQual*
 		public RuleCall getSigQualParserRuleCall_1() { return cSigQualParserRuleCall_1; }
@@ -3892,28 +3891,26 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	private LeftSquareBracketKeywordElements pLeftSquareBracketKeyword;
 	private RightSquareBracketKeywordElements pRightSquareBracketKeyword;
 	private TerminalRule tNEGATIVE_INTEGER;
+	private TerminalRule tDOC_COMMENT;
+	private TerminalRule tML_COMMENT;
 	private TerminalRule tSL_COMMENT;
+	private TerminalRule tWS;
 	private TerminalRule tID;
+	private TerminalRule tINT;
+	private TerminalRule tSTRING;
+	private TerminalRule tANY_OTHER;
 	
 	private final GrammarProvider grammarProvider;
 
-	private TerminalsGrammarAccess gaTerminals;
-
 	@Inject
-	public AlsGrammarAccess(GrammarProvider grammarProvider,
-		TerminalsGrammarAccess gaTerminals) {
+	public AlsGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammarProvider = grammarProvider;
-		this.gaTerminals = gaTerminals;
 	}
 	
 	public Grammar getGrammar() {	
 		return grammarProvider.getGrammar(this);
 	}
 	
-
-	public TerminalsGrammarAccess getTerminalsGrammarAccess() {
-		return gaTerminals;
-	}
 
 	
 	/// *
@@ -3969,7 +3966,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	enumDecl ::= "enum" name "{" name  ("," name)*  "}"
 	// * / EnumDecl:
-	//	documentation+=ML_COMMENT? enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma
+	//	documentation+=DOC_COMMENT? enumName=EnumName leftC=LeftCurlyBracket propertyEnum+=EnumPropertyName (comma+=Comma
 	//	propertyEnum+=EnumPropertyName)* rightC=RightCurlyBracket;
 	public EnumDeclElements getEnumDeclAccess() {
 		return (pEnumDecl != null) ? pEnumDecl : (pEnumDecl = new EnumDeclElements());
@@ -3982,7 +3979,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	factDecl ::= "fact" [name] block
 	// * / FactDecl returns Fact:
-	//	documentation+=ML_COMMENT? name=FactName block=Block;
+	//	documentation+=DOC_COMMENT? name=FactName block=Block;
 	public FactDeclElements getFactDeclAccess() {
 		return (pFactDecl != null) ? pFactDecl : (pFactDecl = new FactDeclElements());
 	}
@@ -3996,7 +3993,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 	//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 	// * / FunDecl returns Function:
-	//	documentation+=ML_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword
+	//	documentation+=DOC_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionName (leftS=LeftSquareBracketKeyword
 	//	(param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (decl+=Decl
 	//	(comma+=Comma decl+=Decl)*)? rightP=RightParenthesis) colon=Colon expr=Expression block=Block;
 	public FunDeclElements getFunDeclAccess() {
@@ -4012,7 +4009,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	funDecl ::= ["private"] "fun" [ref "."] name "[" decl,* "]" ":" expr block
 	//	funDecl ::= ["private"] "fun" [ref "."] name                ":" expr block
 	// * / / * without parameters* / FunDeclWParam returns Function:
-	//	documentation+=ML_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression
+	//	documentation+=DOC_COMMENT? "private"? "fun" (ref=Ref dot=Dot)? name=FunctionNamewParam colon=Colon expr=Expression
 	//	block=Block;
 	public FunDeclWParamElements getFunDeclWParamAccess() {
 		return (pFunDeclWParam != null) ? pFunDeclWParam : (pFunDeclWParam = new FunDeclWParamElements());
@@ -4023,7 +4020,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LetOutDecl returns Let:
-	//	documentation+=ML_COMMENT? name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma
+	//	documentation+=DOC_COMMENT? name=LetName (leftS=LeftSquareBracketKeyword (nameRef+=ReferencesName (comma+=Comma
 	//	nameRef+=ReferencesName)*)? rightS=RightSquareBracketKeyword)? (block=Block | "=" exprName=Expression);
 	public LetOutDeclElements getLetOutDeclAccess() {
 		return (pLetOutDecl != null) ? pLetOutDecl : (pLetOutDecl = new LetOutDeclElements());
@@ -4038,7 +4035,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	funDecl ::= ["private"] "pred" [ref "."] name "[" decl,* "]" block
 	//	funDecl ::= ["private"] "pred" [ref "."] name                block
 	// * / PredDecl returns Predicate:
-	//	documentation+=ML_COMMENT? "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword
+	//	documentation+=DOC_COMMENT? "private"? "pred" (ref=Ref dot=Dot)? name=PredicateName (leftS=LeftSquareBracketKeyword
 	//	(param+=Param (comma+=Comma param+=Param)*)? rightS=RightSquareBracketKeyword | leftP=LeftParenthesis (param+=Param
 	//	(comma+=Comma param+=Param)*)? rightP=RightParenthesis)? block=Block;
 	public PredDeclElements getPredDeclAccess() {
@@ -4052,7 +4049,7 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	/// *
 	//	sigDecl ::= sigQual* "sig" name,+ [sigExt] "{" decl,* "}" [block]
 	// * / SigDecl returns Signature:
-	//	documentation+=ML_COMMENT? SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)*
+	//	documentation+=DOC_COMMENT? SigQual* "sig" signatureName+=SignatureName (comma+=Comma signatureName+=SignatureName)*
 	//	sigExt=SigExt? "{" (decl+=Decl (comma2+="," decl+=Decl)*)? "}" block=Block?;
 	public SigDeclElements getSigDeclAccess() {
 		return (pSigDecl != null) ? pSigDecl : (pSigDecl = new SigDeclElements());
@@ -4681,10 +4678,28 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		return (tNEGATIVE_INTEGER != null) ? tNEGATIVE_INTEGER : (tNEGATIVE_INTEGER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEGATIVE_INTEGER"));
 	} 
 
+	//terminal DOC_COMMENT:
+	//	"/ **"->"* /";
+	public TerminalRule getDOC_COMMENTRule() {
+		return (tDOC_COMMENT != null) ? tDOC_COMMENT : (tDOC_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DOC_COMMENT"));
+	} 
+
+	//terminal ML_COMMENT:
+	//	"/ *" !"*"->"* /";
+	public TerminalRule getML_COMMENTRule() {
+		return (tML_COMMENT != null) ? tML_COMMENT : (tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT"));
+	} 
+
 	//terminal SL_COMMENT:
 	//	"//" !("\n" | "\r")* ("\r"? "\n")? | "--"->"\n";
 	public TerminalRule getSL_COMMENTRule() {
 		return (tSL_COMMENT != null) ? tSL_COMMENT : (tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT"));
+	} 
+
+	//terminal WS:
+	//	(" " | "\t" | "\r" | "\n")+;
+	public TerminalRule getWSRule() {
+		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
 	} 
 
 	//terminal ID:
@@ -4696,31 +4711,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//terminal INT returns ecore::EInt:
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
-		return gaTerminals.getINTRule();
+		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
 	} 
 
 	//terminal STRING:
 	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
 	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
-		return gaTerminals.getSTRINGRule();
-	} 
-
-	//terminal ML_COMMENT:
-	//	"/ *"->"* /";
-	public TerminalRule getML_COMMENTRule() {
-		return gaTerminals.getML_COMMENTRule();
-	} 
-
-	//terminal WS:
-	//	(" " | "\t" | "\r" | "\n")+;
-	public TerminalRule getWSRule() {
-		return gaTerminals.getWSRule();
+		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
 	} 
 
 	//terminal ANY_OTHER:
 	//	.;
 	public TerminalRule getANY_OTHERRule() {
-		return gaTerminals.getANY_OTHERRule();
+		return (tANY_OTHER != null) ? tANY_OTHER : (tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ANY_OTHER"));
 	} 
 }

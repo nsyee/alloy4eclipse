@@ -631,9 +631,9 @@ ruleEnumDecl returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_documentation_0_0=RULE_ML_COMMENT
+		lv_documentation_0_0=RULE_DOC_COMMENT
 		{
-			newLeafNode(lv_documentation_0_0, grammarAccess.getEnumDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+			newLeafNode(lv_documentation_0_0, grammarAccess.getEnumDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -643,7 +643,7 @@ ruleEnumDecl returns [EObject current=null]
        			$current, 
        			"documentation",
         		lv_documentation_0_0, 
-        		"ML_COMMENT");
+        		"DOC_COMMENT");
 	    }
 
 )
@@ -778,9 +778,9 @@ ruleFactDecl returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_documentation_0_0=RULE_ML_COMMENT
+		lv_documentation_0_0=RULE_DOC_COMMENT
 		{
-			newLeafNode(lv_documentation_0_0, grammarAccess.getFactDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+			newLeafNode(lv_documentation_0_0, grammarAccess.getFactDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -790,7 +790,7 @@ ruleFactDecl returns [EObject current=null]
        			$current, 
        			"documentation",
         		lv_documentation_0_0, 
-        		"ML_COMMENT");
+        		"DOC_COMMENT");
 	    }
 
 )
@@ -853,9 +853,9 @@ ruleFunDecl returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_documentation_0_0=RULE_ML_COMMENT
+		lv_documentation_0_0=RULE_DOC_COMMENT
 		{
-			newLeafNode(lv_documentation_0_0, grammarAccess.getFunDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+			newLeafNode(lv_documentation_0_0, grammarAccess.getFunDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -865,7 +865,7 @@ ruleFunDecl returns [EObject current=null]
        			$current, 
        			"documentation",
         		lv_documentation_0_0, 
-        		"ML_COMMENT");
+        		"DOC_COMMENT");
 	    }
 
 )
@@ -1189,9 +1189,9 @@ ruleFunDeclWParam returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_documentation_0_0=RULE_ML_COMMENT
+		lv_documentation_0_0=RULE_DOC_COMMENT
 		{
-			newLeafNode(lv_documentation_0_0, grammarAccess.getFunDeclWParamAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+			newLeafNode(lv_documentation_0_0, grammarAccess.getFunDeclWParamAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1201,7 +1201,7 @@ ruleFunDeclWParam returns [EObject current=null]
        			$current, 
        			"documentation",
         		lv_documentation_0_0, 
-        		"ML_COMMENT");
+        		"DOC_COMMENT");
 	    }
 
 )
@@ -1344,9 +1344,9 @@ ruleLetOutDecl returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_documentation_0_0=RULE_ML_COMMENT
+		lv_documentation_0_0=RULE_DOC_COMMENT
 		{
-			newLeafNode(lv_documentation_0_0, grammarAccess.getLetOutDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+			newLeafNode(lv_documentation_0_0, grammarAccess.getLetOutDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1356,7 +1356,7 @@ ruleLetOutDecl returns [EObject current=null]
        			$current, 
        			"documentation",
         		lv_documentation_0_0, 
-        		"ML_COMMENT");
+        		"DOC_COMMENT");
 	    }
 
 )
@@ -1532,9 +1532,9 @@ rulePredDecl returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_documentation_0_0=RULE_ML_COMMENT
+		lv_documentation_0_0=RULE_DOC_COMMENT
 		{
-			newLeafNode(lv_documentation_0_0, grammarAccess.getPredDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+			newLeafNode(lv_documentation_0_0, grammarAccess.getPredDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1544,7 +1544,7 @@ rulePredDecl returns [EObject current=null]
        			$current, 
        			"documentation",
         		lv_documentation_0_0, 
-        		"ML_COMMENT");
+        		"DOC_COMMENT");
 	    }
 
 )
@@ -1832,9 +1832,9 @@ ruleSigDecl returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_documentation_0_0=RULE_ML_COMMENT
+		lv_documentation_0_0=RULE_DOC_COMMENT
 		{
-			newLeafNode(lv_documentation_0_0, grammarAccess.getSigDeclAccess().getDocumentationML_COMMENTTerminalRuleCall_0_0()); 
+			newLeafNode(lv_documentation_0_0, grammarAccess.getSigDeclAccess().getDocumentationDOC_COMMENTTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1844,7 +1844,7 @@ ruleSigDecl returns [EObject current=null]
        			$current, 
        			"documentation",
         		lv_documentation_0_0, 
-        		"ML_COMMENT");
+        		"DOC_COMMENT");
 	    }
 
 )
@@ -6454,17 +6454,19 @@ ruleRightSquareBracketKeyword returns [EObject current=null]
 
 RULE_NEGATIVE_INTEGER : '-' RULE_INT;
 
+RULE_DOC_COMMENT : '/**' ( options {greedy=false;} : . )*'*/';
+
+RULE_ML_COMMENT : '/*' ~('*') ( options {greedy=false;} : . )*'*/';
+
 RULE_SL_COMMENT : ('//' ~(('\n'|'\r'))* ('\r'? '\n')?|'--' ( options {greedy=false;} : . )*'\n');
+
+RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
 RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')* ('\''|'"')*;
 
 RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
-
-RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
-
-RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
 RULE_ANY_OTHER : .;
 
