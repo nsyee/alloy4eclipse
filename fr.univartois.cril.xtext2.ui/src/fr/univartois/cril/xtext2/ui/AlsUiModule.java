@@ -5,9 +5,9 @@ package fr.univartois.cril.xtext2.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 
 import fr.univartois.cril.xtext2.ui.documentation.AlsEObjectDocumentationProvider;
 import fr.univartois.cril.xtext2.ui.documentation.AlsEObjectHoverProvider;
@@ -22,6 +22,10 @@ public class AlsUiModule extends fr.univartois.cril.xtext2.ui.AbstractAlsUiModul
 		super(plugin);
 	}
 
+	public Class<? extends IHighlightingConfiguration> bindISemanticHighlightingConfiguration() {
+		return HighlightingConfiguration.class;
+	}
+	
 	public Class<? extends IContentOutlinePage> bindIContentOutlinePage() {
 		return AlloyOutlinePage.class;
 	}
