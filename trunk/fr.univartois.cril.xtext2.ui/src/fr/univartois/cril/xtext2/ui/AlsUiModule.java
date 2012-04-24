@@ -8,6 +8,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 
 import fr.univartois.cril.xtext2.ui.documentation.AlsEObjectDocumentationProvider;
 import fr.univartois.cril.xtext2.ui.documentation.AlsEObjectHoverProvider;
@@ -20,6 +21,10 @@ public class AlsUiModule extends fr.univartois.cril.xtext2.ui.AbstractAlsUiModul
 
 	public AlsUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+	
+	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
+        return SemanticHighlightingCalculator.class;
 	}
 
 	public Class<? extends IHighlightingConfiguration> bindISemanticHighlightingConfiguration() {
