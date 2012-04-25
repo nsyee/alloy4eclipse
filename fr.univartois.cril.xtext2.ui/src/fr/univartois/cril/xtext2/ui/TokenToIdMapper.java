@@ -37,8 +37,10 @@ public class TokenToIdMapper extends DefaultAntlrTokenToAttributeIdMapper {
 		if ("RULE_INT".equals(tokenName)) {
 			return DefaultHighlightingConfiguration.NUMBER_ID;
 		}
-		if ("RULE_ML_COMMENT".equals(tokenName)
-				| "RULE_SL_COMMENT".equals(tokenName)) {
+		if("RULE_DOC_COMMENT".equals(tokenName)){
+			return DefaultHighlightingConfiguration.COMMENT_ID;
+		}
+		if ("RULE_ML_COMMENT".equals(tokenName) || "RULE_SL_COMMENT".equals(tokenName)) {
 			return DefaultHighlightingConfiguration.COMMENT_ID;
 		}
 		return DefaultHighlightingConfiguration.DEFAULT_ID;

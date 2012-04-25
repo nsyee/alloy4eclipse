@@ -51,7 +51,6 @@ public class SemanticHighlightingCalculator implements
 				treatment(current, ((Ref) current).getNameRef(), acceptor,
 						AlsPackage.Literals.REF__NAME_REF.getName());
 			}
-
 			if (current instanceof CheckCommand) {
 				simpleTreatment(current, acceptor,
 						AlsPackage.Literals.CHECK_COMMAND__NAME.getName(),
@@ -72,7 +71,6 @@ public class SemanticHighlightingCalculator implements
 						AlsPackage.Literals.RUN_COMMAND__NAME.getName(),
 						HighlightingConfiguration.predicateName);
 			}
-
 			if (current instanceof Signature) {
 				simpleTreatment(
 						current,
@@ -80,7 +78,6 @@ public class SemanticHighlightingCalculator implements
 						AlsPackage.Literals.SIGNATURE__SIGNATURE_NAME.getName(),
 						HighlightingConfiguration.signatureName);
 			}
-
 		}
 	}
 
@@ -101,9 +98,7 @@ public class SemanticHighlightingCalculator implements
 			EObject current = iter.next();
 			if (current instanceof Expression) {
 				if (((Expression) current).getNameRef() != null) {
-
 					if (((Expression) current).getNameRef().getName() != null) {
-
 						result.add(((Expression) current).getNameRef()
 								.getName());
 					}
@@ -111,16 +106,13 @@ public class SemanticHighlightingCalculator implements
 			}
 			if (current instanceof RunCommand) {
 				if (((RunCommand) current).getName() != null) {
-
 					if (((RunCommand) current).getName().getName() != null) {
-
 						result.add(((RunCommand) current).getName().getName());
 					}
 				}
 			}
 			if (current instanceof CheckCommand) {
 				if (((CheckCommand) current).getName() != null) {
-
 					if (((CheckCommand) current).getName().getName() != null) {
 						// System.out.println(((CheckCommand) current).getName()
 						// .getName());
@@ -130,7 +122,6 @@ public class SemanticHighlightingCalculator implements
 			}
 			if (current instanceof Typescope) {
 				if (((Typescope) current).getName() != null) {
-
 					if (((Typescope) current).getName().getName() != null) {
 						// System.out.println(((Typescope) current).getName()
 						// .getName());
@@ -140,7 +131,6 @@ public class SemanticHighlightingCalculator implements
 			}
 			if (current instanceof ReferencesSig) {
 				if (((ReferencesSig) current).getNameRef() != null) {
-
 					if (((ReferencesSig) current).getNameRef().getName() != null) {
 						// System.out.println(((ReferencesSig) current)
 						// .getNameRef().getName());
@@ -151,7 +141,6 @@ public class SemanticHighlightingCalculator implements
 			}
 			if (current instanceof Ref) {
 				if (((Ref) current).getNameRef() != null) {
-
 					if (((Ref) current).getNameRef().getName() != null) {
 						// System.out.println(((Ref) current).getNameRef()
 						// .getName());
@@ -188,27 +177,17 @@ public class SemanticHighlightingCalculator implements
 
 	private INode findNode(String feature, ICompositeNode node) {
 		if (node != null) {
-			// System.out.println("message CompositNode node : " +
-			// node.getChildren());
 			for (INode child : node.getChildren()) {
 				if (child instanceof LeafNode) {
 					if (feature.equals(((LeafNode) child).getText())
 							|| nodeExists(collection,
 									((LeafNode) child).getText())) {
-
 						return child;
 					}
-
 				}
-
 				if (child instanceof CompositeNode) {
-					// System.out.println("message CompositNode : " +
-					// ((CompositeNode)child).getChildren());
 					INode aux = findNode(feature, (CompositeNode) child);
-					// System.out.println("DEBUG : " + ((CompositeNode)
-					// child).getChildren() + " " + (++compteur));
 					if (aux != null) {
-
 						return (LeafNode) aux;
 					}
 				}
@@ -234,53 +213,41 @@ public class SemanticHighlightingCalculator implements
 		if (refname != null) {
 			if (refname.eContainingFeature() != null) {
 
-				if (refname.eContainingFeature().getName()
-						.equals("signatureName")) {
-					INode node = this.getFirstFeatureNode(current,
-							string);
+				if (refname.eContainingFeature().getName().equals("signatureName")) {
+					INode node = this.getFirstFeatureNode(current, string);
 					highlightNode(node,
 							HighlightingConfiguration.signatureName, acceptor);
 				}
-				if (refname.eContainingFeature().getName()
-						.equals("predicateName")) {
-					INode node = this.getFirstFeatureNode(current,
-							string);
+				if (refname.eContainingFeature().getName().equals("predicateName")) {
+					INode node = this.getFirstFeatureNode(current, string);
 					highlightNode(node,
 							HighlightingConfiguration.predicateName, acceptor);
 				}
 				if (refname.eContainingFeature().getName().equals("factName")) {
-					INode node = this.getFirstFeatureNode(current,
-							string);
+					INode node = this.getFirstFeatureNode(current, string);
 					highlightNode(node, HighlightingConfiguration.factName,
 							acceptor);
 				}
-				if (refname.eContainingFeature().getName()
-						.equals("functionName")) {
-					INode node = this.getFirstFeatureNode(current,
-							string);
+				if (refname.eContainingFeature().getName().equals("functionName")) {
+					INode node = this.getFirstFeatureNode(current, string);
 					highlightNode(node, HighlightingConfiguration.functionName,
 							acceptor);
 				}
 
-				if (refname.eContainingFeature().getName()
-						.equals("propertyName")
+				if (refname.eContainingFeature().getName().equals("propertyName")
 						|| refname.eContainingFeature().getName()
 								.equals("VariableName")) {
-					INode node = this.getFirstFeatureNode(current,
-							string);
+					INode node = this.getFirstFeatureNode(current, string);
 					highlightNode(node, HighlightingConfiguration.propertyName,
 							acceptor);
 				}
 				if (refname.eContainingFeature().getName().equals("enumName")) {
-					INode node = this.getFirstFeatureNode(current,
-							string);
+					INode node = this.getFirstFeatureNode(current, string);
 					highlightNode(node, HighlightingConfiguration.enumName,
 							acceptor);
 				}
-				if (refname.eContainingFeature().getName()
-						.equals("enumPropertyName")) {
-					INode node = this.getFirstFeatureNode(current,
-							string);
+				if (refname.eContainingFeature().getName().equals("enumPropertyName")) {
+					INode node = this.getFirstFeatureNode(current, string);
 					highlightNode(node,
 							HighlightingConfiguration.enumPropertyName,
 							acceptor);
