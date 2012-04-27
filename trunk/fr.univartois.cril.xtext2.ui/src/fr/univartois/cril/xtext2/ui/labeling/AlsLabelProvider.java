@@ -47,6 +47,7 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
       return "MyModel.gif";
     }
 */
+	
 	String image(Specification spec) {
 		return "module.gif";
 	}
