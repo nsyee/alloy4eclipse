@@ -3,16 +3,22 @@
  */
 package fr.univartois.cril.xtext2.ui;
 
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
+import org.eclipse.xtext.ui.editor.contentassist.ContentProposalLabelProvider;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultAntlrTokenToAttributeIdMapper;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 
+import com.google.inject.Binder;
+
+import fr.univartois.cril.xtext2.ui.contentassist.AlsProposalProvider;
 import fr.univartois.cril.xtext2.ui.documentation.AlsEObjectDocumentationProvider;
 import fr.univartois.cril.xtext2.ui.documentation.AlsEObjectHoverProvider;
+import fr.univartois.cril.xtext2.ui.labeling.AlsLabelProvider;
 import fr.univartois.cril.xtext2.ui.outline.AlloyOutlinePage;
 
 /**
@@ -46,6 +52,15 @@ public class AlsUiModule extends fr.univartois.cril.xtext2.ui.AbstractAlsUiModul
 
 	public Class<? extends IEObjectDocumentationProvider> bindIEObjectDocumentationProvider() {
 		return AlsEObjectDocumentationProvider.class ;
+	}
+	
+	public Class<? extends AlsProposalProvider> bindIAlsProposalProvider() {
+		return AlsProposalProvider.class ;
+	}
+	
+	@Override
+	public void configureContentProposalLabelProvider(Binder binder) {
+		binder.bind(ILabelProvider.class).annotatedWith(ContentProposalLabelProvider.class).to(AlsLabelProvider.class);
 	}
 
 }

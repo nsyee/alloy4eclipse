@@ -1,6 +1,5 @@
 package fr.univartois.cril.xtext2.alloyplugin.core;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -20,8 +19,6 @@ import edu.mit.csail.sdg.alloy4.Pair;
 import edu.mit.csail.sdg.alloy4.Pos;
 // import edu.mit.csail.sdg.alloy4.SafeList;
 import edu.mit.csail.sdg.alloy4compiler.ast.Command;
-// import edu.mit.csail.sdg.alloy4compiler.ast.Expr;
-import edu.mit.csail.sdg.alloy4compiler.parser.CompModule;
 import edu.mit.csail.sdg.alloy4compiler.parser.CompUtil;
 import edu.mit.csail.sdg.alloy4compiler.translator.A4Solution;
 import edu.mit.csail.sdg.alloy4viz.VizGUI;
@@ -185,7 +182,7 @@ public class AlloyLaunching {
 	 * Set the fields of an alsFile. (commands, signatures..) fire changed() on
 	 * the als file for listeners.
 	 */
-	private static void updateALSFile(CompModule world, IALSFile file) throws Err {
+	/*private static void updateALSFile(CompModule world, IALSFile file) throws Err {
 		// convert all commands in ExecutableCommand[]
 		List<IALSCommand> exec_cmds = new ArrayList<IALSCommand>();// new
 		// ExecutableCommand[list.size()];
@@ -197,7 +194,7 @@ public class AlloyLaunching {
 		file.setCommand(exec_cmds);
 		
 		file.fireChange();
-	}
+	}*/
 
 	/**
 	 * Execute a command. The command is modified. Some informations can be show
