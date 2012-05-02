@@ -3698,10 +3698,10 @@ ruleTerminalExpression returns [EObject current=null]
 	    }
 
 )
-)((
+)(((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_4_2_0_0()); 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_4_2_0_0_0()); 
 	    }
 		lv_decl_22_0=ruleDecl		{
 	        if ($current==null) {
@@ -3719,7 +3719,7 @@ ruleTerminalExpression returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_4_2_1_0_0()); 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getCommaCommaParserRuleCall_4_2_0_1_0_0()); 
 	    }
 		lv_comma_23_0=ruleComma		{
 	        if ($current==null) {
@@ -3737,7 +3737,7 @@ ruleTerminalExpression returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_4_2_1_1_0()); 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getDeclDeclParserRuleCall_4_2_0_1_1_0()); 
 	    }
 		lv_decl_24_0=ruleDecl		{
 	        if ($current==null) {
@@ -3755,7 +3755,7 @@ ruleTerminalExpression returns [EObject current=null]
 ))*)?((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_4_3_0_0()); 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getBlockOrBarBlockOrBarParserRuleCall_4_2_1_0_0()); 
 	    }
 		lv_blockOrBar_25_0=ruleBlockOrBar		{
 	        if ($current==null) {
@@ -3774,7 +3774,7 @@ ruleTerminalExpression returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_4_3_1_0()); 
+	        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getExprExpressionParserRuleCall_4_2_1_1_0()); 
 	    }
 		lv_expr_26_0=ruleExpression		{
 	        if ($current==null) {
@@ -3789,7 +3789,7 @@ ruleTerminalExpression returns [EObject current=null]
 	    }
 
 )
-))?)
+))?))
     |((
 	{ 
 	  /* */ 
