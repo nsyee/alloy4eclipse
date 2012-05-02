@@ -2061,18 +2061,19 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCommonAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cCommonCommonQuantUnOpParserRuleCall_4_1_0 = (RuleCall)cCommonAssignment_4_1.eContents().get(0);
 		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
-		private final Assignment cDeclAssignment_4_2_0 = (Assignment)cGroup_4_2.eContents().get(0);
-		private final RuleCall cDeclDeclParserRuleCall_4_2_0_0 = (RuleCall)cDeclAssignment_4_2_0.eContents().get(0);
-		private final Group cGroup_4_2_1 = (Group)cGroup_4_2.eContents().get(1);
-		private final Assignment cCommaAssignment_4_2_1_0 = (Assignment)cGroup_4_2_1.eContents().get(0);
-		private final RuleCall cCommaCommaParserRuleCall_4_2_1_0_0 = (RuleCall)cCommaAssignment_4_2_1_0.eContents().get(0);
-		private final Assignment cDeclAssignment_4_2_1_1 = (Assignment)cGroup_4_2_1.eContents().get(1);
-		private final RuleCall cDeclDeclParserRuleCall_4_2_1_1_0 = (RuleCall)cDeclAssignment_4_2_1_1.eContents().get(0);
-		private final Alternatives cAlternatives_4_3 = (Alternatives)cGroup_4.eContents().get(3);
-		private final Assignment cBlockOrBarAssignment_4_3_0 = (Assignment)cAlternatives_4_3.eContents().get(0);
-		private final RuleCall cBlockOrBarBlockOrBarParserRuleCall_4_3_0_0 = (RuleCall)cBlockOrBarAssignment_4_3_0.eContents().get(0);
-		private final Assignment cExprAssignment_4_3_1 = (Assignment)cAlternatives_4_3.eContents().get(1);
-		private final RuleCall cExprExpressionParserRuleCall_4_3_1_0 = (RuleCall)cExprAssignment_4_3_1.eContents().get(0);
+		private final Group cGroup_4_2_0 = (Group)cGroup_4_2.eContents().get(0);
+		private final Assignment cDeclAssignment_4_2_0_0 = (Assignment)cGroup_4_2_0.eContents().get(0);
+		private final RuleCall cDeclDeclParserRuleCall_4_2_0_0_0 = (RuleCall)cDeclAssignment_4_2_0_0.eContents().get(0);
+		private final Group cGroup_4_2_0_1 = (Group)cGroup_4_2_0.eContents().get(1);
+		private final Assignment cCommaAssignment_4_2_0_1_0 = (Assignment)cGroup_4_2_0_1.eContents().get(0);
+		private final RuleCall cCommaCommaParserRuleCall_4_2_0_1_0_0 = (RuleCall)cCommaAssignment_4_2_0_1_0.eContents().get(0);
+		private final Assignment cDeclAssignment_4_2_0_1_1 = (Assignment)cGroup_4_2_0_1.eContents().get(1);
+		private final RuleCall cDeclDeclParserRuleCall_4_2_0_1_1_0 = (RuleCall)cDeclAssignment_4_2_0_1_1.eContents().get(0);
+		private final Alternatives cAlternatives_4_2_1 = (Alternatives)cGroup_4_2.eContents().get(1);
+		private final Assignment cBlockOrBarAssignment_4_2_1_0 = (Assignment)cAlternatives_4_2_1.eContents().get(0);
+		private final RuleCall cBlockOrBarBlockOrBarParserRuleCall_4_2_1_0_0 = (RuleCall)cBlockOrBarAssignment_4_2_1_0.eContents().get(0);
+		private final Assignment cExprAssignment_4_2_1_1 = (Assignment)cAlternatives_4_2_1.eContents().get(1);
+		private final RuleCall cExprExpressionParserRuleCall_4_2_1_1_0 = (RuleCall)cExprAssignment_4_2_1_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
 		private final Action cExpressionAction_5_0 = (Action)cGroup_5.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
@@ -2168,8 +2169,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//	//18./
 		//	| {Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar | {Expression}
 		//	quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression}
-		//	unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)?
-		//	(blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
+		//	unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp ((decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//	(blockOrBar+=BlockOrBar | expr+=Expression)?) | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
 		//	none="none" | {Expression} iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?)
 		//	| int="Int" | {Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=[AsName] | "this") "/")?
 		//	(nameRef=[ReferencesName] | "this" | name="pred/totalOrder" | name=("fun/add" | "fun/sub" | "fun/mul" | "fun/div" |
@@ -2191,8 +2192,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		////18./
 		//| {Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar | {Expression}
 		//quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression}
-		//unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)?
-		//(blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
+		//unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp ((decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//(blockOrBar+=BlockOrBar | expr+=Expression)?) | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
 		//none="none" | {Expression} iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?)
 		//| int="Int" | {Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=[AsName] | "this") "/")?
 		//(nameRef=[ReferencesName] | "this" | name="pred/totalOrder" | name=("fun/add" | "fun/sub" | "fun/mul" | "fun/div" |
@@ -2333,8 +2334,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getExprExpressionParserRuleCall_3_2_0() { return cExprExpressionParserRuleCall_3_2_0; }
 
-		//{Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar |
-		//expr+=Expression)?
+		//{Expression} common+=CommonQuantUnOp ((decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar |
+		//expr+=Expression)?)
 		public Group getGroup_4() { return cGroup_4; }
 
 		//{Expression}
@@ -2346,44 +2347,47 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 		//CommonQuantUnOp
 		public RuleCall getCommonCommonQuantUnOpParserRuleCall_4_1_0() { return cCommonCommonQuantUnOpParserRuleCall_4_1_0; }
 
-		//(decl+=Decl (comma+=Comma decl+=Decl)*)?
+		//(decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)?
 		public Group getGroup_4_2() { return cGroup_4_2; }
 
+		//(decl+=Decl (comma+=Comma decl+=Decl)*)?
+		public Group getGroup_4_2_0() { return cGroup_4_2_0; }
+
 		//decl+=Decl
-		public Assignment getDeclAssignment_4_2_0() { return cDeclAssignment_4_2_0; }
+		public Assignment getDeclAssignment_4_2_0_0() { return cDeclAssignment_4_2_0_0; }
 
 		//Decl
-		public RuleCall getDeclDeclParserRuleCall_4_2_0_0() { return cDeclDeclParserRuleCall_4_2_0_0; }
+		public RuleCall getDeclDeclParserRuleCall_4_2_0_0_0() { return cDeclDeclParserRuleCall_4_2_0_0_0; }
 
 		//(comma+=Comma decl+=Decl)*
-		public Group getGroup_4_2_1() { return cGroup_4_2_1; }
+		public Group getGroup_4_2_0_1() { return cGroup_4_2_0_1; }
 
 		//comma+=Comma
-		public Assignment getCommaAssignment_4_2_1_0() { return cCommaAssignment_4_2_1_0; }
+		public Assignment getCommaAssignment_4_2_0_1_0() { return cCommaAssignment_4_2_0_1_0; }
 
 		//Comma
-		public RuleCall getCommaCommaParserRuleCall_4_2_1_0_0() { return cCommaCommaParserRuleCall_4_2_1_0_0; }
+		public RuleCall getCommaCommaParserRuleCall_4_2_0_1_0_0() { return cCommaCommaParserRuleCall_4_2_0_1_0_0; }
 
 		//decl+=Decl
-		public Assignment getDeclAssignment_4_2_1_1() { return cDeclAssignment_4_2_1_1; }
+		public Assignment getDeclAssignment_4_2_0_1_1() { return cDeclAssignment_4_2_0_1_1; }
 
 		//Decl
-		public RuleCall getDeclDeclParserRuleCall_4_2_1_1_0() { return cDeclDeclParserRuleCall_4_2_1_1_0; }
+		public RuleCall getDeclDeclParserRuleCall_4_2_0_1_1_0() { return cDeclDeclParserRuleCall_4_2_0_1_1_0; }
 
 		//(blockOrBar+=BlockOrBar | expr+=Expression)?
-		public Alternatives getAlternatives_4_3() { return cAlternatives_4_3; }
+		public Alternatives getAlternatives_4_2_1() { return cAlternatives_4_2_1; }
 
 		//blockOrBar+=BlockOrBar
-		public Assignment getBlockOrBarAssignment_4_3_0() { return cBlockOrBarAssignment_4_3_0; }
+		public Assignment getBlockOrBarAssignment_4_2_1_0() { return cBlockOrBarAssignment_4_2_1_0; }
 
 		//BlockOrBar
-		public RuleCall getBlockOrBarBlockOrBarParserRuleCall_4_3_0_0() { return cBlockOrBarBlockOrBarParserRuleCall_4_3_0_0; }
+		public RuleCall getBlockOrBarBlockOrBarParserRuleCall_4_2_1_0_0() { return cBlockOrBarBlockOrBarParserRuleCall_4_2_1_0_0; }
 
 		//expr+=Expression
-		public Assignment getExprAssignment_4_3_1() { return cExprAssignment_4_3_1; }
+		public Assignment getExprAssignment_4_2_1_1() { return cExprAssignment_4_2_1_1; }
 
 		//Expression
-		public RuleCall getExprExpressionParserRuleCall_4_3_1_0() { return cExprExpressionParserRuleCall_4_3_1_0; }
+		public RuleCall getExprExpressionParserRuleCall_4_2_1_1_0() { return cExprExpressionParserRuleCall_4_2_1_1_0; }
 
 		//{Expression} INT
 		public Group getGroup_5() { return cGroup_5; }
@@ -4224,8 +4228,8 @@ public class AlsGrammarAccess extends AbstractGrammarElementFinder {
 	//	//18./
 	//	| {Expression} let="let" letdecl+=LetDecl (comma+=Comma letdecl+=LetDecl)* blockOrBar+=BlockOrBar | {Expression}
 	//	quant=Quant (decl+=Decl (comma+=Comma decl+=Decl)*)? (blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression}
-	//	unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp (decl+=Decl (comma+=Comma decl+=Decl)*)?
-	//	(blockOrBar+=BlockOrBar | expr+=Expression)? | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
+	//	unOp=UnOp expr+=Expression | {Expression} common+=CommonQuantUnOp ((decl+=Decl (comma+=Comma decl+=Decl)*)?
+	//	(blockOrBar+=BlockOrBar | expr+=Expression)?) | {Expression} INT | {Expression} NEGATIVE_INTEGER | {Expression}
 	//	none="none" | {Expression} iden="iden" | {Expression} univ="univ" | {Expression} (int="int" nameRef=[ReferencesName]?)
 	//	| int="Int" | {Expression} seq="seq/Int" | {Expression} "@"? "int"? ((asname=[AsName] | "this") "/")?
 	//	(nameRef=[ReferencesName] | "this" | name="pred/totalOrder" | name=("fun/add" | "fun/sub" | "fun/mul" | "fun/div" |
