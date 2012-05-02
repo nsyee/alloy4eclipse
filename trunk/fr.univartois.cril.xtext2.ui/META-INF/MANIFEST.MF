@@ -32,8 +32,8 @@ Import-Package: org.apache.commons.logging,
  org.eclipse.jdt.ui,
  org.eclipse.xtend2.lib,
  org.eclipse.xtext.xbase.ui.hover
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: fr.univartois.cril.xtext2.ui.contentassist,
  fr.univartois.cril.xtext2.ui.contentassist.antlr,
  fr.univartois.cril.xtext2.ui.internal
 Bundle-Activator: fr.univartois.cril.xtext2.ui.activator.AlsActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
