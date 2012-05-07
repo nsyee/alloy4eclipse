@@ -26,7 +26,7 @@ Import-Package: org.apache.commons.logging,
  org.eclipse.xtext.ui.editor.syntaxcoloring,
  org.eclipse.xtext.ui.editor.utils,
  org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: fr.univartois.cril.xtext2,
  fr.univartois.cril.xtext2.services,
  fr.univartois.cril.xtext2.als,
