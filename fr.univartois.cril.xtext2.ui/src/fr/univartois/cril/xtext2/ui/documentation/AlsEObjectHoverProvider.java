@@ -19,8 +19,10 @@ public class AlsEObjectHoverProvider extends DefaultEObjectHoverProvider {
     		return "Enumeration " + ((EnumName)o).getName();
         if (o instanceof FactName) 
             return "Fact " + ((FactName)o).getName();
-        if (o instanceof FunctionName || o instanceof FunctionNamewParam)
+        if (o instanceof FunctionName)
     		return "Function  " + ((FunctionName)o).getName();
+        if (o instanceof FunctionNamewParam)
+    		return "Function  " + ((FunctionNamewParam)o).getName();
         if (o instanceof LetName) 
             return "Let " + ((LetName)o).getName();
         if (o instanceof PredicateName) 
