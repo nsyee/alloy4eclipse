@@ -6,6 +6,7 @@ import org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider;
 import fr.univartois.cril.xtext2.als.EnumName;
 import fr.univartois.cril.xtext2.als.FactName;
 import fr.univartois.cril.xtext2.als.FunctionName;
+import fr.univartois.cril.xtext2.als.FunctionNamewParam;
 import fr.univartois.cril.xtext2.als.LetName;
 import fr.univartois.cril.xtext2.als.PredicateName;
 import fr.univartois.cril.xtext2.als.SignatureName;
@@ -18,7 +19,7 @@ public class AlsEObjectHoverProvider extends DefaultEObjectHoverProvider {
     		return "Enumeration " + ((EnumName)o).getName();
         if (o instanceof FactName) 
             return "Fact " + ((FactName)o).getName();
-        if (o instanceof FunctionName)
+        if (o instanceof FunctionName || o instanceof FunctionNamewParam)
     		return "Function  " + ((FunctionName)o).getName();
         if (o instanceof LetName) 
             return "Let " + ((LetName)o).getName();

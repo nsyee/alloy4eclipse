@@ -23,6 +23,7 @@ import fr.univartois.cril.xtext2.als.Fact;
 import fr.univartois.cril.xtext2.als.FactName;
 import fr.univartois.cril.xtext2.als.Function;
 import fr.univartois.cril.xtext2.als.FunctionName;
+import fr.univartois.cril.xtext2.als.FunctionNamewParam;
 import fr.univartois.cril.xtext2.als.Let;
 import fr.univartois.cril.xtext2.als.LetName;
 import fr.univartois.cril.xtext2.als.Predicate;
@@ -54,7 +55,7 @@ public class AlsEObjectDocumentationProvider implements IEObjectDocumentationPro
 	    			return comment ;
 	    		}
 	        }
-	        if (o instanceof FunctionName){
+	        if (o instanceof FunctionName || o instanceof FunctionNamewParam){
 	        	Function fun = (Function) o.eContainer() ;
 	    		if(!fun.getDocumentation().isEmpty()){
 	    			TagElement tag = (TagElement) getJavaDoc(o, fun.getDocumentation().get(0)).tags().get(0) ;
