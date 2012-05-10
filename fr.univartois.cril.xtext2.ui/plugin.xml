@@ -239,6 +239,42 @@
 			</command>
 		</menuContribution>
 	</extension>
+	
+	<extension point="org.eclipse.ui.commands">
+    	<command 
+            description="Open the quick outline." 
+            id="org.eclipse.xtext.ui.editor.outline.QuickOutline" 
+            name="Quick Outline" /> 
+        <category 
+           	id="fr.univartois.cril.xtext2.alloyplugin.launch.category" 
+            name="Alloy" /> 
+        <command 
+            categoryId="fr.univartois.cril.xtext2.alloyplugin.launch.category" 
+            description="Close All VizView" 
+            id="fr.univartois.cril.xtext2.alloyplugin.launch.closeallview" 
+            name="Close All VizView" /> 
+        <command 
+            categoryId="fr.univartois.cril.xtext2.alloyplugin.launch.category" 
+            description="launch Alloy command" 
+            id="fr.univartois.cril.xtext2.alloyplugin.launch.runalloycommand" 
+            name="Run Alloy command" /> 
+        <command 
+            categoryId="fr.univartois.cril.xtext2.alloyplugin.launch.category" 
+            description="Display Alloy answer" 
+            id="fr.univartois.cril.xtext2.alloyplugin.launch.displayalloycommandanswer" 
+            name="Show Alloy answer" /> 
+        <command 
+            categoryId="fr.univartois.cril.xtext2.alloyplugin.launch.category" 
+            description="Open Alloy 4 Sample Models" 
+            id="fr.univartois.cril.xtext2.alloyplugin.ui.OpenLibraryModelAction" 
+            name="Open Sample Models" /> 
+        <!--<command 
+            categoryId="fr.univartois.cril.xtext.alloyplugin.launch.category" 
+            description="Rename an Alloy 4 identifier" 
+            id="fr.univartois.cril.xtext.alloyplugin.RenameAls" 
+            name="Rename A4 Identifier" /> -->
+   	</extension>
+	
     <!-- quickfix marker resolution generator for fr.univartois.cril.xtext2.Als -->
     <extension
             point="org.eclipse.ui.ide.markerResolution">
