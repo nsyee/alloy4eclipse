@@ -17,6 +17,7 @@ import fr.univartois.cril.xtext2.als.Fact;
 import fr.univartois.cril.xtext2.als.FactName;
 import fr.univartois.cril.xtext2.als.Function;
 import fr.univartois.cril.xtext2.als.FunctionName;
+import fr.univartois.cril.xtext2.als.FunctionNamewParam;
 import fr.univartois.cril.xtext2.als.Let;
 import fr.univartois.cril.xtext2.als.LetName;
 import fr.univartois.cril.xtext2.als.Module;
@@ -153,6 +154,10 @@ public class AlsLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String image(FunctionName fun) {
+		return "function.gif";
+	}
+	
+	String image(FunctionNamewParam fun) {
 		return "function.gif";
 	}
 	
