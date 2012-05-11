@@ -6,14 +6,12 @@ import java.util.List;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.jface.viewers.ICheckStateListener;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
@@ -21,15 +19,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PlatformUI;
 
 import fr.univartois.cril.xtext2.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.xtext2.alloyplugin.api.IALSFile;
+import fr.univartois.cril.xtext2.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext2.alloyplugin.api.Util;
 import fr.univartois.cril.xtext2.alloyplugin.core.ALSFileFactory;
+import fr.univartois.cril.xtext2.alloyplugin.core.ExecutableCommand;
 
 public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
         ICheckStateListener {
@@ -223,24 +219,24 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
      * context.
      */
     public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-        IStructuredSelection sel = getSelectionfromContext();
-        if (sel != null) {
-            List<IALSCommand> cmds = getIALSCommandFromSelection(sel);
-            if (!cmds.isEmpty()) {
-                setdefaultsAttributes(cmds, configuration);
-                String name = DebugPlugin.getDefault().getLaunchManager()
-                        .generateLaunchConfigurationName(cmds.get(0).getResource().getName());
-                configuration.rename(name);
-                return;
-            }
-        }
-        IALSFile file = getALSFileFromContext();
-        if (file != null) {
-            String name = DebugPlugin.getDefault().getLaunchManager()
-                    .generateLaunchConfigurationName(file.getName());
-            configuration.rename(name);
-            setdefaultsAttributes(file, configuration);
-        }
+//        IStructuredSelection sel = getSelectionfromContext();
+//        if (sel != null) {
+//            List<IALSCommand> cmds = getIALSCommandFromSelection(sel);
+//            if (!cmds.isEmpty()) {
+//                setdefaultsAttributes(cmds, configuration);
+//                String name = DebugPlugin.getDefault().getLaunchManager()
+//                        .generateLaunchConfigurationName(cmds.get(0).getResource().getName());
+//                configuration.rename(name);
+//                return;
+//            }
+//        }
+//        IALSFile file = getALSFileFromContext();
+//        if (file != null) {
+//            String name = DebugPlugin.getDefault().getLaunchManager()
+//                    .generateLaunchConfigurationName(file.getName());
+//            configuration.rename(name);
+//            setdefaultsAttributes(file, configuration);
+//        }
     }
 
     /**
@@ -248,25 +244,18 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
      * launch configuration. All informations are taken from the als file.
      * Clients can use this method to configure their own launch configuration.
      */
-    public void setdefaultsAttributes(IALSFile file,
-            ILaunchConfigurationWorkingCopy configuration) {
+    public void setdefaultsAttributes(ExecutableCommand command, IReporter rep, ILaunchConfigurationWorkingCopy configuration) {
         IResource[] resources = new IResource[1];
-        resources[0] = file.getResource();
+        resources[0] = command.getResource();
         if (resources[0] != null)
         	configuration.setMappedResources(resources);
         else 
         	configuration.setMappedResources(null);
-        configuration.setAttribute(
-                LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, 
-                file.getFilename());
-        List<String> list = new ArrayList<String>();
-        for (IALSCommand cmd : file.getCommand()) {
-            list.add(cmd.getName());
-        }
-        configuration.setAttribute(
-                LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,
-                list);
-
+        configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, Util.getFileLocation(command.getResource()));
+        List<Object> list = new ArrayList<Object>();
+        list.add(command);
+        list.add(rep);
+        configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, list);
     }
 
     /**
@@ -275,39 +264,19 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
      * commands. Clients can use this method to configure their own launch
      * configuration.
      */
-    public void setdefaultsAttributes(List<IALSCommand> cmds,
-            ILaunchConfigurationWorkingCopy configuration) {
+    public void setdefaultsAttributes(List<IALSCommand> cmds, ILaunchConfigurationWorkingCopy configuration) {
         IResource[] resources = new IResource[1];
         resources[0] = cmds.get(0).getResource();
-        if (resources[0] == null)
-        	configuration.setMappedResources(null);
-        else
+        if (resources[0] != null)
         	configuration.setMappedResources(resources);
-        configuration.setAttribute(
-                LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, Util
-                        .getFileLocation(cmds.get(0).getResource()));
+        else 
+        	configuration.setMappedResources(null);
+        configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, Util.getFileLocation(cmds.get(0).getResource()));
         List<String> list = new ArrayList<String>();
         for (IALSCommand cmd : cmds) {
             list.add(cmd.getName());
         }
-        configuration.setAttribute(
-                LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,
-                list);
-
-    }
-
-    private IStructuredSelection getSelectionfromContext() {
-
-        IWorkbenchPage page = PlatformUI.getWorkbench()
-                .getActiveWorkbenchWindow().getActivePage();
-        if (page != null) {
-            // System.out.println("get selection from context|page:" + page);
-            ISelection selection = page.getSelection();
-            // System.out.println("get selection from context|sel" + selection);
-            if (selection instanceof IStructuredSelection)
-                return (IStructuredSelection) selection;
-        }
-        return null;
+        configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, list);
     }
 
     public List<IALSCommand> getIALSCommandFromSelection(
@@ -317,7 +286,6 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
             for (Iterator<?> iterator = selection.iterator(); iterator.hasNext();) {
                 Object obj = iterator.next();
                 if (obj instanceof IALSCommand) {
-                    // System.out.println("executable command selected");
                     if (list == null)
                         list = new ArrayList<IALSCommand>();
                     list.add((IALSCommand) obj);
@@ -325,51 +293,6 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
             }
         }
         return list;
-    }
-
-    private IALSFile getALSFileFromContext() {
-
-        ISelection selection = getSelectionfromContext();
-        // System.out.println("get als file from context|sel=" + selection);
-        if (selection != null && selection instanceof IStructuredSelection) {
-            IStructuredSelection ss = (IStructuredSelection) selection;
-            if (!ss.isEmpty()) {
-                Object obj = ss.getFirstElement();
-                if (obj instanceof IALSFile) {
-                    return (IALSFile) obj;
-                }
-                if (obj instanceof IALSCommand) {
-                    IResource res = ((IALSCommand) obj).getResource();
-                    IALSFile file = ALSFileFactory.instance().getALSFile(res);
-                    if (file != null)
-                        return file;
-                }
-                if (obj instanceof IResource) {
-                    // System.out.println("resource selected");
-                    IALSFile file = ALSFileFactory.instance().getALSFile(
-                            (IResource) obj);
-                    if (file != null) {
-                        return file;
-                    }
-                }
-            }
-        }
-        // System.out.println("get als file from active editor");
-        IWorkbenchPage page = PlatformUI.getWorkbench()
-                .getActiveWorkbenchWindow().getActivePage();
-        if (page != null) {
-            IEditorPart part = page.getActiveEditor();
-            if (part != null) {
-                IEditorInput input = part.getEditorInput();
-                IResource res = (IResource) input.getAdapter(IResource.class);
-                // System.out.println("get als file from active editor|resource");
-                IALSFile file = ALSFileFactory.instance().getALSFile(res);
-                if (file != null)
-                    return file;
-            }
-        }
-
-        return null;
     }
 
     public void checkStateChanged(CheckStateChangedEvent event) {

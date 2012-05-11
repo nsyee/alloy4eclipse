@@ -23,7 +23,7 @@ public class CloseAllView extends SelectionProviderAction {
 
 	private static final ImageDescriptor iconclose = ALSImageRegistry
 			.getImageDescriptor(ALSImageRegistry.CLOSE_GRAPH_ICON_ID);
-	private static final String ACTION_ID = "fr.univartois.cril.alloyplugin.launch.closeallview";
+	private static final String ACTION_ID = "fr.univartois.cril.xtext2.alloyplugin.launch.closeallview";
 
 	private static final String TEXT_CLOSE_ALL_VIEWS = "Close All Views";
 
