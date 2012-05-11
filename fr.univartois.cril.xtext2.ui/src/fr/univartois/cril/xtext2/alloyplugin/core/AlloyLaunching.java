@@ -165,36 +165,12 @@ public class AlloyLaunching {
 	 */
 	private static void parse(IALSFile file, IReporter rep) throws Err {
 		String filename = file.getFilename();
-		AlloyMessageConsole alloyParserConsole = Console
-				.findAlloyInfoConsole(filename);
+		AlloyMessageConsole alloyParserConsole = Console.findAlloyInfoConsole(filename);
 		alloyParserConsole.clear();
-		alloyParserConsole.printInfo("=========== Parsing \"" + filename
-				+ "\" =============");
-		// CompModule world = ...
+		alloyParserConsole.printInfo("=========== Parsing \"" + filename + "\" =============");
 		CompUtil.parseEverything_fromFile(rep, null, filename);
-		alloyParserConsole.printInfo("=========== End Parsing \"" + filename
-				+ "\" =============");
-		// if (world != null)
-		//	updateALSFile(world, file);
+		alloyParserConsole.printInfo("=========== End Parsing \"" + filename + "\" =============");
 	}
-
-	/**
-	 * Set the fields of an alsFile. (commands, signatures..) fire changed() on
-	 * the als file for listeners.
-	 */
-	/*private static void updateALSFile(CompModule world, IALSFile file) throws Err {
-		// convert all commands in ExecutableCommand[]
-		List<IALSCommand> exec_cmds = new ArrayList<IALSCommand>();// new
-		// ExecutableCommand[list.size()];
-		int index = 0;
-		for (Command command : world.getAllCommands()) {			
-			exec_cmds.add(new ExecutableCommand(file, command,index++, world,null,0));
-		}
-		exec_cmds.add(new MetamodelCommand(file, world));
-		file.setCommand(exec_cmds);
-		
-		file.fireChange();
-	}*/
 
 	/**
 	 * Execute a command. The command is modified. Some informations can be show
@@ -209,7 +185,7 @@ public class AlloyLaunching {
 			long beginTime = System.currentTimeMillis();
 			alloyConsole.printInfo("============ Command " + command
 					+ ": ============");
-			command.execute(rep,monitor);
+			command.execute(rep, monitor);
 			long endTime = System.currentTimeMillis();
 			alloyConsole.printInfo("============ Total time: "
 					+ (endTime - beginTime) + " (ms) ===========");

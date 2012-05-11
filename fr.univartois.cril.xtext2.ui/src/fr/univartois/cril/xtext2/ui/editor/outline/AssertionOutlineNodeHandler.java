@@ -6,7 +6,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -26,6 +26,8 @@ import fr.univartois.cril.xtext2.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext2.alloyplugin.core.ALSFile;
 import fr.univartois.cril.xtext2.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.xtext2.alloyplugin.core.Reporter;
+import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchConfigurationConstants;
+import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchQuickConfigFactory;
 import fr.univartois.cril.xtext2.preferences.PreferenceConstants;
 import fr.univartois.cril.xtext2.ui.activator.AlsActivator;
 
@@ -92,7 +94,8 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		
 		cmd = "Check " + cmd ;		
 		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world, cmd, scope);
-		executeCommand(ex, reporter, null);
+		DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(ex,reporter), LaunchConfigurationConstants.RUN_MODE);
+		// executeCommand(ex, reporter, null);
 		return null;
 	}
 
@@ -116,14 +119,13 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		return world;
 	}
 
-	private void executeCommand(ExecutableCommand executableCommand,
-			IReporter reporter, IProgressMonitor monitor) {
+	/*private void executeCommand(ExecutableCommand executableCommand, IReporter reporter, IProgressMonitor monitor) {
 		try {
 			executableCommand.execute(reporter, monitor);
 		} catch (Err e) {
 			// TODO Auto-generated catch block
 		}
-	}
+	}*/
 	
 	public Pair<String,Expr> findAssertion(Module world,String assertion){
 		ConstList<Pair<String,Expr>> l=world.getAllAssertions();

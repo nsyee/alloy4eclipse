@@ -31,7 +31,6 @@ public class LaunchShortcut implements ILaunchShortcut {
 	/**launch from selection*/
 	public void launch(ISelection selection, String mode) {
 		StructuredSelection sel;
-		// System.out.println("launch from selection");
 		if (selection instanceof StructuredSelection)
 		{   
 			sel=(StructuredSelection)selection;
@@ -41,12 +40,8 @@ public class LaunchShortcut implements ILaunchShortcut {
 
 	/**launch from editor*/
 	public void launch(IEditorPart editor, String mode) {		
-		//IWorkbenchPage page
-		// System.out.println("launch from editor");
 		launch(getResource(editor));
 	}
-
-
 
 	/**
 	 * Launches a configuration for the given resource.
@@ -57,39 +52,33 @@ public class LaunchShortcut implements ILaunchShortcut {
 			DebugUITools.launch(config, LaunchConfigurationConstants.RUN_MODE);
 		}			
 	}
+	
 	/**
 	 * Create a default configuration from an resource.
 	 * */
 	protected ILaunchConfiguration createConfiguration(IResource resource) {
 		ILaunchConfiguration config = null;
 		ILaunchConfigurationWorkingCopy wc = null;
-		try {
-			ILaunchConfigurationType configType = getConfigurationType();
+		ILaunchConfigurationType configType = getConfigurationType();
 
-			LaunchCommandsTab tab = new LaunchCommandsTab();
-			IALSFile file=ALSFileFactory.instance().getALSFile(resource);
-			if(file!=null){
-				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(file.getName()));				
-				tab.setdefaultsAttributes(file, wc);
-				config = wc.doSave();
-			}
-		} catch (CoreException e) {
-//			TODO Auto-generated catch block
-			e.printStackTrace();
-
-		} 
+		LaunchCommandsTab tab = new LaunchCommandsTab();
+		IALSFile file = ALSFileFactory.instance().getALSFile(resource);
+		if(file!=null){
+			wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(file.getName()));				
+			tab.setdefaultsAttributes(file, wc) ;
+			config = wc.doSave();
+		}
 		return config;
 	}
+	
 	private ILaunchManager getLaunchManager() {
-		// 
 		return DebugPlugin.getDefault().getLaunchManager();
 	}
 
 	private ILaunchConfigurationType getConfigurationType() {
 		return DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurationType(LaunchConfigurationConstants.LAUNCH_CONFIGURATION_TYPE);
-
 	}
-
+	
 	/**
 	 *
 	 * Locate a configuration to relaunch.If one cannot be found, create one.
@@ -99,9 +88,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 	protected ILaunchConfiguration findLaunchConfiguration(IResource resource) {
 		List<ILaunchConfiguration> candidateConfigs=null;
 
-
 		try {		
-
 			ILaunchConfiguration[] configs = getLaunchManager().getLaunchConfigurations(getConfigurationType());
 			candidateConfigs = new ArrayList<ILaunchConfiguration>(configs.length);
 			for (int i = 0; i < configs.length; i++) {
@@ -132,10 +119,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 			ILaunchConfiguration config = chooseConfiguration(candidateConfigs);
 			return config;
 		}
-
-
 	}
-
 
 	public static Shell getShell() {
 		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
@@ -150,6 +134,7 @@ public class LaunchShortcut implements ILaunchShortcut {
 		}
 		return null;
 	}	
+	
 	/**
 	 * Show a selection dialog that allows the user to choose one of the specified
 	 * launch configurations.  Return the chosen config, or <code>null</code> if the
@@ -170,16 +155,12 @@ public class LaunchShortcut implements ILaunchShortcut {
 		return null;		
 	}
 
-
-
 	/**
 	 * Try to return an IResource object from a IEditorPart. Returns null if no such object can be found.  
 	 */
 	private IResource getResource(IEditorPart editor) {		
 		return (IResource)editor.getEditorInput().getAdapter(IResource.class);
 	}
-
-
 
 	/**
 	 * Try to return an IResource object from a StructuredSelection. Returns null if no such object can be found.	  

@@ -22,7 +22,7 @@ import fr.univartois.cril.xtext2.alloyplugin.api.IAlloyTreeContentProvider;
  * This action use eclipse launching mechanism.
  */
 public class LaunchCommandAction extends SelectionProviderAction {
-    private static final String ACTION_ID = "fr.univartois.cril.alloyplugin.launch.runalloycommand";
+    private static final String ACTION_ID = "fr.univartois.cril.xtext2.alloyplugin.launch.runalloycommand";
 
     private static final String TEXT_DEFAULT = "Launch command(s)";
 
@@ -42,8 +42,6 @@ public class LaunchCommandAction extends SelectionProviderAction {
     private TreeViewer viewer;
 
     private boolean commandRootSelected;
-
-    //
 
     /**
      * Constructor.
@@ -85,9 +83,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
                     this.setEnabled(true);
                     return;
                 }
-
             }
-
         }
         setText(TEXT_DEFAULT);
         setEnabled(false);
@@ -102,8 +98,7 @@ public class LaunchCommandAction extends SelectionProviderAction {
         List<IALSCommand> commandsList = null;
         if (commandRootSelected) {
             commandsList = new ArrayList<IALSCommand>();
-            IAlloyTreeContentProvider contentProvider = (IAlloyTreeContentProvider) viewer
-                    .getContentProvider();            
+            IAlloyTreeContentProvider contentProvider = (IAlloyTreeContentProvider) viewer.getContentProvider();            
             try {
                 for (IALSCommand command : contentProvider.getAllCommands()) {
                     commandsList.add(command);
@@ -115,13 +110,12 @@ public class LaunchCommandAction extends SelectionProviderAction {
             commandsList = getIALSCommandFromSelection(selection);
         }
         if (!commandsList.isEmpty()) {
-            launch(LaunchQuickConfigFactory.getInstance().create(commandsList));
+            //launch(LaunchQuickConfigFactory.getInstance().create(commandsList));
         }
     }
 
     private void launch(ILaunchConfiguration config) {
         if (config != null) {
-
             DebugUITools.launch(config, LaunchConfigurationConstants.RUN_MODE);
             viewer.setSelection(null, true);
         }

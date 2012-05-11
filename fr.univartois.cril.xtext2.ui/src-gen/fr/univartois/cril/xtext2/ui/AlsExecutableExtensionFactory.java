@@ -8,6 +8,8 @@ import org.osgi.framework.Bundle;
 
 import com.google.inject.Injector;
 
+import fr.univartois.cril.xtext2.ui.internal.AlsActivator;
+
 /**
  * This class was generated. Customizations should only happen in a newly
  * introduced subclass. 
@@ -16,12 +18,12 @@ public class AlsExecutableExtensionFactory extends AbstractGuiceAwareExecutableE
 
 	@Override
 	protected Bundle getBundle() {
-		return fr.univartois.cril.xtext2.ui.internal.AlsActivator.getInstance().getBundle();
+		return AlsActivator.getInstance().getBundle();
 	}
 	
 	@Override
 	protected Injector getInjector() {
-		return fr.univartois.cril.xtext2.ui.internal.AlsActivator.getInstance().getInjector("fr.univartois.cril.xtext2.Als");
+		return AlsActivator.getInstance().getInjector(AlsActivator.FR_UNIVARTOIS_CRIL_XTEXT2_ALS);
 	}
 	
 }

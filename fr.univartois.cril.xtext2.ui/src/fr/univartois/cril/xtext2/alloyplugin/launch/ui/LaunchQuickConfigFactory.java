@@ -1,8 +1,6 @@
 package fr.univartois.cril.xtext2.alloyplugin.launch.ui;
 
 
-import java.util.List;
-
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.DebugPlugin;
@@ -11,8 +9,9 @@ import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
 
-import fr.univartois.cril.xtext2.alloyplugin.api.IALSCommand;
+import fr.univartois.cril.xtext2.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext2.alloyplugin.api.Util;
+import fr.univartois.cril.xtext2.alloyplugin.core.ExecutableCommand;
 
 
 
@@ -40,34 +39,28 @@ public class LaunchQuickConfigFactory  {
 	 * @return 
 	 * */
 
-	public ILaunchConfiguration create(List<IALSCommand> commandsList) {
-		//List<IALSCommand> commandsList = getIALSCommandFromSelection(selection);
-		if (!commandsList.isEmpty())
-		{
-			deleteQuickLaunchConfiguration(commandsList.get(0).getResource());	
-			return createQuickConfiguration(commandsList);
-
+	public ILaunchConfiguration create(ExecutableCommand command, IReporter rep) {
+		if (command !=null){
+			deleteQuickLaunchConfiguration(command.getResource());	
+			return createQuickConfiguration(command, rep);
 		}
 		return null;
 	}
 
 
-	private ILaunchConfiguration createQuickConfiguration(List<IALSCommand> commandsList) {
+	private ILaunchConfiguration createQuickConfiguration(ExecutableCommand command, IReporter rep) {
 		ILaunchConfiguration config = null;
 		ILaunchConfigurationWorkingCopy wc = null;
 		try {
 			ILaunchConfigurationType configType = getConfigurationType();
 			LaunchCommandsTab tab = new LaunchCommandsTab();
 
-			if (!commandsList.isEmpty())
-			{
-
-				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName("QuickConfig_"+commandsList.get(0).getResource().getName()));				
-				tab.setdefaultsAttributes(commandsList, wc);
-				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,Util.getFileLocation(commandsList.get(0).getResource()));
+			if (command != null){
+				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName("QuickConfig_"+ command.getResource().getName()));				
+				tab.setdefaultsAttributes(command, rep, wc);
+				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, Util.getFileLocation(command.getResource()));
 				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG,"true");
 				config = wc.doSave();
-
 			}
 		} catch (CoreException e) {
 //			TODO Auto-generated catch block
@@ -76,19 +69,13 @@ public class LaunchQuickConfigFactory  {
 		return config;
 	}
 
-
-
-
 	private ILaunchManager getLaunchManager() {
-		// 
 		return DebugPlugin.getDefault().getLaunchManager();
 	}
 
 	private ILaunchConfigurationType getConfigurationType() {
 		return DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurationType(LaunchConfigurationConstants.LAUNCH_CONFIGURATION_TYPE);
-
 	}
-
 
 	/**
 	 * Delete quick launch configuration previously created with this resource.	
@@ -102,12 +89,9 @@ public class LaunchQuickConfigFactory  {
 				ILaunchConfiguration config = configs[i];
 				if (config.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG,"").equals("true")) {
 					if (config.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,"").equals(Util.getFileLocation(resource))) {
-
-						config.delete();					
-
+						config.delete();
 					}	
 				}
-
 			}			
 		} catch (CoreException e) {
 //			TODO Auto-generated catch block

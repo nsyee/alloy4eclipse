@@ -51,18 +51,12 @@ public class CommandsContentProvider2 implements IStructuredContentProvider, IAL
 	 * this update the content description of commands view.
 	 */
 	public Object[] getElements(Object inputElement) {		
-		//
 		IALSFile currentALSFile=(IALSFile) inputElement;
-		// System.out.println("content:"+currentALSFile);
 		if (currentALSFile==null) {			
 			return EMPTY_COMMANDS;
 		}
-		
 		List<IALSCommand> exec_cmds_list =currentALSFile.getCommand();
-		
 		Object[] exec_cmds=exec_cmds_list.toArray();
-		// System.out.println("taille:"+exec_cmds.length);
-
 		return exec_cmds;
 	}
 
@@ -77,8 +71,6 @@ public class CommandsContentProvider2 implements IStructuredContentProvider, IAL
 							viewer.refresh();					
 						}
 					});
-
-
 	}
 
 
