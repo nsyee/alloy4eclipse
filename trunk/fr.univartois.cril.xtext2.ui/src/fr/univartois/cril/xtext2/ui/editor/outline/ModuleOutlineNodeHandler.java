@@ -23,20 +23,17 @@ public class ModuleOutlineNodeHandler extends AbstractHandler {
 		XtextEditor editor;
 		CompModule world;			
 		
-
 		editor = EditorUtils.getActiveXtextEditor(event);
 		resource = editor.getResource();
 		file = new ALSFile(resource);
 		IReporter reporter = new Reporter(resource);
 		
 		world = getWorld(reporter, file.getFilename());
-
 		
-		MetamodelCommand cmd=new MetamodelCommand(file, world);
+		MetamodelCommand cmd = new MetamodelCommand(file, world);
 		try {
 			cmd.execute(reporter, null);
 		} catch (Err e) {
-			
 			e.printStackTrace();
 		}
 		return null;

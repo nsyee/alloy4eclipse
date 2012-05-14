@@ -1,6 +1,5 @@
 package fr.univartois.cril.xtext2.alloyplugin.launch.ui;
 
-
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.DebugPlugin;
@@ -8,18 +7,13 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
+import org.eclipse.debug.ui.DebugUITools;
 
 import fr.univartois.cril.xtext2.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext2.alloyplugin.api.Util;
 import fr.univartois.cril.xtext2.alloyplugin.core.ExecutableCommand;
 
-
-
-
 public class LaunchQuickConfigFactory  {
-
-
-
 
 	private static LaunchQuickConfigFactory instance;
 
@@ -54,18 +48,19 @@ public class LaunchQuickConfigFactory  {
 		try {
 			ILaunchConfigurationType configType = getConfigurationType();
 			LaunchCommandsTab tab = new LaunchCommandsTab();
+			
+			System.out.println("ILaunchConfigurationType : " + DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurationType(LaunchConfigurationConstants.LAUNCH_CONFIGURATION_TYPE)) ;
 
 			if (command != null){
 				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName("QuickConfig_"+ command.getResource().getName()));				
-				tab.setdefaultsAttributes(command, rep, wc);
+				tab.setdefaultsAttributes(command, wc);
 				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, Util.getFileLocation(command.getResource()));
 				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG,"true");
 				config = wc.doSave();
 			}
 		} catch (CoreException e) {
-//			TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
 		return config;
 	}
 

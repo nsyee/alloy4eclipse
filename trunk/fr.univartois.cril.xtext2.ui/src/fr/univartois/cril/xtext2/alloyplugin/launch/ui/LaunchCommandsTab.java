@@ -22,7 +22,6 @@ import org.eclipse.swt.widgets.Table;
 
 import fr.univartois.cril.xtext2.alloyplugin.api.IALSCommand;
 import fr.univartois.cril.xtext2.alloyplugin.api.IALSFile;
-import fr.univartois.cril.xtext2.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext2.alloyplugin.api.Util;
 import fr.univartois.cril.xtext2.alloyplugin.core.ALSFileFactory;
 import fr.univartois.cril.xtext2.alloyplugin.core.ExecutableCommand;
@@ -244,18 +243,18 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
      * launch configuration. All informations are taken from the als file.
      * Clients can use this method to configure their own launch configuration.
      */
-    public void setdefaultsAttributes(ExecutableCommand command, IReporter rep, ILaunchConfigurationWorkingCopy configuration) {
+    public void setdefaultsAttributes(ExecutableCommand command, ILaunchConfigurationWorkingCopy configuration) {
         IResource[] resources = new IResource[1];
+        List<String> list = new ArrayList<String>() ;
+        
         resources[0] = command.getResource();
         if (resources[0] != null)
         	configuration.setMappedResources(resources);
         else 
         	configuration.setMappedResources(null);
+        
         configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, Util.getFileLocation(command.getResource()));
-        List<Object> list = new ArrayList<Object>();
-        list.add(command);
-        list.add(rep);
-        configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, list);
+        configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST, list.add(command.getName()));
     }
 
     /**

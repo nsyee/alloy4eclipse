@@ -63,11 +63,11 @@ public class LaunchShortcut implements ILaunchShortcut {
 
 		LaunchCommandsTab tab = new LaunchCommandsTab();
 		IALSFile file = ALSFileFactory.instance().getALSFile(resource);
-		if(file!=null){
-			wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(file.getName()));				
-			tab.setdefaultsAttributes(file, wc) ;
-			config = wc.doSave();
-		}
+//		if(file!=null){
+//			wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(file.getName()));				
+//			tab.setdefaultsAttributes(file, wc) ;
+//			config = wc.doSave();
+//		}
 		return config;
 	}
 	

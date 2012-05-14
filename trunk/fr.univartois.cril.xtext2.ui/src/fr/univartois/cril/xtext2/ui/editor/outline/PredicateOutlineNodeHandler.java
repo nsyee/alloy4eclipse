@@ -6,7 +6,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -29,6 +29,8 @@ import fr.univartois.cril.xtext2.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext2.alloyplugin.core.ALSFile;
 import fr.univartois.cril.xtext2.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.xtext2.alloyplugin.core.Reporter;
+import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchConfigurationConstants;
+import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchQuickConfigFactory;
 import fr.univartois.cril.xtext2.preferences.PreferenceConstants;
 import fr.univartois.cril.xtext2.ui.activator.AlsActivator;
 
@@ -40,13 +42,13 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 		IResource resource;
 		ALSFile file;
 		int line, offset;
+		CompModule world;
 		String content = null, predName;
 		Command command = null;
 
 		editor = EditorUtils.getActiveXtextEditor(event);
 		if (editor == null)
 			return null;
-
 		document = XtextDocumentUtil.get(editor);
 
 		if (editor.isSaveOnCloseNeeded())
@@ -71,14 +73,12 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 		}
 		if(predName.contains(".")) predName=predName.substring(predName.indexOf(".")+1);
 		file = new ALSFile(resource);
-		CompModule world;
 		String filename = file.getFilename();
 		IReporter reporter = new Reporter(resource);
 		world = getWorld(reporter, filename);
-
 		if (world == null)
 			return null;
-		IPreferenceStore store=AlsActivator.getInstance().getPreferenceStore();
+		IPreferenceStore store = AlsActivator.getInstance().getPreferenceStore();
 		int scope=Integer.parseInt(store.getString(PreferenceConstants.DEFAULT_LAUNCH_OPTION));
 		try {
 			Func f=findPredicate(world, predName);
@@ -103,9 +103,8 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 		}
 		
 		String cmd1="Run "+ predName ;
-		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world,cmd1,scope);
-		
-		executeCommand(ex, reporter, null);
+		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world, cmd1, scope);
+		DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(ex, reporter), LaunchConfigurationConstants.RUN_MODE);
 		return null;
 	}
 
@@ -127,15 +126,6 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 			return null;
 		}
 		return world;
-	}
-
-	private void executeCommand(ExecutableCommand executableCommand,
-			IReporter reporter, IProgressMonitor monitor) {
-		try {
-			executableCommand.execute(reporter, monitor);
-		} catch (Err e) {
-			// TODO Auto-generated catch block
-		}
 	}
 	
 	public Func findPredicate(Module world,String predicate){
