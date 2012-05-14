@@ -50,17 +50,15 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		if (editor.isSaveOnCloseNeeded())
 			return null;
 		resource = editor.getResource();
-
+		
 		offset = editor.getHighlightRange().getOffset();
 		line = getLine(document, offset) + 1;
+		
 		if (line == -1)
 			return null;
 		try {
-			content = editor.getDocument().get(offset,
-					editor.getDocument().getLineLength(line));
-
+			content = editor.getDocument().get(offset, editor.getDocument().getLineLength(line));
 		} catch (BadLocationException e) {
-
 			e.printStackTrace();
 		}
 
@@ -69,10 +67,8 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		if ("assert".equals(assertName)) {
 			assertName = tmp.nextToken();
 		}
-		IPreferenceStore store = AlsActivator.getInstance()
-				.getPreferenceStore();
-		int scope = Integer.parseInt(store
-				.getString(PreferenceConstants.DEFAULT_LAUNCH_OPTION));
+		IPreferenceStore store = AlsActivator.getInstance().getPreferenceStore();
+		int scope = Integer.parseInt(store.getString(PreferenceConstants.DEFAULT_LAUNCH_OPTION));
 		// cmd=assertName;
 		cmd = assertName;
 		IReporter reporter = new Reporter(resource);
@@ -84,18 +80,17 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 			return null;
 		
 		try {
-			world.getAllAssertions();
 			Pair<String,Expr> p=findAssertion(world, assertName);
 			command = new Command(true, scope, -1, -1, p.b);
 		} catch (Err e) {
 			e.printStackTrace();
 		}
+		
 		if (command == null) return null;
 		
 		cmd = "Check " + cmd ;		
 		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world, cmd, scope);
-		DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(ex,reporter), LaunchConfigurationConstants.RUN_MODE);
-		// executeCommand(ex, reporter, null);
+		DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(ex, reporter), LaunchConfigurationConstants.RUN_MODE);
 		return null;
 	}
 
@@ -118,14 +113,6 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		}
 		return world;
 	}
-
-	/*private void executeCommand(ExecutableCommand executableCommand, IReporter reporter, IProgressMonitor monitor) {
-		try {
-			executableCommand.execute(reporter, monitor);
-		} catch (Err e) {
-			// TODO Auto-generated catch block
-		}
-	}*/
 	
 	public Pair<String,Expr> findAssertion(Module world,String assertion){
 		ConstList<Pair<String,Expr>> l=world.getAllAssertions();

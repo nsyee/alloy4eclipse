@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.debug.core.ILaunchConfiguration;
-import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -114,12 +112,12 @@ public class LaunchCommandAction extends SelectionProviderAction {
         }
     }
 
-    private void launch(ILaunchConfiguration config) {
+    /*private void launch(ILaunchConfiguration config) {
         if (config != null) {
             DebugUITools.launch(config, LaunchConfigurationConstants.RUN_MODE);
             viewer.setSelection(null, true);
         }
-    }
+    }*/
 
     /**
      * Return executable a list of command from selection. can be empty.
