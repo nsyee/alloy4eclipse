@@ -7,11 +7,8 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
-import org.eclipse.debug.ui.DebugUITools;
 
-import fr.univartois.cril.xtext2.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext2.alloyplugin.api.Util;
-import fr.univartois.cril.xtext2.alloyplugin.core.ExecutableCommand;
 
 public class LaunchQuickConfigFactory  {
 
@@ -33,28 +30,24 @@ public class LaunchQuickConfigFactory  {
 	 * @return 
 	 * */
 
-	public ILaunchConfiguration create(ExecutableCommand command, IReporter rep) {
+	public ILaunchConfiguration create(IResource resource, String command) {
 		if (command !=null){
-			deleteQuickLaunchConfiguration(command.getResource());	
-			return createQuickConfiguration(command, rep);
+			deleteQuickLaunchConfiguration(resource);	
+			return createQuickConfiguration(resource, command);
 		}
 		return null;
 	}
 
-
-	private ILaunchConfiguration createQuickConfiguration(ExecutableCommand command, IReporter rep) {
+	private ILaunchConfiguration createQuickConfiguration(IResource resource, String command) {
 		ILaunchConfiguration config = null;
 		ILaunchConfigurationWorkingCopy wc = null;
 		try {
 			ILaunchConfigurationType configType = getConfigurationType();
 			LaunchCommandsTab tab = new LaunchCommandsTab();
-			
-			System.out.println("ILaunchConfigurationType : " + DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurationType(LaunchConfigurationConstants.LAUNCH_CONFIGURATION_TYPE)) ;
 
-			if (command != null){
-				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName("QuickConfig_"+ command.getResource().getName()));				
-				tab.setdefaultsAttributes(command, wc);
-				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, Util.getFileLocation(command.getResource()));
+			if(command != null){
+				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName("QuickConfig_"+ resource.getName()));				
+				tab.setdefaultsAttributes(resource, command, wc);
 				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG,"true");
 				config = wc.doSave();
 			}
@@ -89,7 +82,6 @@ public class LaunchQuickConfigFactory  {
 				}
 			}			
 		} catch (CoreException e) {
-//			TODO Auto-generated catch block
 			e.printStackTrace();						
 		}
 

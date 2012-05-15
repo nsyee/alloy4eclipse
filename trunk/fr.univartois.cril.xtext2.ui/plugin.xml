@@ -2,7 +2,6 @@
 <?eclipse version="3.0"?>
 
 <plugin>
-
     <extension
             point="org.eclipse.ui.editors">
         <editor
@@ -570,4 +569,25 @@ type="fr.univartois.cril.xtext2.als.Module">
   				id="fr.univartois.cril.xtext2.alloyplugin.views.vizview" 
   				name="Graphical View" /> 
 	</extension>
+	
+	
+	<extension 
+                point="org.eclipse.ui.perspectiveExtensions">
+                <perspectiveExtension 
+                        targetID="fr.univartois.cril.xtext2.alloyplugin.alloyperspective">
+                        <actionSet 
+                                id="org.eclipse.debug.ui.launchActionSet" /> 
+                </perspectiveExtension>
+        </extension>    
+        
+<extension point="org.eclipse.debug.core.launchConfigurationTypes">
+    <launchConfigurationType
+          delegate="fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchConfigurationDelegate"
+          id="fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchConfigurationType"
+          modes="run"
+          name="Alloy command"
+          public="true">
+    </launchConfigurationType>
+</extension>
+	
 </plugin>

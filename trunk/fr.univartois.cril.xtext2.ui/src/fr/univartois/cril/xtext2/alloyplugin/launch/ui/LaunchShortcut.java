@@ -61,13 +61,17 @@ public class LaunchShortcut implements ILaunchShortcut {
 		ILaunchConfigurationWorkingCopy wc = null;
 		ILaunchConfigurationType configType = getConfigurationType();
 
-		LaunchCommandsTab tab = new LaunchCommandsTab();
-		IALSFile file = ALSFileFactory.instance().getALSFile(resource);
-//		if(file!=null){
-//			wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(file.getName()));				
-//			tab.setdefaultsAttributes(file, wc) ;
-//			config = wc.doSave();
-//		}
+		try {
+			LaunchCommandsTab tab = new LaunchCommandsTab();
+			IALSFile file = ALSFileFactory.instance().getALSFile(resource);
+			if(file!=null){
+				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(file.getName()));		
+				tab.setdefaultsAttributes(file, wc) ;
+				config = wc.doSave();
+			} 
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
 		return config;
 	}
 	

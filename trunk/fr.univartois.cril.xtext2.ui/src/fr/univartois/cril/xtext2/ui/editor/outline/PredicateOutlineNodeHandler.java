@@ -6,7 +6,6 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -29,8 +28,6 @@ import fr.univartois.cril.xtext2.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext2.alloyplugin.core.ALSFile;
 import fr.univartois.cril.xtext2.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.xtext2.alloyplugin.core.Reporter;
-import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchConfigurationConstants;
-import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchQuickConfigFactory;
 import fr.univartois.cril.xtext2.preferences.PreferenceConstants;
 import fr.univartois.cril.xtext2.ui.activator.AlsActivator;
 
@@ -104,7 +101,7 @@ public class PredicateOutlineNodeHandler extends AbstractHandler {
 		
 		String cmd1="Run "+ predName ;
 		ExecutableCommand ex = new ExecutableCommand(file, command, 0, world, cmd1, scope);
-		DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(ex, reporter), LaunchConfigurationConstants.RUN_MODE);
+		// DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(ex, reporter), LaunchConfigurationConstants.RUN_MODE);
 		return null;
 	}
 
