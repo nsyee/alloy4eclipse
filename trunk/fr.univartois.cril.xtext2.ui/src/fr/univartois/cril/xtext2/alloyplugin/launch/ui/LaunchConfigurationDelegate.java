@@ -38,7 +38,7 @@ public class LaunchConfigurationDelegate implements ILaunchConfigurationDelegate
 		String assertName = (String)commandIdList.get(0);
 		String filename = configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME, (String)null);
 		String path = configuration.getAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_PATH, (String)null);
-		IResource resource = Util.getFileForLocation(path);
+		IResource resource = Util.getFile(path);
 		// IResource resource = EditorUtils.getActiveXtextEditor().getResource();
 		IReporter reporter = new Reporter(resource);
 		

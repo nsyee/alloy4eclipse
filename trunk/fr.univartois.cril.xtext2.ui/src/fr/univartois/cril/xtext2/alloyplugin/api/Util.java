@@ -55,10 +55,17 @@ public class Util {
 	}
 	
 	/**
-	 * Get a file from a absolute location. (I think) 
+	 * Get a file from a absolute location. 
 	 */
 	public static IFile getFileForLocation(String filename){
 		return ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(filename));
+	}
+	
+	/**
+	 * Get a file from a workspace location. 
+	 */
+	public static IFile getFile(String filename){
+		return ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(filename));
 	}
 
 	/**
