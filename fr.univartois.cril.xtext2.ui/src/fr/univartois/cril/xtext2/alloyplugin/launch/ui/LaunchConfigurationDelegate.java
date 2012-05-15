@@ -67,7 +67,7 @@ public class LaunchConfigurationDelegate implements ILaunchConfigurationDelegate
 			e.printStackTrace();
 		}
 		monitor.setTaskName("Running Alloy command");
-		AlloyMessageConsole console = Console.findAlloyConsole(ex.getResource().getName());
+		AlloyMessageConsole console = Console.findAlloyConsole(filename);
 		
 		if (AlloyPreferencePage.getClearConsoleForEachCommand())
 		    console.clear();
