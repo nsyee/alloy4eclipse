@@ -10,8 +10,9 @@ public class LaunchConfigurationConstants {
 	 * 
 	 */
 	protected static final String ATTRIBUTE_FILE_NAME = "attribut_filename";
+	protected static final String ATTRIBUTE_FILE_PATH = "attribut_filepath";
 	
-	public static final String LAUNCH_CONFIGURATION_TYPE="fr.univartois.cril.alloyplugin.launch.ui.LaunchConfigurationType";
+	public static final String LAUNCH_CONFIGURATION_TYPE="fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchConfigurationType";
 	public static final String CHOOSE_CONFIGURATION_TITLE = "choose a configuration";
 	public static final String CHOOSE_CONFIGURATION_MESSAGE = "&Select existing configuration";
 	public static final String RUN_MODE = "run";

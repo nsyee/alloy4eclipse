@@ -6,7 +6,6 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
@@ -21,8 +20,6 @@ import fr.univartois.cril.xtext2.alloyplugin.api.IReporter;
 import fr.univartois.cril.xtext2.alloyplugin.core.ALSFile;
 import fr.univartois.cril.xtext2.alloyplugin.core.ExecutableCommand;
 import fr.univartois.cril.xtext2.alloyplugin.core.Reporter;
-import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchConfigurationConstants;
-import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchQuickConfigFactory;
 
 public class CommandOutlineNodeHandler extends AbstractHandler {
 
@@ -63,7 +60,7 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 			return null;
 		
 		ExecutableCommand ex = new ExecutableCommand(file, command, index, world, null, 0);
-		DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(ex, reporter), LaunchConfigurationConstants.RUN_MODE);
+		// DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(ex, reporter), LaunchConfigurationConstants.RUN_MODE);
 		return null;
 	}
 
@@ -82,7 +79,6 @@ public class CommandOutlineNodeHandler extends AbstractHandler {
 		try {
 			list = CompUtil.parseOneModule_fromFile(resource.getLocation().toString());
 		} catch (Err e) {
-			// displayErrorInProblemView(resource, e);
 		}
 		return list;
 	}

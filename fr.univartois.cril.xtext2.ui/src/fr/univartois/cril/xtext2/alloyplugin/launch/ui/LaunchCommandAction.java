@@ -108,16 +108,9 @@ public class LaunchCommandAction extends SelectionProviderAction {
             commandsList = getIALSCommandFromSelection(selection);
         }
         if (!commandsList.isEmpty()) {
-            //launch(LaunchQuickConfigFactory.getInstance().create(commandsList));
+            // launch(LaunchQuickConfigFactory.getInstance().create(commandsList));
         }
     }
-
-    /*private void launch(ILaunchConfiguration config) {
-        if (config != null) {
-            DebugUITools.launch(config, LaunchConfigurationConstants.RUN_MODE);
-            viewer.setSelection(null, true);
-        }
-    }*/
 
     /**
      * Return executable a list of command from selection. can be empty.
