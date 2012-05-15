@@ -46,7 +46,7 @@ public class LaunchQuickConfigFactory  {
 			LaunchCommandsTab tab = new LaunchCommandsTab();
 
 			if(command != null){
-				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName("QuickConfig_"+ resource.getName()));				
+				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(command+"_"+ resource.getName()));				
 				tab.setdefaultsAttributes(resource, command, wc);
 				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG,"true");
 				config = wc.doSave();
