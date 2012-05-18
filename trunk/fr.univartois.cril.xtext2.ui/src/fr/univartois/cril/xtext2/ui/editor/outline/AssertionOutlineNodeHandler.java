@@ -13,6 +13,7 @@ import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.XtextDocumentUtil;
 import org.eclipse.xtext.ui.editor.utils.EditorUtils;
 
+import fr.univartois.cril.xtext2.alloyplugin.api.ALSImageRegistry;
 import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchConfigurationConstants;
 import fr.univartois.cril.xtext2.alloyplugin.launch.ui.LaunchQuickConfigFactory;
 
@@ -43,6 +44,8 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		if ("assert".equals(assertName)) {
 			assertName = tmp.nextToken();
 		}
+		// Fix for NPE during initialization. Need a better way to fic this in the future.
+		ALSImageRegistry.getImageRegistry();
 		DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(resource, assertName), LaunchConfigurationConstants.RUN_MODE);
 		return null;
 	}
