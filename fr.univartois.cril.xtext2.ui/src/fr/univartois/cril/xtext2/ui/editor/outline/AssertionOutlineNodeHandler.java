@@ -29,7 +29,6 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		IXtextDocument document = XtextDocumentUtil.get(editor);
 		IResource resource = editor.getResource();
 		int offset = editor.getHighlightRange().getOffset();
-		
 		int line = getLine(document, offset) + 1;
 		if (line == -1) return null;
 		
@@ -46,7 +45,7 @@ public class AssertionOutlineNodeHandler extends AbstractHandler {
 		}
 		// Fix for NPE during initialization. Need a better way to fic this in the future.
 		ALSImageRegistry.getImageRegistry();
-		DebugUITools.launch(LaunchQuickConfigFactory.getInstance().create(resource, assertName), LaunchConfigurationConstants.RUN_MODE);
+		DebugUITools.launch(LaunchQuickConfigFactory.getInstance().createAssertion(resource, assertName), LaunchConfigurationConstants.RUN_MODE);
 		return null;
 	}
 
