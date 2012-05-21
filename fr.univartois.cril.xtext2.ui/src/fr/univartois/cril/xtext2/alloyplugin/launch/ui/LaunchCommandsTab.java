@@ -219,8 +219,7 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 	 * launch configuration. All informations are taken from the als file.
 	 * Clients can use this method to configure their own launch configuration.
 	 */
-	public void setdefaultsAttributes(IResource resource, String command,
-			ILaunchConfigurationWorkingCopy configuration) {
+	public void setdefaultsAttributes(IResource resource, String command, ILaunchConfigurationWorkingCopy configuration) {
 		IResource[] resources = new IResource[1];
 		resources[0] = resource;
 
@@ -232,15 +231,9 @@ public class LaunchCommandsTab extends AbstractLaunchConfigurationTab implements
 		List<String> list = new ArrayList<String>();
 		list.add(command);
 
-		configuration.setAttribute(
-				LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,
-				Util.getFileLocation(resource));
-		configuration.setAttribute(
-				LaunchConfigurationConstants.ATTRIBUTE_FILE_PATH, resource
-						.getFullPath().toString());
-		configuration.setAttribute(
-				LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,
-				list);
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_NAME,Util.getFileLocation(resource));
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_FILE_PATH, resource.getFullPath().toString());
+		configuration.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_COMMANDS_LABEL_LIST,list);
 	}
 
 	/**

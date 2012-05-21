@@ -16,11 +16,16 @@ public class LaunchConfigurationConstants {
 	public static final String CHOOSE_CONFIGURATION_TITLE = "choose a configuration";
 	public static final String CHOOSE_CONFIGURATION_MESSAGE = "&Select existing configuration";
 	public static final String RUN_MODE = "run";
+	
 	/**
 	 * Attribute for a quick config. 
-	 * 
 	 */
 	public static final String ATTRIBUTE_QUICK_CONFIG = "quick_config_attribute";
+	
+	/**
+	 * Attribute for delegate outline node handler
+	 */
+	public static final String ATTRIBUTE_HANDLER = "attribute_handler" ;
 
 	
 }

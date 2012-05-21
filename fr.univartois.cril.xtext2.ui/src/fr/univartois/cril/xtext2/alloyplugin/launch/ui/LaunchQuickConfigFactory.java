@@ -37,6 +37,32 @@ public class LaunchQuickConfigFactory  {
 		}
 		return null;
 	}
+	
+	public ILaunchConfiguration createAssertion(IResource resource, String command) {
+		if (command !=null){
+			deleteQuickLaunchConfiguration(resource);	
+			return createQuickConfigurationAssertion(resource, command);
+		}
+		return null;
+	}
+	
+	public ILaunchConfiguration createPredicate(IResource resource, String command) {
+		if (command !=null){
+			deleteQuickLaunchConfiguration(resource);	
+			return createQuickConfigurationPredicate(resource, command);
+		}
+		return null;
+	}
+	
+	public ILaunchConfiguration createCommand(IResource resource, String command) {
+		deleteQuickLaunchConfiguration(resource);	
+		return createQuickConfigurationCommand(resource, command);
+	}
+	
+	public ILaunchConfiguration createModule(IResource resource, String command) {
+		deleteQuickLaunchConfiguration(resource);	
+		return createQuickConfigurationModule(resource, command);
+	}
 
 	private ILaunchConfiguration createQuickConfiguration(IResource resource, String command) {
 		ILaunchConfiguration config = null;
@@ -51,6 +77,82 @@ public class LaunchQuickConfigFactory  {
 				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG,"true");
 				config = wc.doSave();
 			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return config;
+	}
+	
+	private ILaunchConfiguration createQuickConfigurationAssertion(IResource resource, String command) {
+		ILaunchConfiguration config = null;
+		ILaunchConfigurationWorkingCopy wc = null;
+		try {
+			ILaunchConfigurationType configType = getConfigurationType();
+			LaunchCommandsTab tab = new LaunchCommandsTab();
+
+			if(command != null){
+				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(command+"_"+ resource.getName()));				
+				tab.setdefaultsAttributes(resource, command, wc);
+				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG, "true");
+				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_HANDLER, "assertion");
+				config = wc.doSave();
+			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return config;
+	}
+	
+	private ILaunchConfiguration createQuickConfigurationPredicate(IResource resource, String command) {
+		ILaunchConfiguration config = null;
+		ILaunchConfigurationWorkingCopy wc = null;
+		try {
+			ILaunchConfigurationType configType = getConfigurationType();
+			LaunchCommandsTab tab = new LaunchCommandsTab();
+
+			if(command != null){
+				wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(command+"_"+ resource.getName()));				
+				tab.setdefaultsAttributes(resource, command, wc);
+				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG, "true");
+				wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_HANDLER, "predicate");
+				config = wc.doSave();
+			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return config;
+	}
+	
+	private ILaunchConfiguration createQuickConfigurationCommand(IResource resource, String command) {
+		ILaunchConfiguration config = null;
+		ILaunchConfigurationWorkingCopy wc = null;
+		try {
+			ILaunchConfigurationType configType = getConfigurationType();
+			LaunchCommandsTab tab = new LaunchCommandsTab();
+
+			wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(command + "_" + resource.getName()));				
+			tab.setdefaultsAttributes(resource, command, wc);
+			wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG, "true");
+			wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_HANDLER, "command");
+			config = wc.doSave();
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return config;
+	}
+	
+	private ILaunchConfiguration createQuickConfigurationModule(IResource resource, String command) {
+		ILaunchConfiguration config = null;
+		ILaunchConfigurationWorkingCopy wc = null;
+		try {
+			ILaunchConfigurationType configType = getConfigurationType();
+			LaunchCommandsTab tab = new LaunchCommandsTab();
+
+			wc = configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(command + "_" + resource.getName()));				
+			tab.setdefaultsAttributes(resource, command, wc);
+			wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_QUICK_CONFIG, "true");
+			wc.setAttribute(LaunchConfigurationConstants.ATTRIBUTE_HANDLER, "module");
+			config = wc.doSave();
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
