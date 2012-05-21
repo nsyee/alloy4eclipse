@@ -9,9 +9,6 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.jface.text.BadLocationException;
-import org.eclipse.xtext.ui.editor.model.IXtextDocument;
-import org.eclipse.xtext.ui.editor.model.XtextDocumentUtil;
 
 import edu.mit.csail.sdg.alloy4.ConstList;
 import edu.mit.csail.sdg.alloy4.Err;
@@ -153,28 +150,13 @@ public class LaunchConfigurationDelegate implements ILaunchConfigurationDelegate
     }
     
     public ExecutableCommand createExecutableCommand(IResource resource, IALSFile file, CompModule world, String name, int scope){
-    	IXtextDocument document = XtextDocumentUtil.get(editor);
-    	int offset = editor.getHighlightRange().getOffset();
-		int line = getLine(document, offset) + 1;
-		if (line == -1) return null;
-        
-        List<Command> list = getList(resource);
-        Command command = retrieveCommand(list, line);
+    	List<Command> list = getList(resource);
+        Command command = retrieveCommand(list, Integer.parseInt(name));
        
         int index = retrieveIndexOfCommand(world.getAllCommands(), command);
         if (index == -1) return null ;
         
-        ExecutableCommand ex = new ExecutableCommand(file, command, index, world, null, 0);
-    }
-    
-    private int getLine(IXtextDocument document, int offset) {
-        int line = -1;
-        try {
-			line = document.getLineOfOffset(offset);
-		} catch (BadLocationException e) {
-			e.printStackTrace();
-		}
-        return line;
+        return new ExecutableCommand(file, command, index, world, null, 0);
     }
     
 	private CompModule getWorld(IReporter reporter, String filename) {
