@@ -82,7 +82,7 @@ public class LaunchConfigurationDelegate implements ILaunchConfigurationDelegate
 		if (AlloyPreferencePage.getClearConsoleForEachCommand())
 		    console.clear();
 		
-		if(ex.getCommand() != null)		
+		if(ex != null && ex.getCommand() != null)		
 			try {		
 				monitor.beginTask("Starting", commandIdList.size());
 
