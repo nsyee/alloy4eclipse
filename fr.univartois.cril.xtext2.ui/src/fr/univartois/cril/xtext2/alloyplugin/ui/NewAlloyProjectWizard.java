@@ -123,33 +123,29 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 		project.create(description, monitor);
 		project.open(monitor);
 
-		IProject[] allProjects = root.getProjects();
-		for (IProject p : allProjects) {
-			if (p.getName().equals("A4 models library"))
-				return;
-		}
-
-		IProject projectModels = root.getProject("A4 models library");
-		projectModels.create(description,monitor);
-		projectModels.open(monitor);
-		IPath to = new Path(AlloyPreferencePage.getA4SampleModelsPath());
-
-		File models = new File(to.toOSString());
-		for (File f : models.listFiles()) {
-			if(!AlsActivator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_BOOK) && f.getName().equals("book"))
-				continue ;
-			if(!AlsActivator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_EXAMPLES) && f.getName().equals("examples"))
-				continue ;
-			if(!AlsActivator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_OUTPUT) && f.getName().equals("output"))
-				continue ;
-			
-			IFolder file = projectModels.getFolder(f.getName());
-
-			try {
-				file.createLink(Path.fromOSString(f.getCanonicalPath()), IResource.NONE, monitor);
-			} catch (IOException e) {
-
-				e.printStackTrace();
+		if(root.getProject("A4 models library") == null)
+			return ;
+		else{
+			IProject projectModels = root.getProject("A4 models library");
+			projectModels.create(description,monitor);
+			projectModels.open(monitor);
+			IPath to = new Path(AlloyPreferencePage.getA4SampleModelsPath());
+	
+			File models = new File(to.toOSString());
+			for (File f : models.listFiles()) {
+				if(!AlsActivator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_BOOK) && f.getName().equals("book"))
+					continue ;
+				if(!AlsActivator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_EXAMPLES) && f.getName().equals("examples"))
+					continue ;
+				
+				IFolder file = projectModels.getFolder(f.getName());
+	
+				try {
+					file.createLink(Path.fromOSString(f.getCanonicalPath()), IResource.NONE, monitor);
+				} catch (IOException e) {
+	
+					e.printStackTrace();
+				}
 			}
 		}
 	}
