@@ -139,10 +139,6 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 				PreferenceConstants.P_BOOLEAN_SHOW_EXAMPLES,
 				"Show A4 models library Examples",
 				getFieldEditorParent()));
-		addField(new BooleanFieldEditor(
-				PreferenceConstants.P_BOOLEAN_SHOW_OUTPUT,
-				"Show A4 models library Outline",
-				getFieldEditorParent()));
 	}
 
 	public void init(IWorkbench workbench) {

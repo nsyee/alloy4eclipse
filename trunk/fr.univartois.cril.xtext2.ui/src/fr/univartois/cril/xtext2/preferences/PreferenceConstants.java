@@ -30,5 +30,4 @@ public class PreferenceConstants {
     public static final String P_BOOLEAN_EXECUTE_TASKS_LOCALLY = "booleanExecuteTasksLocally";
     public static final String P_BOOLEAN_SHOW_BOOK = "booleanShowBook";
     public static final String P_BOOLEAN_SHOW_EXAMPLES = "booleanShowExamples";
-    public static final String P_BOOLEAN_SHOW_OUTPUT = "booleanShowOutput";
 }
