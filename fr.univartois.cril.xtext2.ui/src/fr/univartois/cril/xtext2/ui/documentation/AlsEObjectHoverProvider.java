@@ -18,21 +18,21 @@ public class AlsEObjectHoverProvider extends DefaultEObjectHoverProvider {
     @Override
     protected String getFirstLine(EObject o) {
     	if (o instanceof EnumName)
-    		return "Enumeration " + ((EnumName)o).getName();
+    		return "Enumeration <b>" + ((EnumName)o).getName() + "</b>";
         if (o instanceof FactName) 
-            return "Fact " + ((FactName)o).getName();
+            return "Fact <b>" + ((FactName)o).getName() + "</b>";
         if (o instanceof FunctionName)
-    		return "Function  " + ((FunctionName)o).getName();
+    		return "Function <b>" + ((FunctionName)o).getName() + "</b>";
         if (o instanceof FunctionNamewParam)
-    		return "Function  " + ((FunctionNamewParam)o).getName();
+    		return "Function <b>" + ((FunctionNamewParam)o).getName() + "</b>";
         if (o instanceof LetName) 
-            return "Let " + ((LetName)o).getName();
+            return "Let <b>" + ((LetName)o).getName() + "</b>";
         if (o instanceof PredicateName) 
-            return "Predicate " + ((PredicateName)o).getName();
+            return "Predicate <b>" + ((PredicateName)o).getName() + "</b>";
         if (o instanceof SignatureName)
-    		return "Signature " + ((SignatureName)o).getName();
+    		return "Signature <b>" + ((SignatureName)o).getName() + "</b>";
         if (o instanceof AsName)
-    		return "Alias for " + ((Open)((AsName)o).eContainer()).getOpenName().getImportURI();
+    		return "Alias for <b>" + ((Open)((AsName)o).eContainer()).getOpenName().getImportURI() + "</b>";
         return super.getFirstLine(o);
     }
 }
