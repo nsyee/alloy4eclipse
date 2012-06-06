@@ -54,8 +54,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		store.setDefault(PreferenceConstants.DEFAULT_LAUNCH_OPTION,"10");
 		store.setDefault(PreferenceConstants.P_BOOLEAN_LAUNCH_EXACTLY,false);
 		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_BOOK,false);
-		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_EXAMPLES,false);
-		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_OUTPUT,false);
+		store.setDefault(PreferenceConstants.P_BOOLEAN_SHOW_EXAMPLES,true);
 	}
 
 }
