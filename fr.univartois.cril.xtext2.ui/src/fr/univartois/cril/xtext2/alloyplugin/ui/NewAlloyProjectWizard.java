@@ -31,6 +31,8 @@ import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 import org.eclipse.xtext.ui.XtextProjectHelper;
 
 import fr.univartois.cril.xtext2.preferences.AlloyPreferencePage;
+import fr.univartois.cril.xtext2.preferences.PreferenceConstants;
+import fr.univartois.cril.xtext2.ui.activator.AlsActivator;
 
 /**
  * New Alloy project wizard.
@@ -134,12 +136,17 @@ public class NewAlloyProjectWizard extends Wizard implements INewWizard,
 
 		File models = new File(to.toOSString());
 		for (File f : models.listFiles()) {
+			if(!AlsActivator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_BOOK) && f.getName().equals("book"))
+				continue ;
+			if(!AlsActivator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_EXAMPLES) && f.getName().equals("examples"))
+				continue ;
+			if(!AlsActivator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_BOOLEAN_SHOW_OUTPUT) && f.getName().equals("output"))
+				continue ;
+			
 			IFolder file = projectModels.getFolder(f.getName());
 
 			try {
-
-				file.createLink(Path.fromOSString(f.getCanonicalPath()),
-						IResource.NONE, monitor);
+				file.createLink(Path.fromOSString(f.getCanonicalPath()), IResource.NONE, monitor);
 			} catch (IOException e) {
 
 				e.printStackTrace();
