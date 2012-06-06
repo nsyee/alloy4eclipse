@@ -131,6 +131,18 @@ public class AlloyPreferencePage extends FieldEditorPreferencePage implements
 		addField(new IntegerFieldEditor(PreferenceConstants.MAX_STACK_SIZE,
 				"Choose the maximum stack size for the external JVM (KB):",
 				getFieldEditorParent()));
+		addField(new BooleanFieldEditor(
+				PreferenceConstants.P_BOOLEAN_SHOW_BOOK,
+				"Show A4 models library Book",
+				getFieldEditorParent()));
+		addField(new BooleanFieldEditor(
+				PreferenceConstants.P_BOOLEAN_SHOW_EXAMPLES,
+				"Show A4 models library Examples",
+				getFieldEditorParent()));
+		addField(new BooleanFieldEditor(
+				PreferenceConstants.P_BOOLEAN_SHOW_OUTPUT,
+				"Show A4 models library Outline",
+				getFieldEditorParent()));
 	}
 
 	public void init(IWorkbench workbench) {
