@@ -78,10 +78,7 @@ public class MyTask implements WorkerTask {
 							+ cmd.check + ":" + solvingtime);
 				}
 			};
-			out.callback("World");
-			CompModule world = CompUtil.parseEverything_fromFile(rep, null,
-					inFile);
-			out.callback("Commands");
+			CompModule world = CompUtil.parseEverything_fromFile(rep, null,inFile);
 			Command c;
 			if (cmd == null) {
 				c = world.getAllCommands().get(command);
@@ -108,11 +105,7 @@ public class MyTask implements WorkerTask {
 					}
 				}
 			}
-			out.callback(inFile);
-			out.callback(outFile);
-			out.callback(command);
-			A4Solution sol = TranslateAlloyToKodkod.execute_command(rep,
-					world.getAllReachableSigs(), c, opt);
+			A4Solution sol = TranslateAlloyToKodkod.execute_command(rep, world.getAllReachableSigs(), c, opt);
 			if (sol.satisfiable()) {
 				sol.writeXML(outFile);
 			}
