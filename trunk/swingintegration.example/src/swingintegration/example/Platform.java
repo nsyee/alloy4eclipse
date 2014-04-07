@@ -70,7 +70,8 @@ public class Platform {
     private static boolean isLeopard() {
         String os = System.getProperty("os.name").toLowerCase();
         String version = System.getProperty("os.version");
-        return os.startsWith("mac")&&(version.startsWith("10.5")||version.startsWith("10.6")||version.startsWith("10.7"));
+        String [] values = version.split(".");
+        return os.startsWith("mac") && values.length==2 && "10".equals(values[0]) && Integer.valuesOf(values[1])>=5;
     }
     
     public static Composite createComposite(
